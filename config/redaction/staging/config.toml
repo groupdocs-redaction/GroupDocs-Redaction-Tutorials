@@ -1,0 +1,8 @@
+baseURL = "https://qa-tutorials.groupdocs.com/redaction"
+
+[[deployment.targets]]
+name = "Stage"
+URL = "s3://qa-tutorials.groupdocs.com/?prefix=redaction/&region=us-west-2"
+
+
+

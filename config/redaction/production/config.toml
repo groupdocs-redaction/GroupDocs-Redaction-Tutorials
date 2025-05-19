@@ -1,0 +1,9 @@
+baseURL = "https://tutorials.groupdocs.com/redaction"
+
+# Google Tag Manager settings
+[params.gtm]
+gtm_id = "GTM-WZTNN8"
+
+[[deployment.targets]]
+name = "Production"
+URL = "s3://tutorials.groupdocs.com/?prefix=redaction/&region=us-west-2"
