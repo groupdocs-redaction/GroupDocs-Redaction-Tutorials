@@ -11,9 +11,6 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
 # Java Redaction Guide: Secure Document Processing with GroupDocs
 
 **Learn how to load and apply a redaction policy in Java using GroupDocs.Redaction, ensuring your documents are processed efficiently and securely.**
@@ -202,7 +199,3 @@ By following this guide, you've learned how to load and apply a redaction policy
 - "Secure Document Processing"
 - "GroupDocs.Redaction for Java"
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

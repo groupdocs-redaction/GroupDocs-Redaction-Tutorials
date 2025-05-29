@@ -11,9 +11,6 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
 # Mastering Advanced Rasterization in Java: Custom Borders Using GroupDocs.Redaction
 
 ## Introduction
@@ -200,7 +197,3 @@ A: Use its API to create bridges between your application and other software, fa
 
 By following this guide, you're well on your way to mastering advanced rasterization in Java with GroupDocs.Redaction. Happy coding!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

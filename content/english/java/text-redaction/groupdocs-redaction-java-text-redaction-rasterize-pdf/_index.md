@@ -11,9 +11,6 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
 # Master Text Redaction & Save as Rasterized PDFs with GroupDocs.Redaction Java
 
 ## Introduction
@@ -200,7 +197,3 @@ Ready to apply these techniques? Start implementing them in your projects today!
 - **Free Support**: [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/10)
 - **Temporary License**: [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

@@ -11,9 +11,6 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
 # How to Erase Metadata from Images Using GroupDocs.Redaction for Java
 
 ## Introduction
@@ -153,7 +150,3 @@ Consider exploring further functionalities offered by GroupDocs.Redaction, such 
 - [Temporary License Information](https://purchase.groupdocs.com/temporary-license/)
 With this comprehensive guide, you're now equipped to implement metadata erasure in your Java applications using GroupDocs.Redaction. Happy coding!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

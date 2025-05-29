@@ -11,9 +11,6 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
 # Implementing Java Metadata Redaction with GroupDocs.Redaction
 
 ## Introduction
@@ -180,7 +177,3 @@ GroupDocs offers free support through their [forum](https://forum.groupdocs.com/
 
 Try implementing this solution today and experience seamless document redaction with GroupDocs.Redaction for Java!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

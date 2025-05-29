@@ -11,9 +11,6 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
 # How to Implement Text Redaction in Java Using GroupDocs.Redaction
 **Secure Your Documents Efficiently with GroupDocs.Redaction for Java**
 
@@ -142,7 +139,3 @@ You have learned how to effectively use GroupDocs.Redaction for Java to redact t
 - **Temporary License Application**: [Get Your Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
 Start implementing these strategies today to enhance your document security with GroupDocs.Redaction for Java!
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

@@ -11,9 +11,6 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
 # Implementing Java Redaction with GroupDocs.Redaction: A Comprehensive Guide for Developers
 
 ## Introduction
@@ -191,7 +188,3 @@ In this tutorial, we’ve explored how to implement Java Redaction with GroupDoc
    - Redaction is the process of obscuring or removing sensitive information from documents.
 2. **Can GroupDocs.Redaction be used with non-Word documents?**
    - Yes, it supports a variety of formats.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

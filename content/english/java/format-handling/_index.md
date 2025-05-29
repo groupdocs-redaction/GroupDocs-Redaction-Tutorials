@@ -4,9 +4,6 @@ description: "Learn to work with different file formats, create custom format ha
 weight: 14
 url: "/java/format-handling/"
 ---
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
 # Format Handling Tutorials for GroupDocs.Redaction Java
 
 Extend GroupDocs.Redaction capabilities with our format handling tutorials for Java developers. These comprehensive guides demonstrate how to create custom format handlers, implement support for additional file formats, work with plain text documents, and handle diverse document types programmatically. Each tutorial includes working Java code examples for format handling scenarios, helping you build applications that can process a wider range of document types beyond the standard supported formats.
@@ -27,7 +24,3 @@ Learn how to effectively copy files and apply redactions in Java using GroupDocs
 - [GroupDocs.Redaction Forum](https://forum.groupdocs.com/c/redaction)
 - [Free Support](https://forum.groupdocs.com/)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

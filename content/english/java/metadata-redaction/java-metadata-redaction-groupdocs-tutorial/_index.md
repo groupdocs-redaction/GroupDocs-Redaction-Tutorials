@@ -11,9 +11,6 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
 # Step-by-Step Guide to Redacting Metadata in Java Using GroupDocs.Redaction
 
 ## Introduction
@@ -192,7 +189,3 @@ Ready to implement these techniques? Dive in, experiment, and ensure your docume
 - **Download Library**: Access the latest release from [GroupDocs Downloads](https://releases.groupdocs.com/redaction/java/).
 - **Source Code**: View and contribute to source code on [GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java).
 - **Support**: Get help through free support at [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/10).
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

@@ -11,9 +11,6 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
 # Redact Images in Word Documents Using GroupDocs.Redaction Java: A Comprehensive Guide
 
 ## Introduction
@@ -205,7 +202,3 @@ A: Yes, you can seek assistance on the [GroupDocs Free Support Forum](https://fo
 
 Embark on your journey to secure document redaction with GroupDocs.Redaction Java today!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

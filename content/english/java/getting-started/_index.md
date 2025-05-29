@@ -4,9 +4,6 @@ description: "Step-by-step tutorials for GroupDocs.Redaction installation, licen
 weight: 1
 url: "/java/getting-started/"
 ---
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
 # GroupDocs.Redaction Getting Started Tutorials for Java Developers
 
 Begin your journey with these essential GroupDocs.Redaction tutorials that walk you through installation, licensing configuration, and creating your first document redactions in Java. Our beginner-friendly guides demonstrate how to set up your development environment, initialize the GroupDocs.Redaction library, and perform fundamental redaction operations. Follow these tutorials to quickly master the basics and prepare for more advanced document security tasks in your Java applications.
@@ -33,7 +30,3 @@ Learn to redact sensitive data from PDFs and Word files using GroupDocs.Redactio
 - [GroupDocs.Redaction Forum](https://forum.groupdocs.com/c/redaction)
 - [Free Support](https://forum.groupdocs.com/)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

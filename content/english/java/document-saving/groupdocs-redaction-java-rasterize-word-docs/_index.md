@@ -11,9 +11,6 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
 # Rasterize & Redact Word Documents Using GroupDocs Redaction Java
 
 ## Introduction
@@ -207,7 +204,3 @@ Next steps include exploring more advanced features of GroupDocs.Redaction or in
 
 3. **How does the temporary license work?**
    - A temporary license allows full access to all features during the trial period.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

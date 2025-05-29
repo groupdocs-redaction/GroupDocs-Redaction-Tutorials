@@ -11,9 +11,6 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
 # Implementing OCR-Based Redactions in Java with GroupDocs and Microsoft Azure OCR
 
 ## Introduction
@@ -198,7 +195,3 @@ We encourage you to try implementing this solution in your projects and explore 
 - **Temporary License**: https://purchase.groupdocs.com/temporary-license/
 
 Embrace the power of GroupDocs.Redaction with OCR integration to safeguard sensitive information efficiently and accurately.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

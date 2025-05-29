@@ -4,9 +4,6 @@ description: "Complete tutorials for redacting areas of images, removing embedde
 weight: 6
 url: "/java/image-redaction/"
 ---
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
 # Image Redaction Tutorials for GroupDocs.Redaction Java
 
 Learn how to secure visual content with our GroupDocs.Redaction image tutorials for Java developers. These detailed guides demonstrate how to redact specific areas of images, handle embedded pictures within documents, clean image metadata, and implement complete image removal. Each tutorial includes working Java code examples that show how to protect sensitive visual information while maintaining document integrity, ensuring your applications can comprehensively address both textual and visual security requirements.
@@ -30,7 +27,3 @@ Learn how to securely redact images in Microsoft Word documents using GroupDocs.
 - [GroupDocs.Redaction Forum](https://forum.groupdocs.com/c/redaction)
 - [Free Support](https://forum.groupdocs.com/)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

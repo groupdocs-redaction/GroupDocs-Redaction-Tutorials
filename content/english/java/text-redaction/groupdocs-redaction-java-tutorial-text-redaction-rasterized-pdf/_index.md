@@ -11,9 +11,6 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
 # Comprehensive Tutorial: Implementing GroupDocs.Redaction Java for Text Redaction & Rasterized PDF Conversion
 
 ## Introduction
@@ -202,7 +199,3 @@ A4: Process in smaller segments or batches and ensure proper resource cleanup po
 **Q5: Is it possible to save rasterized PDFs with specific page ranges?**
 A5: Yes, configure the `SaveOptions` as demonstrated above.
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

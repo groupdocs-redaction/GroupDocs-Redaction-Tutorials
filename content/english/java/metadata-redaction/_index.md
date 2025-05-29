@@ -4,9 +4,6 @@ description: "Learn to clean and redact document metadata including properties, 
 weight: 5
 url: "/java/metadata-redaction/"
 ---
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
 # Metadata Redaction Tutorials with GroupDocs.Redaction for Java
 
 Discover how to effectively secure hidden document information using our comprehensive GroupDocs.Redaction metadata tutorials for Java. These step-by-step guides teach you how to identify, redact, and clean metadata properties, remove author information, eliminate comments, and handle other hidden document details. Each tutorial provides practical Java code examples for common metadata redaction tasks, helping you build more secure applications that address the often-overlooked metadata security risks in your documents.
@@ -36,7 +33,3 @@ Learn how to secure and redact sensitive company metadata from documents using G
 - [GroupDocs.Redaction Forum](https://forum.groupdocs.com/c/redaction)
 - [Free Support](https://forum.groupdocs.com/)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

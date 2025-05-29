@@ -11,9 +11,6 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
 # Java PDF Redaction with GroupDocs.Redaction: Exact Phrase Replacement
 
 In the digital age, ensuring document confidentiality is vital. This tutorial demonstrates how to apply exact phrase redactions on PDF documents using GroupDocs.Redaction for Java.
@@ -191,7 +188,3 @@ GroupDocs offers a free trial license to explore their features without limitati
 
 Feel free to reach out on the support forum or explore more detailed documentation if you have any further questions. Happy coding!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

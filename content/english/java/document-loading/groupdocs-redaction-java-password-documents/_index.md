@@ -11,9 +11,6 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
 # Edit and Redact Password-Protected Documents Using GroupDocs.Redaction for Java
 
 ## Introduction
@@ -206,7 +203,3 @@ When working with GroupDocs.Redaction, consider these performance tips:
 
 ## Conclusion
 In this tutorial, you’ve learned how to manage password-protected documents using GroupDocs.Redaction for Java. From setting up the environment and implementing exact phrase redactions to understanding practical applications and performance considerations, you're now equipped with the tools needed to ensure document security and privacy.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

@@ -11,9 +11,6 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
 # Mastering Document Security in Java: Exact Phrase Redaction and Advanced Rasterization with GroupDocs.Redaction
 
 ## Introduction
@@ -225,7 +222,3 @@ Consider processing in chunks or optimizing memory settings for better performan
 - **API Reference**: [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)
 - **Download**: [Latest Release](https://releases.groupdocs.com/redaction/java/) 
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

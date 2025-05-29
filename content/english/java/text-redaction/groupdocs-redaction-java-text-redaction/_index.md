@@ -11,9 +11,6 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
 # How to Implement Text Redaction in Documents Using GroupDocs.Redaction for Java
 
 ## Introduction
@@ -179,7 +176,3 @@ A5: Through APIs and connectors, you can seamlessly integrate it into existing w
 
 By following this comprehensive guide, you're well on your way to mastering text redaction in Java with GroupDocs.Redaction. Happy coding!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

@@ -11,9 +11,6 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
 # How to Remove the Last Page from a PDF Document Using GroupDocs.Redaction in Java
 
 ## Introduction
@@ -193,7 +190,3 @@ Next steps could include exploring other redaction capabilities offered by Group
 - **Temporary License Information**: [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
 This comprehensive guide should enable you to implement the removal of the last page from PDF documents using GroupDocs.Redaction efficiently.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

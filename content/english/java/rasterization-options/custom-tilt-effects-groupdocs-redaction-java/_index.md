@@ -11,9 +11,6 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
 # Tutorial: Implementing Custom Tilt Effects in Documents Using GroupDocs.Redaction Java
 
 ## Introduction
@@ -197,7 +194,3 @@ The primary limitation would be related to performance on very large files, but 
 - [GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
 - [Free Support Forum](https://forum.groupdocs.com/c/redaction/10)
 - [Temporary License Application](https://purchase.groupdocs.com/temporary-license/)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

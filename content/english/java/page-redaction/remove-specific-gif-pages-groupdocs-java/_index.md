@@ -11,9 +11,6 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
 # How to Remove Specific Frames from a GIF Using GroupDocs.Redaction in Java
 
 ## Introduction
@@ -232,7 +229,3 @@ A5: While GroupDocs.Redaction is robust, explore other libraries or tools that o
 - **Download:** [Latest Version Download](https://releases.groupdocs.com/redaction/java/)
 - **GitHub Repository:** [GitHub - GroupDocs.Redaction for Java](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
 - **Free Support Forum:** [GroupDocs Free Support Forum](https://forum.groupdocs.com/c/redaction)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

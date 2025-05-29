@@ -11,9 +11,6 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
 # Comprehensive Tutorial: Implementing Java to Redact Local Documents with GroupDocs.Redaction API
 
 ## Introduction
@@ -180,7 +177,3 @@ A5: Yes, integration with cloud storage solutions is supported for scalable docu
 
 By leveraging the GroupDocs.Redaction Java library, you can ensure that sensitive information in your documents is protected efficiently and securely. Happy coding!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

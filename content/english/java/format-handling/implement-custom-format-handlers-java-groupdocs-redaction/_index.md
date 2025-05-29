@@ -11,9 +11,6 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
 # Implement Custom Format Handlers in Java Using GroupDocs.Redaction
 
 ## Introduction
@@ -198,7 +195,3 @@ A1: You can configure handlers for any file type by specifying the extension and
 
 **Q2: How do I obtain a temporary license for GroupDocs.Redaction?**
 A2: Visit [GroupDocs' official site](https://products.groupdocs.com/redaction) to request a temporary license.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

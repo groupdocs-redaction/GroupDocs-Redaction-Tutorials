@@ -11,9 +11,6 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
 # How to Implement GroupDocs Redaction Java License Using a File Path: A Comprehensive Guide
 
 ## Introduction
@@ -187,7 +184,3 @@ You've now learned how to set a GroupDocs Redaction license using a file path in
 - **GitHub:** [GroupDocs Redaction Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
 - **Free Support:** [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/10)
 - **Temporary License:** [Apply for a Temporary License](https://purchase.groupdocs.com/temporary-license/)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}
