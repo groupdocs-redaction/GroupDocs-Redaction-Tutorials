@@ -11,9 +11,6 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
 # Mastering Document Redaction in Java with GroupDocs.Redaction
 
 ## Introduction
@@ -196,7 +193,3 @@ Try implementing these solutions in your projects today to enhance document mana
 - **API Reference:** Access comprehensive API details on [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java).
 - **Download:** Get the latest version from [GroupDocs Downloads](https://releases.groupdocs.com/redaction/java/).
 - **GitHub Repository:** Contribute or explore source code at [GroupDocs GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java).
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

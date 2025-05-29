@@ -11,9 +11,6 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
 # Mastering Text Redaction in Java with GroupDocs.Redaction
 
 Are you struggling to keep sensitive information secure within your documents? You're not alone. Many organizations face the challenge of redacting confidential data without compromising document integrity. In this tutorial, we'll explore how to leverage the powerful GroupDocs.Redaction library for Java to seamlessly perform text redaction on various document types.
@@ -182,7 +179,3 @@ A5: Visit [GroupDocs Free Support](https://forum.groupdocs.com/c/redaction/10) o
 - **Free Support Forum**: [GroupDocs Redaction Forum](https://forum.groupdocs.com/c/redaction/10)
 - **Temporary License**: [Obtain Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

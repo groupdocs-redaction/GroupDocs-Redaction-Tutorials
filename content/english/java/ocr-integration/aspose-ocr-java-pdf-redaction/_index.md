@@ -11,9 +11,6 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
 # Secure PDF Redaction with Aspose OCR and Java
 
 ## Introduction
@@ -187,7 +184,3 @@ Next, consider exploring more advanced features of the API or integrating other 
 - **Support Forums**: [GroupDocs Free Support](https://forum.groupdocs.com/c/redaction/10)
 - **Temporary License**: [Obtain a Temporary Li
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

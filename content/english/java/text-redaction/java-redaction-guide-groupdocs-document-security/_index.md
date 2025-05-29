@@ -11,9 +11,6 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
 # Mastering Document Security: Implementing Java Redaction with GroupDocs.Redaction
 
 In today's digital age, securing sensitive information within documents is crucial. Whether you're managing personal data or confidential business details, ensuring privacy and compliance often requires redacting specific content from your files. This guide introduces **GroupDocs.Redaction for Java**, a powerful library that simplifies text, annotation, and metadata redaction in various document formats.
@@ -217,7 +214,3 @@ Adhering to these best practices will help maintain optimal performance while us
 
 ## Conclusion
 By now, you should have a solid understanding of how to secure your documents using Java redaction with GroupDocs.Redaction. Implement the techniques and tips provided to ensure your document management processes are both efficient and compliant with privacy standards.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

@@ -11,9 +11,6 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
 # Java Redaction Guide: Efficient Document Management with GroupDocs.Redaction
 
 ## Introduction
@@ -176,7 +173,3 @@ To take your skills further, explore more advanced features in the [GroupDocs do
    - Begin by setting up your Maven project and including the necessary dependencies as outlined above.
 2. **Can GroupDocs.Redaction handle large documents efficiently?**
    - Yes, with proper memory management and performance tuning, it can process large files effectively.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

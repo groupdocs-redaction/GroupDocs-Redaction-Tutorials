@@ -11,9 +11,6 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
 # Mastering Annotation Removal in Java with GroupDocs.Redaction: A Comprehensive Guide
 
 ## Introduction
@@ -193,7 +190,3 @@ By following this guide, you've learned how to set up GroupDocs.Redaction for Ja
 - [Download GroupDocs.Redaction](https://releases.groupdocs.com/redaction/java/)
 - [GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
 - [Free Support Forum](https://forum.groupdocs.com/c/redaction)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

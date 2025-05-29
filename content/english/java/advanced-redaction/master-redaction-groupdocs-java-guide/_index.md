@@ -11,9 +11,6 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
 # Mastering Redaction Techniques with GroupDocs.Redaction for Java: A Step-by-Step Guide
 
 In today's digital landscape, managing sensitive information is essential. The ability to redact confidential data from documents ensures compliance and protects privacy. With GroupDocs.Redaction for Java, you can seamlessly implement various redactions in your applications. This guide will walk you through creating and saving redaction policies using this powerful tool.
@@ -219,7 +216,3 @@ You've now mastered creating and saving redaction policies using GroupDocs.Redac
 - [GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
 - [Free Support Forum](https://forum.groupdocs.com/c/redaction/10)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

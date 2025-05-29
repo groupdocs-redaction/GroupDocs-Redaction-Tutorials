@@ -11,9 +11,6 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
 # Efficient Regex-Based PDF Redaction in Java Using GroupDocs.Redaction
 
 ## Introduction
@@ -181,7 +178,3 @@ In this tutorial, you've learned how to implement regex-based text redaction in 
 - [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
 By following this guide, you can effectively implement text redaction in your Java applications using GroupDocs.Redaction. Happy coding!
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

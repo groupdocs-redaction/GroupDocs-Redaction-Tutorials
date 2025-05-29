@@ -11,9 +11,6 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
 # How to Use GroupDocs.Redaction for Java: Pre-Rasterization in Word Documents
 
 ## Introduction
@@ -188,7 +185,3 @@ Ensure correct coordinates for redactions; large images may require additional m
 - **Temporary License:** [Request a Temporary License](https://purchase.groupdocs.com/temporary-license/)
 
 Embark on your journey to secure document management with GroupDocs.Redaction for Java and elevate your data protection strategies.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

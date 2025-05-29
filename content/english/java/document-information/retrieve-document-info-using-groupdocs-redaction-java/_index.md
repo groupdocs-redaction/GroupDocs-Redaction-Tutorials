@@ -11,9 +11,6 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
 # How to Retrieve Document Information Using GroupDocs.Redaction in Java
 
 Retrieving critical details about documents such as file type, number of pages, and size is essential for optimizing software applications like document management systems or content processing tools. In this tutorial, we'll guide you through using GroupDocs.Redaction for Java to efficiently retrieve document information.
@@ -182,7 +179,3 @@ A5: Yes, GroupDocs.Redaction supports multiple file types including PDFs, Excel 
 
 By leveraging GroupDocs.Redaction, you can enhance your Java applications with powerful document information retrieval capabilities. Happy coding!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

@@ -11,9 +11,6 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
 # Implement Advanced Logging in Java with GroupDocs Redaction: A Comprehensive Guide
 
 ## Introduction
@@ -193,7 +190,3 @@ Ready to try it out? Implement advanced logging in your next project and see how
 
 By following this guide, you're well on your way to mastering advanced logging with GroupDocs Redaction for Java. Happy coding!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

@@ -11,9 +11,6 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
 # How to Implement Metadata Redaction in Java Using GroupDocs: A Step-by-Step Guide
 
 ## Introduction
@@ -186,7 +183,3 @@ A5: Always close resources after use and configure save options according to you
 
 Try implementing this solution today and enhance your document management capabilities with GroupDocs.Redaction for Java!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

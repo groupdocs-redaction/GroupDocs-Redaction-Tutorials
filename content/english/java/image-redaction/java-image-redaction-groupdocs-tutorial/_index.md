@@ -11,9 +11,6 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
 # Mastering Java Image Redaction with GroupDocs
 
 ## Introduction
@@ -191,7 +188,3 @@ For further exploration, consider diving into the documentation and experimentin
 
 By leveraging these resources, you can further enhance your understanding and application of GroupDocs.Redaction in Java projects. Happy coding!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

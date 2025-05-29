@@ -11,9 +11,6 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
 # How to Redact Emails in Excel Spreadsheets Using GroupDocs.Redaction Java API
 
 ## Introduction
@@ -197,7 +194,3 @@ In this tutorial, you've learned how to redact emails from specific columns in E
 - [GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
 - [Free Support Forum](https://forum.groupdocs.com/c/redaction/10)
 - [Temporary License Information](https://purchase.groupdocs.com/temporary-license/)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

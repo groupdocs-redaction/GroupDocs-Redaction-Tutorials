@@ -11,9 +11,6 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
 # How to Set a GroupDocs.Redaction License in Java Using an Input Stream
 
 Welcome to this comprehensive guide on configuring and utilizing the license feature of GroupDocs.Redaction for Java applications. By following these steps, you'll ensure your application meets licensing requirements while leveraging all features offered by GroupDocs.Redaction.
@@ -174,7 +171,3 @@ A5: It offers flexibility in deployment scenarios, especially where file paths m
 ## Resources
 - **Documentation:** [GroupDocs.Redaction Documentation](https://docs.groupdocs.com/redaction/java/)
 - **Support Forums:** [GroupDocs Support Forums](https://forum.groupdocs.com/c/redaction)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

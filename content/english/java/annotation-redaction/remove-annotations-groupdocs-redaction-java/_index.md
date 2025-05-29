@@ -11,9 +11,6 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
 # Efficiently Remove Annotations from Documents Using GroupDocs.Redaction in Java
 
 ## Introduction
@@ -189,7 +186,3 @@ For further reading and assistance:
 
 By following this guide, you're well-equipped to handle document annotations using GroupDocs.Redaction in your Java applications. Happy coding!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

@@ -11,9 +11,6 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
 # Mastering File Operations in Java: Copy and Redact Files Using GroupDocs.Redaction
 
 In today's digital age, managing document security and data integrity is more critical than ever. Whether you're handling sensitive customer information or proprietary business documents, ensuring that your files are correctly managed can save you from potential breaches or data loss. In this comprehensive guide, we'll explore how to effectively use Java for two essential file operations: copying a file and applying redaction using GroupDocs.Redaction for enhanced security.
@@ -164,7 +161,3 @@ final Redactor redactor = new Redactor(filePath);
 try {
     // Replace 'John Doe' with a red color
     redactor.apply(new ExactPhraseRedaction("John Doe\
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

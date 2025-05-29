@@ -11,9 +11,6 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
 # Master Document Redaction in Java Using GroupDocs.Redaction: A Step-by-Step Guide
 
 Protecting sensitive information within documents is crucial for maintaining privacy and ensuring compliance. Organizations often struggle with securely redacting confidential data from PDFs, Word files, and more. This tutorial will guide you through implementing exact phrase redaction and document rasterization using **GroupDocs.Redaction for Java**.
@@ -193,7 +190,3 @@ Ready to put these techniques into practice? Start experimenting with different 
 
 Explore these resources to deepen your understanding and mastery of GroupDocs.Redaction for Java!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

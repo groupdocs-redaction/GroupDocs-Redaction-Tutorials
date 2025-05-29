@@ -11,9 +11,6 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
 # Mastering Text Redaction in Java with GroupDocs.Redaction: A Comprehensive Guide
 
 In today's digital landscape, safeguarding sensitive information within documents is crucial for both businesses and individuals. This guide will walk you through implementing text redaction using the powerful features of GroupDocs.Redaction for Java, focusing on regex-based techniques.
@@ -176,7 +173,3 @@ A5: Consider batch processing and efficient regex usage to manage resource alloc
 For further exploration and support:
 - **Documentation**: [GroupDocs Redaction Documentation](https://docs.groupdocs.com/redaction/java/)
 - **API Reference**: [GroupDocs API Reference](https://apireference.groupdocs.com/redaction/java)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

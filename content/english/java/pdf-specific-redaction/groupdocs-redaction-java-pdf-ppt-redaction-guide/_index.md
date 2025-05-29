@@ -11,9 +11,6 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
 # Comprehensive Guide to Implementing PDF and PPT Page Area Redaction Using GroupDocs.Redaction for Java
 
 ## Introduction
@@ -172,7 +169,3 @@ For further exploration:
 
 Dive into these resources to enhance your understanding and capabilities with GroupDocs.Redaction. Happy coding!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

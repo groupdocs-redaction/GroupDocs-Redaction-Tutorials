@@ -11,9 +11,6 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
 # How to Load and Preview a Specific Document Page with GroupDocs.Redaction Java
 
 ## Introduction
@@ -190,7 +187,3 @@ A5: You can start with a free trial, obtain a temporary license, or purchase a f
 - **Free Support**: [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/10)
 - **Temporary License**: [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license)
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

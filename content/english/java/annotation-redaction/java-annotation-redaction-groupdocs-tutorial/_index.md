@@ -11,9 +11,6 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
 # Master Annotation Redaction in Java Using GroupDocs: A Complete Guide
 ## How to Implement Annotation Redaction in Java Using GroupDocs.Redaction
 
@@ -179,7 +176,3 @@ Ready to try it out? Implement the solution in your next project and enhance doc
 - [GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
 - [Free Support Forum](https://forum.groupdocs.com/c/redaction/10)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

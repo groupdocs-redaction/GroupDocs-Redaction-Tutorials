@@ -11,9 +11,6 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
 # Mastering Document Redaction in Java with GroupDocs.Redaction
 
 In today's digital world, protecting sensitive information is crucial—whether you're a legal professional, a corporate employee, or an independent contractor handling confidential documents. With the increasing need to comply with privacy laws and regulations, redacting sensitive data from documents has become essential. This tutorial will guide you through using GroupDocs.Redaction for Java to achieve precise document redactions effortlessly.
@@ -198,7 +195,3 @@ A3: It supports a wide range of formats including DOCX, PDF, XLSX, PPTX, among o
 
 **Q4: How do I manage performance when redacting large documents?**
 A4: Consider using batch processing and ensure proper resource management to maintain optimal performance.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

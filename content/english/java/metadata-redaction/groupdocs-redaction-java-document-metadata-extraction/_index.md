@@ -11,9 +11,6 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
 # Mastering Document Metadata Extraction with GroupDocs.Redaction in Java
 
 ## Introduction
@@ -199,7 +196,3 @@ Ready to take the next step? Implement this solution in your project and start h
 
 Dive into the world of document management and metadata extraction with GroupDocs.Redaction for Java, and enhance your application's capabilities today!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}
