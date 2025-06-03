@@ -198,6 +198,6 @@ Explore further customization options within GroupDocs.Redaction or consider int
 - **Documentation**: [GroupDocs Redaction Documentation](https://docs.groupdocs.com/redaction/net/)
 - **API Reference**: [GroupDocs API Reference](https://reference.groupdocs.com/redaction/net)
 - **Download**: [GroupDocs Releases](https://releases.groupdocs.com/redaction/net/)
-- **Free Support**: [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/10)
+- **Free Support**: [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)
 - **Temporary License**: [GroupDocs Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 

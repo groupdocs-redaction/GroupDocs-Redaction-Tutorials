@@ -140,7 +140,7 @@ In this guide, you've learned how to apply targeted redactions using GroupDocs.R
 - [GroupDocs.Redaction Documentation](https://docs.groupdocs.com/redaction/net/)
 - [API Reference](https://reference.groupdocs.com/redaction/net)
 - [Downloads](https://releases.groupdocs.com/redaction/net/)
-- [Free Support Forum](https://forum.groupdocs.com/c/redaction/10)
+- [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)
 
 With this comprehensive guide, you're well-equipped to start implementing PDF redactions using GroupDocs.Redaction for .NET. Happy coding!

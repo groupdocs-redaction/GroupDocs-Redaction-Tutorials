@@ -192,5 +192,5 @@ In this tutorial, you've learned how to redact emails from specific columns in E
 - [API Reference](https://reference.groupdocs.com/redaction/java)
 - [Download GroupDocs.Redaction](https://releases.groupdocs.com/redaction/java/)
 - [GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
-- [Free Support Forum](https://forum.groupdocs.com/c/redaction/10)
+- [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)
 - [Temporary License Information](https://purchase.groupdocs.com/temporary-license/)

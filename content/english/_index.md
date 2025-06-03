@@ -120,4 +120,4 @@ Whether you're developing with .NET or Java, GroupDocs.Redaction provides the to
 - [Download free trial](https://releases.groupdocs.com/redaction/)
 - [API Documentation](https://reference.groupdocs.com/redaction/)
 - [Get temporary license](https://purchase.groupdocs.com/temporary-license/)
-- [Visit our forum](https://forum.groupdocs.com/c/redaction/)
+- [Visit our forum](https://forum.groupdocs.com/c/redaction/33/)

@@ -167,7 +167,7 @@ Why not try implementing it in your next project? Experience firsthand how Group
 - **Documentation:** [GroupDocs Redaction .NET Docs](https://docs.groupdocs.com/redaction/net/)
 - **API Reference:** [GroupDocs API Reference](https://reference.groupdocs.com/redaction/net)
 - **Download:** [GroupDocs Releases](https://releases.groupdocs.com/redaction/net/)
-- **Free Support:** [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/10)
+- **Free Support:** [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)
 - **Temporary License:** [GroupDocs Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
 This guide should empower you to implement and utilize GroupDocs.Redaction for .NET effectively, ensuring your PDF documents are handled with the utmost care and security. Happy redacting!

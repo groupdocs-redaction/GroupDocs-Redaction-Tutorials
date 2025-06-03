@@ -174,7 +174,7 @@ In this tutorial, you've learned how to implement regex-based text redaction in 
 - [API Reference](https://reference.groupdocs.com/redaction/java)
 - [Download GroupDocs.Redaction for Java](https://releases.groupdocs.com/redaction/java/)
 - [GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
-- [Free Support Forum](https://forum.groupdocs.com/c/redaction/10)
+- [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)
 - [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
 By following this guide, you can effectively implement text redaction in your Java applications using GroupDocs.Redaction. Happy coding!

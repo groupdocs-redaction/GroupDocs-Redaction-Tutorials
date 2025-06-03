@@ -154,7 +154,7 @@ By following this guide, you can seamlessly integrate grayscale rasterization in
 - [Documentation](https://docs.groupdocs.com/redaction/net/)
 - [API Reference](https://reference.groupdocs.com/redaction/net)
 - [Download](https://releases.groupdocs.com/redaction/net/)
-- [Free Support Forum](https://forum.groupdocs.com/c/redaction/10)
+- [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license)
 
 By utilizing these resources, you can further explore and master GroupDocs.Redaction for .NET. Try implementing this solution in your projects today!

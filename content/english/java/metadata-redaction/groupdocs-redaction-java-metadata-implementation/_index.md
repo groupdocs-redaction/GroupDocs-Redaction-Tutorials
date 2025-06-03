@@ -178,7 +178,7 @@ A5: Always close resources after use and configure save options according to you
 - **API Reference**: [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)
 - **Download**: [Latest Releases](https://releases.groupdocs.com/redaction/java/)
 - **GitHub**: [GroupDocs GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
-- **Free Support**: [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/10)
+- **Free Support**: [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)
 - **Temporary License**: [Acquire a Temporary License](https://purchase.groupdocs.com/temporary-license)
 
 Try implementing this solution today and enhance your document management capabilities with GroupDocs.Redaction for Java!

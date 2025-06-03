@@ -186,7 +186,7 @@ Try implementing these solutions in your projects today to enhance document mana
 4. **How do I obtain a temporary license for GroupDocs.Redaction?**
    - Visit the [Temporary License page](https://purchase.groupdocs.com/temporary-license/) and follow the instructions.
 5. **Where can I find support if I encounter issues?**
-   - Join the [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/10) for assistance from experts.
+   - Join the [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33) for assistance from experts.
 
 ## Resources
 - **Documentation:** Explore detailed guides at [GroupDocs Documentation](https://docs.groupdocs.com/redaction/java/).

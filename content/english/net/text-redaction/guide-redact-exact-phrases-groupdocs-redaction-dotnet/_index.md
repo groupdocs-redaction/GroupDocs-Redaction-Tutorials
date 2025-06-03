@@ -156,7 +156,7 @@ To further enhance your skills, explore additional features offered by the libra
 - [Documentation](https://docs.groupdocs.com/redaction/net/)
 - [API Reference](https://reference.groupdocs.com/redaction/net)
 - [Download GroupDocs.Redaction](https://releases.groupdocs.com/redaction/net/)
-- [Free Support Forum](https://forum.groupdocs.com/c/redaction/10)
+- [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)
 - [Temporary License Acquisition](https://purchase.groupdocs.com/temporary-license)
 
 With this comprehensive guide, you're now equipped to implement exact phrase replacement using GroupDocs.Redaction in .NET. Happy coding!

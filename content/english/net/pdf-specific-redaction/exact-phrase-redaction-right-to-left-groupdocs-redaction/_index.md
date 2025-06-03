@@ -129,13 +129,13 @@ Ready to put your skills into practice? Try implementing these techniques on you
 4. **What are common issues with redacting PDFs?**
    - Challenges include incorrect text direction handling and ensuring consistent redactions across different document versions.
 5. **Where can I find support if I encounter issues?**
-   - Visit the [GroupDocs Free Support Forum](https://forum.groupdocs.com/c/redaction/10) for assistance from other users and experts.
+   - Visit the [GroupDocs Free Support Forum](https://forum.groupdocs.com/c/redaction/33) for assistance from other users and experts.
 
 ## Resources
 - [Documentation](https://docs.groupdocs.com/redaction/net/)
 - [API Reference](https://reference.groupdocs.com/redaction/net)
 - [Download GroupDocs.Redaction .NET](https://releases.groupdocs.com/redaction/net/)
-- [Free Support Forum](https://forum.groupdocs.com/c/redaction/10)
+- [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
 With these resources, you’re well-equipped to continue expanding your knowledge and capabilities with GroupDocs.Redaction .NET. Happy redacting!

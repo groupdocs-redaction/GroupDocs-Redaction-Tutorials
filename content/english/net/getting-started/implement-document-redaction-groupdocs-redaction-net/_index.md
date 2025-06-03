@@ -150,13 +150,13 @@ GroupDocs supports a wide range of document formats including Word, Excel, Power
 Yes, you can automate the process using loops or parallel tasks in your code to handle multiple files simultaneously.
 
 **5. How do I get help if I encounter issues?**
-Visit [GroupDocs Free Support Forum](https://forum.groupdocs.com/c/redaction/10) for community and professional assistance.
+Visit [GroupDocs Free Support Forum](https://forum.groupdocs.com/c/redaction/33) for community and professional assistance.
 
 ## Resources
 - **Documentation**: [GroupDocs Redaction .NET Docs](https://docs.groupdocs.com/redaction/net/)
 - **API Reference**: [GroupDocs API Reference](https://reference.groupdocs.com/redaction/net)
 - **Download**: [Get GroupDocs.Redaction](https://releases.groupdocs.com/redaction/net/)
-- **Free Support**: [Forum and Community](https://forum.groupdocs.com/c/redaction/10)
+- **Free Support**: [Forum and Community](https://forum.groupdocs.com/c/redaction/33)
 - **Temporary License**: [Acquire a Temporary License](https://purchase.groupdocs.com/temporary-license/)
 
 Ready to start redacting documents? Implement this solution in your projects today and enhance your data security practices. If you have any questions or need further assistance, don't hesitate to reach out through the GroupDocs support channels!

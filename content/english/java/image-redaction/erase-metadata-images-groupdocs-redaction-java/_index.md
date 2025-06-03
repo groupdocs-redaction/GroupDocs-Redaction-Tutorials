@@ -146,7 +146,7 @@ Consider exploring further functionalities offered by GroupDocs.Redaction, such 
 - [API Reference](https://reference.groupdocs.com/redaction/java)
 - [Download GroupDocs.Redaction for Java](https://releases.groupdocs.com/redaction/java/)
 - [GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
-- [Free Support Forum](https://forum.groupdocs.com/c/redaction/10)
+- [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)
 - [Temporary License Information](https://purchase.groupdocs.com/temporary-license/)
 With this comprehensive guide, you're now equipped to implement metadata erasure in your Java applications using GroupDocs.Redaction. Happy coding!
 

@@ -164,7 +164,7 @@ By following this guide, you've learned how to implement text redaction using Gr
 - [Documentation](https://docs.groupdocs.com/redaction/net/)
 - [API Reference](https://reference.groupdocs.com/redaction/net)
 - [Download](https://releases.groupdocs.com/redaction/net/)
-- [Free Support](https://forum.groupdocs.com/c/redaction/10)
+- [Free Support](https://forum.groupdocs.com/c/redaction/33)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
 Feel free to explore these resources for further information and support. Happy coding!

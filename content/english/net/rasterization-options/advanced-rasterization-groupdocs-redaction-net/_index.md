@@ -156,7 +156,7 @@ As next steps, consider exploring more features of GroupDocs.Redaction or integr
 - [GroupDocs Redaction Documentation](https://docs.groupdocs.com/redaction/net/)
 - [API Reference](https://reference.groupdocs.com/redaction/net)
 - [Download GroupDocs.Redaction for .NET](https://releases.groupdocs.com/redaction/net/)
-- [Free Support Forum](https://forum.groupdocs.com/c/redaction/10)
+- [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)
 - [Temporary License Request](https://purchase.groupdocs.com/temporary-license/)
 
 Now that you're equipped with the knowledge to implement advanced rasterization with GroupDocs.Redaction for .NET, try applying these techniques in your projects. Happy coding!

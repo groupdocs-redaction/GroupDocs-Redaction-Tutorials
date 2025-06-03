@@ -162,5 +162,5 @@ Ready to take control of your document redaction needs? Try implementing noise r
 - [Documentation](https://docs.groupdocs.com/redaction/net/)
 - [API Reference](https://reference.groupdocs.com/redaction/net)
 - [Download](https://releases.groupdocs.com/redaction/net/)
-- [Free Support](https://forum.groupdocs.com/c/redaction/10)
+- [Free Support](https://forum.groupdocs.com/c/redaction/33)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)

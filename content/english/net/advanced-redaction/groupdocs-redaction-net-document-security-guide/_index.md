@@ -206,7 +206,7 @@ Congratulations! You’ve learned how to implement various redaction techniques 
 **Next Steps:**
 - Explore more features in the [GroupDocs documentation](https://docs.groupdocs.com/redaction/net/).
 - Experiment with different configurations to suit specific use cases.
-- Share feedback or ask questions on the [GroupDocs forum](https://forum.groupdocs.com/c/redaction/10).
+- Share feedback or ask questions on the [GroupDocs forum](https://forum.groupdocs.com/c/redaction/33).
 
 ## FAQ Section
 
@@ -230,7 +230,7 @@ A: Yes, it can be part of larger workflows or applications using .NET interopera
 - **Documentation:** [GroupDocs Redaction Documentation](https://docs.groupdocs.com/redaction/net/)
 - **API Reference:** [GroupDocs API Reference](https://reference.groupdocs.com/redaction/net)
 - **Download:** [Latest Releases](https://releases.groupdocs.com/redaction/net/)
-- **Free Support:** [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/10)
+- **Free Support:** [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)
 - **Temporary License:** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
 By following this guide, you'll be well-equipped to implement effective document redactions using GroupDocs.Redaction for .NET.

@@ -160,7 +160,7 @@ As you explore GroupDocs.Redaction's capabilities further, consider experimentin
 - [Documentation](https://docs.groupdocs.com/redaction/net/)
 - [API Reference](https://reference.groupdocs.com/redaction/net)
 - [Download the Latest Version](https://releases.groupdocs.com/redaction/net/)
-- [Free Support Forum](https://forum.groupdocs.com/c/redaction/10)
+- [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)
 - [Temporary License Acquisition](https://purchase.groupdocs.com/temporary-license)
 
 Embark on your journey with GroupDocs.Redaction and streamline how you handle document previews today!

@@ -175,12 +175,12 @@ You've now learned how to set a GroupDocs Redaction license using a file path in
 4. **What are some common integration points for GroupDocs.Redaction?**
    - Integration with document management systems and cloud storage services is frequent.
 5. **Where can I find more resources on GroupDocs.Redaction?**
-   - Visit the [official documentation](https://docs.groupdocs.com/redaction/java/) or join the [GroupDocs forum](https://forum.groupdocs.com/c/redaction/10).
+   - Visit the [official documentation](https://docs.groupdocs.com/redaction/java/) or join the [GroupDocs forum](https://forum.groupdocs.com/c/redaction/33).
 
 ## Resources
 - **Documentation:** [GroupDocs Redaction Java Docs](https://docs.groupdocs.com/redaction/java/)
 - **API Reference:** [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)
 - **Download:** [Get GroupDocs.Redaction for Java](https://releases.groupdocs.com/redaction/java/)
 - **GitHub:** [GroupDocs Redaction Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
-- **Free Support:** [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/10)
+- **Free Support:** [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)
 - **Temporary License:** [Apply for a Temporary License](https://purchase.groupdocs.com/temporary-license/)

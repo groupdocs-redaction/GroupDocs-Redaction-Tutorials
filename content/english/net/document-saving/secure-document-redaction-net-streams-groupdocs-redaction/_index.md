@@ -161,7 +161,7 @@ Ready to put this into practice? Implement these steps and enhance the security 
 - [Documentation](https://docs.groupdocs.com/redaction/net/)
 - [API Reference](https://reference.groupdocs.com/redaction/net)
 - [Download](https://releases.groupdocs.com/redaction/net/)
-- [Free Support Forum](https://forum.groupdocs.com/c/redaction/10)
+- [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
 Dive deeper into GroupDocs.Redaction for .NET with these resources and start implementing secure document handling solutions today!

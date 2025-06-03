@@ -183,7 +183,7 @@ By following this guide, you've learned how to load and apply a redaction policy
 4. **What file formats are supported by GroupDocs.Redaction?**
    - Supports a wide range of formats including PDFs, Word documents, and images.
 5. **Is there support available if I encounter issues?**
-   - Free support is available on the [GroupDocs forum](https://forum.groupdocs.com/c/redaction/10).
+   - Free support is available on the [GroupDocs forum](https://forum.groupdocs.com/c/redaction/33).
 
 ## Resources
 
@@ -191,7 +191,7 @@ By following this guide, you've learned how to load and apply a redaction policy
 - **API Reference**: [API Reference](https://reference.groupdocs.com/redaction/java)
 - **Download**: [Latest Releases](https://releases.groupdocs.com/redaction/java/)
 - **GitHub**: [Source Code on GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
-- **Free Support**: [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/10)
+- **Free Support**: [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)
 
 ## Keyword Recommendations
 

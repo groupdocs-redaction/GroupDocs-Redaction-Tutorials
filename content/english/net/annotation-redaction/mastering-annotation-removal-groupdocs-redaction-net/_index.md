@@ -186,7 +186,7 @@ Ready to implement? Dive into the code and start transforming your document mana
 - [GroupDocs Redaction Documentation](https://docs.groupdocs.com/redaction/net/)
 - [API Reference](https://reference.groupdocs.com/redaction/net)
 - [Download GroupDocs.Redaction](https://releases.groupdocs.com/redaction/net/)
-- [Free Support Forum](https://forum.groupdocs.com/c/redaction/10)
+- [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)
 - [Temporary License Request](https://purchase.groupdocs.com/temporary-license)
 
 Embark on your journey with GroupDocs.Redaction for .NET and streamline your document management today!

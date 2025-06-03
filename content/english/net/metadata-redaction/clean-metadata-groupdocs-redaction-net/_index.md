@@ -155,7 +155,7 @@ You've successfully learned how to remove metadata from your documents using Gro
 - [Documentation](https://docs.groupdocs.com/redaction/net/)
 - [API Reference](https://reference.groupdocs.com/redaction/net)
 - [Download GroupDocs.Redaction](https://releases.groupdocs.com/redaction/net/)
-- [Free Support Forum](https://forum.groupdocs.com/c/redaction/10)
+- [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)
 - [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
 Start implementing this feature today to enhance your document management practices!

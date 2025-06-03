@@ -175,7 +175,7 @@ Ready to put these techniques into practice? Start experimenting with different 
 3. **What formats does GroupDocs.Redaction support?**  
    It supports a wide range of file types including PDFs, Word documents, Excel spreadsheets, and more.
 4. **How can I obtain technical support for GroupDocs.Redaction?**  
-   Visit the [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/10) for assistance or reach out via their support channels.
+   Visit the [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33) for assistance or reach out via their support channels.
 5. **Is there a performance difference when using rasterization options?**  
    Rasterization may increase processing time due to image conversion, but it ensures better privacy and format preservation.
 
@@ -185,7 +185,7 @@ Ready to put these techniques into practice? Start experimenting with different 
 - [API Reference](https://reference.groupdocs.com/redaction/java)
 - [Downloads](https://releases.groupdocs.com/redaction/java/)
 - [GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
-- [Free Support Forum](https://forum.groupdocs.com/c/redaction/10)
+- [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)
 - [Temporary License Page](https://purchase.groupdocs.com/temporary-license/) 
 
 Explore these resources to deepen your understanding and mastery of GroupDocs.Redaction for Java!

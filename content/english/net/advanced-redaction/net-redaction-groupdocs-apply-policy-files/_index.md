@@ -172,7 +172,7 @@ For further exploration and support:
 - **Documentation**: [GroupDocs.Redaction .NET Documentation](https://docs.groupdocs.com/redaction/net/)
 - **API Reference**: [GroupDocs API Reference](https://reference.groupdocs.com/redaction/net)
 - **Download GroupDocs.Redaction**: [Releases Page](https://releases.groupdocs.com/redaction/net/)
-- **Free Support Forum**: [GroupDocs Support](https://forum.groupdocs.com/c/redaction/10)
+- **Free Support Forum**: [GroupDocs Support](https://forum.groupdocs.com/c/redaction/33)
 - **Temporary License**: [Request Temporary License](https://purchase.groupdocs.com/temporary-license/)
 
 Embark on your data protection journey with GroupDocs.Redaction today, ensuring secure and compliant document handling. Happy coding!

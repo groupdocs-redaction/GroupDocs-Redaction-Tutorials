@@ -111,6 +111,6 @@ Implementing the ability to set a GroupDocs.Redaction license from a stream enha
 - [GroupDocs Redaction Documentation](https://docs.groupdocs.com/redaction/net/)
 - [API Reference](https://reference.groupdocs.com/redaction/net)
 - [Download GroupDocs Redaction](https://releases.groupdocs.com/redaction/net/)
-- [Free Support Forum](https://forum.groupdocs.com/c/redaction/10)
+- [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)
 - [Temporary License Request](https://purchase.groupdocs.com/temporary-license/) 
 By following this tutorial, you're well on your way to efficiently managing licenses in GroupDocs.Redaction for .NET using streams. Happy coding!

@@ -168,7 +168,7 @@ Try implementing this solution in your next project and experience the power of 
 - [GroupDocs.Redaction Documentation](https://docs.groupdocs.com/redaction/net/)
 - [API Reference](https://reference.groupdocs.com/redaction/net)
 - [Download GroupDocs.Redaction](https://releases.groupdocs.com/redaction/net/)
-- [Free Support Forum](https://forum.groupdocs.com/c/redaction/10)
+- [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)
 - [Temporary License Application](https://purchase.groupdocs.com/temporary-license/) 
 
 With this guide, you’re well-equipped to harness the capabilities of GroupDocs.Redaction for .NET in your GIF editing tasks. Happy coding!

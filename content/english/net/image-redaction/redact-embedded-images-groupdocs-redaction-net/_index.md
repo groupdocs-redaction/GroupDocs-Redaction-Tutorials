@@ -155,7 +155,7 @@ For further exploration, consider experimenting with different types of redactio
 4. **What if my redaction fails?**
    - Check coordinate accuracy, verify installation integrity, and consult troubleshooting tips provided in this guide.
 5. **Where can I get support if I face issues?**
-   - Visit [GroupDocs Free Support](https://forum.groupdocs.com/c/redaction/10) for assistance from the community or seek further help through licensing options.
+   - Visit [GroupDocs Free Support](https://forum.groupdocs.com/c/redaction/33) for assistance from the community or seek further help through licensing options.
 
 ## Resources
 

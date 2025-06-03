@@ -195,7 +195,7 @@ In this tutorial, you learned how to clean specific metadata items from a docume
 - **Documentation**: [GroupDocs Redaction Documentation](https://docs.groupdocs.com/redaction/net/)
 - **API Reference**: [GroupDocs API Reference](https://reference.groupdocs.com/redaction/net)
 - **Download**: [Latest Releases](https://releases.groupdocs.com/redaction/net/)
-- **Free Support**: [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/10)
+- **Free Support**: [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)
 - **Temporary License**: [Get a Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
 Now that you have all the information, why not try implementing these solutions in your own projects? Happy coding!

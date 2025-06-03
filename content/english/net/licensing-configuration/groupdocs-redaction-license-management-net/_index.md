@@ -112,6 +112,6 @@ It supports .NET Framework 4.6.1 or later; ensure compatibility with your enviro
 - **Documentation**: [GroupDocs Redaction Documentation](https://docs.groupdocs.com/redaction/net/)
 - **API Reference**: [API Reference for GroupDocs Redaction](https://reference.groupdocs.com/redaction/net)
 - **Download**: [GroupDocs Releases](https://releases.groupdocs.com/redaction/net/)
-- **Free Support**: [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/10)
+- **Free Support**: [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)
 - **Temporary License**: [Apply for a Temporary License](https://purchase.groupdocs.com/temporary-license)
 This guide should assist you in setting up your GroupDocs.Redaction license. Use the resources above to further explore and leverage GroupDocs.Redaction's capabilities. Happy coding!

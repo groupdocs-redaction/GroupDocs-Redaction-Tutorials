@@ -138,11 +138,11 @@ Ready to enhance your document security? Implement the solution in your projects
 4. **Is it possible to batch process multiple documents?**
    - Yes, you can configure your application to redact and save multiple documents in one go.
 5. **What if I encounter errors during implementation?**
-   - Check documentation or reach out on the [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/10) for assistance.
+   - Check documentation or reach out on the [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33) for assistance.
 
 ## Resources
 - **Documentation**: [Official Documentation](https://docs.groupdocs.com/redaction/net/)
 - **API Reference**: [API Details](https://reference.groupdocs.com/redaction/net)
 - **Download**: [Latest Releases](https://releases.groupdocs.com/redaction/net/)
-- **Support**: [Free Support Forum](https://forum.groupdocs.com/c/redaction/10)
+- **Support**: [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)
 - **License**: [Temporary License](https://purchase.groupdocs.com/temporary-license)

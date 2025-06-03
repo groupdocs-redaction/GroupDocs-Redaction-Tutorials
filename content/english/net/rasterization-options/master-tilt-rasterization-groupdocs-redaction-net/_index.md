@@ -160,7 +160,7 @@ By following this tutorial, you've learned how to implement tilt rasterization u
 - **Documentation**: [GroupDocs Redaction Documentation](https://docs.groupdocs.com/redaction/net/)
 - **API Reference**: [GroupDocs API Reference](https://reference.groupdocs.com/redaction/net)
 - **Download**: [Get GroupDocs Redaction](https://releases.groupdocs.com/redaction/net/)
-- **Free Support**: [GroupDocs Community Forum](https://forum.groupdocs.com/c/redaction/10)
+- **Free Support**: [GroupDocs Community Forum](https://forum.groupdocs.com/c/redaction/33)
 - **Temporary License**: [Request a Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
 Embark on your journey with GroupDocs.Redaction, and unlock the full potential of document redaction in .NET applications!

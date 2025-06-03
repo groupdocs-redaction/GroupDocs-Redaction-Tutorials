@@ -150,7 +150,7 @@ Consider exploring other features of GroupDocs.Redaction or integrating it furth
 - [Documentation](https://docs.groupdocs.com/redaction/net/)
 - [API Reference](https://reference.groupdocs.com/redaction/net)
 - [Download GroupDocs.Redaction](https://releases.groupdocs.com/redaction/net/)
-- [Free Support Forum](https://forum.groupdocs.com/c/redaction/10)
+- [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
 By following this guide, you should now have a solid understanding of how to implement and utilize the GroupDocs.Redaction .NET library for listing supported file formats. Happy coding!

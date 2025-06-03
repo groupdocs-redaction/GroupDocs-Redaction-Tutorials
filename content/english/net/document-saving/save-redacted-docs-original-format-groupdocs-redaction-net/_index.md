@@ -155,7 +155,7 @@ To further enhance your skills, consider exploring more advanced features of the
 - **Documentation**: [GroupDocs Redaction .NET Documentation](https://docs.groupdocs.com/redaction/net/)
 - **API Reference**: [API Reference](https://reference.groupdocs.com/redaction/net)
 - **Download**: [GroupDocs Releases for .NET](https://releases.groupdocs.com/redaction/net/)
-- **Free Support**: [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/10)
+- **Free Support**: [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)
 - **Temporary License**: [Get a Temporary License](https://purchase.groupdocs.com/temporary-license/)
 
 By equipping yourself with GroupDocs.Redaction .NET, you're taking a significant step toward enhanced document security and management. Happy coding!

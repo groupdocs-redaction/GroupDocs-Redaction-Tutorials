@@ -169,7 +169,7 @@ Ready to start implementing? Dive in and secure your documents today!
 - [Documentation](https://docs.groupdocs.com/redaction/net/)
 - [API Reference](https://reference.groupdocs.com/redaction/net)
 - [Download](https://releases.groupdocs.com/redaction/net/)
-- [Free Support Forum](https://forum.groupdocs.com/c/redaction/10)
+- [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)
 - [Temporary License Application](https://purchase.groupdocs.com/temporary-license/) 
 
 Take the next step in securing your documents with GroupDocs.Redaction for .NET today!

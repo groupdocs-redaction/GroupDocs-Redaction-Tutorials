@@ -174,7 +174,7 @@ For further exploration, here are some helpful links:
 - **Documentation**: [GroupDocs Redaction Documentation](https://docs.groupdocs.com/redaction/net/)
 - **API Reference**: [GroupDocs API Reference](https://reference.groupdocs.com/redaction/net)
 - **Download GroupDocs.Redaction**: [Releases Page](https://releases.groupdocs.com/redaction/net/)
-- **Free Support Forum**: [GroupDocs Community](https://forum.groupdocs.com/c/redaction/10)
+- **Free Support Forum**: [GroupDocs Community](https://forum.groupdocs.com/c/redaction/33)
 - **Temporary License**: [Get Your Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
 With this comprehensive guide, you're well on your way to implementing a secure OCR and redaction solution in your .NET applications. Happy coding!

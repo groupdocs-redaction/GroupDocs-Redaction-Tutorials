@@ -20,9 +20,6 @@ Learn how to implement advanced rasterization with GroupDocs.Redaction for .NET.
 ### [Master Noise Rasterization in .NET with GroupDocs.Redaction&#58; A Comprehensive Guide](./groupdocs-redaction-net-noise-rasterization-guide/)
 Learn how to implement noise rasterization using GroupDocs.Redaction for .NET to secure documents without losing visual integrity. Follow this step-by-step guide.
 
-### [Master PDF Rasterization in .NET using GroupDocs.Redaction&#58; Page Selection and Compliance Settings](./groupdocs-redaction-net-pdf-rasterization-compliance/)
-Learn to manage specific pages in PDFs with GroupDocs.Redaction for .NET, ensuring compliance with PDF/A-1a standards. Perfect for document management professionals.
-
 ### [Master Tilt Rasterization in .NET with GroupDocs.Redaction&#58; A Comprehensive Guide](./master-tilt-rasterization-groupdocs-redaction-net/)
 Learn how to implement tilt rasterization using GroupDocs.Redaction for .NET. Enhance document security with customizable angle settings and advanced redaction techniques.
 
@@ -32,14 +29,11 @@ Learn how to implement border rasterization with GroupDocs.Redaction for .NET. E
 ### [Mastering Document Security&#58; Rasterize and Redact Word Docs with GroupDocs.Redaction .NET](./secure-word-docs-rasterize-redact-net/)
 Learn how to secure sensitive information in Microsoft Word documents by rasterizing and redacting using GroupDocs.Redaction for .NET. Follow step-by-step instructions for effective document protection.
 
-### [Mastering Rasterization Before Redaction in Word Documents with GroupDocs.Redaction .NET](./mastering-rasterization-redaction-word-docs-groupdocs-redaction-net/)
-Learn how to securely pre-rasterize and redact sensitive information from Microsoft Word documents using GroupDocs.Redaction for .NET. Perfect for legal, financial, and medical document management.
-
 ## Additional Resources
 
 - [GroupDocs.Redaction for Net Documentation](https://docs.groupdocs.com/redaction/net/)
 - [GroupDocs.Redaction for Net API Reference](https://reference.groupdocs.com/redaction/net/)
 - [Download GroupDocs.Redaction for Net](https://releases.groupdocs.com/redaction/net/)
-- [GroupDocs.Redaction Forum](https://forum.groupdocs.com/c/redaction)
+- [GroupDocs.Redaction Forum](https://forum.groupdocs.com/c/redaction/33)
 - [Free Support](https://forum.groupdocs.com/)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)

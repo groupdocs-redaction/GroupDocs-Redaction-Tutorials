@@ -186,7 +186,7 @@ Next steps could include exploring other redaction capabilities offered by Group
 - **API Reference**: [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)
 - **Download**: [Latest Releases](https://releases.groupdocs.com/redaction/java/)
 - **GitHub Repository**: [GroupDocs Redaction for Java](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
-- **Free Support Forum**: [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/10)
+- **Free Support Forum**: [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33)
 - **Temporary License Information**: [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
 This comprehensive guide should enable you to implement the removal of the last page from PDF documents using GroupDocs.Redaction efficiently.

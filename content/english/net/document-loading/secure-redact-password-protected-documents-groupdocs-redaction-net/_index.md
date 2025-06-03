@@ -154,7 +154,7 @@ By following this guide, you have learned how to securely load and redact passwo
 
 Consider integrating this functionality into larger applications to automate secure document processing workflows. Explore other GroupDocs libraries for comprehensive document management solutions.
 
-For further assistance and community support, visit [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/10).
+For further assistance and community support, visit [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33).
 
 ## FAQ Section
 
@@ -174,5 +174,5 @@ For further assistance and community support, visit [GroupDocs Forum](https://fo
 - [Documentation](https://docs.groupdocs.com/redaction/net/)
 - [API Reference](https://reference.groupdocs.com/redaction/net)
 - [Download](https://releases.groupdocs.com/redaction/net/)
-- [Free Support](https://forum.groupdocs.com/c/redaction/10)
+- [Free Support](https://forum.groupdocs.com/c/redaction/33)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)

@@ -143,7 +143,7 @@ Try implementing this solution today to enhance your data security processes!
 - [Documentation](https://docs.groupdocs.com/redaction/net/)
 - [API Reference](https://reference.groupdocs.com/redaction/net)
 - [Download GroupDocs.Redaction](https://releases.groupdocs.com/redaction/net/)
-- [Free Support Forum](https://forum.groupdocs.com/c/redaction/10)
+- [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)
 - [Temporary License Request](https://purchase.groupdocs.com/temporary-license/) 
 
 By following this guide, you'll be well-equipped to handle document redactions in your .NET applications using GroupDocs.Redaction. Happy coding!

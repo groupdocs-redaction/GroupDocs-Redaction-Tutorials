@@ -201,7 +201,7 @@ A5: Optimize by using efficient regex, managing memory effectively, and profilin
 - **Documentation**: [GroupDocs Redaction Documentation](https://docs.groupdocs.com/redaction/net/)
 - **API Reference**: [GroupDocs API Reference](https://reference.groupdocs.com/redaction/net)
 - **Download**: [GroupDocs Releases](https://releases.groupdocs.com/redaction/net/)
-- **Free Support**: [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/10)
+- **Free Support**: [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)
 - **Temporary License**: [GroupDocs Temporary License](https://purchase.groupdocs.com/temporary-license)
 
 With this comprehensive guide, you're now equipped to implement custom redactions in .NET using GroupDocs.Redaction. Start securing your documents today!

@@ -199,7 +199,7 @@ Explore further features of the API, such as regex-based redactions or metadata 
 - **Documentation:** [GroupDocs.Redaction .NET Documentation](https://docs.groupdocs.com/redaction/net/)
 - **API Reference:** [GroupDocs Redaction API Reference](https://reference.groupdocs.com/redaction/net)
 - **Download:** [Latest Releases](https://releases.groupdocs.com/redaction/net/)
-- **Free Support:** [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/10)
+- **Free Support:** [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)
 - **Temporary License:** [Apply for Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
 With this guide, you're well-equipped to implement effective redaction solutions in your .NET applications using GroupDocs.Redaction. Happy coding!

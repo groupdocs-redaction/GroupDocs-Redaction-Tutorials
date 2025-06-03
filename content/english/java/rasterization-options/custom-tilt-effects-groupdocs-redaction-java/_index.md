@@ -192,5 +192,5 @@ The primary limitation would be related to performance on very large files, but 
 - [API Reference](https://reference.groupdocs.com/redaction/java)
 - [Download GroupDocs.Redaction for Java](https://releases.groupdocs.com/redaction/java/)
 - [GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
-- [Free Support Forum](https://forum.groupdocs.com/c/redaction/10)
+- [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)
 - [Temporary License Application](https://purchase.groupdocs.com/temporary-license/)

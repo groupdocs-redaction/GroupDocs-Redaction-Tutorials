@@ -150,7 +150,7 @@ Throughout this tutorial, we’ve covered how to set up GroupDocs.Redaction for 
 - [Documentation](https://docs.groupdocs.com/redaction/net/)
 - [API Reference](https://reference.groupdocs.com/redaction/net)
 - [Download GroupDocs.Redaction](https://releases.groupdocs.com/redaction/net/)
-- [Free Support Forum](https://forum.groupdocs.com/c/redaction/10)
+- [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
 Embark on your journey to mastering image metadata management with GroupDocs.Redaction for .NET today!

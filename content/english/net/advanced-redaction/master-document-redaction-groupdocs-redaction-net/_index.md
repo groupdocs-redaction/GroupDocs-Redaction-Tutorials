@@ -145,7 +145,7 @@ Next steps? Experiment with different types of redactions and explore additional
 - **Documentation**: [GroupDocs.Redaction .NET Documentation](https://docs.groupdocs.com/redaction/net/)
 - **API Reference**: [GroupDocs Redaction API Reference](https://reference.groupdocs.com/redaction/net)
 - **Download**: [Latest Version Downloads](https://releases.groupdocs.com/redaction/net/)
-- **Free Support**: [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/10)
+- **Free Support**: [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)
 - **Temporary License**: [Acquire a Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
 We hope this guide empowers you to confidently implement document redaction in your .NET applications. Happy coding!

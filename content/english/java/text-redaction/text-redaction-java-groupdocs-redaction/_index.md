@@ -169,13 +169,13 @@ A3: Yes, you can specify any string as a replacement option in your `Replacement
 A4: Absolutely! Set the third parameter of `ExactPhraseRedaction` to `false` for case-insensitive matching.
 
 **Q5: How do I obtain support if I encounter issues?**
-A5: Visit [GroupDocs Free Support](https://forum.groupdocs.com/c/redaction/10) or refer to their comprehensive documentation and API references.
+A5: Visit [GroupDocs Free Support](https://forum.groupdocs.com/c/redaction/33) or refer to their comprehensive documentation and API references.
 
 ## Resources
 - **Documentation**: [GroupDocs.Redaction Java Docs](https://docs.groupdocs.com/redaction/java/)
 - **API Reference**: [GroupDocs Redaction API](https://reference.groupdocs.com/redaction/java)
 - **Download**: [GroupDocs Downloads](https://releases.groupdocs.com/redaction/java/)
 - **GitHub Repository**: [GroupDocs GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
-- **Free Support Forum**: [GroupDocs Redaction Forum](https://forum.groupdocs.com/c/redaction/10)
+- **Free Support Forum**: [GroupDocs Redaction Forum](https://forum.groupdocs.com/c/redaction/33)
 - **Temporary License**: [Obtain Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 

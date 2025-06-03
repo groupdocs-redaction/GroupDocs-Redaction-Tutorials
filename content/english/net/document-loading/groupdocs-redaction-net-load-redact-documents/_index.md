@@ -167,7 +167,7 @@ For further exploration, consider diving into the [GroupDocs documentation](http
 - **Documentation**: [GroupDocs Redaction .NET](https://docs.groupdocs.com/redaction/net/)
 - **API Reference**: [GroupDocs API Reference](https://reference.groupdocs.com/redaction/net)
 - **Download GroupDocs.Redaction**: [Releases and Downloads](https://releases.groupdocs.com/redaction/net/)
-- **Free Support Forum**: [GroupDocs Redaction Community](https://forum.groupdocs.com/c/redaction/10)
+- **Free Support Forum**: [GroupDocs Redaction Community](https://forum.groupdocs.com/c/redaction/33)
 - **Temporary License**: [Acquire a Temporary License](https://purchase.groupdocs.com/temporary-license/)
 
 Ready to start redacting documents with confidence? Begin by experimenting with the code snippets provided and explore more advanced features as you grow comfortable. Happy coding!

@@ -27,6 +27,6 @@ Learn to redact sensitive data from PDFs and Word files using GroupDocs.Redactio
 - [GroupDocs.Redaction for Java Documentation](https://docs.groupdocs.com/redaction/java/)
 - [GroupDocs.Redaction for Java API Reference](https://reference.groupdocs.com/redaction/java/)
 - [Download GroupDocs.Redaction for Java](https://releases.groupdocs.com/redaction/java/)
-- [GroupDocs.Redaction Forum](https://forum.groupdocs.com/c/redaction)
+- [GroupDocs.Redaction Forum](https://forum.groupdocs.com/c/redaction/33)
 - [Free Support](https://forum.groupdocs.com/)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)

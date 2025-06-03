@@ -191,7 +191,7 @@ Ready to take the next step? Implement this solution in your project and start h
 - [API Reference](https://reference.groupdocs.com/redaction/java)
 - [Download GroupDocs.Redaction for Java](https://releases.groupdocs.com/redaction/java/)
 - [GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
-- [Free Support Forum](https://forum.groupdocs.com/c/redaction/10)
+- [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)
 - [Temporary License Information](https://purchase.groupdocs.com/temporary-license/) 
 
 Dive into the world of document management and metadata extraction with GroupDocs.Redaction for Java, and enhance your application's capabilities today!

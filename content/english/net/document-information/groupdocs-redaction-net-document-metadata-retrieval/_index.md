@@ -148,7 +148,7 @@ Next steps include exploring other features within the GroupDocs library or inte
 - [Documentation](https://docs.groupdocs.com/redaction/net/)
 - [API Reference](https://reference.groupdocs.com/redaction/net)
 - [Download](https://releases.groupdocs.com/redaction/net/)
-- [Free Support Forum](https://forum.groupdocs.com/c/redaction/10)
+- [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)
 - [Temporary License Information](https://purchase.groupdocs.com/temporary-license/)
 
 Feel free to explore these resources for more in-depth information and community support. Happy coding!

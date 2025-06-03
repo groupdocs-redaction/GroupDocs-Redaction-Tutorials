@@ -136,13 +136,13 @@ Yes, use `ReplacementOptions` to define custom replacement texts for different t
 Visit [GroupDocs Licensing](https://purchase.groupdocs.com/temporary-license) for details on trial licenses and purchase options.
 
 **Q5: How do I get support if I encounter issues with GroupDocs.Redaction?**
-Access free support through the [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/10).
+Access free support through the [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33).
 
 ## Resources
 - **Documentation**: [Learn more here](https://docs.groupdocs.com/redaction/net/)
 - **API Reference**: [Explore API details](https://reference.groupdocs.com/redaction/net)
 - **Download**: [Get the latest version](https://releases.groupdocs.com/redaction/net/)
-- **Free Support**: [Join the forum](https://forum.groupdocs.com/c/redaction/10)
+- **Free Support**: [Join the forum](https://forum.groupdocs.com/c/redaction/33)
 - **Temporary License**: [Obtain a trial license](https://purchase.groupdocs.com/temporary-license)
 
 Implementing GroupDocs.Redaction for .NET is an effective way to enhance document security. By following this tutorial, you're well on your way to mastering its capabilities and integrating it into your projects. Give it a try today!

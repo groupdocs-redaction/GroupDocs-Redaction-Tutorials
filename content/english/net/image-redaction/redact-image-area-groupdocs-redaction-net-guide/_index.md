@@ -162,7 +162,7 @@ Ready to take your data protection game up a notch? Try implementing this soluti
 - [GroupDocs.Redaction Documentation](https://docs.groupdocs.com/redaction/net/)
 - [API Reference](https://reference.groupdocs.com/redaction/net)
 - [Download GroupDocs.Redaction for .NET](https://releases.groupdocs.com/redaction/net/)
-- [Free Support Forum](https://forum.groupdocs.com/c/redaction/10)
+- [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)
 - [Temporary License Application](https://purchase.groupdocs.com/temporary-license/)
 
 Implementing the solution outlined in this tutorial will help you protect sensitive information effectively, ensuring your applications meet privacy and security standards. Happy coding!

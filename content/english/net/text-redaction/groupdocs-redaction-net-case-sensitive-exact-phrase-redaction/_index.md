@@ -147,7 +147,7 @@ A: A free trial or temporary license is sufficient for initial testing and limit
 - [GroupDocs Documentation](https://docs.groupdocs.com/redaction/net/)
 - [API Reference](https://reference.groupdocs.com/redaction/net)
 - [Download Center](https://releases.groupdocs.com/redaction/net/)
-- [Free Support Forum](https://forum.groupdocs.com/c/redaction/10)
+- [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)
 - [Temporary License Application](https://purchase.groupdocs.com/temporary-license/)
 
 With this comprehensive guide, you're equipped to utilize GroupDocs.Redaction .NET for precise and secure document handling. Happy coding!

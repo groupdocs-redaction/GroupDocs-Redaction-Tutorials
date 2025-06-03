@@ -174,7 +174,7 @@ A5: Yes, GroupDocs.Redaction supports multiple file types including PDFs, Excel 
 - **API Reference:** [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)
 - **Download:** [GroupDocs.Redaction for Java Downloads](https://releases.groupdocs.com/redaction/java/)
 - **GitHub:** [GroupDocs GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
-- **Free Support:** [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/10)
+- **Free Support:** [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)
 - **Temporary License:** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
 By leveraging GroupDocs.Redaction, you can enhance your Java applications with powerful document information retrieval capabilities. Happy coding!

@@ -25,6 +25,6 @@ Master the art of redacting sensitive information in document annotations with t
 - [GroupDocs.Redaction for Net Documentation](https://docs.groupdocs.com/redaction/net/)
 - [GroupDocs.Redaction for Net API Reference](https://reference.groupdocs.com/redaction/net/)
 - [Download GroupDocs.Redaction for Net](https://releases.groupdocs.com/redaction/net/)
-- [GroupDocs.Redaction Forum](https://forum.groupdocs.com/c/redaction)
+- [GroupDocs.Redaction Forum](https://forum.groupdocs.com/c/redaction/33)
 - [Free Support](https://forum.groupdocs.com/)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)

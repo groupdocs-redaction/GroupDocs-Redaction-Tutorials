@@ -182,7 +182,7 @@ While this tutorial focuses on removing the last page, you can modify the `Remov
 - **Documentation**: [GroupDocs Redaction Documentation](https://docs.groupdocs.com/redaction/net/)
 - **API Reference**: [GroupDocs API Reference](https://reference.groupdocs.com/redaction/net)
 - **Download**: [GroupDocs Downloads](https://releases.groupdocs.com/redaction/net/)
-- **Free Support**: [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/10)
+- **Free Support**: [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)
 - **Temporary License**: [Get a Temporary License](https://purchase.groupdocs.com/temporary-license)
 
 Now that you have a thorough understanding of removing the last page from PDFs using GroupDocs.Redaction for .NET, why not put this knowledge into practice and see how it can streamline your document management processes? Happy coding!

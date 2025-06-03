@@ -230,5 +230,5 @@ A: Absolutely. Ensure proper resource management to avoid memory leaks in a web 
 - **Documentation**: [GroupDocs Redaction .NET Documentation](https://docs.groupdocs.com/redaction/net/)
 - **API Reference**: [GroupDocs Redaction API Reference](https://reference.groupdocs.com/redaction/net)
 - **Download**: [GroupDocs Downloads](https://releases.groupdocs.com/redaction/net/)
-- **Free Support**: [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/10)
+- **Free Support**: [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)
 - **Temporary License**: [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license)

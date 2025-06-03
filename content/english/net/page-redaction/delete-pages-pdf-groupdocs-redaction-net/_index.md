@@ -161,7 +161,7 @@ As next steps, consider exploring more advanced redaction features offered by Gr
 - [Documentation](https://docs.groupdocs.com/redaction/net/)
 - [API Reference](https://reference.groupdocs.com/redaction/net)
 - [Download GroupDocs.Redaction](https://releases.groupdocs.com/redaction/net/)
-- [Free Support Forum](https://forum.groupdocs.com/c/redaction/10)
+- [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)
 - [Temporary License Page](https://purchase.groupdocs.com/temporary-license/) 
 
 We hope this tutorial empowers you to effectively manage document redactions in your projects. Happy coding!

@@ -150,7 +150,7 @@ Next, consider exploring more advanced redaction options available in GroupDocs.
 - **Documentation**: [GroupDocs Redaction .NET Documentation](https://docs.groupdocs.com/redaction/net/)
 - **API Reference**: [API Reference for GroupDocs Redaction](https://reference.groupdocs.com/redaction/net)
 - **Download**: [Download Latest Version](https://releases.groupdocs.com/redaction/net/)
-- **Free Support**: [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/10)
+- **Free Support**: [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)
 - **Temporary License**: [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/)
 
 Now that you're equipped with the knowledge, go ahead and implement these redaction techniques to enhance document security in your applications!

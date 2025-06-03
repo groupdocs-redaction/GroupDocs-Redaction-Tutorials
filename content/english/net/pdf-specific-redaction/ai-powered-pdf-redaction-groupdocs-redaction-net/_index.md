@@ -192,7 +192,7 @@ Ready to put your new skills into action? Try implementing this solution in a pr
 - [Documentation](https://docs.groupdocs.com/redaction/net/)
 - [API Reference](https://reference.groupdocs.com/redaction/net)
 - [Download](https://releases.groupdocs.com/redaction/net/)
-- [Free Support Forum](https://forum.groupdocs.com/c/redaction/10)
+- [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
 By utilizing these resources, you can further enhance your understanding and mastery of GroupDocs.Redaction .NET. Happy coding!

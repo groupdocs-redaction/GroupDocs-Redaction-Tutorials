@@ -154,7 +154,7 @@ Next steps could include exploring more advanced redaction features or integrati
 - **Documentation**: [GroupDocs Redaction Documentation](https://docs.groupdocs.com/redaction/net/)
 - **API Reference**: [API Reference](https://reference.groupdocs.com/redaction/net)
 - **Download**: [Latest Release](https://releases.groupdocs.com/redaction/net/)
-- **Free Support**: [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/10)
+- **Free Support**: [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)
 - **Temporary License**: [Get Temporary License](https://purchase.groupdocs.com/temporary-license/)
 
 Try implementing the solution discussed today, and see how it can streamline your document processing tasks!

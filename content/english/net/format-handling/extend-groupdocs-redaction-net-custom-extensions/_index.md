@@ -158,10 +158,10 @@ A3: Ensure you have .NET Framework or .NET Core installed, compatible with the v
 A4: While no hard limit exists, consider processing large volumes in batches for efficiency.
 
 **Q5: How do I contribute to the GroupDocs community?**
-A5: Engage with other users on the [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/10) and share your insights or seek advice.
+A5: Engage with other users on the [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33) and share your insights or seek advice.
 
 ## Resources
 - **Documentation**: Explore comprehensive guides at [GroupDocs Documentation](https://docs.groupdocs.com/redaction/net/).
 - **API Reference**: Access detailed API information at [GroupDocs Redaction API Reference](https://reference.groupdocs.com/redaction/net).
 - **Downloads**: Obtain the latest version from [GroupDocs Releases](https://releases.groupdocs.com/redaction/net/).
-- **Support**: Join discussions or seek help on the [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/10).
+- **Support**: Join discussions or seek help on the [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33).

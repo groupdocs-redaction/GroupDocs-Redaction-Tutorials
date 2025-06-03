@@ -207,7 +207,7 @@ A3: GroupDocs.Redaction supports a wide range of file formats including PDFs, Wo
 A4: Download the trial from the [GroupDocs website](https://purchase.groupdocs.com/temporary-license/) to explore all features without restrictions.
 
 **Q5: Where can I find support if I encounter issues?**
-A5: Visit the [GroupDocs forum](https://forum.groupdocs.com/c/redaction/10) for free support and community advice.
+A5: Visit the [GroupDocs forum](https://forum.groupdocs.com/c/redaction/33) for free support and community advice.
 
 ## Resources
 - **Documentation:** [GroupDocs Redaction .NET Documentation](https://docs.groupdocs.com/redaction/net/)

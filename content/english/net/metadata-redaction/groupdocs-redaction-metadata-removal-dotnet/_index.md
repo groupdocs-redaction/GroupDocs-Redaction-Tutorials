@@ -163,7 +163,7 @@ Congratulations! You now have the knowledge to implement metadata redaction usin
 - [Documentation](https://docs.groupdocs.com/redaction/net/)
 - [API Reference](https://reference.groupdocs.com/redaction/net)
 - [Download](https://releases.groupdocs.com/redaction/net/)
-- [Free Support](https://forum.groupdocs.com/c/redaction/10)
+- [Free Support](https://forum.groupdocs.com/c/redaction/33)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)
 
 Take this opportunity to explore the powerful features of GroupDocs.Redaction and enhance your document security practices today!

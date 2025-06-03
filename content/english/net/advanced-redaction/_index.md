@@ -14,9 +14,6 @@ Our advanced redaction tutorials provide in-depth guidance for customizing and e
 ### [How to Create a Redaction Policy Using GroupDocs.Redaction .NET&#58; A Step-by-Step Guide](./groupdocs-redaction-net-create-save-policy/)
 Learn how to create and save custom redaction policies with GroupDocs.Redaction for .NET. Secure your documents by redacting sensitive information efficiently.
 
-### [How to Implement GroupDocs.Redaction Callbacks in .NET for Secure Document Handling](./implementing-groupdocs-redaction-callbacks-net/)
-Learn how to implement the IRedactionCallback interface using GroupDocs.Redaction .NET. This guide provides a step-by-step approach to secure document redactions, ensuring data confidentiality.
-
 ### [Implement Custom Logging in GroupDocs.Redaction for .NET&#58; A Comprehensive Guide](./custom-logging-groupdocs-redaction-net/)
 Learn how to implement custom logging with GroupDocs.Redaction for .NET to enhance document redaction workflows. Discover practical steps and key features.
 
@@ -43,6 +40,6 @@ Learn how to secure sensitive documents using GroupDocs.Redaction for .NET. This
 - [GroupDocs.Redaction for Net Documentation](https://docs.groupdocs.com/redaction/net/)
 - [GroupDocs.Redaction for Net API Reference](https://reference.groupdocs.com/redaction/net/)
 - [Download GroupDocs.Redaction for Net](https://releases.groupdocs.com/redaction/net/)
-- [GroupDocs.Redaction Forum](https://forum.groupdocs.com/c/redaction)
+- [GroupDocs.Redaction Forum](https://forum.groupdocs.com/c/redaction/33)
 - [Free Support](https://forum.groupdocs.com/)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)

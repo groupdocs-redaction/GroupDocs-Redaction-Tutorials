@@ -184,6 +184,6 @@ A5: You can start with a free trial, obtain a temporary license, or purchase a f
 - **API Reference**: [API Reference](https://reference.groupdocs.com/redaction/java)
 - **Download**: [Latest Releases](https://releases.groupdocs.com/redaction/java/)
 - **GitHub Repository**: [GroupDocs GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
-- **Free Support**: [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/10)
+- **Free Support**: [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)
 - **Temporary License**: [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license)
 

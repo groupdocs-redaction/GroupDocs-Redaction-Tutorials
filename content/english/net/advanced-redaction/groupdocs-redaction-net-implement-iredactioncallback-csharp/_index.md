@@ -143,9 +143,10 @@ A4: While not inherently asynchronous, you can architect your application to run
 A5: The [official documentation](https://docs.groupdocs.com/redaction/net/) and API reference offer extensive examples and guides.
 
 ## Resources
-- **Documentation**: https://docs.groupdocs.com/redaction/net/
-- **API Reference**: https://reference.groupdocs.com/redaction/net
-- **Download**: https://releases.groupdocs.com/redaction/net/
-- **Free Support**: https://forum.groupdocs.com/c/redaction/10
-- **Temporary License**: https://purchase.groupdocs.com/temporary-license/"
 
+- [GroupDocs.Redaction for Net Documentation](https://docs.groupdocs.com/redaction/net/)
+- [GroupDocs.Redaction for Net API Reference](https://reference.groupdocs.com/redaction/net/)
+- [Download GroupDocs.Redaction for Net](https://releases.groupdocs.com/redaction/net/)
+- [GroupDocs.Redaction Forum](https://forum.groupdocs.com/c/redaction/33)
+- [Free Support](https://forum.groupdocs.com/)
+- [Temporary License](https://purchase.groupdocs.com/temporary-license/)
