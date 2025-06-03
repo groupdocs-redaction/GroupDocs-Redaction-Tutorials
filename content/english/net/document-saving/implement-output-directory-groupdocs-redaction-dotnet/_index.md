@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Implementing Output Directory with GroupDocs.Redaction .NET
 
 ## Introduction
@@ -160,7 +158,3 @@ Next steps could include exploring more advanced redaction features or integrati
 - **Temporary License**: [Get Temporary License](https://purchase.groupdocs.com/temporary-license/)
 
 Try implementing the solution discussed today, and see how it can streamline your document processing tasks!
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

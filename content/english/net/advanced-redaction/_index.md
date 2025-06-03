@@ -4,9 +4,7 @@ description: "Complete tutorials for implementing custom redaction handlers, red
 weight: 9
 url: "/net/advanced-redaction/"
 ---
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Advanced Redaction Techniques for GroupDocs.Redaction .NET
 
 Our advanced redaction tutorials provide in-depth guidance for customizing and extending GroupDocs.Redaction functionality in .NET. These comprehensive guides demonstrate how to create custom redaction handlers, implement redaction policies, use callbacks for complex processing, and leverage AI technologies for intelligent document redaction. Each tutorial includes detailed C# code examples for sophisticated redaction requirements, helping you build powerful applications that can handle complex document security scenarios beyond standard redaction capabilities.
@@ -48,7 +46,3 @@ Learn how to secure sensitive documents using GroupDocs.Redaction for .NET. This
 - [GroupDocs.Redaction Forum](https://forum.groupdocs.com/c/redaction)
 - [Free Support](https://forum.groupdocs.com/)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

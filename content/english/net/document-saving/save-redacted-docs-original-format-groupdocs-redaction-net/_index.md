@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Save a Redacted Document in Its Original Format Using GroupDocs.Redaction .NET
 
 ## Introduction
@@ -161,7 +159,3 @@ To further enhance your skills, consider exploring more advanced features of the
 - **Temporary License**: [Get a Temporary License](https://purchase.groupdocs.com/temporary-license/)
 
 By equipping yourself with GroupDocs.Redaction .NET, you're taking a significant step toward enhanced document security and management. Happy coding!
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

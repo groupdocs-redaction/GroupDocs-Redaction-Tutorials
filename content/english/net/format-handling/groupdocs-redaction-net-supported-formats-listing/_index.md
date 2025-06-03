@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Comprehensive Tutorial: Implementing Supported File Format Listing with GroupDocs.Redaction .NET
 
 ## Introduction
@@ -156,7 +154,3 @@ Consider exploring other features of GroupDocs.Redaction or integrating it furth
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
 By following this guide, you should now have a solid understanding of how to implement and utilize the GroupDocs.Redaction .NET library for listing supported file formats. Happy coding!
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

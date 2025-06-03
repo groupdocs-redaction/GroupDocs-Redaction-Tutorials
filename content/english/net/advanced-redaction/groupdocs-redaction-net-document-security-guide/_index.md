@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering Document Security with GroupDocs.Redaction .NET: A Comprehensive Guide to Phrase and Metadata Redaction
 
 ## Introduction
@@ -236,7 +234,3 @@ A: Yes, it can be part of larger workflows or applications using .NET interopera
 - **Temporary License:** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
 By following this guide, you'll be well-equipped to implement effective document redactions using GroupDocs.Redaction for .NET.
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

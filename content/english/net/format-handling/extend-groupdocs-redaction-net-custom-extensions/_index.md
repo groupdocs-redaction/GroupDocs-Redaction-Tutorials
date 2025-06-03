@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Extend File Types in GroupDocs.Redaction .NET: A Step-by-Step Guide
 
 ## Introduction
@@ -167,7 +165,3 @@ A5: Engage with other users on the [GroupDocs Forum](https://forum.groupdocs.com
 - **API Reference**: Access detailed API information at [GroupDocs Redaction API Reference](https://reference.groupdocs.com/redaction/net).
 - **Downloads**: Obtain the latest version from [GroupDocs Releases](https://releases.groupdocs.com/redaction/net/).
 - **Support**: Join discussions or seek help on the [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/10).
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

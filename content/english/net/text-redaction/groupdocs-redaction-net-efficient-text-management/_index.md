@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Master GroupDocs.Redaction .NET for Efficient Text Management in Plain Documents
 
 ## Introduction
@@ -234,7 +232,3 @@ A: Absolutely. Ensure proper resource management to avoid memory leaks in a web 
 - **Download**: [GroupDocs Downloads](https://releases.groupdocs.com/redaction/net/)
 - **Free Support**: [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/10)
 - **Temporary License**: [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

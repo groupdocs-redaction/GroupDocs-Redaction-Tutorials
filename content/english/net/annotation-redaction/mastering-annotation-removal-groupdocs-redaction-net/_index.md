@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Efficient Annotation Removal in Documents Using GroupDocs.Redaction .NET
 
 ## Introduction
@@ -193,7 +191,3 @@ Ready to implement? Dive into the code and start transforming your document mana
 
 Embark on your journey with GroupDocs.Redaction for .NET and streamline your document management today!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

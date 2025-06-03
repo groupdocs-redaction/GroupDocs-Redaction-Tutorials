@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Comprehensive Guide to Redacting and Saving Documents Using GroupDocs.Redaction for .NET
 
 ## Introduction
@@ -91,7 +89,3 @@ using (Redactor redactor = new Redactor(sourceFile))
 ##### Apply Exact Phrase Redaction
 ```csharp
 RedactorChangeLog result = redactor.Apply(new ExactPhraseRedaction("John Doe\
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

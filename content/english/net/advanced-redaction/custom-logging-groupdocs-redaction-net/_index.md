@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Implementing Custom Logging in GroupDocs.Redaction for .NET
 
 ## Introduction
@@ -193,7 +191,3 @@ To further explore GroupDocs.Redaction capabilities, consider delving into addit
 - **Documentation:** [GroupDocs.Redaction .NET Documentation](https://docs.groupdocs.com/redaction/net/)
 - **API Reference:** [GroupDocs.Redaction API Reference](https://reference.groupdocs.com/redaction/net)
 - **Download:** [GroupDocs.Redaction for .NET](https://downloads.groupdocs.com/redaction/net)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # How to Delete Pages from PDFs Using GroupDocs.Redaction .NET: A Step-by-Step Guide
 
 ## Introduction
@@ -168,7 +166,3 @@ As next steps, consider exploring more advanced redaction features offered by Gr
 
 We hope this tutorial empowers you to effectively manage document redactions in your projects. Happy coding!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

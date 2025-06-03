@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering Advanced Rasterization Techniques in .NET with GroupDocs.Redaction
 
 ## Introduction
@@ -163,7 +161,3 @@ As next steps, consider exploring more features of GroupDocs.Redaction or integr
 
 Now that you're equipped with the knowledge to implement advanced rasterization with GroupDocs.Redaction for .NET, try applying these techniques in your projects. Happy coding!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

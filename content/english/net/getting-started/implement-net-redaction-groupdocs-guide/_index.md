@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Comprehensive Guide to Implementing .NET Redaction with GroupDocs.Redaction
 
 ## Introduction
@@ -206,7 +204,3 @@ Explore further features of the API, such as regex-based redactions or metadata 
 
 With this guide, you're well-equipped to implement effective redaction solutions in your .NET applications using GroupDocs.Redaction. Happy coding!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Clean and Redact Metadata in .NET Using GroupDocs.Redaction: A Step-by-Step Guide
 
 ## Introduction
@@ -202,7 +200,3 @@ In this tutorial, you learned how to clean specific metadata items from a docume
 
 Now that you have all the information, why not try implementing these solutions in your own projects? Happy coding!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering Document Security: Rasterize and Redact Word Docs with GroupDocs.Redaction .NET
 
 ## Introduction
@@ -190,7 +188,3 @@ Ready to enhance your document security? Start implementing these techniques tod
 
 Explore these resources for further insights and support as you implement secure document processing with GroupDocs.Redaction. Happy redacting!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

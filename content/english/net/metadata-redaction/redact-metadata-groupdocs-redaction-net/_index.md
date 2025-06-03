@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # How to Redact Document Metadata Using GroupDocs.Redaction for .NET
 
 ## Introduction
@@ -161,7 +159,3 @@ A: Absolutely! GroupDocs.Redaction is designed for seamless integration with .NE
 
 By following this guide, you're now equipped to implement metadata redaction in your .NET applications effectively. Happy coding!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

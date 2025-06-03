@@ -4,9 +4,7 @@ description: "Step-by-step tutorials for configuring advanced options for raster
 weight: 13
 url: "/net/rasterization-options/"
 ---
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Rasterization Options Tutorials for GroupDocs.Redaction .NET
 
 Our rasterization tutorials show you how to enhance document security through advanced PDF conversion options in GroupDocs.Redaction for .NET. These detailed guides cover implementing noise patterns, tilt effects, grayscale conversion, border options, and page selection for rasterized output files. Each tutorial includes practical C# code examples that demonstrate how to make your redacted content more secure by converting documents to non-reversible image-based PDFs with customized visual security features.
@@ -45,7 +43,3 @@ Learn how to securely pre-rasterize and redact sensitive information from Micros
 - [GroupDocs.Redaction Forum](https://forum.groupdocs.com/c/redaction)
 - [Free Support](https://forum.groupdocs.com/)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

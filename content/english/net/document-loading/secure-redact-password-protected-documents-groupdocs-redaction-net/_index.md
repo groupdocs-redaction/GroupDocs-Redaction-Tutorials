@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # How to Load and Redact Password-Protected Documents Using GroupDocs.Redaction .NET
 
 ## Introduction
@@ -178,7 +176,3 @@ For further assistance and community support, visit [GroupDocs Forum](https://fo
 - [Download](https://releases.groupdocs.com/redaction/net/)
 - [Free Support](https://forum.groupdocs.com/c/redaction/10)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

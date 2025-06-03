@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering Document Metadata Retrieval with GroupDocs.Redaction .NET
 
 ## Introduction
@@ -155,7 +153,3 @@ Next steps include exploring other features within the GroupDocs library or inte
 
 Feel free to explore these resources for more in-depth information and community support. Happy coding!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

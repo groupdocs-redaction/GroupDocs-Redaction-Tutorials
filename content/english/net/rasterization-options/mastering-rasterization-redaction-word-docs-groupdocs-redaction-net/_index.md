@@ -11,15 +11,9 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering Rasterization Before Redaction in Microsoft Word Documents with GroupDocs.Redaction .NET
 
 ## Introduction
 
 Securing sensitive information in Microsoft Word documents before sharing is essential but challenging, especially when dealing with embedded text or complex layouts. This tutorial demonstrates how to pre-rasterize and redact content using "GroupDocs.Redaction .NET\
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # How to Extract Document Metadata from Streams Using GroupDocs.Redaction .NET
 
 ## Introduction
@@ -215,7 +213,3 @@ A5: Visit the [GroupDocs forum](https://forum.groupdocs.com/c/redaction/10) for 
 - **Documentation:** [GroupDocs Redaction .NET Documentation](https://docs.groupdocs.com/redaction/net/)
 - **API Reference:** [GroupDocs Redaction API Reference](https://reference.groupdocs.com/redaction/net)
 - **Download:** [Latest GroupDocs Releases](https://releases.groupdocs.com/redaction/net)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

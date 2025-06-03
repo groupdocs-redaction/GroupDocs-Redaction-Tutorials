@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Setting a License from Stream with GroupDocs.Redaction .NET
 ## Introduction
 In today's software development landscape, managing licenses effectively is essential for seamless operations and compliance. This tutorial guides you through setting up a license file using a stream in GroupDocs.Redaction for .NET—a method that provides flexibility and efficiency when deploying your applications.
@@ -116,7 +114,3 @@ Implementing the ability to set a GroupDocs.Redaction license from a stream enha
 - [Free Support Forum](https://forum.groupdocs.com/c/redaction/10)
 - [Temporary License Request](https://purchase.groupdocs.com/temporary-license/) 
 By following this tutorial, you're well on your way to efficiently managing licenses in GroupDocs.Redaction for .NET using streams. Happy coding!
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # How to Remove Metadata from Documents Using GroupDocs.Redaction for .NET
 
 Worried about sensitive metadata in your documents? Whether it's author details or revision history, unwanted metadata can pose privacy risks and clutter files. This tutorial guides you through using GroupDocs.Redaction for .NET to clean up your documents securely.
@@ -161,7 +159,3 @@ You've successfully learned how to remove metadata from your documents using Gro
 - [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
 Start implementing this feature today to enhance your document management practices!
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

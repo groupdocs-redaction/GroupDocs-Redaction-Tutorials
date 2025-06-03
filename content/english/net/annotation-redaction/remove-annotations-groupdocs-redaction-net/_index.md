@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Efficiently Remove Annotations from Documents Using GroupDocs.Redaction for .NET
 
 Are you looking to manage sensitive information in your documents effectively? With the growing demand for data privacy, having tools like GroupDocs.Redaction for .NET can help you remove annotations seamlessly across various document formats. This tutorial will guide you through using this powerful tool.
@@ -149,7 +147,3 @@ Try implementing this solution today to enhance your data security processes!
 - [Temporary License Request](https://purchase.groupdocs.com/temporary-license/) 
 
 By following this guide, you'll be well-equipped to handle document redactions in your .NET applications using GroupDocs.Redaction. Happy coding!
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

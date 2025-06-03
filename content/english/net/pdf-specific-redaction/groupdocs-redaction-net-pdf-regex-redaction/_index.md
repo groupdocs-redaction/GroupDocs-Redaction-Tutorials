@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering PDF Regex Redaction with GroupDocs.Redaction .NET
 
 ## Introduction
@@ -174,7 +172,3 @@ Why not try implementing it in your next project? Experience firsthand how Group
 
 This guide should empower you to implement and utilize GroupDocs.Redaction for .NET effectively, ensuring your PDF documents are handled with the utmost care and security. Happy redacting!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

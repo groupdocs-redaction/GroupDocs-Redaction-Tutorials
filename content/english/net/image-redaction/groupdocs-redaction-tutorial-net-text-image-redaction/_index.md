@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Comprehensive Guide: Implementing Text and Image Redaction in .NET with GroupDocs.Redaction
 
 ## Introduction
@@ -157,7 +155,3 @@ Next, consider exploring more advanced redaction options available in GroupDocs.
 
 Now that you're equipped with the knowledge, go ahead and implement these redaction techniques to enhance document security in your applications!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

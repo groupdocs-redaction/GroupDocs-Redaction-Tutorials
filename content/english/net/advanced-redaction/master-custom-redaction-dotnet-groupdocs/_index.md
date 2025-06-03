@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering Document Privacy: Implement Custom Redaction in .NET with GroupDocs.Redaction
 
 In today's digital age, securing sensitive information within documents is crucial. Whether you're a business handling confidential client data or an individual managing personal records, protecting this content from unauthorized access is essential. This comprehensive guide will walk you through using GroupDocs.Redaction for .NET to implement custom redactions in PDFs, ensuring your documents remain private and secure.
@@ -207,7 +205,3 @@ A5: Optimize by using efficient regex, managing memory effectively, and profilin
 - **Temporary License**: [GroupDocs Temporary License](https://purchase.groupdocs.com/temporary-license)
 
 With this comprehensive guide, you're now equipped to implement custom redactions in .NET using GroupDocs.Redaction. Start securing your documents today!
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

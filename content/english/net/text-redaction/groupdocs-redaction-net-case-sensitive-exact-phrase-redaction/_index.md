@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Master Case-Sensitive Exact Phrase Redaction with GroupDocs.Redaction .NET for Document Security
 
 ## Introduction
@@ -154,7 +152,3 @@ A: A free trial or temporary license is sufficient for initial testing and limit
 
 With this comprehensive guide, you're equipped to utilize GroupDocs.Redaction .NET for precise and secure document handling. Happy coding!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

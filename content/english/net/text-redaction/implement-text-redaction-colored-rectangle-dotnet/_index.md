@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # How to Implement Text Redaction with a Colored Rectangle in .NET Using GroupDocs.Redaction
 
 ## Introduction
@@ -179,7 +177,3 @@ Explore further customization options within the API and consider integrating th
 
 By following this guide, you're well-equipped to implement secure text redaction in your .NET applications using GroupDocs.Redaction. Happy coding!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

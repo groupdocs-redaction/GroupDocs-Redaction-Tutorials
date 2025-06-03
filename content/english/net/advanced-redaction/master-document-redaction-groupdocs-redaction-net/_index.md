@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering Document Redaction in .NET: A Comprehensive Guide to Using GroupDocs.Redaction
 
 ## Introduction
@@ -151,7 +149,3 @@ Next steps? Experiment with different types of redactions and explore additional
 - **Temporary License**: [Acquire a Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
 We hope this guide empowers you to confidently implement document redaction in your .NET applications. Happy coding!
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

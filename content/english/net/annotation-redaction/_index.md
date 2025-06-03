@@ -4,9 +4,7 @@ description: "Step-by-step tutorials for managing and redacting document annotat
 weight: 7
 url: "/net/annotation-redaction/"
 ---
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Annotation Redaction Tutorials for GroupDocs.Redaction .NET
 
 Our annotation redaction tutorials show you how to secure collaborative document features using GroupDocs.Redaction in .NET. These step-by-step guides cover redacting text within annotations, removing specific annotations, eliminating all review comments, and handling other review markup elements. Each tutorial includes practical C# code examples that demonstrate how to ensure sensitive information isn't inadvertently exposed through document comments and annotations, which are often overlooked in document security workflows.
@@ -30,7 +28,3 @@ Master the art of redacting sensitive information in document annotations with t
 - [GroupDocs.Redaction Forum](https://forum.groupdocs.com/c/redaction)
 - [Free Support](https://forum.groupdocs.com/)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

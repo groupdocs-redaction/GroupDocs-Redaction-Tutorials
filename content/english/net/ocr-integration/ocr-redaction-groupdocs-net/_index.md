@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Implementing OCR and Redaction in .NET with GroupDocs.Redaction
 
 ## Introduction
@@ -181,7 +179,3 @@ For further exploration, here are some helpful links:
 
 With this comprehensive guide, you're well on your way to implementing a secure OCR and redaction solution in your .NET applications. Happy coding!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

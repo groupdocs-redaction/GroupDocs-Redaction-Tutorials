@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Implementing .NET OCR with Azure Cognitive Services & GroupDocs.Redaction
 
 ## Introduction
@@ -200,7 +198,3 @@ Azure Cognitive Services provides advanced AI-driven OCR capabilities, allowing 
 ### How do I handle errors when connecting to Azure services?
 Ensure your endpoint URL and subscription key are correctly configured. Check network connectivity and ensure your Azure subscription has sufficient credits.
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

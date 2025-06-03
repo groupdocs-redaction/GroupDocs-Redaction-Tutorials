@@ -4,9 +4,7 @@ description: "Learn advanced PDF document redaction techniques, filters, and spe
 weight: 11
 url: "/net/pdf-specific-redaction/"
 ---
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # PDF-Specific Redaction Tutorials for GroupDocs.Redaction .NET
 
 Our PDF-specific redaction tutorials demonstrate specialized techniques for handling PDF security using GroupDocs.Redaction in .NET. These step-by-step guides cover implementing PDF redaction filters, handling PDF-specific content structures, working with image redaction in PDFs, and managing PDF metadata securely. Each tutorial includes working C# code examples for PDF-focused redaction scenarios, helping you build applications that can effectively address the unique security challenges presented by PDF documents.
@@ -33,7 +31,3 @@ Learn how to effectively implement exact phrase redaction for right-to-left lang
 - [GroupDocs.Redaction Forum](https://forum.groupdocs.com/c/redaction)
 - [Free Support](https://forum.groupdocs.com/)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering Noise Rasterization in .NET with GroupDocs.Redaction
 
 ## Introduction
@@ -166,7 +164,3 @@ Ready to take control of your document redaction needs? Try implementing noise r
 - [Download](https://releases.groupdocs.com/redaction/net/)
 - [Free Support](https://forum.groupdocs.com/c/redaction/10)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

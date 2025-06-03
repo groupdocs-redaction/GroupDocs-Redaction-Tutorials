@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # How to Redact Embedded Images in a Word Document Using GroupDocs.Redaction .NET
 
 ## Introduction
@@ -166,7 +164,3 @@ For further exploration, consider experimenting with different types of redactio
 - **Download:** [Latest Releases](https://releases.groupdocs.com/redaction/net/) 
 
 Take the next step and start implementing these solutions to enhance your document security today!
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

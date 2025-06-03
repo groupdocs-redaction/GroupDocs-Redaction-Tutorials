@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering Exact Phrase Redaction in RTL PDFs with GroupDocs.Redaction .NET
 
 ## Introduction
@@ -142,7 +140,3 @@ Ready to put your skills into practice? Try implementing these techniques on you
 
 With these resources, you’re well-equipped to continue expanding your knowledge and capabilities with GroupDocs.Redaction .NET. Happy redacting!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Redact Excel Columns with GroupDocs.Redaction .NET: Secure Sensitive Data in Spreadsheets
 
 ## Introduction
@@ -221,7 +219,3 @@ Ready to implement these solutions? Try it out and see how you can enhance your 
 - **Documentation:** [GroupDocs Redaction .NET Documentation](https://docs.groupdocs.com/redaction/net/)
 - **API Reference:** [GroupDocs Redaction API Reference](https://reference.groupdocs.com/redaction/net)
 - **Download:** [GroupDocs Redaction .NET SDK](https://downloads.groupdocs.com/redaction/net/sdk)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

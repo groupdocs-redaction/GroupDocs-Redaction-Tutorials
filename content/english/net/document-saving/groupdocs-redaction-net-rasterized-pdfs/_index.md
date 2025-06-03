@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # How to Save Documents as Rasterized PDFs Using GroupDocs.Redaction for .NET: A Complete Guide
 
 ## Introduction
@@ -148,7 +146,3 @@ Access free support through the [GroupDocs Forum](https://forum.groupdocs.com/c/
 - **Temporary License**: [Obtain a trial license](https://purchase.groupdocs.com/temporary-license)
 
 Implementing GroupDocs.Redaction for .NET is an effective way to enhance document security. By following this tutorial, you're well on your way to mastering its capabilities and integrating it into your projects. Give it a try today!
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

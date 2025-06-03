@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Erase Image Metadata Using GroupDocs.Redaction in C#: A Guide for Removing EXIF Data
 
 ## Introduction
@@ -156,7 +154,3 @@ Throughout this tutorial, we’ve covered how to set up GroupDocs.Redaction for 
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
 Embark on your journey to mastering image metadata management with GroupDocs.Redaction for .NET today!
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

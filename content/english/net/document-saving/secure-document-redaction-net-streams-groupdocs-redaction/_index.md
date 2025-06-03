@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Secure Document Redaction in .NET Using Streams: A Comprehensive Guide
 
 **Category:** Document Saving
@@ -167,7 +165,3 @@ Ready to put this into practice? Implement these steps and enhance the security 
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
 Dive deeper into GroupDocs.Redaction for .NET with these resources and start implementing secure document handling solutions today!
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

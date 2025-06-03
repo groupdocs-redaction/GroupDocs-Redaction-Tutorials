@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # How to Create a Redaction Policy Using GroupDocs.Redaction .NET
 
 ## Introduction
@@ -175,7 +173,3 @@ Ready to start implementing? Dive in and secure your documents today!
 - [Temporary License Application](https://purchase.groupdocs.com/temporary-license/) 
 
 Take the next step in securing your documents with GroupDocs.Redaction for .NET today!
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

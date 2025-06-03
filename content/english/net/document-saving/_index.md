@@ -4,9 +4,7 @@ description: "Complete tutorials for saving redacted documents in original forma
 weight: 3
 url: "/net/document-saving/"
 ---
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Document Saving Tutorials for GroupDocs.Redaction .NET
 
 Master document saving options with our detailed GroupDocs.Redaction .NET tutorials. These step-by-step guides demonstrate how to save redacted documents in their original format, convert them to rasterized PDFs for maximum security, and work with memory streams for efficient document handling. Each tutorial includes working C# code examples, implementation notes, and best practices to help you build applications that reliably preserve redacted content while maintaining appropriate document formats.
@@ -36,7 +34,3 @@ Learn how to securely redact sensitive information from documents using streams 
 - [GroupDocs.Redaction Forum](https://forum.groupdocs.com/c/redaction)
 - [Free Support](https://forum.groupdocs.com/)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

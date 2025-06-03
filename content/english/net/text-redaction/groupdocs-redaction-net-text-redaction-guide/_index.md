@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # How to Implement Text Redaction Using GroupDocs.Redaction for .NET: A Comprehensive Guide
 
 ## Introduction
@@ -170,7 +168,3 @@ By following this guide, you've learned how to implement text redaction using Gr
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
 Feel free to explore these resources for further information and support. Happy coding!
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

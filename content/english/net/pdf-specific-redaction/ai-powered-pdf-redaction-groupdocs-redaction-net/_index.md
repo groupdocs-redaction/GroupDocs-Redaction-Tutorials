@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Implementing AI-Powered PDF Redaction with GroupDocs.Redaction .NET
 
 ## Introduction
@@ -199,7 +197,3 @@ Ready to put your new skills into action? Try implementing this solution in a pr
 
 By utilizing these resources, you can further enhance your understanding and mastery of GroupDocs.Redaction .NET. Happy coding!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

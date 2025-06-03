@@ -26,6 +26,30 @@ keywords:
 
 Discover a comprehensive knowledge base for GroupDocs.Redaction across multiple platforms, including .NET and Java. Explore a wide range of tutorials covering text and metadata redaction, image sanitization, annotation removal, and advanced redaction techniques. Whether you're a .NET or Java developer, this resource hub provides you with the tools and methodologies needed to implement secure document processing workflows that protect sensitive information while maintaining document integrity.
 
+## GroupDocs.Redaction for .NET Tutorials
+{{% alert color="primary" %}}
+GroupDocs.Redaction for .NET offers a comprehensive suite of tutorials and examples for implementing secure document redaction in your .NET applications. From basic text replacements to advanced metadata cleansing, these resources cover essential techniques for redacting sensitive information from documents. Learn how to permanently remove private data from various document formats including PDF, Word, Excel, PowerPoint, and images with precise control and complete removal of confidential content. Our step-by-step guides help you master both standard and advanced redaction capabilities to meet compliance requirements and protect sensitive information effectively.
+{{% /alert %}}
+
+Explore these essential .NET resources:
+
+- [Getting Started](./net/getting-started/)
+- [Document Loading](./net/document-loading/)
+- [Document Saving](./net/document-saving/)
+- [Text Redaction](./net/text-redaction/)
+- [Metadata Redaction](./net/metadata-redaction/)
+- [Image Redaction](./net/image-redaction/)
+- [Annotation Redaction](./net/annotation-redaction/)
+- [Page Redaction](./net/page-redaction/)
+- [Advanced Redaction](./net/advanced-redaction/)
+- [OCR Integration](./net/ocr-integration/)
+- [PDF-Specific Redaction](./net/pdf-specific-redaction/)
+- [Spreadsheet Redaction](./net/spreadsheet-redaction/)
+- [Rasterization Options](./net/rasterization-options/)
+- [Format Handling](./net/format-handling/)
+- [Document Information](./net/document-information/)
+- [Licensing & Configuration](./net/licensing-configuration/)
+
 ## GroupDocs.Redaction for Java Tutorials
 
 {{% alert color="primary" %}}

@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # How to Implement GroupDocs.Redaction Callbacks in .NET for Secure Document Handling
 
 ## Introduction
@@ -90,7 +88,3 @@ public class RedactionDump : IRedactionCallback
     {
         // Print details of the redaction being processed
         Console.Write("{0} redaction, {1} action, item {2}. \
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

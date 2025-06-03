@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Master .NET Redaction with GroupDocs: Apply Policies to Files Efficiently
 
 ## Introduction
@@ -179,7 +177,3 @@ For further exploration and support:
 
 Embark on your data protection journey with GroupDocs.Redaction today, ensuring secure and compliant document handling. Happy coding!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

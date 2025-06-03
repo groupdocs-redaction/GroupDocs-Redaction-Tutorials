@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Redact Content Using Regex with GroupDocs.Redaction for .NET
 
 ## Introduction
@@ -163,7 +161,3 @@ By now, you should have a solid understanding of how to use GroupDocs.Redaction 
 
 With this guide, you're equipped to tackle text redaction challenges confidently using GroupDocs.Redaction for .NET. Happy coding!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

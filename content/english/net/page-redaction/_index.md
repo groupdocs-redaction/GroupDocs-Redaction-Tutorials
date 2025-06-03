@@ -4,9 +4,7 @@ description: "Learn to remove pages, page ranges, and work with specific page co
 weight: 8
 url: "/net/page-redaction/"
 ---
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Page Redaction Tutorials for GroupDocs.Redaction .NET
 
 Master page-level document manipulation with our detailed GroupDocs.Redaction tutorials for .NET. These practical guides demonstrate how to remove individual pages, eliminate page ranges, work with page areas, and handle specific page content programmatically. Each tutorial includes working C# code examples for common page redaction scenarios, helping you build applications that can efficiently manage document structure while removing sensitive content that spans entire pages or specific regions within pages.
@@ -27,7 +25,3 @@ Learn how to efficiently remove the last page from your PDF documents using Grou
 - [GroupDocs.Redaction Forum](https://forum.groupdocs.com/c/redaction)
 - [Free Support](https://forum.groupdocs.com/)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

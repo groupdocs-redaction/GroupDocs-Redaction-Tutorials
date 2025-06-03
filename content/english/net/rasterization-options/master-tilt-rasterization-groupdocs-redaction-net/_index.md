@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering Tilt Rasterization in .NET with GroupDocs.Redaction
 
 ## Introduction
@@ -167,7 +165,3 @@ By following this tutorial, you've learned how to implement tilt rasterization u
 
 Embark on your journey with GroupDocs.Redaction, and unlock the full potential of document redaction in .NET applications!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # How to Redact Specific Areas in Images Using GroupDocs.Redaction .NET: A Comprehensive Guide
 
 ## Introduction
@@ -168,7 +166,3 @@ Ready to take your data protection game up a notch? Try implementing this soluti
 - [Temporary License Application](https://purchase.groupdocs.com/temporary-license/)
 
 Implementing the solution outlined in this tutorial will help you protect sensitive information effectively, ensuring your applications meet privacy and security standards. Happy coding!
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

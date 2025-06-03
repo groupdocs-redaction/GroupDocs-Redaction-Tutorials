@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Redacting Exact Phrases in .NET Documents with GroupDocs.Redaction
 
 ## Introduction
@@ -162,7 +160,3 @@ To further enhance your skills, explore additional features offered by the libra
 - [Temporary License Acquisition](https://purchase.groupdocs.com/temporary-license)
 
 With this comprehensive guide, you're now equipped to implement exact phrase replacement using GroupDocs.Redaction in .NET. Happy coding!
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

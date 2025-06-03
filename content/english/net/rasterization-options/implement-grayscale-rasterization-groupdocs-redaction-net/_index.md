@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # How to Implement Grayscale Rasterization in .NET Using GroupDocs.Redaction
 
 **Introduction**
@@ -160,7 +158,3 @@ By following this guide, you can seamlessly integrate grayscale rasterization in
 - [Temporary License](https://purchase.groupdocs.com/temporary-license)
 
 By utilizing these resources, you can further explore and master GroupDocs.Redaction for .NET. Try implementing this solution in your projects today!
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

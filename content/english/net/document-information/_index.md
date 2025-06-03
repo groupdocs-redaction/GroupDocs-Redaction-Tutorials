@@ -4,9 +4,7 @@ description: "Complete tutorials for retrieving document information, supported 
 weight: 15
 url: "/net/document-information/"
 ---
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Document Information Tutorials for GroupDocs.Redaction .NET
 
 Our document information tutorials provide detailed guidance for analyzing documents before processing them with GroupDocs.Redaction in .NET. These step-by-step guides demonstrate how to retrieve format information, generate document previews, obtain page counts, and identify metadata properties programmatically. Each tutorial includes practical C# code examples for document information scenarios, helping you build intelligent applications that can make informed decisions about redaction strategies based on document characteristics.
@@ -30,7 +28,3 @@ Learn how to efficiently retrieve document metadata using GroupDocs.Redaction .N
 - [GroupDocs.Redaction Forum](https://forum.groupdocs.com/c/redaction)
 - [Free Support](https://forum.groupdocs.com/)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

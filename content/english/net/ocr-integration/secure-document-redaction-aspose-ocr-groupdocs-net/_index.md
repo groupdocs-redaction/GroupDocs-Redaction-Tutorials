@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Secure Document Redaction Using Aspose OCR & GroupDocs in .NET
 
 ## Introduction
@@ -203,7 +201,3 @@ Explore further customization options within GroupDocs.Redaction or consider int
 - **Free Support**: [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/10)
 - **Temporary License**: [GroupDocs Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

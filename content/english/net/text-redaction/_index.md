@@ -4,9 +4,7 @@ description: "Step-by-step tutorials for implementing text-based redactions usin
 weight: 4
 url: "/net/text-redaction/"
 ---
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Text Redaction Tutorials for GroupDocs.Redaction .NET
 
 Our text redaction tutorials provide detailed guidance for removing or replacing sensitive textual information in documents with .NET. Follow these practical guides to learn how to use exact phrase matching, implement regular expression patterns, handle case sensitivity, and work with right-to-left text. These tutorials include complete C# code examples for common text redaction scenarios, helping you build applications that can precisely identify and secure sensitive text content in various document types.
@@ -39,7 +37,3 @@ Learn how to redact sensitive text in documents using GroupDocs.Redaction for .N
 - [GroupDocs.Redaction Forum](https://forum.groupdocs.com/c/redaction)
 - [Free Support](https://forum.groupdocs.com/)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

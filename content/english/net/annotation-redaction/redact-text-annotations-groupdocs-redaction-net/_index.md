@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # How to Redact Texts within Annotations Using GroupDocs.Redaction .NET
 
 ## Introduction
@@ -187,7 +185,3 @@ Ready to start implementing these techniques? Experiment with different document
 
 With this comprehensive guide, you're now ready to tackle document redaction challenges using GroupDocs.Redaction for .NET. Happy coding!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

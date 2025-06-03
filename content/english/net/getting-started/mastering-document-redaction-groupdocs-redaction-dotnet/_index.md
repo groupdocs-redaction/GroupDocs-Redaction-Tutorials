@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering Document Redaction in .NET with GroupDocs.Redaction: A Step-by-Step Guide
 
 ## Introduction
@@ -187,7 +185,3 @@ You've now explored the essentials of implementing document redaction using Grou
 - [Download](https://releases.groupdocs.com/redaction/net/)
 - [Free Support](https://forum.groupdocs.com/c/redaction/10)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

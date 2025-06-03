@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering Metadata Redaction with GroupDocs.Redaction in .NET
 
 ## Introduction
@@ -170,7 +168,3 @@ Congratulations! You now have the knowledge to implement metadata redaction usin
 
 Take this opportunity to explore the powerful features of GroupDocs.Redaction and enhance your document security practices today!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

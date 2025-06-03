@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # How to Load and Redact Documents with GroupDocs.Redaction .NET
 
 Welcome to this comprehensive guide on using **GroupDocs.Redaction for .NET** to securely load and apply redactions to documents stored locally. Whether you need to remove sensitive information, annotations, or just process documents in a secure manner, GroupDocs.Redaction provides an efficient solution.
@@ -174,7 +172,3 @@ For further exploration, consider diving into the [GroupDocs documentation](http
 
 Ready to start redacting documents with confidence? Begin by experimenting with the code snippets provided and explore more advanced features as you grow comfortable. Happy coding!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

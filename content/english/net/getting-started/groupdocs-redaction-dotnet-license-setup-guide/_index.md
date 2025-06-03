@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Implementing GroupDocs.Redaction .NET License: A Step-by-Step Guide
 
 ## Introduction
@@ -160,7 +158,3 @@ Why not give it a try and see how GroupDocs.Redaction can transform your approac
 
 Explore these resources to further your understanding and maximize the capabilities of GroupDocs.Redaction for .NET. Happy coding!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

@@ -4,9 +4,7 @@ description: "Learn to clean and redact document metadata including properties, 
 weight: 5
 url: "/net/metadata-redaction/"
 ---
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Metadata Redaction Tutorials with GroupDocs.Redaction for .NET
 
 Discover how to effectively secure hidden document information using our comprehensive GroupDocs.Redaction metadata tutorials for .NET. These step-by-step guides teach you how to identify, redact, and clean metadata properties, remove author information, eliminate comments, and handle other hidden document details. Each tutorial provides practical C# code examples for common metadata redaction tasks, helping you build more secure applications that address the often-overlooked metadata security risks in your documents.
@@ -36,7 +34,3 @@ Learn how to use GroupDocs.Redaction for precise metadata removal in .NET applic
 - [GroupDocs.Redaction Forum](https://forum.groupdocs.com/c/redaction)
 - [Free Support](https://forum.groupdocs.com/)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

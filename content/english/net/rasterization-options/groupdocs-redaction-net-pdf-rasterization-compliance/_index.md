@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Master PDF Rasterization in .NET using GroupDocs.Redaction: Page Selection and Compliance Settings
 
 ## Introduction
@@ -95,7 +93,3 @@ Use the `ExactPhraseRedaction` class to replace text, like 'John Doe', with a co
 
 ```csharp
 RedactorChangeLog result = redactor.Apply(new ExactPhraseRedaction("John Doe\
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

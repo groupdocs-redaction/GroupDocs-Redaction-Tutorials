@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # How to Implement Document Redaction and Save as PDF with GroupDocs.Redaction .NET
 
 ## Introduction
@@ -162,7 +160,3 @@ Visit [GroupDocs Free Support Forum](https://forum.groupdocs.com/c/redaction/10)
 - **Temporary License**: [Acquire a Temporary License](https://purchase.groupdocs.com/temporary-license/)
 
 Ready to start redacting documents? Implement this solution in your projects today and enhance your data security practices. If you have any questions or need further assistance, don't hesitate to reach out through the GroupDocs support channels!
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering Border Rasterization in Document Redaction with GroupDocs.Redaction for .NET
 
 ## Introduction
@@ -148,7 +146,3 @@ Ready to enhance your document security? Implement the solution in your projects
 - **Download**: [Latest Releases](https://releases.groupdocs.com/redaction/net/)
 - **Support**: [Free Support Forum](https://forum.groupdocs.com/c/redaction/10)
 - **License**: [Temporary License](https://purchase.groupdocs.com/temporary-license)
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

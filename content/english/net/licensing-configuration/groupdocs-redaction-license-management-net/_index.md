@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Integrate License Management with GroupDocs.Redaction for .NET
 ## Introduction
 Integrating license management into your application using the GroupDocs.Redaction API is essential to ensure legal compliance and smooth operation. This tutorial guides you through setting up a license file for GroupDocs.Redaction in .NET applications, covering practical examples and best practices.
@@ -117,7 +115,3 @@ It supports .NET Framework 4.6.1 or later; ensure compatibility with your enviro
 - **Free Support**: [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/10)
 - **Temporary License**: [Apply for a Temporary License](https://purchase.groupdocs.com/temporary-license)
 This guide should assist you in setting up your GroupDocs.Redaction license. Use the resources above to further explore and leverage GroupDocs.Redaction's capabilities. Happy coding!
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

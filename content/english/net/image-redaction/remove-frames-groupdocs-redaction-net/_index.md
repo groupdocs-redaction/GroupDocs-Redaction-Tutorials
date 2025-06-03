@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # How to Remove Frames from an Animated GIF Image Using GroupDocs.Redaction .NET
 
 **Introduction**
@@ -175,7 +173,3 @@ Try implementing this solution in your next project and experience the power of 
 
 With this guide, you’re well-equipped to harness the capabilities of GroupDocs.Redaction for .NET in your GIF editing tasks. Happy coding!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

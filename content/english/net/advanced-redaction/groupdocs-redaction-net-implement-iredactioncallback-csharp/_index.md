@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering GroupDocs.Redaction .NET: Implementing IRedactionCallback in C#
 
 ## Introduction
@@ -151,7 +149,3 @@ A5: The [official documentation](https://docs.groupdocs.com/redaction/net/) and 
 - **Free Support**: https://forum.groupdocs.com/c/redaction/10
 - **Temporary License**: https://purchase.groupdocs.com/temporary-license/"
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

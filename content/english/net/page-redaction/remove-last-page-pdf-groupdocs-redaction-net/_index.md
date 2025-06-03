@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # How to Remove the Last Page of a PDF Using GroupDocs.Redaction for .NET
 
 ## Introduction
@@ -189,7 +187,3 @@ While this tutorial focuses on removing the last page, you can modify the `Remov
 
 Now that you have a thorough understanding of removing the last page from PDFs using GroupDocs.Redaction for .NET, why not put this knowledge into practice and see how it can streamline your document management processes? Happy coding!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

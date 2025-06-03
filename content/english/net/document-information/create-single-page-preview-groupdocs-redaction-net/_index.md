@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # How to Create a Single-Page Preview of a Document using GroupDocs.Redaction .NET
 
 ## Introduction
@@ -166,7 +164,3 @@ As you explore GroupDocs.Redaction's capabilities further, consider experimentin
 - [Temporary License Acquisition](https://purchase.groupdocs.com/temporary-license)
 
 Embark on your journey with GroupDocs.Redaction and streamline how you handle document previews today!
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

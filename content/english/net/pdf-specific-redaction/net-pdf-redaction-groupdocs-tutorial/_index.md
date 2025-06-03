@@ -11,9 +11,7 @@ keywords:
 
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
+
 # Mastering .NET PDF Redaction: Securely Applying Filters with GroupDocs.Redaction
 
 ## Introduction
@@ -147,7 +145,3 @@ In this guide, you've learned how to apply targeted redactions using GroupDocs.R
 
 With this comprehensive guide, you're well-equipped to start implementing PDF redactions using GroupDocs.Redaction for .NET. Happy coding!
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}
