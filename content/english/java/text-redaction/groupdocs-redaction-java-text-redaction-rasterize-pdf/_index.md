@@ -194,6 +194,6 @@ Ready to apply these techniques? Start implementing them in your projects today!
 - **API Reference**: [GroupDocs Redaction API Reference](https://reference.groupdocs.com/redaction/java)
 - **Download**: [Latest Releases](https://releases.groupdocs.com/redaction/java/)
 - **GitHub**: [GroupDocs.Redaction GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
-- **Free Support**: [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/10)
+- **Free Support**: [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)
 - **Temporary License**: [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 

@@ -228,4 +228,4 @@ A5: While GroupDocs.Redaction is robust, explore other libraries or tools that o
 - **API Reference:** [GroupDocs Redaction API Reference](https://reference.groupdocs.com/redaction/java)
 - **Download:** [Latest Version Download](https://releases.groupdocs.com/redaction/java/)
 - **GitHub Repository:** [GitHub - GroupDocs.Redaction for Java](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
-- **Free Support Forum:** [GroupDocs Free Support Forum](https://forum.groupdocs.com/c/redaction)
+- **Free Support Forum:** [GroupDocs Free Support Forum](https://forum.groupdocs.com/c/redaction/33)

@@ -164,7 +164,7 @@ When working with GroupDocs.Redaction, consider these performance tips:
 
 By following this guide, you've learned how to set up GroupDocs.Redaction for Java and remove specific annotations using regex. This powerful functionality simplifies document management tasks, enabling cleaner and more compliant documents. As a next step, explore other features of GroupDocs.Redaction or experiment with different regex patterns to further enhance your document processing workflows.
 
-**Next Steps**: Try implementing this solution in your own projects and share any feedback or questions you might have on our [free support forum](https://forum.groupdocs.com/c/redaction/10).
+**Next Steps**: Try implementing this solution in your own projects and share any feedback or questions you might have on our [free support forum](https://forum.groupdocs.com/c/redaction/33).
 
 ## FAQ Section
 
@@ -189,4 +189,4 @@ By following this guide, you've learned how to set up GroupDocs.Redaction for Ja
 - [API Reference](https://reference.groupdocs.com/redaction/java)
 - [Download GroupDocs.Redaction](https://releases.groupdocs.com/redaction/java/)
 - [GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
-- [Free Support Forum](https://forum.groupdocs.com/c/redaction)
+- [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)

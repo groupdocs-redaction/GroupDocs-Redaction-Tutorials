@@ -185,7 +185,7 @@ Ready to try it out? Implement advanced logging in your next project and see how
 - **API Reference**: [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)
 - **Download**: [Latest Releases](https://releases.groupdocs.com/redaction/java/)
 - **GitHub Repository**: [GroupDocs.Redaction for Java on GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
-- **Free Support Forum**: [GroupDocs Redaction Forum](https://forum.groupdocs.com/c/redaction/10)
+- **Free Support Forum**: [GroupDocs Redaction Forum](https://forum.groupdocs.com/c/redaction/33)
 - **Temporary License**: [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
 By following this guide, you're well on your way to mastering advanced logging with GroupDocs Redaction for Java. Happy coding!

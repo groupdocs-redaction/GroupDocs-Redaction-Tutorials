@@ -172,7 +172,7 @@ A5: Yes, integration with cloud storage solutions is supported for scalable docu
 - **API Reference:** [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)
 - **Download:** [GroupDocs.Redaction Releases](https://releases.groupdocs.com/redaction/java/)
 - **GitHub Repository:** [GroupDocs Redaction on GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
-- **Free Support Forum:** [GroupDocs Support](https://forum.groupdocs.com/c/redaction/10)
+- **Free Support Forum:** [GroupDocs Support](https://forum.groupdocs.com/c/redaction/33)
 - **Temporary License:** [Get a Temporary License](https://purchase.groupdocs.com/temporary-license/)
 
 By leveraging the GroupDocs.Redaction Java library, you can ensure that sensitive information in your documents is protected efficiently and securely. Happy coding!

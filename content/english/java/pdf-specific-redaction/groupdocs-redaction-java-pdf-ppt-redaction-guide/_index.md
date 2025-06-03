@@ -158,7 +158,7 @@ Next steps include exploring more advanced features of GroupDocs.Redaction or in
   - Yes, it’s designed to be scalable and efficient across various document sizes and types.
 
 - **Is support available if I encounter issues?**
-  - Absolutely. Visit [GroupDocs Free Support](https://forum.groupdocs.com/c/redaction/10) for assistance.
+  - Absolutely. Visit [GroupDocs Free Support](https://forum.groupdocs.com/c/redaction/33) for assistance.
 
 ## Resources
 For further exploration:

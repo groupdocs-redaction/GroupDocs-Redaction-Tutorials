@@ -174,5 +174,5 @@ Ready to try it out? Implement the solution in your next project and enhance doc
 - [API Reference](https://reference.groupdocs.com/redaction/java)
 - [Download](https://releases.groupdocs.com/redaction/java/)
 - [GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
-- [Free Support Forum](https://forum.groupdocs.com/c/redaction/10)
+- [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)

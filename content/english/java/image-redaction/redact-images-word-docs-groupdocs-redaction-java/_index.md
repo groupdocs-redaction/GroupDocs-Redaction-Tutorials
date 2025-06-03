@@ -189,7 +189,7 @@ A: Optimize your Java environment and consider using asynchronous processing for
 A: Contact GroupDocs support to discuss options for obtaining a temporary or full license.
 
 **Q: Is there community support available for troubleshooting?**
-A: Yes, you can seek assistance on the [GroupDocs Free Support Forum](https://forum.groupdocs.com/c/redaction/10).
+A: Yes, you can seek assistance on the [GroupDocs Free Support Forum](https://forum.groupdocs.com/c/redaction/33).
 
 ## Resources
 
@@ -197,7 +197,7 @@ A: Yes, you can seek assistance on the [GroupDocs Free Support Forum](https://fo
 - **API Reference:** [GroupDocs Redaction API for Java](https://reference.groupdocs.com/redaction/java)
 - **Download:** [Latest Releases](https://releases.groupdocs.com/redaction/java/)
 - **GitHub:** [GroupDocs GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
-- **Free Support:** [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/10)
+- **Free Support:** [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33)
 - **Temporary License:** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
 Embark on your journey to secure document redaction with GroupDocs.Redaction Java today!

@@ -181,7 +181,7 @@ For further reading and assistance:
 - **API Reference:** [API Reference](https://reference.groupdocs.com/redaction/java)
 - **Download:** [Latest Releases](https://releases.groupdocs.com/redaction/java/)
 - **GitHub Repository:** [GroupDocs.Redaction for Java](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
-- **Free Support Forum:** [GroupDocs Community Forum](https://forum.groupdocs.com/c/redaction/10)
+- **Free Support Forum:** [GroupDocs Community Forum](https://forum.groupdocs.com/c/redaction/33)
 - **Temporary License:** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/)
 
 By following this guide, you're well-equipped to handle document annotations using GroupDocs.Redaction in your Java applications. Happy coding!

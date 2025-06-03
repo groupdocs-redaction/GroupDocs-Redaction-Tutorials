@@ -181,7 +181,7 @@ Ensure correct coordinates for redactions; large images may require additional m
 - **API Reference:** [GroupDocs.Redaction API Reference](https://reference.groupdocs.com/redaction/java)
 - **Download:** [GroupDocs.Redaction Downloads](https://releases.groupdocs.com/redaction/java/)
 - **GitHub Repository:** [GroupDocs.Redaction on GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
-- **Free Support Forum:** [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/10)
+- **Free Support Forum:** [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33)
 - **Temporary License:** [Request a Temporary License](https://purchase.groupdocs.com/temporary-license/)
 
 Embark on your journey to secure document management with GroupDocs.Redaction for Java and elevate your data protection strategies.

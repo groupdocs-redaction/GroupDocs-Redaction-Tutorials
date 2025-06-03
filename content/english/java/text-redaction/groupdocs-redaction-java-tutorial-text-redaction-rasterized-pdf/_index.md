@@ -181,7 +181,7 @@ In this tutorial, we covered how to use GroupDocs.Redaction Java for text redact
 **Next Steps:**
 - Explore additional features of GroupDocs.Redaction by consulting its [official documentation](https://docs.groupdocs.com/redaction/java/).
 - Experiment with different redaction scenarios to tailor solutions for your needs.
-- Engage with the community on the [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/10) for insights and support.
+- Engage with the community on the [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33) for insights and support.
 
 ## FAQ Section
 **Q1: How do I install GroupDocs.Redaction in a Maven project?**

@@ -181,11 +181,11 @@ Ready to implement these techniques? Dive in, experiment, and ensure your docume
 4. **What types of documents can be redacted using GroupDocs.Redaction?**
    - It supports a wide range, including Word, Excel, PowerPoint, and more.
 5. **Where can I find support if I run into issues?**
-   - Visit the [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/10) for assistance.
+   - Visit the [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33) for assistance.
 
 ## Resources
 - **Documentation**: Explore detailed guides at [GroupDocs Documentation](https://docs.groupdocs.com/redaction/java/).
 - **API Reference**: Check out the complete API reference on [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java).
 - **Download Library**: Access the latest release from [GroupDocs Downloads](https://releases.groupdocs.com/redaction/java/).
 - **Source Code**: View and contribute to source code on [GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java).
-- **Support**: Get help through free support at [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/10).
+- **Support**: Get help through free support at [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33).

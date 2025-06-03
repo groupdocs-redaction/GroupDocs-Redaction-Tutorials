@@ -171,7 +171,7 @@ A5: Through APIs and connectors, you can seamlessly integrate it into existing w
 - **API Reference:** [GroupDocs API Reference for Java](https://reference.groupdocs.com/redaction/java)
 - **Download:** [GroupDocs.Redaction Downloads](https://releases.groupdocs.com/redaction/java/)
 - **GitHub Repository:** [GroupDocs Redaction GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
-- **Free Support Forum:** [GroupDocs Free Support](https://forum.groupdocs.com/c/redaction/10)
+- **Free Support Forum:** [GroupDocs Free Support](https://forum.groupdocs.com/c/redaction/33)
 - **Temporary License Application:** [Apply for a Temporary License](https://purchase.groupdocs.com/temporary-license/)
 
 By following this comprehensive guide, you're well on your way to mastering text redaction in Java with GroupDocs.Redaction. Happy coding!

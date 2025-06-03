@@ -177,7 +177,7 @@ Ready to implement this solution in your projects? Try it out today!
 - **API Reference**: [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)
 - **Download**: [GroupDocs Downloads](https://releases.groupdocs.com/redaction/java/)
 - **GitHub**: [GroupDocs GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
-- **Free Support**: [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/10)
+- **Free Support**: [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)
 - **Temporary License**: [Get a Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
 Embark on your journey to secure document handling with GroupDocs.Redaction for Java today!

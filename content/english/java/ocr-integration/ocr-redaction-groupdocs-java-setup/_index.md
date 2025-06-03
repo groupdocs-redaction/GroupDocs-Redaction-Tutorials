@@ -184,14 +184,14 @@ We encourage you to try implementing this solution in your projects and explore 
    - Inaccurate matches or performance lags can occur if settings aren’t optimized for specific document types.
 
 5. **Is there support available if I encounter problems?**
-   - Yes, you can access free support through the [GroupDocs forum](https://forum.groupdocs.com/c/redaction/10).
+   - Yes, you can access free support through the [GroupDocs forum](https://forum.groupdocs.com/c/redaction/33).
 
 ## Resources
 - **Documentation**: https://docs.groupdocs.com/redaction/java/
 - **API Reference**: https://reference.groupdocs.com/redaction/java
 - **Download**: https://releases.groupdocs.com/redaction/java/
 - **GitHub**: https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java
-- **Free Support**: https://forum.groupdocs.com/c/redaction/10
+- **Free Support**: https://forum.groupdocs.com/c/redaction/33
 - **Temporary License**: https://purchase.groupdocs.com/temporary-license/
 
 Embrace the power of GroupDocs.Redaction with OCR integration to safeguard sensitive information efficiently and accurately.

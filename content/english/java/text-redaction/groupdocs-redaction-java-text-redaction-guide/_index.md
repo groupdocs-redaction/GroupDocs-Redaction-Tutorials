@@ -135,7 +135,7 @@ You have learned how to effectively use GroupDocs.Redaction for Java to redact t
 - **API Reference**: [GroupDocs Redaction API Reference](https://reference.groupdocs.com/redaction/java)
 - **Download Latest Version**: [GroupDocs.Redaction for Java Releases](https://releases.groupdocs.com/redaction/java/)
 - **GitHub Repository**: [GroupDocs GitHub Page](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
-- **Free Support Forum**: [GroupDocs Redaction Forum](https://forum.groupdocs.com/c/redaction/10)
+- **Free Support Forum**: [GroupDocs Redaction Forum](https://forum.groupdocs.com/c/redaction/33)
 - **Temporary License Application**: [Get Your Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
 Start implementing these strategies today to enhance your document security with GroupDocs.Redaction for Java!

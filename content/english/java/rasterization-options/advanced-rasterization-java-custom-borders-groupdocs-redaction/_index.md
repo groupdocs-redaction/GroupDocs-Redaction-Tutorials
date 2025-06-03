@@ -192,7 +192,7 @@ A: Use its API to create bridges between your application and other software, fa
 - [API Reference](https://reference.groupdocs.com/redaction/java)
 - [Download Latest Version](https://releases.groupdocs.com/redaction/java/)
 - [GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
-- [Free Support Forum](https://forum.groupdocs.com/c/redaction/10)
+- [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
 By following this guide, you're well on your way to mastering advanced rasterization in Java with GroupDocs.Redaction. Happy coding!

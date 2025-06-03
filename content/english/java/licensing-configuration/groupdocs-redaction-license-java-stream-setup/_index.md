@@ -170,4 +170,4 @@ A5: It offers flexibility in deployment scenarios, especially where file paths m
 
 ## Resources
 - **Documentation:** [GroupDocs.Redaction Documentation](https://docs.groupdocs.com/redaction/java/)
-- **Support Forums:** [GroupDocs Support Forums](https://forum.groupdocs.com/c/redaction)
+- **Support Forums:** [GroupDocs Support Forums](https://forum.groupdocs.com/c/redaction/33)

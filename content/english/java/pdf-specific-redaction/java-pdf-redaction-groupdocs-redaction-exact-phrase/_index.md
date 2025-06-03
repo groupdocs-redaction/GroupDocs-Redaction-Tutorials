@@ -183,7 +183,7 @@ GroupDocs offers a free trial license to explore their features without limitati
 - **API Reference:** [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)
 - **Download:** [GroupDocs Redaction Downloads](https://releases.groupdocs.com/redaction/java/)
 - **GitHub:** [GroupDocs GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
-- **Free Support:** [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/10)
+- **Free Support:** [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)
 - **Temporary License:** [Get a Temporary License](https://purchase.groupdocs.com/temporary-license/)
 
 Feel free to reach out on the support forum or explore more detailed documentation if you have any further questions. Happy coding!

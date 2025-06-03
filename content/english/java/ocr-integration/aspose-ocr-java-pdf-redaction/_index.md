@@ -181,6 +181,6 @@ Next, consider exploring more advanced features of the API or integrating other 
 - **API Reference**: [GroupDocs Redaction API Reference](https://reference.groupdocs.com/redaction/java)
 - **Download**: [Get GroupDocs Redaction for Java](https://releases.groupdocs.com/redaction/java/)
 - **GitHub Repository**: [GroupDocs.Redaction for Java GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
-- **Support Forums**: [GroupDocs Free Support](https://forum.groupdocs.com/c/redaction/10)
+- **Support Forums**: [GroupDocs Free Support](https://forum.groupdocs.com/c/redaction/33)
 - **Temporary License**: [Obtain a Temporary Li
 

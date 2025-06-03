@@ -165,14 +165,14 @@ Optimize memory usage by promptly closing resources and consider processing duri
 Common use cases include legal document management, compliance with data protection regulations, and template processing.
 
 **5. Where can I find support if I encounter issues?**
-GroupDocs offers free support through their [forum](https://forum.groupdocs.com/c/redaction/10).
+GroupDocs offers free support through their [forum](https://forum.groupdocs.com/c/redaction/33).
 
 ## Resources
 - **Documentation:** Explore more at [GroupDocs.Redaction Documentation](https://docs.groupdocs.com/redaction/java/)
 - **API Reference:** Detailed API information is available at [API Reference](https://reference.groupdocs.com/redaction/java)
 - **Download:** Get the latest version from [Downloads](https://releases.groupdocs.com/redaction/java/)
 - **GitHub:** Access source code on [GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
-- **Free Support:** Join discussions at [Support Forum](https://forum.groupdocs.com/c/redaction/10)
+- **Free Support:** Join discussions at [Support Forum](https://forum.groupdocs.com/c/redaction/33)
 - **Temporary License:** Obtain a license for testing purposes from [Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
 Try implementing this solution today and experience seamless document redaction with GroupDocs.Redaction for Java!
