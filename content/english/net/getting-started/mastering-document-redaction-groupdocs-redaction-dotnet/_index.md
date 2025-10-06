@@ -8,10 +8,8 @@ keywords:
 - document redaction .net
 - groupdocs.redaction setup
 - text redaction in .NET
-
+type: docs
 ---
-
-
 # Mastering Document Redaction in .NET with GroupDocs.Redaction: A Step-by-Step Guide
 
 ## Introduction

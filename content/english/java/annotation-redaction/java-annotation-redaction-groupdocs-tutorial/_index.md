@@ -8,9 +8,8 @@ keywords:
 - annotation redaction Java
 - GroupDocs.Redaction tutorial
 - redact annotations in documents
-
+type: docs
 ---
-
 # Master Annotation Redaction in Java Using GroupDocs: A Complete Guide
 ## How to Implement Annotation Redaction in Java Using GroupDocs.Redaction
 

@@ -8,9 +8,8 @@ keywords:
 - document security Java
 - exact phrase redaction Java
 - advanced rasterization GroupDocs.Redaction
-
+type: docs
 ---
-
 # Mastering Document Security in Java: Exact Phrase Redaction and Advanced Rasterization with GroupDocs.Redaction
 
 ## Introduction

@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Redaction for .NET
 - .NET document redaction
 - exact phrase replacement
-
+type: docs
 ---
-
-
 # Redacting Exact Phrases in .NET Documents with GroupDocs.Redaction
 
 ## Introduction

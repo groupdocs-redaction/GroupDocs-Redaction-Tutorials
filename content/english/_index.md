@@ -20,8 +20,8 @@ keywords:
   - document sanitization
   - Java document redaction
   - .NET document redaction
+type: docs
 ---
-
 # Implement Secure Document Redaction With GroupDocs.Redaction
 
 Discover a comprehensive knowledge base for GroupDocs.Redaction across multiple platforms, including .NET and Java. Explore a wide range of tutorials covering text and metadata redaction, image sanitization, annotation removal, and advanced redaction techniques. Whether you're a .NET or Java developer, this resource hub provides you with the tools and methodologies needed to implement secure document processing workflows that protect sensitive information while maintaining document integrity.

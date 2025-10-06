@@ -8,9 +8,8 @@ keywords:
 - implement custom format handlers Java
 - apply redactions GroupDocs Redaction
 - Java data protection
-
+type: docs
 ---
-
 # Implement Custom Format Handlers in Java Using GroupDocs.Redaction
 
 ## Introduction

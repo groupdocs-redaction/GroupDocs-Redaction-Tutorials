@@ -8,9 +8,8 @@ keywords:
 - remove last page PDF
 - GroupDocs.Redaction Java
 - PDF redaction
-
+type: docs
 ---
-
 # How to Remove the Last Page from a PDF Document Using GroupDocs.Redaction in Java
 
 ## Introduction

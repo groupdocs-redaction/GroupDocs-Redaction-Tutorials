@@ -8,10 +8,8 @@ keywords:
 - redact Excel columns
 - GroupDocs.Redaction for .NET
 - data privacy compliance
-
+type: docs
 ---
-
-
 # Redact Excel Columns with GroupDocs.Redaction .NET: Secure Sensitive Data in Spreadsheets
 
 ## Introduction

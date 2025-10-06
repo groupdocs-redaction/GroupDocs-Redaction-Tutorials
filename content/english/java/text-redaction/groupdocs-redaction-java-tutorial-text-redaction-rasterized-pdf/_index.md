@@ -8,9 +8,8 @@ keywords:
 - GroupDocs.Redaction Java
 - text redaction Java
 - rasterized PDF conversion
-
+type: docs
 ---
-
 # Comprehensive Tutorial: Implementing GroupDocs.Redaction Java for Text Redaction & Rasterized PDF Conversion
 
 ## Introduction

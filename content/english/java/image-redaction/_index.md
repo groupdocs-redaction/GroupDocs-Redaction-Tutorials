@@ -3,6 +3,7 @@ title: "Image Redaction Tutorials for GroupDocs.Redaction Java"
 description: "Complete tutorials for redacting areas of images, removing embedded images, and cleaning image metadata using GroupDocs.Redaction for Java."
 weight: 6
 url: "/java/image-redaction/"
+type: docs
 ---
 # Image Redaction Tutorials for GroupDocs.Redaction Java
 

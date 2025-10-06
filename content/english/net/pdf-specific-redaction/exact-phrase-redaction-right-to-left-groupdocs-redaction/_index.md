@@ -8,10 +8,8 @@ keywords:
 - Exact Phrase Redaction in RTL PDFs
 - GroupDocs.Redaction .NET
 - Redacting Sensitive Information in PDF
-
+type: docs
 ---
-
-
 # Mastering Exact Phrase Redaction in RTL PDFs with GroupDocs.Redaction .NET
 
 ## Introduction

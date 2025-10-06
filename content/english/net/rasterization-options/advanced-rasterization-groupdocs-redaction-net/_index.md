@@ -8,10 +8,8 @@ keywords:
 - advanced rasterization .NET
 - GroupDocs.Redaction .NET
 - document redaction techniques
-
+type: docs
 ---
-
-
 # Mastering Advanced Rasterization Techniques in .NET with GroupDocs.Redaction
 
 ## Introduction

@@ -8,9 +8,8 @@ keywords:
 - Java document redaction
 - GroupDocs.Redaction API
 - secure documents with Java
-
+type: docs
 ---
-
 # Comprehensive Tutorial: Implementing Java to Redact Local Documents with GroupDocs.Redaction API
 
 ## Introduction

@@ -8,10 +8,8 @@ keywords:
 - document redaction
 - GroupDocs.Redaction .NET
 - redact sensitive information
-
+type: docs
 ---
-
-
 # How to Implement Document Redaction and Save as PDF with GroupDocs.Redaction .NET
 
 ## Introduction

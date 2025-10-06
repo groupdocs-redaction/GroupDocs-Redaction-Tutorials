@@ -8,9 +8,8 @@ keywords:
 - regex-based PDF redaction
 - Java GroupDocs.Redaction
 - PDF text redaction
-
+type: docs
 ---
-
 # Efficient Regex-Based PDF Redaction in Java Using GroupDocs.Redaction
 
 ## Introduction

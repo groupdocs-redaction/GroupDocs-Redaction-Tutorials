@@ -8,10 +8,8 @@ keywords:
 - redact embedded images
 - GroupDocs.Redaction .NET API
 - image redaction in Word documents
-
+type: docs
 ---
-
-
 # How to Redact Embedded Images in a Word Document Using GroupDocs.Redaction .NET
 
 ## Introduction

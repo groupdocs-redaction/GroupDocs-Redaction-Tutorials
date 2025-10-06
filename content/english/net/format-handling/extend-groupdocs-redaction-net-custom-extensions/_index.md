@@ -8,10 +8,8 @@ keywords:
 - extend file types GroupDocs.Redaction .NET
 - custom extensions GroupDocs.Redaction .NET
 - document redaction GroupDocs
-
+type: docs
 ---
-
-
 # Extend File Types in GroupDocs.Redaction .NET: A Step-by-Step Guide
 
 ## Introduction

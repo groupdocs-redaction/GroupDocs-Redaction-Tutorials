@@ -8,10 +8,8 @@ keywords:
 - AI-powered PDF redaction
 - GroupDocs.Redaction .NET
 - custom redactions with AI
-
+type: docs
 ---
-
-
 # Implementing AI-Powered PDF Redaction with GroupDocs.Redaction .NET
 
 ## Introduction

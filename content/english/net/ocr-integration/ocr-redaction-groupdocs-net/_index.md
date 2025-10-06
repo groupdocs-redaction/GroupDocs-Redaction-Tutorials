@@ -8,10 +8,8 @@ keywords:
 - OCR and Redaction
 - GroupDocs.Redaction for .NET
 - Aspose.OCR integration
-
+type: docs
 ---
-
-
 # Implementing OCR and Redaction in .NET with GroupDocs.Redaction
 
 ## Introduction

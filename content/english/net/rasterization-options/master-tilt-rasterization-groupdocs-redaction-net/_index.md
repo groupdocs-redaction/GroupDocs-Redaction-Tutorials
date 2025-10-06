@@ -8,10 +8,8 @@ keywords:
 - tilt rasterization
 - GroupDocs.Redaction for .NET
 - document redaction
-
+type: docs
 ---
-
-
 # Mastering Tilt Rasterization in .NET with GroupDocs.Redaction
 
 ## Introduction

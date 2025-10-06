@@ -8,10 +8,8 @@ keywords:
 - remove last page PDF
 - GroupDocs.Redaction .NET
 - PDF redaction with GroupDocs
-
+type: docs
 ---
-
-
 # How to Remove the Last Page of a PDF Using GroupDocs.Redaction for .NET
 
 ## Introduction

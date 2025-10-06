@@ -8,9 +8,8 @@ keywords:
 - set GroupDocs.Redaction license Java
 - Java input stream licensing
 - configure GroupDocs.Redaction
-
+type: docs
 ---
-
 # How to Set a GroupDocs.Redaction License in Java Using an Input Stream
 
 Welcome to this comprehensive guide on configuring and utilizing the license feature of GroupDocs.Redaction for Java applications. By following these steps, you'll ensure your application meets licensing requirements while leveraging all features offered by GroupDocs.Redaction.

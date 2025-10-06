@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Redaction .NET
 - .NET text redaction
 - .NET image redaction
-
+type: docs
 ---
-
-
 # Comprehensive Guide: Implementing Text and Image Redaction in .NET with GroupDocs.Redaction
 
 ## Introduction

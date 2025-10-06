@@ -3,8 +3,8 @@ title: "Document Saving Tutorials for GroupDocs.Redaction .NET"
 description: "Complete tutorials for saving redacted documents in original format, as rasterized PDF, or to streams using GroupDocs.Redaction for .NET."
 weight: 3
 url: "/net/document-saving/"
+type: docs
 ---
-
 # Document Saving Tutorials for GroupDocs.Redaction .NET
 
 Master document saving options with our detailed GroupDocs.Redaction .NET tutorials. These step-by-step guides demonstrate how to save redacted documents in their original format, convert them to rasterized PDFs for maximum security, and work with memory streams for efficient document handling. Each tutorial includes working C# code examples, implementation notes, and best practices to help you build applications that reliably preserve redacted content while maintaining appropriate document formats.

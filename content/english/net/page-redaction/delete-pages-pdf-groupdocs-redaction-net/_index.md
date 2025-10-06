@@ -8,10 +8,8 @@ keywords:
 - delete pages from PDF
 - GroupDocs.Redaction .NET
 - document page deletion
-
+type: docs
 ---
-
-
 # How to Delete Pages from PDFs Using GroupDocs.Redaction .NET: A Step-by-Step Guide
 
 ## Introduction

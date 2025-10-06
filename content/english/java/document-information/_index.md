@@ -3,6 +3,7 @@ title: "Document Information Tutorials for GroupDocs.Redaction Java"
 description: "Complete tutorials for retrieving document information, supported formats, and generating page previews with GroupDocs.Redaction for Java."
 weight: 15
 url: "/java/document-information/"
+type: docs
 ---
 # Document Information Tutorials for GroupDocs.Redaction Java
 

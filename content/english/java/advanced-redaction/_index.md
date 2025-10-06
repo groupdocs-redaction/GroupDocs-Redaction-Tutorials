@@ -3,6 +3,7 @@ title: "Advanced Redaction Techniques for GroupDocs.Redaction Java"
 description: "Complete tutorials for implementing custom redaction handlers, redaction policies, callbacks, and AI-assisted redaction in GroupDocs.Redaction for Java."
 weight: 9
 url: "/java/advanced-redaction/"
+type: docs
 ---
 # Advanced Redaction Techniques for GroupDocs.Redaction Java
 

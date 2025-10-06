@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Redaction for .NET
 - metadata redaction in .NET
 - secure document metadata
-
+type: docs
 ---
-
-
 # Clean and Redact Metadata in .NET Using GroupDocs.Redaction: A Step-by-Step Guide
 
 ## Introduction

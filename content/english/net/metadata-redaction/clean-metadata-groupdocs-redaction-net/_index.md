@@ -8,10 +8,8 @@ keywords:
 - remove metadata from documents
 - GroupDocs.Redaction .NET setup
 - metadata redaction guide
-
+type: docs
 ---
-
-
 # How to Remove Metadata from Documents Using GroupDocs.Redaction for .NET
 
 Worried about sensitive metadata in your documents? Whether it's author details or revision history, unwanted metadata can pose privacy risks and clutter files. This tutorial guides you through using GroupDocs.Redaction for .NET to clean up your documents securely.

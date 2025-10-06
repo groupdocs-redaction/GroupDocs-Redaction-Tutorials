@@ -8,9 +8,8 @@ keywords:
 - GroupDocs.Redaction
 - Java
 - Document Processing
-
+type: docs
 ---
-
 # GroupDocs.Redaction Java: Grayscale Rasterization Guide
 
 ## Introduction

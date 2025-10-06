@@ -8,9 +8,8 @@ keywords:
 - implement GroupDocs Redaction license Java
 - GroupDocs.Redaction license setup file path
 - Java licensing with GroupDocs
-
+type: docs
 ---
-
 # How to Implement GroupDocs Redaction Java License Using a File Path: A Comprehensive Guide
 
 ## Introduction

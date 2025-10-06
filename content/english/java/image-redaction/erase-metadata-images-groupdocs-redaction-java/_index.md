@@ -8,9 +8,8 @@ keywords:
 - erase metadata from images
 - GroupDocs.Redaction for Java
 - metadata redaction in Java
-
+type: docs
 ---
-
 # How to Erase Metadata from Images Using GroupDocs.Redaction for Java
 
 ## Introduction

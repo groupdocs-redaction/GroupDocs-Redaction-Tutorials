@@ -3,6 +3,7 @@ title: "Document Saving Tutorials for GroupDocs.Redaction Java"
 description: "Complete tutorials for saving redacted documents in original format, as rasterized PDF, or to streams using GroupDocs.Redaction for Java."
 weight: 3
 url: "/java/document-saving/"
+type: docs
 ---
 # Document Saving Tutorials for GroupDocs.Redaction Java
 

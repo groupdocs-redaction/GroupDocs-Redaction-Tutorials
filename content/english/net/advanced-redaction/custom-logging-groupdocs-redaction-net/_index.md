@@ -8,10 +8,8 @@ keywords:
 - custom logging GroupDocs.Redaction
 - document redaction .NET
 - logging in GroupDocs.Redaction
-
+type: docs
 ---
-
-
 # Implementing Custom Logging in GroupDocs.Redaction for .NET
 
 ## Introduction

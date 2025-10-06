@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Redaction .NET
 - Implementing IRedactionCallback
 - secure document redaction
-
+type: docs
 ---
-
-
 # Mastering GroupDocs.Redaction .NET: Implementing IRedactionCallback in C#
 
 ## Introduction

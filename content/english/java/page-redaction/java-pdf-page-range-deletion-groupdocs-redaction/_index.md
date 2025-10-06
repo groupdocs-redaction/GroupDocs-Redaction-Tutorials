@@ -8,9 +8,8 @@ keywords:
 - Java PDF page range deletion
 - GroupDocs.Redaction for Java
 - document redaction
-
+type: docs
 ---
-
 # Efficient Java PDF Page Range Deletion Using GroupDocs.Redaction
 
 ## Introduction

@@ -3,6 +3,7 @@ title: "Licensing and Configuration Tutorials for GroupDocs.Redaction Java"
 description: "Step-by-step tutorials for setting up licenses, configuring GroupDocs.Redaction, and implementing metered licensing in Java applications."
 weight: 16
 url: "/java/licensing-configuration/"
+type: docs
 ---
 # Licensing and Configuration Tutorials for GroupDocs.Redaction Java
 

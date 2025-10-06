@@ -8,10 +8,8 @@ keywords:
 - secure document redaction in .NET
 - GroupDocs.Redaction streams
 - .NET document saving
-
+type: docs
 ---
-
-
 # Secure Document Redaction in .NET Using Streams: A Comprehensive Guide
 
 **Category:** Document Saving

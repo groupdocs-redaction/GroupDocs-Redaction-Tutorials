@@ -8,9 +8,8 @@ keywords:
 - redact sensitive information
 - GroupDocs.Redaction Java
 - document redaction
-
+type: docs
 ---
-
 # Mastering Redaction Techniques with GroupDocs.Redaction for Java: A Step-by-Step Guide
 
 In today's digital landscape, managing sensitive information is essential. The ability to redact confidential data from documents ensures compliance and protects privacy. With GroupDocs.Redaction for Java, you can seamlessly implement various redactions in your applications. This guide will walk you through creating and saving redaction policies using this powerful tool.

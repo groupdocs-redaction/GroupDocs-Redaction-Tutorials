@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Redaction .NET
 - image redaction guide
 - redact image areas
-
+type: docs
 ---
-
-
 # How to Redact Specific Areas in Images Using GroupDocs.Redaction .NET: A Comprehensive Guide
 
 ## Introduction

@@ -8,9 +8,8 @@ keywords:
 - redact images in word documents using java
 - groupdocs.redaction for java
 - image redaction in word documents
-
+type: docs
 ---
-
 # Redact Images in Word Documents Using GroupDocs.Redaction Java: A Comprehensive Guide
 
 ## Introduction

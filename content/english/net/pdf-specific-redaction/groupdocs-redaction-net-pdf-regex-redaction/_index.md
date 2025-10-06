@@ -8,10 +8,8 @@ keywords:
 - PDF Regex Redaction
 - GroupDocs.Redaction .NET
 - secure document handling
-
+type: docs
 ---
-
-
 # Mastering PDF Regex Redaction with GroupDocs.Redaction .NET
 
 ## Introduction

@@ -8,9 +8,8 @@ keywords:
 - text redaction Java
 - save as rasterized PDF
 - GroupDocs.Redaction Java
-
+type: docs
 ---
-
 # Master Text Redaction & Save as Rasterized PDFs with GroupDocs.Redaction Java
 
 ## Introduction

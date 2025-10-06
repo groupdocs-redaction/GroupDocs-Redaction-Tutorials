@@ -8,9 +8,8 @@ keywords:
 - Redact Emails in Excel
 - GroupDocs.Redaction Java API
 - Automate Email Redaction
-
+type: docs
 ---
-
 # How to Redact Emails in Excel Spreadsheets Using GroupDocs.Redaction Java API
 
 ## Introduction

@@ -8,9 +8,8 @@ keywords:
 - remove GIF frames
 - GroupDocs Redaction Java
 - redact animated GIF
-
+type: docs
 ---
-
 # How to Remove Specific Frames from a GIF Using GroupDocs.Redaction in Java
 
 ## Introduction

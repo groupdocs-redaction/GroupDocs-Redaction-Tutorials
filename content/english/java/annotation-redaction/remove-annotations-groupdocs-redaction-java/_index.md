@@ -8,9 +8,8 @@ keywords:
 - remove annotations java
 - GroupDocs Redaction API
 - document annotation removal
-
+type: docs
 ---
-
 # Efficiently Remove Annotations from Documents Using GroupDocs.Redaction in Java
 
 ## Introduction

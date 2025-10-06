@@ -8,9 +8,8 @@ keywords:
 - custom noise rasterization Java
 - GroupDocs Redaction document security
 - Java document redaction techniques
-
+type: docs
 ---
-
 # Custom Noise Rasterization in Java with GroupDocs.Redaction
 ## Introduction
 Securing sensitive information within documents while maintaining their visual appeal can be challenging, especially when dealing with images or scanned pages. With **GroupDocs.Redaction for Java**, you can use custom noise rasterization to effectively obfuscate data. This tutorial guides you through implementing this functionality to create unique noise effects that secure your document content.

@@ -3,8 +3,8 @@ title: "Document Loading Tutorials with GroupDocs.Redaction for .NET"
 description: "Learn how to load documents from various sources including local disk, streams, and password-protected files using GroupDocs.Redaction for .NET."
 weight: 2
 url: "/net/document-loading/"
+type: docs
 ---
-
 # Document Loading Tutorials with GroupDocs.Redaction for .NET
 
 Our document loading tutorials provide comprehensive guidance for accessing documents from different sources using GroupDocs.Redaction in .NET. Follow these step-by-step guides to learn how to load documents from the local file system, memory streams, and how to handle password-protected files. These practical tutorials include complete code examples for various document loading scenarios, helping you build applications that can efficiently access and prepare documents for redaction operations.

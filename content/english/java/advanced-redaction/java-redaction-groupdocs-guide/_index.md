@@ -8,9 +8,8 @@ keywords:
 - Java Redaction
 - Secure Document Processing
 - GroupDocs.Redaction for Java
-
+type: docs
 ---
-
 # Java Redaction Guide: Secure Document Processing with GroupDocs
 
 **Learn how to load and apply a redaction policy in Java using GroupDocs.Redaction, ensuring your documents are processed efficiently and securely.**

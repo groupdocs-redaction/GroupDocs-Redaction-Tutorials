@@ -8,9 +8,8 @@ keywords:
 - custom tilt effects
 - GroupDocs.Redaction Java
 - document rasterization
-
+type: docs
 ---
-
 # Tutorial: Implementing Custom Tilt Effects in Documents Using GroupDocs.Redaction Java
 
 ## Introduction

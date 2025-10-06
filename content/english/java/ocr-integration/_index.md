@@ -3,6 +3,7 @@ title: "OCR Integration Tutorials for GroupDocs.Redaction Java"
 description: "Step-by-step tutorials for using OCR technologies to redact text in images and scanned documents with GroupDocs.Redaction for Java."
 weight: 10
 url: "/java/ocr-integration/"
+type: docs
 ---
 # OCR Integration Tutorials for GroupDocs.Redaction Java
 

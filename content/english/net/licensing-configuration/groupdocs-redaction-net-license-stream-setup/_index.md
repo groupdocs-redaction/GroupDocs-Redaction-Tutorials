@@ -8,10 +8,8 @@ keywords:
 - GroupDocs Redaction license
 - setting license from stream .NET
 - GroupDocs Redaction .NET configuration
-
+type: docs
 ---
-
-
 # Setting a License from Stream with GroupDocs.Redaction .NET
 ## Introduction
 In today's software development landscape, managing licenses effectively is essential for seamless operations and compliance. This tutorial guides you through setting up a license file using a stream in GroupDocs.Redaction for .NET—a method that provides flexibility and efficiency when deploying your applications.

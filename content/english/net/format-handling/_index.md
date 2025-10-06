@@ -3,8 +3,8 @@ title: "Format Handling Tutorials for GroupDocs.Redaction .NET"
 description: "Learn to work with different file formats, create custom format handlers, and extend format support using GroupDocs.Redaction for .NET."
 weight: 14
 url: "/net/format-handling/"
+type: docs
 ---
-
 # Format Handling Tutorials for GroupDocs.Redaction .NET
 
 Extend GroupDocs.Redaction capabilities with our format handling tutorials for .NET developers. These comprehensive guides demonstrate how to create custom format handlers, implement support for additional file formats, work with plain text documents, and handle diverse document types programmatically. Each tutorial includes working C# code examples for format handling scenarios, helping you build applications that can process a wider range of document types beyond the standard supported formats.

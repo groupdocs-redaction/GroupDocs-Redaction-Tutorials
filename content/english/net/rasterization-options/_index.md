@@ -3,8 +3,8 @@ title: "Rasterization Options Tutorials for GroupDocs.Redaction .NET"
 description: "Step-by-step tutorials for configuring advanced options for rasterized PDF output including noise, tilt, grayscale, and borders in GroupDocs.Redaction for .NET."
 weight: 13
 url: "/net/rasterization-options/"
+type: docs
 ---
-
 # Rasterization Options Tutorials for GroupDocs.Redaction .NET
 
 Our rasterization tutorials show you how to enhance document security through advanced PDF conversion options in GroupDocs.Redaction for .NET. These detailed guides cover implementing noise patterns, tilt effects, grayscale conversion, border options, and page selection for rasterized output files. Each tutorial includes practical C# code examples that demonstrate how to make your redacted content more secure by converting documents to non-reversible image-based PDFs with customized visual security features.

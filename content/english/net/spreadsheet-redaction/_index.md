@@ -3,8 +3,8 @@ title: "Spreadsheet Redaction Tutorials for GroupDocs.Redaction .NET"
 description: "Complete tutorials for column and cell-specific redaction for Excel and other spreadsheet formats using GroupDocs.Redaction for .NET."
 weight: 12
 url: "/net/spreadsheet-redaction/"
+type: docs
 ---
-
 # Spreadsheet Redaction Tutorials for GroupDocs.Redaction .NET
 
 Master spreadsheet security with our comprehensive GroupDocs.Redaction tutorials for Excel and other tabular formats in .NET. These practical guides demonstrate how to filter and redact data by specific columns, implement cell-based redactions, handle formula-based content, and secure spreadsheet metadata. Each tutorial includes detailed C# code examples for common spreadsheet redaction scenarios, helping you build applications that can precisely target sensitive information within complex tabular data structures.

@@ -3,6 +3,7 @@ title: "Spreadsheet Redaction Tutorials for GroupDocs.Redaction Java"
 description: "Complete tutorials for column and cell-specific redaction for Excel and other spreadsheet formats using GroupDocs.Redaction for Java."
 weight: 12
 url: "/java/spreadsheet-redaction/"
+type: docs
 ---
 # Spreadsheet Redaction Tutorials for GroupDocs.Redaction Java
 

@@ -3,6 +3,7 @@ title: "Rasterization Options Tutorials for GroupDocs.Redaction Java"
 description: "Step-by-step tutorials for configuring advanced options for rasterized PDF output including noise, tilt, grayscale, and borders in GroupDocs.Redaction for Java."
 weight: 13
 url: "/java/rasterization-options/"
+type: docs
 ---
 # Rasterization Options Tutorials for GroupDocs.Redaction Java
 

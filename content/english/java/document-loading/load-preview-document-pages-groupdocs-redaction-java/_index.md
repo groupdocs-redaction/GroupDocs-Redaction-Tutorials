@@ -8,9 +8,8 @@ keywords:
 - GroupDocs.Redaction Java tutorial
 - preview document page Java
 - PNG preview generation Java
-
+type: docs
 ---
-
 # How to Load and Preview a Specific Document Page with GroupDocs.Redaction Java
 
 ## Introduction

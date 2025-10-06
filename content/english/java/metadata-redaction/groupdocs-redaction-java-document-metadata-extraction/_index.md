@@ -8,9 +8,8 @@ keywords:
 - GroupDocs.Redaction Java
 - document metadata extraction
 - Java stream APIs
-
+type: docs
 ---
-
 # Mastering Document Metadata Extraction with GroupDocs.Redaction in Java
 
 ## Introduction

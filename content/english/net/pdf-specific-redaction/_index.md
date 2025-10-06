@@ -3,8 +3,8 @@ title: "PDF-Specific Redaction Tutorials for GroupDocs.Redaction .NET"
 description: "Learn advanced PDF document redaction techniques, filters, and specialized handling with GroupDocs.Redaction for .NET."
 weight: 11
 url: "/net/pdf-specific-redaction/"
+type: docs
 ---
-
 # PDF-Specific Redaction Tutorials for GroupDocs.Redaction .NET
 
 Our PDF-specific redaction tutorials demonstrate specialized techniques for handling PDF security using GroupDocs.Redaction in .NET. These step-by-step guides cover implementing PDF redaction filters, handling PDF-specific content structures, working with image redaction in PDFs, and managing PDF metadata securely. Each tutorial includes working C# code examples for PDF-focused redaction scenarios, helping you build applications that can effectively address the unique security challenges presented by PDF documents.

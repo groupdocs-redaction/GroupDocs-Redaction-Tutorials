@@ -8,9 +8,8 @@ keywords:
 - OCR-based redactions Java
 - GroupDocs Redaction setup
 - regex-based text redaction
-
+type: docs
 ---
-
 # Implementing OCR-Based Redactions in Java with GroupDocs and Microsoft Azure OCR
 
 ## Introduction

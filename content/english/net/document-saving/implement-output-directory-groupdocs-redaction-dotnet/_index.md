@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Redaction .NET
 - output directory setup in .NET
 - document processing with GroupDocs
-
+type: docs
 ---
-
-
 # Implementing Output Directory with GroupDocs.Redaction .NET
 
 ## Introduction

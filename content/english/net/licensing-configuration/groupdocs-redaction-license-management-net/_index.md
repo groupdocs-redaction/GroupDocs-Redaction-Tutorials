@@ -8,10 +8,8 @@ keywords:
 - GroupDocs Redaction
 - .NET licensing
 - license management
-
+type: docs
 ---
-
-
 # Integrate License Management with GroupDocs.Redaction for .NET
 ## Introduction
 Integrating license management into your application using the GroupDocs.Redaction API is essential to ensure legal compliance and smooth operation. This tutorial guides you through setting up a license file for GroupDocs.Redaction in .NET applications, covering practical examples and best practices.

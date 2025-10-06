@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Redaction .NET
 - annotation redaction
 - text redaction in annotations
-
+type: docs
 ---
-
-
 # How to Redact Texts within Annotations Using GroupDocs.Redaction .NET
 
 ## Introduction

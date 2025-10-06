@@ -8,10 +8,8 @@ keywords:
 - document metadata retrieval
 - GroupDocs.Redaction .NET API
 - metadata extraction
-
+type: docs
 ---
-
-
 # Mastering Document Metadata Retrieval with GroupDocs.Redaction .NET
 
 ## Introduction

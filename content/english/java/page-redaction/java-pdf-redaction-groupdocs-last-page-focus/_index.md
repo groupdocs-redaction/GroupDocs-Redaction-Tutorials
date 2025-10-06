@@ -8,9 +8,8 @@ keywords:
 - Java PDF Redaction
 - GroupDocs.Redaction
 - PDF Area Redaction
-
+type: docs
 ---
-
 # Mastering Java PDF Redaction with GroupDocs.Redaction: Effortless Targeting of Last Page and Specific Areas
 
 In today's digital age, maintaining privacy and compliance is more critical than ever, especially when dealing with sensitive information in PDF documents. This tutorial will guide you through using the powerful GroupDocs.Redaction for Java library to redact specific areas on a PDF page—specifically focusing on the last page. By the end of this guide, you'll be adept at applying targeted redactions that ensure confidentiality and compliance.

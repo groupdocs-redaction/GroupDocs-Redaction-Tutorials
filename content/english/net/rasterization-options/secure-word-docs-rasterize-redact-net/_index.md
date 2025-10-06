@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Redaction .NET
 - Word documents rasterization
 - secure Word Docs
-
+type: docs
 ---
-
-
 # Mastering Document Security: Rasterize and Redact Word Docs with GroupDocs.Redaction .NET
 
 ## Introduction

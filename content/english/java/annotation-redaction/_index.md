@@ -3,6 +3,7 @@ title: "Annotation Redaction Tutorials for GroupDocs.Redaction Java"
 description: "Step-by-step tutorials for managing and redacting document annotations, comments, and review markup in GroupDocs.Redaction for Java."
 weight: 7
 url: "/java/annotation-redaction/"
+type: docs
 ---
 # Annotation Redaction Tutorials for GroupDocs.Redaction Java
 

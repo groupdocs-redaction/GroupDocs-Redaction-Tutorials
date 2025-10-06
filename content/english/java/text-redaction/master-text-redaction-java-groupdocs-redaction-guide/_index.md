@@ -8,9 +8,8 @@ keywords:
 - text redaction in Java
 - regex text redaction
 - GroupDocs.Redaction
-
+type: docs
 ---
-
 # Mastering Text Redaction in Java with GroupDocs.Redaction: A Comprehensive Guide
 
 In today's digital landscape, safeguarding sensitive information within documents is crucial for both businesses and individuals. This guide will walk you through implementing text redaction using the powerful features of GroupDocs.Redaction for Java, focusing on regex-based techniques.

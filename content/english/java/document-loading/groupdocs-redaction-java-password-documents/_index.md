@@ -8,9 +8,8 @@ keywords:
 - GroupDocs.Redaction for Java
 - edit password-protected documents
 - document redaction
-
+type: docs
 ---
-
 # Edit and Redact Password-Protected Documents Using GroupDocs.Redaction for Java
 
 ## Introduction

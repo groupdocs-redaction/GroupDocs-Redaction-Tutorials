@@ -3,6 +3,7 @@ title: "Format Handling Tutorials for GroupDocs.Redaction Java"
 description: "Learn to work with different file formats, create custom format handlers, and extend format support using GroupDocs.Redaction for Java."
 weight: 14
 url: "/java/format-handling/"
+type: docs
 ---
 # Format Handling Tutorials for GroupDocs.Redaction Java
 

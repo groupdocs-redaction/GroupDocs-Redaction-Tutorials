@@ -8,9 +8,8 @@ keywords:
 - metadata redaction java
 - groupdocs redaction setup
 - secure document metadata removal
-
+type: docs
 ---
-
 # Master Metadata Redaction with GroupDocs.Redaction for Java
 ## Comprehensive Guide to Metadata Redaction Using GroupDocs.Redaction for Java
 

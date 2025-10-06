@@ -8,9 +8,8 @@ keywords:
 - advanced rasterization java
 - custom borders groupdocs redaction
 - document security rasterization
-
+type: docs
 ---
-
 # Mastering Advanced Rasterization in Java: Custom Borders Using GroupDocs.Redaction
 
 ## Introduction

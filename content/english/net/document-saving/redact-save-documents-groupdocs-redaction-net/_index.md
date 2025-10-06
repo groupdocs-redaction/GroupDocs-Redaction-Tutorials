@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Redaction
 - Net
 - Document Processing
-
+type: docs
 ---
-
-
 # Comprehensive Guide to Redacting and Saving Documents Using GroupDocs.Redaction for .NET
 
 ## Introduction

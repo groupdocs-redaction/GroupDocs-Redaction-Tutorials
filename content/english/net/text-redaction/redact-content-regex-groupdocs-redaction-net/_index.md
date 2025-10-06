@@ -8,10 +8,8 @@ keywords:
 - redact content with regex in .NET
 - GroupDocs.Redaction library setup
 - text redaction using regular expressions
-
+type: docs
 ---
-
-
 # Redact Content Using Regex with GroupDocs.Redaction for .NET
 
 ## Introduction

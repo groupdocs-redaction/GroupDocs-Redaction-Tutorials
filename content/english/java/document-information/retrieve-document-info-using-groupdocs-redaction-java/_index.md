@@ -8,9 +8,8 @@ keywords:
 - retrieve document information using GroupDocs Redaction Java
 - GroupDocs Redaction library setup Java
 - Java document metadata handling
-
+type: docs
 ---
-
 # How to Retrieve Document Information Using GroupDocs.Redaction in Java
 
 Retrieving critical details about documents such as file type, number of pages, and size is essential for optimizing software applications like document management systems or content processing tools. In this tutorial, we'll guide you through using GroupDocs.Redaction for Java to efficiently retrieve document information.

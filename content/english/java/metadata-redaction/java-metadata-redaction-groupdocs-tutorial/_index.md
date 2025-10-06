@@ -8,9 +8,8 @@ keywords:
 - metadata redaction Java
 - GroupDocs Redaction tutorial
 - secure document metadata
-
+type: docs
 ---
-
 # Step-by-Step Guide to Redacting Metadata in Java Using GroupDocs.Redaction
 
 ## Introduction

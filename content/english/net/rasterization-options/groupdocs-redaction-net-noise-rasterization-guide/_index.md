@@ -8,10 +8,8 @@ keywords:
 - noise rasterization .NET
 - GroupDocs.Redaction for .NET
 - document redaction
-
+type: docs
 ---
-
-
 # Mastering Noise Rasterization in .NET with GroupDocs.Redaction
 
 ## Introduction

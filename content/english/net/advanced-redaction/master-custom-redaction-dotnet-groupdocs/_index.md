@@ -8,10 +8,8 @@ keywords:
 - custom redaction in .NET
 - document privacy with GroupDocs
 - GroupDocs.Redaction for .NET
-
+type: docs
 ---
-
-
 # Mastering Document Privacy: Implement Custom Redaction in .NET with GroupDocs.Redaction
 
 In today's digital age, securing sensitive information within documents is crucial. Whether you're a business handling confidential client data or an individual managing personal records, protecting this content from unauthorized access is essential. This comprehensive guide will walk you through using GroupDocs.Redaction for .NET to implement custom redactions in PDFs, ensuring your documents remain private and secure.

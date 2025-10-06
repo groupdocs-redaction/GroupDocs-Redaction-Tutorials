@@ -5,8 +5,8 @@ additionalTitle: GroupDocs API References
 description: Comprehensive .NET API for secure document redaction. Remove sensitive data from PDF, Word, Excel, PowerPoint files with advanced text, metadata, and image redaction capabilities.
 weight: 10
 url: /net/
+type: docs
 ---
-
 # GroupDocs.Redaction for .NET
 
 GroupDocs.Redaction for .NET is a powerful document redaction API that enables developers to permanently remove sensitive information from documents across 30+ file formats. Whether you're building compliance applications, document management systems, or privacy-focused solutions, this comprehensive library provides all the tools needed to implement secure document sanitization in your .NET applications.

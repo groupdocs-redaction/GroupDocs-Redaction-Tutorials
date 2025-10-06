@@ -8,10 +8,8 @@ keywords:
 - .NET OCR implementation
 - Azure Cognitive Services integration
 - GroupDocs.Redaction for .NET
-
+type: docs
 ---
-
-
 # Implementing .NET OCR with Azure Cognitive Services & GroupDocs.Redaction
 
 ## Introduction

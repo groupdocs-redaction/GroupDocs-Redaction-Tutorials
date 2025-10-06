@@ -3,6 +3,7 @@ title: "Document Loading Tutorials with GroupDocs.Redaction for Java"
 description: "Learn how to load documents from various sources including local disk, streams, and password-protected files using GroupDocs.Redaction for Java."
 weight: 2
 url: "/java/document-loading/"
+type: docs
 ---
 # Document Loading Tutorials with GroupDocs.Redaction for Java
 

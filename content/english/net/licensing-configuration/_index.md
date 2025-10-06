@@ -3,8 +3,8 @@ title: "Licensing and Configuration Tutorials for GroupDocs.Redaction .NET"
 description: "Step-by-step tutorials for setting up licenses, configuring GroupDocs.Redaction, and implementing metered licensing in .NET applications."
 weight: 16
 url: "/net/licensing-configuration/"
+type: docs
 ---
-
 # Licensing and Configuration Tutorials for GroupDocs.Redaction .NET
 
 Learn to properly configure and license GroupDocs.Redaction with our detailed tutorials for .NET developers. These practical guides demonstrate how to set up license files from disk or stream, implement metered licensing for consumption-based billing, configure logging options, and optimize the library for production environments. Each tutorial includes working C# code examples for licensing and configuration scenarios, helping you build properly licensed applications that comply with GroupDocs requirements while maintaining optimal performance.

@@ -3,6 +3,7 @@ title: "Metadata Redaction Tutorials with GroupDocs.Redaction for Java"
 description: "Learn to clean and redact document metadata including properties, comments, and hidden information with these GroupDocs.Redaction Java tutorials."
 weight: 5
 url: "/java/metadata-redaction/"
+type: docs
 ---
 # Metadata Redaction Tutorials with GroupDocs.Redaction for Java
 

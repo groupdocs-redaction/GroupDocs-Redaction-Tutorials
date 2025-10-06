@@ -8,9 +8,8 @@ keywords:
 - GroupDocs.Redaction Java
 - pre-rasterization Word documents
 - image area redaction
-
+type: docs
 ---
-
 # How to Use GroupDocs.Redaction for Java: Pre-Rasterization in Word Documents
 
 ## Introduction

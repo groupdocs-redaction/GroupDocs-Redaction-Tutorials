@@ -3,9 +3,8 @@ title: "GroupDocs.Redaction Getting Started Tutorials for .NET Developers"
 description: "Step-by-step tutorials for GroupDocs.Redaction installation, licensing, setup, and creating your first document redaction applications in .NET."
 weight: 1
 url: "/net/getting-started/"
+type: docs
 ---
-
-
 # GroupDocs.Redaction Getting Started Tutorials for .NET Developers
 Begin your journey with these essential GroupDocs.Redaction tutorials that walk you through installation, licensing configuration, and creating your first document redaction applications in .NET. Our beginner-friendly guides demonstrate how to set up your development environment, initialize the GroupDocs.Redaction library, and perform fundamental document redaction operations. Follow these tutorials to quickly master the basics and prepare for more advanced document security tasks in your .NET applications.
 ## Available Tutorials

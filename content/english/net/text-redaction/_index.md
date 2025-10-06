@@ -3,8 +3,8 @@ title: "Text Redaction Tutorials for GroupDocs.Redaction .NET"
 description: "Step-by-step tutorials for implementing text-based redactions using exact phrases, regular expressions, and case sensitivity options in GroupDocs.Redaction for .NET."
 weight: 4
 url: "/net/text-redaction/"
+type: docs
 ---
-
 # Text Redaction Tutorials for GroupDocs.Redaction .NET
 
 Our text redaction tutorials provide detailed guidance for removing or replacing sensitive textual information in documents with .NET. Follow these practical guides to learn how to use exact phrase matching, implement regular expression patterns, handle case sensitivity, and work with right-to-left text. These tutorials include complete C# code examples for common text redaction scenarios, helping you build applications that can precisely identify and secure sensitive text content in various document types.

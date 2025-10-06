@@ -8,10 +8,8 @@ keywords:
 - remove frames from animated GIFs
 - GroupDocs.Redaction .NET library
 - image redaction
-
+type: docs
 ---
-
-
 # How to Remove Frames from an Animated GIF Image Using GroupDocs.Redaction .NET
 
 **Introduction**

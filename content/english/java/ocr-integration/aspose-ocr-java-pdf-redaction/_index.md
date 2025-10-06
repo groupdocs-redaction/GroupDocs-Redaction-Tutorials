@@ -8,9 +8,8 @@ keywords:
 - secure PDF redaction
 - Aspose OCR integration Java
 - regex patterns GroupDocs Redaction
-
+type: docs
 ---
-
 # Secure PDF Redaction with Aspose OCR and Java
 
 ## Introduction

@@ -8,10 +8,8 @@ keywords:
 - document redaction
 - Aspose OCR integration
 - regex-based redactions
-
+type: docs
 ---
-
-
 # Secure Document Redaction Using Aspose OCR & GroupDocs in .NET
 
 ## Introduction

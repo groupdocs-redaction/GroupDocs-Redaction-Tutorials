@@ -3,8 +3,8 @@ title: "Page Redaction Tutorials for GroupDocs.Redaction .NET"
 description: "Learn to remove pages, page ranges, and work with specific page content using GroupDocs.Redaction for .NET."
 weight: 8
 url: "/net/page-redaction/"
+type: docs
 ---
-
 # Page Redaction Tutorials for GroupDocs.Redaction .NET
 
 Master page-level document manipulation with our detailed GroupDocs.Redaction tutorials for .NET. These practical guides demonstrate how to remove individual pages, eliminate page ranges, work with page areas, and handle specific page content programmatically. Each tutorial includes working C# code examples for common page redaction scenarios, helping you build applications that can efficiently manage document structure while removing sensitive content that spans entire pages or specific regions within pages.

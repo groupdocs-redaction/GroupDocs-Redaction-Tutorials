@@ -8,9 +8,8 @@ keywords:
 - Java Redaction
 - GroupDocs.Redaction Setup
 - Document Redaction
-
+type: docs
 ---
-
 # Java Redaction Guide: Efficient Document Management with GroupDocs.Redaction
 
 ## Introduction

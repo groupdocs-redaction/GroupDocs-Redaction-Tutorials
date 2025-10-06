@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Redaction .NET
 - border rasterization in document redaction
 - document security and compliance
-
+type: docs
 ---
-
-
 # Mastering Border Rasterization in Document Redaction with GroupDocs.Redaction for .NET
 
 ## Introduction

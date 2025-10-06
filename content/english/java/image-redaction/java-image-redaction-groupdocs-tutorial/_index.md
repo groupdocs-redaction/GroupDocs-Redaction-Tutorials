@@ -8,9 +8,8 @@ keywords:
 - Java image redaction
 - GroupDocs.Redaction for Java
 - image area redaction
-
+type: docs
 ---
-
 # Mastering Java Image Redaction with GroupDocs
 
 ## Introduction

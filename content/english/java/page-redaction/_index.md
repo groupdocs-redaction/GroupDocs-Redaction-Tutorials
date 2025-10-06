@@ -3,6 +3,7 @@ title: "Page Redaction Tutorials for GroupDocs.Redaction Java"
 description: "Learn to remove pages, page ranges, and work with specific page content using GroupDocs.Redaction for Java."
 weight: 8
 url: "/java/page-redaction/"
+type: docs
 ---
 # Page Redaction Tutorials for GroupDocs.Redaction Java
 

@@ -3,6 +3,7 @@ title: "Text Redaction Tutorials for GroupDocs.Redaction Java"
 description: "Step-by-step tutorials for implementing text-based redactions using exact phrases, regular expressions, and case sensitivity options in GroupDocs.Redaction for Java."
 weight: 4
 url: "/java/text-redaction/"
+type: docs
 ---
 # Text Redaction Tutorials for GroupDocs.Redaction Java
 

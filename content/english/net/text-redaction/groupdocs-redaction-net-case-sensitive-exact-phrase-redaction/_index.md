@@ -8,10 +8,8 @@ keywords:
 - GroupDocs Redaction .NET
 - case-sensitive exact phrase redaction
 - document security and compliance
-
+type: docs
 ---
-
-
 # Master Case-Sensitive Exact Phrase Redaction with GroupDocs.Redaction .NET for Document Security
 
 ## Introduction

@@ -8,10 +8,8 @@ keywords:
 - GroupDocs Redaction .NET
 - .NET document redaction
 - redact Word documents with .NET
-
+type: docs
 ---
-
-
 # Comprehensive Guide to Implementing .NET Redaction with GroupDocs.Redaction
 
 ## Introduction

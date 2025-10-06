@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Redaction .NET
 - license setup
 - .NET document management
-
+type: docs
 ---
-
-
 # Implementing GroupDocs.Redaction .NET License: A Step-by-Step Guide
 
 ## Introduction

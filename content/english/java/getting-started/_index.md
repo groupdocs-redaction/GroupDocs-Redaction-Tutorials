@@ -3,6 +3,7 @@ title: "GroupDocs.Redaction Getting Started Tutorials for Java Developers"
 description: "Step-by-step tutorials for GroupDocs.Redaction installation, licensing, setup, and creating your first document redactions in Java applications."
 weight: 1
 url: "/java/getting-started/"
+type: docs
 ---
 # GroupDocs.Redaction Getting Started Tutorials for Java Developers
 

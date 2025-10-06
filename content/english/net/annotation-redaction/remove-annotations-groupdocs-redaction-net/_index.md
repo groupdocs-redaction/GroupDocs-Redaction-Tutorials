@@ -8,10 +8,8 @@ keywords:
 - remove annotations GroupDocs Redaction
 - GroupDocs Redaction for .NET tutorial
 - redact sensitive information .NET
-
+type: docs
 ---
-
-
 # Efficiently Remove Annotations from Documents Using GroupDocs.Redaction for .NET
 
 Are you looking to manage sensitive information in your documents effectively? With the growing demand for data privacy, having tools like GroupDocs.Redaction for .NET can help you remove annotations seamlessly across various document formats. This tutorial will guide you through using this powerful tool.

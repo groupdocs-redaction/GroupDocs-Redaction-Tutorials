@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Redaction .NET
 - document redaction .NET
 - load and redact documents
-
+type: docs
 ---
-
-
 # How to Load and Redact Documents with GroupDocs.Redaction .NET
 
 Welcome to this comprehensive guide on using **GroupDocs.Redaction for .NET** to securely load and apply redactions to documents stored locally. Whether you need to remove sensitive information, annotations, or just process documents in a secure manner, GroupDocs.Redaction provides an efficient solution.

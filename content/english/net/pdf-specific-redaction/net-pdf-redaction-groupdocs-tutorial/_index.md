@@ -8,10 +8,8 @@ keywords:
 - .NET PDF Redaction
 - GroupDocs.Redaction setup
 - PDF data masking
-
+type: docs
 ---
-
-
 # Mastering .NET PDF Redaction: Securely Applying Filters with GroupDocs.Redaction
 
 ## Introduction

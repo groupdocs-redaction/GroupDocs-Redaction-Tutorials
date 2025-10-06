@@ -8,10 +8,8 @@ keywords:
 - metadata redaction .NET
 - GroupDocs.Redaction setup
 - MetadataSearchRedaction implementation
-
+type: docs
 ---
-
-
 # Mastering Metadata Redaction with GroupDocs.Redaction in .NET
 
 ## Introduction

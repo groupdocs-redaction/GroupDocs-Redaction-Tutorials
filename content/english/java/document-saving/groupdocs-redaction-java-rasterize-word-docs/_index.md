@@ -8,9 +8,8 @@ keywords:
 - GroupDocs Redaction Java
 - Word document rasterization
 - secure redaction
-
+type: docs
 ---
-
 # Rasterize & Redact Word Documents Using GroupDocs Redaction Java
 
 ## Introduction

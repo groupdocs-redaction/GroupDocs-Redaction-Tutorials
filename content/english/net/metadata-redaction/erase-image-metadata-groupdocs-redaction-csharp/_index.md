@@ -8,10 +8,8 @@ keywords:
 - erase image metadata
 - remove EXIF data C#
 - GroupDocs.Redaction .NET
-
+type: docs
 ---
-
-
 # Erase Image Metadata Using GroupDocs.Redaction in C#: A Guide for Removing EXIF Data
 
 ## Introduction

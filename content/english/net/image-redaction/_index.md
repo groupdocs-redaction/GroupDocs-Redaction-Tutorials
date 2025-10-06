@@ -3,8 +3,8 @@ title: "Image Redaction Tutorials for GroupDocs.Redaction .NET"
 description: "Complete tutorials for redacting areas of images, removing embedded images, and cleaning image metadata using GroupDocs.Redaction for .NET."
 weight: 6
 url: "/net/image-redaction/"
+type: docs
 ---
-
 # Image Redaction Tutorials for GroupDocs.Redaction .NET
 
 Learn how to secure visual content with our GroupDocs.Redaction image tutorials for .NET developers. These detailed guides demonstrate how to redact specific areas of images, handle embedded pictures within documents, clean image metadata, and implement complete image removal. Each tutorial includes working C# code examples that show how to protect sensitive visual information while maintaining document integrity, ensuring your applications can comprehensively address both textual and visual security requirements.

@@ -8,9 +8,8 @@ keywords:
 - advanced logging with GroupDocs Redaction
 - custom logger in Java
 - document redaction monitoring
-
+type: docs
 ---
-
 # Implement Advanced Logging in Java with GroupDocs Redaction: A Comprehensive Guide
 
 ## Introduction

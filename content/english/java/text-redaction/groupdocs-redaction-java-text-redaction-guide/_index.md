@@ -8,9 +8,8 @@ keywords:
 - GroupDocs Redaction Java
 - text redaction in Java
 - secure document handling
-
+type: docs
 ---
-
 # How to Implement Text Redaction in Java Using GroupDocs.Redaction
 **Secure Your Documents Efficiently with GroupDocs.Redaction for Java**
 

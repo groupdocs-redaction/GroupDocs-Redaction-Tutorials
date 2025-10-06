@@ -8,9 +8,8 @@ keywords:
 - Java document redaction
 - GroupDocs.Redaction setup
 - Precise document redactions
-
+type: docs
 ---
-
 # Mastering Document Redaction in Java with GroupDocs.Redaction
 
 In today's digital world, protecting sensitive information is crucial—whether you're a legal professional, a corporate employee, or an independent contractor handling confidential documents. With the increasing need to comply with privacy laws and regulations, redacting sensitive data from documents has become essential. This tutorial will guide you through using GroupDocs.Redaction for Java to achieve precise document redactions effortlessly.

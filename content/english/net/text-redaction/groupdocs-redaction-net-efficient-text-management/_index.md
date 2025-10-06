@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Redaction .NET
 - plain text management
 - text redaction in .NET
-
+type: docs
 ---
-
-
 # Master GroupDocs.Redaction .NET for Efficient Text Management in Plain Documents
 
 ## Introduction

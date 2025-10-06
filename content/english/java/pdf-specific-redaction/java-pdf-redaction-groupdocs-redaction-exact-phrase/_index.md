@@ -8,9 +8,8 @@ keywords:
 - Java PDF Redaction
 - GroupDocs.Redaction
 - Exact Phrase Replacement
-
+type: docs
 ---
-
 # Java PDF Redaction with GroupDocs.Redaction: Exact Phrase Replacement
 
 In the digital age, ensuring document confidentiality is vital. This tutorial demonstrates how to apply exact phrase redactions on PDF documents using GroupDocs.Redaction for Java.

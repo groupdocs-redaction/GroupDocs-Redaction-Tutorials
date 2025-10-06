@@ -8,9 +8,8 @@ keywords:
 - text redaction in Java
 - GroupDocs.Redaction library
 - secure sensitive data
-
+type: docs
 ---
-
 # Mastering Text Redaction in Java with GroupDocs.Redaction
 
 Are you struggling to keep sensitive information secure within your documents? You're not alone. Many organizations face the challenge of redacting confidential data without compromising document integrity. In this tutorial, we'll explore how to leverage the powerful GroupDocs.Redaction library for Java to seamlessly perform text redaction on various document types.

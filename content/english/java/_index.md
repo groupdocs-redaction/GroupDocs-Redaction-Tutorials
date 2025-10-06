@@ -5,8 +5,8 @@ weight: 10
 url: /java/
 description: Implement secure document redaction with GroupDocs.Redaction for Java. Learn to remove sensitive text, metadata, and images with step-by-step tutorials and examples.
 is_root: true
+type: docs
 ---
-
 # Tutorials and Examples of GroupDocs.Redaction for Java
 
 In today's data-driven world, safeguarding sensitive information is essential for compliance with privacy regulations and protecting confidential data. GroupDocs.Redaction for Java provides a powerful solution for permanently removing or obscuring sensitive content across various document formats. This article outlines the comprehensive tutorials and examples available for implementing effective document redaction using GroupDocs.Redaction for Java, enabling developers to build secure document processing workflows that protect sensitive information while maintaining document integrity.

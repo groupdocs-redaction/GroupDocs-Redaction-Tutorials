@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Redaction .NET
 - create redaction policy
 - save XML policy
-
+type: docs
 ---
-
-
 # How to Create a Redaction Policy Using GroupDocs.Redaction .NET
 
 ## Introduction

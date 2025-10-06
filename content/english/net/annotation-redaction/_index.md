@@ -3,8 +3,8 @@ title: "Annotation Redaction Tutorials for GroupDocs.Redaction .NET"
 description: "Step-by-step tutorials for managing and redacting document annotations, comments, and review markup in GroupDocs.Redaction for .NET."
 weight: 7
 url: "/net/annotation-redaction/"
+type: docs
 ---
-
 # Annotation Redaction Tutorials for GroupDocs.Redaction .NET
 
 Our annotation redaction tutorials show you how to secure collaborative document features using GroupDocs.Redaction in .NET. These step-by-step guides cover redacting text within annotations, removing specific annotations, eliminating all review comments, and handling other review markup elements. Each tutorial includes practical C# code examples that demonstrate how to ensure sensitive information isn't inadvertently exposed through document comments and annotations, which are often overlooked in document security workflows.

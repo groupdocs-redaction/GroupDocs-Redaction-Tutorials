@@ -8,9 +8,8 @@ keywords:
 - PDF Redaction Java
 - PPT Redaction Java
 - GroupDocs.Redaction
-
+type: docs
 ---
-
 # Comprehensive Guide to Implementing PDF and PPT Page Area Redaction Using GroupDocs.Redaction for Java
 
 ## Introduction

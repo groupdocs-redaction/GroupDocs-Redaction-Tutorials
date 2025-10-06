@@ -8,9 +8,8 @@ keywords:
 - Java Document Redaction
 - GroupDocs.Redaction for Java
 - text redaction in Java
-
+type: docs
 ---
-
 # Mastering Document Security: Implementing Java Redaction with GroupDocs.Redaction
 
 In today's digital age, securing sensitive information within documents is crucial. Whether you're managing personal data or confidential business details, ensuring privacy and compliance often requires redacting specific content from your files. This guide introduces **GroupDocs.Redaction for Java**, a powerful library that simplifies text, annotation, and metadata redaction in various document formats.

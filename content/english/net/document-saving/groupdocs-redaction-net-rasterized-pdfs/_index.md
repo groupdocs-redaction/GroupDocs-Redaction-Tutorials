@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Redaction
 - save documents as rasterized PDFs
 - redact sensitive information
-
+type: docs
 ---
-
-
 # How to Save Documents as Rasterized PDFs Using GroupDocs.Redaction for .NET: A Complete Guide
 
 ## Introduction

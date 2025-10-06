@@ -8,10 +8,8 @@ keywords:
 - extract document metadata
 - GroupDocs.Redaction .NET
 - document streams
-
+type: docs
 ---
-
-
 # How to Extract Document Metadata from Streams Using GroupDocs.Redaction .NET
 
 ## Introduction

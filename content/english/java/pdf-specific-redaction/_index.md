@@ -3,6 +3,7 @@ title: "PDF-Specific Redaction Tutorials for GroupDocs.Redaction Java"
 description: "Learn advanced PDF document redaction techniques, filters, and specialized handling with GroupDocs.Redaction for Java."
 weight: 11
 url: "/java/pdf-specific-redaction/"
+type: docs
 ---
 # PDF-Specific Redaction Tutorials for GroupDocs.Redaction Java
 

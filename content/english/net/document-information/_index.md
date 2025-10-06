@@ -3,8 +3,8 @@ title: "Document Information Tutorials for GroupDocs.Redaction .NET"
 description: "Complete tutorials for retrieving document information, supported formats, and generating page previews with GroupDocs.Redaction for .NET."
 weight: 15
 url: "/net/document-information/"
+type: docs
 ---
-
 # Document Information Tutorials for GroupDocs.Redaction .NET
 
 Our document information tutorials provide detailed guidance for analyzing documents before processing them with GroupDocs.Redaction in .NET. These step-by-step guides demonstrate how to retrieve format information, generate document previews, obtain page counts, and identify metadata properties programmatically. Each tutorial includes practical C# code examples for document information scenarios, helping you build intelligent applications that can make informed decisions about redaction strategies based on document characteristics.

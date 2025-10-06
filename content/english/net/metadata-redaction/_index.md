@@ -3,8 +3,8 @@ title: "Metadata Redaction Tutorials with GroupDocs.Redaction for .NET"
 description: "Learn to clean and redact document metadata including properties, comments, and hidden information with these GroupDocs.Redaction .NET tutorials."
 weight: 5
 url: "/net/metadata-redaction/"
+type: docs
 ---
-
 # Metadata Redaction Tutorials with GroupDocs.Redaction for .NET
 
 Discover how to effectively secure hidden document information using our comprehensive GroupDocs.Redaction metadata tutorials for .NET. These step-by-step guides teach you how to identify, redact, and clean metadata properties, remove author information, eliminate comments, and handle other hidden document details. Each tutorial provides practical C# code examples for common metadata redaction tasks, helping you build more secure applications that address the often-overlooked metadata security risks in your documents.

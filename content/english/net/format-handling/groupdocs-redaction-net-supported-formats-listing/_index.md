@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Redaction .NET
 - supported file formats
 - document management system
-
+type: docs
 ---
-
-
 # Comprehensive Tutorial: Implementing Supported File Format Listing with GroupDocs.Redaction .NET
 
 ## Introduction

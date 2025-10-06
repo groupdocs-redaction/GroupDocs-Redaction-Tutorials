@@ -8,9 +8,8 @@ keywords:
 - annotation removal java
 - groupdocs redaction setup
 - regex annotation cleanup
-
+type: docs
 ---
-
 # Mastering Annotation Removal in Java with GroupDocs.Redaction: A Comprehensive Guide
 
 ## Introduction

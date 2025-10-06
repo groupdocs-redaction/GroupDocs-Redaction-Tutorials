@@ -3,8 +3,8 @@ title: "OCR Integration Tutorials for GroupDocs.Redaction .NET"
 description: "Step-by-step tutorials for using OCR technologies to redact text in images and scanned documents with GroupDocs.Redaction for .NET."
 weight: 10
 url: "/net/ocr-integration/"
+type: docs
 ---
-
 # OCR Integration Tutorials for GroupDocs.Redaction .NET
 
 Learn how to redact text from scanned documents and images with our GroupDocs.Redaction OCR integration tutorials for .NET. These detailed guides demonstrate how to use Aspose.OCR On-Premise, Aspose.OCR Cloud, and Microsoft Azure Computer Vision to identify and redact text within image-based content. Each tutorial provides practical C# code examples for implementing OCR-powered redaction workflows, helping you build applications that can effectively secure sensitive information even in non-machine-readable documents.

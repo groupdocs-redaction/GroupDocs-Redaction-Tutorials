@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Redaction .NET
 - password-protected document redaction
 - secure document handling with GroupDocs
-
+type: docs
 ---
-
-
 # How to Load and Redact Password-Protected Documents Using GroupDocs.Redaction .NET
 
 ## Introduction

@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Redaction annotation removal
 - annotation redaction in documents
 - remove annotations using GroupDocs
-
+type: docs
 ---
-
-
 # Efficient Annotation Removal in Documents Using GroupDocs.Redaction .NET
 
 ## Introduction

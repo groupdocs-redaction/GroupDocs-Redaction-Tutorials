@@ -8,10 +8,8 @@ keywords:
 - GroupDocs Redaction
 - document security
 - phrase redaction
-
+type: docs
 ---
-
-
 # Mastering Document Security with GroupDocs.Redaction .NET: A Comprehensive Guide to Phrase and Metadata Redaction
 
 ## Introduction

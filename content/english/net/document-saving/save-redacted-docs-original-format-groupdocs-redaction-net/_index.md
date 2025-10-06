@@ -8,10 +8,8 @@ keywords:
 - GroupDocs Redaction .NET
 - save redacted documents
 - exact phrase redaction
-
+type: docs
 ---
-
-
 # Save a Redacted Document in Its Original Format Using GroupDocs.Redaction .NET
 
 ## Introduction

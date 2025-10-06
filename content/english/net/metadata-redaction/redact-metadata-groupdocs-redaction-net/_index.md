@@ -8,10 +8,8 @@ keywords:
 - metadata redaction
 - GroupDocs.Redaction for .NET
 - redact document metadata
-
+type: docs
 ---
-
-
 # How to Redact Document Metadata Using GroupDocs.Redaction for .NET
 
 ## Introduction

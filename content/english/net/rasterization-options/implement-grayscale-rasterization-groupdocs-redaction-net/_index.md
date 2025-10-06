@@ -8,10 +8,8 @@ keywords:
 - Grayscale Rasterization
 - GroupDocs.Redaction for .NET
 - .NET Document Redaction
-
+type: docs
 ---
-
-
 # How to Implement Grayscale Rasterization in .NET Using GroupDocs.Redaction
 
 **Introduction**

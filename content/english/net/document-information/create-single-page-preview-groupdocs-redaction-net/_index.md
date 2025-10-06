@@ -8,10 +8,8 @@ keywords:
 - GroupDocs.Redaction .NET
 - single-page document preview
 - document processing in .NET
-
+type: docs
 ---
-
-
 # How to Create a Single-Page Preview of a Document using GroupDocs.Redaction .NET
 
 ## Introduction

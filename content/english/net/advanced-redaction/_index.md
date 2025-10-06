@@ -3,8 +3,8 @@ title: "Advanced Redaction Techniques for GroupDocs.Redaction .NET"
 description: "Complete tutorials for implementing custom redaction handlers, redaction policies, callbacks, and AI-assisted redaction in GroupDocs.Redaction for .NET."
 weight: 9
 url: "/net/advanced-redaction/"
+type: docs
 ---
-
 # Advanced Redaction Techniques for GroupDocs.Redaction .NET
 
 Our advanced redaction tutorials provide in-depth guidance for customizing and extending GroupDocs.Redaction functionality in .NET. These comprehensive guides demonstrate how to create custom redaction handlers, implement redaction policies, use callbacks for complex processing, and leverage AI technologies for intelligent document redaction. Each tutorial includes detailed C# code examples for sophisticated redaction requirements, helping you build powerful applications that can handle complex document security scenarios beyond standard redaction capabilities.

@@ -8,9 +8,8 @@ keywords:
 - Java metadata redaction
 - GroupDocs.Redaction for Java
 - metadata text replacement
-
+type: docs
 ---
-
 # Implementing Java Metadata Redaction with GroupDocs.Redaction
 
 ## Introduction

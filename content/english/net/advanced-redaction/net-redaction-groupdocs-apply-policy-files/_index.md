@@ -8,10 +8,8 @@ keywords:
 - .NET Redaction
 - GroupDocs.Redaction
 - data privacy compliance
-
+type: docs
 ---
-
-
 # Master .NET Redaction with GroupDocs: Apply Policies to Files Efficiently
 
 ## Introduction

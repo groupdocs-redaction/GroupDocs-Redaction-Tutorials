@@ -8,10 +8,8 @@ keywords:
 - text redaction .net
 - secure sensitive information .net
 - GroupDocs.Redaction implementation
-
+type: docs
 ---
-
-
 # How to Implement Text Redaction with a Colored Rectangle in .NET Using GroupDocs.Redaction
 
 ## Introduction
