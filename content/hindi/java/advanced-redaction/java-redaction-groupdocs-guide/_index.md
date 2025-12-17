@@ -1,22 +1,25 @@
 ---
-title: "Java Redaction Guide: Secure Document Processing with GroupDocs"
-description: "Master secure document processing in Java using GroupDocs.Redaction. Learn how to load a redaction policy, process multiple files, redact sensitive data, and save redacted documents efficiently."
-date: "2025-12-17"
-weight: 1
-url: "/java/advanced-redaction/java-redaction-groupdocs-guide/"
+date: '2025-12-17'
+description: जावा में GroupDocs.Redaction का उपयोग करके सुरक्षित दस्तावेज़ प्रोसेसिंग
+  में महारत हासिल करें। जानें कैसे एक रेडैक्शन नीति लोड करें, कई फ़ाइलों को प्रोसेस
+  करें, संवेदनशील डेटा को रेडैक्ट करें, और रेडैक्टेड दस्तावेज़ों को कुशलतापूर्वक सहेजें।
 keywords:
 - Java Redaction
 - Secure Document Processing
 - GroupDocs.Redaction for Java
+title: 'जावा रेडैक्शन गाइड: ग्रुपडॉक्स के साथ सुरक्षित दस्तावेज़ प्रोसेसिंग'
 type: docs
+url: /hi/java/advanced-redaction/java-redaction-groupdocs-guide/
+weight: 1
 ---
-# Java Redaction Guide: Secure Document Processing with GroupDocs
+
+# Java Redaction Guide: GroupDocs के साथ सुरक्षित दस्तावेज़ प्रोसेसिंग
 
 Learn how to load and apply a redaction policy in Java using GroupDocs.Redaction, ensuring **secure document processing** while handling multiple files, redacting sensitive data, and saving redacted documents efficiently.
 
 ## Introduction
 
-In today's digital age, managing sensitive information within documents is paramount. Whether you're working with legal documents, medical records, or financial data, the need for robust redaction solutions has never been more critical. This guide will help you use GroupDocs.Redaction for Java to load and apply a redaction policy effectively. By mastering this process, you can ensure that sensitive information is securely processed and stored.
+आज के डिजिटल युग में, दस्तावेज़ों में संवेदनशील जानकारी का प्रबंधन अत्यंत महत्वपूर्ण है। चाहे आप कानूनी दस्तावेज़, चिकित्सा रिकॉर्ड या वित्तीय डेटा के साथ काम कर रहे हों, मजबूत रेडैक्शन समाधान की आवश्यकता पहले से कहीं अधिक महत्वपूर्ण हो गई है। यह गाइड आपको GroupDocs.Redaction for Java का उपयोग करके रेडैक्शन पॉलिसी को लोड और लागू करने में मदद करेगा। इस प्रक्रिया में महारत हासिल करके, आप सुनिश्चित कर सकते हैं कि संवेदनशील जानकारी सुरक्षित रूप से प्रोसेस और संग्रहीत हो।
 
 ## Quick Answers
 - **What does secure document processing mean?** It refers to handling, redacting, and storing documents while protecting confidential data throughout the workflow.  

@@ -1,22 +1,25 @@
 ---
-title: "Java Redaction Guide: Secure Document Processing with GroupDocs"
-description: "Master secure document processing in Java using GroupDocs.Redaction. Learn how to load a redaction policy, process multiple files, redact sensitive data, and save redacted documents efficiently."
-date: "2025-12-17"
-weight: 1
-url: "/java/advanced-redaction/java-redaction-groupdocs-guide/"
+date: '2025-12-17'
+description: Maîtrisez le traitement sécurisé de documents en Java avec GroupDocs.Redaction.
+  Apprenez à charger une politique de rédaction, à traiter plusieurs fichiers, à masquer
+  les données sensibles et à enregistrer efficacement les documents redactés.
 keywords:
 - Java Redaction
 - Secure Document Processing
 - GroupDocs.Redaction for Java
+title: 'Guide de caviardage Java : traitement sécurisé des documents avec GroupDocs'
 type: docs
+url: /fr/java/advanced-redaction/java-redaction-groupdocs-guide/
+weight: 1
 ---
-# Java Redaction Guide: Secure Document Processing with GroupDocs
 
-Learn how to load and apply a redaction policy in Java using GroupDocs.Redaction, ensuring **secure document processing** while handling multiple files, redacting sensitive data, and saving redacted documents efficiently.
+# Guide de rédaction Java : Traitement sécurisé des documents avec GroupDocs
+
+Apprenez à charger et appliquer une politique de rédaction en Java avec GroupDocs.Redaction, en garantissant **le traitement sécurisé des documents** tout en gérant plusieurs fichiers, en masquant les données sensibles et en enregistrant les documents rédigés efficacement.
 
 ## Introduction
 
-In today's digital age, managing sensitive information within documents is paramount. Whether you're working with legal documents, medical records, or financial data, the need for robust redaction solutions has never been more critical. This guide will help you use GroupDocs.Redaction for Java to load and apply a redaction policy effectively. By mastering this process, you can ensure that sensitive information is securely processed and stored.
+À l'ère numérique actuelle, la gestion des informations sensibles au sein des documents est primordiale. Que vous travailliez avec des documents juridiques, des dossiers médicaux ou des données financières, le besoin de solutions de rédaction robustes n’a jamais été aussi crucial. Ce guide vous aidera à utiliser GroupDocs.Redaction pour Java afin de charger et appliquer efficacement une politique de rédaction. En maîtrisant ce processus, vous pouvez vous assurer que les informations sensibles sont traitées et stockées de manière sécurisée.
 
 ## Quick Answers
 - **What does secure document processing mean?** It refers to handling, redacting, and storing documents while protecting confidential data throughout the workflow.  
