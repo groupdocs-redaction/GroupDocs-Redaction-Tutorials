@@ -1,21 +1,22 @@
 ---
-title: "How to get file type java with GroupDocs.Redaction"
-description: "Learn how to get file type java, get document size java, and retrieve pdf metadata java using GroupDocs.Redaction for Java. Boost your Java app's document handling today."
-date: "2025-12-20"
-weight: 1
-url: "/java/document-information/retrieve-document-info-using-groupdocs-redaction-java/"
+date: '2025-12-20'
+description: GroupDocs.Redaction for Java を使用して、Java でファイルタイプを取得し、ドキュメントサイズを取得し、PDF
+  メタデータを取得する方法を学びましょう。今すぐ Java アプリのドキュメント処理を強化してください。
 keywords:
 - get file type java
 - get document size java
 - retrieve pdf metadata java
 - get page count java
 - GroupDocs Redaction library setup Java
+title: GroupDocs.Redaction を使用して Java でファイルタイプを取得する方法
 type: docs
+url: /ja/java/document-information/retrieve-document-info-using-groupdocs-redaction-java/
+weight: 1
 ---
 
-# How to get file type java with GroupDocs.Redaction
+# GroupDocs.Redactionでファイルタイプjavaを取得する方法
 
-Retrieving critical details about a document—such as **file type**, page count, and size—is a common requirement when building document‑centric Java applications. In this tutorial you’ll learn how to **get file type java** and also how to **get document size java**, **get page count java**, and even **retrieve pdf metadata java** using the GroupDocs.Redaction library.
+ドキュメントの重要な詳細（**ファイルタイプ**、ページ数、サイズなど）を取得することは、ドキュメント中心の Java アプリケーションを構築する際の一般的な要件です。このチュートリアルでは、GroupDocs.Redaction ライブラリを使用して **get file type java** の取得方法、**get document size java**、**get page count java**、さらには **retrieve pdf metadata java** の取得方法を学びます。
 
 ## Quick Answers
 - **What method returns the file type?** `IDocumentInfo.getFileType()`
@@ -25,7 +26,7 @@ Retrieving critical details about a document—such as **file type**, page count
 - **Which Java version is required?** Java 8 or higher.
 
 ## What is “get file type java”?
-The phrase refers to extracting the file format (e.g., DOCX, PDF) from a document programmatically in Java. GroupDocs.Redaction exposes this information through the `IDocumentInfo` interface.
+このフレーズは、Java でプログラム的にドキュメントからファイル形式（例: DOCX、PDF）を抽出することを指します。GroupDocs.Redaction はこの情報を `IDocumentInfo` インターフェイスを通じて提供します。
 
 ## Why use GroupDocs.Redaction for metadata extraction?
 - **Broad format support:** Handles PDF, DOCX, XLSX, PPTX, and many more.
@@ -191,6 +192,4 @@ A: Wrap each document’s processing in its own `Redactor` instance and reuse a 
 - **Download:** [GroupDocs.Redaction for Java Downloads](https://releases.groupdocs.com/redaction/java/)  
 - **GitHub:** [GroupDocs GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - **Free Support:** [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)  
-- **Temporary License:** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/)  
-
----
+- **Temporary License:** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/)
