@@ -1,63 +1,64 @@
 ---
-title: "Create Redaction Rules Java – GroupDocs.Redaction Getting Started"
-description: "Step‑by‑step guide to create redaction rules Java using GroupDocs.Redaction. Learn installation, licensing, setup, and how to redact documents in Java applications."
-weight: 1
-url: "/java/getting-started/"
-type: docs
 date: 2025-12-24
+description: GroupDocs.Redaction を使用した Java のレダクションルール作成のステップバイステップガイド。インストール、ライセンス、セットアップ、そして
+  Java アプリケーションで文書をレダクション（マスク）する方法を学びます。
+title: Javaでレダクションルールを作成 – GroupDocs.Redaction 入門
+type: docs
+url: /ja/java/getting-started/
+weight: 1
 ---
 
-# Create Redaction Rules Java – GroupDocs.Redaction Getting Started Tutorials for Java Developers
+# Javaでリダクションルールを作成 – GroupDocs.Redaction Java開発者向け入門チュートリアル
 
 Welcome! In this collection you’ll discover how to **create redaction rules Java** with GroupDocs.Redaction, from installing the library to building your first redaction workflow. Whether you’re protecting personal data, complying with regulations, or simply need to hide confidential text, these beginner‑friendly guides walk you through every step so you can start securing documents in your Java applications right away.
 
-## Quick Answers
-- **What is the first step?** Add the GroupDocs.Redaction Maven/Gradle dependency and obtain a temporary license.  
-- **Which IDE works best?** Any Java IDE (IntelliJ IDEA, Eclipse, VS Code) that supports Maven/Gradle.  
-- **Can I redact PDFs and Word files?** Yes – the same API handles PDF, DOCX, PPTX, and many other formats.  
-- **Do I need a paid license for development?** A temporary license is free for testing; a full license is required for production.  
-- **Where can I find sample code?** Each tutorial page contains ready‑to‑run examples you can copy into your project.
+## クイック回答
+- **最初のステップは何ですか？** Add the GroupDocs.Redaction Maven/Gradle dependency and obtain a temporary license.  
+- **どのIDEが最適ですか？** Any Java IDE (IntelliJ IDEA, Eclipse, VS Code) that supports Maven/Gradle.  
+- **PDFやWordファイルをリダクションできますか？** Yes – the same API handles PDF, DOCX, PPTX, and many other formats.  
+- **開発に有料ライセンスは必要ですか？** A temporary license is free for testing; a full license is required for production.  
+- **サンプルコードはどこで見つけられますか？** Each tutorial page contains ready‑to‑run examples you can copy into your project.
 
-## What does it mean to **create redaction rules Java**?
+## **create redaction rules Java** とは何ですか？
 
 Creating redaction rules in Java means defining the patterns, phrases, or objects you want to hide or remove from a document before it’s shared or stored. With GroupDocs.Redaction you can specify exact text, regular expressions, images, or even entire pages, and the library will safely redact them while preserving the original layout.
 
-## Why use GroupDocs.Redaction for Java redaction?
+## Java のリダクションに GroupDocs.Redaction を使用する理由
 
 - **Cross‑format support** – Works with PDF, Word, Excel, PowerPoint, and more.  
 - **High performance** – Redaction is performed in memory, ideal for server‑side processing.  
 - **Compliance‑ready** – Meets GDPR, HIPAA, and other privacy regulations out of the box.  
 - **Simple API** – Intuitive Java methods let you create redaction rules without deep PDF knowledge.
 
-## Prerequisites
+## 前提条件
 - Java 8 or higher installed.  
 - Maven or Gradle for dependency management.  
 - Access to a GroupDocs.Redaction temporary or full license (free trial available).  
 
-## Available Tutorials
+## 利用可能なチュートリアル
 
-### [Implementing Java Redaction with GroupDocs.Redaction&#58; A Comprehensive Guide for Developers](./implement-java-redaction-groupdocs-redaction-guide/)
+### [GroupDocs.Redaction を使用した Java リダクションの実装&#58; 開発者向け包括的ガイド](./implement-java-redaction-groupdocs-redaction-guide/)
 Learn how to implement effective redaction in Java using GroupDocs.Redaction. Protect sensitive information seamlessly while maintaining document integrity.
 
-### [Java Redaction Guide&#58; Efficient Document Management with GroupDocs.Redaction](./java-redaction-groupdocs-efficient-document-setup/)
+### [Java リダクションガイド&#58; GroupDocs.Redaction を使用した効率的なドキュメント管理](./java-redaction-groupdocs-efficient-document-setup/)
 Learn how to efficiently set up and manage document redactions in Java using GroupDocs.Redaction. Perfect for safeguarding sensitive information.
 
-### [Java Redaction Tutorial&#58; Using GroupDocs.Redaction API to Secure Documents](./java-groupdocs-redaction-tutorial/)
+### [Java リダクションチュートリアル&#58; GroupDocs.Redaction API を使用したドキュメント保護](./java-groupdocs-redaction-tutorial/)
 Learn how to use the GroupDocs.Redaction Java library to redact sensitive information from documents. This comprehensive guide covers setup, implementation, and best practices.
 
-### [Master Document Redaction in Java Using GroupDocs.Redaction&#58; A Step‑By‑Step Guide](./master-document-redaction-java-groupdocs/)
+### [GroupDocs.Redaction を使用した Java のドキュメントリダクションマスター&#58; ステップバイステップガイド](./master-document-redaction-java-groupdocs/)
 Learn to redact sensitive data from PDFs and Word files using GroupDocs.Redaction for Java. Implement exact phrase redactions, rasterize documents for privacy, and ensure compliance effortlessly.
 
-## Additional Resources
+## 追加リソース
 
-- [GroupDocs.Redaction for Java Documentation](https://docs.groupdocs.com/redaction/java/)
-- [GroupDocs.Redaction for Java API Reference](https://reference.groupdocs.com/redaction/java/)
-- [Download GroupDocs.Redaction for Java](https://releases.groupdocs.com/redaction/java/)
-- [GroupDocs.Redaction Forum](https://forum.groupdocs.com/c/redaction/33)
-- [Free Support](https://forum.groupdocs.com/)
-- [Temporary License](https://purchase.groupdocs.com/temporary-license/)
+- [GroupDocs.Redaction for Java ドキュメント](https://docs.groupdocs.com/redaction/java/)
+- [GroupDocs.Redaction for Java API リファレンス](https://reference.groupdocs.com/redaction/java/)
+- [GroupDocs.Redaction for Java のダウンロード](https://releases.groupdocs.com/redaction/java/)
+- [GroupDocs.Redaction フォーラム](https://forum.groupdocs.com/c/redaction/33)
+- [無料サポート](https://forum.groupdocs.com/)
+- [一時ライセンス](https://purchase.groupdocs.com/temporary-license/)
 
-## How to **create redaction rules Java** – Step‑by‑Step Overview
+## **create redaction rules Java** の手順 – ステップバイステップ概要
 
 1. **Add the library** – Include the GroupDocs.Redaction dependency in your `pom.xml` or `build.gradle`.  
 2. **Apply your license** – Load the temporary license file to unlock full functionality.  
@@ -67,33 +68,30 @@ Learn to redact sensitive data from PDFs and Word files using GroupDocs.Redactio
 
 Each of the linked tutorials walks you through these steps with real code snippets, so you can see exactly how to **create redaction rules Java** in practice.
 
-## Common Issues and Solutions
+## よくある問題と解決策
 
 - **Redaction not applied** – Verify that the rule’s search pattern matches the document’s text (consider case‑sensitivity and Unicode).  
 - **License errors** – Ensure the temporary license file is correctly referenced and not expired.  
 - **Large files cause memory pressure** – Use `RedactionOptions.setMemorySavingMode(true)` to reduce RAM usage.  
 
-## Frequently Asked Questions
+## よくある質問
 
-**Q: Can I redact images or graphics?**  
+**Q: 画像やグラフィックもリダクションできますか？**  
 A: Yes – GroupDocs.Redaction can locate and redact images, drawings, and even entire pages.
 
-**Q: Is it possible to preview redactions before saving?**  
-A: You can generate a preview PDF using `Redactor.getPreview()` to see the result without committing changes.
+**Q: 保存前にリダクションをプレビューできますか？**A: You can generate a preview PDF using `Redactor.getPreview()` to see the result without committing changes.
 
-**Q: Does the library support batch processing of multiple documents?**  
+**Q: 複数のドキュメントをバッチ処理できますか？**  
 A: Absolutely. Loop through a collection of files and apply the same redaction rules to each document.
 
-**Q: How do I handle password‑protected PDFs?**  
+**Q: パスワード保護された PDF はどう扱いますか？**  
 A: Pass the password to the `Redactor` constructor so the library can open and redact the file securely.
 
-**Q: Are there any performance tips for high‑volume redaction services?**  
+**Q: 高負荷のリダクションサービス向けのパフォーマンスヒントはありますか？**  
 A: Reuse a single `Redactor` instance when processing many files and enable multi‑threading if your environment permits.
 
 ---
 
-**Last Updated:** 2025-12-24  
-**Tested With:** GroupDocs.Redaction 23.9 for Java  
-**Author:** GroupDocs  
-
----
+**最終更新日:** 2025-12-24  
+**テスト環境:** GroupDocs.Redaction 23.9 for Java  
+**作者:** GroupDocs
