@@ -1,15 +1,17 @@
 ---
-title: "Set GroupDocs License Java – Licensing and Configuration Tutorials for GroupDocs.Redaction"
-description: "Step-by-step tutorials to set groupdocs license java, configure GroupDocs.Redaction, and implement metered licensing in Java applications."
-weight: 16
-url: "/java/licensing-configuration/"
+date: '2025-12-31'
+description: Krok po kroku poradniki, jak ustawić licencję GroupDocs w Javie, skonfigurować
+  GroupDocs.Redaction oraz wdrożyć licencjonowanie metrowe w aplikacjach Java.
+title: Ustaw licencję GroupDocs Java – Poradniki dotyczące licencjonowania i konfiguracji
+  dla GroupDocs.Redaction
 type: docs
-date: "2025-12-31"
+url: /pl/java/licensing-configuration/
+weight: 16
 ---
 
 # Set GroupDocs License Java – Licensing and Configuration Tutorials for GroupDocs.Redaction
 
-If you need to **set GroupDocs license Java** quickly and reliably, you’ve come to the right place. This guide walks you through everything you need to know to license and configure GroupDocs.Redaction in Java projects—from loading a license file or stream to fine‑tuning logging for production use. You’ll also discover where to find the most up‑to‑date resources, so you can keep your applications compliant and performant.
+Jeśli potrzebujesz **szybko i niezawodnie ustawić licencję GroupDocs Java**, trafiłeś we właściwe miejsce. Ten przewodnik przeprowadzi Cię przez wszystko, co musisz wiedzieć, aby licencjonować i konfigurować GroupDocs.Redaction w projektach Java – od ładowania pliku licencji lub strumienia po precyzyjne dostosowanie logowania do użytku produkcyjnego. Dowiesz się także, gdzie znaleźć najnowsze zasoby, aby Twoje aplikacje były zgodne z licencją i wydajne.
 
 ## Quick Answers
 - **What is the primary way to set a GroupDocs license in Java?** Load the license from a file path or an `InputStream` using the provided API.  
@@ -19,39 +21,39 @@ If you need to **set GroupDocs license Java** quickly and reliably, you’ve com
 - **Where can I download the latest Java binaries?** From the official GroupDocs.Redaction download page linked below.
 
 ## What is “set groupdocs license java”?
-Setting the GroupDocs license in Java means providing the library with a valid license file or stream so that all Redaction features become fully unlocked. Without a proper license, the API operates in a limited evaluation mode.
+Ustawienie licencji GroupDocs w Java oznacza przekazanie bibliotece ważnego pliku licencji lub strumienia, aby wszystkie funkcje Redaction zostały w pełni odblokowane. Bez prawidłowej licencji API działa w ograniczonym trybie ewaluacyjnym.
 
 ## Why configure GroupDocs.Redaction for production?
-Proper configuration ensures:
-- **Full feature access** – all redaction tools work without restrictions.  
-- **Performance optimization** – you can tune memory usage and enable caching.  
-- **Robust logging** – helps diagnose issues in live environments.  
-- **Compliance** – meets licensing terms and avoids unexpected evaluation watermarks.
+Właściwa konfiguracja zapewnia:
+- **Full feature access** – wszystkie narzędzia redakcji działają bez ograniczeń.  
+- **Performance optimization** – możesz dostroić zużycie pamięci i włączyć buforowanie.  
+- **Robust logging** – pomaga diagnozować problemy w środowiskach produkcyjnych.  
+- **Compliance** – spełnia warunki licencyjne i eliminuje nieoczekiwane znaki wodne w trybie ewaluacyjnym.
 
 ## Prerequisites
-- Java Development Kit (JDK) 8 or higher.  
-- Maven or Gradle project setup.  
-- A valid GroupDocs.Redaction license file (`.lic`) or stream.  
+- Java Development Kit (JDK) 8 lub wyższy.  
+- Maven lub Gradle – konfiguracja projektu.  
+- Ważny plik licencji GroupDocs.Redaction (`.lic`) lub strumień.  
 
 ## Step‑by‑Step Overview
 
 ### 1. Choose your licensing method
-Decide whether you’ll load the license from a file path (ideal for server deployments) or from an `InputStream` (useful when the license is embedded in resources or retrieved from a secure store.
+Zdecyduj, czy będziesz ładować licencję z ścieżki pliku (idealne dla wdrożeń serwerowych), czy z `InputStream` (przydatne, gdy licencja jest osadzona w zasobach lub pobierana z bezpiecznego magazynu).
 
 ### 2. Add the GroupDocs.Redaction dependency
-Include the latest Maven artifact in your `pom.xml` or the equivalent Gradle entry. This ensures you have the most recent library with bug fixes and performance improvements.
+Dołącz najnowszy artefakt Maven do swojego `pom.xml` lub odpowiedni wpis Gradle. Zapewni to najświeższą wersję biblioteki z poprawkami błędów i ulepszeniami wydajności.
 
 ### 3. Load the license
-Use the `License` class provided by the SDK. For a file path, call `setLicense(String path)`. For an `InputStream`, call `setLicense(InputStream stream)`. Handle any exceptions to avoid runtime crashes.
+Użyj klasy `License` dostarczonej przez SDK. Dla ścieżki pliku wywołaj `setLicense(String path)`. Dla `InputStream` wywołaj `setLicense(InputStream stream)`. Obsłuż ewentualne wyjątki, aby uniknąć awarii w czasie wykonywania.
 
 ### 4. Verify the license is active
-After loading, you can call `License.isValid()` (or a similar method) to confirm that the license has been applied successfully.
+Po załadowaniu możesz wywołać `License.isValid()` (lub podobną metodę), aby potwierdzić, że licencja została pomyślnie zastosowana.
 
 ### 5. (Optional) Configure logging
-Set the desired log level (e.g., INFO, DEBUG) and specify a log file or console output. This step is crucial for production monitoring.
+Ustaw żądany poziom logowania (np. INFO, DEBUG) i określ plik logu lub wyjście konsoli. Ten krok jest kluczowy dla monitorowania w środowisku produkcyjnym.
 
 ### 6. (Optional) Enable metered licensing
-If you’re using consumption‑based billing, initialize the metered licensing client with your API credentials and start tracking usage.
+Jeśli korzystasz z rozliczania na podstawie zużycia, zainicjuj klienta licencjonowania metrowego przy użyciu swoich danych uwierzytelniających API i rozpocznij śledzenie użycia.
 
 ## Available Tutorials
 

@@ -1,13 +1,14 @@
 ---
-title: "Set GroupDocs License Java – Licensing and Configuration Tutorials for GroupDocs.Redaction"
-description: "Step-by-step tutorials to set groupdocs license java, configure GroupDocs.Redaction, and implement metered licensing in Java applications."
-weight: 16
-url: "/java/licensing-configuration/"
+date: '2025-12-31'
+description: GroupDocs 라이선스(Java)를 설정하고, GroupDocs.Redaction을 구성하며, Java 애플리케이션에서
+  메터링 라이선스를 구현하기 위한 단계별 튜토리얼.
+title: GroupDocs 라이선스 Java 설정 – GroupDocs.Redaction을 위한 라이선스 및 구성 튜토리얼
 type: docs
-date: "2025-12-31"
+url: /ko/java/licensing-configuration/
+weight: 16
 ---
 
-# Set GroupDocs License Java – Licensing and Configuration Tutorials for GroupDocs.Redaction
+# GroupDocs 라이선스 Java 설정 – GroupDocs.Redaction 라이선스 및 구성 튜토리얼
 
 If you need to **set GroupDocs license Java** quickly and reliably, you’ve come to the right place. This guide walks you through everything you need to know to license and configure GroupDocs.Redaction in Java projects—from loading a license file or stream to fine‑tuning logging for production use. You’ll also discover where to find the most up‑to‑date resources, so you can keep your applications compliant and performant.
 
@@ -91,6 +92,4 @@ A: The overhead is minimal; the SDK batches usage reports to reduce network call
 
 **Last Updated:** 2025-12-31  
 **Tested With:** GroupDocs.Redaction 23.12 for Java  
-**Author:** GroupDocs  
-
----
+**Author:** GroupDocs
