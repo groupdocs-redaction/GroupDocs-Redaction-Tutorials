@@ -1,19 +1,20 @@
 ---
-title: "remove exif data java with GroupDocs.Redaction – Complete Guide"
-description: "Learn how to remove exif data java using GroupDocs.Redaction for Java. Protect your privacy with step‑by‑step instructions."
-date: "2026-01-06"
-weight: 1
-url: "/java/image-redaction/erase-metadata-images-groupdocs-redaction-java/"
+date: '2026-01-06'
+description: Dowiedz się, jak usunąć dane EXIF w Javie przy użyciu GroupDocs.Redaction
+  dla Javy. Chroń swoją prywatność dzięki instrukcjom krok po kroku.
 keywords:
-  - erase metadata from images
-  - GroupDocs.Redaction for Java
-  - metadata redaction in Java
+- erase metadata from images
+- GroupDocs.Redaction for Java
+- metadata redaction in Java
+title: Usuwanie danych EXIF w Javie przy użyciu GroupDocs.Redaction – Kompletny przewodnik
 type: docs
+url: /pl/java/image-redaction/erase-metadata-images-groupdocs-redaction-java/
+weight: 1
 ---
 
-# remove exif data java with GroupDocs.Redaction – Complete Guide
+# usuwanie danych exif java z GroupDocs.Redaction – Kompletny przewodnik
 
-In today’s world, every photo you share can carry hidden information—GPS coordinates, camera settings, timestamps, and more. If you need to **remove exif data java** projects quickly and securely, this guide shows you exactly how to strip that metadata using GroupDocs.Redaction for Java. We’ll walk through the setup, the code you need, and best‑practice tips so you can protect privacy without hassle.
+W dzisiejszym świecie każde zdjęcie, które udostępniasz, może zawierać ukryte informacje — współrzędne GPS, ustawienia aparatu, znaczniki czasu i wiele innych. Jeśli potrzebujesz szybko i bezpiecznie **remove exif data java** projektów, ten przewodnik pokaże dokładnie, jak usunąć te metadane przy użyciu GroupDocs.Redaction dla Javy. Przejdziemy przez konfigurację, potrzebny kod oraz wskazówki najlepszych praktyk, abyś mógł chronić prywatność bez problemów.
 
 ## Quick Answers
 - **What does “remove exif data java” mean?** It refers to deleting EXIF metadata from image files using Java code.  
@@ -23,19 +24,19 @@ In today’s world, every photo you share can carry hidden information—GPS coo
 - **Is batch processing possible?** Absolutely; process a list of images in a loop for better performance.
 
 ## What is “remove exif data java”?
-Removing EXIF data means erasing the embedded metadata that cameras automatically store in image files. This metadata can reveal where and when a photo was taken, which is often sensitive information you don’t want to share publicly.
+Usuwanie danych EXIF oznacza wymazanie osadzonych metadanych, które aparaty automatycznie zapisują w plikach obrazów. Te metadane mogą ujawnić, gdzie i kiedy zdjęcie zostało zrobione, co często jest wrażliwą informacją, której nie chcesz udostępniać publicznie.
 
 ## Why use GroupDocs.Redaction for Java?
-GroupDocs.Redaction offers a simple, high‑performance API that works with many image formats. It handles the low‑level parsing of EXIF sections for you, so you can focus on integrating privacy protection directly into your Java applications.
+GroupDocs.Redaction oferuje prosty, wysokowydajny interfejs API działający z wieloma formatami obrazów. Obsługuje niskopoziomowe parsowanie sekcji EXIF za Ciebie, dzięki czemu możesz skupić się na integracji ochrony prywatności bezpośrednio w aplikacjach Java.
 
 ## Prerequisites
-- **Java Development Kit (JDK) 8+** – the runtime for compiling and executing Java code.  
-- **IDE** – IntelliJ IDEA, Eclipse, or any editor you prefer.  
-- **GroupDocs.Redaction for Java** – download from the official site or add via Maven.  
+- **Java Development Kit (JDK) 8+** – środowisko uruchomieniowe do kompilacji i wykonywania kodu Java.  
+- **IDE** – IntelliJ IDEA, Eclipse lub dowolny edytor, którego używasz.  
+- **GroupDocs.Redaction for Java** – pobierz ze strony oficjalnej lub dodaj przez Maven.  
 
 ## Setting Up GroupDocs.Redaction for Java
 ### Maven Installation
-If you manage dependencies with Maven, add the repository and dependency below:
+Jeśli zarządzasz zależnościami przy użyciu Maven, dodaj poniżej repozytorium i zależność:
 
 ```xml
 <repositories>
@@ -56,7 +57,7 @@ If you manage dependencies with Maven, add the repository and dependency below:
 ```
 
 ### Direct Download
-For manual setup, grab the latest JAR from [this link](https://releases.groupdocs.com/redaction/java/).
+Do ręcznej konfiguracji pobierz najnowszy plik JAR z [ten link](https://releases.groupdocs.com/redaction/java/).
 
 #### License Acquisition Steps
 1. **Free Trial:** Start with a free trial to explore the functionalities.  
@@ -64,7 +65,7 @@ For manual setup, grab the latest JAR from [this link](https://releases.groupdoc
 3. **Purchase:** Buy a full license for commercial use.
 
 ### Basic Initialization and Setup
-Create a Java class and import the required GroupDocs types:
+Utwórz klasę Java i zaimportuj wymagane typy GroupDocs:
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -76,19 +77,19 @@ import com.groupdocs.redaction.redactions.MetadataFilters;
 ```
 
 ## How to remove exif data java from images
-Below is a step‑by‑step walkthrough that you can copy‑paste into your project.
+Poniżej znajdziesz krok po kroku instrukcję, którą możesz skopiować i wkleić do swojego projektu.
 
 ### Step 1: Load the Image
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_EXIF_JPG");
 ```
-Make sure the path points to the image you want to cleanse.
+Upewnij się, że ścieżka wskazuje na obraz, który chcesz oczyścić.
 
 ### Step 2: Apply EraseMetadataRedaction
 ```java
 RedactorChangeLog result = redactor.apply(new EraseMetadataRedaction(MetadataFilters.All));
 ```
-This call removes **all** metadata, including EXIF tags.
+To wywołanie usuwa **wszystkie** metadane, w tym tagi EXIF.
 
 ### Step 3: Check Redaction Status
 ```java
@@ -97,7 +98,7 @@ if (result.getStatus() != RedactionStatus.Failed)
     // Proceed with saving the image
 }
 ```
-Only continue if the operation succeeded.
+Kontynuuj tylko, jeśli operacja zakończyła się sukcesem.
 
 ### Step 4: Configure Save Options
 ```java
@@ -105,22 +106,22 @@ SaveOptions opt = new SaveOptions();
 opt.setAddSuffix(true);  // Adds a suffix to differentiate the original and modified files
 opt.setRasterizeToPDF(false);  // Keeps the image format unchanged
 ```
-The suffix (e.g., `_redacted`) helps you keep the original file untouched.
+Sufiks (np. `_redacted`) pomaga zachować oryginalny plik nienaruszony.
 
 ### Step 5: Save the Redacted Image
 ```java
 redactor.save(opt);
 ```
-Your image is now stored without any EXIF metadata.
+Twój obraz jest teraz zapisany bez żadnych metadanych EXIF.
 
 ### Ensure Resource Release
 ```java
 redactor.close();
 ```
-Closing the `Redactor` frees file handles and prevents memory leaks.
+Zamknięcie `Redactor` zwalnia uchwyty plików i zapobiega wyciekom pamięci.
 
 ## Practical Applications
-Removing EXIF data is useful in many scenarios:
+Usuwanie danych EXIF jest przydatne w wielu scenariuszach:
 
 1. **Privacy Protection:** Share photos on social media without revealing location data.  
 2. **Corporate Security:** Clean up images before embedding them in reports or presentations.  
@@ -141,20 +142,20 @@ A: Yes, it also supports PDFs, Word documents, Excel spreadsheets, and many othe
 A: There’s no hard limit, but processing very large batches may require additional memory tuning.
 
 **Q: Where can I find more detailed API documentation?**  
-A: Visit [GroupDocs' official documentation](https://docs.groupdocs.com/redaction/java/) for complete guides and reference material.
+A: Visit [oficjalną dokumentację GroupDocs](https://docs.groupdocs.com/redaction/java/) for complete guides and reference material.
 
 **Q: Do I need a license for development?**  
 A: A free trial is sufficient for development and testing; a commercial license is required for production deployments.
 
 ## Resources
-- [Documentation](https://docs.groupdocs.com/redaction/java/)
+- [Dokumentacja](https://docs.groupdocs.com/redaction/java/)
 - [API Reference](https://reference.groupdocs.com/redaction/java)
 - [Download GroupDocs.Redaction for Java](https://releases.groupdocs.com/redaction/java/)
 - [GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
 - [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)
 - [Temporary License Information](https://purchase.groupdocs.com/temporary-license/)
 
-With this guide, you now have everything you need to **remove exif data java** projects quickly and safely using GroupDocs.Redaction. Happy coding!
+Z tym przewodnikiem masz teraz wszystko, czego potrzebujesz, aby **remove exif data java** projektów szybko i bezpiecznie przy użyciu GroupDocs.Redaction. Szczęśliwego kodowania!
 
 ---
 
