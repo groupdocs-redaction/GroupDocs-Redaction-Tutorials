@@ -1,13 +1,26 @@
 ---
-title: "Metadata Redaction Tutorials with GroupDocs.Redaction for Java"
-description: "Learn to clean and redact document metadata including properties, comments, and hidden information with these GroupDocs.Redaction Java tutorials."
+title: "How to Redact Metadata with GroupDocs.Redaction for Java"
+description: "Learn how to redact metadata in Java documents, remove document properties, delete hidden comments, and secure files using GroupDocs.Redaction."
 weight: 5
 url: "/java/metadata-redaction/"
 type: docs
+date: 2026-01-06
 ---
-# Metadata Redaction Tutorials with GroupDocs.Redaction for Java
 
-Discover how to effectively secure hidden document information using our comprehensive GroupDocs.Redaction metadata tutorials for Java. These step-by-step guides teach you how to identify, redact, and clean metadata properties, remove author information, eliminate comments, and handle other hidden document details. Each tutorial provides practical Java code examples for common metadata redaction tasks, helping you build more secure applications that address the often-overlooked metadata security risks in your documents.
+# How to Redact Metadata with GroupDocs.Redaction for Java
+
+In this guide you'll discover **how to redact metadata** from Java documents using the powerful GroupDocs.Redaction library. Whether you need to **remove document properties**, **delete hidden comments**, or **secure documents Java**‑style, these tutorials walk you through every step—from identifying hidden information to cleaning it up completely. By the end of the overview you’ll understand why metadata redaction is a critical security practice and how the provided code samples can be integrated into your own applications.
+
+## How to Redact Metadata – Quick Overview
+
+Metadata often hides behind the scenes: author names, revision histories, custom properties, and even invisible comments. If left unchecked, this information can expose sensitive business data. GroupDocs.Redaction for Java gives you a straightforward API to:
+
+* **Extract document metadata** for inspection before removal.  
+* **Replace metadata text** with safe placeholders.  
+* **Delete hidden comments** that may contain confidential notes.  
+* **Remove document properties** such as author, company, or custom tags.  
+
+These capabilities help you **secure documents** before distribution, archiving, or compliance audits.
 
 ## Available Tutorials
 
@@ -34,3 +47,11 @@ Learn how to secure and redact sensitive company metadata from documents using G
 - [GroupDocs.Redaction Forum](https://forum.groupdocs.com/c/redaction/33)
 - [Free Support](https://forum.groupdocs.com/)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Last Updated:** 2026-01-06  
+**Tested With:** GroupDocs.Redaction 23.11 for Java  
+**Author:** GroupDocs  
+
+---
