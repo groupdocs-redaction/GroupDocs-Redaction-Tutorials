@@ -161,23 +161,6 @@ Beim Arbeiten mit großen Dokumenten oder der Verarbeitung von Stapeln:
 | OutOfMemoryError bei großen Dateien  | Redactor hält das gesamte Dokument im Speicher       | Erhöhen Sie den JVM‑Heap (`-Xmx`) oder verarbeiten Sie Dateien in kleineren Teilen.                       |
 | LicenseException                     | Verwendung der Testversion ohne gültige Lizenzdatei | Legen Sie die temporäre Lizenzdatei im Projektstamm ab oder konfigurieren Sie die Lizenz programmgesteuert. |
 
-## Häufig gestellte Fragen
-
-**Q: Kann ich Anmerkungen in passwortgeschützten Dokumenten redigieren?**  
-A: Ja. Laden Sie das Dokument mit dem entsprechenden Passwort, bevor Sie die `Redactor`‑Instanz erstellen.
-
-**Q: Unterstützt GroupDocs.Redaction andere Anmerkungstypen (z. B. Hervorhebungen, Formen)?**  
-A: Die Bibliothek konzentriert sich auf textbasierte Anmerkungen. Für grafische Elemente sollten Sie die Seite zunächst rasterisieren.
-
-**Q: Wie wende ich mehrere Redaktionsregeln gleichzeitig an?**  
-A: Rufen Sie `redactor.apply()` mehrfach auf, jeweils mit einer anderen `AnnotationRedaction` oder anderen Redaktionsobjekten.
-
-**Q: Ist es möglich, Redaktionen vor dem Speichern zu prüfen?**  
-A: Sie können das Dokument nach dem Anwenden der Redaktionen nach PDF exportieren und manuell prüfen.
-
-**Q: Welche Java‑Versionen sind kompatibel?**  
-A: Java 8 und neuer werden vollständig unterstützt.
-
 ## FAQ‑Bereich
 1. **Was ist GroupDocs.Redaction für Java?**  
    - Eine Bibliothek, die es ermöglicht, Text innerhalb von Dokumenten zu redigieren und so sensible Informationen zu schützen.

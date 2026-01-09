@@ -147,22 +147,6 @@ Podczas pracy z dużymi dokumentami lub przetwarzania partii:
 | OutOfMemoryError przy dużych plikach | Redactor przechowuje cały dokument w pamięci | Zwiększ pamięć heap JVM (`-Xmx`) lub przetwarzaj pliki w mniejszych fragmentach. |
 | LicenseException | Używanie wersji próbnej bez ważnego pliku licencji | Umieść tymczasowy plik licencji w katalogu głównym projektu lub skonfiguruj licencję programowo. |
 
-## Najczęściej zadawane pytania
-**Q: Czy mogę redagować adnotacje w dokumentach zabezpieczonych hasłem?**  
-A: Tak. Załaduj dokument z odpowiednim hasłem przed utworzeniem instancji `Redactor`.
-
-**Q: Czy GroupDocs.Redaction obsługuje inne typy adnotacji (np. podświetlenia, kształty)?**  
-A: Biblioteka koncentruje się na adnotacjach opartych na tekście. W przypadku elementów graficznych rozważ najpierw rasteryzację strony.
-
-**Q: Jak zastosować wiele reguł redakcji jednocześnie?**  
-A: Wywołaj `redactor.apply()` wielokrotnie, każdorazowo z innym obiektem `AnnotationRedaction` lub innym obiektem redakcji.
-
-**Q: Czy można podglądnąć redakcje przed zapisaniem?**  
-A: Możesz wyeksportować dokument do PDF po zastosowaniu redakcji i ręcznie go sprawdzić.
-
-**Q: Jakie wersje Javy są kompatybilne?**  
-A: Java 8 i nowsze są w pełni wspierane.
-
 ## Sekcja FAQ
 1. **Czym jest GroupDocs.Redaction dla Javy?**  
    - Biblioteka umożliwiająca redakcję tekstu w dokumentach, zapewniając ochronę wrażliwych informacji.

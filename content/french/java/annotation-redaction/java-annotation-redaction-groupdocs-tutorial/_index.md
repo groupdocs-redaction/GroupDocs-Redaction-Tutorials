@@ -146,22 +146,6 @@ Lors du traitement de gros documents ou de lots :
 | OutOfMemoryError sur de gros fichiers | Redactor conserve tout le document en mémoire | Augmentez le tas JVM (`-Xmx`) ou traitez les fichiers par morceaux plus petits. |
 | LicenseException | Utilisation de la version d'essai sans fichier de licence valide | Placez le fichier de licence temporaire à la racine du projet ou configurez la licence par programme. |
 
-## Questions fréquemment posées
-**Q : Puis-je caviarder les annotations dans des documents protégés par mot de passe ?**  
-R : Oui. Chargez le document avec le mot de passe approprié avant de créer l'instance `Redactor`.
-
-**Q : GroupDocs.Redaction prend‑il en charge d'autres types d'annotation (par ex., surlignages, formes) ?**  
-R : La bibliothèque se concentre sur les annotations basées sur du texte. Pour les éléments graphiques, envisagez de rasteriser la page d'abord.
-
-**Q : Comment appliquer plusieurs règles de caviardage en même temps ?**  
-R : Appelez `redactor.apply()` plusieurs fois, chacune avec un `AnnotationRedaction` différent ou d'autres objets de caviardage.
-
-**Q : Est‑il possible de prévisualiser les caviardages avant l'enregistrement ?**  
-R : Vous pouvez exporter le document en PDF après avoir appliqué les caviardages et l'inspecter manuellement.
-
-**Q : Quelles versions de Java sont compatibles ?**  
-R : Java 8 et les versions ultérieures sont entièrement prises en charge.
-
 ## Section FAQ
 1. **Qu'est‑ce que GroupDocs.Redaction pour Java ?**  
    - Une bibliothèque qui permet de caviarder le texte dans les documents, garantissant la protection des informations sensibles.  

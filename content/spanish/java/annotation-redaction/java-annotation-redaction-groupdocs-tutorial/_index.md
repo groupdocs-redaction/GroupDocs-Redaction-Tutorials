@@ -161,23 +161,6 @@ Al trabajar con documentos grandes o procesar lotes:
 | OutOfMemoryError en archivos grandes | Redactor mantiene todo el documento en memoria | Aumente el heap de JVM (`-Xmx`) o procese archivos en fragmentos más pequeños. |
 | LicenseException | Uso de prueba sin un archivo de licencia válido | Coloque el archivo de licencia temporal en la raíz del proyecto o configure la licencia programáticamente. |
 
-## Preguntas frecuentes
-
-**Q: ¿Puedo redactar anotaciones en documentos protegidos con contraseña?**  
-A: Sí. Cargue el documento con la contraseña adecuada antes de crear la instancia de `Redactor`.
-
-**Q: ¿GroupDocs.Redaction admite otros tipos de anotaciones (p. ej., resaltados, formas)?**  
-A: La biblioteca se centra en anotaciones basadas en texto. Para elementos gráficos, considere rasterizar la página primero.
-
-**Q: ¿Cómo aplico múltiples reglas de redacción a la vez?**  
-A: Llame a `redactor.apply()` varias veces, cada una con un `AnnotationRedaction` u otro objeto de redacción diferente.
-
-**Q: ¿Es posible previsualizar las redacciones antes de guardar?**  
-A: Puede exportar el documento a PDF después de aplicar las redacciones y revisarlo manualmente.
-
-**Q: ¿Qué versiones de Java son compatibles?**  
-A: Java 8 y versiones posteriores son totalmente compatibles.
-
 ## Sección de preguntas frecuentes
 
 1. **¿Qué es GroupDocs.Redaction para Java?**  

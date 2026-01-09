@@ -161,23 +161,6 @@ När du arbetar med stora dokument eller batch‑processer:
 | OutOfMemoryError på stora filer | Redactor håller hela dokumentet i minnet | Öka JVM‑heap (`-Xmx`) eller bearbeta filer i mindre delar. |
 | LicenseException | Använder prov utan en giltig licensfil | Placera den tillfälliga licensfilen i projektets rot eller konfigurera licensen programatiskt. |
 
-## Vanliga frågor
-
-**Q: Kan jag maska annotationer i lösenordsskyddade dokument?**  
-A: Ja. Ladda dokumentet med rätt lösenord innan du skapar `Redactor`‑instansen.
-
-**Q: Stöder GroupDocs.Redaction andra annoteringstyper (t.ex. markeringar, former)?**  
-A: Biblioteket fokuserar på textbaserade annotationer. För grafiska element, överväg att rasterisera sidan först.
-
-**Q: Hur applicerar jag flera maskeringsregler samtidigt?**  
-A: Anropa `redactor.apply()` flera gånger, varje gång med en annan `AnnotationRedaction` eller annat maskeringsobjekt.
-
-**Q: Är det möjligt att förhandsgranska maskeringar innan sparning?**  
-A: Du kan exportera dokumentet till PDF efter att maskeringarna har tillämpats och inspektera det manuellt.
-
-**Q: Vilka Java‑versioner är kompatibla?**  
-A: Java 8 och senare stöds fullt ut.
-
 ## FAQ‑sektion
 1. **Vad är GroupDocs.Redaction för Java?**  
    - Ett bibliotek som låter dig maska text i dokument, så att känslig information skyddas.

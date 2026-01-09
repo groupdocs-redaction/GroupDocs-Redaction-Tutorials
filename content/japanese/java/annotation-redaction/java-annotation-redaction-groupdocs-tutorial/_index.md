@@ -15,23 +15,23 @@ weight: 1
 
 今日のデジタル時代において、ドキュメント内の **注釈の削除方法** は、機密データを保護し、プライバシー規制に準拠するための重要なスキルです。財務諸表、法的契約書、個人記録などを扱う場合でも、注釈の内容を削除またはマスクすることで、ファイル共有時に機密情報が漏洩しないようにします。本チュートリアルでは、GroupDocs.Redaction for Java を使用して注釈テキストを自動的に検出・削除する手順をすべて解説します。
 
-## Quick Answers
+## クイックアンサー
 - **“annotation redaction” とは何ですか？** コメント、ノート、その他のドキュメント注釈内のテキストを削除またはマスクすることです。  
 - **どのライブラリが対応していますか？** GroupDocs.Redaction for Java。  
 - **ライセンスは必要ですか？** テスト用には一時ライセンスで十分です。フルライセンスを取得するとすべての機能が解放されます。  
 - **正規表現パターンは使用できますか？** はい—`AnnotationRedaction` は正確なマッチングのために正規表現を受け付けます。  
 - **大容量ファイルにも適していますか？** はい、後述の適切なメモリ管理手法を用いれば問題ありません。
 
-## What Is Annotation Redaction?
+## 注釈編集とは何ですか?
 Annotation redaction とは、ドキュメントのコメント、脚注、その他のマークアップ要素内にある機密テキストを検出し、プレースホルダー（例：`[redacted]`）に置き換えるプロセスを指します。単なるテキスト削除とは異なり、手動レビューでは見落としがちな隠れ層を対象にします。
 
-## Why Use GroupDocs.Redaction for Java?
+## Java に GroupDocs.Redaction を使用する理由
 - **Full‑document support:** Word、Excel、PowerPoint、PDF など多数のフォーマットに対応。  
 - **Regex‑driven precision:** 必要なデータだけを正確にマスク。  
 - **Performance‑optimized:** 大容量ファイルでも低メモリオーバーヘッドで処理。  
 - **Compliance‑ready:** GDPR、HIPAA などのプライバシー基準に即座に適合。
 
-## Prerequisites
+## 前提条件
 
 開始する前に、必要なライブラリと環境が整っていることを確認してください。必要なものは以下の通りです。
 
@@ -39,11 +39,11 @@ Annotation redaction とは、ドキュメントのコメント、脚注、そ�
 - **Environment Setup:** マシンに Java Development Kit (JDK) がインストールされていること。  
 - **Knowledge Prerequisites:** Java プログラミングの基本的な理解。
 
-## Setting Up GroupDocs.Redaction for Java
+## Java 用の GroupDocs.Redaction の設定
 
 プロジェクトで GroupDocs.Redaction を使用するには、Maven で統合するか、ライブラリを直接ダウンロードしてください。
 
-### Maven Installation
+### Mavenのインストール
 
 `pom.xml` に以下のリポジトリと依存関係を追加します。
 
@@ -65,15 +65,15 @@ Annotation redaction とは、ドキュメントのコメント、脚注、そ�
 </dependencies>
 ```
 
-### Direct Download
+### 直接ダウンロード
 
 あるいは、最新バージョンを [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/) からダウンロードしてください。
 
-#### License Acquisition
+#### ライセンスの取得
 
 一時ライセンスを取得するか、フルライセンスを購入してすべての機能を解放できます。トライアル目的であれば、[purchase page](https://purchase.groupdocs.com/temporary-license/) から一時ライセンスをリクエストしてください。
 
-### Basic Initialization and Setup
+### 基本的な初期化とセットアップ
 
 まず、プロジェクトに必要な依存関係が設定されていることを確認します。設定が完了したら、Java ファイルに GroupDocs.Redaction クラスをインポートします。
 
@@ -83,11 +83,11 @@ import com.groupdocs.redaction.options.SaveOptions;
 import com.groupdocs.redaction.redactions.AnnotationRedaction;
 ```
 
-## Implementation Guide
+## 実装ガイド
 
 それでは、GroupDocs.Redaction を使った注釈削除の実装手順を見ていきましょう。
 
-### Step 1: Initialize the Redactor
+### ステップ1: Redactorを初期化する
 
 注釈が含まれるドキュメントのパスを指定して `Redactor` インスタンスを作成します。
 
@@ -95,7 +95,7 @@ import com.groupdocs.redaction.redactions.AnnotationRedaction;
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/ANNOTATED_XLSX");
 ```
 
-### Step 2: Apply AnnotationRedaction
+### ステップ2: 注釈編集を適用する
 
 `AnnotationRedaction` を使用して、特定のパターンにマッチする注釈内テキストを対象にします。ここでは、"john" の出現箇所を "[redacted]" に置き換えます。
 
@@ -106,7 +106,7 @@ redactor.apply(new AnnotationRedaction("(?im:john)", "[redacted]");
 - **Pattern Matching:** 正規表現 `(?im:john)` は大文字小文字を区別せずに "john" を検索します。  
 - **Replacement Text:** `"[redacted]"` がマッチしたパターンの置換テキストです。
 
-### Step 3: Configure Save Options
+### ステップ3: 保存オプションを設定する
 
 `SaveOptions` を設定して、削除後のドキュメントの保存方法を定義します。サフィックスの追加や PDF 形式へのラスタライズなどが指定可能です。
 
@@ -116,7 +116,7 @@ saveOptions.setAddSuffix(true);
 saveOptions.setRasterizeToPDF(false);
 ```
 
-### Step 4: Save the Redacted Document
+### ステップ4: 編集した文書を保存する
 
 設定した `SaveOptions` を使って変更を保存します。このステップで削除が適用され、正しく保存されます。
 
@@ -124,7 +124,7 @@ saveOptions.setRasterizeToPDF(false);
 redactor.save(saveOptions);
 ```
 
-### Resource Management
+### リソース管理
 
 リソース解放のため、`Redactor` インスタンスは必ずクローズしてください。
 
@@ -134,7 +134,7 @@ finally {
 }
 ```
 
-## Practical Applications
+## 実用的なアプリケーション
 
 注釈削除はさまざまなシナリオで有用です。
 
@@ -144,7 +144,7 @@ finally {
 
 GroupDocs.Redaction は他システム（例：文書管理プラットフォーム、ワークフロー自動化）と統合でき、エンドツーエンドの削除パイプラインを構築できます。
 
-## Performance Considerations
+## パフォーマンスに関する考慮事項
 
 大量のドキュメントやバッチ処理を行う際のポイント：
 
@@ -152,7 +152,7 @@ GroupDocs.Redaction は他システム（例：文書管理プラットフォー
 - **Threading:** 十分なヒープ領域が確保できる場合に限り、並列処理を検討。  
 - **Monitoring:** 処理時間とメモリ使用量をログに記録し、ボトルネックを早期に特定。
 
-## Common Issues & Troubleshooting
+## よくある問題とトラブルシューティング
 
 | 症状 | 考えられる原因 | 対処法 |
 |---------|--------------|-----|
@@ -160,24 +160,7 @@ GroupDocs.Redaction は他システム（例：文書管理プラットフォー
 | 大容量ファイルで OutOfMemoryError が発生 | `Redactor` がドキュメント全体をメモリに保持している | JVM ヒープを増やす（`-Xmx`）か、ファイルを小さなチャンクに分割して処理 |
 | LicenseException がスローされる | 有効なライセンスファイルが無い状態でトライアルを使用 | プロジェクトルートに一時ライセンスファイルを配置するか、プログラムでライセンスを設定 |
 
-## Frequently Asked Questions
-
-**Q: パスワード保護されたドキュメントの注釈も削除できますか？**  
-A: はい。`Redactor` インスタンスを作成する前に、適切なパスワードでドキュメントをロードしてください。
-
-**Q: 他の注釈タイプ（ハイライトやシェイプなど）にも対応していますか？**  
-A: ライブラリはテキストベースの注釈に焦点を当てています。グラフィック要素を削除したい場合は、ページを先にラスタライズすることを検討してください。
-
-**Q: 複数の削除ルールを同時に適用できますか？**  
-A: `redactor.apply()` を複数回呼び出し、各回で異なる `AnnotationRedaction` や他の削除オブジェクトを指定すれば実現できます。
-
-**Q: 保存前に削除結果をプレビューできますか？**  
-A: 削除を適用した後に PDF へエクスポートし、手動で確認することが可能です。
-
-**Q: 対応している Java のバージョンは？**  
-A: Java 8 以降が完全にサポートされています。
-
-## FAQ Section
+## FAQセクション
 1. **GroupDocs.Redaction for Java とは何ですか？**  
    - ドキュメント内のテキストを削除し、機密情報を保護するためのライブラリです。
 
@@ -193,7 +176,7 @@ A: Java 8 以降が完全にサポートされています。
 5. **GroupDocs.Redaction のパフォーマンスを最適化するには？**  
    - メモリ使用量を適切に管理し、Java のベストプラクティスに従って効率的に処理します。
 
-## Resources
+## リソース
 - [Documentation](https://docs.groupdocs.com/redaction/java/)
 - [API Reference](https://reference.groupdocs.com/redaction/java)
 - [Download](https://releases.groupdocs.com/redaction/java/)

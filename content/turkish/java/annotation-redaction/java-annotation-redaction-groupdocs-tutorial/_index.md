@@ -143,22 +143,6 @@ Büyük belgelerle çalışırken veya toplu işlem yaparken:
 | Büyük dosyalarda OutOfMemoryError | Redactor tüm belgeyi bellekte tutar | JVM yığınını (`-Xmx`) artırın veya dosyaları daha küçük parçalar halinde işleyin. |
 | LicenseException | Geçerli bir lisans dosyası olmadan deneme sürümü kullanmak | Geçici lisans dosyasını proje köküne yerleştirin veya lisansı programatik olarak yapılandırın. |
 
-## Sıkça Sorulan Sorular
-**S: Parola korumalı belgelerde açıklamaları kırpabilir miyim?**  
-C: Evet. `Redactor` örneğini oluşturmadan önce belgeyi uygun parola ile yükleyin.
-
-**S: GroupDocs.Redaction diğer açıklama türlerini (ör. vurgulamalar, şekiller) destekliyor mu?**  
-C: Kütüphane metin tabanlı açıklamalara odaklanır. Grafik öğeler için sayfayı önce rasterleştirmeyi düşünün.
-
-**S: Aynı anda birden fazla kırpma kuralı nasıl uygularım?**  
-C: `redactor.apply()` metodunu farklı `AnnotationRedaction` veya diğer kırpma nesneleriyle birden çok kez çağırın.
-
-**S: Kaydetmeden önce kırpmaları önizlemek mümkün mü?**  
-C: Kırpmaları uyguladıktan sonra belgeyi PDF olarak dışa aktarabilir ve manuel olarak inceleyebilirsiniz.
-
-**S: Hangi Java sürümleri uyumludur?**  
-C: Java 8 ve üzeri tam olarak desteklenir.
-
 ## SSS Bölümü
 1. **GroupDocs.Redaction for Java nedir?**  
    - Belgeler içinde metni kırpmanıza olanak tanıyan, hassas bilgilerin korunmasını sağlayan bir kütüphane.  

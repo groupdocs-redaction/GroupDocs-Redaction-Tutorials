@@ -146,22 +146,6 @@ Při práci s velkými dokumenty nebo zpracováním dávky:
 | OutOfMemoryError u velkých souborů | Redactor drží celý dokument v paměti | Zvyšte heap JVM (`-Xmx`) nebo zpracovávejte soubory v menších částech. |
 | LicenseException | Používání zkušební verze bez platného licenčního souboru | Umístěte dočasný licenční soubor do kořenového adresáře projektu nebo nakonfigurujte licenci programově. |
 
-## Často kladené otázky
-**Q: Mohu redigovat anotace v dokumentech chráněných heslem?**  
-A: Ano. Načtěte dokument s příslušným heslem před vytvořením instance `Redactor`.
-
-**Q: Podporuje GroupDocs.Redaction jiné typy anotací (např. zvýraznění, tvary)?**  
-A: Knihovna se zaměřuje na textové anotace. Pro grafické prvky zvažte nejprve rasterizaci stránky.
-
-**Q: Jak mohu aplikovat více redakčních pravidel najednou?**  
-A: Zavolejte `redactor.apply()` vícekrát, pokaždé s jiným `AnnotationRedaction` nebo jiným redakčním objektem.
-
-**Q: Je možné zobrazit náhled redakcí před uložením?**  
-A: Můžete exportovat dokument do PDF po aplikaci redakcí a ručně jej zkontrolovat.
-
-**Q: Jaké verze Javy jsou kompatibilní?**  
-A: Java 8 a novější jsou plně podporovány.
-
 ## Sekce FAQ
 1. **Co je GroupDocs.Redaction pro Javu?**  
    - Knihovna, která umožňuje redigovat text v dokumentech a zajišťuje ochranu citlivých informací.

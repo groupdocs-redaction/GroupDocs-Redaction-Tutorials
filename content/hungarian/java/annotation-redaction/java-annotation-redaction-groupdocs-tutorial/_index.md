@@ -162,23 +162,6 @@ Nagyméretű dokumentumokkal vagy kötegelt feldolgozással dolgozva:
 | OutOfMemoryError nagy fájlok esetén | A Redactor az egész dokumentumot memóriában tartja | Növelje a JVM heap méretét (`-Xmx`) vagy dolgozzon kisebb darabokban. |
 | LicenseException | Érvényes licencfájl nélkül próbaverzió használata | Helyezze az ideiglenes licencfájlt a projekt gyökerébe, vagy konfigurálja a licencet programkódból. |
 
-## Gyakran Ismételt Kérdések
-
-**Q: Redigálhatok annotációkat jelszóval védett dokumentumokban?**  
-A: Igen. Töltse be a dokumentumot a megfelelő jelszóval, mielőtt létrehozná a `Redactor` példányt.
-
-**Q: A GroupDocs.Redaction támogat más annotációtípusokat (pl. kiemelések, alakzatok)?**  
-A: A könyvtár elsősorban szövegalapú annotációkra fókuszál. Grafikus elemek esetén fontolja meg a lap rasterizálását először.
-
-**Q: Hogyan alkalmazhatok egyszerre több redigálási szabályt?**  
-A: Hívja meg többször a `redactor.apply()`‑t, minden alkalommal egy külön `AnnotationRedaction` vagy más redigálási objektummal.
-
-**Q: Lehet előnézetet megtekinteni a redigálások előtt?**  
-A: A redigálások alkalmazása után exportálhatja a dokumentumot PDF‑be, és manuálisan ellenőrizheti.
-
-**Q: Mely Java verziók kompatibilisek?**  
-A: A Java 8 és újabb verziók teljes körűen támogatottak.
-
 ## GyIK szekció
 1. **Mi a GroupDocs.Redaction for Java?**  
    - Egy könyvtár, amely lehetővé teszi a szöveg redigálását a dokumentumokban, biztosítva, hogy az érzékeny információk védve legyenek.  

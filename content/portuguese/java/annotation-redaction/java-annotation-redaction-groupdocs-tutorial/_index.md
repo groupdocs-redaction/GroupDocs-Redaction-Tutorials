@@ -161,23 +161,6 @@ Ao trabalhar com documentos grandes ou processar lotes:
 | OutOfMemoryError em arquivos grandes | Redactor mantém todo o documento na memória | Aumente o heap da JVM (`-Xmx`) ou processe arquivos em blocos menores. |
 | LicenseException | Uso de avaliação sem um arquivo de licença válido | Coloque o arquivo de licença temporária na raiz do projeto ou configure a licença programaticamente. |
 
-## Perguntas Frequentes
-
-**P: Posso redigir anotações em documentos protegidos por senha?**  
-R: Sim. Carregue o documento com a senha apropriada antes de criar a instância `Redactor`.
-
-**P: O GroupDocs.Redaction suporta outros tipos de anotação (por exemplo, realces, formas)?**  
-R: A biblioteca foca em anotações baseadas em texto. Para elementos gráficos, considere rasterizar a página primeiro.
-
-**P: Como aplico várias regras de redação ao mesmo tempo?**  
-R: Chame `redactor.apply()` várias vezes, cada uma com um `AnnotationRedaction` ou outro objeto de redação diferente.
-
-**P: É possível visualizar as redações antes de salvar?**  
-R: Você pode exportar o documento para PDF após aplicar as redações e inspecioná‑lo manualmente.
-
-**P: Quais versões do Java são compatíveis?**  
-R: Java 8 e superiores são totalmente suportados.
-
 ## Seção de FAQ
 1. **O que é GroupDocs.Redaction para Java?**  
    - Uma biblioteca que permite redigir texto dentro de documentos, garantindo que informações sensíveis estejam protegidas.

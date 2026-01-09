@@ -161,23 +161,6 @@ Saat bekerja dengan dokumen besar atau memproses batch:
 | OutOfMemoryError pada file besar | Redactor menyimpan seluruh dokumen di memori | Tingkatkan heap JVM (`-Xmx`) atau proses file dalam potongan lebih kecil. |
 | LicenseException | Menggunakan trial tanpa file lisensi yang valid | Letakkan file lisensi sementara di root proyek atau konfigurasikan lisensi secara programatik. |
 
-## Pertanyaan yang Sering Diajukan
-
-**T: Bisakah saya menyunting anotasi dalam dokumen yang dilindungi kata sandi?**  
-J: Ya. Muat dokumen dengan kata sandi yang sesuai sebelum membuat instance `Redactor`.
-
-**T: Apakah GroupDocs.Redaction mendukung tipe anotasi lain (misalnya, highlight, shape)?**  
-J: Perpustakaan ini fokus pada anotasi berbasis teks. Untuk elemen grafis, pertimbangkan meraster halaman terlebih dahulu.
-
-**T: Bagaimana cara menerapkan beberapa aturan penyuntingan sekaligus?**  
-J: Panggil `redactor.apply()` beberapa kali, masing‑masing dengan `AnnotationRedaction` atau objek penyuntingan lainnya.
-
-**T: Apakah memungkinkan untuk melihat pratinjau penyuntingan sebelum menyimpan?**  
-J: Anda dapat mengekspor dokumen ke PDF setelah menerapkan penyuntingan dan memeriksanya secara manual.
-
-**T: Versi Java apa yang kompatibel?**  
-J: Java 8 dan yang lebih baru didukung sepenuhnya.
-
 ## Bagian FAQ
 1. **Apa itu GroupDocs.Redaction untuk Java?**  
    - Perpustakaan yang memungkinkan Anda menyunting teks dalam dokumen, memastikan informasi sensitif terlindungi.

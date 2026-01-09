@@ -161,23 +161,6 @@ Khi làm việc với tài liệu lớn hoặc xử lý hàng loạt:
 | OutOfMemoryError khi xử lý tệp lớn | Redactor giữ toàn bộ tài liệu trong bộ nhớ | Tăng heap JVM (`-Xmx`) hoặc xử lý tệp thành các phần nhỏ hơn. |
 | LicenseException | Dùng bản trial mà không có file giấy phép hợp lệ | Đặt file giấy phép tạm thời ở thư mục gốc dự án hoặc cấu hình giấy phép bằng mã. |
 
-## Câu hỏi thường gặp
-
-**Hỏi: Có thể xóa ẩn chú thích trong tài liệu được bảo vệ bằng mật khẩu không?**  
-Đáp: Có. Tải tài liệu với mật khẩu thích hợp trước khi tạo thể hiện `Redactor`.
-
-**Hỏi: GroupDocs.Redaction có hỗ trợ các loại chú thích khác (ví dụ: highlight, shape) không?**  
-Đáp: Thư viện tập trung vào các chú thích dạng văn bản. Đối với các yếu tố đồ họa, hãy cân nhắc raster hoá trang trước.
-
-**Hỏi: Làm sao áp dụng nhiều quy tắc xóa ẩn cùng lúc?**  
-Đáp: Gọi `redactor.apply()` nhiều lần, mỗi lần với một `AnnotationRedaction` hoặc đối tượng xóa ẩn khác.
-
-**Hỏi: Có thể xem trước các phần xóa ẩn trước khi lưu không?**  
-Đáp: Bạn có thể xuất tài liệu ra PDF sau khi áp dụng xóa ẩn và kiểm tra thủ công.
-
-**Hỏi: Các phiên bản Java nào tương thích?**  
-Đáp: Java 8 trở lên được hỗ trợ đầy đủ.
-
 ## Phần FAQ
 1. **GroupDocs.Redaction cho Java là gì?**  
    - Một thư viện cho phép bạn xóa ẩn văn bản trong tài liệu, bảo vệ thông tin nhạy cảm.

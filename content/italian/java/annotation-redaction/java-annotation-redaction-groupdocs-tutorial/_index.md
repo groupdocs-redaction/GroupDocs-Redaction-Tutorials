@@ -143,22 +143,6 @@ Quando si lavora con documenti di grandi dimensioni o si elaborano batch:
 | OutOfMemoryError su file grandi | Redactor mantiene l'intero documento in memoria | Aumenta l'heap JVM (`-Xmx`) o elabora i file in blocchi più piccoli. |
 | LicenseException | Uso della versione di prova senza un file di licenza valido | Posiziona il file di licenza temporanea nella radice del progetto o configura la licenza programmaticamente. |
 
-## Domande frequenti
-**D: Posso censurare le annotazioni in documenti protetti da password?**  
-R: Sì. Carica il documento con la password appropriata prima di creare l'istanza `Redactor`.
-
-**D: GroupDocs.Redaction supporta altri tipi di annotazione (ad es., evidenziazioni, forme)?**  
-R: La libreria si concentra sulle annotazioni basate su testo. Per elementi grafici, considera di rasterizzare prima la pagina.
-
-**D: Come applicare più regole di censura contemporaneamente?**  
-R: Chiama `redactor.apply()` più volte, ciascuna con un diverso `AnnotationRedaction` o altri oggetti di censura.
-
-**D: È possibile visualizzare in anteprima le censure prima di salvare?**  
-R: Puoi esportare il documento in PDF dopo aver applicato le censure e ispezionarlo manualmente.
-
-**D: Quali versioni di Java sono compatibili?**  
-R: Java 8 e versioni successive sono pienamente supportate.
-
 ## Sezione FAQ
 1. **Cos'è GroupDocs.Redaction per Java?**  
    - Una libreria che consente di censurare il testo all'interno dei documenti, garantendo la protezione delle informazioni sensibili.  

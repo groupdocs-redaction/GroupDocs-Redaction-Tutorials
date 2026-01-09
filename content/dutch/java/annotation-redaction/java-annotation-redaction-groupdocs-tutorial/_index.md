@@ -161,23 +161,6 @@ Bij het werken met grote documenten of het verwerken van batches:
 | OutOfMemoryError bij grote bestanden | Redactor houdt het volledige document in het geheugen | Verhoog de JVM‑heap (`-Xmx`) of verwerk bestanden in kleinere delen. |
 | LicenseException | Testen zonder geldig licentiebestand | Plaats het tijdelijke licentiebestand in de project‑root of configureer de licentie programmatisch. |
 
-## Veelgestelde vragen
-
-**Q: Kan ik annotaties redigeren in met wachtwoord beveiligde documenten?**  
-A: Ja. Laad het document met het juiste wachtwoord voordat u de `Redactor`‑instantie maakt.
-
-**Q: Ondersteunt GroupDocs.Redaction andere annotatietypen (bijv. markeringen, vormen)?**  
-A: De bibliotheek richt zich op tekst‑gebaseerde annotaties. Voor grafische elementen kunt u overwegen de pagina eerst te rasteren.
-
-**Q: Hoe pas ik meerdere redactie‑regels tegelijk toe?**  
-A: Roep `redactor.apply()` meerdere keren aan, elk met een andere `AnnotationRedaction` of andere redactie‑objecten.
-
-**Q: Is het mogelijk om redacties vooraf te bekijken vóór het opslaan?**  
-A: U kunt het document exporteren naar PDF na het toepassen van redacties en handmatig inspecteren.
-
-**Q: Welke Java‑versies zijn compatibel?**  
-A: Java 8 en nieuwer worden volledig ondersteund.
-
 ## FAQ‑sectie
 1. **Wat is GroupDocs.Redaction voor Java?**  
    - Een bibliotheek die u in staat stelt tekst binnen documenten te redigeren, zodat gevoelige informatie beschermd blijft.

@@ -159,23 +159,6 @@ When working with large documents or processing batches:
 | OutOfMemoryError on big files | Redactor holds entire document in memory | Increase JVM heap (`-Xmx`) or process files in smaller chunks. |
 | LicenseException | Using trial without a valid license file | Place the temporary license file in the project root or configure the license programmatically. |
 
-## Frequently Asked Questions
-
-**Q: Can I redact annotations in password‑protected documents?**  
-A: Yes. Load the document with the appropriate password before creating the `Redactor` instance.
-
-**Q: Does GroupDocs.Redaction support other annotation types (e.g., highlights, shapes)?**  
-A: The library focuses on text‑based annotations. For graphical elements, consider rasterizing the page first.
-
-**Q: How do I apply multiple redaction rules at once?**  
-A: Call `redactor.apply()` multiple times, each with a different `AnnotationRedaction` or other redaction objects.
-
-**Q: Is it possible to preview redactions before saving?**  
-A: You can export the document to PDF after applying redactions and inspect it manually.
-
-**Q: What Java versions are compatible?**  
-A: Java 8 and newer are fully supported.
-
 ## FAQ Section
 1. **What is GroupDocs.Redaction for Java?**  
    - A library that allows you to redact text within documents, ensuring sensitive information is protected.
