@@ -7,7 +7,7 @@ keywords:
 - custom logger java
 - batch document processing
 - how to monitor redaction
-title: 'Trình Ghi Log Tùy Chỉnh Java: Triển Khai Ghi Log Nâng Cao với GroupDocs Redaction
+title: 'Trình Ghi Log Tùy Chỉnh Java - Triển Khai Ghi Log Nâng Cao với GroupDocs Redaction
   – Hướng Dẫn Toàn Diện'
 type: docs
 url: /vi/java/advanced-redaction/advanced-logging-groupdocs-redaction-java/

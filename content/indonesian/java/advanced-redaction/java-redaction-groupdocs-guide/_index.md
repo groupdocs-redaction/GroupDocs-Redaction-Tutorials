@@ -7,7 +7,7 @@ keywords:
 - Java Redaction
 - Secure Document Processing
 - GroupDocs.Redaction for Java
-title: 'Panduan Redaksi Java: Pemrosesan Dokumen Aman dengan GroupDocs'
+title: 'Panduan Redaksi Java - Pemrosesan Dokumen Aman dengan GroupDocs'
 type: docs
 url: /id/java/advanced-redaction/java-redaction-groupdocs-guide/
 weight: 1
@@ -180,19 +180,6 @@ Untuk mengoptimalkan kinerja saat menggunakan GroupDocs.Redaction:
 ## Kesimpulan
 
 Dengan mengikuti panduan ini, Anda telah belajar cara memuat dan menerapkan kebijakan redaksi menggunakan GroupDocs.Redaction untuk Java. Alat yang kuat ini dapat membantu Anda **memproses dokumen secara aman** di berbagai jenis dokumen dengan efisien. Sebagai langkah selanjutnya, pertimbangkan untuk menjelajahi fitur lanjutan dari perpustakaan atau mengintegrasikannya dengan sistem lain untuk otomatisasi alur kerja yang lebih baik.
-
-## Bagian FAQ
-
-1. **Apa itu GroupDocs.Redaction?**  
-   - Sebuah perpustakaan yang memungkinkan pengembang meredaksi informasi sensitif dari dokumen menggunakan Java.  
-2. **Bagaimana cara menangani volume dokumen yang besar?**  
-   - Proses dokumen dalam batch dan gunakan praktik manajemen sumber daya yang efisien.  
-3. **Bisakah saya menyesuaikan kebijakan redaksi?**  
-   - Ya, Anda dapat mendefinisikan aturan khusus untuk konten yang harus direduksi.  
-4. **Format file apa yang didukung oleh GroupDocs.Redaction?**  
-   - Mendukung berbagai format termasuk PDF, dokumen Word, dan gambar.  
-5. **Apakah ada dukungan tersedia jika saya mengalami masalah?**  
-   - Dukungan gratis tersedia di [forum GroupDocs](https://forum.groupdocs.com/c/redaction/33).
 
 ## Pertanyaan yang Sering Diajukan
 

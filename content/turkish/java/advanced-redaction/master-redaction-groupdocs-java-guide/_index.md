@@ -7,7 +7,7 @@ keywords:
 - redact sensitive information
 - GroupDocs.Redaction Java
 - document redaction
-title: 'Java için GroupDocs.Redaction ile PDF Belgelerini Kırpma: Adım Adım Kılavuz'
+title: 'Java için GroupDocs.Redaction ile PDF Belgelerini Kırpma - Adım Adım Kılavuz'
 type: docs
 url: /tr/java/advanced-redaction/master-redaction-groupdocs-java-guide/
 weight: 1

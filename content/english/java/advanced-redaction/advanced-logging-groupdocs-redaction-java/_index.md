@@ -1,5 +1,5 @@
 ---
-title: "Custom Logger Java: Implement Advanced Logging with GroupDocs Redaction – A Comprehensive Guide"
+title: "Custom Logger Java - Implement Advanced Logging with GroupDocs Redaction – A Comprehensive Guide"
 description: "Master custom logger java techniques using GroupDocs Redaction for Java. Learn batch document processing, how to monitor redaction, and optimize your debugging workflow."
 date: "2025-12-17"
 weight: 1

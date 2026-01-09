@@ -7,7 +7,7 @@ keywords:
 - custom logger java
 - batch document processing
 - how to monitor redaction
-title: 'Пользовательский логгер Java: Реализация продвинутого логирования с GroupDocs
+title: 'Пользовательский логгер Java - Реализация продвинутого логирования с GroupDocs
   Redaction – Полное руководство'
 type: docs
 url: /ru/java/advanced-redaction/advanced-logging-groupdocs-redaction-java/

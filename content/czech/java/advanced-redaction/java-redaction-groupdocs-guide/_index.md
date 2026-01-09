@@ -7,7 +7,7 @@ keywords:
 - Java Redaction
 - Secure Document Processing
 - GroupDocs.Redaction for Java
-title: 'Průvodce redakcí v Javě: Bezpečné zpracování dokumentů s GroupDocs'
+title: 'Průvodce redakcí v Javě - Bezpečné zpracování dokumentů s GroupDocs'
 type: docs
 url: /cs/java/advanced-redaction/java-redaction-groupdocs-guide/
 weight: 1
@@ -181,19 +181,6 @@ Pro optimalizaci výkonu při používání GroupDocs.Redaction:
 ## Závěr
 
 Po přečtení tohoto průvodce jste se naučili, jak načíst a aplikovat politiku redakce pomocí GroupDocs.Redaction pro Javu. Tento výkonný nástroj vám může pomoci **bezpečně zpracovávat dokumenty** napříč různými typy dokumentů efektivně. Další kroky mohou zahrnovat zkoumání pokročilejších funkcí knihovny nebo její integraci s dalšími systémy pro vylepšenou automatizaci pracovních postupů.
-
-## Sekce FAQ
-
-1. **Co je GroupDocs.Redaction?**  
-   - Knihovna, která umožňuje vývojářům redigovat citlivé informace z dokumentů pomocí Javy.  
-2. **Jak zvládnu velké objemy dokumentů?**  
-   - Zpracovávejte dokumenty po dávkách a využívejte efektivní praktiky správy zdrojů.  
-3. **Mohu přizpůsobit politiku redakce?**  
-   - Ano, můžete definovat vlastní pravidla pro to, jaký obsah má být redigován.  
-4. **Jaké formáty souborů podporuje GroupDocs.Redaction?**  
-   - Podporuje širokou škálu formátů včetně PDF, Word dokumentů a obrázků.  
-5. **Je k dispozici podpora, pokud narazím na problémy?**  
-   - Bezplatná podpora je k dispozici na [GroupDocs fóru](https://forum.groupdocs.com/c/redaction/33).
 
 ## Často kladené otázky
 

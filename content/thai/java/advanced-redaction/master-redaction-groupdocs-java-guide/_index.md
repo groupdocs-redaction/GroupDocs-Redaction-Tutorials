@@ -7,7 +7,7 @@ keywords:
 - redact sensitive information
 - GroupDocs.Redaction Java
 - document redaction
-title: 'วิธีทำการลบข้อมูลในเอกสาร PDF ด้วย GroupDocs.Redaction สำหรับ Java: คู่มือขั้นตอนโดยละเอียด'
+title: 'วิธีทำการลบข้อมูลในเอกสาร PDF ด้วย GroupDocs.Redaction สำหรับ Java - คู่มือขั้นตอนโดยละเอียด'
 type: docs
 url: /th/java/advanced-redaction/master-redaction-groupdocs-java-guide/
 weight: 1

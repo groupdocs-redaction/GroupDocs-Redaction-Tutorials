@@ -7,7 +7,7 @@ keywords:
 - custom logger java
 - batch document processing
 - how to monitor redaction
-title: 'Vlastní logger v Javě: Implementace pokročilého logování s GroupDocs Redaction
+title: 'Vlastní logger v Javě - Implementace pokročilého logování s GroupDocs Redaction
   – komplexní průvodce'
 type: docs
 url: /cs/java/advanced-redaction/advanced-logging-groupdocs-redaction-java/

@@ -6,7 +6,7 @@ keywords:
 - Java Redaction
 - Secure Document Processing
 - GroupDocs.Redaction for Java
-title: 'Java 문서 마스킹 가이드: GroupDocs를 활용한 안전한 문서 처리'
+title: 'Java 문서 마스킹 가이드 - GroupDocs를 활용한 안전한 문서 처리'
 type: docs
 url: /ko/java/advanced-redaction/java-redaction-groupdocs-guide/
 weight: 1
@@ -180,19 +180,6 @@ GroupDocs.Redaction을 사용할 때 성능을 최적화하려면 다음을 고�
 ## 결론
 
 이 가이드를 따라 Java용 GroupDocs.Redaction을 사용해 레드랙션 정책을 로드하고 적용하는 방법을 배웠습니다. 이 강력한 도구를 활용하면 다양한 문서 유형에 대해 **안전한 문서 처리**를 효율적으로 수행할 수 있습니다. 다음 단계로는 라이브러리의 고급 기능을 탐색하거나 다른 시스템과 통합해 워크플로 자동화를 강화해 보세요.
-
-## FAQ 섹션
-
-1. **GroupDocs.Redaction이란?**  
-   - Java를 사용해 개발자가 문서에서 민감한 정보를 레드랙션할 수 있게 해주는 라이브러리입니다.  
-2. **대량 문서를 어떻게 처리하나요?**  
-   - 문서를 배치로 처리하고 효율적인 리소스 관리 방식을 활용합니다.  
-3. **레드랙션 정책을 맞춤 설정할 수 있나요?**  
-   - 예, 레드랙션 대상 콘텐츠를 정의하는 사용자 정의 규칙을 만들 수 있습니다.  
-4. **GroupDocs.Redaction이 지원하는 파일 형식은?**  
-   - PDF, Word 문서, 이미지 등 다양한 형식을 지원합니다.  
-5. **문제 발생 시 지원을 받을 수 있나요?**  
-   - 무료 지원은 [GroupDocs 포럼](https://forum.groupdocs.com/c/redaction/33)에서 제공됩니다.
 
 ## 자주 묻는 질문
 

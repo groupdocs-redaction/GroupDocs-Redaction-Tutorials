@@ -6,7 +6,7 @@ keywords:
 - Java Redaction
 - Secure Document Processing
 - GroupDocs.Redaction for Java
-title: 'คู่มือการลบข้อมูลใน Java: การประมวลผลเอกสารอย่างปลอดภัยด้วย GroupDocs'
+title: 'คู่มือการลบข้อมูลใน Java - การประมวลผลเอกสารอย่างปลอดภัยด้วย GroupDocs'
 type: docs
 url: /th/java/advanced-redaction/java-redaction-groupdocs-guide/
 weight: 1
@@ -182,19 +182,6 @@ try (Redactor redactor = new Redactor(inputFile.getPath())) {
 ## สรุป
 
 โดยทำตามคู่มือนี้ คุณได้เรียนรู้วิธีโหลดและใช้ redaction policy ด้วย GroupDocs.Redaction สำหรับ Java เครื่องมือที่ทรงพลังนี้สามารถช่วยคุณ **secure document processing** ในหลายประเภทเอกสารได้อย่างมีประสิทธิภาพ ขั้นตอนต่อไปอาจเป็นการสำรวจฟีเจอร์ขั้นสูงของไลบรารีหรือผสานรวมกับระบบอื่นเพื่อเพิ่มการทำงานอัตโนมัติของ workflow
-
-## ส่วนคำถามที่พบบ่อย (FAQ)
-
-1. **GroupDocs.Redaction คืออะไร?**  
-   - ไลบรารีที่ช่วยให้นักพัฒนาสามารถลบข้อมูลที่ละเอียดอ่อนจากเอกสารโดยใช้ Java  
-2. **ฉันจะจัดการกับปริมาณเอกสารจำนวนมากอย่างไร?**  
-   - ประมวลผลเอกสารเป็น batch และใช้แนวปฏิบัติการจัดการทรัพยากรอย่างมีประสิทธิภาพ  
-3. **ฉันสามารถปรับแต่ง redaction policy ได้หรือไม่?**  
-   - ได้ คุณสามารถกำหนดกฎแบบกำหนดเองสำหรับเนื้อหาที่ต้องการลบ  
-4. **ฟอร์แมตไฟล์ใดที่ GroupDocs.Redaction รองรับ?**  
-   - รองรับฟอร์แมตหลากหลายรวมถึง PDF, เอกสาร Word, และภาพต่าง ๆ  
-5. **มีการสนับสนุนเมื่อพบปัญหาหรือไม่?**  
-   - มีการสนับสนุนฟรีบน [GroupDocs forum](https://forum.groupdocs.com/c/redaction/33)  
 
 ## คำถามที่พบบ่อย (Frequently Asked Questions)
 

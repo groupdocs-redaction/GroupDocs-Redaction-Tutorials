@@ -5,7 +5,7 @@ keywords:
 - Java Redaction
 - Secure Document Processing
 - GroupDocs.Redaction for Java
-title: 'Java レダクション ガイド: GroupDocs を使用した安全な文書処理'
+title: 'Java レダクション ガイド - GroupDocs を使用した安全な文書処理'
 type: docs
 url: /ja/java/advanced-redaction/java-redaction-groupdocs-guide/
 weight: 1
@@ -178,19 +178,6 @@ try (Redactor redactor = new Redactor(inputFile.getPath())) {
 ## 結論
 
 本ガイドに従って、Java 用の GroupDocs.Redaction で赤字ポリシーをロードおよび適用する方法を学びました。この強力なツールは、さまざまなドキュメントタイプにわたって**安全なドキュメント処理**を効率的に実現します。次のステップとして、ライブラリの高度な機能を探求したり、他のシステムと統合してワークフロー自動化を強化したりしてください。
-
-## FAQ セクション
-
-1. **GroupDocs.Redaction とは何ですか？**  
-   - 開発者が Java を使用してドキュメントから機密情報を赤字できるライブラリです。  
-2. **大量のドキュメントをどのように処理しますか？**  
-   - ドキュメントをバッチで処理し、効率的なリソース管理手法を活用します。  
-3. **赤字ポリシーをカスタマイズできますか？**  
-   - はい、赤字対象となるコンテンツのカスタムルールを定義できます。  
-4. **GroupDocs.Redaction がサポートするファイル形式は何ですか？**  
-   - PDF、Word 文書、画像など、幅広い形式をサポートしています。  
-5. **問題が発生した場合のサポートはありますか？**  
-   - 無料サポートは [GroupDocs フォーラム](https://forum.groupdocs.com/c/redaction/33) で利用可能です。
 
 ## よくある質問
 

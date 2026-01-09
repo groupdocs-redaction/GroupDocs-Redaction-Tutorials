@@ -7,50 +7,54 @@ keywords:
 - Java Redaction
 - Secure Document Processing
 - GroupDocs.Redaction for Java
-title: 'जावा रेडैक्शन गाइड: ग्रुपडॉक्स के साथ सुरक्षित दस्तावेज़ प्रोसेसिंग'
+title: 'जावा रेडैक्शन गाइड - ग्रुपडॉक्स के साथ सुरक्षित दस्तावेज़ प्रोसेसिंग'
 type: docs
 url: /hi/java/advanced-redaction/java-redaction-groupdocs-guide/
 weight: 1
 ---
 
-# Java Redaction Guide: GroupDocs के साथ सुरक्षित दस्तावेज़ प्रोसेसिंग
+# Java Redaction Guide: GroupDocs के साथ सुरक्षित डॉक्यूमेंट प्रोसेसिंग
 
-Learn how to load and apply a redaction policy in Java using GroupDocs.Redaction, ensuring **secure document processing** while handling multiple files, redacting sensitive data, and saving redacted documents efficiently.
+GroupDocs.Redaction का इस्तेमाल करके Java में Redaction पॉलिसी को लोड और अप्लाई करना सीखें, जिससे कई फाइलों को हैंडल करते हुए **सिक्योर डॉक्यूमेंट प्रोसेसिंग** सुनिश्चित हो, सेंसिटिव डेटा को हटाया जा सके और हटाए गए डॉक्यूमेंट्स को अच्छे से सेव किया जा सके।
 
-## Introduction
+## परिचय
 
-आज के डिजिटल युग में, दस्तावेज़ों में संवेदनशील जानकारी का प्रबंधन अत्यंत महत्वपूर्ण है। चाहे आप कानूनी दस्तावेज़, चिकित्सा रिकॉर्ड या वित्तीय डेटा के साथ काम कर रहे हों, मजबूत रेडैक्शन समाधान की आवश्यकता पहले से कहीं अधिक महत्वपूर्ण हो गई है। यह गाइड आपको GroupDocs.Redaction for Java का उपयोग करके रेडैक्शन पॉलिसी को लोड और लागू करने में मदद करेगा। इस प्रक्रिया में महारत हासिल करके, आप सुनिश्चित कर सकते हैं कि संवेदनशील जानकारी सुरक्षित रूप से प्रोसेस और संग्रहीत हो।
+आज के डिजिटल युग में, डॉक्यूमेंट्स में संवेदनशील जानकारी का मैनेजमेंट बहुत ज़रूरी है। चाहे आप लीगल डॉक्यूमेंट, चिकित्सा रिकॉर्ड या फाइनेंशियल डेटा के साथ काम कर रहे हों, मजबूत रेडेक्शन सॉल्यूशन की ज़रूरत पहले से कहीं ज़्यादा ज़रूरी हो गई है। यह गाइड आपको GroupDocs.Redaction for Java का इस्तेमाल करके रेडेक्शन पॉलिसी को लोड और लागू करने में मदद करेगा। इस प्रोसेस में सख्ती हासिल करके, आप सुनिश्चित कर सकते हैं कि<extra_id_1> जानकारी सुरक्षित रूप से प्रोसेस और प्रोसेस हो।
 
-## Quick Answers
-- **What does secure document processing mean?** It refers to handling, redacting, and storing documents while protecting confidential data throughout the workflow.  
-- **Can I process multiple files in one run?** Yes, the sample code iterates over a directory and applies the policy to each file.  
-- **How do I redact sensitive data?** Define a redaction policy that specifies the patterns or text to be hidden, then apply it with the Redactor.  
-- **Do I need a license for production?** A valid GroupDocs.Redaction license is required for production use; a trial is available for evaluation.  
-- **Can I save the redacted document without rasterization?** Absolutely—set `RasterizationOptions.setEnabled(false)` to keep the original format.
+## क्विक आंसर्स
+- **सिक्योर डॉक्यूमेंट प्रोसेसिंग का क्या मतलब है?** इसका मतलब है पूरे वर्कफ़्लो में कॉन्फिडेंशियल डेटा को प्रोटेक्ट करते हुए डॉक्यूमेंट्स को हैंडल करना, हटाना और स्टोर करना। - **क्या मैं एक बार में कई फ़ाइलों को प्रोसेस कर सकता हूँ?** हाँ, सैंपल कोड एक डायरेक्टरी पर चलता है और हर फ़ाइल पर पॉलिसी लागू करता है।
 
-## What Is Secure Document Processing?
-Secure document processing involves automatically identifying and removing confidential information from a variety of file types while preserving the document’s integrity and usability. GroupDocs.Redaction provides a programmatic way to achieve this in Java.
+- **मैं सेंसिटिव डेटा को कैसे हटाऊँ?** एक रिडक्शन पॉलिसी बनाएँ जो छिपाने के लिए पैटर्न या टेक्स्ट बताती हो, फिर उसे Redactor के साथ लागू करें।
 
-## Why Use GroupDocs.Redaction for Java?
-- **Comprehensive format support** – PDFs, Word, images, and more.  
-- **Fine‑grained policy control** – Create a redaction policy example that targets exactly what you need.  
-- **Scalable batch handling** – Process multiple files in a single operation, reducing manual effort.  
-- **Built‑in rasterization options** – Choose whether to rasterize pages for extra security.
+- **क्या मुझे प्रोडक्शन के लिए लाइसेंस चाहिए?** प्रोडक्शन में इस्तेमाल के लिए एक वैलिड GroupDocs.Redaction लाइसेंस ज़रूरी है; जाँच के लिए एक ट्रायल उपलब्ध है।
 
-## Prerequisites
+- **क्या मैं बिना रैस्टराइज़ेशन के रिडैक्टेड डॉक्यूमेंट को सेव कर सकता हूँ?** बिल्कुल—ओरिजिनल फ़ॉर्मेट बनाए रखने के लिए `RasterizationOptions.setEnabled(false)` सेट करें।
 
-Before implementing GroupDocs.Redaction for Java, ensure you have the following:
-- **Required Libraries**: You need the GroupDocs.Redaction library version 24.9.  
-- **Environment Setup**: A Java Development Kit (JDK) installed on your machine and an IDE like IntelliJ IDEA or Eclipse.  
-- **Knowledge Prerequisites**: Basic understanding of Java programming and familiarity with file I/O operations.
+## सिक्योर डॉक्यूमेंट प्रोसेसिंग क्या है?
 
-## Setting Up GroupDocs.Redaction for Java
+सिक्योर डॉक्यूमेंट प्रोसेसिंग में डॉक्यूमेंट की इंटीग्रिटी और इस्तेमाल को बनाए रखते हुए अलग-अलग तरह की फ़ाइल टाइप से कॉन्फिडेंशियल जानकारी को ऑटोमैटिक रूप से पहचानना और हटाना शामिल है। GroupDocs.Redaction जावा में इसे पाने का एक प्रोग्रामेटिक तरीका देता है।
 
-To begin using GroupDocs.Redaction, set up the library in your project. Here's how:
+## जावा के लिए GroupDocs.Redaction का इस्तेमाल क्यों करें?
 
-**Maven Setup:**
+- **पूरा फ़ॉर्मेट सपोर्ट** – PDF, Word, इमेज, और भी बहुत कुछ।
+- **बारीक पॉलिसी कंट्रोल** – एक ऐसा रिडक्शन पॉलिसी उदाहरण बनाएं जो ठीक वही टारगेट करे जिसकी आपको ज़रूरत है।
+- **स्केलेबल बैच हैंडलिंग** – एक ही ऑपरेशन में कई फ़ाइलों को प्रोसेस करें, जिससे हाथ से काम कम हो।
+- **बिल्ट-इन रैस्टराइज़ेशन ऑप्शन** – चुनें कि ज़्यादा सुरक्षा के लिए पेजों को रैस्टराइज़ करना है या नहीं।
 
-Add the following configuration to your `pom.xml`:
+## ज़रूरी शर्तें
+
+Java के लिए GroupDocs.Redaction लागू करने से पहले, पक्का करें कि आपके पास ये चीज़ें हैं:
+- **ज़रूरी लाइब्रेरी**: आपको GroupDocs.Redaction लाइब्रेरी वर्शन 24.9 चाहिए।
+- **एनवायरनमेंट सेटअप**: आपकी मशीन पर एक Java डेवलपमेंट किट (JDK) इंस्टॉल होना चाहिए और IntelliJ IDEA या Eclipse जैसा IDE होना चाहिए।
+- **जानकारी ज़रूरी शर्तें**: Java प्रोग्रामिंग की बेसिक समझ और फ़ाइल I/O ऑपरेशन से जान-पहचान होना।
+
+## Java के लिए GroupDocs.Redaction सेट अप करना
+
+GroupDocs.Redaction का इस्तेमाल शुरू करने के लिए, अपने प्रोजेक्ट में लाइब्रेरी सेट अप करें। यह ऐसे करें:
+
+**Maven सेटअप:**
+
+अपने `pom.xml` में यह कॉन्फ़िगरेशन जोड़ें:
 
 ```xml
 <repositories>
@@ -70,42 +74,42 @@ Add the following configuration to your `pom.xml`:
 </dependencies>
 ```
 
-**Direct Download:**  
-Alternatively, download the latest version from [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+**डायरेक्ट डाउनलोड:**
+या फिर, [Java रिलीज़ के लिए GroupDocs.Redaction](https://releases.groupdocs.com/redaction/java/) से लेटेस्ट वर्शन डाउनलोड करें।
 
-### License Acquisition
+### लाइसेंस लेना
 
-To fully leverage GroupDocs.Redaction's capabilities, consider acquiring a license. You can start with a free trial or request a temporary license to explore its features extensively.
+GroupDocs.Redaction की क्षमताओं का पूरा फ़ायदा उठाने के लिए, लाइसेंस लेने के बारे में सोचें। आप फ़्री ट्रायल से शुरू कर सकते हैं या इसके फ़ीचर्स को अच्छे से देखने के लिए टेम्पररी लाइसेंस के लिए रिक्वेस्ट कर सकते हैं।
 
-### Basic Initialization and Setup
+### बेसिक इनिशियलाइज़ेशन और सेटअप
 
-Once you have the library installed, initialize it in your Java application by importing the necessary classes:
+लाइब्रेरी इंस्टॉल हो जाने के बाद, ज़रूरी क्लास इंपोर्ट करके इसे अपने Java एप्लिकेशन में इनिशियलाइज़ करें:
 
 ```java
 import com.groupdocs.redaction.*;
 ```
 
-## Implementation Guide
+## इम्प्लीमेंटेशन गाइड
 
-This section walks you through implementing two key features: loading and applying a redaction policy, and saving processed documents with specific rasterization options.
+यह सेक्शन आपको दो खास फ़ीचर्स को इम्प्लीमेंट करने के बारे में बताता है: रिडक्शन पॉलिसी लोड करना और अप्लाई करना, और प्रोसेस किए गए डॉक्यूमेंट्स को खास रैस्टराइज़ेशन ऑप्शन के साथ सेव करना।
 
-### Load and Apply Redaction Policy
+### रिडक्शन पॉलिसी लोड करें और अप्लाई करें
 
-**Overview:** This feature loads a predefined redaction policy from a file and applies it to all documents in a specified directory. Processed files are saved based on whether the operation was successful or failed.
+**ओवरव्यू:** यह फ़ीचर एक फ़ाइल से पहले से तय रिडक्शन पॉलिसी लोड करता है और उसे एक तय डायरेक्टरी में सभी डॉक्यूमेंट्स पर अप्लाई करता है। प्रोसेस की गई फ़ाइलें इस आधार पर सेव की जाती हैं कि ऑपरेशन सफल रहा या फेल।
 
-#### Step 1: Initialize RedactionPolicy
+#### स्टेप 1: रिडक्शन पॉलिसी शुरू करें
 
-Load your redaction policy using:
+अपनी रिडक्शन पॉलिसी को इस तरह लोड करें:
 
 ```java
 RedactionPolicy policy = RedactionPolicy.load("YOUR_POLICY_FILE_PATH");
 ```
 
-This step is crucial because the policy defines the rules for redacting sensitive data in your documents.
+यह स्टेप बहुत ज़रूरी है क्योंकि पॉलिसी आपके डॉक्यूमेंट्स में सेंसिटिव डेटा को रिडक्ट करने के नियम बताती है।
 
-#### Step 2: Apply Policy to Documents
+#### स्टेप 2: डॉक्यूमेंट्स पर पॉलिसी अप्लाई करें
 
-Iterate through each file in a directory and apply the policy:
+डायरेक्टरी में हर फ़ाइल को देखें और पॉलिसी अप्लाई करें:
 
 ```java
 for (final File fileEntry : new File("YOUR_DOCUMENT_DIRECTORY").listFiles()) {
@@ -129,25 +133,25 @@ for (final File fileEntry : new File("YOUR_DOCUMENT_DIRECTORY").listFiles()) {
 }
 ```
 
-**Parameters Explained:**  
-- `RedactionPolicy.load()` – Loads the policy from a specified path.  
-- `redactor.apply(policy)` – Executes the redaction based on the loaded policy.  
+**पैरामीटर्स की जानकारी:**
+- `RedactionPolicy.load()` – पॉलिसी को बताए गए पाथ से लोड करता है।
+- `redactor.apply(policy)` – लोड की गई पॉलिसी के आधार पर रिडक्शन को एक्ज़ीक्यूट करता है।
 
-### Save Processed Documents with Rasterization Options
+### रैस्टराइज़ेशन ऑप्शन के साथ प्रोसेस किए गए डॉक्यूमेंट सेव करें
 
-**Overview:** After applying redactions, save documents using specific rasterization options to control output format and quality.
+**ओवरव्यू:** रिडक्शन अप्लाई करने के बाद, आउटपुट फ़ॉर्मेट और क्वालिटी को कंट्रोल करने के लिए खास रैस्टराइज़ेशन ऑप्शन का इस्तेमाल करके डॉक्यूमेंट सेव करें।
 
-#### Step 1: Initialize Redactor for Input File
+#### स्टेप 1: इनपुट फ़ाइल के लिए रेडैक्टर को इनिशियलाइज़ करें
 
-Open a file for processing:
+प्रोसेसिंग के लिए एक फ़ाइल खोलें:
 
 ```java
 File inputFile = new File("YOUR_DOCUMENT_DIRECTORY/input.docx");
 ```
 
-#### Step 2: Save with Rasterization Options
+#### स्टेप 2: रैस्टराइज़ेशन ऑप्शन के साथ सेव करें
 
-Save the processed document, specifying rasterization settings:
+रैस्टराइज़ेशन सेटिंग्स बताते हुए, प्रोसेस किए गए डॉक्यूमेंट को सेव करें:
 
 ```java
 try (Redactor redactor = new Redactor(inputFile.getPath())) {
@@ -159,74 +163,63 @@ try (Redactor redactor = new Redactor(inputFile.getPath())) {
 }
 ```
 
-**Key Configuration Options:**  
-- `RasterizationOptions` – Controls how documents are saved post‑redaction, allowing you to keep the original format or convert to images for added security.
+**मुख्य कॉन्फ़िगरेशन ऑप्शन:**
+- `RasterizationOptions` – यह कंट्रोल करता है कि डॉक्यूमेंट्स को रेडक्शन के बाद कैसे सेव किया जाए, जिससे आप ओरिजिनल फ़ॉर्मेट रख सकते हैं या ज़्यादा सिक्योरिटी के लिए इमेज में बदल सकते हैं।
 
-## Practical Applications
+## प्रैक्टिकल एप्लीकेशन
 
-1. **Legal Document Processing** – Redact sensitive client information before sharing drafts.  
-2. **Healthcare Data Management** – Ensure patient confidentiality by redacting medical records.  
-3. **Financial Reporting** – Protect financial data in reports shared with stakeholders.  
-4. **Contract Review** – Safeguard proprietary terms during contract negotiations.  
-5. **Email Archiving** – Maintain privacy compliance when archiving business emails.
+1. **लीगल डॉक्यूमेंट प्रोसेसिंग** – ड्राफ़्ट शेयर करने से पहले क्लाइंट की सेंसिटिव जानकारी को रेडैक्ट करें।
+2. **हेल्थकेयर डेटा मैनेजमेंट** – मेडिकल रिकॉर्ड को रेडैक्ट करके मरीज़ की कॉन्फिडेंशियलिटी पक्का करें।
+3. **फाइनेंशियल रिपोर्टिंग** – स्टेकहोल्डर्स के साथ शेयर की गई रिपोर्ट में फाइनेंशियल डेटा को सुरक्षित रखें।
+4. **कॉन्ट्रैक्ट रिव्यू** – कॉन्ट्रैक्ट नेगोशिएशन के दौरान प्रोप्राइटरी शर्तों को सुरक्षित रखें।
+5. **ईमेल आर्काइविंग** – बिज़नेस ईमेल आर्काइव करते समय प्राइवेसी का पालन बनाए रखें।
 
-## Performance Considerations
+## परफॉर्मेंस से जुड़ी बातें
 
-To optimize performance while using GroupDocs.Redaction:  
-- **Efficient Resource Management** – Ensure files are closed properly to free up system resources.  
-- **Batch Processing** – Process documents in batches to manage memory usage effectively.  
-- **Optimize Redaction Policies** – Tailor policies to target only necessary redactions, reducing processing time.
+GroupDocs.Redaction का इस्तेमाल करते समय परफॉर्मेंस को ऑप्टिमाइज़ करने के लिए:
 
-## Conclusion
+- **एफिशिएंट रिसोर्स मैनेजमेंट** – पक्का करें कि सिस्टम रिसोर्स खाली करने के लिए फ़ाइलें ठीक से बंद हों।
+- **बैच प्रोसेसिंग** – मेमोरी के इस्तेमाल को अच्छे से मैनेज करने के लिए डॉक्यूमेंट्स को बैच में प्रोसेस करें।
 
-By following this guide, you've learned how to load and apply a redaction policy using GroupDocs.Redaction for Java. This powerful tool can help you **secure document processing** across various document types efficiently. As next steps, consider exploring more advanced features of the library or integrating it with other systems for enhanced workflow automation.
+- **रिडेक्शन पॉलिसीज़ को ऑप्टिमाइज़ करें** – सिर्फ़ ज़रूरी रिडक्शन को टारगेट करने के लिए पॉलिसीज़ को तैयार करें, जिससे प्रोसेसिंग का समय कम हो।
 
-## FAQ Section
+## नतीजा
 
-1. **What is GroupDocs.Redaction?**  
-   - A library that allows developers to redact sensitive information from documents using Java.  
-2. **How do I handle large volumes of documents?**  
-   - Process documents in batches and utilize efficient resource management practices.  
-3. **Can I customize the redaction policy?**  
-   - Yes, you can define custom rules for what content should be redacted.  
-4. **What file formats are supported by GroupDocs.Redaction?**  
-   - Supports a wide range of formats including PDFs, Word documents, and images.  
-5. **Is there support available if I encounter issues?**  
-   - Free support is available on the [GroupDocs forum](https://forum.groupdocs.com/c/redaction/33).
+इस गाइड को फ़ॉलो करके, आपने Java के लिए GroupDocs.Redaction का इस्तेमाल करके रिडक्शन पॉलिसी को लोड और अप्लाई करना सीख लिया है। यह पावरफ़ुल टूल आपको अलग-अलग तरह के डॉक्यूमेंट्स में अच्छे से **सिक्योर डॉक्यूमेंट प्रोसेसिंग** करने में मदद कर सकता है। अगले स्टेप्स के तौर पर, लाइब्रेरी के और एडवांस्ड फ़ीचर्स देखने या बेहतर वर्कफ़्लो ऑटोमेशन के लिए इसे दूसरे सिस्टम के साथ इंटीग्रेट करने पर विचार करें।
 
-## Frequently Asked Questions
+## अक्सर पूछे जाने वाले सवाल
 
-**Q: How can I process multiple files with a single command?**  
-A: Use the directory‑iteration loop shown in the “Apply Policy to Documents” example; it automatically processes every file in the folder.
+**सवाल: मैं एक ही कमांड से कई फ़ाइलों को कैसे प्रोसेस कर सकता हूँ?**
+जवाब: “डॉक्यूमेंट्स पर पॉलिसी अप्लाई करें” उदाहरण में दिखाए गए डायरेक्टरी-इटरेशन लूप का इस्तेमाल करें; यह फ़ोल्डर में हर फ़ाइल को ऑटोमैटिकली प्रोसेस करता है।
 
-**Q: What does “redact sensitive data” actually remove?**  
-A: The redaction policy can target text patterns, images, or metadata, replacing them with black boxes or removing them entirely.
+**सवाल: “सेंसिटिव डेटा को रिडैक्ट करें” असल में क्या हटाता है?**
+जवाब: रिडक्शन पॉलिसी टेक्स्ट पैटर्न, इमेज या मेटाडेटा को टारगेट कर सकती है, उन्हें ब्लैक बॉक्स से बदल सकती है या पूरी तरह से हटा सकती है।
 
-**Q: Is there a way to preview a redaction policy before applying it?**  
-A: Yes, you can load the policy and call `redactor.preview(policy)` (if supported) to generate a preview PDF.
+**सवाल: क्या किसी रिडक्शन पॉलिसी को लागू करने से पहले उसका प्रीव्यू करने का कोई तरीका है?**
+जवाब: हाँ, आप पॉलिसी लोड कर सकते हैं और प्रीव्यू PDF बनाने के लिए `redactor.preview(policy)` (अगर सपोर्टेड हो) को कॉल कर सकते हैं।
 
-**Q: How do I “save redacted document” without losing original formatting?**  
-A: Set `RasterizationOptions.setEnabled(false)` as demonstrated; this keeps the original file format intact.
+**सवाल: मैं ओरिजिनल फ़ॉर्मेटिंग खोए बिना “रिडक्टेड डॉक्यूमेंट को सेव” कैसे करूँ?**
+जवाब: दिखाए गए तरीके से `RasterizationOptions.setEnabled(false)` सेट करें; इससे ओरिजिनल फ़ाइल फ़ॉर्मेट बना रहता है।
 
-**Q: Do I need a license for development testing?**  
-A: A temporary or trial license is sufficient for development; a full license is required for production deployments.
+**सवाल: क्या मुझे डेवलपमेंट टेस्टिंग के लिए लाइसेंस की ज़रूरत है?**
+जवाब: डेवलपमेंट के लिए एक टेम्पररी या ट्रायल लाइसेंस काफ़ी है; प्रोडक्शन डिप्लॉयमेंट के लिए एक पूरा लाइसेंस ज़रूरी है।
 
-## Resources
+## रिसोर्स
 
-- **Documentation**: [GroupDocs.Redaction Java Docs](https://docs.groupdocs.com/redaction/java/)  
-- **API Reference**: [API Reference](https://reference.groupdocs.com/redaction/java)  
-- **Download**: [Latest Releases](https://releases.groupdocs.com/redaction/java/)  
-- **GitHub**: [Source Code on GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
-- **Free Support**: [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)
+- **डॉक्यूमेंटेशन**: [GroupDocs.Redaction Java Docs](https://docs.groupdocs.com/redaction/java/)
+- **API रेफरेंस**: [API रेफरेंस](https://reference.groupdocs.com/redaction/java)
+- **डाउनलोड**: [लेटेस्ट रिलीज़](https://releases.groupdocs.com/redaction/java/)
+- **GitHub**: [GitHub पर सोर्स कोड](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
+- **फ्री सपोर्ट**: [GroupDocs फोरम](https://forum.groupdocs.com/c/redaction/33)
 
-## Keyword Recommendations
+## कीवर्ड रिकमेंडेशन
 
-- "Java Redaction"  
-- "Secure Document Processing"  
-- "GroupDocs.Redaction for Java"
+- "Java Redaction"
+- "सिक्योर डॉक्यूमेंट प्रोसेसिंग"
+- "Java के लिए GroupDocs.Redaction"
 
 ---
 
-**Last Updated:** 2025-12-17  
-**Tested With:** GroupDocs.Redaction 24.9 for Java  
-**Author:** GroupDocs
+**पिछला अपडेट:** 2025-12-17
+**इसके साथ टेस्ट किया गया:** Java के लिए GroupDocs.Redaction 24.9
+**लेखक:** GroupDocs

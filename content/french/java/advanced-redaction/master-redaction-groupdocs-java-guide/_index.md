@@ -7,7 +7,7 @@ keywords:
 - redact sensitive information
 - GroupDocs.Redaction Java
 - document redaction
-title: 'Comment censurer les documents PDF avec GroupDocs.Redaction pour Java : guide
+title: 'Comment censurer les documents PDF avec GroupDocs.Redaction pour Java - guide
   étape par étape'
 type: docs
 url: /fr/java/advanced-redaction/master-redaction-groupdocs-java-guide/

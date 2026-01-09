@@ -7,7 +7,7 @@ keywords:
 - redact sensitive information
 - GroupDocs.Redaction Java
 - document redaction
-title: 'Cara Menyensor Dokumen PDF dengan GroupDocs.Redaction untuk Java: Panduan
+title: 'Cara Menyensor Dokumen PDF dengan GroupDocs.Redaction untuk Java - Panduan
   Langkah demi Langkah'
 type: docs
 url: /id/java/advanced-redaction/master-redaction-groupdocs-java-guide/

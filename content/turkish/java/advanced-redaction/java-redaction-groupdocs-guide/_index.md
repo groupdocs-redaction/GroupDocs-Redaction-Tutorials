@@ -8,7 +8,7 @@ keywords:
 - Java Redaction
 - Secure Document Processing
 - GroupDocs.Redaction for Java
-title: 'Java Redaksiyon Kılavuzu: GroupDocs ile Güvenli Belge İşleme'
+title: 'Java Redaksiyon Kılavuzu - GroupDocs ile Güvenli Belge İşleme'
 type: docs
 url: /tr/java/advanced-redaction/java-redaction-groupdocs-guide/
 weight: 1
@@ -181,19 +181,6 @@ GroupDocs.Redaction’ı kullanırken performansı optimize etmek için:
 ## Sonuç
 
 Bu kılavuzu izleyerek, GroupDocs.Redaction for Java kullanarak bir redaksiyon politikasını nasıl yükleyip uygulayacağınızı öğrendiniz. Bu güçlü araç, çeşitli belge türlerinde **güvenli belge işleme** sağlamanıza yardımcı olur. Bir sonraki adım olarak, kütüphanenin daha gelişmiş özelliklerini keşfetmeyi veya iş akışı otomasyonunu artırmak için diğer sistemlerle entegrasyon sağlamayı düşünebilirsiniz.
-
-## FAQ Bölümü
-
-1. **GroupDocs.Redaction nedir?**  
-   - Geliştiricilerin Java kullanarak belgelerden hassas bilgileri redakte etmelerini sağlayan bir kütüphanedir.  
-2. **Büyük miktarda belgeyi nasıl yönetebilirim?**  
-   - Belgeleri toplu olarak işleyin ve verimli kaynak yönetimi uygulamalarını kullanın.  
-3. **Redaksiyon politikasını özelleştirebilir miyim?**  
-   - Evet, hangi içeriğin redakte edileceğini belirleyen özel kurallar tanımlayabilirsiniz.  
-4. **GroupDocs.Redaction hangi dosya formatlarını destekler?**  
-   - PDF, Word belgeleri ve görüntüler dahil olmak üzere geniş bir format yelpazesini destekler.  
-5. **Sorun yaşarsam destek alabilir miyim?**  
-   - Ücretsiz destek, [GroupDocs forum](https://forum.groupdocs.com/c/redaction/33) üzerinden mevcuttur.
 
 ## Sık Sorulan Sorular
 

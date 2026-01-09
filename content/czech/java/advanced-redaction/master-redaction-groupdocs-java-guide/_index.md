@@ -7,7 +7,7 @@ keywords:
 - redact sensitive information
 - GroupDocs.Redaction Java
 - document redaction
-title: 'Jak cenzurovat PDF dokumenty pomocí GroupDocs.Redaction pro Javu: krok za
+title: 'Jak cenzurovat PDF dokumenty pomocí GroupDocs.Redaction pro Javu - krok za
   krokem průvodce'
 type: docs
 url: /cs/java/advanced-redaction/master-redaction-groupdocs-java-guide/

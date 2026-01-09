@@ -7,7 +7,7 @@ keywords:
 - redact sensitive information
 - GroupDocs.Redaction Java
 - document redaction
-title: 'Hoe PDF‑documenten te redigeren met GroupDocs.Redaction voor Java: Een stapsgewijze
+title: 'Hoe PDF‑documenten te redigeren met GroupDocs.Redaction voor Java - Een stapsgewijze
   handleiding'
 type: docs
 url: /nl/java/advanced-redaction/master-redaction-groupdocs-java-guide/

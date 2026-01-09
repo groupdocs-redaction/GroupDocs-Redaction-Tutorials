@@ -7,7 +7,7 @@ keywords:
 - custom logger java
 - batch document processing
 - how to monitor redaction
-title: 'Özel Günlükleyici Java: GroupDocs Redaction ile Gelişmiş Günlükleme Uygulaması
+title: 'Özel Günlükleyici Java - GroupDocs Redaction ile Gelişmiş Günlükleme Uygulaması
   – Kapsamlı Bir Rehber'
 type: docs
 url: /tr/java/advanced-redaction/advanced-logging-groupdocs-redaction-java/

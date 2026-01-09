@@ -1,5 +1,5 @@
 ---
-title: "How to Redact PDF Documents with GroupDocs.Redaction for Java: A Step-by-Step Guide"
+title: "How to Redact PDF Documents with GroupDocs.Redaction for Java - A Step-by-Step Guide"
 description: "Learn how to redact PDF files using GroupDocs.Redaction for Java, including remove annotations java techniques. This guide covers configuration, policy management, and practical applications."
 date: "2025-12-17"
 weight: 1

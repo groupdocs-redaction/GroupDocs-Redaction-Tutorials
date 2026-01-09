@@ -7,7 +7,7 @@ keywords:
 - Java Redaction
 - Secure Document Processing
 - GroupDocs.Redaction for Java
-title: 'Java Redigeringsguide: Säker dokumentbehandling med GroupDocs'
+title: 'Java Redigeringsguide - Säker dokumentbehandling med GroupDocs'
 type: docs
 url: /sv/java/advanced-redaction/java-redaction-groupdocs-guide/
 weight: 1
@@ -180,19 +180,6 @@ För att optimera prestanda när du använder GroupDocs.Redaction:
 ## Slutsats
 
 Genom att följa denna guide har du lärt dig hur du laddar och tillämpar en redigeringspolicy med GroupDocs.Redaction för Java. Detta kraftfulla verktyg kan hjälpa dig att **säker dokumentbehandling** över olika dokumenttyper på ett effektivt sätt. Som nästa steg kan du utforska mer avancerade funktioner i biblioteket eller integrera det med andra system för förbättrad arbetsflödes‑automation.
-
-## FAQ‑avsnitt
-
-1. **Vad är GroupDocs.Redaction?**  
-   - Ett bibliotek som låter utvecklare radera känslig information från dokument med Java.  
-2. **Hur hanterar jag stora volymer av dokument?**  
-   - Bearbeta dokument i batcher och använd effektiv resurs‑hantering.  
-3. **Kan jag anpassa redigeringspolicyn?**  
-   - Ja, du kan definiera egna regler för vilket innehåll som ska raderas.  
-4. **Vilka filformat stöds av GroupDocs.Redaction?**  
-   - Stöder ett brett spektrum av format inklusive PDF, Word‑dokument och bilder.  
-5. **Finns det support om jag stöter på problem?**  
-   - Gratis support finns på [GroupDocs forum](https://forum.groupdocs.com/c/redaction/33).
 
 ## Vanliga frågor
 

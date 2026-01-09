@@ -5,7 +5,7 @@ keywords:
 - Java Redaction
 - Secure Document Processing
 - GroupDocs.Redaction for Java
-title: Java 脱敏指南：使用 GroupDocs 的安全文档处理
+title: Java 脱敏指南 - 使用 GroupDocs 的安全文档处理
 type: docs
 url: /zh/java/advanced-redaction/java-redaction-groupdocs-guide/
 weight: 1
@@ -178,19 +178,6 @@ try (Redactor redactor = new Redactor(inputFile.getPath())) {
 ## Conclusion
 
 通过本指南，您已学习如何使用 GroupDocs.Redaction for Java 加载并应用脱敏策略。这一强大工具能够帮助您在各种文档类型上实现 **安全的文档处理**。接下来，您可以探索库的更高级功能或将其与其他系统集成，以实现工作流自动化的进一步提升。
-
-## FAQ Section
-
-1. **What is GroupDocs.Redaction?**  
-   - 一个允许开发者使用 Java 对文档进行敏感信息脱敏的库。  
-2. **How do I handle large volumes of documents?**  
-   - 采用批量处理并使用高效的资源管理实践。  
-3. **Can I customize the redaction policy?**  
-   - 可以，您可以定义自定义规则来决定哪些内容需要脱敏。  
-4. **What file formats are supported by GroupDocs.Redaction?**  
-   - 支持包括 PDF、Word 文档和图像在内的多种格式。  
-5. **Is there support available if I encounter issues?**  
-   - 可在 [GroupDocs forum](https://forum.groupdocs.com/c/redaction/33) 获得免费支持。
 
 ## Frequently Asked Questions
 

@@ -5,7 +5,7 @@ keywords:
 - Java Redaction
 - Secure Document Processing
 - GroupDocs.Redaction for Java
-title: Java 敏感資訊遮蔽指南：使用 GroupDocs 進行安全文件處理
+title: Java 敏感資訊遮蔽指南 - 使用 GroupDocs 進行安全文件處理
 type: docs
 url: /zh-hant/java/advanced-redaction/java-redaction-groupdocs-guide/
 weight: 1
@@ -180,19 +180,6 @@ try (Redactor redactor = new Redactor(inputFile.getPath())) {
 ## 結論
 
 透過本指南，您已學會如何使用 GroupDocs.Redaction for Java 載入並套用遮蔽政策。此強大工具能協助您在各種文件類型上實現 **安全文件處理**。接下來，建議探索函式庫的進階功能，或將其與其他系統整合，以提升工作流程自動化程度。
-
-## 常見問答
-
-1. **什麼是 GroupDocs.Redaction？**  
-   - 一個讓開發者使用 Java 從文件中遮蔽敏感資訊的函式庫。  
-2. **如何處理大量文件？**  
-   - 以批次方式處理文件，並採用有效的資源管理策略。  
-3. **我可以自訂遮蔽政策嗎？**  
-   - 可以，您可以定義自訂規則來決定哪些內容需要被遮蔽。  
-4. **GroupDocs.Redaction 支援哪些檔案格式？**  
-   - 支援包括 PDF、Word 文件、影像等多種格式。  
-5. **如果遇到問題，有支援嗎？**  
-   - 可在 [GroupDocs forum](https://forum.groupdocs.com/c/redaction/33) 獲得免費支援。
 
 ## 常見問題
 

@@ -8,7 +8,7 @@ keywords:
 - Java Redaction
 - Secure Document Processing
 - GroupDocs.Redaction for Java
-title: 'Java Redakciós Útmutató: Biztonságos dokumentumfeldolgozás a GroupDocs-szel'
+title: 'Java Redakciós Útmutató - Biztonságos dokumentumfeldolgozás a GroupDocs-szel'
 type: docs
 url: /hu/java/advanced-redaction/java-redaction-groupdocs-guide/
 weight: 1
@@ -180,19 +180,6 @@ A teljesítmény optimalizálásához a GroupDocs.Redaction használata közben:
 ## Conclusion
 
 Az útmutató követésével megtanulta, hogyan töltsön be és alkalmazzon egy redaction policy-t a GroupDocs.Redaction for Java segítségével. Ez a hatékony eszköz segíthet a **biztonságos dokumentumfeldolgozásban** különféle dokumentumtípusok esetén hatékonyan. A következő lépésként érdemes a könyvtár fejlettebb funkcióit felfedezni, vagy integrálni más rendszerekkel a munkafolyamat automatizálásának fokozása érdekében.
-
-## FAQ Section
-
-1. **Mi az a GroupDocs.Redaction?**  
-   - Egy könyvtár, amely lehetővé teszi a fejlesztők számára, hogy Java-val redakcióval takarják el a dokumentumok érzékeny információit.  
-2. **Hogyan kezeljek nagy mennyiségű dokumentumot?**  
-   - Dokumentumokat kötegekben dolgozzon fel, és alkalmazzon hatékony erőforrás-kezelési gyakorlatokat.  
-3. **Testreszabhatom a redaction policy-t?**  
-   - Igen, definiálhat egyedi szabályokat arra vonatkozóan, hogy milyen tartalmat kell redakcióval takarni.  
-4. **Milyen fájlformátumokat támogat a GroupDocs.Redaction?**  
-   - Széles körű formátumokat támogat, beleértve a PDF-eket, Word dokumentumokat és képeket.  
-5. **Elérhető támogatás, ha problémáim vannak?**  
-   - Ingyenes támogatás érhető el a [GroupDocs fórumon](https://forum.groupdocs.com/c/redaction/33).
 
 ## Frequently Asked Questions
 

@@ -7,7 +7,7 @@ keywords:
 - custom logger java
 - batch document processing
 - how to monitor redaction
-title: 'مسجل مخصص في جافا: تنفيذ تسجيل متقدم باستخدام GroupDocs Redaction – دليل شامل'
+title: 'مسجل مخصص في جافا - تنفيذ تسجيل متقدم باستخدام GroupDocs Redaction – دليل شامل'
 type: docs
 url: /ar/java/advanced-redaction/advanced-logging-groupdocs-redaction-java/
 weight: 1

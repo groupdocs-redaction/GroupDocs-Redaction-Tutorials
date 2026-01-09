@@ -7,7 +7,7 @@ keywords:
 - custom logger java
 - batch document processing
 - how to monitor redaction
-title: 'Προσαρμοσμένος Καταγραφέας Java: Υλοποίηση Προηγμένης Καταγραφής με το GroupDocs
+title: 'Προσαρμοσμένος Καταγραφέας Java - Υλοποίηση Προηγμένης Καταγραφής με το GroupDocs
   Redaction – Ένας Πλήρης Οδηγός'
 type: docs
 url: /el/java/advanced-redaction/advanced-logging-groupdocs-redaction-java/

@@ -7,7 +7,7 @@ keywords:
 - Java Redaction
 - Secure Document Processing
 - GroupDocs.Redaction for Java
-title: 'Guía de Redacción en Java: Procesamiento Seguro de Documentos con GroupDocs'
+title: 'Guía de Redacción en Java - Procesamiento Seguro de Documentos con GroupDocs'
 type: docs
 url: /es/java/advanced-redaction/java-redaction-groupdocs-guide/
 weight: 1
@@ -180,19 +180,6 @@ Para optimizar el rendimiento al usar GroupDocs.Redaction:
 ## Conclusión
 
 Al seguir esta guía, has aprendido cómo cargar y aplicar una política de redacción usando GroupDocs.Redaction para Java. Esta poderosa herramienta puede ayudarte a **procesar documentos de forma segura** en varios tipos de documentos de manera eficiente. Como próximos pasos, considera explorar funciones más avanzadas de la biblioteca o integrarla con otros sistemas para una mayor automatización del flujo de trabajo.
-
-## Sección de preguntas frecuentes
-
-1. **¿Qué es GroupDocs.Redaction?**  
-   - Una biblioteca que permite a los desarrolladores redactar información sensible de documentos usando Java.  
-2. **¿Cómo manejo grandes volúmenes de documentos?**  
-   - Procesa los documentos en lotes y utiliza prácticas de gestión de recursos eficientes.  
-3. **¿Puedo personalizar la política de redacción?**  
-   - Sí, puedes definir reglas personalizadas para el contenido que debe redactarse.  
-4. **¿Qué formatos de archivo son compatibles con GroupDocs.Redaction?**  
-   - Soporta una amplia gama de formatos, incluidos PDFs, documentos Word e imágenes.  
-5. **¿Hay soporte disponible si encuentro problemas?**  
-   - Soporte gratuito está disponible en el [GroupDocs forum](https://forum.groupdocs.com/c/redaction/33).
 
 ## Preguntas frecuentes
 

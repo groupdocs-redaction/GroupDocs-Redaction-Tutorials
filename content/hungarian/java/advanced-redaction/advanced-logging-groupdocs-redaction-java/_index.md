@@ -7,7 +7,7 @@ keywords:
 - custom logger java
 - batch document processing
 - how to monitor redaction
-title: 'Egyedi naplózó Java: Fejlett naplózás megvalósítása a GroupDocs Redaction
+title: 'Egyedi naplózó Java - Fejlett naplózás megvalósítása a GroupDocs Redaction
   segítségével – Átfogó útmutató'
 type: docs
 url: /hu/java/advanced-redaction/advanced-logging-groupdocs-redaction-java/

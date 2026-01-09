@@ -7,7 +7,7 @@ keywords:
 - custom logger java
 - batch document processing
 - how to monitor redaction
-title: 'कस्टम लॉगर जावा: ग्रुपडॉक्स रेडैक्शन के साथ उन्नत लॉगिंग लागू करें – एक व्यापक
+title: 'कस्टम लॉगर जावा - ग्रुपडॉक्स रेडैक्शन के साथ उन्नत लॉगिंग लागू करें – एक व्यापक
   गाइड'
 type: docs
 url: /hi/java/advanced-redaction/advanced-logging-groupdocs-redaction-java/

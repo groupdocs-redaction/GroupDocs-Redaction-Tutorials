@@ -7,7 +7,7 @@ keywords:
 - custom logger java
 - batch document processing
 - how to monitor redaction
-title: 'Aangepaste logger Java: Implementeer geavanceerde logging met GroupDocs Redaction
+title: 'Aangepaste logger Java - Implementeer geavanceerde logging met GroupDocs Redaction
   – Een uitgebreide gids'
 type: docs
 url: /nl/java/advanced-redaction/advanced-logging-groupdocs-redaction-java/

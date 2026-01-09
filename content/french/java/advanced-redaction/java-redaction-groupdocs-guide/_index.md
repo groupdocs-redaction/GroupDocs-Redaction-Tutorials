@@ -7,7 +7,7 @@ keywords:
 - Java Redaction
 - Secure Document Processing
 - GroupDocs.Redaction for Java
-title: 'Guide de caviardage Java : traitement sécurisé des documents avec GroupDocs'
+title: 'Guide de caviardage Java - traitement sécurisé des documents avec GroupDocs'
 type: docs
 url: /fr/java/advanced-redaction/java-redaction-groupdocs-guide/
 weight: 1
@@ -180,19 +180,6 @@ To optimize performance while using GroupDocs.Redaction:
 ## Conclusion
 
 By following this guide, you've learned how to load and apply a redaction policy using GroupDocs.Redaction for Java. This powerful tool can help you **secure document processing** across various document types efficiently. As next steps, consider exploring more advanced features of the library or integrating it with other systems for enhanced workflow automation.
-
-## FAQ Section
-
-1. **What is GroupDocs.Redaction?**  
-   - A library that allows developers to redact sensitive information from documents using Java.  
-2. **How do I handle large volumes of documents?**  
-   - Process documents in batches and utilize efficient resource management practices.  
-3. **Can I customize the redaction policy?**  
-   - Yes, you can define custom rules for what content should be redacted.  
-4. **What file formats are supported by GroupDocs.Redaction?**  
-   - Supports a wide range of formats including PDFs, Word documents, and images.  
-5. **Is there support available if I encounter issues?**  
-   - Free support is available on the [GroupDocs forum](https://forum.groupdocs.com/c/redaction/33).
 
 ## Frequently Asked Questions
 

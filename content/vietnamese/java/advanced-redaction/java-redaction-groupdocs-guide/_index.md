@@ -7,7 +7,7 @@ keywords:
 - Java Redaction
 - Secure Document Processing
 - GroupDocs.Redaction for Java
-title: 'Hướng dẫn xóa thông tin trong Java: Xử lý tài liệu an toàn với GroupDocs'
+title: 'Hướng dẫn xóa thông tin trong Java - Xử lý tài liệu an toàn với GroupDocs'
 type: docs
 url: /vi/java/advanced-redaction/java-redaction-groupdocs-guide/
 weight: 1
@@ -179,19 +179,6 @@ try (Redactor redactor = new Redactor(inputFile.getPath())) {
 ## Kết luận
 
 Bằng cách làm theo hướng dẫn này, bạn đã học cách tải và áp dụng một chính sách redaction bằng GroupDocs.Redaction cho Java. Công cụ mạnh mẽ này có thể giúp bạn **xử lý tài liệu an toàn** trên nhiều loại tài liệu một cách hiệu quả. Các bước tiếp theo, hãy khám phá các tính năng nâng cao của thư viện hoặc tích hợp nó với các hệ thống khác để tự động hoá quy trình làm việc.
-
-## Phần Câu hỏi thường gặp
-
-1. **GroupDocs.Redaction là gì?**  
-   - Một thư viện cho phép các nhà phát triển redaction thông tin nhạy cảm từ tài liệu bằng Java.  
-2. **Làm sao tôi xử lý khối lượng lớn tài liệu?**  
-   - Xử lý tài liệu theo batch và áp dụng các thực hành quản lý tài nguyên hiệu quả.  
-3. **Tôi có thể tùy chỉnh chính sách redaction không?**  
-   - Có, bạn có thể định nghĩa các quy tắc tùy chỉnh cho nội dung cần redaction.  
-4. **Các định dạng file nào được Group.Redaction hỗ trợ?**  
-   - Hỗ trợ đa dạng định dạng bao gồm PDF, tài liệu Word và hình ảnh.  
-5. **Có hỗ trợ khi tôi gặp vấn đề không?**  
-   - Hỗ trợ miễn phí có sẵn trên [diễn đàn GroupDocs](https://forum.groupdocs.com/c/redaction/33).
 
 ## Câu hỏi thường gặp
 

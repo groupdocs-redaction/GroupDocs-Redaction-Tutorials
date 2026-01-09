@@ -5,7 +5,7 @@ keywords:
 - custom logger java
 - batch document processing
 - how to monitor redaction
-title: 自定义日志记录器（Java）：使用 GroupDocs Redaction 实现高级日志记录——完整指南
+title: 自定义日志记录器（Java） - 使用 GroupDocs Redaction 实现高级日志记录——完整指南
 type: docs
 url: /zh/java/advanced-redaction/advanced-logging-groupdocs-redaction-java/
 weight: 1

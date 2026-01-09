@@ -7,7 +7,7 @@ keywords:
 - redact sensitive information
 - GroupDocs.Redaction Java
 - document redaction
-title: 'Hur du maskar PDF-dokument med GroupDocs.Redaction för Java: En steg‑för‑steg‑guide'
+title: 'Hur du maskar PDF-dokument med GroupDocs.Redaction för Java - En steg‑för‑steg‑guide'
 type: docs
 url: /sv/java/advanced-redaction/master-redaction-groupdocs-java-guide/
 weight: 1

@@ -5,7 +5,7 @@ keywords:
 - redact sensitive information
 - GroupDocs.Redaction Java
 - document redaction
-title: 如何使用 GroupDocs.Redaction for Java 对 PDF 文档进行脱敏：一步一步的指南
+title: 如何使用 GroupDocs.Redaction for Java 对 PDF 文档进行脱敏 - 一步一步的指南
 type: docs
 url: /zh/java/advanced-redaction/master-redaction-groupdocs-java-guide/
 weight: 1
