@@ -7,7 +7,7 @@ keywords:
 - Java Redaction
 - GroupDocs.Redaction for Java
 - document redaction
-title: 'Cách thực hiện che dấu trong Java với GroupDocs.Redaction: Hướng dẫn toàn
+title: 'Cách thực hiện che dấu trong Java với GroupDocs.Redaction - Hướng dẫn toàn
   diện cho nhà phát triển'
 type: docs
 url: /vi/java/getting-started/implement-java-redaction-groupdocs-redaction-guide/

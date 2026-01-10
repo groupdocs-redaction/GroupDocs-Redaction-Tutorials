@@ -6,7 +6,7 @@ keywords:
 - Java Redaction
 - GroupDocs.Redaction for Java
 - document redaction
-title: 'Πώς να επεξεργαστείτε Java με το GroupDocs.Redaction: Ένας ολοκληρωμένος οδηγός
+title: 'Πώς να επεξεργαστείτε Java με το GroupDocs.Redaction - Ένας ολοκληρωμένος οδηγός
   για προγραμματιστές'
 type: docs
 url: /el/java/getting-started/implement-java-redaction-groupdocs-redaction-guide/

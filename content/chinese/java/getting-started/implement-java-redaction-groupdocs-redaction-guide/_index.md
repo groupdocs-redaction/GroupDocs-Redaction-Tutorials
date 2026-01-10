@@ -5,7 +5,7 @@ keywords:
 - Java Redaction
 - GroupDocs.Redaction for Java
 - document redaction
-title: 如何使用 GroupDocs.Redaction 对 Java 进行脱敏：开发者全面指南
+title: 如何使用 GroupDocs.Redaction 对 Java 进行脱敏 - 开发者全面指南
 type: docs
 url: /zh/java/getting-started/implement-java-redaction-groupdocs-redaction-guide/
 weight: 1

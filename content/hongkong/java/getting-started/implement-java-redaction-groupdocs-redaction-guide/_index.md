@@ -5,7 +5,7 @@ keywords:
 - Java Redaction
 - GroupDocs.Redaction for Java
 - document redaction
-title: 使用 GroupDocs.Redaction 進行 Java 敏感資訊遮蔽：開發者完整指南
+title: 使用 GroupDocs.Redaction 進行 Java 敏感資訊遮蔽 - 開發者完整指南
 type: docs
 url: /zh-hant/java/getting-started/implement-java-redaction-groupdocs-redaction-guide/
 weight: 1

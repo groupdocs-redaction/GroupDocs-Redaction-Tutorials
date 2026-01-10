@@ -6,7 +6,7 @@ keywords:
 - Java Redaction
 - GroupDocs.Redaction for Java
 - document redaction
-title: 'GroupDocs.Redaction을 사용한 Java 마스킹 방법: 개발자를 위한 종합 가이드'
+title: 'GroupDocs.Redaction을 사용한 Java 마스킹 방법 - 개발자를 위한 종합 가이드'
 type: docs
 url: /ko/java/getting-started/implement-java-redaction-groupdocs-redaction-guide/
 weight: 1

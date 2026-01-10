@@ -5,7 +5,7 @@ keywords:
 - Java Redaction
 - GroupDocs.Redaction for Java
 - document redaction
-title: 'วิธีทำการลบข้อมูลใน Java ด้วย GroupDocs.Redaction: คู่มือเชิงลึกสำหรับนักพัฒนา'
+title: 'วิธีทำการลบข้อมูลใน Java ด้วย GroupDocs.Redaction - คู่มือเชิงลึกสำหรับนักพัฒนา'
 type: docs
 url: /th/java/getting-started/implement-java-redaction-groupdocs-redaction-guide/
 weight: 1

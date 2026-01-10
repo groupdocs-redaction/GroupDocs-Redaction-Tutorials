@@ -7,7 +7,7 @@ keywords:
 - Java Redaction
 - GroupDocs.Redaction for Java
 - document redaction
-title: 'Java cenzúrázása a GroupDocs.Redaction segítségével: Átfogó útmutató fejlesztőknek'
+title: 'Java cenzúrázása a GroupDocs.Redaction segítségével - Átfogó útmutató fejlesztőknek'
 type: docs
 url: /hu/java/getting-started/implement-java-redaction-groupdocs-redaction-guide/
 weight: 1

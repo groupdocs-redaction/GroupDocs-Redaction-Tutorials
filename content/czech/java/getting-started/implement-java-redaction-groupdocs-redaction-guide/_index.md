@@ -6,7 +6,7 @@ keywords:
 - Java Redaction
 - GroupDocs.Redaction for Java
 - document redaction
-title: 'Jak provádět redakci v Javě pomocí GroupDocs.Redaction: Komplexní průvodce
+title: 'Jak provádět redakci v Javě pomocí GroupDocs.Redaction - Komplexní průvodce
   pro vývojáře'
 type: docs
 url: /cs/java/getting-started/implement-java-redaction-groupdocs-redaction-guide/

@@ -6,7 +6,7 @@ keywords:
 - Java Redaction
 - GroupDocs.Redaction for Java
 - document redaction
-title: 'Cara Menyensor Java dengan GroupDocs.Redaction: Panduan Komprehensif untuk
+title: 'Cara Menyensor Java dengan GroupDocs.Redaction - Panduan Komprehensif untuk
   Pengembang'
 type: docs
 url: /id/java/getting-started/implement-java-redaction-groupdocs-redaction-guide/

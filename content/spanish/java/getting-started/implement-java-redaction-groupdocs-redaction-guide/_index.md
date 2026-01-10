@@ -6,7 +6,7 @@ keywords:
 - Java Redaction
 - GroupDocs.Redaction for Java
 - document redaction
-title: 'Cómo redactar Java con GroupDocs.Redaction: Una guía completa para desarrolladores'
+title: 'Cómo redactar Java con GroupDocs.Redaction - Una guía completa para desarrolladores'
 type: docs
 url: /es/java/getting-started/implement-java-redaction-groupdocs-redaction-guide/
 weight: 1

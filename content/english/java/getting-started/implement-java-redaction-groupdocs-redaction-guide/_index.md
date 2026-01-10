@@ -1,5 +1,5 @@
 ---
-title: "How to Redact Java with GroupDocs.Redaction: A Comprehensive Guide for Developers"
+title: "How to Redact Java with GroupDocs.Redaction - A Comprehensive Guide for Developers"
 description: "Learn how to redact Java documents using GroupDocs.Redaction, protecting sensitive information seamlessly while maintaining document integrity."
 date: "2026-01-03"
 weight: 1

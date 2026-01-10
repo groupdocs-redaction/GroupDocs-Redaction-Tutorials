@@ -6,7 +6,7 @@ keywords:
 - Java Redaction
 - GroupDocs.Redaction for Java
 - document redaction
-title: 'Hur man maskerar Java med GroupDocs.Redaction: En omfattande guide för utvecklare'
+title: 'Hur man maskerar Java med GroupDocs.Redaction - En omfattande guide för utvecklare'
 type: docs
 url: /sv/java/getting-started/implement-java-redaction-groupdocs-redaction-guide/
 weight: 1

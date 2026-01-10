@@ -6,7 +6,7 @@ keywords:
 - Java Redaction
 - GroupDocs.Redaction for Java
 - document redaction
-title: 'GroupDocs.Redaction ile Java''yı Nasıl Kırpılır: Geliştiriciler İçin Kapsamlı
+title: 'GroupDocs.Redaction ile Java''yı Nasıl Kırpılır - Geliştiriciler İçin Kapsamlı
   Bir Rehber'
 type: docs
 url: /tr/java/getting-started/implement-java-redaction-groupdocs-redaction-guide/
