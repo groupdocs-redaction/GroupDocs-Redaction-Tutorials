@@ -7,7 +7,7 @@ keywords:
 - GroupDocs.Redaction for Java
 - edit password-protected docs java
 - redact password-protected docx
-title: 'Jelszóval védett dokumentumok szerkesztése Java: Dokumentumok kitakarása a
+title: 'Jelszóval védett dokumentumok szerkesztése Java - Dokumentumok kitakarása a
   GroupDocs.Redaction segítségével'
 type: docs
 url: /hu/java/document-loading/groupdocs-redaction-java-password-documents/
@@ -204,8 +204,6 @@ A GroupDocs.Redaction használata során vegye figyelembe a következő teljesí
 
 ## Következtetés
 Ebben a tutorialban megtanulta, hogyan **edit password-protected docs java** segítségével használja a GroupDocs.Redaction for Java-t. A környezet beállításától a pontos kifejezésre vonatkozó redakciók megvalósításáig, valamint a gyakorlati alkalmazások és a teljesítmény szempontok megértéséig most már rendelkezik a szükséges eszközökkel a dokumentumok biztonságának és magánszférájának biztosításához.
-
----
 
 ## Gyakran Ismételt Kérdések
 

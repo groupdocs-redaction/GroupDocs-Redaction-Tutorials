@@ -6,7 +6,7 @@ keywords:
 - GroupDocs.Redaction for Java
 - edit password-protected docs java
 - redact password-protected docx
-title: 編輯受密碼保護的文件（Java）：使用 GroupDocs.Redaction 進行文件遮蔽
+title: 編輯受密碼保護的文件（Java） - 使用 GroupDocs.Redaction 進行文件遮蔽
 type: docs
 url: /zh-hant/java/document-loading/groupdocs-redaction-java-password-documents/
 weight: 1
@@ -204,8 +204,6 @@ GroupDocs.Redaction for Java 可在多種情境下使用：
 
 ## 結論
 本教學說明了如何使用 GroupDocs.Redaction for Java 來 **edit password-protected docs java**。從環境設定、實作精確片語編輯，到了解實務應用與效能考量，您現在已具備確保文件安全與隱私的完整工具。
-
----
 
 ## 常見問題
 

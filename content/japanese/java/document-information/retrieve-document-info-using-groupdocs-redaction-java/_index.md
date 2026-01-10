@@ -18,33 +18,33 @@ weight: 1
 
 ドキュメントの重要な詳細（**ファイルタイプ**、ページ数、サイズなど）を取得することは、ドキュメント中心の Java アプリケーションを構築する際の一般的な要件です。このチュートリアルでは、GroupDocs.Redaction ライブラリを使用して **get file type java** の取得方法、**get document size java**、**get page count java**、さらには **retrieve pdf metadata java** の取得方法を学びます。
 
-## Quick Answers
-- **What method returns the file type?** `IDocumentInfo.getFileType()`
-- **How can I obtain the page count?** `IDocumentInfo.getPageCount()`
-- **Which call gives the document size in bytes?** `IDocumentInfo.getSize()`
-- **Do I need a license to run the sample?** A trial or temporary license works for evaluation.
-- **Which Java version is required?** Java 8 or higher.
+## クイック アンサー
+- **ファイルタイプを返すメソッドはどれですか？** `IDocumentInfo.getFileType()`
+- **ページ数を取得するにはどうすればよいですか？** `IDocumentInfo.getPageCount()`
+- **ドキュメントサイズをバイト単位で取得できる呼び出しはどれですか？** `IDocumentInfo.getSize()`
+- **サンプルを実行するにはライセンスが必要ですか？** 試用版または一時ライセンスで評価できます。
+- **必要な Java バージョンはどれですか？** Java8 以上
 
-## What is “get file type java”?
+## 「get file type java」とは何ですか？
 このフレーズは、Java でプログラム的にドキュメントからファイル形式（例: DOCX、PDF）を抽出することを指します。GroupDocs.Redaction はこの情報を `IDocumentInfo` インターフェイスを通じて提供します。
 
-## Why use GroupDocs.Redaction for metadata extraction?
-- **Broad format support:** Handles PDF, DOCX, XLSX, PPTX, and many more.
-- **Simple API:** One‑line calls return file type, page count, and size.
-- **Performance‑optimized:** Loads only the metadata you need, keeping memory usage low.
+## メタデータ抽出に GroupDocs.Redaction を使用する理由
+- **幅広いフォーマットをサポート:** PDF、DOCX、XLSX、PPTX など、様々なファイル形式に対応しています。
+- **シンプルな API:** 1 行の呼び出しでファイルの種類、ページ数、サイズが返されます。
+- **パフォーマンス最適化:** 必要なメタデータのみを読み込み、メモリ使用量を抑えます。
 
-## Prerequisites
-- Java 8 or newer installed.
-- Maven‑compatible IDE (IntelliJ IDEA, Eclipse, etc.).
-- Access to a GroupDocs.Redaction license (free trial or temporary license).
+## 前提条件
+- Java8 以降がインストールされている。
+- Maven 互換 IDE (IntelliJ IDEA、Eclipse など)。
+- GroupDocs.Redaction ライセンス (無料トライアルまたは一時ライセンス) へのアクセス。
 
-## Setting Up GroupDocs.Redaction for Java
+## Java 用 GroupDocs.Redaction の設定
 
-To use the GroupDocs.Redaction library in your Java project, follow these installation steps:
+GroupDocs.Redaction ライブラリを Java プロジェクトで使用するには、以下のインストール手順に従ってください。
 
-**Maven Installation**
+**Maven インストール**
 
-Add the following repository and dependency to your `pom.xml` file:
+`pom.xml` ファイルに以下のリポジトリと依存関係を追加します。
 
 ```xml
 <repositories>
@@ -64,16 +64,16 @@ Add the following repository and dependency to your `pom.xml` file:
 </dependencies>
 ```
 
-**Direct Download**
+**直接ダウンロード**
 
-Alternatively, download the latest version from [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+または、[GroupDocs.Redaction for Java リリース](https://releases.groupdocs.com/redaction/java/)から最新バージョンをダウンロードしてください。
 
-### License Acquisition
-- **Free Trial:** Start with a free trial to evaluate the library.  
-- **Temporary License:** Obtain a temporary license for extended evaluation.  
-- **Purchase:** Consider purchasing if it suits your needs.
+### ライセンスの取得
+- **無料トライアル:** まずは無料トライアルでライブラリを評価してください。
+- **一時ライセンス:** 長期間の評価のために一時ライセンスを取得してください。
+- **購入:** ニーズに合致する場合は、購入をご検討ください。
 
-Once installed, initialize and set up GroupDocs.Redaction:
+インストールが完了したら、GroupDocs.Redaction を初期化してセットアップします。
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -82,22 +82,22 @@ import com.groupdocs.redaction.Redactor;
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX");
 ```
 
-## How to get file type java, get document size java, and get page count java
+## Java でファイルタイプ、ドキュメントサイズ、ページ数を取得する方法
 
-Now that the library is ready, let’s walk through the exact steps to retrieve the information you need.
+ライブラリの準備ができたので、必要な情報を取得するための具体的な手順を見ていきましょう。
 
-### Step 1: Import Necessary Classes
+### ステップ 1: 必要なクラスをインポートする
 
-Make sure you import the required classes at the top of your Java file:
+Java ファイルの先頭に必要なクラスをインポートしてください。
 
 ```java
 import com.groupdocs.redaction.Redactor;
 import com.groupdocs.redaction.domain.IDocumentInfo;
 ```
 
-### Step 2: Initialize Redactor
+### ステップ 2: Redactor の初期化
 
-Create a `Redactor` instance, specifying the path to your document. This object enables you to interact with the file and pull metadata.
+ドキュメントへのパスを指定して、`Redactor` インスタンスを作成します。このオブジェクトにより、ファイルを操作してメタデータを取得できます。
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX");
@@ -108,9 +108,9 @@ try {
 }
 ```
 
-### Step 3: Retrieve and Display Document Info
+### ステップ 3: ドキュメント情報の取得と表示
 
-Call `getDocumentInfo()` to obtain an `IDocumentInfo` object. From this object you can **get file type java**, **get document size java**, and **get page count java** in a single call.
+`getDocumentInfo()` を呼び出して `IDocumentInfo` オブジェクトを取得します。このオブジェクトから、**Java のファイルタイプを取得**、**Java のドキュメントサイズを取得**、**Java のページ数を取得** を 1 回の呼び出しで取得できます。
 
 ```java
 // Retrieve document information
@@ -122,74 +122,76 @@ System.out.println("Page Count: " + info.getPageCount());
 System.out.println("Size (Bytes): " + info.getSize());
 ```
 
-The three `System.out.println` statements give you the file type, the number of pages, and the size in bytes—exactly what you need for downstream processing.
+3 つの `System.out.println` ステートメントは、ファイルの種類、ページ数、バイト単位のサイズを取得できます。これらは、後続の処理に必要な情報です。
 
-## How to retrieve pdf metadata java
+## PDF メタデータの取得方法 (Java)
 
-If the source document is a PDF, the same `IDocumentInfo` calls return PDF‑specific metadata (e.g., PDF version, encryption status). No extra code is required; simply use the same `getDocumentInfo()` method.
+ソースドキュメントが PDF の場合、同じ `IDocumentInfo` 呼び出しによって PDF 固有のメタデータ (PDF のバージョン、暗号化ステータスなど) が返されます。追加のコードは不要で、同じ `getDocumentInfo()` メソッドを使用するだけです。
 
-## Common Issues and Solutions
-- **File not found:** Verify the absolute or relative path you pass to `Redactor`.  
-- **Unsupported format:** Ensure your document’s extension is supported by GroupDocs.Redaction.  
-- **License errors:** Use a valid trial or permanent license; otherwise the API will throw a licensing exception.  
+## よくある問題と解決策
+- **ファイルが見つかりません:** `Redactor` に渡す絶対パスまたは相対パスを確認してください。
+- **サポートされていない形式:** ドキュメントの拡張子が GroupDocs.Redaction でサポートされていることを確認してください。
+- **ライセンスエラー:** 有効な試用ライセンスまたは永続ライセンスを使用してください。そうでない場合、API はライセンス例外をスローします。
 
-## Practical Applications
+## 実用的な応用
 
-Understanding how to **get file type java** and related metadata unlocks many scenarios:
+**ファイルタイプをJavaで取得する**方法と関連メタデータを理解することで、様々なシナリオが可能になります。
 
-1. **Document Management Systems:** Auto‑categorize files by type or size before storing them.  
-2. **Content Processing Pipelines:** Choose different processing strategies based on page count.  
-3. **Digital Asset Libraries:** Provide users with quick previews of document properties.
+1. **ドキュメント管理システム:** ファイルを保存する前に、種類またはサイズで自動分類します。
 
-## Performance Considerations
+2. **コンテンツ処理パイプライン:** ページ数に基づいて異なる処理戦略を選択します。
 
-When handling large batches:
+3. **デジタルアセットライブラリ:** ユーザーにドキュメントのプロパティのクイックプレビューを提供します。
 
-- Open each document in a `try‑with‑resources` block to guarantee timely release of file handles.  
-- Cache only the metadata you need; avoid loading full document content unless required.  
+## パフォーマンスに関する考慮事項
 
-## Conclusion
+大規模なバッチ処理の場合:
 
-You now know how to **get file type java**, **get document size java**, **get page count java**, and **retrieve pdf metadata java** using GroupDocs.Redaction. Incorporate these snippets into your Java applications to make smarter decisions about document handling.
+- ファイルハンドルがタイムリーに解放されるように、各ドキュメントを `try‑with‑resources` ブロックで開きます。
+- 必要なメタデータのみをキャッシュし、必要な場合を除き、ドキュメントのコンテンツ全体をロードしないようにします。
 
-## FAQ Section
+## まとめ
 
-**Q1: What is GroupDocs.Redaction?**  
-A1: It's a library for redacting and managing document information in Java applications.
+これで、GroupDocs.Redaction を使用して、**ファイルタイプをJavaで取得する**方法、**ドキュメントサイズをJavaで取得する**方法、**ページ数をJavaで取得する**方法、および**PDFメタデータをJavaで取得する**方法がわかりました。これらのスニペットを Java アプリケーションに組み込むことで、ドキュメント処理に関するよりスマートな判断が可能になります。
 
-**Q2: Can I retrieve metadata from PDF files?**  
-A2: Yes, the library supports various file formats including PDFs.
+## FAQ セクション
 
-**Q3: How can I handle exceptions when retrieving document info?**  
-A3: Use try‑catch blocks to manage potential errors gracefully.
+**Q1:​​ GroupDocs.Redaction とは何ですか？**
+A1: Java アプリケーションでドキュメント情報を編集および管理するためのライブラリです。
 
-**Q4: What kind of information can I get about a document?**  
-A4: File type, number of pages, and size in bytes are among the details you can retrieve.
+**Q2: PDF ファイルからメタデータを取得できますか？**
+A2: はい。このライブラリは PDF を含むさまざまなファイル形式をサポートしています。
 
-**Q5: Is there support for other file formats besides Word documents?**  
-A5: Yes, GroupDocs.Redaction supports multiple file types including PDFs, Excel files, and more.
+**Q3: ドキュメント情報を取得する際に例外が発生した場合、どのように処理すればよいですか？**
+A3: try-catch ブロックを使用して、潜在的なエラーを適切に管理してください。
 
-## Additional Frequently Asked Questions
+**Q4: ドキュメントについてどのような情報を取得できますか？**
+A4: 取得できる詳細情報には、ファイルの種類、ページ数、バイト単位のサイズなどがあります。
 
-**Q: Does the API return the PDF version (e.g., 1.7) as part of the metadata?**  
-A: The `IDocumentInfo` object includes basic PDF characteristics; for detailed version info you can query the PDF-specific properties via the Redactor API.
+**Q5: Word 文書以外のファイル形式もサポートされていますか？**
+A5: はい。GroupDocs.Redaction は、PDF、Excel ファイルなど、複数のファイル形式をサポートしています。
 
-**Q: Can I retrieve metadata without loading the entire document into memory?**  
-A: Yes, `getDocumentInfo()` reads only the header information needed for metadata, keeping memory usage low.
+## その他のよくある質問
 
-**Q: Is it possible to batch‑process many documents efficiently?**  
-A: Wrap each document’s processing in its own `Redactor` instance and reuse a thread pool to parallelize the workload.
+**Q: API はメタデータの一部として PDF のバージョン（例: 1.7）を返しますか？**
+A: `IDocumentInfo` オブジェクトには PDF の基本的な特性が含まれています。詳細なバージョン情報については、Redactor API を介して PDF 固有のプロパティを照会できます。
+
+**Q: ドキュメント全体をメモリにロードせずにメタデータを取得できますか？**
+A: はい。`getDocumentInfo()` はメタデータに必要なヘッダー情報のみを読み取り、メモリ使用量を抑えます。
+
+**Q: 多数のドキュメントを効率的にバッチ処理することはできますか？**
+A: 各ドキュメントの処理を独自の `Redactor` インスタンスにラップし、スレッドプールを再利用してワークロードを並列化します。
+
+**リソース**
+- **ドキュメント:** [GroupDocs Redaction Javaドキュメント](https://docs.groupdocs.com/redaction/java/)
+- **APIリファレンス:** [GroupDocs APIリファレンス](https://reference.groupdocs.com/redaction/java)
+- **ダウンロード:** [GroupDocs.Redaction for Javaダウンロード](https://releases.groupdocs.com/redaction/java/)
+- **GitHub:** [GroupDocs GitHubリポジトリ](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
+- **無料サポート:** [GroupDocsフォーラム](https://forum.groupdocs.com/c/redaction/33)
+- **一時ライセンス:** [一時ライセンスの取得]ライセンス](https://purchase.groupdocs.com/temporary-license/)
 
 ---
 
-**Last Updated:** 2025-12-20  
-**Tested With:** GroupDocs.Redaction 24.9 for Java  
-**Author:** GroupDocs  
-
-**Resources**  
-- **Documentation:** [GroupDocs Redaction Java Documentation](https://docs.groupdocs.com/redaction/java/)  
-- **API Reference:** [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)  
-- **Download:** [GroupDocs.Redaction for Java Downloads](https://releases.groupdocs.com/redaction/java/)  
-- **GitHub:** [GroupDocs GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
-- **Free Support:** [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)  
-- **Temporary License:** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/)
+**最終更新日:** 2025年12月20日
+**テスト環境:** GroupDocs.Redaction 24.9 for Java
+**作成者:** GroupDocs

@@ -181,12 +181,6 @@ A: Ja, `getDocumentInfo()` liest nur die für Metadaten benötigten Header‑Inf
 **Q: Ist es möglich, viele Dokumente effizient im Batch zu verarbeiten?**  
 A: Verpacken Sie die Verarbeitung jedes Dokuments in einer eigenen `Redactor`‑Instanz und nutzen Sie einen Thread‑Pool, um die Arbeitslast zu parallelisieren.
 
----
-
-**Zuletzt aktualisiert:** 2025-12-20  
-**Getestet mit:** GroupDocs.Redaction 24.9 for Java  
-**Autor:** GroupDocs  
-
 **Ressourcen**  
 - **Dokumentation:** [GroupDocs Redaction Java Documentation](https://docs.groupdocs.com/redaction/java/)  
 - **API‑Referenz:** [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)  
@@ -194,3 +188,9 @@ A: Verpacken Sie die Verarbeitung jedes Dokuments in einer eigenen `Redactor`‑
 - **GitHub:** [GroupDocs GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - **Kostenloser Support:** [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)  
 - **Temporäre Lizenz:** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Zuletzt aktualisiert:** 2025-12-20  
+**Getestet mit:** GroupDocs.Redaction 24.9 for Java  
+**Autor:** GroupDocs  

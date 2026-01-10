@@ -180,12 +180,6 @@ A: Igen, a `getDocumentInfo()` csak a metaadatokhoz szükséges fejlécinformác
 **Q: Lehet hatékonyan kötegelt módon feldolgozni sok dokumentumot?**  
 A: Minden dokumentum feldolgozását saját `Redactor` példányba csomagolja, és használjon szálkezelő medencét a feladat párhuzamosításához.
 
----
-
-**Utolsó frissítés:** 2025-12-20  
-**Tesztelt verzió:** GroupDocs.Redaction 24.9 for Java  
-**Szerző:** GroupDocs  
-
 **Erőforrások**  
 - **Dokumentáció:** [GroupDocs Redaction Java Documentation](https://docs.groupdocs.com/redaction/java/)  
 - **API referencia:** [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)  
@@ -193,3 +187,9 @@ A: Minden dokumentum feldolgozását saját `Redactor` példányba csomagolja, �
 - **GitHub:** [GroupDocs GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - **Ingyenes támogatás:** [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)  
 - **Ideiglenes licenc:** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Utolsó frissítés:** 2025-12-20  
+**Tesztelt verzió:** GroupDocs.Redaction 24.9 for Java  
+**Szerző:** GroupDocs  

@@ -179,12 +179,6 @@ A: 可以，`getDocumentInfo()` 僅讀取取得中繼資料所需的標頭資訊
 **Q: 是否能有效率地批次處理大量文件？**  
 A: 為每個文件建立獨立的 `Redactor` 實例，並重複使用執行緒池以平行化工作負載。
 
----
-
-**最後更新：** 2025-12-20  
-**測試版本：** GroupDocs.Redaction 24.9 for Java  
-**作者：** GroupDocs  
-
 **資源**  
 - **文件說明：** [GroupDocs Redaction Java Documentation](https://docs.groupdocs.com/redaction/java/)  
 - **API 參考：** [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)  
@@ -194,3 +188,7 @@ A: 為每個文件建立獨立的 `Redactor` 實例，並重複使用執行緒�
 - **暫時授權：** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/)  
 
 ---
+
+**最後更新：** 2025-12-20  
+**測試版本：** GroupDocs.Redaction 24.9 for Java  
+**作者：** GroupDocs  

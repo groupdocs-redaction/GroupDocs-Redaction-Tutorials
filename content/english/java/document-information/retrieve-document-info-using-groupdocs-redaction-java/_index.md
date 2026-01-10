@@ -179,12 +179,6 @@ A: Yes, `getDocumentInfo()` reads only the header information needed for metadat
 **Q: Is it possible to batch‑process many documents efficiently?**  
 A: Wrap each document’s processing in its own `Redactor` instance and reuse a thread pool to parallelize the workload.
 
----
-
-**Last Updated:** 2025-12-20  
-**Tested With:** GroupDocs.Redaction 24.9 for Java  
-**Author:** GroupDocs  
-
 **Resources**  
 - **Documentation:** [GroupDocs Redaction Java Documentation](https://docs.groupdocs.com/redaction/java/)  
 - **API Reference:** [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)  
@@ -192,5 +186,11 @@ A: Wrap each document’s processing in its own `Redactor` instance and reuse a 
 - **GitHub:** [GroupDocs GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - **Free Support:** [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)  
 - **Temporary License:** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/)  
+
+---
+
+**Last Updated:** 2025-12-20  
+**Tested With:** GroupDocs.Redaction 24.9 for Java  
+**Author:** GroupDocs  
 
 ---

@@ -180,12 +180,6 @@ A: Ja, `getDocumentInfo()` läser endast den headerinformation som behövs för 
 **Q: Är det möjligt att batch‑processa många dokument effektivt?**  
 A: Packa varje dokuments bearbetning i sin egen `Redactor`‑instans och återanvänd en trådpott för att parallellisera arbetsbelastningen.
 
----
-
-**Senast uppdaterad:** 2025-12-20  
-**Testat med:** GroupDocs.Redaction 24.9 for Java  
-**Författare:** GroupDocs  
-
 **Resurser**  
 - **Dokumentation:** [GroupDocs Redaction Java Documentation](https://docs.groupdocs.com/redaction/java/)  
 - **API‑referens:** [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)  
@@ -195,3 +189,7 @@ A: Packa varje dokuments bearbetning i sin egen `Redactor`‑instans och återan
 - **Tillfällig licens:** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/)  
 
 ---
+
+**Senast uppdaterad:** 2025-12-20  
+**Testat med:** GroupDocs.Redaction 24.9 for Java  
+**Författare:** GroupDocs  

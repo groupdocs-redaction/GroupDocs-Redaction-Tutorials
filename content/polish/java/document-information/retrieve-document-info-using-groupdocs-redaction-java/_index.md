@@ -180,12 +180,6 @@ A: Tak, `getDocumentInfo()` odczytuje tylko nagłówki potrzebne do metadanych, 
 **Q: Czy możliwe jest efektywne przetwarzanie wsadowe wielu dokumentów?**  
 A: Otaczaj przetwarzanie każdego dokumentu własną instancją `Redactor` i wykorzystaj pulę wątków do równoległego przetwarzania.
 
----
-
-**Ostatnia aktualizacja:** 2025-12-20  
-**Testowano z:** GroupDocs.Redaction 24.9 for Java  
-**Autor:** GroupDocs  
-
 **Zasoby**  
 - **Dokumentacja:** [GroupDocs Redaction Java Documentation](https://docs.groupdocs.com/redaction/java/)  
 - **Referencja API:** [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)  
@@ -193,3 +187,9 @@ A: Otaczaj przetwarzanie każdego dokumentu własną instancją `Redactor` i wyk
 - **GitHub:** [GroupDocs GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - **Bezpłatne wsparcie:** [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)  
 - **Tymczasowa licencja:** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Ostatnia aktualizacja:** 2025-12-20  
+**Testowano z:** GroupDocs.Redaction 24.9 for Java  
+**Autor:** GroupDocs  

@@ -6,7 +6,7 @@ keywords:
 - GroupDocs.Redaction for Java
 - edit password-protected docs java
 - redact password-protected docx
-title: '비밀번호 보호된 문서 편집 Java: GroupDocs.Redaction을 사용하여 문서 가리기'
+title: '비밀번호 보호된 문서 편집 Java - GroupDocs.Redaction을 사용하여 문서 가리기'
 type: docs
 url: /ko/java/document-loading/groupdocs-redaction-java-password-documents/
 weight: 1
@@ -206,8 +206,6 @@ GroupDocs.Redaction을 사용할 때 다음 성능 팁을 고려하십시오:
 ## 결론
 
 이 튜토리얼을 통해 GroupDocs.Redaction for Java를 사용하여 **edit password-protected docs java**를 수행하는 방법을 배웠습니다. 환경 설정, 정확한 구문 가리기 구현, 실용적인 적용 사례 및 성능 고려 사항을 이해함으로써 이제 문서 보안과 프라이버시를 보장하는 데 필요한 도구를 갖추게 되었습니다.
-
----
 
 ## 자주 묻는 질문
 

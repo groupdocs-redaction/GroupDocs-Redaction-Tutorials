@@ -181,12 +181,6 @@ System.out.println("Size (Bytes): " + info.getSize());
 **Ε: Είναι δυνατόν να επεξεργαστώ μαζικά πολλά έγγραφα αποδοτικά;**  
 Α: Τυλίξτε την επεξεργασία κάθε εγγράφου σε δικό του αντικείμενο `Redactor` και χρησιμοποιήστε μια ομάδα νημάτων (thread pool) για να παραλληλοποιήσετε το φορτίο εργασίας.
 
----
-
-**Τελευταία Ενημέρωση:** 2025-12-20  
-**Δοκιμασμένο Με:** GroupDocs.Redaction 24.9 for Java  
-**Συγγραφέας:** GroupDocs  
-
 **Πόροι**  
 - **Τεκμηρίωση:** [GroupDocs Redaction Java Documentation](https://docs.groupdocs.com/redaction/java/)  
 - **Αναφορά API:** [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)  
@@ -194,3 +188,9 @@ System.out.println("Size (Bytes): " + info.getSize());
 - **GitHub:** [GroupDocs GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - **Δωρεάν Υποστήριξη:** [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)  
 - **Προσωρινή Άδεια:** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Τελευταία Ενημέρωση:** 2025-12-20  
+**Δοκιμασμένο Με:** GroupDocs.Redaction 24.9 for Java  
+**Συγγραφέας:** GroupDocs  

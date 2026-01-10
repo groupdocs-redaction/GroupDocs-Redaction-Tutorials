@@ -180,12 +180,6 @@ A: Có, `getDocumentInfo()` chỉ đọc thông tin tiêu đề cần thiết ch
 **Q: Có thể xử lý hàng loạt nhiều tài liệu một cách hiệu quả không?**  
 A: Đóng gói việc xử lý mỗi tài liệu trong một thể hiện `Redactor` riêng và tái sử dụng một pool luồng để thực hiện song song công việc.
 
----
-
-**Last Updated:** 2025-12-20  
-**Tested With:** GroupDocs.Redaction 24.9 for Java  
-**Author:** GroupDocs  
-
 **Tài nguyên**  
 - **Tài liệu:** [GroupDocs Redaction Java Documentation](https://docs.groupdocs.com/redaction/java/)  
 - **Tham chiếu API:** [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)  
@@ -193,5 +187,11 @@ A: Đóng gói việc xử lý mỗi tài liệu trong một thể hiện `Redac
 - **GitHub:** [GroupDocs GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - **Hỗ trợ miễn phí:** [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)  
 - **Giấy phép tạm thời:** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/)  
+
+---
+
+**Last Updated:** 2025-12-20  
+**Tested With:** GroupDocs.Redaction 24.9 for Java  
+**Author:** GroupDocs  
 
 ---

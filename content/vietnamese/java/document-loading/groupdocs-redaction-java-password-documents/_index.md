@@ -7,7 +7,7 @@ keywords:
 - GroupDocs.Redaction for Java
 - edit password-protected docs java
 - redact password-protected docx
-title: 'Chỉnh sửa tài liệu được bảo vệ bằng mật khẩu Java: Xóa thông tin tài liệu
+title: 'Chỉnh sửa tài liệu được bảo vệ bằng mật khẩu Java - Xóa thông tin tài liệu
   bằng GroupDocs.Redaction'
 type: docs
 url: /vi/java/document-loading/groupdocs-redaction-java-password-documents/
@@ -208,8 +208,6 @@ Khi làm việc với GroupDocs.Redaction, hãy cân nhắc các mẹo về hi�
 ## Kết luận
 
 Trong hướng dẫn này, bạn đã học cách **edit password-protected docs java** bằng cách sử dụng GroupDocs.Redaction cho Java. Từ việc thiết lập môi trường và triển khai việc xóa cụm từ chính xác đến việc hiểu các ứng dụng thực tiễn và cân nhắc về hiệu suất, bạn giờ đã có các công cụ cần thiết để đảm bảo an ninh và riêng tư cho tài liệu.
-
----
 
 ## Câu hỏi thường gặp
 

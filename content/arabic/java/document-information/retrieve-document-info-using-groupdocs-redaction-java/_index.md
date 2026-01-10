@@ -171,12 +171,6 @@ A: نعم، `getDocumentInfo()` يقرأ فقط معلومات الرأس الل
 **Q: هل من الممكن معالجة دفعات متعددة من المستندات بكفاءة؟**  
 A: ضع معالجة كل مستند في كائن `Redactor` منفصل وأعد استخدام مجموعة من الخيوط (thread pool) لتوزيع العمل بالتوازي.
 
----
-
-**آخر تحديث:** 2025-12-20  
-**تم الاختبار مع:** GroupDocs.Redaction 24.9 for Java  
-**المؤلف:** GroupDocs  
-
 **الموارد**  
 - **التوثيق:** [GroupDocs Redaction Java Documentation](https://docs.groupdocs.com/redaction/java/)  
 - **مرجع API:** [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)  
@@ -184,3 +178,9 @@ A: ضع معالجة كل مستند في كائن `Redactor` منفصل وأع�
 - **GitHub:** [GroupDocs GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - **دعم مجاني:** [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)  
 - **ترخيص مؤقت:** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**آخر تحديث:** 2025-12-20  
+**تم الاختبار مع:** GroupDocs.Redaction 24.9 for Java  
+**المؤلف:** GroupDocs  

@@ -180,12 +180,6 @@ A: Sim, `getDocumentInfo()` lê apenas as informações de cabeçalho necessári
 **Q: É possível processar em lote muitos documentos de forma eficiente?**  
 A: Envolva o processamento de cada documento em sua própria instância `Redactor` e reutilize um pool de threads para paralelizar a carga de trabalho.
 
----
-
-**Última Atualização:** 2025-12-20  
-**Testado com:** GroupDocs.Redaction 24.9 for Java  
-**Autor:** GroupDocs  
-
 **Recursos**  
 - **Documentação:** [GroupDocs Redaction Java Documentation](https://docs.groupdocs.com/redaction/java/)  
 - **Referência da API:** [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)  
@@ -193,3 +187,9 @@ A: Envolva o processamento de cada documento em sua própria instância `Redacto
 - **GitHub:** [GroupDocs GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - **Suporte Gratuito:** [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)  
 - **Licença Temporária:** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Última Atualização:** 2025-12-20  
+**Testado com:** GroupDocs.Redaction 24.9 for Java  
+**Autor:** GroupDocs  

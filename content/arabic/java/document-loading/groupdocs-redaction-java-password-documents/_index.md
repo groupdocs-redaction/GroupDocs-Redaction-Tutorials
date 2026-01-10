@@ -7,7 +7,7 @@ keywords:
 - GroupDocs.Redaction for Java
 - edit password-protected docs java
 - redact password-protected docx
-title: 'تحرير المستندات المحمية بكلمة مرور في جافا: إخفاء المستندات باستخدام GroupDocs.Redaction'
+title: 'تحرير المستندات المحمية بكلمة مرور في جافا - إخفاء المستندات باستخدام GroupDocs.Redaction'
 type: docs
 url: /ar/java/document-loading/groupdocs-redaction-java-password-documents/
 weight: 1
@@ -206,8 +206,6 @@ try {
 ## الخاتمة
 في هذا الدليل، تعلمت كيفية **edit password-protected docs java** باستخدام GroupDocs.Redaction for Java. من إعداد البيئة وتنفيذ حذف العبارات الدقيقة إلى فهم التطبيقات العملية واعتبارات الأداء، أصبحت الآن مجهزًا بالأدوات اللازمة لضمان أمان المستندات وخصوصيتها.
 
----
-
 ## الأسئلة المتكررة
 
 **س: هل يمكنني حذف معلومات من ملف DOCX محمي بكلمة مرور؟**  
@@ -224,6 +222,8 @@ try {
 
 **س: كيف أحصل على ترخيص للإنتاج؟**  
 ج: زر موقع GroupDocs، اطلب تجربة، ثم ارتقِ إلى ترخيص مدفوع عندما تكون جاهزًا للنشر في بيئة الإنتاج.
+
+---
 
 **آخر تحديث:** 2025-12-20  
 **تم الاختبار مع:** GroupDocs.Redaction 24.9 for Java  

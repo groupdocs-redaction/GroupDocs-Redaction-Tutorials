@@ -181,12 +181,6 @@ A: हाँ, `getDocumentInfo()` केवल मेटाडाटा के �
 **Q: क्या कई दस्तावेज़ों को बैच‑प्रोसेस करना संभव है?**  
 A: प्रत्येक दस्तावेज़ की प्रोसेसिंग को अपने `Redactor` इंस्टेंस में रैप करें और थ्रेड पूल का पुनः उपयोग करके वर्कलोड को समानांतर बनाएं।
 
----
-
-**अंतिम अपडेट:**5-12-20  
-**परीक्षण किया गया:** GroupDocs.Redaction 24.9 for Java  
-**लेखक:** GroupDocs  
-
 **संसाधन**  
 - **Documentation:** [GroupDocs Redaction Java Documentation](https://docs.groupdocs.com/redaction/java/)  
 - **API Reference:** [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)  
@@ -194,3 +188,9 @@ A: प्रत्येक दस्तावेज़ की प्रोस�
 - **GitHub:** [GroupDocs GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - **Free Support:** [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)  
 - **Temporary License:** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**अंतिम अपडेट:**5-12-20  
+**परीक्षण किया गया:** GroupDocs.Redaction 24.9 for Java  
+**लेखक:** GroupDocs  

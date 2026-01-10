@@ -8,7 +8,7 @@ keywords:
 - GroupDocs.Redaction for Java
 - edit password-protected docs java
 - redact password-protected docx
-title: 'Modifier des documents protégés par mot de passe Java : censurer les documents
+title: 'Modifier des documents protégés par mot de passe Java - censurer les documents
   avec GroupDocs.Redaction'
 type: docs
 url: /fr/java/document-loading/groupdocs-redaction-java-password-documents/
@@ -207,8 +207,6 @@ Lorsque vous travaillez avec GroupDocs.Redaction, gardez à l’esprit ces conse
 
 ## Conclusion
 Dans ce tutoriel, vous avez appris à **edit password-protected docs java** en utilisant GroupDocs.Redaction for Java. De la configuration de l’environnement à l’implémentation de masquages de phrases exactes, en passant par les applications pratiques et les considérations de performance, vous disposez désormais des outils nécessaires pour garantir la sécurité et la confidentialité de vos documents.
-
----
 
 ## Foire aux questions
 

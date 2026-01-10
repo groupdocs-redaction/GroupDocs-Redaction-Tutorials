@@ -7,7 +7,7 @@ keywords:
 - GroupDocs.Redaction for Java
 - edit password-protected docs java
 - redact password-protected docx
-title: 'Redigera lösenordsskyddade dokument i Java: Maskera dokument med GroupDocs.Redaction'
+title: 'Redigera lösenordsskyddade dokument i Java - Maskera dokument med GroupDocs.Redaction'
 type: docs
 url: /sv/java/document-loading/groupdocs-redaction-java-password-documents/
 weight: 1

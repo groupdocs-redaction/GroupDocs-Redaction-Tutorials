@@ -181,12 +181,6 @@ C: Evet, `getDocumentInfo()` yalnızca metaveri için gereken başlık bilgileri
 **S: Birçok belgeyi verimli bir şekilde toplu işleme alabilir miyim?**  
 C: Her belgenin işlenmesini kendi `Redactor` örneği içinde sarın ve iş yükünü paralelleştirmek için bir iş parçacığı havuzu yeniden kullanın.
 
----
-
-**Son Güncelleme:** 2025-12-20  
-**Test Edilen:** GroupDocs.Redaction 24.9 for Java  
-**Yazar:** GroupDocs  
-
 **Kaynaklar**  
 - **Dokümantasyon:** [GroupDocs Redaction Java Documentation](https://docs.groupdocs.com/redaction/java/)  
 - **API Referansı:** [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)  
@@ -194,3 +188,9 @@ C: Her belgenin işlenmesini kendi `Redactor` örneği içinde sarın ve iş yü
 - **GitHub:** [GroupDocs GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - **Ücretsiz Destek:** [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)  
 - **Geçici Lisans:** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Son Güncelleme:** 2025-12-20  
+**Test Edilen:** GroupDocs.Redaction 24.9 for Java  
+**Yazar:** GroupDocs  

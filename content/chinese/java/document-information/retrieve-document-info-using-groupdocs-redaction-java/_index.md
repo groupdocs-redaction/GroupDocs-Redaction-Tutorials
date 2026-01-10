@@ -180,12 +180,6 @@ A: 可以，`getDocumentInfo()` 只读取所需的头部信息，从而保持低
 **Q: 是否可以高效地批量处理大量文档？**  
 A: 为每个文档创建独立的 `Redactor` 实例，并使用线程池并行处理，可实现高效批量操作。
 
----
-
-**Last Updated:** 2025-12-20  
-**Tested With:** GroupDocs.Redaction 24.9 for Java  
-**Author:** GroupDocs  
-
 **资源**  
 - **文档：** [GroupDocs Redaction Java Documentation](https://docs.groupdocs.com/redaction/java/)  
 - **API 参考：** [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)  
@@ -193,3 +187,9 @@ A: 为每个文档创建独立的 `Redactor` 实例，并使用线程池并行�
 - **GitHub：** [GroupDocs GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - **免费支持：** [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)  
 - **临时许可证：** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Last Updated:** 2025-12-20  
+**Tested With:** GroupDocs.Redaction 24.9 for Java  
+**Author:** GroupDocs  

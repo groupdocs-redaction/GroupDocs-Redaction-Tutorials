@@ -6,7 +6,7 @@ keywords:
 - GroupDocs.Redaction for Java
 - edit password-protected docs java
 - redact password-protected docx
-title: 编辑受密码保护的文档（Java）：使用 GroupDocs.Redaction 对文档进行脱敏
+title: 编辑受密码保护的文档（Java） - 使用 GroupDocs.Redaction 对文档进行脱敏
 type: docs
 url: /zh/java/document-loading/groupdocs-redaction-java-password-documents/
 weight: 1
@@ -204,8 +204,6 @@ GroupDocs.Redaction for Java 可在以下多种场景中发挥作用：
 
 ## 结论
 本教程中，你已经学习了如何使用 GroupDocs.Redaction for Java **edit password-protected docs java**。从环境搭建、实现精确短语脱敏，到了解实际应用场景与性能考量，你现在具备了确保文档安全与隐私所需的全部工具。
-
----
 
 ## 常见问题
 

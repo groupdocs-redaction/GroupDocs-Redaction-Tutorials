@@ -168,12 +168,6 @@ A: 네, `getDocumentInfo()`는 메타데이터에 필요한 헤더 정보만 읽
 **Q: 많은 문서를 효율적으로 배치 처리할 수 있나요?**  
 A: 각 문서를 별도의 `Redactor` 인스턴스로 감싸고 스레드 풀을 재사용하여 작업을 병렬화하면 됩니다.
 
----
-
-**마지막 업데이트:** 2025-12-20  
-**테스트 환경:** GroupDocs.Redaction 24.9 for Java  
-**작성자:** GroupDocs  
-
 **리소스**  
 - **문서:** [GroupDocs Redaction Java Documentation](https://docs.groupdocs.com/redaction/java/)  
 - **API 레퍼런스:** [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)  
@@ -183,3 +177,7 @@ A: 각 문서를 별도의 `Redactor` 인스턴스로 감싸고 스레드 풀을
 - **임시 라이선스:** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/)  
 
 ---
+
+**마지막 업데이트:** 2025-12-20  
+**테스트 환경:** GroupDocs.Redaction 24.9 for Java  
+**작성자:** GroupDocs  

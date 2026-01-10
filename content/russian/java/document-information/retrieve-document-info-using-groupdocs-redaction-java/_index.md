@@ -175,12 +175,6 @@ A: Да, `getDocumentInfo()` читает только заголовочную 
 **Q: Можно ли эффективно обрабатывать пакетно множество документов?**  
 A: Оберните обработку каждого документа в отдельный экземпляр `Redactor` и используйте пул потоков для параллельной обработки.
 
----
-
-**Последнее обновление:** 2025-12-20  
-**Тестировано с:** GroupDocs.Redaction 24.9 for Java  
-**Автор:** GroupDocs  
-
 **Ресурсы**  
 - **Документация:** [GroupDocs Redaction Java Documentation](https://docs.groupdocs.com/redaction/java/)  
 - **Ссылка на API:** [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)  
@@ -190,3 +184,7 @@ A: Оберните обработку каждого документа в от
 - **Временная лицензия:** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/)  
 
 ---
+
+**Последнее обновление:** 2025-12-20  
+**Тестировано с:** GroupDocs.Redaction 24.9 for Java  
+**Автор:** GroupDocs  

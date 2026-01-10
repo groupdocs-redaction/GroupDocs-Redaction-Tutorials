@@ -7,7 +7,7 @@ keywords:
 - GroupDocs.Redaction for Java
 - edit password-protected docs java
 - redact password-protected docx
-title: 'Şifre Koruması Olan Belgeleri Java ile Düzenle: GroupDocs.Redaction Kullanarak
+title: 'Şifre Koruması Olan Belgeleri Java ile Düzenle - GroupDocs.Redaction Kullanarak
   Belgeleri Kırp'
 type: docs
 url: /tr/java/document-loading/groupdocs-redaction-java-password-documents/
@@ -206,8 +206,6 @@ GroupDocs.Redaction ile çalışırken şu performans ipuçlarını göz önünd
 
 ## Conclusion
 Bu öğreticide, **edit password-protected docs java** işlemini GroupDocs.Redaction for Java kullanarak nasıl gerçekleştireceğinizi öğrendiniz. Ortam kurulumundan kesin‑ifade kırpmalarının uygulanmasına, pratik kullanım senaryolarına ve performans önerilerine kadar, belge güvenliği ve gizliliğini sağlamanız için gerekli araçlara artık sahipsiniz.
-
----
 
 ## Frequently Asked Questions
 

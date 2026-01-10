@@ -177,12 +177,6 @@ A: Ano, `getDocumentInfo()` čte jen hlavičkové informace potřebné pro metad
 **Q: Je možné efektivně zpracovávat mnoho dokumentů najednou?**  
 A: Zabalte zpracování každého dokumentu do vlastní instance `Redactor` a opakovaně použijte thread pool pro paralelizaci zátěže.
 
----
-
-**Poslední aktualizace:** 2025-12-20  
-**Testováno s:** GroupDocs.Redaction 24.9 for Java  
-**Autor:** GroupDocs  
-
 ## Zdroje
 - **Dokumentace:** [GroupDocs Redaction Java Documentation](https://docs.groupdocs.com/redaction/java/)  
 - **API Reference:** [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)  
@@ -190,3 +184,9 @@ A: Zabalte zpracování každého dokumentu do vlastní instance `Redactor` a op
 - **GitHub:** [GroupDocs GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - **Bezplatná podpora:** [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)  
 - **Dočasná licence:** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Poslední aktualizace:** 2025-12-20  
+**Testováno s:** GroupDocs.Redaction 24.9 for Java  
+**Autor:** GroupDocs  

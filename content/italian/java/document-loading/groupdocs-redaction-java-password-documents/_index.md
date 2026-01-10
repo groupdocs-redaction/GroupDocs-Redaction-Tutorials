@@ -7,7 +7,7 @@ keywords:
 - GroupDocs.Redaction for Java
 - edit password-protected docs java
 - redact password-protected docx
-title: 'Modifica documenti protetti da password in Java: redazione di documenti con
+title: 'Modifica documenti protetti da password in Java - redazione di documenti con
   GroupDocs.Redaction'
 type: docs
 url: /it/java/document-loading/groupdocs-redaction-java-password-documents/
@@ -207,8 +207,6 @@ Quando lavori con GroupDocs.Redaction, tieni presenti questi consigli di perform
 ## Conclusione
 In questo tutorial hai imparato a **edit password-protected docs java** usando GroupDocs.Redaction per Java. Dalla configurazione dell'ambiente all'implementazione di redazioni di frasi esatte, fino alla comprensione di applicazioni pratiche e considerazioni sulle prestazioni, ora sei equipaggiato con gli strumenti necessari per garantire sicurezza e privacy dei documenti.
 
----
-
 ## Domande Frequenti
 
 **D: Posso redigere un file DOCX protetto da password?**  
@@ -225,6 +223,8 @@ R: GroupDocs.Redaction gestisce file di grandi dimensioni, ma monitora l'uso del
 
 **D: Come posso ottenere una licenza di produzione?**  
 R: Visita il sito di GroupDocs, richiedi una prova e passa a una licenza a pagamento quando sei pronto per il deployment in produzione.
+
+---
 
 **Last Updated:** 2025-12-20  
 **Tested With:** GroupDocs.Redaction 24.9 for Java  

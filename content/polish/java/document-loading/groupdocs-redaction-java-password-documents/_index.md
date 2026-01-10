@@ -7,7 +7,7 @@ keywords:
 - GroupDocs.Redaction for Java
 - edit password-protected docs java
 - redact password-protected docx
-title: 'Edycja dokumentów zabezpieczonych hasłem w Javie: Redagowanie dokumentów przy
+title: 'Edycja dokumentów zabezpieczonych hasłem w Javie - Redagowanie dokumentów przy
   użyciu GroupDocs.Redaction'
 type: docs
 url: /pl/java/document-loading/groupdocs-redaction-java-password-documents/
@@ -206,8 +206,6 @@ Pracując z GroupDocs.Redaction, weź pod uwagę następujące porady dotyczące
 
 ## Zakończenie
 W tym samouczku nauczyłeś się, jak **edit password-protected docs java** przy użyciu GroupDocs.Redaction for Java. Od konfiguracji środowiska, przez implementację redakcji dokładnych fraz, po zrozumienie praktycznych zastosowań i wskazówek wydajnościowych – jesteś teraz wyposażony w narzędzia niezbędne do zapewnienia bezpieczeństwa i prywatności dokumentów.
-
----
 
 ## Najczęściej zadawane pytania
 

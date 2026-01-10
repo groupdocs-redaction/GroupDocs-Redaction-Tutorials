@@ -181,12 +181,6 @@ R : Oui, `getDocumentInfo()` lit uniquement les informations d’en‑tête n�
 **Q : Est‑il possible de traiter en lot de nombreux documents efficacement ?**  
 R : Enveloppez le traitement de chaque document dans sa propre instance `Redactor` et réutilisez un pool de threads pour paralléliser la charge de travail.
 
----
-
-**Dernière mise à jour :** 2025-12-20  
-**Testé avec :** GroupDocs.Redaction 24.9 for Java  
-**Auteur :** GroupDocs  
-
 **Ressources**  
 - **Documentation :** [GroupDocs Redaction Java Documentation](https://docs.groupdocs.com/redaction/java/)  
 - **Référence API :** [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)  
@@ -196,3 +190,7 @@ R : Enveloppez le traitement de chaque document dans sa propre instance `Redac
 - **Licence temporaire :** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/)  
 
 ---
+
+**Dernière mise à jour :** 2025-12-20  
+**Testé avec :** GroupDocs.Redaction 24.9 for Java  
+**Auteur :** GroupDocs  

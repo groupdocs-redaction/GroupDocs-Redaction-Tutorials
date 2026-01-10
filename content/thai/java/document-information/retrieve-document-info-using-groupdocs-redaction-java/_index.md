@@ -181,12 +181,6 @@ A: ได้, `getDocumentInfo()` อ่านเฉพาะส่วนหั�
 **Q: สามารถประมวลผลหลายเอกสารพร้อมกันได้อย่างมีประสิทธิภาพหรือไม่?**  
 A: ให้สร้างอินสแตนซ์ `Redactor` แยกสำหรับแต่ละเอกสารและใช้ thread pool เพื่อทำงานแบบขนาน
 
----
-
-**อัปเดตล่าสุด:** 2025-12-20  
-**ทดสอบกับ:** GroupDocs.Redaction 24.9 for Java  
-**ผู้เขียน:** GroupDocs  
-
 **แหล่งข้อมูล**  
 - **เอกสาร:** [GroupDocs Redaction Java Documentation](https://docs.groupdocs.com/redaction/java/)  
 - **อ้างอิง API:** [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)  
@@ -194,3 +188,9 @@ A: ให้สร้างอินสแตนซ์ `Redactor` แยกส�
 - **GitHub:** [GroupDocs GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - **สนับสนุนฟรี:** [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)  
 - **ไลเซนส์ชั่วคราว:** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**อัปเดตล่าสุด:** 2025-12-20  
+**ทดสอบกับ:** GroupDocs.Redaction 24.9 for Java  
+**ผู้เขียน:** GroupDocs  

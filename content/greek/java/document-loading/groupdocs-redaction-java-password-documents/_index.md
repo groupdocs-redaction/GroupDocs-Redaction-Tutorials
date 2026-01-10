@@ -8,7 +8,7 @@ keywords:
 - GroupDocs.Redaction for Java
 - edit password-protected docs java
 - redact password-protected docx
-title: 'Επεξεργασία εγγράφων με κωδικό πρόσβασης Java: Απόσυρση εγγράφων με το GroupDocs.Redaction'
+title: 'Επεξεργασία εγγράφων με κωδικό πρόσβασης Java - Απόσυρση εγγράφων με το GroupDocs.Redaction'
 type: docs
 url: /el/java/document-loading/groupdocs-redaction-java-password-documents/
 weight: 1
@@ -208,8 +208,6 @@ try {
 ## Συμπέρασμα
 
 Σε αυτό το εκπαιδευτικό υλικό, μάθατε πώς να **edit password-protected docs java** χρησιμοποιώντας το GroupDocs.Redaction for Java. Από τη ρύθμιση του περιβάλλοντος και την υλοποίηση αποκόψεων ακριβούς φράσης μέχρι την κατανόηση πρακτικών εφαρμογών και παραμέτρων απόδοσης, είστε πλέον εξοπλισμένοι με τα εργαλεία που απαιτούνται για την εξασφάλιση της ασφάλειας και της ιδιωτικότητας των εγγράφων.
-
----
 
 ## Συχνές Ερωτήσεις
 

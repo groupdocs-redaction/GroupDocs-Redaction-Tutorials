@@ -7,7 +7,7 @@ keywords:
 - GroupDocs.Redaction for Java
 - edit password-protected docs java
 - redact password-protected docx
-title: 'Upravit dokumenty chráněné heslem v Javě: Redigovat dokumenty pomocí GroupDocs.Redaction'
+title: 'Upravit dokumenty chráněné heslem v Javě - Redigovat dokumenty pomocí GroupDocs.Redaction'
 type: docs
 url: /cs/java/document-loading/groupdocs-redaction-java-password-documents/
 weight: 1
@@ -206,8 +206,6 @@ Při práci s GroupDocs.Redaction zvažte následující tipy pro výkon:
 ## Závěr
 V tomto tutoriálu jste se naučili, jak **edit password-protected docs java** pomocí GroupDocs.Redaction for Java. Od nastavení prostředí a implementace redakcí přesných frází až po pochopení praktických aplikací a úvah o výkonu, nyní máte k dispozici nástroje potřebné k zajištění bezpečnosti a soukromí dokumentů.
 
----
-
 ## Často kladené otázky
 
 **Q: Mohu redigovat soubor DOCX chráněný heslem?**  
@@ -224,6 +222,8 @@ A: GroupDocs.Redaction zvládá velké soubory, ale sledujte využití paměti a
 
 **Q: Jak získám produkční licenci?**  
 A: Navštivte web GroupDocs, požádejte o zkušební verzi a při připravenosti na produkční nasazení přejděte na placenou licenci.
+
+---
 
 **Poslední aktualizace:** 2025-12-20  
 **Testováno s:** GroupDocs.Redaction 24.9 for Java  

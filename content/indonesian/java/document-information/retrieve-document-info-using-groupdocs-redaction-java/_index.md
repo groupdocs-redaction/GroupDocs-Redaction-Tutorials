@@ -171,11 +171,6 @@ A: Ya, `getDocumentInfo()` hanya membaca informasi header yang diperlukan untuk 
 **Q: Apakah memungkinkan memproses banyak dokumen secara batch secara efisien?**  
 A: Bungkus pemrosesan setiap dokumen dalam instance `Redactor` masing‑masing dan gunakan kembali thread pool untuk memparalelkan beban kerja.
 
----
-**Terakhir Diperbarui:** 2025-12-20  
-**Diuji Dengan:** GroupDocs.Redaction 24.9 untuk Java  
-**Penulis:** GroupDocs  
-
 **Sumber Daya**  
 - **Dokumentasi:** [GroupDocs Redaction Java Documentation](https://docs.groupdocs.com/redaction/java/)  
 - **Referensi API:** [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)  
@@ -183,3 +178,8 @@ A: Bungkus pemrosesan setiap dokumen dalam instance `Redactor` masing‑masing d
 - **GitHub:** [GroupDocs GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - **Dukungan Gratis:** [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)  
 - **Lisensi Sementara:** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/)
+
+---
+**Terakhir Diperbarui:** 2025-12-20  
+**Diuji Dengan:** GroupDocs.Redaction 24.9 untuk Java  
+**Penulis:** GroupDocs  
