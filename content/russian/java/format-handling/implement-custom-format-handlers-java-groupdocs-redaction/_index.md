@@ -7,7 +7,7 @@ keywords:
 - implement custom format handlers Java
 - apply redactions GroupDocs Redaction
 - Java data protection
-title: 'Пользовательский обработчик форматов Java: реализация с GroupDocs.Redaction'
+title: 'Пользовательский обработчик форматов Java - реализация с GroupDocs.Redaction'
 type: docs
 url: /ru/java/format-handling/implement-custom-format-handlers-java-groupdocs-redaction/
 weight: 1

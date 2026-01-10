@@ -1,5 +1,5 @@
 ---
-title: "Custom Format Handler Java: Implement with GroupDocs.Redaction"
+title: "Custom Format Handler Java - Implement with GroupDocs.Redaction"
 description: "Learn how to implement a custom format handler java and redact text java documents using GroupDocs.Redaction. Secure sensitive information effectively."
 date: "2025-12-21"
 weight: 1

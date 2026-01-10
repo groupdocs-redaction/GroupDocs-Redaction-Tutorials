@@ -7,7 +7,7 @@ keywords:
 - implement custom format handlers Java
 - apply redactions GroupDocs Redaction
 - Java data protection
-title: 'Özel Biçim İşleyicisi Java: GroupDocs.Redaction ile Uygula'
+title: 'Özel Biçim İşleyicisi Java - GroupDocs.Redaction ile Uygula'
 type: docs
 url: /tr/java/format-handling/implement-custom-format-handlers-java-groupdocs-redaction/
 weight: 1

@@ -7,7 +7,7 @@ keywords:
 - implement custom format handlers Java
 - apply redactions GroupDocs Redaction
 - Java data protection
-title: 'कस्टम फ़ॉर्मेट हैंडलर जावा: GroupDocs.Redaction के साथ लागू करें'
+title: 'कस्टम फ़ॉर्मेट हैंडलर जावा - GroupDocs.Redaction के साथ लागू करें'
 type: docs
 url: /hi/java/format-handling/implement-custom-format-handlers-java-groupdocs-redaction/
 weight: 1

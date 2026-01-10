@@ -7,7 +7,7 @@ keywords:
 - implement custom format handlers Java
 - apply redactions GroupDocs Redaction
 - Java data protection
-title: 'Egyedi formátumkezelő Java: Implementálás a GroupDocs.Redaction segítségével'
+title: 'Egyedi formátumkezelő Java - Implementálás a GroupDocs.Redaction segítségével'
 type: docs
 url: /hu/java/format-handling/implement-custom-format-handlers-java-groupdocs-redaction/
 weight: 1

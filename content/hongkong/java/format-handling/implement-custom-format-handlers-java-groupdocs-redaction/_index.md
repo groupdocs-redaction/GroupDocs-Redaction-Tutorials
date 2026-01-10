@@ -5,7 +5,7 @@ keywords:
 - implement custom format handlers Java
 - apply redactions GroupDocs Redaction
 - Java data protection
-title: 自訂格式處理程式 Java：使用 GroupDocs.Redaction 實作
+title: 自訂格式處理程式 Java - 使用 GroupDocs.Redaction 實作
 type: docs
 url: /zh-hant/java/format-handling/implement-custom-format-handlers-java-groupdocs-redaction/
 weight: 1

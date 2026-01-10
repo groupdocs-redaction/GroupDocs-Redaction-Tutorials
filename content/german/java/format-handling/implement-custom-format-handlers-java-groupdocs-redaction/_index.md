@@ -7,7 +7,7 @@ keywords:
 - implement custom format handlers Java
 - apply redactions GroupDocs Redaction
 - Java data protection
-title: 'Benutzerdefinierter Format‑Handler Java: Implementierung mit GroupDocs.Redaction'
+title: 'Benutzerdefinierter Format‑Handler Java - Implementierung mit GroupDocs.Redaction'
 type: docs
 url: /de/java/format-handling/implement-custom-format-handlers-java-groupdocs-redaction/
 weight: 1

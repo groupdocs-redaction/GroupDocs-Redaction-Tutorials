@@ -7,7 +7,7 @@ keywords:
 - implement custom format handlers Java
 - apply redactions GroupDocs Redaction
 - Java data protection
-title: 'Obsługa niestandardowego formatu w Java: Implementacja przy użyciu GroupDocs.Redaction'
+title: 'Obsługa niestandardowego formatu w Java - Implementacja przy użyciu GroupDocs.Redaction'
 type: docs
 url: /pl/java/format-handling/implement-custom-format-handlers-java-groupdocs-redaction/
 weight: 1

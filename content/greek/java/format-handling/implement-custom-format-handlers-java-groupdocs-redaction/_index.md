@@ -7,7 +7,7 @@ keywords:
 - implement custom format handlers Java
 - apply redactions GroupDocs Redaction
 - Java data protection
-title: 'Προσαρμοσμένος Χειριστής Μορφής Java: Υλοποίηση με το GroupDocs.Redaction'
+title: 'Προσαρμοσμένος Χειριστής Μορφής Java - Υλοποίηση με το GroupDocs.Redaction'
 type: docs
 url: /el/java/format-handling/implement-custom-format-handlers-java-groupdocs-redaction/
 weight: 1
