@@ -1,5 +1,5 @@
 ---
-title: "how to redact java: Using GroupDocs.Redaction API to Secure Documents"
+title: "how to redact java - Using GroupDocs.Redaction API to Secure Documents"
 description: "Learn how to redact java documents by loading a local document java with GroupDocs.Redaction API. This guide covers setup, implementation, and best practices."
 date: "2025-12-26"
 weight: 1

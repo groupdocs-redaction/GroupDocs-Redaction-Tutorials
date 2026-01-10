@@ -5,7 +5,7 @@ keywords:
 - Java document redaction
 - GroupDocs.Redaction API
 - secure documents with Java
-title: 'Javaでのレダクション方法: GroupDocs.Redaction APIを使用して文書を保護する'
+title: 'Javaでのレダクション方法 - GroupDocs.Redaction APIを使用して文書を保護する'
 type: docs
 url: /ja/java/getting-started/java-groupdocs-redaction-tutorial/
 weight: 1

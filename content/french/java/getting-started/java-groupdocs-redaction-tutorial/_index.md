@@ -7,7 +7,7 @@ keywords:
 - Java document redaction
 - GroupDocs.Redaction API
 - secure documents with Java
-title: 'Comment censurer avec Java : Utiliser l’API GroupDocs.Redaction pour sécuriser
+title: 'Comment censurer avec Java - Utiliser l’API GroupDocs.Redaction pour sécuriser
   les documents'
 type: docs
 url: /fr/java/getting-started/java-groupdocs-redaction-tutorial/

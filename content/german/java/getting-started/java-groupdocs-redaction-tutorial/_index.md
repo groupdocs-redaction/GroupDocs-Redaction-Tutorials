@@ -7,7 +7,7 @@ keywords:
 - Java document redaction
 - GroupDocs.Redaction API
 - secure documents with Java
-title: 'Wie man Java redigiert: Nutzung der GroupDocs.Redaction‑API zum Sichern von
+title: 'Wie man Java redigiert - Nutzung der GroupDocs.Redaction‑API zum Sichern von
   Dokumenten'
 type: docs
 url: /de/java/getting-started/java-groupdocs-redaction-tutorial/

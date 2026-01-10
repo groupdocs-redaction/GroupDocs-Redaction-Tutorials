@@ -7,7 +7,7 @@ keywords:
 - Java document redaction
 - GroupDocs.Redaction API
 - secure documents with Java
-title: 'πώς να κάνετε απόκρυψη σε Java: Χρήση του GroupDocs.Redaction API για την
+title: 'πώς να κάνετε απόκρυψη σε Java - Χρήση του GroupDocs.Redaction API για την
   ασφάλεια εγγράφων'
 type: docs
 url: /el/java/getting-started/java-groupdocs-redaction-tutorial/

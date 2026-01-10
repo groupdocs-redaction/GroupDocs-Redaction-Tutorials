@@ -7,7 +7,7 @@ keywords:
 - Java document redaction
 - GroupDocs.Redaction API
 - secure documents with Java
-title: 'जावा में रिडैक्ट कैसे करें: दस्तावेज़ों को सुरक्षित करने के लिए GroupDocs.Redaction
+title: 'जावा में रिडैक्ट कैसे करें - दस्तावेज़ों को सुरक्षित करने के लिए GroupDocs.Redaction
   API का उपयोग'
 type: docs
 url: /hi/java/getting-started/java-groupdocs-redaction-tutorial/

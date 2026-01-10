@@ -7,7 +7,7 @@ keywords:
 - Java document redaction
 - GroupDocs.Redaction API
 - secure documents with Java
-title: 'كيفية إخفاء النصوص في جافا: استخدام واجهة برمجة تطبيقات GroupDocs.Redaction
+title: 'كيفية إخفاء النصوص في جافا - استخدام واجهة برمجة تطبيقات GroupDocs.Redaction
   لتأمين المستندات'
 type: docs
 url: /ar/java/getting-started/java-groupdocs-redaction-tutorial/

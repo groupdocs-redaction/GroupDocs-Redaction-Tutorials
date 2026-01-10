@@ -7,7 +7,7 @@ keywords:
 - Java document redaction
 - GroupDocs.Redaction API
 - secure documents with Java
-title: 'Cách xóa thông tin nhạy cảm trong Java: Sử dụng API GroupDocs.Redaction để
+title: 'Cách xóa thông tin nhạy cảm trong Java - Sử dụng API GroupDocs.Redaction để
   bảo mật tài liệu'
 type: docs
 url: /vi/java/getting-started/java-groupdocs-redaction-tutorial/

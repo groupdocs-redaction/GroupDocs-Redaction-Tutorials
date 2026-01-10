@@ -7,7 +7,7 @@ keywords:
 - Java document redaction
 - GroupDocs.Redaction API
 - secure documents with Java
-title: 'hur man raderar i Java: Använda GroupDocs.Redaction API för att säkra dokument'
+title: 'hur man raderar i Java - Använda GroupDocs.Redaction API för att säkra dokument'
 type: docs
 url: /sv/java/getting-started/java-groupdocs-redaction-tutorial/
 weight: 1

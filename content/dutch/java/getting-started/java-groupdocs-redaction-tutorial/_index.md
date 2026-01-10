@@ -7,7 +7,7 @@ keywords:
 - Java document redaction
 - GroupDocs.Redaction API
 - secure documents with Java
-title: 'Hoe Java te redigeren: GroupDocs.Redaction API gebruiken om documenten te
+title: 'Hoe Java te redigeren - GroupDocs.Redaction API gebruiken om documenten te
   beveiligen'
 type: docs
 url: /nl/java/getting-started/java-groupdocs-redaction-tutorial/

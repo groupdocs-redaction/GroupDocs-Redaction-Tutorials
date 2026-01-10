@@ -7,7 +7,7 @@ keywords:
 - Java document redaction
 - GroupDocs.Redaction API
 - secure documents with Java
-title: 'Java''da nasıl redakte edilir: Belgeleri Güvence Altına Almak için GroupDocs.Redaction
+title: 'Java''da nasıl redakte edilir - Belgeleri Güvence Altına Almak için GroupDocs.Redaction
   API''si Kullanımı'
 type: docs
 url: /tr/java/getting-started/java-groupdocs-redaction-tutorial/

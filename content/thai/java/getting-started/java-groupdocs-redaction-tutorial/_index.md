@@ -6,7 +6,7 @@ keywords:
 - Java document redaction
 - GroupDocs.Redaction API
 - secure documents with Java
-title: 'วิธีทำการลบข้อมูลใน Java: การใช้ GroupDocs.Redaction API เพื่อปกป้องเอกสาร'
+title: 'วิธีทำการลบข้อมูลใน Java - การใช้ GroupDocs.Redaction API เพื่อปกป้องเอกสาร'
 type: docs
 url: /th/java/getting-started/java-groupdocs-redaction-tutorial/
 weight: 1
