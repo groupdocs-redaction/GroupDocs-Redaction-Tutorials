@@ -155,12 +155,6 @@ A: You can render the `Redactor` to a `BufferedImage` and display it in a Swing 
 ## Conclusion
 You now have a complete, production‑ready guide on **how to redact image** content and, specifically, how to **redact scanned document** images using GroupDocs.Redaction for Java. By following the steps above, you can protect sensitive visual data across a wide range of industries. Explore the additional APIs—such as text redaction or PDF page redaction—to build a comprehensive data‑privacy solution for your organization.
 
----
-
-**Last Updated:** 2025-12-29  
-**Tested With:** GroupDocs.Redaction 24.9 (Java)  
-**Author:** GroupDocs  
-
 **Resources**  
 - [Documentation](https://docs.groupdocs.com/redaction/java/)  
 - [API Reference](https://reference.groupdocs.com/redaction/java)  
@@ -170,3 +164,7 @@ You now have a complete, production‑ready guide on **how to redact image** con
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
 ---
+
+**Last Updated:** 2025-12-29  
+**Tested With:** GroupDocs.Redaction 24.9 (Java)  
+**Author:** GroupDocs  

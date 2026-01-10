@@ -156,12 +156,6 @@ A: Renderelheti a `Redactor`-t egy `BufferedImage`-re, és megjelenítheti egy S
 ## Conclusion
 Most már rendelkezik egy teljes, termelés‑kész útmutatóval arról, **hogyan redigálja a képet**, és különösen arról, **hogyan redigálja a beolvasott dokumentum képeket** a GroupDocs.Redaction for Java segítségével. A fenti lépések követésével védheti az érzékeny vizuális adatokat számos iparágban. Fedezze fel a további API-kat – például a szöveges redigálást vagy a PDF‑oldal redigálást – hogy átfogó adatvédelmi megoldást építsen szervezete számára.
 
----
-
-**Last Updated:** 2025-12-29  
-**Tested With:** GroupDocs.Redaction 24.9 (Java)  
-**Author:** GroupDocs  
-
 **Resources**  
 - [Dokumentáció](https://docs.groupdocs.com/redaction/java/)  
 - [API referencia](https://reference.groupdocs.com/redaction/java)  
@@ -169,3 +163,9 @@ Most már rendelkezik egy teljes, termelés‑kész útmutatóval arról, **hogy
 - [GitHub tároló](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - [Ingyenes támogatási fórum](https://forum.groupdocs.com/c/redaction/33)  
 - [Ideiglenes licenc](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Last Updated:** 2025-12-29  
+**Tested With:** GroupDocs.Redaction 24.9 (Java)  
+**Author:** GroupDocs  

@@ -156,12 +156,6 @@ A: Du kan rendera `Redactor` till en `BufferedImage` och visa den i ett Swing‑
 ## Slutsats
 Du har nu en komplett, produktionsklar guide om **hur du redigerar bild**‑innehåll och specifikt hur du **redigerar skannade dokument**‑bilder med GroupDocs.Redaction för Java. Genom att följa stegen ovan kan du skydda känslig visuell data inom en rad olika branscher. Utforska de ytterligare API‑erna—såsom textredigering eller PDF‑sidredigering—för att bygga en omfattande dataskyddslösning för din organisation.
 
----
-
-**Senast uppdaterad:** 2025-12-29  
-**Testad med:** GroupDocs.Redaction 24.9 (Java)  
-**Författare:** GroupDocs  
-
 **Resurser**  
 - [Dokumentation](https://docs.groupdocs.com/redaction/java/)  
 - [API‑referens](https://reference.groupdocs.com/redaction/java)  
@@ -169,3 +163,9 @@ Du har nu en komplett, produktionsklar guide om **hur du redigerar bild**‑inne
 - [GitHub‑arkiv](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - [Gratis supportforum](https://forum.groupdocs.com/c/redaction/33)  
 - [Tillfällig licens](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Senast uppdaterad:** 2025-12-29  
+**Testad med:** GroupDocs.Redaction 24.9 (Java)  
+**Författare:** GroupDocs  

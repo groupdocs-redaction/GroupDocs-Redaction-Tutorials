@@ -156,12 +156,6 @@ O: Możesz wyrenderować `Redactor` do `BufferedImage` i wyświetlić go w inter
 ## Zakończenie
 Masz teraz kompletny, gotowy do produkcji przewodnik, jak **redagować zawartość obrazu** oraz, konkretnie, jak **redagować zeskanowane obrazy dokumentów** przy użyciu GroupDocs.Redaction dla Javy. Postępując zgodnie z powyższymi krokami, możesz chronić wrażliwe dane wizualne w różnych branżach. Zapoznaj się z dodatkowymi API — takimi jak redakcja tekstu czy redakcja stron PDF — aby zbudować kompleksowe rozwiązanie zapewniające prywatność danych w Twojej organizacji.
 
----
-
-**Ostatnia aktualizacja:** 2025-12-29  
-**Testowane z:** GroupDocs.Redaction 24.9 (Java)  
-**Autor:** GroupDocs  
-
 **Zasoby**  
 - [Dokumentacja](https://docs.groupdocs.com/redaction/java/)  
 - [Referencja API](https://reference.groupdocs.com/redaction/java)  
@@ -169,3 +163,9 @@ Masz teraz kompletny, gotowy do produkcji przewodnik, jak **redagować zawartoś
 - [Repozytorium GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - [Darmowe forum wsparcia](https://forum.groupdocs.com/c/redaction/33)  
 - [Licencja tymczasowa](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Ostatnia aktualizacja:** 2025-12-29  
+**Testowane z:** GroupDocs.Redaction 24.9 (Java)  
+**Autor:** GroupDocs  

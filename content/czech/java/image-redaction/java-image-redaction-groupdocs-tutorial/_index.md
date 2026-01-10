@@ -156,12 +156,6 @@ A: Můžete vykreslit `Redactor` do `BufferedImage` a zobrazit jej v Swing nebo 
 ## Závěr
 Nyní máte kompletní, připravený průvodce pro produkci o **jak redigovat obrázkový** obsah a konkrétně, jak **redigovat naskenované dokumenty** obrázky pomocí GroupDocs.Redaction pro Java. Dodržením výše uvedených kroků můžete chránit citlivá vizuální data napříč širokým spektrem odvětví. Prozkoumejte další API—jako je redigování textu nebo redigování PDF stránek—abyste vytvořili komplexní řešení pro ochranu dat ve vaší organizaci.
 
----
-
-**Poslední aktualizace:** 2025-12-29  
-**Testováno s:** GroupDocs.Redaction 24.9 (Java)  
-**Autor:** GroupDocs  
-
 **Zdroje**  
 - [Dokumentace](https://docs.groupdocs.com/redaction/java/)  
 - [Reference API](https://reference.groupdocs.com/redaction/java)  
@@ -169,3 +163,9 @@ Nyní máte kompletní, připravený průvodce pro produkci o **jak redigovat ob
 - [GitHub úložiště](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - [Fórum zdarma podpora](https://forum.groupdocs.com/c/redaction/33)  
 - [Dočasná licence](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Poslední aktualizace:** 2025-12-29  
+**Testováno s:** GroupDocs.Redaction 24.9 (Java)  
+**Autor:** GroupDocs  

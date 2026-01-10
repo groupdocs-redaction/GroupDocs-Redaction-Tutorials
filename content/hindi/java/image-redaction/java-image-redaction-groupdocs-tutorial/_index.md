@@ -157,12 +157,6 @@ if (result != null && result.getStatus() != RedactionStatus.Failed) {
 ## निष्कर्ष
 अब आपके पास **छवि को रीडैक्ट करने** और विशेष रूप से **स्कैन किए गए दस्तावेज़ छवियों को रीडैक्ट करने** के लिए GroupDocs.Redaction for Java का एक पूर्ण, प्रोडक्शन‑तैयार गाइड है। ऊपर बताए गए चरणों का पालन करके आप विभिन्न उद्योगों में संवेदनशील दृश्य डेटा की सुरक्षा कर सकते हैं। अतिरिक्त APIs—जैसे टेक्स्ट रीडैक्शन या PDF पेज रीडैक्शन—का उपयोग करके अपने संगठन के लिए एक व्यापक डेटा‑प्राइवेसी समाधान बनाएं।
 
----
-
-**अंतिम अपडेट:** 2025-12-29  
-**परीक्षित संस्करण:** GroupDocs.Redaction 24.9 (Java)  
-**लेखक:** GroupDocs  
-
 **संसाधन**  
 - [डॉक्यूमेंटेशन](https://docs.groupdocs.com/redaction/java/)  
 - [API रेफ़रेंस](https://reference.groupdocs.com/redaction/java)  
@@ -170,5 +164,11 @@ if (result != null && result.getStatus() != RedactionStatus.Failed) {
 - [GitHub रिपॉज़िटरी](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - [फ़्री सपोर्ट फ़ोरम](https://forum.groupdocs.com/c/redaction/33)  
 - [अस्थायी लाइसेंस](https://purchase.groupdocs.com/temporary-license/) 
+
+---
+
+**अंतिम अपडेट:** 2025-12-29  
+**परीक्षित संस्करण:** GroupDocs.Redaction 24.9 (Java)  
+**लेखक:** GroupDocs  
 
 ---

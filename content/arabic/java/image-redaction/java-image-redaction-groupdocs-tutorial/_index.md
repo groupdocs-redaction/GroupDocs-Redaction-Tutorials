@@ -153,12 +153,6 @@ if (result != null && result.getStatus() != RedactionStatus.Failed) {
 ## الخلاصة
 أصبح لديك الآن دليل كامل وجاهز للإنتاج حول **كيفية إخفاء محتوى الصورة**، وبشكل خاص **إخفاء صور المستندات الممسوحة** باستخدام GroupDocs.Redaction for Java. باتباع الخطوات السابقة، يمكنك حماية البيانات البصرية الحساسة عبر مجموعة واسعة من الصناعات. استكشف الـ APIs الإضافية—مثل إخفاء النص أو إخفاء صفحات PDF—لبناء حل شامل لخصوصية البيانات لمؤسستك.
 
----
-
-**آخر تحديث:** 2025-12-29  
-**تم الاختبار مع:** GroupDocs.Redaction 24.9 (Java)  
-**المؤلف:** GroupDocs  
-
 **الموارد**  
 - [الوثائق](https://docs.groupdocs.com/redaction/java/)  
 - [مرجع API](https://reference.groupdocs.com/redaction/java)  
@@ -166,3 +160,9 @@ if (result != null && result.getStatus() != RedactionStatus.Failed) {
 - [مستودع GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - [منتدى الدعم المجاني](https://forum.groupdocs.com/c/redaction/33)  
 - [ترخيص مؤقت](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**آخر تحديث:** 2025-12-29  
+**تم الاختبار مع:** GroupDocs.Redaction 24.9 (Java)  
+**المؤلف:** GroupDocs  

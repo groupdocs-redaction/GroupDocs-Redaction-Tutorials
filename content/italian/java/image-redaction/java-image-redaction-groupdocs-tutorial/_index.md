@@ -157,12 +157,6 @@ R: Puoi renderizzare il `Redactor` in un `BufferedImage` e visualizzarlo in un'i
 ## Conclusione
 Ora disponi di una guida completa e pronta per la produzione su **come redigere il contenuto di un'immagine** e, in particolare, su **come redigere le immagini di documenti scansionati** usando GroupDocs.Redaction per Java. Seguendo i passaggi sopra, potrai proteggere dati visivi sensibili in una vasta gamma di settori. Esplora le API aggiuntive — come la redazione del testo o la redazione di pagine PDF — per costruire una soluzione completa di privacy dei dati per la tua organizzazione.
 
----
-
-**Ultimo aggiornamento:** 2025-12-29  
-**Testato con:** GroupDocs.Redaction 24.9 (Java)  
-**Autore:** GroupDocs  
-
 **Risorse**  
 - [Documentazione](https://docs.groupdocs.com/redaction/java/)  
 - [Riferimento API](https://reference.groupdocs.com/redaction/java)  
@@ -170,3 +164,9 @@ Ora disponi di una guida completa e pronta per la produzione su **come redigere 
 - [Repository GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - [Forum di supporto gratuito](https://forum.groupdocs.com/c/redaction/33)  
 - [Licenza temporanea](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Ultimo aggiornamento:** 2025-12-29  
+**Testato con:** GroupDocs.Redaction 24.9 (Java)  
+**Autore:** GroupDocs  

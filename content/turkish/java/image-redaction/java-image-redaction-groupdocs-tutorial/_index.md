@@ -156,12 +156,6 @@ A: `Redactor`'ı bir `BufferedImage`'a render ederek Swing veya JavaFX UI'de de�
 ## Sonuç
 Artık **görüntüyü nasıl kırpılır** içeriği ve özellikle GroupDocs.Redaction for Java kullanarak **tarama belgesi görüntülerini nasıl kırpılır** konusunda eksiksiz, üretim‑hazır bir kılavuza sahipsiniz. Yukarıdaki adımları izleyerek, çeşitli sektörlerde hassas görsel verileri koruyabilirsiniz. Metin kırpma veya PDF sayfa kırpma gibi ek API'ları keşfederek kuruluşunuz için kapsamlı bir veri‑gizliliği çözümü oluşturun.
 
----
-
-**Son Güncelleme:** 2025-12-29  
-**Test Edilen Sürüm:** GroupDocs.Redaction 24.9 (Java)  
-**Yazar:** GroupDocs  
-
 **Kaynaklar**  
 - [Dokümantasyon](https://docs.groupdocs.com/redaction/java/)  
 - [API Referansı](https://reference.groupdocs.com/redaction/java)  
@@ -169,3 +163,9 @@ Artık **görüntüyü nasıl kırpılır** içeriği ve özellikle GroupDocs.Re
 - [GitHub Deposu](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - [Ücretsiz Destek Forumu](https://forum.groupdocs.com/c/redaction/33)  
 - [Geçici Lisans](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Son Güncelleme:** 2025-12-29  
+**Test Edilen Sürüm:** GroupDocs.Redaction 24.9 (Java)  
+**Yazar:** GroupDocs  

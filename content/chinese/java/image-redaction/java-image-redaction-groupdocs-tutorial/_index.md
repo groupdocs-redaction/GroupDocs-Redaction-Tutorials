@@ -153,12 +153,6 @@ A: 您可以将 `Redactor` 渲染为 `BufferedImage`，并在 Swing 或 JavaFX �
 ## 结论
 现在，您已经拥有一份完整、可投入生产的指南，介绍了 **如何编辑图像** 内容，以及使用 GroupDocs.Redaction for Java **编辑扫描文档** 图像的具体方法。按照上述步骤，您可以在各行各业保护敏感的视觉数据。探索其他 API——如文本编辑或 PDF 页面编辑——以为您的组织构建全面的数据隐私解决方案。
 
----
-
-**最后更新：** 2025-12-29  
-**测试环境：** GroupDocs.Redaction 24.9 (Java)  
-**作者：** GroupDocs  
-
 **资源**  
 - [文档](https://docs.groupdocs.com/redaction/java/)  
 - [API 参考](https://reference.groupdocs.com/redaction/java)  
@@ -166,3 +160,9 @@ A: 您可以将 `Redactor` 渲染为 `BufferedImage`，并在 Swing 或 JavaFX �
 - [GitHub 仓库](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - [免费支持论坛](https://forum.groupdocs.com/c/redaction/33)  
 - [临时许可证](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**最后更新：** 2025-12-29  
+**测试环境：** GroupDocs.Redaction 24.9 (Java)  
+**作者：** GroupDocs  

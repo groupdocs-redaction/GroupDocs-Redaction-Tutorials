@@ -15,7 +15,7 @@ weight: 1
 
 今日のデジタル環境では、**スキャンされた文書画像の赤塗り**はプライバシー保護とコンプライアンス遵守に不可欠です。スキャンされた契約書の個人情報を隠す場合や、医療画像の患者情報を覆い隠す場合でも、本チュートリアルでは **GroupDocs.Redaction for Java** を使って **画像の赤塗り** を迅速かつ確実に行う方法を示します。プロジェクトのセットアップから赤塗りが成功したことの確認までを順に解説するので、あらゆる Java アプリケーションに自信を持って統合できます。
 
-## Quick Answers
+## クイックアンサー
 - **Java で画像の赤塗りを扱うライブラリは？** GroupDocs.Redaction for Java  
 - **赤塗りの色は選べますか？** はい – 任意の `java.awt.Color`（例: `Color.BLUE`）を使用可能です  
 - **本番環境でライセンスは必須ですか？** はい、有効な GroupDocs ライセンスが必要です  
@@ -155,12 +155,6 @@ A: `Redactor` を `BufferedImage` にレンダリングし、Swing や JavaFX �
 ## 結論
 これで **画像コンテンツの赤塗り** と、特に **GroupDocs.Redaction for Java を使用したスキャン文書画像の赤塗り** に関する完全な本番対応ガイドが完成しました。上記手順に従えば、さまざまな業界で機密ビジュアルデータを保護できます。テキスト赤塗りや PDF ページ赤塗りなどの追加 API も活用し、組織全体のデータプライバシーソリューションを構築してください。
 
----
-
-**最終更新日:** 2025-12-29  
-**テスト環境:** GroupDocs.Redaction 24.9 (Java)  
-**作成者:** GroupDocs  
-
 **リソース**  
 - [ドキュメンテーション](https://docs.groupdocs.com/redaction/java/)  
 - [API リファレンス](https://reference.groupdocs.com/redaction/java)  
@@ -168,3 +162,9 @@ A: `Redactor` を `BufferedImage` にレンダリングし、Swing や JavaFX �
 - [GitHub リポジトリ](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - [無料サポートフォーラム](https://forum.groupdocs.com/c/redaction/33)  
 - [一時ライセンス取得](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**最終更新日:** 2025-12-29  
+**テスト環境:** GroupDocs.Redaction 24.9 (Java)  
+**作成者:** GroupDocs  

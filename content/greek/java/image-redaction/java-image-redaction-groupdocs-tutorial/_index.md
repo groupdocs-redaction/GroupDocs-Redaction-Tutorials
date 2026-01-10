@@ -156,12 +156,7 @@ if (result != null && result.getStatus() != RedactionStatus.Failed) {
 
 ## Συμπέρασμα
 Τώρα έχετε έναν πλήρη, έτοιμο για παραγωγή οδηγό σχετικά με **πώς να redact image** περιεχόμενο και, συγκεκριμένα, πώς να **redact scanned document** εικόνες χρησιμοποιώντας το GroupDocs.Redaction για Java. Ακολουθώντας τα παραπάνω βήματα, μπορείτε να προστατεύσετε ευαίσθητα οπτικά δεδομένα σε ένα ευρύ φάσμα βιομηχανιών. Εξερευνήστε τα πρόσθετα API—όπως text redaction ή PDF page redaction—για να δημιουργήσετε μια ολοκληρωμένη λύση προστασίας δεδομένων για τον οργανισμό σας.
-
----
-
-**Last Updated:** 2025-12-29  
-**Tested With:** GroupDocs.Redaction 24.9 (Java)  
-**Author:** GroupDocs  
+ 
 
 **Resources**  
 - [Documentation](https://docs.groupdocs.com/redaction/java/)  
@@ -170,3 +165,9 @@ if (result != null && result.getStatus() != RedactionStatus.Failed) {
 - [GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)  
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Last Updated:** 2025-12-29  
+**Tested With:** GroupDocs.Redaction 24.9 (Java)  
+**Author:** GroupDocs 

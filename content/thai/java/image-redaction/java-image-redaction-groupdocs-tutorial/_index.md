@@ -155,12 +155,6 @@ A: คุณสามารถเรนเดอร์ `Redactor` เป็น `
 ## สรุป
 คุณได้คู่มือที่ครบถ้วนและพร้อมใช้งานในสภาพแวดล้อมการผลิตเกี่ยวกับ **วิธีลบข้อมูลในภาพ** และโดยเฉพาะ **การลบข้อมูลในภาพเอกสารสแกน** ด้วย GroupDocs.Redaction สำหรับ Java หากทำตามขั้นตอนข้างต้น คุณสามารถปกป้องข้อมูลภาพที่ละเอียดอ่อนในหลากหลายอุตสาหกรรมได้ ค้นหา API เพิ่มเติม—เช่นการลบข้อความหรือการลบหน้าของ PDF—เพื่อสร้างโซลูชันความเป็นส่วนตัวของข้อมูลที่ครอบคลุมสำหรับองค์กรของคุณ.
 
----
-
-**อัปเดตล่าสุด:** 2025-12-29  
-**ทดสอบกับ:** GroupDocs.Redaction 24.9 (Java)  
-**ผู้เขียน:** GroupDocs  
-
 **แหล่งข้อมูล**  
 - [เอกสาร](https://docs.groupdocs.com/redaction/java/)  
 - [อ้างอิง API](https://reference.groupdocs.com/redaction/java)  
@@ -168,3 +162,9 @@ A: คุณสามารถเรนเดอร์ `Redactor` เป็น `
 - [ที่เก็บ GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - [ฟอรั่มสนับสนุนฟรี](https://forum.groupdocs.com/c/redaction/33)  
 - [ใบอนุญาตชั่วคราว](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**อัปเดตล่าสุด:** 2025-12-29  
+**ทดสอบกับ:** GroupDocs.Redaction 24.9 (Java)  
+**ผู้เขียน:** GroupDocs  

@@ -156,12 +156,6 @@ R : Vous pouvez rendre le `Redactor` en un `BufferedImage` et l’afficher dan
 ## Conclusion
 Vous disposez maintenant d’un guide complet, prêt pour la production, sur **comment caviarder le contenu d’une image** et, spécifiquement, comment **caviarder les images de documents numérisés** en utilisant GroupDocs.Redaction pour Java. En suivant les étapes ci‑dessus, vous pouvez protéger les données visuelles sensibles dans de nombreux secteurs. Explorez les API supplémentaires—comme le caviardage de texte ou le caviardage de pages PDF—pour créer une solution complète de protection des données pour votre organisation.
 
----
-
-**Dernière mise à jour :** 2025-12-29  
-**Testé avec :** GroupDocs.Redaction 24.9 (Java)  
-**Auteur :** GroupDocs  
-
 **Ressources**  
 - [Documentation](https://docs.groupdocs.com/redaction/java/)  
 - [Référence API](https://reference.groupdocs.com/redaction/java)  
@@ -169,3 +163,9 @@ Vous disposez maintenant d’un guide complet, prêt pour la production, sur **c
 - [Dépôt GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - [Forum d'assistance gratuit](https://forum.groupdocs.com/c/redaction/33)  
 - [Licence temporaire](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Dernière mise à jour :** 2025-12-29  
+**Testé avec :** GroupDocs.Redaction 24.9 (Java)  
+**Auteur :** GroupDocs  

@@ -156,12 +156,6 @@ J: Anda dapat merender `Redactor` ke `BufferedImage` dan menampilkannya di UI Sw
 ## Kesimpulan
 Anda kini memiliki panduan lengkap yang siap produksi tentang **cara menyensor konten gambar** dan, secara khusus, **menyensor gambar dokumen yang dipindai** menggunakan GroupDocs.Redaction untuk Java. Dengan mengikuti langkah‑langkah di atas, Anda dapat melindungi data visual sensitif di berbagai industri. Jelajahi API tambahan—seperti penyensoran teks atau penyensoran halaman PDF—untuk membangun solusi privasi data yang komprehensif bagi organisasi Anda.
 
----
-
-**Terakhir Diperbarui:** 2025-12-29  
-**Diuji Dengan:** GroupDocs.Redaction 24.9 (Java)  
-**Penulis:** GroupDocs  
-
 **Sumber Daya**  
 - [Dokumentasi](https://docs.groupdocs.com/redaction/java/)  
 - [Referensi API](https://reference.groupdocs.com/redaction/java)  
@@ -169,3 +163,9 @@ Anda kini memiliki panduan lengkap yang siap produksi tentang **cara menyensor k
 - [Repositori GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - [Forum Dukungan Gratis](https://forum.groupdocs.com/c/redaction/33)  
 - [Lisensi Sementara](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Terakhir Diperbarui:** 2025-12-29  
+**Diuji Dengan:** GroupDocs.Redaction 24.9 (Java)  
+**Penulis:** GroupDocs  

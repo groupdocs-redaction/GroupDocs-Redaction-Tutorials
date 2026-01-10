@@ -157,12 +157,6 @@ A: Sie können den `Redactor` zu einem `BufferedImage` rendern und in einer Swin
 ## Fazit
 Sie haben nun eine vollständige, produktionsreife Anleitung, **wie man Bildinhalte** und speziell **wie man gescannte Dokumentenbilder** mit GroupDocs.Redaction für Java schwärzt. Wenn Sie die oben genannten Schritte befolgen, können Sie sensible visuelle Daten in einer Vielzahl von Branchen schützen. Erkunden Sie die zusätzlichen APIs – etwa Text‑Schwärzung oder PDF‑Seiten‑Schwärzung – um eine umfassende Datenschutz‑Lösung für Ihr Unternehmen zu bauen.
 
----
-
-**Zuletzt aktualisiert:** 2025-12-29  
-**Getestet mit:** GroupDocs.Redaction 24.9 (Java)  
-**Autor:** GroupDocs  
-
 **Ressourcen**  
 - [Dokumentation](https://docs.groupdocs.com/redaction/java/)  
 - [API‑Referenz](https://reference.groupdocs.com/redaction/java)  
@@ -170,3 +164,9 @@ Sie haben nun eine vollständige, produktionsreife Anleitung, **wie man Bildinha
 - [GitHub‑Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - [Kostenloses Support‑Forum](https://forum.groupdocs.com/c/redaction/33)  
 - [Temporäre Lizenz](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Zuletzt aktualisiert:** 2025-12-29  
+**Getestet mit:** GroupDocs.Redaction 24.9 (Java)  
+**Autor:** GroupDocs  

@@ -155,12 +155,6 @@ A: You can render the `Redactor` to a `BufferedImage` and display it in a Swing 
 ## 결론
 이제 **이미지를 가리는 방법**과 특히 GroupDocs.Redaction for Java를 사용하여 **스캔된 문서** 이미지를 가리는 방법에 대한 완전하고 프로덕션 준비된 가이드를 갖추었습니다. 위 단계들을 따라 하면 다양한 산업 분야에서 민감한 시각 데이터를 보호할 수 있습니다. 텍스트 가리기나 PDF 페이지 가리기와 같은 추가 API를 탐색하여 조직을 위한 포괄적인 데이터 프라이버시 솔루션을 구축해 보세요.
 
----
-
-**마지막 업데이트:** 2025-12-29  
-**테스트 환경:** GroupDocs.Redaction 24.9 (Java)  
-**작성자:** GroupDocs  
-
 **리소스**  
 - [문서](https://docs.groupdocs.com/redaction/java/)  
 - [API 레퍼런스](https://reference.groupdocs.com/redaction/java)  
@@ -168,3 +162,9 @@ A: You can render the `Redactor` to a `BufferedImage` and display it in a Swing 
 - [GitHub 저장소](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - [무료 지원 포럼](https://forum.groupdocs.com/c/redaction/33)  
 - [임시 라이선스](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**마지막 업데이트:** 2025-12-29  
+**테스트 환경:** GroupDocs.Redaction 24.9 (Java)  
+**작성자:** GroupDocs  

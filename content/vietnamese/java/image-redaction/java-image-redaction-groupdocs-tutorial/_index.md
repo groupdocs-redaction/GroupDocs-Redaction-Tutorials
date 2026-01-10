@@ -155,12 +155,7 @@ if (result != null && result.getStatus() != RedactionStatus.Failed) {
 
 ## Kết luận
 Bạn đã có một hướng dẫn đầy đủ, sẵn sàng cho môi trường sản xuất về **cách xóa thông tin trong hình ảnh** và, cụ thể, **cách xóa thông tin trong hình ảnh tài liệu được quét** bằng GroupDocs.Redaction cho Java. Bằng cách thực hiện các bước trên, bạn có thể bảo vệ dữ liệu hình ảnh nhạy cảm trong nhiều ngành công nghiệp. Khám phá các API bổ sung—như xóa văn bản hoặc xóa trang PDF—để xây dựng một giải pháp bảo mật dữ liệu toàn diện cho tổ chức của bạn.
-
----
-
-**Last Updated:** 2025-12-29  
-**Tested With:** GroupDocs.Redaction 24.9 (Java)  
-**Author:** GroupDocs  
+ 
 
 **Tài nguyên**  
 - [Documentation](https://docs.groupdocs.com/redaction/java/)  
@@ -169,3 +164,9 @@ Bạn đã có một hướng dẫn đầy đủ, sẵn sàng cho môi trường
 - [GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)  
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Last Updated:** 2025-12-29  
+**Tested With:** GroupDocs.Redaction 24.9 (Java)  
+**Author:** GroupDocs 

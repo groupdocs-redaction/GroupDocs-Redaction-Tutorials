@@ -154,12 +154,6 @@ A: 您可以將 `Redactor` 渲染為 `BufferedImage`，並在 Swing 或 JavaFX U
 ## 結論
 您現在已擁有一份完整、可投入生產的指南，說明 **how to redact image** 內容，以及如何使用 GroupDocs.Redaction for Java **redact scanned document** 圖像。依循上述步驟，即可在各行各業保護敏感的視覺資料。探索其他 API——如文字 redaction 或 PDF 頁面 redaction——以為貴組織打造完整的資料隱私解決方案。
 
----
-
-**Last Updated:** 2025-12-29  
-**Tested With:** GroupDocs.Redaction 24.9 (Java)  
-**Author:** GroupDocs  
-
 **資源**  
 - [文件說明](https://docs.groupdocs.com/redaction/java/)  
 - [API 參考](https://reference.groupdocs.com/redaction/java)  
@@ -167,3 +161,9 @@ A: 您可以將 `Redactor` 渲染為 `BufferedImage`，並在 Swing 或 JavaFX U
 - [GitHub 儲存庫](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - [免費支援論壇](https://forum.groupdocs.com/c/redaction/33)  
 - [臨時授權](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Last Updated:** 2025-12-29  
+**Tested With:** GroupDocs.Redaction 24.9 (Java)  
+**Author:** GroupDocs  

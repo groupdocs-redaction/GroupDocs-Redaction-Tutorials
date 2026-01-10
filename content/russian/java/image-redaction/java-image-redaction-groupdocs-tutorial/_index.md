@@ -157,12 +157,6 @@ if (result != null && result.getStatus() != RedactionStatus.Failed) {
 ## Заключение
 Теперь у вас есть полное, готовое к использованию в продакшн руководство по **как редактировать (redact) изображение** и, в частности, по **редактированию (redact) изображений отсканированных документов** с помощью GroupDocs.Redaction для Java. Следуя приведённым шагам, вы сможете защищать конфиденциальные визуальные данные в самых разных отраслях. Изучите дополнительные API — такие как редактирование текста или страниц PDF — чтобы построить всестороннее решение по защите данных для вашей организации.
 
----
-
-**Last Updated:** 2025-12-29  
-**Tested With:** GroupDocs.Redaction 24.9 (Java)  
-**Author:** GroupDocs  
-
 **Resources**  
 - [Документация](https://docs.groupdocs.com/redaction/java/)  
 - [Справочник API](https://reference.groupdocs.com/redaction/java)  
@@ -170,3 +164,9 @@ if (result != null && result.getStatus() != RedactionStatus.Failed) {
 - [Репозиторий GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - [Форум бесплатной поддержки](https://forum.groupdocs.com/c/redaction/33)  
 - [Временная лицензия](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Last Updated:** 2025-12-29  
+**Tested With:** GroupDocs.Redaction 24.9 (Java)  
+**Author:** GroupDocs  

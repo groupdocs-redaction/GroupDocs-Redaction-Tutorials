@@ -155,12 +155,6 @@ A: U kunt de `Redactor` renderen naar een `BufferedImage` en deze weergeven in e
 ## Conclusie
 U heeft nu een volledige, productie‑klare gids over **hoe u afbeelding**‑inhoud kunt redigeren en, specifiek, **hoe u gescande document**‑afbeeldingen kunt redigeren met GroupDocs.Redaction for Java. Door de bovenstaande stappen te volgen, kunt u gevoelige visuele data beschermen in een breed scala aan sectoren. Verken de aanvullende API’s—zoals tekstredactie of PDF‑paginaredactie—om een uitgebreide gegevens‑privacyoplossing voor uw organisatie te bouwen.
 
----
-
-**Laatst bijgewerkt:** 2025-12-29  
-**Getest met:** GroupDocs.Redaction 24.9 (Java)  
-**Auteur:** GroupDocs  
-
 **Bronnen**  
 - [Documentatie](https://docs.groupdocs.com/redaction/java/)  
 - [API‑referentie](https://reference.groupdocs.com/redaction/java)  
@@ -168,3 +162,9 @@ U heeft nu een volledige, productie‑klare gids over **hoe u afbeelding**‑inh
 - [GitHub‑opslagplaats](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - [Gratis ondersteuningsforum](https://forum.groupdocs.com/c/redaction/33)  
 - [Tijdelijke licentie](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Laatst bijgewerkt:** 2025-12-29  
+**Getest met:** GroupDocs.Redaction 24.9 (Java)  
+**Auteur:** GroupDocs  
