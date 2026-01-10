@@ -14,37 +14,40 @@ url: /hi/java/image-redaction/redact-images-word-docs-groupdocs-redaction-java/
 weight: 1
 ---
 
-# How to Redact Images in Word Documents Using GroupDocs.Redaction for Java
+# Java के लिए GroupDocs.Redaction का उपयोग करके Word दस्तावेज़ों में छवियों को कैसे संपादित करें
 
-आज के डिजिटल युग में, **how to redact images in word** फ़ाइलें को सुरक्षित रूप से छुपाना एक महत्वपूर्ण कौशल है, जिससे गोपनीय ग्राफ़िक्स, लोगो या व्यक्तिगत फ़ोटो की रक्षा की जा सके। यह ट्यूटोरियल आपको GroupDocs.Redaction for Java का उपयोग करके Microsoft Word दस्तावेज़ों में एम्बेडेड इमेजेज़ को खोजने और सुरक्षित रूप से छुपाने की प्रक्रिया दिखाता है। अंत तक, आप पूरी कार्यप्रवाह—लाइब्रेरी सेटअप से लेकर सटीक इमेज रिडैक्शन लागू करने तक—को समझ जाएंगे, ताकि आप संवेदनशील विज़ुअल डेटा को गलत हाथों से बचा सकें।
+आज के डिजिटल युग में, **word में छवियों को कैसे संपादित करें** फ़ाइलों को सुरक्षित रूप से छुपाना एक महत्वपूर्ण कौशल है, जिससे गोपनीय ग्राफ़िक्स, लोगो या व्यक्तिगत फ़ोटो की रक्षा की जा सके। यह ट्यूटोरियल आपको GroupDocs.Redaction for Java का उपयोग करके Microsoft Word दस्तावेज़ों में एम्बेडेड इमेजेज़ को खोजने और सुरक्षित रूप से छुपाने की प्रक्रिया दिखाता है। अंत तक, आप पूरी कार्यप्रवाह—लाइब्रेरी सेटअप से लेकर सटीक इमेज रिडैक्शन लागू करने तक—को समझ जाएंगे, ताकि आप<extra_id_1> विज़ुअल डेटा को गलत हाथों से बचा सकें।
 
-## Quick Answers
-- **What library handles image redaction?** GroupDocs.Redaction for Java  
-- **Which Java version is required?** JDK 8 or higher  
-- **Do I need a license?** A free trial works for testing; a full license is required for production  
-- **Can I redact other file types?** Yes—PDF, Excel, and more are supported  
-- **Is the process memory‑efficient?** Yes, especially when you manage resources and process large documents in chunks  
+## त्वरित उत्तर
+- **कौन सी लाइब्रेरी इमेज रिडक्शन को संभालती है?** Java के लिए GroupDocs.Redaction
+- **Java का कौन सा संस्करण आवश्यक है?** JDK8 या उच्चतर
+- **क्या मुझे लाइसेंस की आवश्यकता है?** परीक्षण के लिए एक निःशुल्क परीक्षण काम करता है; प्रोडक्शन के लिए पूरा लाइसेंस ज़रूरी है
+- **क्या मैं दूसरी फ़ाइल टाइप को रिडैक्ट कर सकता हूँ?** हाँ—PDF, Excel, और भी बहुत कुछ सपोर्टेड हैं
+- **क्या प्रोसेस मेमोरी-एफ़िशिएंट है?** हाँ, खासकर जब आप रिसोर्स मैनेज करते हैं और बड़े डॉक्यूमेंट को चंक्स में प्रोसेस करते हैं
 
-## What is “how to redact images in word”?
+## “वर्ड में इमेज को रिडैक्ट कैसे करें” क्या है?
 
-Word दस्तावेज़ में इमेज रिडैक्शन का मतलब है निजी या स्वामित्व वाली जानकारी वाले दृश्य तत्वों को स्थायी रूप से हटाना या मास्क करना। GroupDocs.Redaction प्रोग्रामेटिक नियंत्रण प्रदान करता है जिससे आप सटीक क्षेत्रों को परिभाषित कर सकते हैं, उन्हें ठोस रंग से बदल सकते हैं, या पूरी तरह से इमेज डेटा को मिटा सकते हैं।
+वर्ड डॉक्यूमेंट में इमेज रिडैक्ट का मतलब है निजी या ओनरशिप वाली जानकारी वाले विज़ुअल एलिमेंट को परमानेंट रूप से हटाना या मास्क करना। GroupDocs.Redaction प्रोग्रामेटिक कंट्रोल प्रोवाइड करता है जिससे आप सटीक क्षेत्रों को डिफाइन कर सकते हैं, उन्हें सॉलिड रंग से बदल सकते हैं, या पूरी तरह से इमेज डेटा को मिटा सकते हैं।
 
-## Why use GroupDocs.Redaction for Java?
+## Java के लिए GroupDocs.Redaction का इस्तेमाल क्यों करें?
 
-- **Precision:** विशिष्ट कोऑर्डिनेट्स को टार्गेट करें, जिससे केवल इच्छित क्षेत्र ही छुपे।  
-- **Performance:** बड़े फ़ाइलों और बैच प्रोसेसिंग के लिए ऑप्टिमाइज़्ड।  
-- **Cross‑format support:** DOCX, PDF, PPTX आदि के साथ काम करता है, जिससे आप वही कोड बेस पुन: उपयोग कर सकते हैं।  
-- **Compliance:** GDPR, HIPAA और अन्य प्राइवेसी रेगुलेशन को पूरा करने में मदद करता है, यह सुनिश्चित करके कि रिडैक्टेड कंटेंट को पुनः प्राप्त नहीं किया जा सकता।
+- **Precision:** विशिष्ट कोऑर्डिनेट्स को टारगेट करें, जिससे केवल वांछित क्षेत्र ही छुपे।
+- **Performance:** बड़े साइज़ और बैच प्रोसेसिंग के लिए ऑप्टिमाइज़्ड।
+- **क्रॉस-फॉर्मेट सपोर्ट:** DOCX, PDF, PPTX आदि के साथ काम करता है, जिससे आप वही कोड बेस पुन: इस्तेमाल कर सकते हैं।
 
-## Prerequisites
+- **कम्प्लायंस:** GDPR, HIPAA और अन्य प्राइवेसी रेगुलेशन को पूरा करने में मदद करता है, यह सुनिश्चित करके कि रिडैक्टेड सामग्री को पुनः प्राप्त नहीं किया जा सकता।
 
-- **Java Development Kit (JDK) 8+** आपके मशीन पर इंस्टॉल हो।  
-- **Maven** (या JAR फ़ाइलें मैन्युअली जोड़ने की क्षमता)।  
-- Java सिंटैक्स और प्रोजेक्ट स्ट्रक्चर की बुनियादी समझ।
+## प्रीरिक्विजिट्स
 
-## Setting Up GroupDocs.Redaction for Java
+- **Java Development Kit (JDK)8+** आपकी मशीन पर इंस्टॉलेशन हो।
 
-### Installation via Maven
+- **Maven** (या JAR फाइलें इंस्टॉलेशन की क्षमता)।
+
+- Java सिंटैक्स और प्रोजेक्ट स्ट्रक्चर की बेसिक समझ।
+
+## Java के लिए GroupDocs.Redaction सेट अप करना
+
+### Maven के ज़रिए इंस्टॉलेशन
 
 `pom.xml` में GroupDocs रिपॉज़िटरी और डिपेंडेंसी जोड़ें:
 
@@ -66,19 +69,21 @@ Word दस्तावेज़ में इमेज रिडैक्शन
 </dependencies>
 ```
 
-### Direct Download
+### डायरेक्ट डाउनलोड
 
-यदि आप Maven नहीं उपयोग करना चाहते, तो आधिकारिक रिलीज़ पेज से नवीनतम JAR डाउनलोड करें: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/)।
+अगर आप Maven का इस्तेमाल नहीं करना चाहते, तो आधिकारिक रिलीज़ पेज से लेटेस्ट JAR डाउनलोड करें: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
-### License Acquisition
+### लाइसेंस एक्विजिशन
 
-- **Free Trial:** फीचर्स का मूल्यांकन करने के लिए आदर्श।  
-- **Temporary License:** सीमित अवधि के लिए ट्रायल क्षमताओं को बढ़ाता है।  
-- **Full Purchase:** सभी रिडैक्शन विकल्प और प्रीमियम सपोर्ट अनलॉक करता है।
+- **फ्री ट्रायल:** फीचर्स का वैल्यूएशन करने के लिए आदर्श।
 
-### Basic Initialization
+- **टेम्पररी लाइसेंस:** लिमिटेड पीरियड के लिए ट्रायल जेनरेट करने को ओपन है।
 
-नीचे न्यूनतम Java कोड है जो `Redactor` क्लास के साथ Word दस्तावेज़ खोलता है:
+- **फुल परचेज़:** सभी रिडैक्शन ऑप्शन और प्रीमियम सपोर्ट सफल करता है।
+
+### बेसिक इनिशियलाइज़ेशन
+
+नीचे न्यूनतम Java कोड है जो `Redactor` क्लास के साथ वर्ड डॉक्यूमेंट बनाता है:
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -96,11 +101,11 @@ public class RedactImagesExample {
 }
 ```
 
-## Implementation Guide – Step‑by‑Step
+## इम्प्लीमेंटेशन गाइड – स्टेप-बाय-स्टेप
 
-### How to redact images in word using GroupDocs.Redaction Java?
+### GroupDocs.Redaction Java का इस्तेमाल करके वर्ड में इमेज को कैसे रिडक्ट करें?
 
-#### Step 1: Define Document Path and Initialize Redactor
+#### Step1: डॉक्यूमेंट पाथ तय करें और रिडक्टर को इनिशियलाइज़ करें
 
 पहले, लाइब्रेरी को उस DOCX फ़ाइल की ओर इशारा करें जिसे आप प्रोसेस करना चाहते हैं:
 
@@ -116,18 +121,18 @@ try (final Redactor redactor = new Redactor(documentPath)) {
 }
 ```
 
-#### Step 2: Set Coordinates and Dimensions
+#### Step2: कोऑर्डिनेट्स और डाइमेंशन सेट करें
 
-उस इमेज का सटीक क्षेत्र पहचानें जिसे आप छुपाना चाहते हैं। `Point` ऊपरी‑बाएँ कोना निर्धारित करता है, जबकि `Dimension` रिडैक्शन बॉक्स की चौड़ाई और ऊँचाई सेट करता है:
+उस इमेज का सटीक एरिया पहचानें जिसे आप छिपाना चाहते हैं। `Point` ऊपरी-बाएँ कोना तय करता है, जबकि `Dimension` रिडक्शन बॉक्स की चौड़ाई और ऊँचाई सेट करता है:
 
 ```java
 java.awt.Point samplePoint = new java.awt.Point(516, 311); // Define starting point
 java.awt.Dimension sampleSize = new java.awt.Dimension(170, 35); // Set dimensions
 ```
 
-> **Pro tip:** यदि आपको सटीक कोऑर्डिनेट्स चाहिए तो Word व्यूअर या Office Open XML SDK का उपयोग करके इमेज पोज़िशन जांचें।
+> **प्रो टिप:** अगर आपको सटीक कोऑर्डिनेट्स चाहिए तो Word व्यूअर या Office Open XML SDK का इस्तेमाल करके इमेज पोज़िशन तैयार करें।
 
-#### Step 3: Apply Image Redaction
+#### Step3: इमेज रिडक्शन लागू करें
 
 एक `ImageAreaRedaction` ऑब्जेक्ट बनाएं, प्रतिस्थापन रंग (इस उदाहरण में नीला) निर्दिष्ट करें, और परिवर्तन लागू करें:
 
@@ -144,78 +149,80 @@ if (result.getStatus() != RedactionStatus.Failed) {
 
 रिडैक्टेड क्षेत्र अब ठोस नीले आयत से बदल दिया गया है, जिससे मूल विज़ुअल कंटेंट अब पुनः प्राप्त नहीं किया जा सकता।
 
-### Troubleshooting Tips
+### समस्या निवारण युक्तियाँ
 
-- **Coordinates out of bounds:** सुनिश्चित करें कि `samplePoint` और `sampleSize` पेज मार्जिन के भीतर रहें।  
-- **Missing dependencies:** Maven कोऑर्डिनेट्स या JAR पाथ को दोबारा जांचें।  
+- **Coordinates out of bounds:** सुनिश्चित करें कि `samplePoint` और `sampleSize` पेज मार्जिन के भीतर रहें।
+- **Missing dependencies:** Maven Coordinates या JAR पथ को दोबारा स्थापित करें।
 - **License errors:** लाइसेंस फ़ाइल सही जगह पर रखें और ट्रायल अवधि समाप्त न हुई हो, यह पुष्टि करें।
 
 ## Practical Applications
 
-1. **Legal Drafts:** विरोधी वकील को भेजने से पहले गोपनीय सील हटाएँ।  
-2. **Financial Reports:** प्रीव्यू संस्करण वितरित करते समय स्वामित्व वाले चार्ट छुपाएँ।  
-3. **Medical Records:** HIPAA के अनुरूप रोगी फ़ोटो हटाएँ।  
+1. **Legal Drafts:** Anti-Valken को भेजने से पहले गोपनीय सील हटाएँ।
+2. **Financial Reports:** Preview version Deploy करते समय Ownership वाले चार्ट छिपाएँ।
+3. **Medical Records:** HIPAA के अनुरूप रोगी फ़ोटो हटाएँ।
 
 ## Performance Considerations
 
-- **Memory Management:** `Redactor` को try‑with‑resources ब्लॉक में रैप करें (जैसा कि दिखाया गया है) ताकि सही ढंग से डिस्पोज़ हो सके।  
-- **Large Files:** दस्तावेज़ को चंक्स में प्रोसेस करें या UI को रिस्पॉन्सिव रखने के लिए असिंक्रोनस एक्ज़ीक्यूशन उपयोग करें।  
-- **Monitoring:** `RedactorChangeLog` विवरण लॉग करें ताकि यह ऑडिट किया जा सके कि क्या रिडैक्ट किया गया और कब।
+- **Memory Management:** `Redactor` को try‑with‑resources ब्लॉक में रैप करें (जैसा कि दिखाया गया है) ताकि सही ढंग से डिस्पोज़ हो सके।
+- **Large Files:** डॉक्यूमेंट को चंक्स में प्रोसेस करें या UI को रिस्पॉन्सिव रखने के लिए एसिंक्रोनस एक्सीक्यूशन इस्तेमाल करें।
+- **Monitoring:** `RedactorChangeLog` डिटेल लॉग करें ताकि यह ऑडिट किया जा सके कि क्या रिडैक्ट किया गया और कब।
 
-## Conclusion
+## निष्कर्ष
 
-अब आपके पास GroupDocs.Redaction for Java का उपयोग करके **how to redact images in word** दस्तावेज़ों के लिए एक पूर्ण, प्रोडक्शन‑रेडी मेथड है। सटीक कोऑर्डिनेट्स परिभाषित करके और रंग प्रतिस्थापन लागू करके, आप किसी भी विज़ुअल डेटा की रक्षा कर सकते हैं जो अन्यथा संवेदनशील जानकारी उजागर कर सकता है।
+अब आपके पास GroupDocs.Redaction for Java का इस्तेमाल करके **how to redact images in word** डॉक्यूमेंट्स के लिए एक पूरा, प्रोडक्शन-रेडी मेथड है। सटीक कोऑर्डिनेट्स डिफाइन करके और कलर रिप्लेसमेंट लागू करके, आप किसी भी विज़ुअल डेटा की रक्षा कर सकते हैं जो अन्यथा संवेदनशील जानकारी उजागर कर सकता है।
 
-### Next Steps
+### अगले स्टेप्स
 
-- अन्य रिडैक्शन प्रकार (टेक्स्ट, मेटाडेटा, एनोटेशन अन्वेषण करें।  
-- वर्कफ़्लो को वेब सर्विस या बैच प्रोसेसर में इंटीग्रेट करें।  
-- उन्नत विकल्पों के लिए आधिकारिक API रेफ़रेंस देखें।
+- दूसरे रिडक्शन टाइप (टेक्स्ट, मेटाडेटा, एनोटेशन एक्सप्लोरेशन करें।
 
-## FAQ Section
+- पीडीएफ को वेब सर्विस या बैच प्रोसेसर में इंटीग्रेट करें।
 
-**Q: How do I handle incorrect coordinates during redaction?**  
-A: Ensure that your coordinates are accurately calculated based on the image's dimensions within the document.
+- एडवांस्ड क्वालिटी के लिए ऑफिशियल API रेफरेंस देखें।
 
-**Q: Can GroupDocs.Redaction work with other file formats?**  
-A: Yes, it supports a variety of formats beyond Word, including PDFs and spreadsheets.
+## FAQ सेक्शन
 
-**Q: What if I encounter performance issues?**  
-A: Optimize your Java environment and consider using asynchronous processing for large files.
+**सवाल: रिडक्शन के दौरान गलत कोऑर्डिनेट्स को मैं कैसे हैंडल करूं?**
+जवाब: पक्का करें कि डॉक्यूमेंट में इमेज के डाइमेंशन के आधार पर आपके कोऑर्डिनेट्स सही-सही कैलकुलेट किए गए हैं।
 
-**Q: How do I extend my trial license?**  
-A: Contact GroupDocs support to discuss options for obtaining a temporary or full license.
+**सवाल: क्या GroupDocs.Redaction दूसरे फाइल फॉर्मेट के साथ काम कर सकता है?**
+जवाब: हां, यह Word के अलावा PDF और स्प्रेडशीट सहित कई तरह के फॉर्मेट को सपोर्ट करता है।
 
-**Q: Is there community support available for troubleshooting?**  
-A: Yes, you can seek assistance on the [GroupDocs Free Support Forum](https://forum.groupdocs.com/c/redaction/33).
+**सवाल: अगर मुझे परफॉर्मेंस में दिक्कतें आती हैं तो क्या होगा?**
+जवाब: अपने Java एनवायरनमेंट को ऑप्टिमाइज़ करें और बड़ी फाइलों के लिए एसिंक्रोनस प्रोसेसिंग इस्तेमाल करने पर विचार करें।
 
-## Frequently Asked Questions (Additional)
+**सवाल: मैं अपना ट्रायल लाइसेंस कैसे बढ़ाऊं?**
+जवाब: टेम्पररी या फुल लाइसेंस पाने के ऑप्शन पर बात करने के लिए GroupDocs सपोर्ट से कॉन्टैक्ट करें।
 
-**Q: Can I replace the redaction color with a custom image or pattern?**  
-A: Yes—use `RegionReplacementOptions` with a custom `java.awt.Image` instead of a solid color.
+**सवाल: क्या ट्रबलशूटिंग के लिए कम्युनिटी सपोर्ट उपलब्ध है?**
+जवाब: हाँ, आप [GroupDocs फ़्री सपोर्ट फ़ोरम](https://forum.groupdocs.com/c/redaction/33) पर मदद ले सकते हैं।
 
-**Q: Does the redaction process permanently delete the original image data?**  
-A: Absolutely. Once saved, the original pixel data is removed and cannot be recovered.
+## अक्सर पूछे जाने वाले सवाल (और भी)
 
-**Q: How can I batch‑process multiple documents?**  
-A: Loop over a collection of file paths, instantiate a `Redactor` for each, and apply the same redaction logic.
+**सवाल: क्या मैं रिडक्शन कलर को कस्टम इमेज या पैटर्न से बदल सकता हूँ?**
+जवाब: हाँ—सॉलिड कलर के बजाय कस्टम `java.awt.Image` के साथ `RegionReplacementOptions` का इस्तेमाल करें।
 
-**Q: Are there any limitations on image formats within DOCX files?**  
-A: GroupDocs.Redaction supports the standard image types embedded in Office Open XML (PNG, JPEG, GIF, BMP).
+**सवाल: क्या रिडक्शन प्रोसेस ओरिजिनल इमेज डेटा को हमेशा के लिए डिलीट कर देता है?**
+जवाब: बिल्कुल। एक बार सेव होने के बाद, ओरिजिनल पिक्सेल डेटा हटा दिया जाता है और उसे रिकवर नहीं किया जा सकता।
 
-## Resources
+**सवाल: मैं कई डॉक्यूमेंट्स को बैच-प्रोसेस कैसे कर सकता हूँ?**
+जवाब: फ़ाइल पाथ के कलेक्शन पर लूप करें, हर एक के लिए एक `Redactor` इंस्टैंशिएट करें, और वही रिडक्शन लॉजिक लागू करें।
 
-- **Documentation:** [GroupDocs.Redaction Java Documentation](https://docs.groupdocs.com/redaction/java/)  
-- **API Reference:** [GroupDocs Redaction API for Java](https://reference.groupdocs.com/redaction/java)  
-- **Download:** [Latest Releases](https://releases.groupdocs.com/redaction/java/)  
-- **GitHub:** [GroupDocs GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
-- **Free Support:** [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33)  
-- **Temporary License:** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/) 
+**सवाल: क्या DOCX फ़ाइलों में इमेज फ़ॉर्मैट पर कोई लिमिटेशन हैं?**
+जवाब: GroupDocs.Redaction सपोर्ट करता है Office Open XML (PNG, JPEG, GIF, BMP) में एम्बेडेड स्टैंडर्ड इमेज टाइप।
+
+## रिसोर्स
+
+- **डॉक्यूमेंटेशन:** [GroupDocs.Redaction Java डॉक्यूमेंटेशन](https://docs.groupdocs.com/redaction/java/)
+- **API रेफरेंस:** [Java के लिए GroupDocs Redaction API](https://reference.groupdocs.com/redaction/java)
+- **डाउनलोड:** [लेटेस्ट रिलीज़](https://releases.groupdocs.com/redaction/java/)
+- **GitHub:** [GroupDocs GitHub रिपॉजिटरी](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
+- **फ्री सपोर्ट:** [GroupDocs सपोर्ट फ़ोरम](https://forum.groupdocs.com/c/redaction/33)
+- **टेम्पररी लाइसेंस:** [टेम्पररी लाइसेंस पाएं](https://purchase.groupdocs.com/temporary-license/)
 
 ---
 
-**Last Updated:** 2025-12-31  
-**Tested With:** GroupDocs.Redaction 24.9 for Java  
-**Author:** GroupDocs  
+**पिछला अपडेट:** 2025-12-31
+**इसके साथ टेस्ट किया गया:** Java के लिए GroupDocs.Redaction 24.9
+**लेखक:** GroupDocs  
 
 ---
