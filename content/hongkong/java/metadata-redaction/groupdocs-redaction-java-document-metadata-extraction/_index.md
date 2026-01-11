@@ -161,11 +161,6 @@ A: 常見問題包括缺少授權、檔案路徑錯誤、忘記關閉串流。�
 - 結合中繼資料擷取與遮蔽工作流程，實現端對端的文件安全。  
 - 探索高吞吐量環境的批次處理模式。
 
----  
-**Last Updated:** 2026-01-06  
-**Tested With:** GroupDocs.Redaction 24.9 for Java  
-**Author:** GroupDocs  
-
 **Resources**  
 - [Documentation](https://docs.groupdocs.com/redaction/java/)  
 - [API Reference](https://reference.groupdocs.com/redaction/java)  
@@ -173,3 +168,8 @@ A: 常見問題包括缺少授權、檔案路徑錯誤、忘記關閉串流。�
 - [GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)  
 - [Temporary License Information](https://purchase.groupdocs.com/temporary-license/)
+
+---  
+**Last Updated:** 2026-01-06  
+**Tested With:** GroupDocs.Redaction 24.9 for Java  
+**Author:** GroupDocs  

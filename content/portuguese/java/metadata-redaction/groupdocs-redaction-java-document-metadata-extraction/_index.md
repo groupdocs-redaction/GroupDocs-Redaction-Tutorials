@@ -163,11 +163,6 @@ Agora você tem uma receita completa, pronta para produção, para **obter o tip
 - Combine a extração de metadados com fluxos de redação para segurança de documento ponta a ponta.  
 - Explore padrões de processamento em lote para ambientes de alto volume.
 
----  
-**Última atualização:** 2026-01-06  
-**Testado com:** GroupDocs.Redaction 24.9 para Java  
-**Autor:** GroupDocs  
-
 **Recursos**  
 - [Documentation](https://docs.groupdocs.com/redaction/java/)  
 - [API Reference](https://reference.groupdocs.com/redaction/java)  
@@ -175,3 +170,8 @@ Agora você tem uma receita completa, pronta para produção, para **obter o tip
 - [GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)  
 - [Temporary License Information](https://purchase.groupdocs.com/temporary-license/)
+
+---  
+**Última atualização:** 2026-01-06  
+**Testado com:** GroupDocs.Redaction 24.9 para Java  
+**Autor:** GroupDocs  

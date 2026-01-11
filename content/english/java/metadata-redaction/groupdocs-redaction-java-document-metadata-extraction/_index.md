@@ -161,11 +161,6 @@ You now have a complete, production‑ready recipe for **getting file type java*
 - Combine metadata extraction with redaction workflows for end‑to‑end document security.  
 - Explore batch processing patterns for high‑volume environments.
 
----  
-**Last Updated:** 2026-01-06  
-**Tested With:** GroupDocs.Redaction 24.9 for Java  
-**Author:** GroupDocs  
-
 **Resources**  
 - [Documentation](https://docs.groupdocs.com/redaction/java/)  
 - [API Reference](https://reference.groupdocs.com/redaction/java)  
@@ -174,4 +169,7 @@ You now have a complete, production‑ready recipe for **getting file type java*
 - [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)  
 - [Temporary License Information](https://purchase.groupdocs.com/temporary-license/)  
 
----
+---  
+**Last Updated:** 2026-01-06  
+**Tested With:** GroupDocs.Redaction 24.9 for Java  
+**Author:** GroupDocs  

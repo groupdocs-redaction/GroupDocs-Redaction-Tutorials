@@ -162,11 +162,6 @@ Du har nu ett komplett, produktionsklart recept för **att hämta filtyp java**,
 - Kombinera metadataextraktion med redigeringsarbetsflöden för en komplett dokument‑säkerhetslösning.  
 - Utforska batch‑bearbetningsmönster för högvolym‑miljöer.
 
----  
-**Senast uppdaterad:** 2026-01-06  
-**Testad med:** GroupDocs.Redaction 24.9 för Java  
-**Författare:** GroupDocs  
-
 **Resurser**  
 - [Documentation](https://docs.groupdocs.com/redaction/java/)  
 - [API Reference](https://reference.groupdocs.com/redaction/java)  
@@ -174,3 +169,8 @@ Du har nu ett komplett, produktionsklart recept för **att hämta filtyp java**,
 - [GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)  
 - [Temporary License Information](https://purchase.groupdocs.com/temporary-license/)
+
+---  
+**Senast uppdaterad:** 2026-01-06  
+**Testad med:** GroupDocs.Redaction 24.9 för Java  
+**Författare:** GroupDocs  

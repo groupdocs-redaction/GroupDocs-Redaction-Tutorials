@@ -164,11 +164,6 @@ Nyní máte kompletní, připravený recept pro **získání typu souboru v Jav�
 - Kombinujte extrakci metadat s redakčními workflow pro end‑to‑end zabezpečení dokumentů.  
 - Prozkoumejte vzory dávkového zpracování pro prostředí s vysokým objemem.
 
----  
-**Poslední aktualizace:** 2026-01-06  
-**Testováno s:** GroupDocs.Redaction 24.9 pro Java  
-**Autor:** GroupDocs  
-
 **Zdroje**  
 - [Dokumentace](https://docs.groupdocs.com/redaction/java/)  
 - [Reference API](https://reference.groupdocs.com/redaction/java)  
@@ -176,3 +171,8 @@ Nyní máte kompletní, připravený recept pro **získání typu souboru v Jav�
 - [GitHub úložiště](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - [Bezplatné fórum podpory](https://forum.groupdocs.com/c/redaction/33)  
 - [Informace o dočasné licenci](https://purchase.groupdocs.com/temporary-license/)
+
+---  
+**Poslední aktualizace:** 2026-01-06  
+**Testováno s:** GroupDocs.Redaction 24.9 pro Java  
+**Autor:** GroupDocs  

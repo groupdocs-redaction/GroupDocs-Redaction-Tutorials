@@ -161,11 +161,6 @@ Now you have a complete, production‑ready recipe for **getting file type java*
 - Συνδυάστε την εξαγωγή μεταδεδομένων με τις ροές redaction για ολοκληρωμένη ασφάλεια εγγράφων.  
 - Εξερευνήστε μοτίβα επεξεργασίας παρτίδων για περιβάλλοντα υψηλού όγκου.
 
----  
-**Last Updated:** 2026-01-06  
-**Tested With:** GroupDocs.Redaction 24.9 for Java  
-**Author:** GroupDocs  
-
 **Resources**  
 - [Documentation](https://docs.groupdocs.com/redaction/java/)  
 - [API Reference](https://reference.groupdocs.com/redaction/java)  
@@ -173,3 +168,8 @@ Now you have a complete, production‑ready recipe for **getting file type java*
 - [GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)  
 - [Temporary License Information](https://purchase.groupdocs.com/temporary-license/)
+
+---  
+**Last Updated:** 2026-01-06  
+**Tested With:** GroupDocs.Redaction 24.9 for Java  
+**Author:** GroupDocs  

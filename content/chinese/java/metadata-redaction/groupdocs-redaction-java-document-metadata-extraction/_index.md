@@ -162,11 +162,6 @@ Document size: " + info.getSize() + " bytes");
 - 将元数据提取与脱敏工作流结合，实现端到端的文档安全。  
 - 探索适用于高并发环境的批处理模式。
 
----  
-**最后更新：** 2026-01-06  
-**测试环境：** GroupDocs.Redaction 24.9 for Java  
-**作者：** GroupDocs  
-
 ## 资源
 - [文档](https://docs.groupdocs.com/redaction/java/)  
 - [API 参考](https://reference.groupdocs.com/redaction/java)  
@@ -174,3 +169,8 @@ Document size: " + info.getSize() + " bytes");
 - [GitHub 仓库](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - [免费支持论坛](https://forum.groupdocs.com/c/redaction/33)  
 - [临时许可证信息](https://purchase.groupdocs.com/temporary-license/)
+
+---  
+**最后更新：** 2026-01-06  
+**测试环境：** GroupDocs.Redaction 24.9 for Java  
+**作者：** GroupDocs  

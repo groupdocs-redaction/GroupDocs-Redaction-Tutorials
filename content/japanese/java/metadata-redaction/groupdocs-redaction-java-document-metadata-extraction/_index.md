@@ -15,29 +15,29 @@ weight: 1
 
 最新の Java アプリケーションでは、**get file type java** を迅速に取得し、ページ数、サイズ、カスタムメタデータなどの有用なドキュメントプロパティを取得できることが、堅牢なドキュメント管理やデータ分析パイプラインを構築する上で不可欠です。このチュートリアルでは、GroupDocs.Redaction を使用してドキュメントプロパティを読み取る方法、なぜこのライブラリがこのタスクに最適なのか、そしてソリューションをコードベースにきれいに統合する方法を正確に示します。
 
-## Quick Answers
+## クイックアンサー
 - **Java でドキュメントのファイルタイプを取得するには？** `redactor.getDocumentInfo().getFileType()` を使用します。  
 - **メタデータ抽出と赤字処理を同時に行えるライブラリはどれですか？** GroupDocs.Redaction for Java。  
 - **開発にライセンスは必要ですか？** 評価には無料トライアルで動作しますが、本番環境では永続ライセンスが必要です。  
 - **ページ数も取得できますか？** はい、`IDocumentInfo` オブジェクトで `getPageCount()` を呼び出します。  
 - **このアプローチは Java 8 以降に対応していますか？** はい、GroupDocs.Redaction は Java 8 以降をサポートしています。
 
-## What is “get file type java” and why does it matter?
+## 「get file type java」とは何ですか? なぜ重要なのですか?
 `getFileType()` をドキュメントに対して呼び出すと、ライブラリはファイルヘッダーを検査し、フレンドリーな enum（例: **DOCX**, **PDF**, **XLSX**）を返します。正確なタイプを把握することで、ファイルを適切な処理パイプラインに振り分けたり、セキュリティポリシーを適用したり、エンドユーザーに正確な情報を表示したりできます。
 
-## Why use GroupDocs.Redaction for java read document properties?
+## Java のドキュメントプロパティ読み取りに GroupDocs.Redaction を使用する理由
 - **オールインワン ソリューション:** 赤字処理、メタデータ抽出、フォーマット変換が単一の API で提供されます。  
 - **ストリームフレンドリー:** `InputStream` で直接動作するため、ディスク、ネットワーク、クラウドストレージからのファイルを一時ファイルなしで処理できます。  
 - **パフォーマンス最適化:** メモリ使用量が最小で、`Redactor` インスタンスを閉じると自動的にリソースがクリーンアップされます。
 
-## Prerequisites
+## 前提条件
 1. **GroupDocs.Redaction for Java**（バージョン 24.9 以降）。  
 2. JDK 8 以上。  
 3. 基本的な Java の知識とファイル I/O ストリームの知識。
 
-## Setting Up GroupDocs.Redaction for Java
+## Java 用 GroupDocs.Redaction の設定
 
-### Maven Installation
+### Maven のインストール
 `pom.xml` にリポジトリと依存関係を追加します。
 
 ```xml
@@ -58,15 +58,15 @@ weight: 1
 </dependencies>
 ```
 
-### Direct Download
+### 直接ダウンロード
 あるいは、最新バージョンを直接 [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/) からダウンロードします。
 
-### License Acquisition
-- **Free Trial:** API の評価に最適です。  
-- **Temporary License:** 公式サイトで短期テスト用に提供されています。  
-- **Full License:** 本番利用の準備ができたら購入してください。
+### ライセンスの取得
+- **無料トライアル:** API の評価に最適です。  
+- **一時ライセンス:** 公式サイトで短期テスト用に提供されています。  
+- **フルライセンス:** 本番利用の準備ができたら購入してください。
 
-## Basic Initialization (Java)
+## 基本的な初期化 (Java)
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -77,23 +77,23 @@ final Redactor redactor = new Redactor(stream);
 // Proceed with document operations...
 ```
 
-## How to get file type java with GroupDocs.Redaction
+## GroupDocs.Redaction でファイルタイプを Java にする方法
 
-### Step 1: Open a File Stream
+### ステップ 1: ファイルストリームを開く
 対象ドキュメントの `InputStream` を作成します。
 
 ```java
 FileInputStream stream = new FileInputStream("YOUR_DOCUMENT_DIRECTORY/Sample.docx");
 ```
 
-### Step 2: Initialize the Redactor
+### ステップ 2: Redactor を初期化する
 ストリームを使用して `Redactor` インスタンスを作成します。このオブジェクトでドキュメントのメタデータにアクセスできます。
 
 ```java
 final Redactor redactor = new Redactor(stream);
 ```
 
-### Step 3: Retrieve Document Information
+### ステップ3: ドキュメント情報を取得する
 `getDocumentInfo()` を呼び出して `IDocumentInfo` オブジェクトを取得します。ここで **get file type java** を取得し、他のプロパティを読み取り、さらに **retrieve page count java** も取得できます。
 
 ```java
@@ -115,28 +115,28 @@ Document size: " + info.getSize() + " bytes");
 
 > **プロのコツ:** コンソール出力が必要なときだけ `System.out.println` 行のコメントを外してください。プロダクションではコメントのままにしておくと I/O オーバーヘッドが削減されます。
 
-### Step 4: Close Resources
+### ステップ4: リソースを閉じる
 特に多数のドキュメントを並列処理する場合は、メモリリークを防ぐために `Redactor` とストリームを `finally` ブロックで必ず閉じてください（例参照）。
 
-## Practical Applications (java read document properties)
+## 実用的なアプリケーション (Java によるドキュメントプロパティの読み取り)
 
 1. **ドキュメント管理システム:** タイプ、ページ数、サイズでファイルを自動カタログ化します。  
 2. **データ分析パイプライン:** メタデータをダッシュボードに供給してレポート作成に活用します。  
 3. **コンテンツ作成プラットフォーム:** ダウンロードやプレビュー前にエンドユーザーにファイル詳細を表示します。
 
-## Performance Considerations
+## パフォーマンスに関する考慮事項
 - 大きなファイルでは **バッファードストリーム**（`BufferedInputStream`）を使用して I/O 速度を向上させます。  
 - リソースは速やかに解放します（`Redactor` とストリームの両方で `close()`）。  
 - バッチ処理時は、スレッドごとに単一の `Redactor` インスタンスを再利用してオブジェクト生成のオーバーヘッドを削減することを検討してください。
 
-## Common Issues & Solutions
+## よくある問題と解決策
 | Symptom | Likely Cause | Fix |
 |---------|--------------|-----|
 | `FileNotFoundException` | パスが間違っている、またはファイルが存在しない | 絶対/相対パスとファイル権限を確認してください。 |
 | `LicenseException` | 有効なライセンスがロードされていない | `Redactor` を作成する前に、トライアルまたは購入したライセンスをロードしてください。 |
 | `OutOfMemoryError` on large PDFs | バッファなしストリーム、または多数のファイルを同時に処理している | `BufferedInputStream` に切り替え、同時スレッド数を制限してください。 |
 
-## Frequently Asked Questions
+## よくある質問
 
 **Q: GroupDocs.Redaction は何に使われますか？**  
 A: 主に機密情報の赤字処理に使用されますが、**java read document properties** のようにファイルタイプやページ数などのドキュメントプロパティを取得するための堅牢な API も提供します。
@@ -161,11 +161,6 @@ A: ライセンスがない、ファイルパスが間違っている、スト�
 - メタデータ抽出と赤字処理ワークフローを組み合わせて、エンドツーエンドのドキュメントセキュリティを実現します。  
 - 高ボリューム環境向けのバッチ処理パターンを検討してください。
 
----  
-**最終更新日:** 2026-01-06  
-**テスト環境:** GroupDocs.Redaction 24.9 for Java  
-**作者:** GroupDocs  
-
 **Resources**  
 - [ドキュメンテーション](https://docs.groupdocs.com/redaction/java/)  
 - [API リファレンス](https://reference.groupdocs.com/redaction/java)  
@@ -173,3 +168,8 @@ A: ライセンスがない、ファイルパスが間違っている、スト�
 - [GitHub リポジトリ](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - [無料サポートフォーラム](https://forum.groupdocs.com/c/redaction/33)  
 - [一時ライセンス情報](https://purchase.groupdocs.com/temporary-license/)
+
+---  
+**最終更新日:** 2026-01-06  
+**テスト環境:** GroupDocs.Redaction 24.9 for Java  
+**作者:** GroupDocs  

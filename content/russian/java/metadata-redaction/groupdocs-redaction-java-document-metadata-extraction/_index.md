@@ -163,11 +163,6 @@ Document size: " + info.getSize() + " bytes");
 - Сочетайте извлечение метаданных с процессами редактирования для сквозной защиты документов.  
 - Исследуйте шаблоны пакетной обработки для высоких объёмов.
 
----  
-**Последнее обновление:** 2026-01-06  
-**Тестировано с:** GroupDocs.Redaction 24.9 for Java  
-**Автор:** GroupDocs  
-
 **Ресурсы**  
 - [Documentation](https://docs.groupdocs.com/redaction/java/)  
 - [API Reference](https://reference.groupdocs.com/redaction/java)  
@@ -175,3 +170,8 @@ Document size: " + info.getSize() + " bytes");
 - [GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)  
 - [Temporary License Information](https://purchase.groupdocs.com/temporary-license/)
+
+---  
+**Последнее обновление:** 2026-01-06  
+**Тестировано с:** GroupDocs.Redaction 24.9 for Java  
+**Автор:** GroupDocs  

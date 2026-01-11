@@ -164,11 +164,6 @@ Vous disposez maintenant d’une recette complète, prête pour la production, p
 - Combinez l’extraction de métadonnées avec les flux de travail de rédaction pour une sécurité documentaire de bout en bout.  
 - Explorez les modèles de traitement par lots pour les environnements à haut volume.
 
----  
-**Dernière mise à jour :** 2026-01-06  
-**Testé avec :** GroupDocs.Redaction 24.9 for Java  
-**Auteur :** GroupDocs  
-
 **Ressources**  
 - [Documentation](https://docs.groupdocs.com/redaction/java/)  
 - [API Reference](https://reference.groupdocs.com/redaction/java)  
@@ -176,3 +171,8 @@ Vous disposez maintenant d’une recette complète, prête pour la production, p
 - [GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)  
 - [Temporary License Information](https://purchase.groupdocs.com/temporary-license/)
+
+---  
+**Dernière mise à jour :** 2026-01-06  
+**Testé avec :** GroupDocs.Redaction 24.9 for Java  
+**Auteur :** GroupDocs  

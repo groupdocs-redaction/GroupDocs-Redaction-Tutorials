@@ -164,11 +164,6 @@ Sie haben nun ein vollständiges, produktionsbereites Rezept zum **getting file 
 - Kombinieren Sie die Metadatenextraktion mit Redaktions‑Workflows für eine End‑zu‑End‑Dokumentensicherheit.  
 - Erkunden Sie Batch‑Verarbeitungsszenarien für Hochvolumen‑Umgebungen.
 
----  
-**Zuletzt aktualisiert:** 2026-01-06  
-**Getestet mit:** GroupDocs.Redaction 24.9 für Java  
-**Autor:** GroupDocs  
-
 **Ressourcen**  
 - [Documentation](https://docs.groupdocs.com/redaction/java/)  
 - [API Reference](https://reference.groupdocs.com/redaction/java)  
@@ -176,3 +171,8 @@ Sie haben nun ein vollständiges, produktionsbereites Rezept zum **getting file 
 - [GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)  
 - [Temporary License Information](https://purchase.groupdocs.com/temporary-license/)
+
+---  
+**Zuletzt aktualisiert:** 2026-01-06  
+**Getestet mit:** GroupDocs.Redaction 24.9 für Java  
+**Autor:** GroupDocs  

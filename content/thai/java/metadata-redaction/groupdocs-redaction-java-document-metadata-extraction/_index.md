@@ -162,11 +162,6 @@ Document size: " + info.getSize() + " bytes");
 - ผสานการสกัดเมตาดาต้ากับ workflow การทำลบข้อมูลเพื่อความปลอดภัยของเอกสารแบบครบวงจร  
 - สำรวจรูปแบบการประมวลผลแบบ batch สำหรับสภาพแวดล้อมที่มีปริมาณสูง  
 
----  
-**อัปเดตล่าสุด:** 2026-01-06  
-**ทดสอบกับ:** GroupDocs.Redaction 24.9 for Java  
-**ผู้เขียน:** GroupDocs  
-
 **แหล่งข้อมูล**  
 - [Documentation](https://docs.groupdocs.com/redaction/java/)  
 - [API Reference](https://reference.groupdocs.com/redaction/java)  
@@ -174,3 +169,8 @@ Document size: " + info.getSize() + " bytes");
 - [GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)  
 - [Temporary License Information](https://purchase.groupdocs.com/temporary-license/)
+
+---  
+**อัปเดตล่าสุด:** 2026-01-06  
+**ทดสอบกับ:** GroupDocs.Redaction 24.9 for Java  
+**ผู้เขียน:** GroupDocs  

@@ -163,11 +163,6 @@ Artık **dosya türünü al**, diğer belge özelliklerini okuyabilir ve **sayfa
 - Meta veri çıkarımını kırpma iş akışlarıyla birleştirerek uçtan uca belge güvenliği sağlayın.  
 - Yüksek hacimli ortamlar için toplu işleme desenlerini keşfedin.
 
----  
-**Last Updated:** 2026-01-06  
-**Tested With:** GroupDocs.Redaction 24.9 for Java  
-**Author:** GroupDocs  
-
 ## Kaynaklar  
 - [Documentation](https://docs.groupdocs.com/redaction/java/)  
 - [API Reference](https://reference.groupdocs.com/redaction/java)  
@@ -175,3 +170,8 @@ Artık **dosya türünü al**, diğer belge özelliklerini okuyabilir ve **sayfa
 - [GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)  
 - [Temporary License Information](https://purchase.groupdocs.com/temporary-license/)
+
+---  
+**Last Updated:** 2026-01-06  
+**Tested With:** GroupDocs.Redaction 24.9 for Java  
+**Author:** GroupDocs  

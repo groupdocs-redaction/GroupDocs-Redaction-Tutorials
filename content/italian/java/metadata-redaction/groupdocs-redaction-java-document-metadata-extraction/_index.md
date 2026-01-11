@@ -163,11 +163,6 @@ Ora disponi di una ricetta completa, pronta per la produzione, per **ottenere il
 - Combina l’estrazione dei metadati con i flussi di redazione per una sicurezza end‑to‑end dei documenti.  
 - Esplora i pattern di elaborazione batch per ambienti ad alto volume.
 
----  
-**Ultimo aggiornamento:** 2026-01-06  
-**Testato con:** GroupDocs.Redaction 24.9 per Java  
-**Autore:** GroupDocs  
-
 **Risorse**  
 - [Documentation](https://docs.groupdocs.com/redaction/java/)  
 - [API Reference](https://reference.groupdocs.com/redaction/java)  
@@ -175,3 +170,9 @@ Ora disponi di una ricetta completa, pronta per la produzione, per **ottenere il
 - [GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)  
 - [Temporary License Information](https://purchase.groupdocs.com/temporary-license/)
+
+---  
+
+**Ultimo aggiornamento:** 2026-01-06  
+**Testato con:** GroupDocs.Redaction 24.9 per Java  
+**Autore:** GroupDocs  

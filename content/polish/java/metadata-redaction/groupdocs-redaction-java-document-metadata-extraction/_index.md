@@ -164,11 +164,6 @@ Masz teraz kompletny, gotowy do produkcji przepis na **getting file type java**,
 - Połącz wyodrębnianie metadanych z procesami redakcji, aby uzyskać kompleksowe zabezpieczenie dokumentów.  
 - Zbadaj wzorce przetwarzania wsadowego dla środowisk o dużej przepustowości.
 
----  
-**Ostatnia aktualizacja:** 2026-01-06  
-**Testowano z:** GroupDocs.Redaction 24.9 for Java  
-**Autor:** GroupDocs  
-
 **Zasoby**
 - [Dokumentacja](https://docs.groupdocs.com/redaction/java/)  
 - [Referencja API](https://reference.groupdocs.com/redaction/java)  
@@ -176,3 +171,8 @@ Masz teraz kompletny, gotowy do produkcji przepis na **getting file type java**,
 - [Repozytorium GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - [Bezpłatne forum wsparcia](https://forum.groupdocs.com/c/redaction/33)  
 - [Informacje o licencji tymczasowej](https://purchase.groupdocs.com/temporary-license/)
+
+---  
+**Ostatnia aktualizacja:** 2026-01-06  
+**Testowano z:** GroupDocs.Redaction 24.9 for Java  
+**Autor:** GroupDocs  

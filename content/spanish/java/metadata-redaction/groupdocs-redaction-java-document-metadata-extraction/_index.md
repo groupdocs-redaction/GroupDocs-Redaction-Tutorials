@@ -162,11 +162,6 @@ Ahora tiene una receta completa y lista para producción para **obtener el tipo 
 - Combine la extracción de metadatos con flujos de trabajo de redacción para una seguridad documental de extremo a extremo.  
 - Explore patrones de procesamiento por lotes para entornos de alto volumen.
 
----  
-**Última actualización:** 2026-01-06  
-**Probado con:** GroupDocs.Redaction 24.9 for Java  
-**Autor:** GroupDocs  
-
 **Recursos**  
 - [Documentación](https://docs.groupdocs.com/redaction/java/)  
 - [Referencia API](https://reference.groupdocs.com/redaction/java)  
@@ -174,3 +169,8 @@ Ahora tiene una receta completa y lista para producción para **obtener el tipo 
 - [Repositorio GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - [Foro de soporte gratuito](https://forum.groupdocs.com/c/redaction/33)  
 - [Información de licencia temporal](https://purchase.groupdocs.com/temporary-license/)
+
+---  
+**Última actualización:** 2026-01-06  
+**Probado con:** GroupDocs.Redaction 24.9 for Java  
+**Autor:** GroupDocs  

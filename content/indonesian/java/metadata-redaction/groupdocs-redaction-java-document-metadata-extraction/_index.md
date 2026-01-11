@@ -161,11 +161,6 @@ Anda kini memiliki resep lengkap yang siap produksi untuk **getting file type ja
 - Gabungkan ekstraksi metadata dengan alur kerja redaksi untuk keamanan dokumen end‑to‑end.  
 - Jelajahi pola pemrosesan batch untuk lingkungan volume tinggi.
 
----  
-**Terakhir Diperbarui:** 2026-01-06  
-**Diuji Dengan:** GroupDocs.Redaction 24.9 untuk Java  
-**Penulis:** GroupDocs  
-
 **Sumber Daya**  
 - [Documentation](https://docs.groupdocs.com/redaction/java/)  
 - [API Reference](https://reference.groupdocs.com/redaction/java)  
@@ -173,3 +168,8 @@ Anda kini memiliki resep lengkap yang siap produksi untuk **getting file type ja
 - [GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)  
 - [Temporary License Information](https://purchase.groupdocs.com/temporary-license/)
+
+---  
+**Terakhir Diperbarui:** 2026-01-06  
+**Diuji Dengan:** GroupDocs.Redaction 24.9 untuk Java  
+**Penulis:** GroupDocs  

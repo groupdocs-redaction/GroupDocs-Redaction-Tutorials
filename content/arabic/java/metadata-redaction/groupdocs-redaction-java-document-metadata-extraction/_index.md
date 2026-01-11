@@ -163,11 +163,6 @@ Document size: " + info.getSize() + " bytes");
 - اجمع استخراج البيانات التعريفية مع عمليات إزالة المعلومات الحساسة لإنشاء تدفق أمان مستند شامل.  
 - استكشف أنماط المعالجة الدفعية للبيئات ذات الأحجام الكبيرة.
 
----  
-**آخر تحديث:** 2026-01-06  
-**تم الاختبار مع:** GroupDocs.Redaction 24.9 for Java  
-**المؤلف:** GroupDocs  
-
 **الموارد**  
 - [التوثيق](https://docs.groupdocs.com/redaction/java/)  
 - [مرجع الـ API](https://reference.groupdocs.com/redaction/java)  
@@ -175,3 +170,8 @@ Document size: " + info.getSize() + " bytes");
 - [مستودع GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - [منتدى الدعم المجاني](https://forum.groupdocs.com/c/redaction/33)  
 - [معلومات الترخيص المؤقت](https://purchase.groupdocs.com/temporary-license/)
+
+---  
+**آخر تحديث:** 2026-01-06  
+**تم الاختبار مع:** GroupDocs.Redaction 24.9 for Java  
+**المؤلف:** GroupDocs  

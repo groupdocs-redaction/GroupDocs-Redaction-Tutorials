@@ -163,11 +163,6 @@ Document size: " + info.getSize() + " bytes");
 - मेटाडेटा निष्कर्षण को रेडैक्शन वर्कफ़्लो के साथ मिलाकर एंड‑टू‑एंड दस्तावेज़ सुरक्षा बनाएं।  
 - उच्च‑वॉल्यूम वातावरण के लिए बैच प्रोसेसिंग पैटर्न का अन्वेषण करें।
 
----  
-**अंतिम अपडेट:** 2026-01-06  
-**परीक्षित संस्करण:** GroupDocs.Redaction 24.9 for Java  
-**लेखक:** GroupDocs  
-
 **संसाधन**  
 - [डॉक्यूमेंटेशन](https://docs.groupdocs.com/redaction/java/)  
 - [API रेफ़रेंस](https://reference.groupdocs.com/redaction/java)  
@@ -176,4 +171,7 @@ Document size: " + info.getSize() + " bytes");
 - [फ़्री सपोर्ट फ़ोरम](https://forum.groupdocs.com/c/redaction/33)  
 - [अस्थायी लाइसेंस जानकारी](https://purchase.groupdocs.com/temporary-license/)  
 
----
+---  
+**अंतिम अपडेट:** 2026-01-06  
+**परीक्षित संस्करण:** GroupDocs.Redaction 24.9 for Java  
+**लेखक:** GroupDocs  

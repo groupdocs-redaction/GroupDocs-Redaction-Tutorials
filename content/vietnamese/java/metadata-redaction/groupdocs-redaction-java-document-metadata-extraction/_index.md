@@ -163,11 +163,6 @@ Bây giờ bạn đã có một công thức hoàn chỉnh, sẵn sàng cho môi
 - Kết hợp việc trích xuất siêu dữ liệu với quy trình che dấu để đạt bảo mật tài liệu đầu‑cuối.  
 - Khám phá các mẫu xử lý hàng loạt cho môi trường khối lượng lớn.
 
----  
-**Last Updated:** 2026-01-06  
-**Tested With:** GroupDocs.Redaction 24.9 for Java  
-**Author:** GroupDocs  
-
 **Tài nguyên**  
 - [Tài liệu](https://docs.groupdocs.com/redaction/java/)  
 - [Tham chiếu API](https://reference.groupdocs.com/redaction/java)  
@@ -175,3 +170,8 @@ Bây giờ bạn đã có một công thức hoàn chỉnh, sẵn sàng cho môi
 - [Kho lưu trữ GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - [Diễn đàn hỗ trợ miễn phí](https://forum.groupdocs.com/c/redaction/33)  
 - [Thông tin giấy phép tạm thời](https://purchase.groupdocs.com/temporary-license/)
+
+---  
+**Last Updated:** 2026-01-06  
+**Tested With:** GroupDocs.Redaction 24.9 for Java  
+**Author:** GroupDocs  

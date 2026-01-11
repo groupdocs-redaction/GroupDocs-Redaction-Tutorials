@@ -165,11 +165,6 @@ Most már rendelkezik egy teljes, termelésre kész recepttel a **get file type 
 - Kombinálja a metaadat kinyerést a redakciós munkafolyamatokkal az átfogó dokumentum biztonság érdekében.  
 - Fedezze fel a kötegelt feldolgozási mintákat nagy mennyiségű környezetekhez.
 
----  
-**Legutóbb frissítve:** 2026-01-06  
-**Tesztelve:** GroupDocs.Redaction 24.9 for Java  
-**Szerző:** GroupDocs  
-
 **Erőforrások**  
 - [Dokumentáció](https://docs.groupdocs.com/redaction/java/)  
 - [API referencia](https://reference.groupdocs.com/redaction/java)  
@@ -177,3 +172,8 @@ Most már rendelkezik egy teljes, termelésre kész recepttel a **get file type 
 - [GitHub tároló](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - [Ingyenes támogatási fórum](https://forum.groupdocs.com/c/redaction/33)  
 - [Ideiglenes licenc információ](https://purchase.groupdocs.com/temporary-license/)
+
+---  
+**Legutóbb frissítve:** 2026-01-06  
+**Tesztelve:** GroupDocs.Redaction 24.9 for Java  
+**Szerző:** GroupDocs  
