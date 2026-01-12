@@ -6,7 +6,7 @@ keywords:
 - Java metadata redaction
 - GroupDocs.Redaction for Java
 - metadata text replacement
-title: 'Java에서 메타데이터를 가리는 방법: 문서의 텍스트를 안전하게 교체하기'
+title: 'Java에서 메타데이터를 가리는 방법 - 문서의 텍스트를 안전하게 교체하기'
 type: docs
 url: /ko/java/metadata-redaction/java-redaction-metadata-text-replacement-guide/
 weight: 1
@@ -166,12 +166,6 @@ A: GroupDocs는 [포럼](https://forum.groupdocs.com/c/redaction/33) 을 통해 
 
 이제 Java 문서에서 **메타데이터 가리기**와 **메타데이터 텍스트 교체**를 수행하는 완전한 생산 환경용 방법을 알게 되었습니다. 위 단계들을 따라 하면 문서 속성에 숨겨진 민감 정보를 보호하면서 원본 파일 형식을 유지할 수 있습니다.
 
----
-
-**최종 업데이트:** 2026-01-08  
-**테스트 환경:** GroupDocs.Redaction 24.9 for Java  
-**작성자:** GroupDocs  
-
 **리소스**  
 - **문서:** 자세한 내용은 [GroupDocs.Redaction Documentation](https://docs.groupdocs.com/redaction/java/) 에서 확인하세요.  
 - **API 레퍼런스:** 상세 API 정보는 [API Reference](https://reference.groupdocs.com/redaction/java) 에서 확인할 수 있습니다.  
@@ -179,3 +173,9 @@ A: GroupDocs는 [포럼](https://forum.groupdocs.com/c/redaction/33) 을 통해 
 - **GitHub:** 소스 코드는 [GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java) 에서 확인할 수 있습니다.  
 - **무료 지원:** [Support Forum](https://forum.groupdocs.com/c/redaction/33) 에서 토론에 참여하세요.  
 - **임시 라이선스:** 테스트용 라이선스는 [Temporary License](https://purchase.groupdocs.com/temporary-license/) 에서 얻을 수 있습니다.
+
+---
+
+**최종 업데이트:** 2026-01-08  
+**테스트 환경:** GroupDocs.Redaction 24.9 for Java  
+**작성자:** GroupDocs  

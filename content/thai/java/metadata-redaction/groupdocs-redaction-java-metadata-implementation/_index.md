@@ -6,7 +6,7 @@ keywords:
 - metadata redaction in Java
 - GroupDocs Redaction setup
 - removing metadata fields
-title: 'วิธีใช้ EraseMetadataRedaction ใน Java กับ GroupDocs: คู่มือขั้นตอนโดยละเอียด'
+title: 'วิธีใช้ EraseMetadataRedaction ใน Java กับ GroupDocs - คู่มือขั้นตอนโดยละเอียด'
 type: docs
 url: /th/java/metadata-redaction/groupdocs-redaction-java-metadata-implementation/
 weight: 1

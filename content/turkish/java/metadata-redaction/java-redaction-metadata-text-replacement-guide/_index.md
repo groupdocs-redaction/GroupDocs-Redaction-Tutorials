@@ -7,7 +7,7 @@ keywords:
 - Java metadata redaction
 - GroupDocs.Redaction for Java
 - metadata text replacement
-title: 'Java''da Meta Verileri Nasıl Kırpılır: Belgelerde Metni Güvenli Bir Şekilde
+title: 'Java''da Meta Verileri Nasıl Kırpılır - Belgelerde Metni Güvenli Bir Şekilde
   Değiştirme'
 type: docs
 url: /tr/java/metadata-redaction/java-redaction-metadata-text-replacement-guide/
@@ -167,12 +167,6 @@ C: GroupDocs, ücretsiz desteği [forum](https://forum.groupdocs.com/c/redaction
 
 Artık GroupDocs.Redaction kullanarak Java belgelerinde **metadata nasıl kırpılır** ve **metadata metni nasıl değiştirilir** konusunda eksiksiz, üretim‑hazır bir yönteme sahipsiniz. Yukarıdaki adımları izleyerek belge özelliklerinde gizli hassas bilgileri koruyabilir ve orijinal dosya formatını koruyabilirsiniz.
 
----
-
-**Son Güncelleme:** 2026-01-08  
-**Test Edilen:** GroupDocs.Redaction 24.9 for Java  
-**Yazar:** GroupDocs  
-
 **Kaynaklar**  
 - **Documentation:** Daha fazlasını keşfedin: [GroupDocs.Redaction Documentation](https://docs.groupdocs.com/redaction/java/)  
 - **API Reference:** Ayrıntılı API bilgileri: [API Reference](https://reference.groupdocs.com/redaction/java)  
@@ -180,3 +174,9 @@ Artık GroupDocs.Redaction kullanarak Java belgelerinde **metadata nasıl kırp�
 - **GitHub:** Kaynak koduna erişin: [GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - **Free Support:** Tartışmalara katılın: [Support Forum](https://forum.groupdocs.com/c/redaction/33)  
 - **Temporary License:** Test amaçlı lisans alın: [Temporary License](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Son Güncelleme:** 2026-01-08  
+**Test Edilen:** GroupDocs.Redaction 24.9 for Java  
+**Yazar:** GroupDocs  

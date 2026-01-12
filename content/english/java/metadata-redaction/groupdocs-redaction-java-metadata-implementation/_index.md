@@ -1,5 +1,5 @@
 ---
-title: "How to Use EraseMetadataRedaction in Java with GroupDocs: A Step‑by‑Step Guide"
+title: "How to Use EraseMetadataRedaction in Java with GroupDocs - A Step‑by‑Step Guide"
 description: "Learn how to use EraseMetadataRedaction in Java with GroupDocs. This tutorial walks you through metadata redaction, showing code examples and best practices."
 date: "2026-01-08"
 weight: 1

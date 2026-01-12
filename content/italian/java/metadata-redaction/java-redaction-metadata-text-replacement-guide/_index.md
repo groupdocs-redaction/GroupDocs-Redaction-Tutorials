@@ -7,7 +7,7 @@ keywords:
 - Java metadata redaction
 - GroupDocs.Redaction for Java
 - metadata text replacement
-title: 'Come censurare i metadati in Java: sostituire in modo sicuro il testo nei
+title: 'Come censurare i metadati in Java - sostituire in modo sicuro il testo nei
   documenti'
 type: docs
 url: /it/java/metadata-redaction/java-redaction-metadata-text-replacement-guide/
@@ -168,12 +168,6 @@ R: GroupDocs offre supporto gratuito tramite il loro [forum](https://forum.group
 
 Ora disponi di un metodo completo, pronto per la produzione, per **censurare i metadati** e **sostituire il testo dei metadati** nei documenti Java usando GroupDocs.Redaction. Seguendo i passaggi sopra, puoi proteggere le informazioni sensibili nascoste nelle proprietà dei documenti mantenendo il formato file originale.
 
----
-
-**Last Updated:** 2026-01-08  
-**Tested With:** GroupDocs.Redaction 24.9 for Java  
-**Author:** GroupDocs  
-
 **Risorse**  
 - **Documentazione:** Scopri di più su [Documentazione GroupDocs.Redaction](https://docs.groupdocs.com/redaction/java/)  
 - **Riferimento API:** Informazioni dettagliate sull'API sono disponibili su [Riferimento API](https://reference.groupdocs.com/redaction/java)  
@@ -181,3 +175,9 @@ Ora disponi di un metodo completo, pronto per la produzione, per **censurare i m
 - **GitHub:** Accedi al codice sorgente su [GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - **Supporto gratuito:** Partecipa alle discussioni su [Forum di supporto](https://forum.groupdocs.com/c/redaction/33)  
 - **Licenza temporanea:** Ottieni una licenza per scopi di test da [Licenza temporanea](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Last Updated:** 2026-01-08  
+**Tested With:** GroupDocs.Redaction 24.9 for Java  
+**Author:** GroupDocs  

@@ -1,5 +1,5 @@
 ---
-title: "How to Redact Metadata in Java: Securely Replace Text in Documents"
+title: "How to Redact Metadata in Java - Securely Replace Text in Documents"
 description: "Learn how to redact metadata and replace metadata text in Java documents using GroupDocs.Redaction. Step‑by‑step guide with best practices."
 date: "2026-01-08"
 weight: 1
@@ -165,12 +165,6 @@ A: GroupDocs offers free support through their [forum](https://forum.groupdocs.c
 
 You now have a complete, production‑ready method for **how to redact metadata** and **replace metadata text** in Java documents using GroupDocs.Redaction. By following the steps above, you can protect sensitive information hidden in document properties while preserving the original file format.
 
----
-
-**Last Updated:** 2026-01-08  
-**Tested With:** GroupDocs.Redaction 24.9 for Java  
-**Author:** GroupDocs  
-
 **Resources**  
 - **Documentation:** Explore more at [GroupDocs.Redaction Documentation](https://docs.groupdocs.com/redaction/java/)  
 - **API Reference:** Detailed API information is available at [API Reference](https://reference.groupdocs.com/redaction/java)  
@@ -180,3 +174,7 @@ You now have a complete, production‑ready method for **how to redact metadata*
 - **Temporary License:** Obtain a license for testing purposes from [Temporary License](https://purchase.groupdocs.com/temporary-license/)  
 
 ---
+
+**Last Updated:** 2026-01-08  
+**Tested With:** GroupDocs.Redaction 24.9 for Java  
+**Author:** GroupDocs  

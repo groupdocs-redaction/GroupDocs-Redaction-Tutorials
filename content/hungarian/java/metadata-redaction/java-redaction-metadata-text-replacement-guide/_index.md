@@ -7,7 +7,7 @@ keywords:
 - Java metadata redaction
 - GroupDocs.Redaction for Java
 - metadata text replacement
-title: 'Hogyan takarjuk el a metaadatokat Java-ban: Biztonságos szövegcsere dokumentumokban'
+title: 'Hogyan takarjuk el a metaadatokat Java-ban - Biztonságos szövegcsere dokumentumokban'
 type: docs
 url: /hu/java/metadata-redaction/java-redaction-metadata-text-replacement-guide/
 weight: 1
@@ -165,12 +165,6 @@ V: A GroupDocs ingyenes támogatást nyújt a [forum](https://forum.groupdocs.co
 
 Most már rendelkezik egy teljes, termelésre kész módszerrel a **metaadatok redigálására** és a **metaadat szöveg cseréjére** Java dokumentumokban a GroupDocs.Redaction segítségével. A fenti lépések követésével megvédheti a dokumentumtulajdonságokban rejtett érzékeny információkat, miközben megőrzi az eredeti fájlformátumot.
 
----
-
-**Utolsó frissítés:** 2026-01-08  
-**Tesztelve ezzel:** GroupDocs.Redaction 24.9 for Java  
-**Szerző:** GroupDocs  
-
 **Erőforrások**  
 - **Dokumentáció:** További információk a [GroupDocs.Redaction Documentation](https://docs.groupdocs.com/redaction/java/) oldalon.  
 - **API referencia:** Részletes API információk a [API Reference](https://reference.groupdocs.com/redaction/java) oldalon érhetők el.  
@@ -178,3 +172,9 @@ Most már rendelkezik egy teljes, termelésre kész módszerrel a **metaadatok r
 - **GitHub:** A forráskód elérhető a [GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java) oldalon.  
 - **Ingyenes támogatás:** Csatlakozzon a beszélgetésekhez a [Support Forum](https://forum.groupdocs.com/c/redaction/33) oldalon.  
 - **Ideiglenes licenc:** Szerezzen tesztelési célra licencet a [Temporary License](https://purchase.groupdocs.com/temporary-license/) oldalról.
+
+---
+
+**Utolsó frissítés:** 2026-01-08  
+**Tesztelve ezzel:** GroupDocs.Redaction 24.9 for Java  
+**Szerző:** GroupDocs  

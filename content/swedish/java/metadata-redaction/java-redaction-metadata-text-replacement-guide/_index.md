@@ -6,7 +6,7 @@ keywords:
 - Java metadata redaction
 - GroupDocs.Redaction for Java
 - metadata text replacement
-title: 'Hur man maskerar metadata i Java: Säker ersättning av text i dokument'
+title: 'Hur man maskerar metadata i Java - Säker ersättning av text i dokument'
 type: docs
 url: /sv/java/metadata-redaction/java-redaction-metadata-text-replacement-guide/
 weight: 1
@@ -166,12 +166,6 @@ A: GroupDocs erbjuder gratis support via deras [forum](https://forum.groupdocs.c
 
 Du har nu en komplett, produktionsklar metod för **hur man maskar metadata** och **ersätter metadata text** i Java‑dokument med GroupDocs.Redaction. Genom att följa stegen ovan kan du skydda känslig information som är gömd i dokumentegenskaper samtidigt som du bevarar originalfilformatet.
 
----
-
-**Senast uppdaterad:** 2026-01-08  
-**Testad med:** GroupDocs.Redaction 24.9 for Java  
-**Författare:** GroupDocs  
-
 ## Resurser
 - **Dokumentation:** Utforska mer på [GroupDocs.Redaction Documentation](https://docs.groupdocs.com/redaction/java/)  
 - **API‑referens:** Detaljerad API‑information finns på [API Reference](https://reference.groupdocs.com/redaction/java)  
@@ -179,3 +173,9 @@ Du har nu en komplett, produktionsklar metod för **hur man maskar metadata** oc
 - **GitHub:** Få tillgång till källkoden på [GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - **Gratis support:** Delta i diskussioner på [Support Forum](https://forum.groupdocs.com/c/redaction/33)  
 - **Tillfällig licens:** Skaffa en licens för testning från [Temporary License](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Senast uppdaterad:** 2026-01-08  
+**Testad med:** GroupDocs.Redaction 24.9 for Java  
+**Författare:** GroupDocs  

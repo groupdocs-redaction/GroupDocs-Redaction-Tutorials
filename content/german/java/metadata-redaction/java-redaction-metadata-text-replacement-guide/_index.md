@@ -7,7 +7,7 @@ keywords:
 - Java metadata redaction
 - GroupDocs.Redaction for Java
 - metadata text replacement
-title: 'Wie man Metadaten in Java schwärzt: Text in Dokumenten sicher ersetzen'
+title: 'Wie man Metadaten in Java schwärzt - Text in Dokumenten sicher ersetzen'
 type: docs
 url: /de/java/metadata-redaction/java-redaction-metadata-text-replacement-guide/
 weight: 1
@@ -167,12 +167,6 @@ A: GroupDocs bietet kostenlosen Support über ihr [forum](https://forum.groupdoc
 
 Sie haben nun eine vollständige, produktionsbereite Methode für **how to redact metadata** und **replace metadata text** in Java‑Dokumenten mit GroupDocs.Redaction. Durch Befolgen der obigen Schritte können Sie sensible Informationen, die in Dokumenteneigenschaften verborgen sind, schützen und gleichzeitig das ursprüngliche Dateiformat beibehalten.
 
----
-
-**Zuletzt aktualisiert:** 2026-01-08  
-**Getestet mit:** GroupDocs.Redaction 24.9 für Java  
-**Autor:** GroupDocs  
-
 **Ressourcen**  
 - **Dokumentation:** Weitere Informationen finden Sie unter [GroupDocs.Redaction Documentation](https://docs.groupdocs.com/redaction/java/)  
 - **API‑Referenz:** Detaillierte API‑Informationen finden Sie unter [API Reference](https://reference.groupdocs.com/redaction/java)  
@@ -180,3 +174,9 @@ Sie haben nun eine vollständige, produktionsbereite Methode für **how to redac
 - **GitHub:** Quellcode finden Sie auf [GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - **Kostenloser Support:** Nehmen Sie an Diskussionen im [Support Forum](https://forum.groupdocs.com/c/redaction/33) teil  
 - **Temporäre Lizenz:** Eine Lizenz für Testzwecke erhalten Sie unter [Temporary License](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Zuletzt aktualisiert:** 2026-01-08  
+**Getestet mit:** GroupDocs.Redaction 24.9 für Java  
+**Autor:** GroupDocs  

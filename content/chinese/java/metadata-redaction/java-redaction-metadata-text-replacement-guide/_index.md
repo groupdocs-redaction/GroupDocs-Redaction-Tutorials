@@ -5,7 +5,7 @@ keywords:
 - Java metadata redaction
 - GroupDocs.Redaction for Java
 - metadata text replacement
-title: 如何在 Java 中编辑元数据：安全地替换文档中的文本
+title: 如何在 Java 中编辑元数据 - 安全地替换文档中的文本
 type: docs
 url: /zh/java/metadata-redaction/java-redaction-metadata-text-replacement-guide/
 weight: 1
@@ -165,12 +165,6 @@ try {
 
 您现在拥有一套完整、可用于生产环境的 **如何编辑元数据** 与 **替换元数据文本** 的方法，适用于使用 GroupDocs.Redaction 的 Java 文档。按照上述步骤操作，即可在保留原始文件格式的同时，保护隐藏在文档属性中的敏感信息。
 
----
-
-**最后更新：** 2026-01-08  
-**测试环境：** GroupDocs.Redaction 24.9 for Java  
-**作者：** GroupDocs  
-
 **资源**  
 - **文档：** 在 [GroupDocs.Redaction 文档](https://docs.groupdocs.com/redaction/java/) 查看更多。  
 - **API 参考：** 在 [API 参考](https://reference.groupdocs.com/redaction/java) 查看详细的 API 信息。  
@@ -178,3 +172,9 @@ try {
 - **GitHub：** 在 [GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java) 上获取源代码。  
 - **免费支持：** 在 [支持论坛](https://forum.groupdocs.com/c/redaction/33) 参与讨论。  
 - **临时许可证：** 从 [临时许可证](https://purchase.groupdocs.com/temporary-license/) 获取用于测试的许可证。
+
+---
+
+**最后更新：** 2026-01-08  
+**测试环境：** GroupDocs.Redaction 24.9 for Java  
+**作者：** GroupDocs  

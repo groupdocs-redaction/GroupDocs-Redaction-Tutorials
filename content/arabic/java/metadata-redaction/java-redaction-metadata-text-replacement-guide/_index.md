@@ -6,7 +6,7 @@ keywords:
 - Java metadata redaction
 - GroupDocs.Redaction for Java
 - metadata text replacement
-title: 'كيفية إخفاء البيانات الوصفية في جافا: استبدال النص بأمان في المستندات'
+title: 'كيفية إخفاء البيانات الوصفية في جافا - استبدال النص بأمان في المستندات'
 type: docs
 url: /ar/java/metadata-redaction/java-redaction-metadata-text-replacement-guide/
 weight: 1
@@ -153,12 +153,6 @@ try {
 ## الخلاصة
 أصبح لديك الآن طريقة كاملة وجاهزة للإنتاج لـ **كيفية حذف بيانات التعريف** و**استبدال نص بيانات التعريف** في مستندات Java باستخدام GroupDocs.Redaction. باتباع الخطوات السابقة، يمكنك حماية المعلومات الحساسة المخفية في خصائص المستند مع الحفاظ على صيغة الملف الأصلية.
 
----
-
-**آخر تحديث:** 2026-01-08  
-**تم الاختبار مع:** GroupDocs.Redaction 24.9 for Java  
-**المؤلف:** GroupDocs  
-
 **الموارد**  
 - **التوثيق:** استكشف المزيد في [GroupDocs.Redaction Documentation](https://docs.groupdocs.com/redaction/java/)  
 - **مرجع API:** معلومات مفصلة عن API متاحة في [API Reference](https://reference.groupdocs.com/redaction/java)  
@@ -166,3 +160,9 @@ try {
 - **GitHub:** الوصول إلى الشيفرة المصدرية على [GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - **دعم مجاني:** انضم إلى المناقشات في [Support Forum](https://forum.groupdocs.com/c/redaction/33)  
 - **ترخيص مؤقت:** احصل على ترخيص للاختبار من [Temporary License](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**آخر تحديث:** 2026-01-08  
+**تم الاختبار مع:** GroupDocs.Redaction 24.9 for Java  
+**المؤلف:** GroupDocs  

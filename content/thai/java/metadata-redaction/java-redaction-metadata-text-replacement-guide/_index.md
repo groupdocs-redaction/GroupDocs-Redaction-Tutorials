@@ -6,7 +6,7 @@ keywords:
 - Java metadata redaction
 - GroupDocs.Redaction for Java
 - metadata text replacement
-title: 'วิธีลบเมตาดาต้าใน Java: แทนที่ข้อความในเอกสารอย่างปลอดภัย'
+title: 'วิธีลบเมตาดาต้าใน Java - แทนที่ข้อความในเอกสารอย่างปลอดภัย'
 type: docs
 url: /th/java/metadata-redaction/java-redaction-metadata-text-replacement-guide/
 weight: 1
@@ -159,12 +159,6 @@ try {
 
 ตอนนี้คุณมีวิธีที่สมบูรณ์และพร้อมใช้งานในระดับการผลิตสำหรับ **วิธีลบข้อมูลเมตาดาต้า** และ **การแทนที่ข้อความเมตาดาต้า** ในเอกสาร Java ด้วย GroupDocs.Redaction. โดยทำตามขั้นตอนข้างต้น คุณสามารถปกป้องข้อมูลที่อ่อนไหวที่ซ่อนอยู่ในคุณสมบัติของเอกสารขณะยังคงรักษารูปแบบไฟล์ต้นฉบับไว้.
 
----
-
-**อัปเดตล่าสุด:** 2026-01-08  
-**ทดสอบด้วย:** GroupDocs.Redaction 24.9 for Java  
-**ผู้เขียน:** GroupDocs  
-
 **Resources**  
 - **เอกสารประกอบ:** ค้นหาเพิ่มเติมที่ [GroupDocs.Redaction Documentation](https://docs.groupdocs.com/redaction/java/)  
 - **อ้างอิง API:** ข้อมูล API รายละเอียดสามารถดูได้ที่ [API Reference](https://reference.groupdocs.com/redaction/java)  
@@ -172,3 +166,9 @@ try {
 - **GitHub:** เข้าถึงซอร์สโค้ดได้ที่ [GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - **การสนับสนุนฟรี:** เข้าร่วมการสนทนาที่ [Support Forum](https://forum.groupdocs.com/c/redaction/33)  
 - **ไลเซนส์ชั่วคราว:** รับไลเซนส์สำหรับการทดสอบจาก [Temporary License](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**อัปเดตล่าสุด:** 2026-01-08  
+**ทดสอบด้วย:** GroupDocs.Redaction 24.9 for Java  
+**ผู้เขียน:** GroupDocs  

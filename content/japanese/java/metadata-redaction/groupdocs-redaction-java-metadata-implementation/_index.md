@@ -5,7 +5,7 @@ keywords:
 - metadata redaction in Java
 - GroupDocs Redaction setup
 - removing metadata fields
-title: GroupDocs と Java で EraseMetadataRedaction を使用する方法：ステップバイステップガイド
+title: GroupDocs と Java で EraseMetadataRedaction を使用する方法 - ステップバイステップガイド
 type: docs
 url: /ja/java/metadata-redaction/groupdocs-redaction-java-metadata-implementation/
 weight: 1
@@ -15,7 +15,7 @@ weight: 1
 
 今日のデジタル社会では、文書内の機密情報を保護することが不可欠です。このガイドでは、**EraseMetadataRedaction** を使用して Word ファイルから *Author* や *Manager* などのメタデータを削除する方法を、GroupDocs.Redaction for Java を使って学びます。チュートリアルの最後までに、共有やアーカイブに適したプライバシー保護されたクリーンな文書が作成できるようになります。
 
-## Quick Answers
+## クイックアンサー
 - **EraseMetadataRedaction の役割は？** 文書から選択したメタデータ フィールドを削除します。  
 - **この機能を提供するライブラリは？** GroupDocs.Redaction for Java。  
 - **ライセンスは必要ですか？** 無料トライアルでテスト可能ですが、本番環境では永続ライセンスが必要です。  

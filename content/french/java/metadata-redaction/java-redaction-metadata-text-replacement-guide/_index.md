@@ -7,7 +7,7 @@ keywords:
 - Java metadata redaction
 - GroupDocs.Redaction for Java
 - metadata text replacement
-title: 'Comment masquer les métadonnées en Java : remplacer le texte dans les documents
+title: 'Comment masquer les métadonnées en Java - remplacer le texte dans les documents
   en toute sécurité'
 type: docs
 url: /fr/java/metadata-redaction/java-redaction-metadata-text-replacement-guide/
@@ -168,12 +168,6 @@ R : GroupDocs propose un support gratuit via leur [forum](https://forum.groupd
 
 Vous disposez maintenant d’une méthode complète, prête pour la production, pour **censurer les métadonnées** et **remplacer le texte des métadonnées** dans les documents Java en utilisant GroupDocs.Redaction. En suivant les étapes ci‑dessus, vous pouvez protéger les informations sensibles cachées dans les propriétés des documents tout en conservant le format de fichier original.
 
----
-
-**Dernière mise à jour :** 2026-01-08  
-**Testé avec :** GroupDocs.Redaction 24.9 pour Java  
-**Auteur :** GroupDocs  
-
 **Ressources**  
 - **Documentation :** Explorez davantage sur [GroupDocs.Redaction Documentation](https://docs.groupdocs.com/redaction/java/)  
 - **Référence API :** Des informations détaillées sur l’API sont disponibles sur [API Reference](https://reference.groupdocs.com/redaction/java)  
@@ -183,3 +177,7 @@ Vous disposez maintenant d’une méthode complète, prête pour la production, 
 - **Licence temporaire :** Obtenez une licence à des fins de test sur [Temporary License](https://purchase.groupdocs.com/temporary-license/)  
 
 ---
+
+**Dernière mise à jour :** 2026-01-08  
+**Testé avec :** GroupDocs.Redaction 24.9 pour Java  
+**Auteur :** GroupDocs  

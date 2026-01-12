@@ -7,7 +7,7 @@ keywords:
 - Java metadata redaction
 - GroupDocs.Redaction for Java
 - metadata text replacement
-title: 'Πώς να διαγράψετε τα μεταδεδομένα σε Java: Ασφαλής αντικατάσταση κειμένου
+title: 'Πώς να διαγράψετε τα μεταδεδομένα σε Java - Ασφαλής αντικατάσταση κειμένου
   σε έγγραφα'
 type: docs
 url: /el/java/metadata-redaction/java-redaction-metadata-text-replacement-guide/
@@ -168,12 +168,6 @@ try {
 
 Τώρα έχετε μια πλήρη, έτοιμη για παραγωγή μέθοδο για **τη διαγραφή μεταδεδομένων** και **την αντικατάσταση κειμένου μεταδεδομένων** σε έγγραφα Java χρησιμοποιώντας το GroupDocs.Redaction. Ακολουθώντας τα παραπάνω βήματα, μπορείτε να προστατεύσετε ευαίσθητες πληροφορίες που κρύβονται στις ιδιότητες του εγγράφου ενώ διατηρείτε την αρχική μορφή αρχείου.
 
----
-
-**Τελευταία Ενημέρωση:** 2026-01-08  
-**Δοκιμή Με:** GroupDocs.Redaction 24.9 for Java  
-**Συγγραφέας:** GroupDocs  
-
 **Πόροι**  
 - **Documentation:** Εξερευνήστε περισσότερα στο [GroupDocs.Redaction Documentation](https://docs.groupdocs.com/redaction/java/)  
 - **API Reference:** Λεπτομερείς πληροφορίες API διατίθενται στο [API Reference](https://reference.groupdocs.com/redaction/java)  
@@ -181,3 +175,9 @@ try {
 - **GitHub:** Πρόσβαση στον πηγαίο κώδικα στο [GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - **Free Support:** Συμμετέχετε σε συζητήσεις στο [Support Forum](https://forum.groupdocs.com/c/redaction/33)  
 - **Temporary License:** Αποκτήστε άδεια δοκιμής από το [Temporary License](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Τελευταία Ενημέρωση:** 2026-01-08  
+**Δοκιμή Με:** GroupDocs.Redaction 24.9 for Java  
+**Συγγραφέας:** GroupDocs  

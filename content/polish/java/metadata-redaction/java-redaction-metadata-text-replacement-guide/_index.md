@@ -6,7 +6,7 @@ keywords:
 - Java metadata redaction
 - GroupDocs.Redaction for Java
 - metadata text replacement
-title: 'Jak usuwać metadane w Javie: Bezpieczne zastępowanie tekstu w dokumentach'
+title: 'Jak usuwać metadane w Javie - Bezpieczne zastępowanie tekstu w dokumentach'
 type: docs
 url: /pl/java/metadata-redaction/java-redaction-metadata-text-replacement-guide/
 weight: 1
@@ -164,12 +164,6 @@ A: GroupDocs oferuje bezpłatne wsparcie na swoim [forum](https://forum.groupdoc
 
 Masz teraz kompletną, gotową do produkcji metodę **jak usuwać metadane** i **zastępować tekst metadanych** w dokumentach Java przy użyciu GroupDocs.Redaction. Postępując zgodnie z powyższymi krokami, możesz chronić wrażliwe informacje ukryte w właściwościach dokumentu, zachowując jednocześnie oryginalny format pliku.
 
----
-
-**Ostatnia aktualizacja:** 2026-01-08  
-**Testowano z:** GroupDocs.Redaction 24.9 for Java  
-**Autor:** GroupDocs  
-
 **Zasoby**  
 - **Documentation:** Dowiedz się więcej na [GroupDocs.Redaction Documentation](https://docs.groupdocs.com/redaction/java/)  
 - **API Reference:** Szczegółowe informacje o API dostępne są pod adresem [API Reference](https://reference.groupdocs.com/redaction/java)  
@@ -177,3 +171,9 @@ Masz teraz kompletną, gotową do produkcji metodę **jak usuwać metadane** i *
 - **GitHub:** Dostęp do kodu źródłowego na [GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - **Free Support:** Dołącz do dyskusji na [Support Forum](https://forum.groupdocs.com/c/redaction/33)  
 - **Temporary License:** Uzyskaj licencję testową pod adresem [Temporary License](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Ostatnia aktualizacja:** 2026-01-08  
+**Testowano z:** GroupDocs.Redaction 24.9 for Java  
+**Autor:** GroupDocs  

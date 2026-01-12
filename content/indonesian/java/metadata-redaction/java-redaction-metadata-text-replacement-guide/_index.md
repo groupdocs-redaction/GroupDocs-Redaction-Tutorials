@@ -7,7 +7,7 @@ keywords:
 - Java metadata redaction
 - GroupDocs.Redaction for Java
 - metadata text replacement
-title: 'Cara Menyensor Metadata di Java: Mengganti Teks dalam Dokumen Secara Aman'
+title: 'Cara Menyensor Metadata di Java - Mengganti Teks dalam Dokumen Secara Aman'
 type: docs
 url: /id/java/metadata-redaction/java-redaction-metadata-text-replacement-guide/
 weight: 1
@@ -166,12 +166,6 @@ J: GroupDocs menawarkan dukungan gratis melalui [forum](https://forum.groupdocs.
 
 Anda kini memiliki metode lengkap dan siap produksi untuk **cara menghapus metadata** dan **ganti teks metadata** dalam dokumen Java menggunakan GroupDocs.Redaction. Dengan mengikuti langkah-langkah di atas, Anda dapat melindungi informasi sensitif yang tersembunyi dalam properti dokumen sambil mempertahankan format file asli.
 
----
-
-**Last Updated:** 2026-01-08  
-**Tested With:** GroupDocs.Redaction 24.9 for Java  
-**Author:** GroupDocs  
-
 **Resources**  
 - **Documentation:** Explore more at [GroupDocs.Redaction Documentation](https://docs.groupdocs.com/redaction/java/)  
 - **API Reference:** Detailed API information is available at [API Reference](https://reference.groupdocs.com/redaction/java)  
@@ -179,3 +173,9 @@ Anda kini memiliki metode lengkap dan siap produksi untuk **cara menghapus metad
 - **GitHub:** Access source code on [GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - **Free Support:** Join discussions at [Support Forum](https://forum.groupdocs.com/c/redaction/33)  
 - **Temporary License:** Obtain a license for testing purposes from [Temporary License](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Last Updated:** 2026-01-08  
+**Tested With:** GroupDocs.Redaction 24.9 for Java  
+**Author:** GroupDocs  

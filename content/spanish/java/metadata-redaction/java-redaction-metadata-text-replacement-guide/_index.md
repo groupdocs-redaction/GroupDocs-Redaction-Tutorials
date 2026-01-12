@@ -6,7 +6,7 @@ keywords:
 - Java metadata redaction
 - GroupDocs.Redaction for Java
 - metadata text replacement
-title: 'Cómo redactar metadatos en Java: reemplazar texto de forma segura en documentos'
+title: 'Cómo redactar metadatos en Java - reemplazar texto de forma segura en documentos'
 type: docs
 url: /es/java/metadata-redaction/java-redaction-metadata-text-replacement-guide/
 weight: 1
@@ -166,12 +166,6 @@ R: GroupDocs ofrece soporte gratuito a través de su [foro](https://forum.groupd
 
 Ahora dispone de un método completo y listo para producción para **cómo redactar metadatos** y **reemplazar texto de metadatos** en documentos Java usando GroupDocs.Redaction. Siguiendo los pasos anteriores, puede proteger la información sensible oculta en las propiedades del documento mientras preserva el formato de archivo original.
 
----
-
-**Última actualización:** 2026-01-08  
-**Probado con:** GroupDocs.Redaction 24.9 for Java  
-**Autor:** GroupDocs  
-
 **Recursos**  
 - **Documentación:** Explore más en [GroupDocs.Redaction Documentation](https://docs.groupdocs.com/redaction/java/)  
 - **Referencia API:** Información detallada de la API está disponible en [API Reference](https://reference.groupdocs.com/redaction/java)  
@@ -179,3 +173,9 @@ Ahora dispone de un método completo y listo para producción para **cómo redac
 - **GitHub:** Acceda al código fuente en [GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - **Soporte gratuito:** Únase a las discusiones en [Support Forum](https://forum.groupdocs.com/c/redaction/33)  
 - **Licencia temporal:** Obtenga una licencia para pruebas en [Temporary License](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Última actualización:** 2026-01-08  
+**Probado con:** GroupDocs.Redaction 24.9 for Java  
+**Autor:** GroupDocs  
