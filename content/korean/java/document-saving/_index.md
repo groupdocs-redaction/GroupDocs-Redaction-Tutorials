@@ -1,15 +1,16 @@
 ---
-title: "Convert Word to PDF and Save Redacted Documents with GroupDocs.Redaction Java"
-description: "Learn how to convert word to pdf, how to save redacted files, and how to save document to stream using GroupDocs.Redaction for Java. Step‑by‑step guides, best practices, and resource links."
-weight: 3
-url: "/java/document-saving/"
-type: docs
 date: 2026-01-13
+description: GroupDocs.Redaction for Java를 사용하여 Word를 PDF로 변환하는 방법, 편집된 파일을 저장하는 방법,
+  그리고 문서를 스트림에 저장하는 방법을 배웁니다. 단계별 가이드, 모범 사례 및 리소스 링크.
+title: GroupDocs.Redaction Java로 Word를 PDF로 변환하고 편집된 문서 저장
+type: docs
+url: /ko/java/document-saving/
+weight: 3
 ---
 
-# Convert Word to PDF and Save Redacted Documents with GroupDocs.Redaction Java
+# Word를 PDF로 변환하고 GroupDocs.Redaction Java로 편집된 문서 저장
 
-In this comprehensive guide you’ll discover **how to convert word to pdf** while preserving redaction integrity, explore **how to save redacted** files in their original format, and learn **how to save document to stream** for memory‑efficient processing. Whether you’re building a secure document‑management system or a simple batch‑redaction tool, these instructions walk you through every step with clear explanations and real‑world tips.
+이 포괄적인 가이드에서는 **Word를 PDF로 변환하는 방법**을 통해 편집 무결성을 유지하고, **편집된 파일 저장 방법**을 원본 형식으로 탐색하며, **문서를 스트림에 저장하는 방법**을 배워 메모리 효율적인 처리를 구현하는 방법을 알아봅니다. 보안 문서 관리 시스템을 구축하든 간단한 배치 편집 도구를 만들든, 이 설명서는 단계별로 명확한 설명과 실무 팁을 제공합니다.
 
 ## Quick Answers
 - **Can GroupDocs.Redaction convert Word to PDF?** Yes – the API rasterizes the content and outputs a PDF in a single call.  
@@ -18,10 +19,10 @@ In this comprehensive guide you’ll discover **how to convert word to pdf** whi
 - **What formats are preserved when saving?** Original format, rasterized PDF, or any stream you choose.  
 - **Where can I find more code examples?** Check the “Available Tutorials” section below for a ready‑to‑run sample.
 
-## What is **convert word to pdf** with GroupDocs.Redaction?
-Converting a Word document to PDF while applying redactions ensures that sensitive information is permanently removed and the file is locked in a non‑editable format. GroupDocs.Redaction handles the rasterization internally, so you don’t need a separate conversion library.
+## GroupDocs.Redaction을 사용한 **Word를 PDF로 변환**이란?
+Word 문서를 PDF로 변환하면서 편집을 적용하면 민감한 정보가 영구적으로 제거되고 파일이 편집 불가능한 형식으로 고정됩니다. GroupDocs.Redaction은 내부적으로 래스터화를 처리하므로 별도의 변환 라이브러리가 필요하지 않습니다.
 
-## Why use GroupDocs.Redaction for **how to save redacted** files?
+## Why use GroupDocs.Redaction for **편집된 파일 저장 방법**?
 - **Security first** – Redactions are baked into the output, eliminating hidden data.  
 - **Format flexibility** – Keep the original file type or switch to a hardened PDF.  
 - **Performance** – Stream‑based saving reduces memory overhead for large documents.  
@@ -66,13 +67,13 @@ Learn how to protect sensitive information in Word documents by rasterizing and 
 
 ## Frequently Asked Questions
 
-**Q: How does **convert word to pdf** handle complex layouts?**  
+**Q: How does **Word를 PDF로 변환** handle complex layouts?**  
 A: The rasterization engine flattens all layers, preserving the visual appearance of tables, images, and footnotes while removing hidden text.
 
-**Q: Can I use the same API to **save document to stream** for both PDF and original formats?**  
+**Q: Can I use the same API to **문서를 스트림에 저장하는 방법** for both PDF and original formats?**  
 A: Yes – the `save` method accepts any `OutputStream`, letting you choose the format via the corresponding save options object.
 
-**Q: What is the best practice for **how to save redacted** files in a cloud environment?**  
+**Q: What is the best practice for **편집된 파일 저장 방법** in a cloud environment?**  
 A: Stream the output directly to cloud storage (e.g., AWS S3) to avoid writing temporary files on disk, which reduces security risks.
 
 **Q: Is a temporary license enough for automated batch processing?**  
