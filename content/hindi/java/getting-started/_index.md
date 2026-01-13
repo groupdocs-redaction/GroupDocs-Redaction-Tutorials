@@ -1,35 +1,36 @@
 ---
-title: "Create Redaction Rules Java – GroupDocs.Redaction Getting Started Tutorials"
-description: "Learn how to create redaction rules Java with GroupDocs.Redaction. Step‑by‑step guides cover installation, licensing, and building your first redaction workflow."
-weight: 1
-url: "/java/getting-started/"
-type: docs
 date: 2026-01-13
+description: GroupDocs.Redaction के साथ जावा में रिडैक्शन नियम बनाना सीखें। चरण‑दर‑चरण
+  गाइड में इंस्टॉलेशन, लाइसेंसिंग और आपका पहला रिडैक्शन वर्कफ़्लो बनाना शामिल है।
+title: जावा में रेडैक्शन नियम बनाएं – GroupDocs.Redaction शुरुआती ट्यूटोरियल्स
+type: docs
+url: /hi/java/getting-started/
+weight: 1
 ---
 
-# Create Redaction Rules Java – GroupDocs.Redaction Getting Started Tutorials
+# Redaction नियम बनाएं Java – GroupDocs.Redaction शुरुआती ट्यूटोरियल
 
 Welcome to the central hub for developers who want to **create redaction rules java** using GroupDocs.Redaction. In this overview you’ll discover everything you need to get started— from setting up your Java development environment to applying powerful redaction rules that protect sensitive data across PDFs, Word documents, and more. Whether you’re building a compliance‑focused application or simply need to mask confidential information, these tutorials give you a clear, hands‑on path to success.
 
-## How to create redaction rules java
+## Redaction नियम कैसे बनाएं java
 
 This short guide explains why defining redaction rules in Java is essential for data privacy and regulatory compliance. By creating rule‑based redaction logic you can automate the removal or masking of personal identifiers, financial details, or any custom pattern across large document batches. The following tutorials walk you through each step, ensuring you can implement robust redaction workflows quickly and reliably.
 
-## Available Tutorials
+## उपलब्ध ट्यूटोरियल
 
-### [Implementing Java Redaction with GroupDocs.Redaction&#58; A Comprehensive Guide for Developers](./implement-java-redaction-groupdocs-redaction-guide/)
+### [GroupDocs.Redaction के साथ Java Redaction लागू करना: डेवलपर्स के लिए एक व्यापक गाइड](./implement-java-redaction-groupdocs-redaction-guide/)
 Learn how to implement effective redaction in Java using GroupDocs.Redaction. Protect sensitive information seamlessly while maintaining document integrity.
 
-### [Java Redaction Guide&#58; Efficient Document Management with GroupDocs.Redaction](./java-redaction-groupdocs-efficient-document-setup/)
+### [Java Redaction गाइड: GroupDocs.Redaction के साथ कुशल दस्तावेज़ प्रबंधन](./java-redaction-groupdocs-efficient-document-setup/)
 Learn how to efficiently set up and manage document redactions in Java using GroupDocs.Redaction. Perfect for safeguarding sensitive information.
 
-### [Java Redaction Tutorial&#58; Using GroupDocs.Redaction API to Secure Documents](./java-groupdocs-redaction-tutorial/)
+### [Java Redaction ट्यूटोरियल: दस्तावेज़ सुरक्षित करने के लिए GroupDocs.Redaction API का उपयोग](./java-groupdocs-redaction-tutorial/)
 Learn how to use the GroupDocs.Redaction Java library to redact sensitive information from documents. This comprehensive guide covers setup, implementation, and best practices.
 
-### [Master Document Redaction in Java Using GroupDocs.Redaction&#58; A Step-by-Step Guide](./master-document-redaction-java-groupdocs/)
+### [Java में GroupDocs.Redaction का उपयोग करके दस्तावेज़ Redaction में महारत: चरण‑दर‑चरण गाइड](./master-document-redaction-java-groupdocs/)
 Learn to redact sensitive data from PDFs and Word files using GroupDocs.Redaction for Java. Implement exact phrase redactions, rasterize documents for privacy, and ensure compliance effortlessly.
 
-## Additional Resources
+## अतिरिक्त संसाधन
 
 - [GroupDocs.Redaction for Java Documentation](https://docs.groupdocs.com/redaction/java/)
 - [GroupDocs.Redaction for Java API Reference](https://reference.groupdocs.com/redaction/java/)
