@@ -1,13 +1,20 @@
 ---
-title: "Page Redaction Tutorials for GroupDocs.Redaction Java"
-description: "Learn to remove pages, page ranges, and work with specific page content using GroupDocs.Redaction for Java."
+title: "How to Redact PDF Page with GroupDocs.Redaction Java"
+description: "Learn how to redact PDF pages, delete last PDF page, and remove PDF page range using GroupDocs.Redaction for Java."
 weight: 8
 url: "/java/page-redaction/"
 type: docs
+date: 2026-01-21
 ---
-# Page Redaction Tutorials for GroupDocs.Redaction Java
 
-Master page-level document manipulation with our detailed GroupDocs.Redaction tutorials for Java. These practical guides demonstrate how to remove individual pages, eliminate page ranges, work with page areas, and handle specific page content programmatically. Each tutorial includes working Java code examples for common page redaction scenarios, helping you build applications that can efficiently manage document structure while removing sensitive content that spans entire pages or specific regions within pages.
+# How to Redact PDF Page with GroupDocs.Redaction Java
+
+If you need to **how to redact pdf** files programmatically, you’ve come to the right place. This hub gathers the most practical page‑level redaction tutorials for GroupDocs.Redaction Java, showing you how to delete entire pages, strip out a range of pages, and target specific page regions. Whether you’re handling confidential reports, contracts, or multimedia documents, mastering these techniques lets you protect sensitive information while keeping your documents well‑structured.
+
+## How to Redact PDF Pages Using GroupDocs.Redaction Java
+In the sections below you’ll find step‑by‑step guides that walk you through each common scenario. The tutorials include ready‑to‑run Java snippets, so you can copy the code, adjust a few parameters, and have a working solution in minutes.  
+
+> **Pro tip:** When you delete a page or a page range, the remaining pages automatically renumber, preserving the document’s logical flow.
 
 ## Available Tutorials
 
@@ -23,6 +30,9 @@ Learn how to efficiently remove the last page from a PDF document using GroupDoc
 ### [Remove Specific Frames from GIFs Using GroupDocs.Redaction in Java](./remove-specific-gif-pages-groupdocs-java/)
 Learn how to efficiently remove specific frames from animated GIFs using GroupDocs.Redaction in Java for privacy and content refinement.
 
+## Why Delete Last PDF Page or Remove PDF Page Range?
+Removing the final page of a document is a common requirement when the last page contains a summary, disclaimer, or watermark that should not be shared. Similarly, **remove pdf page range** operations let you strip out sections that contain confidential tables, images, or annotations. Using GroupDocs.Redaction ensures that the redaction is permanent and compliant with data‑protection regulations.
+
 ## Additional Resources
 
 - [GroupDocs.Redaction for Java Documentation](https://docs.groupdocs.com/redaction/java/)
@@ -31,3 +41,10 @@ Learn how to efficiently remove specific frames from animated GIFs using GroupDo
 - [GroupDocs.Redaction Forum](https://forum.groupdocs.com/c/redaction/33)
 - [Free Support](https://forum.groupdocs.com/)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Last Updated:** 2026-01-21  
+**Author:** GroupDocs  
+
+---
