@@ -1,13 +1,14 @@
 ---
-title: "how redact pdf java – PDF-Specific Redaction Tutorials for GroupDocs.Redaction"
-description: "Learn how redact pdf java and remove pdf metadata java using advanced GroupDocs.Redaction techniques for Java to protect sensitive data and meet regulations."
-weight: 11
-url: "/java/pdf-specific-redaction/"
-type: docs
 date: 2026-01-29
+description: 고급 GroupDocs.Redaction 기술을 사용하여 Java에서 PDF를 편집하고 PDF 메타데이터를 제거하는 방법을
+  배우고, 민감한 데이터를 보호하며 규정을 준수하십시오.
+title: Java로 PDF 수정하기 – GroupDocs.Redaction용 PDF 전용 수정 튜토리얼
+type: docs
+url: /ko/java/pdf-specific-redaction/
+weight: 11
 ---
 
-# how redact pdf java – PDF-Specific Redaction Tutorials for GroupDocs.Redaction Java
+# how redact pdf java – GroupDocs.Redaction Java용 PDF 전용 레드액션 튜토리얼
 
 If you're wondering **how redact pdf java**, our PDF‑specific redaction tutorials demonstrate specialized techniques for handling PDF security using GroupDocs.Redaction in Java. These step‑by‑step guides cover implementing PDF redaction filters, handling PDF‑specific content structures, working with image redaction in PDFs, and managing PDF metadata securely. Each tutorial includes working Java code examples for PDF‑focused redaction scenarios, helping you build applications that can effectively address the unique security challenges presented by PDF documents.
 
@@ -86,6 +87,4 @@ A: GroupDocs offers perpetual, subscription, and temporary licenses. Choose the 
 
 **Last Updated:** 2026-01-29  
 **Tested With:** GroupDocs.Redaction 23.12 for Java  
-**Author:** GroupDocs  
-
----
+**Author:** GroupDocs
