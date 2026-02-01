@@ -1,13 +1,19 @@
 ---
-title: "GroupDocs.Redaction Getting Started Tutorials for Java Developers"
-description: "Step-by-step tutorials for GroupDocs.Redaction installation, licensing, setup, and creating your first document redactions in Java applications."
+title: "Create Redaction Rules Java – GroupDocs.Redaction Getting Started Tutorials"
+description: "Learn how to create redaction rules Java with GroupDocs.Redaction. Step‑by‑step guides cover installation, licensing, and building your first redaction workflow."
 weight: 1
 url: "/java/getting-started/"
 type: docs
+date: 2026-01-13
 ---
-# GroupDocs.Redaction Getting Started Tutorials for Java Developers
 
-Begin your journey with these essential GroupDocs.Redaction tutorials that walk you through installation, licensing configuration, and creating your first document redactions in Java. Our beginner-friendly guides demonstrate how to set up your development environment, initialize the GroupDocs.Redaction library, and perform fundamental redaction operations. Follow these tutorials to quickly master the basics and prepare for more advanced document security tasks in your Java applications.
+# Create Redaction Rules Java – GroupDocs.Redaction Getting Started Tutorials
+
+Welcome to the central hub for developers who want to **create redaction rules java** using GroupDocs.Redaction. In this overview you’ll discover everything you need to get started— from setting up your Java development environment to applying powerful redaction rules that protect sensitive data across PDFs, Word documents, and more. Whether you’re building a compliance‑focused application or simply need to mask confidential information, these tutorials give you a clear, hands‑on path to success.
+
+## How to create redaction rules java
+
+This short guide explains why defining redaction rules in Java is essential for data privacy and regulatory compliance. By creating rule‑based redaction logic you can automate the removal or masking of personal identifiers, financial details, or any custom pattern across large document batches. The following tutorials walk you through each step, ensuring you can implement robust redaction workflows quickly and reliably.
 
 ## Available Tutorials
 
@@ -31,3 +37,9 @@ Learn to redact sensitive data from PDFs and Word files using GroupDocs.Redactio
 - [GroupDocs.Redaction Forum](https://forum.groupdocs.com/c/redaction/33)
 - [Free Support](https://forum.groupdocs.com/)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)
+
+---
+
+**Last Updated:** 2026-01-13  
+**Tested With:** GroupDocs.Redaction 3.0 (Java)  
+**Author:** GroupDocs
