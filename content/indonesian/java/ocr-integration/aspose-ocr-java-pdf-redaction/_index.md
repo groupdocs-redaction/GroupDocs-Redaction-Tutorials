@@ -7,7 +7,7 @@ keywords:
 - secure PDF redaction
 - Aspose OCR integration Java
 - regex patterns GroupDocs Redaction
-title: 'Cara Menyensor PDF dengan Aspose OCR dan Java: Menerapkan Pola Regex menggunakan
+title: 'Cara Menyensor PDF dengan Aspose OCR dan Java - Menerapkan Pola Regex menggunakan
   GroupDocs.Redaction'
 type: docs
 url: /id/java/ocr-integration/aspose-ocr-java-pdf-redaction/

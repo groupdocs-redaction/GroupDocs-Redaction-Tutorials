@@ -7,7 +7,7 @@ keywords:
 - secure PDF redaction
 - Aspose OCR integration Java
 - regex patterns GroupDocs Redaction
-title: 'Como Redigir PDF com Aspose OCR e Java: Implementando Padrões Regex usando
+title: 'Como Redigir PDF com Aspose OCR e Java - Implementando Padrões Regex usando
   GroupDocs.Redaction'
 type: docs
 url: /pt/java/ocr-integration/aspose-ocr-java-pdf-redaction/

@@ -7,7 +7,7 @@ keywords:
 - secure PDF redaction
 - Aspose OCR integration Java
 - regex patterns GroupDocs Redaction
-title: 'Cómo redactar PDF con Aspose OCR y Java: Implementación de patrones de expresiones
+title: 'Cómo redactar PDF con Aspose OCR y Java - Implementación de patrones de expresiones
   regulares usando GroupDocs.Redaction'
 type: docs
 url: /es/java/ocr-integration/aspose-ocr-java-pdf-redaction/
@@ -18,28 +18,28 @@ weight: 1
 
 En el panorama digital actual, **cómo redactar PDF** de forma segura es una prioridad principal para las empresas que manejan información personal, financiera o confidencial. Al combinar las capacidades en la nube de Aspose OCR con el potente motor de expresiones regulares de GroupDocs.Redaction, puedes **asegurar la redacción de PDF**, **ocultar datos sensibles de PDF** y **guardar PDFs redactados** automáticamente. Este tutorial te guía paso a paso—desde la configuración del entorno hasta la aplicación de redacciones basadas en expresiones regulares—para que puedas proteger el contenido sensible con confianza.
 
-## Quick Answers
-- **¿Qué cubre este tutorial?** Integrar Aspose OCR con GroupDocs.Redaction en Java para redactar PDFs usando patrones regex.  
-- **¿Necesito una licencia?** Una prueba gratuita sirve para evaluación; se requiere una licencia permanente para producción.  
-- **¿Qué versión de Java se requiere?** JDK 8 o superior.  
-- **¿Puedo guardar el resultado como un nuevo PDF?** Sí—usa `SaveOptions` para **guardar PDFs redactados**.  
+## Respuestas rápidas
+- **¿Qué cubre este tutorial?** Integrar Aspose OCR con GroupDocs.Redaction en Java para redactar archivos PDF usando patrones regex.
+- **¿Necesito una licencia?** Una prueba gratuita sirve para evaluación; Se requiere una licencia permanente para producción.
+- **¿Qué versión de Java se requiere?** JDK8 o superior.
+- **¿Puedo guardar el resultado como un nuevo PDF?** Sí—usa `SaveOptions` para **guardar PDF redactados**.
 - **¿Es la solución adecuada para documentos grandes?** Con una gestión adecuada de memoria y procesamiento paralelo opcional, escala bien.
 
-## Qué es la redacción de PDF y por qué usarla?
-La redacción de PDF elimina o oculta permanentemente la información confidencial de un documento. A diferencia de simplemente ocultar, la redacción garantiza que los datos no puedan recuperarse, lo que la hace esencial para el cumplimiento de regulaciones como GDPR, HIPAA y PCI‑DSS.
+## ¿Qué es la redacción de PDF y por qué usarla?
+La redacción de PDF elimina o oculta permanentemente la información confidencial de un documento. A diferencia de simplemente ocultar, la garantía garantiza que los datos no podrán recuperarse, lo que la hace esencial para el cumplimiento de regulaciones como GDPR, HIPAA y PCI‑DSS.
 
-## Prerequisites
+## Requisitos previos
 
-- **GroupDocs.Redaction for Java** (biblioteca para aplicar redacciones)  
-- **Aspose.OCR Cloud SDK** (motor OCR basado en la nube)  
-- JDK 8+ y un IDE como IntelliJ IDEA o Eclipse  
-- Conocimientos básicos de Java, Maven y expresiones regulares  
+- **GroupDocs.Redaction para Java** (biblioteca para aplicar redacciones)
+- **Aspose.OCR Cloud SDK** (motor OCR basado en la nube)
+- JDK8+ y un IDE como IntelliJ IDEA o Eclipse
+- Conocimientos básicos de Java, Maven y expresiones regulares.
 
-## Setting Up GroupDocs.Redaction for Java
+## Configuración de GroupDocs.Redaction para Java
 
 Puedes agregar la biblioteca a tu proyecto mediante Maven o descargando el JAR directamente.
 
-### Using Maven
+### Usando Maven
 
 Agrega la siguiente configuración a tu archivo `pom.xml`:
 
@@ -61,18 +61,18 @@ Agrega la siguiente configuración a tu archivo `pom.xml`:
 </dependencies>
 ```
 
-### Direct Download
+### Descarga directa
 
-Alternativamente, descarga la última versión desde [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+Alternativamente, descargue la última versión desde [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
-### License Acquisition Steps
-- **Prueba gratuita**: Comienza con una prueba gratuita para explorar las funciones.  
-- **Licencia temporal**: Obtén una licencia temporal para pruebas extendidas.  
-- **Compra**: Adquiere una licencia completa para uso en producción.  
+### Pasos para la adquisición de licencia
+- **Prueba gratuita**: Comienza con una prueba gratuita para explorar las funciones.
+- **Licencia temporal**: Obtenga una licencia temporal para pruebas extendidas.
+- **Compra**: Adquiera una licencia completa para uso en producción.
 
-## Basic Initialization
+## Inicialización básica
 
-Crea una instancia de `Redactor` que use el conector Aspose OCR. Este paso prepara el motor para reconocer texto dentro de PDFs basados en imágenes.
+Crea una instancia de `Redactor` que usa el conector Aspose OCR. Este paso prepara el motor para reconocer texto dentro de archivos PDF basados en imágenes.
 
 ```java
 RedactorSettings settings = new RedactorSettings(new AsposeCloudOcrConnector());
@@ -81,25 +81,25 @@ try (Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_PDF_4OCR",
 }
 ```
 
-## Implementation Guide
+## Guía de implementación
 
-### Initialize Settings with Aspose OCR Connector
+### Inicializar configuración con el conector Aspose OCR
 
 ```java
 RedactorSettings settings = new RedactorSettings(new AsposeCloudOcrConnector());
 ```
 
-- **Propósito**: Conecta GroupDocs.Redaction al servicio OCR de Aspose para que el texto dentro de imágenes escaneadas sea buscable.
+- **Propósito**: Conecta GroupDocs.Redacción al servicio OCR de Aspose para que el texto dentro de imágenes escaneadas sea buscable.
 
-### Define Replacement Options (Masking)
+### Definir opciones de reemplazo (enmascaramiento)
 
 ```java
 ReplacementOptions marker = new ReplacementOptions(java.awt.Color.BLACK);
 ```
 
-- **Explicación**: Esto crea una caja negra que **ocultará datos sensibles de PDF** dondequiera que ocurra una coincidencia de regex.
+- **Explicación**: Esto crea una caja negra que **ocultará datos sensibles de PDF** dondequiera que ocurra una coincidencia de expresiones regulares.
 
-### Implement Regex Patterns for Redaction
+### Implementar patrones Regex para redacción
 
 ```java
 RedactorChangeLog result = redactor.apply(new Redaction[] {
@@ -111,7 +111,7 @@ RedactorChangeLog result = redactor.apply(new Redaction[] {
 
 - **Explicación**: Cada objeto `RegexRedaction` define un patrón para localizar información personal y la reemplaza con el marcador negro definido arriba.
 
-### Save the Redacted Document
+### Guarde el documento redactado
 
 ```java
 if (result.getStatus() != RedactionStatus.Failed) {
@@ -121,46 +121,46 @@ if (result.getStatus() != RedactionStatus.Failed) {
 
 - **Explicación**: Cuando las redacciones se completan, el documento se escribe en disco, **guardando el PDF redactado** de forma efectiva. Puedes cambiar la carpeta de salida o el formato mediante `SaveOptions`.
 
-## Practical Applications
+## Aplicaciones prácticas
 
-1. **Seguridad de documentos financieros** – Ocultar números de tarjetas de crédito antes de enviar estados de cuenta a los clientes.  
-2. **Protección de datos de salud** – Redactar identificadores de pacientes para cumplir con HIPAA.  
-3. **Confidencialidad corporativa** – Ocultar cláusulas sensibles en contratos durante revisiones internas.  
-4. **Manejo de documentos legales** – Garantizar que la información privilegiada permanezca privada al compartir expedientes de casos.  
-5. **Registros gubernamentales** – Proteger los datos de los ciudadanos en PDFs públicos.  
+1. **Seguridad de documentos financieros** – Ocultar números de tarjetas de crédito antes de enviar estados de cuenta a los clientes.
+2. **Protección de datos de salud** – Redactar identificadores de pacientes para cumplir con HIPAA.
+3. **Confidencialidad corporativa** – Ocultar cláusulas sensibles en contratos durante la revisión interna.
+4. **Manejo de documentos legales** – Garantizar que la información privilegiada permanezca privada al compartir expedientes de casos.
+5. **Registros gubernamentales** – Proteger los datos de los ciudadanos en PDFs públicos.
 
-## Performance Considerations
+## Consideraciones de rendimiento
 
-- **Configuración OCR**: Ajusta Aspose OCR para velocidad vs. precisión según la calidad del documento.  
-- **Gestión de memoria**: Procesa PDFs grandes en flujos para evitar `OutOfMemoryError`.  
-- **Procesamiento paralelo**: Aprovecha `ExecutorService` de Java para redactar varios archivos simultáneamente.  
+- **Configuración OCR**: Ajusta Aspose OCR para velocidad vs. precisión según la calidad del documento.
+- **Gestión de memoria**: Procesa archivos PDF grandes en flujos para evitar `OutOfMemoryError`.
+- **Procesamiento paralelo**: Aprovecha `ExecutorService` de Java para redactar varios archivos simultáneamente.
 
-## Common Issues & Troubleshooting
+## Problemas comunes y solución de problemas
 
 | Síntoma | Causa probable | Solución |
-|---------|----------------|----------|
-| No se redacta texto | OCR no detectó texto | Verifica las credenciales del servicio OCR y aumenta la DPI de la imagen |
-| Cajas de redacción desalineadas | Rotación de página incorrecta | Usa `LoadOptions.setRotatePages(true)` |
-| La aplicación se bloquea con PDFs grandes | Memoria heap insuficiente | Incrementa la bandera JVM `-Xmx` o procesa las páginas en lotes |
+|---------|----------|----------|
+| No se redacta texto | OCR no detectó texto | Verifica las credenciales del servicio OCR y aumenta el DPI de la imagen |
+| Cajas de redacción desalineadas | Rotación de página incorrecta | Estados Unidos `LoadOptions.setRotatePages(true)` |
+| La aplicación se bloquea con archivos PDF grandes | Memoria montón insuficiente | Incrementa la bandera JVM `-Xmx` o procesa las páginas en lotes |
 
-## Frequently Asked Questions
+## Preguntas frecuentes
 
-**P: ¿Qué es Aspose OCR?**  
-R: Un servicio basado en la nube que extrae texto de imágenes, habilitando el procesamiento de PDFs buscables.
+**P: ¿Qué es Aspose OCR?**
+R: Un servicio basado en la nube que extrae texto de imágenes, habilitando el procesamiento de archivos PDF buscables.
 
-**P: ¿Puedo usar patrones regex con tipos de archivo distintos a PDF?**  
+**P: ¿Puedo usar patrones regex con tipos de archivo distintos a PDF?**
 R: Sí—GroupDocs.Redaction soporta Word, Excel, PowerPoint y más.
 
-**P: ¿Cómo manejo PDFs que ya son basados en texto?**  
+**P: ¿Cómo manejar archivos PDF que ya son basados ​​en texto?**
 R: Puedes omitir el paso OCR y aplicar redacciones regex directamente a la capa de texto.
 
-**P: Mi regex no coincide con los datos esperados. ¿Qué debo hacer?**  
-R: Prueba el patrón con un probador de regex en línea y asegúrate de usar las secuencias de escape correctas para cadenas Java.
+**P: Mi regex no coincide con los datos esperados. ¿Qué debería hacer?**
+R: Pruebe el patrón con un probador de expresiones regulares en línea y asegúrese de usar las secuencias de escape correctas para cadenas Java.
 
-**P: ¿Dónde puedo encontrar documentación API más detallada?**  
-R: Consulta la documentación oficial en [GroupDocs Documentation](https://docs.groupdocs.com/redaction/java/).
+**P: ¿Dónde puedo encontrar documentación API más detallada?**
+R: Consulta la documentación oficial en [Documentación GroupDocs](https://docs.groupdocs.com/redaction/java/).
 
-## Resources
+## Recursos
 - **Documentación**: [GroupDocs Redaction Java Docs](https://docs.groupdocs.com/redaction/java/)
 - **Referencia API**: [GroupDocs Redaction API Reference](https://reference.groupdocs.com/redaction/java)
 - **Descarga**: [Get Group Docs Redaction for Java](https://releases.groupdocs.com/redaction/java/)

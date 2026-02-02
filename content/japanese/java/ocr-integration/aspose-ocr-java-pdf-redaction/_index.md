@@ -6,7 +6,7 @@ keywords:
 - secure PDF redaction
 - Aspose OCR integration Java
 - regex patterns GroupDocs Redaction
-title: Aspose OCR と Java を使用して PDF を赤字処理する方法：GroupDocs.Redaction を使用した正規表現パターンの実装
+title: Aspose OCR と Java を使用して PDF を赤字処理する方法 - GroupDocs.Redaction を使用した正規表現パターンの実装
 type: docs
 url: /ja/java/ocr-integration/aspose-ocr-java-pdf-redaction/
 weight: 1

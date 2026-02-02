@@ -7,7 +7,7 @@ keywords:
 - secure PDF redaction
 - Aspose OCR integration Java
 - regex patterns GroupDocs Redaction
-title: 'Hur man maskerar PDF med Aspose OCR och Java: Implementering av regex‑mönster
+title: 'Hur man maskerar PDF med Aspose OCR och Java - Implementering av regex‑mönster
   med GroupDocs.Redaction'
 type: docs
 url: /sv/java/ocr-integration/aspose-ocr-java-pdf-redaction/

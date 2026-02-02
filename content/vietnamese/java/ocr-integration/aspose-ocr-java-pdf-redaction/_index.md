@@ -7,7 +7,7 @@ keywords:
 - secure PDF redaction
 - Aspose OCR integration Java
 - regex patterns GroupDocs Redaction
-title: 'Cách xóa thông tin nhạy cảm trong PDF bằng Aspose OCR và Java: Triển khai
+title: 'Cách xóa thông tin nhạy cảm trong PDF bằng Aspose OCR và Java - Triển khai
   các mẫu Regex bằng GroupDocs.Redaction'
 type: docs
 url: /vi/java/ocr-integration/aspose-ocr-java-pdf-redaction/

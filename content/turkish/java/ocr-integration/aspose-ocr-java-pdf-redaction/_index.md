@@ -7,7 +7,7 @@ keywords:
 - secure PDF redaction
 - Aspose OCR integration Java
 - regex patterns GroupDocs Redaction
-title: 'Aspose OCR ve Java ile PDF''yi Nasıl Kırpılır: GroupDocs.Redaction Kullanarak
+title: 'Aspose OCR ve Java ile PDF''yi Nasıl Kırpılır - GroupDocs.Redaction Kullanarak
   Regex Desenlerini Uygulama'
 type: docs
 url: /tr/java/ocr-integration/aspose-ocr-java-pdf-redaction/

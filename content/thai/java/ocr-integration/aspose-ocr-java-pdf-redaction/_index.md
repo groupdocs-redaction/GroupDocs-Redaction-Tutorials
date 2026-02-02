@@ -7,7 +7,7 @@ keywords:
 - secure PDF redaction
 - Aspose OCR integration Java
 - regex patterns GroupDocs Redaction
-title: 'วิธีลบข้อมูล PDF ด้วย Aspose OCR และ Java: การใช้งานรูปแบบ Regex ด้วย GroupDocs.Redaction'
+title: 'วิธีลบข้อมูล PDF ด้วย Aspose OCR และ Java - การใช้งานรูปแบบ Regex ด้วย GroupDocs.Redaction'
 type: docs
 url: /th/java/ocr-integration/aspose-ocr-java-pdf-redaction/
 weight: 1

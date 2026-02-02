@@ -7,7 +7,7 @@ keywords:
 - secure PDF redaction
 - Aspose OCR integration Java
 - regex patterns GroupDocs Redaction
-title: 'Πώς να αποκρύψετε PDF με το Aspose OCR και Java: Υλοποίηση προτύπων Regex
+title: 'Πώς να αποκρύψετε PDF με το Aspose OCR και Java - Υλοποίηση προτύπων Regex
   χρησιμοποιώντας το GroupDocs.Redaction'
 type: docs
 url: /el/java/ocr-integration/aspose-ocr-java-pdf-redaction/

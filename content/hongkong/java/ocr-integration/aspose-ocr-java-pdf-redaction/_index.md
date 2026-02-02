@@ -6,7 +6,7 @@ keywords:
 - secure PDF redaction
 - Aspose OCR integration Java
 - regex patterns GroupDocs Redaction
-title: 如何使用 Aspose OCR 與 Java 對 PDF 進行遮蔽：使用 GroupDocs.Redaction 實作正則表達式模式
+title: 如何使用 Aspose OCR 與 Java 對 PDF 進行遮蔽 - 使用 GroupDocs.Redaction 實作正則表達式模式
 type: docs
 url: /zh-hant/java/ocr-integration/aspose-ocr-java-pdf-redaction/
 weight: 1

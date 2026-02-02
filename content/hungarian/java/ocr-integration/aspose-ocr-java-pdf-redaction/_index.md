@@ -8,7 +8,7 @@ keywords:
 - secure PDF redaction
 - Aspose OCR integration Java
 - regex patterns GroupDocs Redaction
-title: 'Hogyan redigáljunk PDF-et az Aspose OCR és Java segítségével: Regex minták
+title: 'Hogyan redigáljunk PDF-et az Aspose OCR és Java segítségével - Regex minták
   megvalósítása a GroupDocs.Redaction használatával'
 type: docs
 url: /hu/java/ocr-integration/aspose-ocr-java-pdf-redaction/

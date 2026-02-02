@@ -7,7 +7,7 @@ keywords:
 - secure PDF redaction
 - Aspose OCR integration Java
 - regex patterns GroupDocs Redaction
-title: 'Come censurare PDF con Aspose OCR e Java: implementare pattern regex usando
+title: 'Come censurare PDF con Aspose OCR e Java - implementare pattern regex usando
   GroupDocs.Redaction'
 type: docs
 url: /it/java/ocr-integration/aspose-ocr-java-pdf-redaction/

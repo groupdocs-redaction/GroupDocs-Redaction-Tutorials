@@ -1,5 +1,5 @@
 ---
-title: "How to Redact PDF with Aspose OCR and Java: Implementing Regex Patterns using GroupDocs.Redaction"
+title: "How to Redact PDF with Aspose OCR and Java - Implementing Regex Patterns using GroupDocs.Redaction"
 description: "Learn how to redact PDF files securely with Aspose OCR, Java, and regex patterns. This guide shows you how to save redacted PDF documents while masking sensitive PDF data."
 date: "2026-01-16"
 weight: 1

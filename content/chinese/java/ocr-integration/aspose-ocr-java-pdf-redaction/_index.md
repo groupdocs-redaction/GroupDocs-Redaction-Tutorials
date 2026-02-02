@@ -6,7 +6,7 @@ keywords:
 - secure PDF redaction
 - Aspose OCR integration Java
 - regex patterns GroupDocs Redaction
-title: 如何使用 Aspose OCR 和 Java 对 PDF 进行脱敏：使用 GroupDocs.Redaction 实现正则表达式模式
+title: 如何使用 Aspose OCR 和 Java 对 PDF 进行脱敏 - 使用 GroupDocs.Redaction 实现正则表达式模式
 type: docs
 url: /zh/java/ocr-integration/aspose-ocr-java-pdf-redaction/
 weight: 1

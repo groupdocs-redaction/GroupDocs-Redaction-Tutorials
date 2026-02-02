@@ -6,7 +6,7 @@ keywords:
 - secure PDF redaction
 - Aspose OCR integration Java
 - regex patterns GroupDocs Redaction
-title: 'كيفية إخفاء PDF باستخدام Aspose OCR وجافا: تنفيذ أنماط Regex باستخدام GroupDocs.Redaction'
+title: 'كيفية إخفاء PDF باستخدام Aspose OCR وجافا - تنفيذ أنماط Regex باستخدام GroupDocs.Redaction'
 type: docs
 url: /ar/java/ocr-integration/aspose-ocr-java-pdf-redaction/
 weight: 1
