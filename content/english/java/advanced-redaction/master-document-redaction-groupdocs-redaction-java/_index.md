@@ -1,7 +1,7 @@
 ---
-title: "How to Add Suffix to Filename While Redacting Documents in Java with GroupDocs.Redaction"
-description: "Learn how to add suffix to filename and redact sensitive information from documents using GroupDocs.Redaction for Java. Enhance document security and privacy effectively."
-date: "2025-12-17"
+title: "groupdocs maven dependency – Add suffix to filename in Java"
+description: "Learn how to use the GroupDocs Maven dependency to add a suffix to filenames while redacting documents in Java. Includes loading from stream, annotation deletion, and save options."
+date: "2026-02-16"
 weight: 1
 url: "/java/advanced-redaction/master-document-redaction-groupdocs-redaction-java/"
 keywords:
@@ -13,17 +13,17 @@ type: docs
 
 # How to Add Suffix to Filename While Redacting Documents in Java with GroupDocs.Redaction
 
-Redacting confidential data is only half the battle—you also need to make sure the saved file clearly indicates it has been processed. In this guide you’ll learn **how to add suffix to filename** when saving a redacted document, alongside loading, annotating, and saving using GroupDocs.Redaction for Java. Whether you’re protecting legal contracts, medical records, or financial reports, these steps will keep your workflow both secure and auditable.
+Redacting confidential data is only half the battle—you also need to make sure the saved file clearly indicates it has been processed. **Using the groupdocs maven dependency makes this straightforward**, letting you add a suffix to the output file name in just a few lines of code. In this guide you’ll learn how to add suffix to filename when saving a redacted document, alongside loading, annotating, and saving using GroupDocs.Redaction for Java. Whether you’re protecting legal contracts, medical records, or financial reports, these steps will keep your workflow both secure and auditable.
 
 ## Quick Answers
 - **What does “add suffix to filename” do?**  
-  It appends a custom suffix (e.g., “_redacted”) to the output file name so you can instantly identify processed files.
+  It appends a custom suffix (e.g., “_redacted”) to the output file name so you can instantly identify processed files.  
 - **Can I load a document from stream?**  
-  Yes—GroupDocs.Redaction supports loading from any `InputStream`, perfect for cloud storage or in‑memory processing.
+  Yes—GroupDocs.Redaction supports loading from any `InputStream`, perfect for cloud storage or in‑memory processing.  
 - **Do I need a license for this feature?**  
-  A free trial works for basic redaction; a temporary or full license unlocks all advanced options, including suffix handling.
+  A free trial works for basic redaction; a temporary or full license unlocks all advanced options, including suffix handling.  
 - **Which formats are supported?**  
-  The library handles DOCX, PDF, PPTX, XLSX and many more.
+  The library handles DOCX, PDF, PPTX, XLSX and many more.  
 - **Is rasterization required for PDF output?**  
   Rasterization is optional; enable it when you need to flatten the document for extra security.
 
@@ -35,10 +35,10 @@ GroupDocs.Redaction provides a fluent Java API that lets you combine redaction a
 
 ## Prerequisites
 
-- **Java Development Kit (JDK):** Version 8 or higher.
-- **GroupDocs.Redaction Library:** Core library for redaction tasks.
-- **IDE:** IntelliJ IDEA, Eclipse, or any Java‑compatible editor.
-- **Maven:** For dependency management.
+- **Java Development Kit (JDK):** Version 8 or higher.  
+- **GroupDocs.Redaction Library:** Core library for redaction tasks.  
+- **IDE:** IntelliJ IDEA, Eclipse, or any Java‑compatible editor.  
+- **Maven:** For dependency management.  
 
 ### Knowledge Prerequisites
 Familiarity with Java I/O and basic object‑oriented concepts will make the examples easier to follow.
@@ -147,10 +147,13 @@ try (Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX")) {
 
 - **Why:** Customizing save options allows flexible output formats and naming conventions. Enabling `setAddSuffix(true)` **adds suffix to filename**, making it clear that the file has been redacted.
 
+## groupdocs maven dependency Overview
+The **groupdocs maven dependency** brings the entire Redaction SDK into your project with a single `<dependency>` entry. It handles transitive dependencies, keeps libraries up‑to‑date, and simplifies build automation. By declaring the dependency in `pom.xml`, you avoid manual JAR management and ensure compatibility with the latest security patches.
+
 ## Why Adding a Suffix Matters
-- **Auditability:** Teams can instantly spot which files are safe to distribute.
-- **Automation:** Scripts can filter files by suffix, preventing accidental processing of original documents.
-- **Compliance:** Many regulations require clear labeling of sanitized documents.
+- **Auditability:** Teams can instantly spot which files are safe to distribute.  
+- **Automation:** Scripts can filter files by suffix, preventing accidental processing of original documents.  
+- **Compliance:** Many regulations require clear labeling of sanitized documents.  
 
 ## Practical Applications
 Explore these real‑world use cases:
@@ -171,7 +174,7 @@ Explore these real‑world use cases:
 
 ### Best Practices for Java Memory Management
 - Reuse `Redactor` objects when processing multiple files of the same type.  
-- Invoke `close()` in a `finally` block or try‑with‑resources to prevent leaks.
+- Invoke `close()` in a `try‑with‑resources` block to prevent leaks.
 
 ## Common Issues and Solutions
 | Issue | Cause | Fix |
@@ -206,7 +209,7 @@ A: Join the [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33
 
 ---
 
-**Last Updated:** 2025-12-17  
+**Last Updated:** 2026-02-16  
 **Tested With:** GroupDocs.Redaction 24.9 for Java  
 **Author:** GroupDocs  
 
