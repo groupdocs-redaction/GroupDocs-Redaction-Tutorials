@@ -1,6 +1,6 @@
 ---
-date: '2025-12-19'
-description: 學習如何在一步一步的 Java 教程中使用 GroupDocs.Redaction API 移除 Java 註解。
+date: '2026-02-18'
+description: 學習如何在一步一步的 Java 教學中使用 GroupDocs.Redaction API 移除 Java 註解。
 keywords:
 - remove annotations java
 - GroupDocs Redaction API
@@ -13,36 +13,36 @@ weight: 1
 
 # 使用 GroupDocs.Redaction 移除 Java 註解
 
-當您需要 **remove annotations java** 時，雜亂的評論和標記會使文件難以閱讀和處理。無論您是要清理法律合約、學術草稿或內部報告，GroupDocs.Redaction 的 Java API 都能提供快速且可靠的方式，一次呼叫即可移除所有註解。本指南將帶您逐步了解所需的一切——從環境設定到清除註解的完整程式碼——讓您能將此功能整合到自己的 Java 應用程式中。
+當你需要 **remove annotations java** 時，雜亂的評論和標記會讓文件難以閱讀和處理。無論是清理法律合約、學術草稿或內部報告，GroupDocs.Redaction 的 Java API 都能提供快速且可靠的方式，一次呼叫即可去除所有註解。本指南將逐步說明從環境設定到清除註解的完整程式碼，讓你能將此功能整合到自己的 Java 應用程式中。
 
 ## 快速解答
-- **What does “remove annotations java” mean?** 它指的是使用 Java 程式碼以程式化方式刪除文件中所有評論類型的物件。  
-- **Which library handles this?** GroupDocs.Redaction for Java.  
-- **Do I need a license?** 臨時授權可用於評估；正式授權則在生產環境中必須使用。  
-- **Can I keep the original file format?** 可以，API 預設會以原始格式儲存文件。  
-- **How long does the operation take?** 通常在一秒以內完成一般大小的檔案；較大的 PDF 可能需要數秒。
+- **“remove annotations java” 是什麼意思？** 它指的是使用 Java 程式碼以程式化方式刪除文件中所有評論類型的物件。  
+- **哪個函式庫負責此功能？** GroupDocs.Redaction for Java。  
+- **我需要授權嗎？** 臨時授權可用於評估；正式授權則需於正式環境使用。  
+- **可以保留原始檔案格式嗎？** 可以，API 預設會以原始格式儲存文件。  
+- **操作需要多久？** 一般中等大小的檔案通常在一秒內完成；較大的 PDF 可能需要數秒。
 
-## 「remove annotations java」是什麼？
-在 Java 中移除註解是指使用 GroupDocs.Redaction SDK 於文件中尋找所有註解物件（評論、標記、印章等），並自動刪除它們。這樣即可省去在文字處理器中逐一開啟檔案並手動清除註解的步驟。
+## 什麼是 “remove annotations java”？
+在 Java 中移除註解是指使用 GroupDocs.Redaction SDK 來定位文件中所有註解物件（如評論、標記、印章等），並自動刪除它們。這樣就不必手動在文字處理器中逐一開啟檔案並清除註解。
 
 ## 為什麼要移除註解？
-- **Legal compliance:** 確保合約在簽署前不含審閱者的備註。  
-- **Publishing readiness:** 在提交前移除稿件中的審閱者評論。  
-- **Performance:** 更乾淨的檔案在後續處理流程中載入速度更快。  
+- **法律合規性：** 確保合約在簽署前不含審閱者的備註。  
+- **出版就緒：** 在提交手稿前去除審稿者的評論。  
+- **效能：** 較乾淨的檔案在後續處理流程中載入速度更快。
 
 ## 前置條件
 
-在開始之前，請確保您已具備：
+在開始之前，請確保你已具備：
 
 - **GroupDocs.Redaction for Java** 版本 24.9 或更新版本。  
-- **Maven**（如果您偏好相依管理）或直接下載 JAR。  
-- **JDK**（建議使用 Java 8 以上）以及如 IntelliJ IDEA 或 Eclipse 等 IDE。  
-- 基本的 Java 知識與檔案 I/O 的使用經驗。  
+- **Maven**（如果你偏好相依管理）或直接下載 JAR。  
+- 一個 **JDK**（建議 Java 8 以上）以及如 IntelliJ IDEA 或 Eclipse 等 IDE。  
+- 基本的 Java 知識與檔案 I/O 的使用經驗。
 
 ## 設定 GroupDocs.Redaction for Java
 
 ### Maven 設定
-Add the repository and dependency to your `pom.xml`:
+將儲存庫與相依性加入你的 `pom.xml`：
 
 ```xml
 <repositories>
@@ -66,10 +66,10 @@ Add the repository and dependency to your `pom.xml`:
 或者，從 [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/) 下載最新的 JAR。
 
 ### 取得授權
-若要解鎖全部功能，請從 [license page](https://purchase.groupdocs.com/temporary-license/) 取得臨時授權。這讓您在不受評估限制的情況下進行測試。
+若要解鎖全部功能，請從 [license page](https://purchase.groupdocs.com/temporary-license/) 取得臨時授權。這讓你在無評估限制的情況下進行測試。
 
 ### 基本初始化
-Below is a minimal starter class that opens a document. Keep the code unchanged—this is the exact block you’ll use later.
+以下是一個最小的啟動類別，用於開啟文件。請保持程式碼不變——這是稍後會使用的完整程式碼區塊。
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -92,10 +92,10 @@ public class InitializeGroupDocs {
 ## 實作指南：移除所有註解
 
 ### 概觀
-我們將使用 `DeleteAnnotationRedaction` 類別，指示 Redactor 刪除所有找到的註解。此流程包含五個明確步驟。
+我們將使用 `DeleteAnnotationRedaction` 類別，指示 Redactor 刪除它找到的所有註解。此流程包含五個明確的步驟。
 
 ### 步驟 1 – 匯入套件
-These imports give you access to the Redactor, save options, and the specific redaction type.
+這些匯入讓你能使用 Redactor、儲存選項以及特定的修訂類型。
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -104,21 +104,21 @@ import com.groupdocs.redaction.redactions.DeleteAnnotationRedaction;
 ```
 
 ### 步驟 2 – 初始化 Redactor
-Create a `Redactor` instance pointing at the file you want to clean.
+建立指向欲清理檔案的 `Redactor` 實例。
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/sample.docx");
 ```
 
 ### 步驟 3 – 套用 DeleteAnnotationRedaction
-This single line tells the SDK to strip every annotation from the document.
+這一行程式碼告訴 SDK 從文件中剝除所有註解。
 
 ```java
 redactor.apply(new DeleteAnnotationRedaction());
 ```
 
 ### 步驟 4 – 設定儲存選項
-We add a suffix to the output file name so the original stays untouched, and we keep the original format.
+我們為輸出檔名加入後綴，以免覆寫原始檔，且保持原始格式。
 
 ```java
 SaveOptions saveOptions = new SaveOptions();
@@ -127,72 +127,81 @@ saveOptions.setRasterizeToPDF(false);
 ```
 
 ### 步驟 5 – 儲存已修改的文件
-Finally, write the changes back to disk.
+最後，將變更寫回磁碟。
 
 ```java
 redactor.save(saveOptions);
 ```
 
 ### 完整範例回顧
-Putting the pieces together, the workflow looks like this:
+將各部分組合起來，工作流程如下：
 
 1. 匯入所需的類別。  
-2. 使用您的來源檔案實例化 `Redactor`。  
+2. 使用來源檔案實例化 `Redactor`。  
 3. 呼叫 `apply(new DeleteAnnotationRedaction())`。  
-4. 設定 `SaveOptions`（加入後綴、保持格式）。  
-5. 呼叫 `redactor.save(saveOptions)`。  
+4. 設定 `SaveOptions`（加入後綴、保留格式）。  
+5. 呼叫 `redactor.save(saveOptions)`。
 
-## 疑難排解技巧
-- **File path errors:** 確認傳遞給 `Redactor` 的路徑是絕對路徑或相對於專案的正確路徑。  
-- **Missing dependencies:** 再次檢查您的 `pom.xml` 或 JAR 類路徑；若缺少核心函式庫，Redactor 無法啟動。  
-- **License not applied:** 若出現授權例外，請確保臨時授權檔案放置於正確目錄，且在程式碼中正確引用（此處未示範）。  
+## 為何重要：真實案例
+- **批次處理：** 在迴圈中執行此程式碼，以在歸檔前清理成千上萬的 PDF。  
+- **CI/CD 流程：** 將此呼叫整合至自動化文件產生步驟，確保輸出不含註解。  
+- **合規稽核：** 使用 API 產生乾淨的稽核紀錄，無需手動編輯。
+
+## 常見問題與解決方案
+- **檔案路徑錯誤：** 確認傳遞給 `Redactor` 的路徑是絕對路徑或相對於專案正確的相對路徑。  
+- **缺少相依性：** 再次檢查你的 `pom.xml` 或 JAR classpath；若缺少核心函式庫，Redactor 無法啟動。  
+- **授權未套用：** 若看到授權例外，請確保臨時授權檔案放置於正確目錄，且在程式碼中正確引用（此處未示範）。
 
 ## 實務應用
-1. **Legal Document Review:** 在最終簽署前移除審閱者的評論。  
-2. **Academic Publishing:** 在提交期刊前清除稿件中的同行評審備註。  
-3. **Internal Reports:** 提供沒有草稿註解雜訊的精緻報告。  
+
+1. **法律文件審查：** 在最終簽署前移除審閱者的評論。  
+2. **學術出版：** 在期刊投稿前清除手稿中的同行評審備註。  
+3. **內部報告：** 提供已去除草稿註解的精緻報告。
 
 ## 效能考量
-- **Resource Management:** 總是呼叫 `redactor.close()`（如初始化範例所示）以釋放原生資源。  
-- **Large Files:** 對於數百頁的 PDF，建議分段處理或增加 JVM 堆積大小。  
-- **Stay Updated:** 新版本會帶來效能調整——請保持 Maven 版本為最新。  
+
+- **資源管理：** 始終呼叫 `redactor.close()`（如初始化範例所示）以釋放原生資源。  
+- **大型檔案：** 對於數百頁的 PDF，建議分段處理或增加 JVM 堆積大小。  
+- **保持更新：** 新版本會帶來效能調整——請保持 Maven 版本為最新。
 
 ## 常見陷阱與避免方法
-| Pitfall | Solution |
+
+| 陷阱 | 解決方案 |
 |---------|----------|
-| 忘記呼叫 `redactor.close()` | 使用 try‑finally 區塊包住使用（如啟動類別中所示）。 |
-| 路徑中的檔案副檔名錯誤 | 確認路徑與實際檔案類型相符（DOCX、PDF 等）。 |
-| 未加入後綴而覆寫原始檔案 | 設定 `saveOptions.setAddSuffix(true)` 以保留來源檔案。 |
+| 忘記呼叫 `redactor.close()` | 將使用包在 try‑finally 區塊中（如啟動類別所示）。 |
+| 路徑使用錯誤的檔案副檔名 | 確保路徑與實際檔案類型相符（DOCX、PDF 等）。 |
+| 未加入後綴而覆寫原始檔 | 設定 `saveOptions.setAddSuffix(true)` 以保留來源檔案。 |
 
 ## 常見問答
 
-**Q: What is GroupDocs.Redaction?**  
-A: GroupDocs.Redaction 是一個 Java API，讓您能以程式方式編輯或刪除敏感內容（包括註解），支援多種文件格式。
+**Q: 什麼是 GroupDocs.Redaction？**  
+A: GroupDocs.Redaction 是一個 Java API，允許你以程式方式修訂或刪除敏感內容（包括註解），支援多種文件格式。
 
-**Q: Can I use this in a commercial project?**  
-A: 可以，只要您擁有有效的商業授權。臨時授權僅供評估使用。
+**Q: 我可以在商業專案中使用嗎？**  
+A: 可以，前提是你擁有有效的商業授權。臨時授權僅供評估使用。
 
-**Q: Does the API support PDF, DOCX, and other formats?**  
-A: 當然。它支援 PDF、DOCX、PPTX、XLSX 以及其他多種檔案類型。
+**Q: API 是否支援 PDF、DOCX 及其他格式？**  
+A: 當然支援。它可處理 PDF、DOCX、PPTX、XLSX 等多種檔案類型。
 
-**Q: Is there any limit to the number of annotations I can delete?**  
-A: 沒有硬性限制；效能取決於文件大小與系統資源。
+**Q: 刪除註解的數量有沒有上限？**  
+A: 沒有硬性上限；效能取決於文件大小與系統資源。
 
-**Q: How can I revert the changes if I delete annotations by mistake?**  
-A: API 會覆寫您儲存的檔案。請在執行編輯前保留原始文件的備份。
+**Q: 若誤刪除註解，如何復原變更？**  
+A: API 會覆寫你儲存的檔案。執行修訂前請先備份原始文件。
 
 ## 資源
-- **Documentation:** [GroupDocs Redaction Java Documentation](https://docs.groupdocs.com/redaction/java/)  
-- **API Reference:** [API Reference](https://reference.groupdocs.com/redaction/java)  
-- **Download:** [Latest Releases](https://releases.groupdocs.com/redaction/java/)  
-- **GitHub Repository:** [GroupDocs.Redaction for Java](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
-- **Free Support Forum:** [GroupDocs Community Forum](https://forum.groupdocs.com/c/redaction/33)  
-- **Temporary License:** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/)  
 
-透過本指南，您現在擁有使用 GroupDocs.Redaction **remove annotations java** 的可靠方法。將此程式碼片段整合至批次處理流程，即可每次獲得更乾淨、無註解的文件。
+- **文件說明：** [GroupDocs Redaction Java Documentation](https://docs.groupdocs.com/redaction/java/)  
+- **API 參考：** [API Reference](https://reference.groupdocs.com/redaction/java)  
+- **下載：** [Latest Releases](https://releases.groupdocs.com/redaction/java/)  
+- **GitHub 程式庫：** [GroupDocs.Redaction for Java](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
+- **免費支援論壇：** [GroupDocs Community Forum](https://forum.groupdocs.com/c/redaction/33)  
+- **臨時授權：** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/)  
+
+透過本指南，你現在擁有使用 GroupDocs.Redaction 可靠的 **remove annotations java** 方法。將此程式碼片段整合至批次處理流程，即可每次都獲得更乾淨、無註解的文件。
 
 ---
 
-**最後更新:** 2025-12-19  
-**測試環境:** GroupDocs.Redaction 24.9 for Java  
-**作者:** GroupDocs
+**最後更新：** 2026-02-18  
+**測試於：** GroupDocs.Redaction 24.9 for Java  
+**作者：** GroupDocs

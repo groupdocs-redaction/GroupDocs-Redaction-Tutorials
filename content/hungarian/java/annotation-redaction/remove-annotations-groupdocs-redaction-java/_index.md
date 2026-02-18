@@ -1,7 +1,7 @@
 ---
-date: '2025-12-19'
-description: Tanulja meg, hogyan távolíthatja el a megjegyzéseket Java-ban a GroupDocs.Redaction
-  API segítségével egy lépésről‑lépésre Java oktatóban.
+date: '2026-02-18'
+description: Tanulja meg, hogyan távolíthatja el a megjegyzéseket Java‑ban a GroupDocs.Redaction
+  API használatával egy lépésről‑lépésre szóló Java oktatóban.
 keywords:
 - remove annotations java
 - GroupDocs Redaction API
@@ -12,38 +12,36 @@ url: /hu/java/annotation-redaction/remove-annotations-groupdocs-redaction-java/
 weight: 1
 ---
 
-# Java annotációk eltávolítása a GroupDocs.Redaction segítségével
+# Annotációk eltávolítása Java-val a GroupDocs.Redaction segítségével
 
-Amikor **remove annotations java**-ra van szükség, a zsúfolt megjegyzések és jelölések nehezítik a dokumentumok olvasását és feldolgozását. Legyen szó jogi szerződések, tudományos vázlatok vagy belső jelentések tisztításáról, a GroupDocs.Redaction API for Java gyors és megbízható módot kínál minden annotáció egyetlen hívással történő eltávolítására. Ebben az útmutatóban mindent végigvezetünk – a környezet beállításától a pontos kódrészletig, amely eltávolítja az annotációkat – hogy ezt a funkciót saját Java alkalmazásaiba integrálhasd.
+Amikor **remove annotations java**‑ra van szükség, a zsúfolt megjegyzések és jelölések nehezítik a dokumentumok olvasását és feldolgozását. Legyen szó jogi szerződések, tudományos vázlatok vagy belső jelentések tisztításáról, a GroupDocs.Redaction API for Java gyors és megbízható módot biztosít minden annotáció egyetlen hívással történő eltávolítására. Ebben az útmutatóban mindent végigvezetünk – a környezet beállításától a pontos kódig, amely törli az annotációkat – hogy ezt a funkciót beépíthesse saját Java alkalmazásaiba.
 
 ## Gyors válaszok
-- **Mit jelent a “remove annotations java”?** Ez arra utal, hogy programozott módon töröljük az összes megjegyzés‑típusú objektumot egy dokumentumból Java kóddal.  
+- **Mi jelent a “remove annotations java”?** Ez azt jelenti, hogy programozott módon töröljük az összes megjegyzés‑típusú objektumot egy dokumentumból Java kóddal.  
 - **Melyik könyvtár kezeli ezt?** GroupDocs.Redaction for Java.  
-- **Szükség van licencre?** Ideiglenes licenc használható értékeléshez; teljes licenc szükséges a termeléshez.  
-- **Megőrizhető az eredeti fájlformátum?** Igen, az API alapértelmezés szerint az eredeti formátumban menti a dokumentumot.  
-- **Mennyi időt vesz igénybe a művelet?** Általában egy másodpercnél kevesebb átlagos méretű fájlok esetén; nagyobb PDF-ek néhány másodpercet igényelhetnek.
+- **Szükségem van licencre?** Egy ideiglenes licenc elegendő értékeléshez; a teljes licenc a termeléshez kötelező.  
+- **Megőrizhetem az eredeti fájlformátumot?** Igen, az API alapértelmezés szerint az eredeti formátumban menti a dokumentumot.  
+- **Mennyi időt vesz igénybe a művelet?** Általában egy másodpercnél kevesebb átlagos méretű fájloknál; nagyobb PDF-ek néhány másodpercet igényelhetnek.
 
-## Mi a “remove annotations java”?
-A Java-ban történő annotációk eltávolítása azt jelenti, hogy a GroupDocs.Redaction SDK-val megtaláljuk a dokumentumban lévő minden annotációs objektumot (megjegyzések, kiemelések, pecsétek stb.) és automatikusan töröljük őket. Ez megszünteti a manuális lépést, amikor minden fájlt egy szövegszerkesztőben kell megnyitni és a megjegyzéseket egyesével törölni.
+## Mi az a “remove annotations java”?
+Az annotációk Java‑ban történő eltávolítása azt jelenti, hogy a GroupDocs.Redaction SDK‑val megtaláljuk a dokumentumban minden annotációs objektumot (megjegyzések, kiemelések, pecsétek stb.) és automatikusan töröljük őket. Ez megszünteti a manuális lépést, amikor egyes fájlokat egy szövegszerkesztőben nyitunk meg, és egyesével töröljük a megjegyzéseket.
 
-## Miért érdemes eltávolítani az annotációkat?
-- **Jogi megfelelés:** Biztosítsa, hogy a szerződések a aláírás előtt mentesek legyenek a felülvizsgálói megjegyzésektől.  
-- **Kiadási készültség:** Távolítsa el a felülvizsgálói kommentárokat a kéziratokból a benyújtás előtt.  
+## Miért távolítsuk el az annotációkat?
+- **Jogi megfelelés:** Biztosítsa, hogy a szerződések a felülvizsgáló megjegyzésektől mentesek legyenek aláírás előtt.  
+- **Kiadási készség:** Távolítsa el a felülvizsgáló megjegyzéseket a kéziratokból a benyújtás előtt.  
 - **Teljesítmény:** A tisztább fájlok gyorsabban töltődnek be a további feldolgozási csővezetékekben.  
 
 ## Előfeltételek
 
-Mielőtt elkezdenéd, győződj meg róla, hogy rendelkezel:
+- **GroupDocs.Redaction for Java** 24.9 vagy újabb verzió.  
+- **Maven** (ha a függőségkezelést részesíti előnyben) vagy a közvetlen JAR letöltés.  
+- **JDK** (Java 8+ ajánlott) és egy IDE, például IntelliJ IDEA vagy Eclipse.  
+- Alap Java ismeretek és a fájl I/O ismerete.
 
-- **GroupDocs.Redaction for Java** 24.9 vagy újabb verzióval.  
-- **Maven**‑rel (ha a függőségkezelést részesíted előnyben) vagy a közvetlen JAR letöltéssel.  
-- **JDK**‑val (Java 8+ ajánlott) és egy IDE‑vel, például IntelliJ IDEA vagy Eclipse.  
-- Alapvető Java ismeretekkel és fájl‑I/O tapasztalattal.
-
-## GroupDocs.Redaction for Java beállítása
+## A GroupDocs.Redaction beállítása Java-hoz
 
 ### Maven beállítás
-Add hozzá a tárolót és a függőséget a `pom.xml` fájlodhoz:
+Addja a tárolót és a függőséget a `pom.xml`‑hez:
 
 ```xml
 <repositories>
@@ -64,13 +62,13 @@ Add hozzá a tárolót és a függőséget a `pom.xml` fájlodhoz:
 ```
 
 ### Közvetlen letöltés
-Alternatívaként töltsd le a legújabb JAR‑t a [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/) oldalról.
+Alternatívaként töltse le a legújabb JAR‑t a [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/) oldalról.
 
 ### Licenc beszerzése
-A teljes funkcionalitás feloldásához szerezz be egy ideiglenes licencet a [licencoldalról](https://purchase.groupdocs.com/temporary-license/). Ez lehetővé teszi a tesztelést korlátozások nélkül.
+A teljes funkcionalitás feloldásához szerezzen be egy ideiglenes licencet a [license page](https://purchase.groupdocs.com/temporary-license/) oldalról. Ez lehetővé teszi a tesztelést korlátozások nélkül.
 
-### Alapvető inicializálás
-Az alábbi minimális indító osztály megnyit egy dokumentumot. Hagyd a kódot változatlanul – ez lesz a későbbi pontos blokk.
+### Alap inicializálás
+Az alábbi minimális indítóosztály megnyit egy dokumentumot. Hagyja a kódot változatlanul – ez lesz a később használandó blokk.
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -90,13 +88,13 @@ public class InitializeGroupDocs {
 }
 ```
 
-## Implementációs útmutató: Minden annotáció eltávolítása
+## Implementációs útmutató: Az összes annotáció eltávolítása
 
 ### Áttekintés
-A `DeleteAnnotationRedaction` osztályt fogjuk használni, amely azt mondja a Redactor‑nak, hogy törölje az összes megtalált annotációt. A folyamat öt egyértelmű lépésből áll.
+A `DeleteAnnotationRedaction` osztályt fogjuk használni, amely a Redactor‑nak azt mondja, hogy törölje az összes megtalált annotációt. A folyamat öt egyértelmű lépésből áll.
 
 ### 1. lépés – Csomagok importálása
-Ezek az importok biztosítják a Redactor, a mentési beállítások és a konkrét redakció típusának elérését.
+Ezek az importok biztosítják a Redactor, a mentési beállítások és a konkrét redakciós típus elérését.
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -105,13 +103,13 @@ import com.groupdocs.redaction.redactions.DeleteAnnotationRedaction;
 ```
 
 ### 2. lépés – A Redactor inicializálása
-Hozz létre egy `Redactor` példányt, amely a tisztítandó fájlra mutat.
+Hozzon létre egy `Redactor` példányt, amely a tisztítandó fájlra mutat.
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/sample.docx");
 ```
 
-### 3. lépés – DeleteAnnotationRedaction alkalmazása
+### 3. lépés – A DeleteAnnotationRedaction alkalmazása
 Ez az egyetlen sor azt mondja az SDK‑nak, hogy távolítsa el az összes annotációt a dokumentumból.
 
 ```java
@@ -119,7 +117,7 @@ redactor.apply(new DeleteAnnotationRedaction());
 ```
 
 ### 4. lépés – Mentési beállítások konfigurálása
-Egy utótagot adunk a kimeneti fájlnévhez, hogy az eredeti érintetlen maradjon, és megtartjuk az eredeti formátumot.
+Az output fájl nevéhez egy utótagot adunk, így az eredeti érintetlen marad, és megtartjuk az eredeti formátumot.
 
 ```java
 SaveOptions saveOptions = new SaveOptions();
@@ -128,75 +126,80 @@ saveOptions.setRasterizeToPDF(false);
 ```
 
 ### 5. lépés – A módosított dokumentum mentése
-Végül írjuk vissza a változtatásokat a lemezre.
+Végül írja vissza a változtatásokat a lemezre.
 
 ```java
 redactor.save(saveOptions);
 ```
 
 ### Teljes példa összefoglaló
-A lépések összeállítása így néz ki:
+A lépések összeállítása után a munkafolyamat a következő:
 
-1. Importáld a szükséges osztályokat.  
-2. Hozd létre a `Redactor`‑t a forrásfájllal.  
-3. Hívd meg a `apply(new DeleteAnnotationRedaction())`‑t.  
-4. Állítsd be a `SaveOptions`‑t (adj hozzá utótagot, tartsd meg a formátumot).  
-5. Hívd meg a `redactor.save(saveOptions)`‑t.
+1. Importálja a szükséges osztályokat.  
+2. Hozza létre a `Redactor`‑t a forrásfájllal.  
+3. Hívja meg a `apply(new DeleteAnnotationRedaction())`‑t.  
+4. Állítsa be a `SaveOptions`‑t (utótag hozzáadása, formátum megtartása).  
+5. Hívja meg a `redactor.save(saveOptions)`‑t.
 
-## Hibaelhárítási tippek
-- **Fájlútvonal hibák:** Ellenőrizd, hogy a `Redactor`‑nak átadott útvonal abszolút vagy a projekthez megfelelően relatív legyen.  
-- **Hiányzó függőségek:** Ellenőrizd a `pom.xml`‑t vagy a JAR‑osztályútvonalat; a Redactor nem indul el a core könyvtár nélkül.  
-- **Licenc nincs alkalmazva:** Ha licenckivételt látsz, győződj meg róla, hogy az ideiglenes licencfájl a megfelelő könyvtárban van, és a kódban hivatkozva van (a példában nem szerepel a részletesség kedvéért).  
+## Miért fontos: Valós példák
+- **Batch processing:** Futtassa a kódrészletet ciklusban, hogy ezrek PDF‑jét tisztítsa meg archiválás előtt.  
+- **CI/CD pipelines:** Integrálja a hívást az automatizált dokumentumgenerálási lépésekbe, hogy garantálja a annotációmentes kimenetet.  
+- **Compliance audits:** Használja az API‑t tiszta auditnyomvonal generálásához manuális szerkesztés nélkül.  
+
+## Gyakori problémák és megoldások
+- **File path errors:** Ellenőrizze, hogy a `Redactor`‑nak átadott útvonal abszolút vagy a projekthez megfelelően relatív legyen.  
+- **Missing dependencies:** Ellenőrizze a `pom.xml`‑t vagy a JAR osztályútvonalat; a Redactor nem indul el a core könyvtár nélkül.  
+- **License not applied:** Ha licenckivételt kap, győződjön meg róla, hogy az ideiglenes licencfájl a megfelelő könyvtárban van, és a kódban hivatkozott (a részlet itt nem látható a rövidség kedvéért).  
 
 ## Gyakorlati alkalmazások
 
-1. **Jogi dokumentumok felülvizsgálata:** Távolítsd el a felülvizsgáló kommentárokat a végső aláírások előtt.  
-2. **Tudományos kiadás:** Tisztítsd meg a kéziratokat a lektorálási megjegyzésektől a folyóirati benyújtás előtt.  
-3. **Belső jelentések:** Szállítsd ki a csiszolt jelentéseket anélkül, hogy a vázlat annotációk elhomályosítanák a nézetet.  
+1. **Legal Document Review:** Távolítsa el a felülvizsgáló megjegyzéseket a végső aláírások előtt.  
+2. **Academic Publishing:** Tisztítsa meg a kéziratokat a lektorálási jegyzetektől a folyóirati benyújtás előtt.  
+3. **Internal Reports:** Szállítson kifinomult jelentéseket anélkül, hogy a vázlat annotációi elhomályosítanák a nézetet.  
 
-## Teljesítménybeli megfontolások
+## Teljesítmény szempontok
 
-- **Erőforrás-kezelés:** Mindig hívd a `redactor.close()`‑t (ahogy az inicializáló példában látható), hogy felszabadítsd a natív erőforrásokat.  
-- **Nagy fájlok:** Több száz oldalas PDF‑ek esetén fontold meg a feldolgozást darabokra bontani vagy növeld a JVM heap méretét.  
-- **Frissítések követése:** Az új kiadások teljesítményjavításokat hoznak – tartsd naprakészen a Maven verziót.  
+- **Resource Management:** Mindig hívja a `redactor.close()`‑t (ahogy az inicializációs példában látható) a natív erőforrások felszabadításához.  
+- **Large Files:** Több száz oldalas PDF‑ek esetén fontolja meg a feldolgozást darabokra bontva vagy a JVM heap méretének növelését.  
+- **Stay Updated:** Az új kiadások teljesítményjavításokat hoznak – tartsa naprakészen a Maven‑verziót.  
 
-## Gyakori hibák és elkerülésük
-| Hiba | Megoldás |
-|------|----------|
-| Elfelejtett `redactor.close()` | Tedd a használatot try‑finally blokkba (ahogy a starter osztályban látható). |
-| Rossz fájlkiterjesztés az útvonalban | Győződj meg róla, hogy az útvonal megegyezik a tényleges fájltípussal (DOCX, PDF, stb.). |
-| Nem adtunk hozzá utótagot, és felülírtuk az eredetit | Állítsd be a `saveOptions.setAddSuffix(true)`‑t az eredeti fájl megőrzéséhez. |
+## Gyakori buktatók és elkerülésük
+| Pitfall | Solution |
+|---------|----------|
+| Forgetting `redactor.close()` | Wrap usage in a try‑finally block (as in the starter class). |
+| Using the wrong file extension in the path | Ensure the path matches the actual file type (DOCX, PDF, etc.). |
+| Not adding a suffix and overwriting the original | Set `saveOptions.setAddSuffix(true)` to preserve the source file. |
 
-## Gyakran feltett kérdések
+## Gyakran ismételt kérdések
 
-**Q: Mi az a GroupDocs.Redaction?**  
-A: A GroupDocs.Redaction egy Java API, amely lehetővé teszi érzékeny tartalmak – köztük az annotációk – programozott redakcióját vagy törlését számos dokumentumformátumban.
+**Q: Mi a GroupDocs.Redaction?**  
+A: A GroupDocs.Redaction egy Java API, amely lehetővé teszi a bizalmas tartalom – beleértve az annotációkat – programozott módon történő redakcióját vagy törlését számos dokumentumformátumban.
 
-**Q: Használhatom kereskedelmi projektben?**  
-Igen, amennyiben érvényes kereskedelmi licenccel rendelkezik. Az ideiglenes licenc csak értékelésre szolgál.
+**Q: Használhatom ezt kereskedelmi projektben?**  
+A: Igen, amennyiben érvényes kereskedelmi licencet vásárol. Az ideiglenes licenc csak értékelésre szolgál.
 
-**Q: Támogatja a PDF, DOCX és egyéb formátumokat?**  
-Természetesen. PDF, DOCX, PPTX, XLSX és még sok más fájltípus esetén működik.
+**Q: Támogatja az API a PDF, DOCX és egyéb formátumokat?**  
+A: Teljes mértékben. PDF, DOCX, PPTX, XLSX és még sok más fájltípus esetén működik.
 
 **Q: Van korlátozás az eltávolítható annotációk számában?**  
-Nincs szigorú limit; a teljesítmény a dokumentum méretétől és a rendszer erőforrásaitól függ.
+A: Nincs szigorú limit; a teljesítmény a dokumentum méretétől és a rendszer erőforrásaitól függ.
 
-**Q: Hogyan állíthatom vissza a változtatásokat, ha véletlenül törlöm az annotációkat?**  
-Az API felülírja a mentett fájlt. Mindenképp készíts biztonsági másolatot az eredeti dokumentumról a redakció futtatása előtt.
+**Q: Hogyan állíthatom vissza a változtatásokat, ha véletlenül törlök annotációkat?**  
+A: Az API felülírja a mentett fájlt. A redakció futtatása előtt készítsen biztonsági másolatot az eredeti dokumentumról.
 
-## Források
+## Erőforrások
 
-- **Dokumentáció:** [GroupDocs Redaction Java Documentation](https://docs.groupdocs.com/redaction/java/)  
-- **API referencia:** [API Reference](https://reference.groupdocs.com/redaction/java)  
-- **Letöltés:** [Latest Releases](https://releases.groupdocs.com/redaction/java/)  
-- **GitHub tároló:** [GroupDocs.Redaction for Java](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
-- **Ingyenes támogatási fórum:** [GroupDocs Community Forum](https://forum.groupdocs.com/c/redaction/33)  
-- **Ideiglenes licenc:** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/)  
+- **Documentation:** [GroupDocs Redaction Java Documentation](https://docs.groupdocs.com/redaction/java/)  
+- **API Reference:** [API Reference](https://reference.groupdocs.com/redaction/java)  
+- **Download:** [Latest Releases](https://releases.groupdocs.com/redaction/java/)  
+- **GitHub Repository:** [GroupDocs.Redaction for Java](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
+- **Free Support Forum:** [GroupDocs Community Forum](https://forum.groupdocs.com/c/redaction/33)  
+- **Temporary License:** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/)  
 
-Ezzel az útmutatóval most már megbízható módon **remove annotations java**-t tudsz végrehajtani a GroupDocs.Redaction segítségével. Illeszd be a kódrészletet a kötegelt feldolgozási folyamatokba, és élvezd a tisztább, annotáció‑mentes dokumentumokat minden alkalommal.
+Ezzel az útmutatóval most már rendelkezik egy megbízható módszerrel a **remove annotations java** végrehajtására a GroupDocs.Redaction segítségével. Integrálja a kódrészletet kötegelt feldolgozási csővezetékekbe, és élvezze a tisztább, annotációmentes dokumentumokat minden alkalommal.
 
 ---
 
-**Utoljára frissítve:** 2025-12-19  
-**Tesztelve a következővel:** GroupDocs.Redaction 24.9 for Java  
-**Szerző:** GroupDocs
+**Last Updated:** 2026-02-18  
+**Tested With:** GroupDocs.Redaction 24.9 for Java  
+**Author:** GroupDocs
