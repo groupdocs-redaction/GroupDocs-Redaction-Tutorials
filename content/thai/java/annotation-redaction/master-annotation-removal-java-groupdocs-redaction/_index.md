@@ -1,43 +1,45 @@
 ---
-date: '2025-12-19'
-description: เรียนรู้วิธีลบคำอธิบายใน Java ด้วย GroupDocs.Redaction และ regex. ทำให้การจัดการเอกสารเป็นระบบง่ายขึ้นด้วยคู่มือที่ครอบคลุมของเรา.
+date: '2026-02-18'
+description: เรียนรู้วิธีลบหมายเหตุใน PDF ด้วย Java โดยใช้ GroupDocs.Redaction, การกรองด้วย
+  regex และบันทึกเอกสารที่ทำการลบข้อมูลด้วยส่วนต่อท้ายชื่อไฟล์.
 keywords:
 - annotation removal java
 - groupdocs redaction setup
 - regex annotation cleanup
-title: วิธีลบคำอธิบายใน Java ด้วย GroupDocs.Redaction
+title: ลบหมายเหตุ PDF ด้วย Java และ GroupDocs.Redaction
 type: docs
 url: /th/java/annotation-redaction/master-annotation-removal-java-groupdocs-redaction/
 weight: 1
 ---
 
-# วิธีลบ Annotation ใน Java ด้วย GroupDocs.Redaction
+# ลบการทำเครื่องหมาย PDF ใน Java ด้วย GroupDocs.Redaction
 
-หากคุณเคยเจอปัญหาในการ **ลบ annotation** จากไฟล์ PDF, Word หรือ Excel คุณคงรู้ว่าการทำความสะอาดด้วยมือใช้เวลานานแค่ไหน โชคดีที่ GroupDocs.Redaction for Java ให้วิธีการแบบโปรแกรมเมติกเพื่อกำจัดโน้ต, คอมเมนต์ หรือไฮไลท์ที่ไม่ต้องการด้วยเพียงไม่กี่บรรทัดของโค้ด ในคู่มือนี้เราจะพาคุณผ่านทุกขั้นตอนตั้งแต่การตั้งค่า Maven dependency จนถึงการใช้ฟิลเตอร์แบบ regex ที่ลบเฉพาะ annotation ที่คุณต้องการ
+หากคุณต้องการ **remove PDF annotations** อย่างรวดเร็วและเชื่อถือได้—ไม่ว่าจะเป็นความคิดเห็น, ไฮไลท์, หรือโน้ตสติ๊กกี้—GroupDocs.Redaction for Java จะมอบโซลูชันแบบโปรแกรมที่สะอาดตา ในบทแนะนำนี้เราจะอธิบายทุกขั้นตอนตั้งแต่การตั้งค่า Maven ไปจนถึงตัวกรองแบบ regex ที่ลบเฉพาะการทำเครื่องหมายที่คุณต้องการเท่านั้น และเราจะแสดงวิธี **save the redacted document** พร้อมเพิ่มส่วนต่อท้ายชื่อไฟล์เพื่อให้ไฟล์ต้นฉบับไม่ถูกแก้ไข
 
 ## คำตอบอย่างรวดเร็ว
-- **ไลบรารีใดที่จัดการการลบ annotation?** GroupDocs.Redaction for Java.  
+- **ไลบรารีใดที่จัดการการลบการทำเครื่องหมาย?** GroupDocs.Redaction for Java.  
 - **คีย์เวิร์ดใดที่ทำให้เกิดการลบ?** A regular‑expression pattern you define (e.g., `(?im:(use|show|describe))`).  
 - **ฉันต้องการไลเซนส์หรือไม่?** A trial works for evaluation; a commercial license is required for production.  
 - **ฉันสามารถบันทึกไฟล์ที่ทำความสะอาดแล้วด้วยชื่อใหม่ได้หรือไม่?** Yes—use `SaveOptions.setAddSuffix(true)`.  
 - **Maven เป็นวิธีเดียวในการเพิ่มไลบรารีหรือไม่?** No, you can also download the JAR directly.
 
-## “การลบ annotation” หมายถึงอะไรในบริบทของ Java?
-การลบ annotation หมายถึงการค้นหาและลบวัตถุ markup (คอมเมนต์, ไฮไลท์, sticky notes) จากเอกสารโดยโปรแกรมเมติก กับ GroupDocs.Redaction คุณสามารถกำหนดเป้าหมายวัตถุเหล่านี้ตามเนื้อหาข้อความ ทำให้เหมาะสำหรับโครงการ **data anonymization java** , **legal document redaction**, หรือกระบวนการทำงานใด ๆ ที่ต้องการไฟล์ที่สะอาดและพร้อมแชร์
+## การลบการทำเครื่องหมาย PDF คืออะไร?
+การลบการทำเครื่องหมาย PDF หมายถึงการค้นหาและลบวัตถุการทำเครื่องหมาย (ความคิดเห็น, ไฮไลท์, โน้ตสติ๊กกี้) จากเอกสารโดยโปรแกรม ด้วย GroupDocs.Redaction คุณสามารถกำหนดเป้าหมายวัตถุเหล่านี้ตามเนื้อหาข้อความของมัน ทำให้เหมาะอย่างยิ่งสำหรับ **legal document redaction**, โครงการ data‑anonymization, หรือกระบวนการทำงานใด ๆ ที่ต้องการไฟล์ที่สะอาดและพร้อมแชร์
 
-## ทำไมต้องใช้Docs.Redaction สำหรับการลบ annotation?
-- **Precision** – Regex lets you specify exactly which notes to erase.  
-- **Speed** – Process hundreds of files in a batch without opening each manually.  
-- **Compliance** – Ensure sensitive comments never leave your organization.  
-- **Cross‑format support** – Works with PDF, DOCX, XLSX, and more.
+## ทำไมต้องใช้การลบการทำเครื่องหมาย PDF กับ GroupDocs.Redaction?
+- **Precision** – Regex ให้คุณระบุได้อย่างแม่นยำว่าความคิดเห็นใดจะลบ.  
+- **Speed** – ประมวลผล **multiple documents** เป็นชุดโดยไม่ต้องเปิดแต่ละไฟล์ด้วยตนเอง.  
+- **Compliance** – รับประกันว่าความคิดเห็นที่เป็นความลับจะไม่ออกจากองค์กรของคุณ.  
+- **Cross‑format support** – ทำงานกับ PDF, DOCX, XLSX และอื่น ๆ ทำให้คุณจัดการไฟล์สำนักงานทั้งหมดในที่เดียว.
 
 ## ข้อกำหนดเบื้องต้น
 - Java JDK 1.8 หรือใหม่กว่า.  
 - IDE เช่น IntelliJ IDEA หรือ Eclipse.  
 - ความคุ้นเคยพื้นฐานกับ regular expressions.  
 
-## การกำหนดค่า Maven Dependency ของ GroupDocs
-เพิ่มรีโพซิทอรีของ GroupDocs และอาร์ติแฟคต์ Redaction ลงใน `pom.xml` ของคุณ:
+## Maven Dependency GroupDocs
+
+เพิ่มรีโพซิทอรีของ GroupDocs และอาร์ติแฟกต์ Redaction ไปยังไฟล์ `pom.xml` ของคุณ:
 
 ```xml
 <repositories>
@@ -58,15 +60,17 @@ weight: 1
 ```
 
 ### ดาวน์โหลดโดยตรง (ทางเลือก)
-หากคุณไม่ต้องการใช้ Maven ให้ดาวน์โหลด JAR เวอร์ชันล่าสุดจากหน้าอย่างเป็นทางการ: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+
+หากคุณไม่ต้องการใช้ Maven ให้ดาวน์โหลด JAR ล่าสุดจากหน้าอย่างเป็นทางการ: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
 #### ขั้นตอนการรับไลเซนส์
-1. **Free Trial** – ดาวน์โหลดเวอร์ชันทดลองเพื่อสำรวจฟีเจอร์หลัก.  
+1. **Free Trial** – ดาวน์โหลดเวอร์ชันทดลองเพื่อสำรวจคุณสมบัติหลัก.  
 2. **Temporary License** – ขอคีย์ชั่วคราวสำหรับการทดสอบฟีเจอร์เต็ม.  
-3. **Purchase** – ซื้อไลเซนส์เชิงพาณิชย์สำหรับการใช้งานในผลิตภัณฑ์.  
+3. **Purchase** – รับไลเซนส์เชิงพาณิชย์สำหรับการใช้งานในผลิตภัณฑ์.  
 
 ## การเริ่มต้นและตั้งค่าพื้นฐาน
-โค้ดตัวอย่างต่อไปนี้แสดงวิธีสร้างอินสแตนซ์ `Redactor` และกำหนดค่า save options พื้นฐาน:
+
+โค้ดตัวอย่างต่อไปนี้แสดงวิธีสร้างอินสแตนซ์ `Redactor` และกำหนดค่า options การบันทึกพื้นฐาน:
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -93,70 +97,72 @@ public class InitializeRedaction {
 }
 ```
 
-## คู่มือขั้นตอนการลบ Annotation
+## คู่มือขั้นตอนการลบการทำเครื่องหมาย PDF
 
 ### ขั้นตอน 1: โหลดเอกสารของคุณ
+
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/ANNOTATED_XLSX");
 ```
 
-### ขั้นตอน 2: ใช้การลบ Annotation ด้วย Regex
+### ขั้นตอน 2: ใช้การลบการทำเครื่องหมายด้วย Regex
+
 ```java
 redactor.apply(new DeleteAnnotationRedaction("(?im:(use|show|describe))"));
 ```
 
-- **Explanation** – แพทเทิร์น `(?im:(use|show|describe))` ไม่สนใจตัวพิมพ์ใหญ่/เล็ก (`i`) และทำงานหลายบรรทัด (`m`). มันจะจับคู่กับ annotation ใด ๆ ที่มีคำ *use*, *show*, หรือ *describe*.
+- **Explanation** – แพทเทิร์น `(?im:(use|show|describe))` ไม่สนใจตัวพิมพ์ใหญ่‑เล็ก (`i`) และทำงานหลายบรรทัด (`m`). มันจับคู่กับการทำเครื่องหมายใด ๆ ที่มีคำว่า *use*, *show*, หรือ *describe*.
 
-### ขั้นตอน 3: กำหนดค่า Save Options
+### ขั้นตอน 3: กำหนดค่า Save Options (เพิ่มส่วนต่อท้ายชื่อไฟล์)
+
 ```java
 SaveOptions saveOptions = new SaveOptions();
 saveOptions.setAddSuffix(true);  // Append a suffix to the output filename
 saveOptions.setRasterizeToPDF(false);  // Do not convert to PDF format
 ```
 
-### ขั้นตอน 4: บันทึกและปล่อยทรัพยากร
+### ขั้นตอน 4: บันทึกและปล่อยทรัพยากร (บันทึกเอกสารที่ทำการลบเครื่องหมายแล้ว)
+
 ```java
 redactor.save(saveOptions, "YOUR_OUTPUT_DIRECTORY/RedactedDocument");
 redactor.close();  // Always close the Redactor instance
 ```
 
-**Troubleshooting Tips**  
-- ตรวจสอบว่า regex ของคุณจับคู่กับข้อความ annotation ที่คุณต้องการลบจริงหรือไม่.  
+**เคล็ดลับการแก้ไขปัญหา**  
+- ตรวจสอบว่า regex ของคุณตรงกับข้อความการทำเครื่องหมายที่คุณต้องการลบจริงหรือไม่.  
 - ตรวจสอบสิทธิ์ของระบบไฟล์อีกครั้งหากการเรียก `save` ทำให้เกิด `IOException`.  
 
-## การลบ Annotation ด้วย Java – กรณีการใช้งานทั่วไป
-1. **Data Anonymization Java** – ลบคอมเมนต์ของผู้ตรวจสอบที่มีข้อมูลส่วนบุคคลก่อนแชร์ชุดข้อมูล.  
+## กรณีการใช้งานทั่วไป
+
+1. **Data Anonymization Java** – ลบความคิดเห็นของผู้ตรวจสอบที่มีข้อมูลส่วนบุคคลออกก่อนแชร์ชุดข้อมูล.  
 2. **Legal Document Redaction** – ลบโน้ตภายในโดยอัตโนมัติที่อาจเปิดเผยข้อมูลที่เป็นความลับ.  
-3. **Batch Processing Pipelines** – รวมขั้นตอนเหล่านี้เข้าไปในงาน CI/CD ที่ทำความสะอาดรายงานที่สร้างขึ้นแบบเรียลไทม์.  
+3. **Batch Processing Pipelines** – ผสานขั้นตอนข้างต้นเข้าสู่งาน CI/CD ที่ **processes multiple documents** และทำความสะอาดรายงานที่สร้างขึ้นแบบเรียลไทม์.  
 
-## การบันทึกเอกสารที่ทำ Redaction – แนวทางปฏิบัติที่ดีที่สุด
-- **Add a suffix** (`setAddSuffix(true)`) – เพิ่มส่วนต่อท้าย (`setAddSuffix(true)`) เพื่อเก็บไฟล์ต้นฉบับไว้พร้อมบ่งบอกเวอร์ชันที่ทำ redaction อย่างชัดเจน.  
-- **Avoid rasterizing** – หลีกเลี่ยงการ rasterizing หากคุณไม่ต้องการ PDF ที่แบน; การเก็บเอกสารในรูปแบบดั้งเดิมช่วยรักษาการค้นหาได้.  
-- **Close the Redactor** – ปิด Redactor ทันทีเพื่อคืนหน่วยความจำเนทีฟและหลีกเลี่ยงการรั่วไหลในบริการที่ทำงานต่อเนื่อง.  
+## พิจารณาด้านประสิทธิภาพ
 
-## การพิจารณาประสิทธิภาพ
-- **Optimize regex patterns** – ปรับแต่งแพทเทิร์น regex – นิพจน์ที่ซับซ้อนอาจเพิ่มเวลา CPU โดยเฉพาะกับ PDF ขนาดใหญ่.  
-- **Reuse Redactor instances** – ใช้ Redactor instances ซ้ำได้เฉพาะเมื่อประมวลผลหลายเอกสารประเภทเดียวกัน; มิฉะนั้นให้สร้างใหม่ต่อไฟล์เพื่อรักษาการใช้หน่วยความจำให้ต่ำ.  
-- **Profile** – ทำ profiling – ใช้เครื่องมือ profiling ของ Java (เช่น VisualVM) เพื่อหาจุดคอขวดในงานแบบ bulk.  
+- **Optimize regex patterns** – นิพจน์ที่ซับซ้อนอาจเพิ่มเวลา CPU โดยเฉพาะกับ PDF ขนาดใหญ่.  
+- **Reuse Redactor instances** ใช้ซ้ำเฉพาะเมื่อประมวลผลหลายไฟล์ประเภทเดียวกัน; มิฉะนั้นให้สร้างอินสแตนซ์ต่อไฟล์เพื่อรักษาการใช้หน่วยความจำให้ต่ำ.  
+- **Profile** – ใช้เครื่องมือโปรไฟล์ของ Java (เช่น VisualVM) เพื่อตรวจหาจุดคอขวดในการทำงานแบบกลุ่ม.  
 
 ## คำถามที่พบบ่อย
 
 **Q: GroupDocs.Redaction for Java คืออะไร?**  
-A: เป็นไลบรารี Java ที่ช่วยให้คุณทำ redaction ข้อความ, metadata, และ annotation ในหลายรูปแบบเอกสาร  
+A: เป็นไลบรารี Java ที่ให้คุณลบข้อความ, เมตาดาต้า, และการทำเครื่องหมายในหลายรูปแบบเอกสาร.
 
-**Q: ฉันจะใช้หลายแพทเทิร์น regex ในหนึ่งรอบได้อย่างไร?**  
-A: รวมพวกมันด้วยตัวดำเนินการ pipe (`|`) ภายในแพทเทิร์นเดียวหรือเรียงต่อหลาย `DeleteAnnotationRedaction` calls  
+**Q: ฉันจะใช้หลาย regex pattern ในการทำงานครั้งเดียวได้อย่างไร?**  
+A: รวมพวกมันด้วยตัวดำเนินการ pipe (`|`) ภายในแพทเทิร์นเดียว หรือเรียงต่อหลายการเรียก `DeleteAnnotationRedaction`.
 
 **Q: ไลบรารีนี้รองรับรูปแบบที่ไม่ใช่ข้อความเช่นรูปภาพหรือไม่?**  
-A: รองรับ, สามารถทำ redaction กับ PDF ที่เป็นภาพและรูปแบบ raster อื่น ๆ, แต่การลบ annotation ใช้ได้เฉพาะกับรูปแบบเวกเตอร์ที่รองรับเท่านั้น  
+A: ใช่, มันสามารถลบข้อมูลใน PDF ที่เป็นภาพและรูปแบบเรสเตอร์อื่น ๆ ได้ แม้ว่าการลบการทำเครื่องหมายจะใช้ได้เฉพาะกับรูปแบบเวกเตอร์ที่รองรับเท่านั้น.
 
 **Q: ถ้าประเภทเอกสารของฉันไม่อยู่ในรายการที่รองรับจะทำอย่างไร?**  
-A: ตรวจสอบ [เอกสาร](https://docs.groupdocs.com/redaction/java/) ล่าสุดสำหรับการอัปเดต, หรือแปลงไฟล์เป็นรูปแบบที่รองรับก่อน  
+A: ตรวจสอบ [Documentation](https://docs.groupdocs.com/redaction/java/) ล่าสุดเพื่อดูการอัปเดต หรือแปลงไฟล์เป็นรูปแบบที่รองรับก่อน.
 
-**Q: ฉันควรจัดการกับข้อยกเว้นระหว่างการทำ redaction อย่างไร?**  
-A: ห่อ logic ของ redaction ด้วย try‑catch, บันทึกรายละเอียดข้อยกเว้น, และทำให้แน่ใจว่า `redactor.close()` ทำงานในบล็อก finally  
+**Q: ฉันควรจัดการกับข้อยกเว้นระหว่างการลบเครื่องหมายอย่างไร?**  
+A: ห่อโลจิกการลบเครื่องหมายในบล็อก try‑catch, บันทึกรายละเอียดข้อยกเว้น, และตรวจสอบให้ `redactor.close()` ทำงานในบล็อก finally.
 
 ## แหล่งข้อมูลเพิ่มเติม
+
 - [เอกสาร](https://docs.groupdocs.com/redaction/java/)
 - [อ้างอิง API](https://reference.groupdocs.com/redaction/java)
 - [ดาวน์โหลด GroupDocs.Redaction](https://releases.groupdocs.com/redaction/java/)
@@ -165,8 +171,6 @@ A: ห่อ logic ของ redaction ด้วย try‑catch, บันทึ
 
 ---
 
-**อัปเดตล่าสุด:** 2025-12-19  
+**อัปเดตล่าสุด:** 2026-02-18  
 **ทดสอบด้วย:** GroupDocs.Redaction 24.9 for Java  
-**ผู้เขียน:** GroupDocs  
-
----
+**ผู้เขียน:** GroupDocs
