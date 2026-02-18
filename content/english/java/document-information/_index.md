@@ -4,7 +4,7 @@ description: "Complete tutorials on how to generate preview, retrieve document i
 weight: 15
 url: "/java/document-information/"
 type: docs
-date: 2025-12-20
+date: 2026-02-18
 ---
 
 # How to Generate Preview – Document Information Tutorials for GroupDocs.Redaction Java
@@ -27,6 +27,9 @@ Generating a preview means converting each page of a source file into a raster i
 - **Flexibility:** You can specify image format, resolution, and quality to match your UI requirements.  
 - **Integrated metadata access:** While generating previews, you can simultaneously retrieve document size Java, document page count, and extract document metadata without extra API calls.
 
+## Document preview java – Why it matters
+If you’re developing a Java‑based document management system, the phrase **document preview java** signals a key capability: showing end‑users what a file looks like before any transformation occurs. By delivering clear, high‑resolution previews, you boost confidence, reduce support tickets, and streamline compliance checks.
+
 ## Prerequisites
 - Java 8 or higher installed.  
 - GroupDocs.Redaction for Java library added to your project (Maven/Gradle).  
@@ -48,6 +51,9 @@ If you need to audit source files, invoke the metadata extraction methods to pul
 
 ### Step 5: Apply Redaction Rules (After Preview Verification)
 Once you’ve confirmed the visual layout via previews, define and apply redaction rules confidently, knowing you’re targeting the correct content.
+
+## How to get document page count using GroupDocs.Redaction Java
+The `getPageCount()` method on the loaded document object returns an integer representing the total number of pages. Knowing the page count early lets you allocate resources efficiently and decide on preview resolution settings.
 
 ## Common Issues and Solutions
 - **Preview images are blurry:** Increase the resolution parameter when calling the preview method.  
@@ -87,7 +93,7 @@ A: Use the `getCustomProperties()` collection after loading the document; iterat
 
 ---
 
-**Last Updated:** 2025-12-20  
+**Last Updated:** 2026-02-18  
 **Tested With:** GroupDocs.Redaction for Java 23.12  
 **Author:** GroupDocs  
 
