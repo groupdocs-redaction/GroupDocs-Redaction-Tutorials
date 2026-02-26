@@ -1,19 +1,20 @@
 ---
-title: "How to Redact Text with GroupDocs.Redaction for Java"
-description: "Learn how to redact text in Java documents using GroupDocs.Redaction, including how to mask personal information and replace sensitive text."
-date: "2026-02-26"
-weight: 1
-url: "/java/text-redaction/groupdocs-redaction-java-text-redaction/"
+date: '2026-02-26'
+description: GroupDocs.Redaction을 사용해 Java 문서의 텍스트를 삭제하는 방법을 배우고, 개인 정보를 마스킹하고 민감한
+  텍스트를 교체하는 방법을 포함합니다.
 keywords:
 - text redaction
 - GroupDocs Redaction for Java
 - sensitive information redaction
+title: Java용 GroupDocs.Redaction을 사용하여 텍스트를 가리는 방법
 type: docs
+url: /ko/java/text-redaction/groupdocs-redaction-java-text-redaction/
+weight: 1
 ---
 
 # How to Redact Text in Documents Using GroupDocs.Redaction for Java
 
-In this guide you’ll discover **how to redact text** in Java‑based documents with the help of GroupDocs.Redaction. Whether you need to **mask personal information** or **replace sensitive text** with placeholders, the steps below walk you through a complete, production‑ready solution. By the end of the tutorial you’ll be able to protect privacy, stay compliant, and automate redaction across many file formats.
+이 가이드에서는 GroupDocs.Redaction을 활용하여 Java 기반 문서에서 **텍스트를 가릴(레드랙트) 방법**을 알아봅니다. 개인 정보를 **마스킹**하거나 **민감한 텍스트를 플레이스홀더로 교체**해야 할 때, 아래 단계들을 따라 하면 완전한 프로덕션 수준 솔루션을 구현할 수 있습니다. 튜토리얼을 마치면 프라이버시를 보호하고, 규정을 준수하며, 다양한 파일 형식에 대해 자동으로 레드랙션을 수행할 수 있게 됩니다.
 
 ## Quick Answers
 - **What library is used?** GroupDocs.Redaction for Java  
@@ -23,7 +24,7 @@ In this guide you’ll discover **how to redact text** in Java‑based documents
 - **Which Java version is required?** JDK 8 or higher.
 
 ## What is “how to redact text”?
-Redaction is the process of permanently removing or obscuring confidential data from a document. With GroupDocs.Redaction you can programmatically locate specific strings, replace them with safe placeholders, and save the sanitized file—all without manual editing.
+레드랙션은 문서에서 기밀 데이터를 영구적으로 제거하거나 가리는 과정입니다. GroupDocs.Redaction을 사용하면 특정 문자열을 프로그래밍 방식으로 찾아 안전한 플레이스홀더로 교체하고, 수동 편집 없이 정제된 파일을 저장할 수 있습니다.
 
 ## Why use GroupDocs.Redaction for Java?
 - **Broad format support:** DOCX, PDF, XLSX, PPTX, and more.  
@@ -38,10 +39,10 @@ Redaction is the process of permanently removing or obscuring confidential data 
 - **Basic Java knowledge:** Familiarity with classes, methods, and exception handling.
 
 ## Setting Up GroupDocs.Redaction for Java
-To start, add the library to your Maven project.
+시작하려면 Maven 프로젝트에 라이브러리를 추가합니다.
 
 ### Maven Setup
-Add the repository and dependency to your `pom.xml` file:
+`pom.xml` 파일에 저장소와 의존성을 추가합니다:
 
 ```xml
 <repositories>
@@ -62,16 +63,16 @@ Add the repository and dependency to your `pom.xml` file:
 ```
 
 ### Direct Download
-If you prefer, grab the latest JAR from [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+원한다면 [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/)에서 최신 JAR 파일을 다운로드하세요.
 
 ### License Acquisition
-You can start with a **Free Trial**, request a **Temporary License** for extended testing, or purchase a **Commercial License** for production use.
+**Free Trial**로 시작하거나, 테스트 기간 연장을 위한 **Temporary License**를 요청하거나, 프로덕션 사용을 위한 **Commercial License**를 구매할 수 있습니다.
 
 ## How to Redact Text in Documents with GroupDocs.Redaction
-The following sections walk you through the exact steps needed to **mask personal information** and **replace sensitive text**.
+다음 섹션에서는 **개인 정보를 마스킹**하고 **민감한 텍스트를 교체**하는 데 필요한 정확한 단계들을 안내합니다.
 
 ### Step 1: Initialize the Redactor
-Create a `Redactor` instance pointing to the document you want to process.
+처리하려는 문서를 가리키는 `Redactor` 인스턴스를 생성합니다.
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -83,24 +84,24 @@ final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/sample.docx", ne
 ```
 
 ### Step 2: Apply Exact‑Phrase Redaction
-Use `ExactPhraseRedaction` to locate a phrase such as “John Doe” and replace it with a safe placeholder.
+`ExactPhraseRedaction`을 사용하여 “John Doe”와 같은 구문을 찾아 안전한 플레이스홀더로 교체합니다.
 
 ```java
 redactor.apply(new ExactPhraseRedaction("John Doe", new ReplacementOptions("[personal]"));
 ```
 - **Parameters:**  
-  - `"John Doe"` – the exact text to be redacted.  
-  - `ReplacementOptions("[personal]")` – the string that will replace the original content, effectively **masking personal information**.
+  - `"John Doe"` – 레드랙트할 정확한 텍스트.  
+  - `ReplacementOptions("[personal]")` – 원본 내용을 교체할 문자열로, **개인 정보를 마스킹**합니다.
 
 ### Step 3: Save the Redacted Document
-Persist the changes to a new file or overwrite the original.
+변경 사항을 새 파일에 저장하거나 원본을 덮어씁니다.
 
 ```java
 redactor.save();
 ```
 
 ### Step 4: Clean Up Resources
-Always close the `Redactor` to free native resources.
+항상 `Redactor`를 닫아 네이티브 리소스를 해제합니다.
 
 ```java
 finally {
@@ -109,10 +110,10 @@ finally {
 ```
 
 ## How to Mask Personal Information with a Custom Callback
-Sometimes you need more control over what happens when a redaction occurs (e.g., logging, conditional replacement).
+레드랙션이 발생했을 때(예: 로깅, 조건부 교체) 더 많은 제어가 필요할 때가 있습니다.
 
 ### Create a Callback Class
-Implement `IRedactionCallback` to receive redaction events.
+레드랙션 이벤트를 받기 위해 `IRedactionCallback`을 구현합니다.
 
 ```java
 class RedactionDump implements IRedactionCallback {
@@ -124,23 +125,23 @@ class RedactionDump implements IRedactionCallback {
 ```
 
 ### Use the Callback When Instantiating Redactor
-Pass the callback via `RedactorSettings`.
+`RedactorSettings`을 통해 콜백을 전달합니다.
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/sample.docx", new LoadOptions(), new RedactorSettings(new RedactionDump()));
 ```
 
 ## Practical Applications
-- **Legal contracts:** Automatically hide client names, SSNs, or confidential clauses.  
-- **Medical records:** **Mask personal information** such as patient identifiers before sharing with third parties.  
-- **Corporate communications:** **Replace sensitive text** like internal project codes prior to external distribution.
+- **Legal contracts:** 자동으로 클라이언트 이름, SSN, 기밀 조항 등을 숨깁니다.  
+- **Medical records:** 제3자와 공유하기 전에 환자 식별자와 같은 **개인 정보를 마스킹**합니다.  
+- **Corporate communications:** 외부 배포 전에 내부 프로젝트 코드와 같은 **민감한 텍스트를 교체**합니다.
 
 ## Performance Considerations
-When processing large or numerous files, keep these tips in mind:
+대용량 파일이나 다수의 파일을 처리할 때는 다음 팁을 참고하세요:
 
-- **Batch processing:** Loop through a collection of files to reduce startup overhead.  
-- **Memory management:** Release the `Redactor` after each file; avoid holding many documents in memory simultaneously.  
-- **Profiling:** Use Java profilers (e.g., VisualVM) to spot bottlenecks in I/O or redaction logic.
+- **Batch processing:** 파일 컬렉션을 순회하여 시작 오버헤드를 줄입니다.  
+- **Memory management:** 각 파일 처리 후 `Redactor`를 해제하고, 동시에 많은 문서를 메모리에 보관하지 않도록 합니다.  
+- **Profiling:** Java 프로파일러(예: VisualVM)를 사용해 I/O 또는 레드랙션 로직의 병목을 파악합니다.
 
 ## Frequently Asked Questions
 **Q: Can I redact text from PDFs using GroupDocs.Redaction?**  
