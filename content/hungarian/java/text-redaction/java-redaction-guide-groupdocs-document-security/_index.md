@@ -1,42 +1,44 @@
 ---
-title: "How to Redact Text in Java Documents with GroupDocs.Redaction"
-description: "Learn how to redact text, replace text with color, and ensure java document security using GroupDocs.Redaction for Java. Step-by-step guide with code examples."
-date: "2026-03-04"
-weight: 1
-url: "/java/text-redaction/java-redaction-guide-groupdocs-document-security/"
+date: '2026-03-04'
+description: Tanulja meg, hogyan lehet szöveget redigálni, szöveget színnel helyettesíteni,
+  és biztosítani a Java dokumentumok biztonságát a GroupDocs.Redaction for Java segítségével.
+  Lépésről lépésre útmutató kódrészletekkel.
 keywords:
 - Java Document Redaction
 - GroupDocs.Redaction for Java
 - text redaction in Java
+title: Hogyan redigáljunk szöveget Java dokumentumokban a GroupDocs.Redaction segítségével
 type: docs
+url: /hu/java/text-redaction/java-redaction-guide-groupdocs-document-security/
+weight: 1
 ---
 
-# How to Redact Text in Java Documents with GroupDocs.Redaction
+# Hogyan takarjuk el a szöveget Java dokumentumokban a GroupDocs.Redaction segítségével
 
-In modern applications, **how to redact text** inside PDFs, Word files, or images is a frequent requirement for compliance and privacy. Whether you need to hide personal identifiers, remove confidential annotations, or strip metadata, GroupDocs.Redaction for Java gives you a clean, programmatic way to achieve **java document security**. This tutorial walks you through every essential step—from setting up the library to applying exact‑phrase, regex, color‑based, annotation, and metadata redactions.
+A modern alkalmazásokban a PDF‑ek, Word‑fájlok vagy képek **hogyan takarjuk el a szöveget** gyakori követelmény a megfelelőség és adatvédelem érdekében. Akár személyes azonosítókat kell elrejteni, bizalmas megjegyzéseket eltávolítani, vagy metaadatokat megtisztítani, a GroupDocs.Redaction for Java tiszta, programozott módot biztosít a **java dokumentum biztonság** eléréséhez. Ez az útmutató minden lényeges lépésen végigvezet – a könyvtár beállításától az exact‑phrase, regex, color‑based, annotation és metadata redaction alkalmazásáig.
 
-## Quick Answers
-- **What library handles Java document redaction?** GroupDocs.Redaction for Java.  
-- **Can I replace text with color instead of removing it?** Yes, using the “replace text with color” feature.  
-- **Do I need a license for production use?** A temporary or paid license is required for full functionality.  
-- **Which Java versions are supported?** JDK 8 or higher.  
-- **Is Maven the only way to add the library?** Maven is recommended, but you can also download the JAR manually.
+## Gyors válaszok
+- **Melyik könyvtár kezeli a Java dokumentum redaction‑t?** GroupDocs.Redaction for Java.  
+- **Lecserélhetem a szöveget színre a törlés helyett?** Igen, a „replace text with color” funkció használatával.  
+- **Szükségem van licencre a termelési használathoz?** Teljes funkcionalitáshoz ideiglenes vagy fizetett licenc szükséges.  
+- **Mely Java verziók támogatottak?** JDK 8 vagy újabb.  
+- **A Maven az egyetlen módja a könyvtár hozzáadásának?** A Maven ajánlott, de a JAR‑t manuálisan is letöltheti.
 
-## What is “how to redact text” in Java?
-Redaction is the process of permanently removing or obscuring sensitive content from a document so it cannot be recovered. In Java, this typically involves loading a file, defining what to hide, applying the redaction, and saving the sanitized version.
+## Mi az a „hogyan takarjuk el a szöveget” Java‑ban?
+A redaction a folyamat, amely során véglegesen eltávolítják vagy elhomályosítják a dokumentum érzékeny tartalmát, hogy az ne legyen visszaállítható. Java‑ban ez általában egy fájl betöltését, a rejtendő elemek meghatározását, a redaction alkalmazását és a tisztított verzió mentését jelenti.
 
-## Why use GroupDocs.Redaction for Java?
-- **Comprehensive format support** – works with DOCX, PDF, PPTX, images, and more.  
-- **Fine‑grained control** – redact by exact phrase, regular expression, color, annotation, or metadata.  
-- **Performance‑optimized** – stream‑based processing reduces memory usage for large files.  
-- **Built‑in compliance** – helps meet GDPR, HIPAA, and other privacy regulations.
+## Miért használjuk a GroupDocs.Redaction for Java‑t?
+- **Átfogó formátumtámogatás** – működik DOCX, PDF, PPTX, képek és egyebek formátumokkal.  
+- **Finomhangolt vezérlés** – redaction pontos kifejezés, reguláris kifejezés, szín, annotáció vagy metaadat alapján.  
+- **Teljesítmény‑optimalizált** – adatfolyam‑alapú feldolgozás csökkenti a memóriahasználatot nagy fájlok esetén.  
+- **Beépített megfelelőség** – segít a GDPR, HIPAA és egyéb adatvédelmi szabályozások betartásában.
 
-## Prerequisites
-- **Java Development Kit (JDK) 8+** installed on your machine.  
-- **Maven** for dependency management (or you can download the JAR manually).  
+## Előkövetelmények
+- **Java Development Kit (JDK) 8+** telepítve van a gépén.  
+- **Maven** a függőségkezeléshez (vagy a JAR‑t manuálisan letöltheti).  
 
-### Required Libraries and Dependencies
-Add the GroupDocs repository and the Redaction dependency to your `pom.xml`:
+### Szükséges könyvtárak és függőségek
+Adja hozzá a GroupDocs tárolót és a Redaction függőséget a `pom.xml` fájlhoz:
 
 ```xml
 <repositories>
@@ -56,17 +58,17 @@ Add the GroupDocs repository and the Redaction dependency to your `pom.xml`:
 </dependencies>
 ```
 
-You can also download the latest JAR from the official release page: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+A legújabb JAR‑t letöltheti a hivatalos kiadási oldalról is: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
-### License Acquisition
-For production use, obtain a temporary or full license. A free trial is available for evaluation purposes.
+### Licenc beszerzése
+Termelési használathoz szerezzen be egy ideiglenes vagy teljes licencet. Ingyenes próba elérhető értékelési célokra.
 
-## Setting Up GroupDocs.Redaction for Java
+## A GroupDocs.Redaction for Java beállítása
 1. **Add the Maven dependency** (or include the JAR).  
 2. **Configure your license** by calling `License.setLicense("path/to/license.lic")` early in your application.  
 3. **Create a `Redactor` instance** pointing at the source document.
 
-Now you’re ready to start redacting.
+Most már készen áll a redaction elkezdésére.
 
 ## Implementation Guide
 
