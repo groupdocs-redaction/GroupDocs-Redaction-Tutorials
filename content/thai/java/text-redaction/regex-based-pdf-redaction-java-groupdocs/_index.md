@@ -1,17 +1,19 @@
 ---
-title: "Regex PDF Redaction Java with GroupDocs.Redaction"
-description: "Learn how to perform regex pdf redaction java using GroupDocs.Redaction, apply regex patterns, and configure save options for secure PDFs."
-date: "2026-03-04"
-weight: 1
-url: "/java/text-redaction/regex-based-pdf-redaction-java-groupdocs/"
+date: '2026-03-04'
+description: เรียนรู้วิธีทำการลบข้อมูลใน PDF ด้วย regex ใน Java โดยใช้ GroupDocs.Redaction,
+  ใช้รูปแบบ regex, และกำหนดค่าตัวเลือกการบันทึกสำหรับ PDF ที่ปลอดภัย
 keywords:
 - regex pdf redaction java
 - GroupDocs.Redaction Java
+title: การลบข้อมูล PDF ด้วย Regex ใน Java ด้วย GroupDocs.Redaction
 type: docs
+url: /th/java/text-redaction/regex-based-pdf-redaction-java-groupdocs/
+weight: 1
 ---
+
 # Regex PDF Redaction Java with GroupDocs.Redaction
 
-Securely removing sensitive information from PDF files is a critical step for compliance and data protection. In this tutorial you’ll discover **regex pdf redaction java** using GroupDocs.Redaction, learn how to apply powerful regular‑expression patterns, and configure save options so the redacted PDFs are stored exactly the way you need them.
+การลบข้อมูลที่ละเอียดอ่อนจากไฟล์ PDF อย่างปลอดภัยเป็นขั้นตอนสำคัญสำหรับการปฏิบัติตามกฎระเบียบและการปกป้องข้อมูล ในบทแนะนำนี้คุณจะได้ค้นพบ **regex pdf redaction java** ด้วย GroupDocs.Redaction เรียนรู้วิธีใช้รูปแบบ regular‑expression ที่มีประสิทธิภาพ และกำหนดค่า save options เพื่อให้ไฟล์ PDF ที่ทำการลบข้อมูลแล้วถูกจัดเก็บตามที่คุณต้องการอย่างแม่นยำ
 
 ## Quick Answers
 - **What library handles regex redaction in Java?** GroupDocs.Redaction provides a dedicated `RegexRedaction` class.  

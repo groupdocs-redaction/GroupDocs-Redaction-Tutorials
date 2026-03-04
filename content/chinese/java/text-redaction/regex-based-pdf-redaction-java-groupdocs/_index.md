@@ -1,27 +1,29 @@
 ---
-title: "Regex PDF Redaction Java with GroupDocs.Redaction"
-description: "Learn how to perform regex pdf redaction java using GroupDocs.Redaction, apply regex patterns, and configure save options for secure PDFs."
-date: "2026-03-04"
-weight: 1
-url: "/java/text-redaction/regex-based-pdf-redaction-java-groupdocs/"
+date: '2026-03-04'
+description: 学习如何使用 GroupDocs.Redaction 在 Java 中进行正则表达式 PDF 敏感信息编辑，应用正则表达式模式，并配置保存选项以确保
+  PDF 的安全。
 keywords:
 - regex pdf redaction java
 - GroupDocs.Redaction Java
+title: 使用 GroupDocs.Redaction 的 Java 正则表达式 PDF 敏感信息编辑
 type: docs
+url: /zh/java/text-redaction/regex-based-pdf-redaction-java-groupdocs/
+weight: 1
 ---
+
 # Regex PDF Redaction Java with GroupDocs.Redaction
 
-Securely removing sensitive information from PDF files is a critical step for compliance and data protection. In this tutorial you’ll discover **regex pdf redaction java** using GroupDocs.Redaction, learn how to apply powerful regular‑expression patterns, and configure save options so the redacted PDFs are stored exactly the way you need them.
+安全地从 PDF 文件中删除敏感信息是合规性和数据保护的关键步骤。在本教程中，您将了解使用 GroupDocs.Redaction 的 **regex pdf redaction java**，学习如何应用强大的正则表达式模式，并配置保存选项，使被编辑的 PDF 按您需要的方式存储。
 
 ## Quick Answers
 - **What library handles regex redaction in Java?** GroupDocs.Redaction provides a dedicated `RegexRedaction` class.  
 - **Do I need a license?** A temporary or full license is required for production use.  
 - **Can I keep the PDF editable after redaction?** Yes—set `setRasterizeToPDF(false)` in `SaveOptions`.  
 - **Which Java version is supported?** Any Java SE 8+ runtime works with the current library.  
-- **How do I add a suffix to the redacted file?** Use `saveOptions.setAddSuffix(true)` to automatically append “_redacted”.
+- **How do I add a suffix to the redacted file?** Use `saveOptions.setAddSuffix(true)` to automatically append “_redacted”。
 
 ## What is regex pdf redaction java?
-Regex PDF redaction Java combines regular‑expression matching with GroupDocs.Redaction’s API to locate and replace sensitive text inside PDF documents. This approach lets you define flexible patterns—like social security numbers, email addresses, or custom identifiers—and automatically mask them across the entire file.
+Regex PDF redaction Java 将正则表达式匹配与 GroupDocs.Redaction 的 API 结合，用于定位并替换 PDF 文档中的敏感文本。此方法允许您定义灵活的模式——如社会保障号码、电子邮件地址或自定义标识符——并自动在整个文件中进行遮蔽。
 
 ## Why use GroupDocs.Redaction for regex pdf redaction java?
 - **Precision:** Target exactly the text you need without affecting surrounding content.  
