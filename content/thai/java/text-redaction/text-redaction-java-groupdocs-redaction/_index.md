@@ -1,41 +1,42 @@
 ---
-title: "How to Redact Text in Java with GroupDocs.Redaction – Guide"
-description: "Learn how to redact text in Java using GroupDocs.Redaction. This step‑by‑step guide shows how to secure documents java and protect sensitive data efficiently."
-date: "2026-03-06"
-weight: 1
-url: "/java/text-redaction/text-redaction-java-groupdocs-redaction/"
+date: '2026-03-06'
+description: เรียนรู้วิธีการลบข้อมูลในข้อความด้วย Java โดยใช้ GroupDocs.Redaction
+  คู่มือแบบขั้นตอนต่อขั้นตอนนี้แสดงวิธีการปกป้องเอกสาร Java และปกป้องข้อมูลที่สำคัญอย่างมีประสิทธิภาพ
 keywords:
 - text redaction in Java
 - GroupDocs.Redaction library
 - secure sensitive data
+title: วิธีลบข้อมูลข้อความใน Java ด้วย GroupDocs.Redaction – คู่มือ
 type: docs
+url: /th/java/text-redaction/text-redaction-java-groupdocs-redaction/
+weight: 1
 ---
 
-# How to Redact Text in Java with GroupDocs.Redaction
+# วิธีทำการลบข้อความใน Java ด้วย GroupDocs.Redaction
 
-Are you struggling to keep sensitive information secure within your documents? You're not alone. Many organizations face the challenge of redacting confidential data without compromising document integrity. In this tutorial, you'll discover **how to redact text** using the powerful GroupDocs.Redaction library for Java, and learn practical ways to **secure documents java** while preserving document quality.
+คุณกำลังประสบปัญหาในการรักษาข้อมูลที่เป็นความลับให้ปลอดภัยในเอกสารของคุณหรือไม่? คุณไม่ได้อยู่คนเดียว หลายองค์กรต้องเผชิญกับความท้าทายในการลบข้อมูลที่เป็นความลับโดยไม่ทำให้ความสมบูรณ์ของเอกสารเสียหาย ในบทเรียนนี้ คุณจะได้ค้นพบ **how to redact text** ด้วยไลบรารี GroupDocs.Redaction ที่ทรงพลังสำหรับ Java และเรียนรู้วิธีปฏิบัติที่ **secure documents java** ขณะยังคงคุณภาพของเอกสาร
 
 ## Quick Answers
-- **What is the primary purpose of GroupDocs.Redaction?** It provides a simple API to locate and replace sensitive text, images, or metadata in a wide range of document formats.  
-- **Which programming language is covered?** Java – the guide walks you through Maven setup, initialization, and exact‑phrase redaction.  
-- **Do I need a license to try it out?** A free trial and temporary licenses are available for development and evaluation.  
-- **Can I customize the redaction placeholder?** Yes – use `ReplacementOptions` to define any string such as `[REDACTED]`.  
-- **Is the solution suitable for large files?** Yes, but consider streaming or processing the document in sections to keep memory usage low.
+- **วัตถุประสงค์หลักของ GroupDocs.Redaction คืออะไร?** It provides a simple API to locate and replace sensitive text, images, or metadata in a wide range of document formats.  
+- **ภาษาโปรแกรมที่ครอบคลุมคืออะไร?** Java – the guide walks you through Maven setup, initialization, and exact‑phrase redaction.  
+- **ต้องมีลิขสิทธิ์เพื่อทดลองใช้หรือไม่?** A free trial and temporary licenses are available for development and evaluation.  
+- **ฉันสามารถปรับแต่งข้อความแทนที่สำหรับการลบข้อมูลได้หรือไม่?** Yes – use `ReplacementOptions` to define any string such as `[REDACTED]`.  
+- **โซลูชันนี้เหมาะกับไฟล์ขนาดใหญ่หรือไม่?** Yes, but consider streaming or processing the document in sections to keep memory usage low.
 
-## What is text redaction and why does it matter?
+## การลบข้อความคืออะไรและทำไมจึงสำคัญ?
 Text redaction is the process of permanently removing or obscuring sensitive information from a document so that it cannot be recovered or read. This is essential for compliance with regulations like GDPR, HIPAA, or industry‑specific privacy standards. By automating redaction, you reduce manual effort and eliminate the risk of human error.
 
-## Why secure documents java with GroupDocs.Redaction?
+## ทำไมต้อง **secure documents java** ด้วย GroupDocs.Redaction?
 GroupDocs.Redaction is built specifically for Java developers who need to **secure documents java** environments. It supports dozens of formats (DOCX, PDF, PPTX, etc.), offers high‑performance processing, and integrates easily with Maven or manual builds. The library also provides additional features such as metadata removal and image redaction, making it a one‑stop solution for document privacy.
 
-## Prerequisites
+## ข้อกำหนดเบื้องต้น
 
-Before we start, ensure you have the following:
+ก่อนเริ่ม โปรดตรวจสอบว่าคุณมีสิ่งต่อไปนี้:
 - **Libraries and Versions**: GroupDocs.Redaction for Java version 24.9.  
 - **Environment Setup**: A Java Development Kit (JDK) installed on your machine.  
 - **Knowledge Prerequisites**: Basic understanding of Java programming and familiarity with Maven or manual library management.
 
-Now that we've covered what you'll need, let's get started by setting up GroupDocs.Redaction for Java.
+ตอนนี้เราได้ครอบคลุมสิ่งที่คุณต้องการแล้ว ให้เริ่มต้นตั้งค่า GroupDocs.Redaction for Java กันเลย
 
 ## Setting Up GroupDocs.Redaction for Java
 
@@ -155,19 +156,19 @@ Ready to enhance your document security? Try implementing this solution in your 
 
 ## FAQ Section
 
-**Q1: What file types does GroupDocs.Redaction support for Java?**  
+**Q1: ประเภทไฟล์ใดบ้างที่ GroupDocs.Redaction รองรับสำหรับ Java?**  
 A1: GroupDocs.Redaction supports a wide range of document formats, including DOCX, PDF, and more. Check the [documentation](https://docs.groupdocs.com/redaction/java/) for detailed information.
 
-**Q2: How do I handle large documents efficiently with GroupDocs.Redaction?**  
+**Q2: ฉันจะจัดการกับเอกสารขนาดใหญ่อย่างมีประสิทธิภาพด้วย GroupDocs.Redaction ได้อย่างไร?**  
 A2: For large files, consider breaking them into smaller sections or optimize memory usage by releasing resources promptly after processing.
 
-**Q3: Can I customize the redaction placeholder text?**  
+**Q3: ฉันสามารถปรับแต่งข้อความแทนที่สำหรับการลบข้อมูลได้หรือไม่?**  
 A3: Yes, you can specify any string as a replacement option in your `ReplacementOptions`.
 
-**Q4: Is it possible to perform case‑insensitive redactions?**  
+**Q4: สามารถทำการลบข้อมูลโดยไม่คำนึงถึงตัวพิมพ์ใหญ่‑เล็กได้หรือไม่?**  
 A5: Absolutely! Set the third parameter of `ExactPhraseRedaction` to `false` for case‑insensitive matching.
 
-**Q5: How do I obtain support if I encounter issues?**  
+**Q5: ฉันจะขอรับการสนับสนุนหากพบปัญหาได้อย่างไร?**  
 A5: Visit [GroupDocs Free Support](https://forum.groupdocs.com/c/redaction/33) or refer to their comprehensive documentation and API references.
 
 ## Resources
@@ -180,23 +181,23 @@ A5: Visit [GroupDocs Free Support](https://forum.groupdocs.com/c/redaction/33) o
 
 ## Frequently Asked Questions
 
-**Q: Can I use this in a commercial application?**  
+**Q: ฉันสามารถใช้สิ่งนี้ในแอปพลิเคชันเชิงพาณิชย์ได้หรือไม่?**  
 A: Yes, with a valid GroupDocs license. A free trial is available for evaluation.
 
-**Q: Does this work with password‑protected files?**  
+**Q: โซลูชันนี้ทำงานกับไฟล์ที่มีการป้องกันด้วยรหัสผ่านหรือไม่?**  
 A: Yes, you can specify the password when opening the document.
 
-**Q: Which Java versions are supported?**  
+**Q: รองรับเวอร์ชัน Java ใดบ้าง?**  
 A: The library works with JDK 8 and newer, including JDK 11, 17, and later.
 
-**Q: How can I improve performance for batch processing?**  
+**Q: ฉันจะเพิ่มประสิทธิภาพการทำงานสำหรับการประมวลผลเป็นชุดได้อย่างไร?**  
 A: Process documents in parallel streams and reuse `Redactor` instances when possible.
 
-**Q: Where can I find more advanced redaction examples?**  
+**Q: จะหา ตัวอย่างการลบข้อมูลขั้นสูงเพิ่มเติมได้จากที่ไหน?**  
 A: Check the official documentation and the GitHub repository for sample projects.
 
 ---
 
-**Last Updated:** 2026-03-06  
-**Tested With:** GroupDocs.Redaction 24.9 for Java  
-**Author:** GroupDocs
+**อัปเดตล่าสุด:** 2026-03-06  
+**ทดสอบด้วย:** GroupDocs.Redaction 24.9 for Java  
+**ผู้เขียน:** GroupDocs
