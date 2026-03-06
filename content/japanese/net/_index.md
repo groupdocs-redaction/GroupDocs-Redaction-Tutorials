@@ -1,12 +1,13 @@
 ---
-title: Redact PDF Pages with GroupDocs.Redaction for .NET
-linktitle: GroupDocs.Redaction for .NET Tutorials
 additionalTitle: GroupDocs API References
-description: Learn how to redact PDF pages, Excel cells, and Word text using GroupDocs.Redaction for .NET – a comprehensive API for secure document redaction.
-weight: 10
-url: /net/
-type: docs
 date: 2026-03-06
+description: GroupDocs.Redaction for .NET を使用して、PDF ページ、Excel セル、Word テキストの情報をマスク（削除）する方法を学びましょう
+  – 安全な文書のマスク処理のための包括的な API です。
+linktitle: GroupDocs.Redaction for .NET Tutorials
+title: .NET 用 GroupDocs.Redaction で PDF ページをマスク
+type: docs
+url: /ja/net/
+weight: 10
 ---
 
 # GroupDocs.Redaction for .NET
@@ -15,7 +16,7 @@ If you need to **redact PDF pages** quickly and reliably, GroupDocs.Redaction fo
 
 ## GroupDocs.Redaction for .NET Tutorials – How to redact PDF pages
 {{% alert color="primary" %}}
-GroupDocs.Redaction for .NET offers a comprehensive suite of tutorials and examples for implementing secure document redaction in your .NET applications. From basic text replacements to advanced metadata cleansing, these resources cover essential techniques for redacting sensitive information from documents. Learn how to permanently remove private data from various document formats including PDF, Word, Excel, PowerPoint, and images with precise control and complete removal of confidential content. Our step‑by‑step guides help you master both standard and advanced redaction capabilities to meet compliance requirements and protect sensitive information effectively.
+GroupDocs.Redaction for .NET は、.NET アプリケーションで安全なドキュメントの赤字処理を実装するための包括的なチュートリアルとサンプルを提供します。基本的なテキスト置換から高度なメタデータクレンジングまで、機密情報をドキュメントから削除するための必須テクニックを網羅しています。PDF、Word、Excel、PowerPoint、画像などさまざまな形式のプライベートデータを正確にコントロールし、完全に除去する方法を学びましょう。ステップ‑バイ‑ステップのガイドで、標準的な機能と高度な赤字機能の両方を習得し、コンプライアンス要件を満たしながら機密情報を効果的に保護できます。
 {{% /alert %}}
 
 ### [Getting Started Tutorials](./getting-started/)
@@ -86,6 +87,4 @@ Text is the most common data type to protect. Follow step‑by‑step instructio
 
 **Last Updated:** 2026-03-06  
 **Tested With:** GroupDocs.Redaction 23.10 for .NET  
-**Author:** GroupDocs  
-
----
+**Author:** GroupDocs
