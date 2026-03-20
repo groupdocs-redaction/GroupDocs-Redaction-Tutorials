@@ -1,42 +1,43 @@
 ---
-date: '2025-12-20'
-description: GroupDocs.Redaction for Java kullanarak dosya tipini Java, belge boyutunu
-  Java ve PDF meta verilerini Java ile nasıl alacağınızı öğrenin. Java uygulamanızın
-  belge işleme yeteneğini bugün artırın.
+date: '2026-03-20'
+description: Java ile dosya tipini, belge boyutunu ve PDF meta verilerini GroupDocs.Redaction
+  for Java kullanarak nasıl alacağınızı öğrenin. Java uygulamanızın belge işleme yeteneğini
+  bugün artırın.
 keywords:
 - get file type java
 - get document size java
 - retrieve pdf metadata java
 - get page count java
 - GroupDocs Redaction library setup Java
-title: GroupDocs.Redaction ile Java dosya türünü nasıl alabilirsiniz
+title: GroupDocs.Redaction ile Java dosya tipini nasıl alırız
 type: docs
 url: /tr/java/document-information/retrieve-document-info-using-groupdocs-redaction-java/
 weight: 1
 ---
 
-# GroupDocs.Redaction ile java dosya türü nasıl alınır
+# Java'da dosya türünü alma GroupDocs.Redaction ile
 
-Bir belgenin kritik ayrıntılarını—örneğin **dosya türü**, sayfa sayısı ve boyut—almak, belge‑odaklı Java uygulamaları geliştirirken yaygın bir gereksinimdir. Bu öğreticide **get file type java** ve ayrıca **get document size java**, **get page count java** ve hatta **retrieve pdf metadata java** işlemlerini GroupDocs.Redaction kütüphanesini kullanarak öğreneceksiniz.
+Bir belgenin **dosya türü**, sayfa sayısı ve boyutu gibi kritik ayrıntılarını almak, belge‑odaklı Java uygulamaları geliştirirken yaygın bir gereksinimdir. Bu öğreticide GroupDocs.Redaction kütüphanesini kullanarak **get file type java**, **get document size java**, **get page count java** ve hatta **retrieve pdf metadata java** nasıl yapılacağını öğreneceksiniz. Dosya türünü önceden bilmek, hangi işleme yolunu seçeceğinize karar vermenizi sağlar, boyut ve sayfa‑sayısı bilgileri ise kaynakları verimli yönetmenize yardımcı olur.
 
 ## Hızlı Yanıtlar
-- **Dosya türünü döndüren metod nedir?** `IDocumentInfo.getFileType()`
+- **Dosya türünü döndüren yöntem nedir?** `IDocumentInfo.getFileType()`
 - **Sayfa sayısını nasıl elde edebilirim?** `IDocumentInfo.getPageCount()`
 - **Belge boyutunu bayt olarak veren çağrı hangisidir?** `IDocumentInfo.getSize()`
 - **Örneği çalıştırmak için lisansa ihtiyacım var mı?** Değerlendirme için bir deneme veya geçici lisans yeterlidir.
-- **Hangi Java sürümü gereklidir?** Java 8 veya üzeri.
+- **Hangi Java sürümü gereklidir?** Java 8 veya daha yenisi.
 
 ## “get file type java” nedir?
-Bu ifade, bir belgeden dosya formatını (ör. DOCX, PDF) programlı olarak Java’da çıkarmayı ifade eder. GroupDocs.Redaction bu bilgiyi `IDocumentInfo` arayüzü aracılığıyla sunar.
+Bu ifade, bir belgeden dosya formatını (ör. DOCX, PDF) programlı olarak Java'da çıkarmayı ifade eder. GroupDocs.Redaction, bu bilgiyi `IDocumentInfo` arayüzü üzerinden sunar ve tek satırlık bir çağrı ile elde edilir.
 
-## Metaveri çıkarımı için neden GroupDocs.Redaction kullanılmalı?
+## Meta veri çıkarımı için neden GroupDocs.Redaction kullanmalı?
 - **Geniş format desteği:** PDF, DOCX, XLSX, PPTX ve daha birçok formatı işler.
-- **Basit API:** Tek satır çağrılarla dosya türü, sayfa sayısı ve boyut döndürülür.
-- **Performans‑optimizasyonu:** İhtiyacınız olan yalnızca metaveriyi yükler, bellek kullanımını düşük tutar.
+- **Basit API:** Tek satırlık çağrılar dosya türünü, sayfa sayısını ve boyutu döndürür.
+- **Performans‑optimizeli:** Sadece ihtiyacınız olan meta verileri yükler, bellek kullanımını düşük tutar.
+- **Tutarlı sonuçlar:** Desteklenen tüm dosya uzantılarında aynı şekilde çalışır, bu sayede **java get file extension** senaryosu için de güvenilir bir şekilde kullanılabilir.
 
 ## Önkoşullar
 - Java 8 veya daha yeni bir sürüm yüklü.
-- Maven‑uyumlu bir IDE (IntelliJ IDEA, Eclipse vb.).
+- Maven uyumlu IDE (IntelliJ IDEA, Eclipse vb.).
 - GroupDocs.Redaction lisansına erişim (ücretsiz deneme veya geçici lisans).
 
 ## Java için GroupDocs.Redaction Kurulumu
@@ -67,14 +68,14 @@ Java projenizde GroupDocs.Redaction kütüphanesini kullanmak için aşağıdaki
 
 **Doğrudan İndirme**
 
-Alternatif olarak, en son sürümü [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/) adresinden indirebilirsiniz.
+Alternatif olarak, en son sürümü [GroupDocs Redaction Java sürümleri](https://releases.groupdocs.com/redaction/java/) adresinden indirin.
 
 ### Lisans Edinme
 - **Ücretsiz Deneme:** Kütüphaneyi değerlendirmek için ücretsiz deneme ile başlayın.  
-- **Geçici Lisans:** Uzun süreli değerlendirme için geçici bir lisans alın.  
+- **Geçici Lisans:** Uzun süreli değerlendirme için geçici lisans edinin.  
 - **Satın Alma:** İhtiyacınıza uygunsa satın almayı düşünün.  
 
-Kurulum tamamlandıktan sonra GroupDocs.Redaction'ı başlatın ve yapılandırın:
+Kurulum tamamlandıktan sonra GroupDocs.Redaction'ı başlatın ve ayarlayın:
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -83,22 +84,25 @@ import com.groupdocs.redaction.Redactor;
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX");
 ```
 
-## Java’da dosya türünü alma, belge boyutunu alma ve sayfa sayısını alma
+## Gerçek dünyadaki projelerde “get file type java” neden önemlidir
+Bir belgenin türünü erken anlamak, dosyaları doğru işleme hattına yönlendirmenizi sağlar—ör. PDF'leri redaksiyon iş akışına, Word dosyalarını dönüştürme servisine veya görüntüleri OCR motoruna gönderme. Ayrıca güvenlik politikalarını uygulamanıza (çalıştırılabilir dosyaları engelleme) ve belge yönetim sistemlerinde doğru UI simgeleri sunmanıza yardımcı olur.
 
-Kütüphane hazır olduğuna göre, ihtiyacınız olan bilgileri elde etmek için tam adımları inceleyelim.
+## “get file type java”, “get document size java” ve “get page count java” nasıl alınır
+
+Kütüphane hazır olduğuna göre, ihtiyacınız olan bilgileri almanın tam adımlarını inceleyelim.
 
 ### Adım 1: Gerekli Sınıfları İçe Aktarın
 
-Java dosyanızın en üst kısmında gerekli sınıfları içe aktardığınızdan emin olun:
+Java dosyanızın en üst kısmına gerekli sınıfları içe aktardığınızdan emin olun:
 
 ```java
 import com.groupdocs.redaction.Redactor;
 import com.groupdocs.redaction.domain.IDocumentInfo;
 ```
 
-### Adım 2: Redactor’ı Başlatın
+### Adım 2: Redactor'ı Başlatın
 
-Belgenizin yolunu belirterek bir `Redactor` örneği oluşturun. Bu nesne dosyayla etkileşime geçmenizi ve metaveriyi almanızı sağlar.
+Belgenizin yolunu belirterek bir `Redactor` örneği oluşturun. Bu nesne dosyayla etkileşime girmenizi ve meta verileri çekmenizi sağlar.
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX");
@@ -111,7 +115,7 @@ try {
 
 ### Adım 3: Belge Bilgilerini Alın ve Görüntüleyin
 
-`getDocumentInfo()` metodunu çağırarak bir `IDocumentInfo` nesnesi elde edin. Bu nesneden **get file type java**, **get document size java** ve **get page count java** işlemlerini tek bir çağrıyla yapabilirsiniz.
+`getDocumentInfo()` metodunu çağırarak bir `IDocumentInfo` nesnesi elde edin. Bu nesneden **get file type java**, **get document size java** ve **get page count java** tek bir çağrıda alınabilir.
 
 ```java
 // Retrieve document information
@@ -123,63 +127,65 @@ System.out.println("Page Count: " + info.getPageCount());
 System.out.println("Size (Bytes): " + info.getSize());
 ```
 
-Üç `System.out.println` ifadesi size dosya türünü, sayfa sayısını ve bayt cinsinden boyutu verir—sonraki işlemler için tam olarak ihtiyacınız olan bilgiler.
+Üç `System.out.println` ifadesi size dosya türünü, sayfa sayısını ve bayt cinsinden boyutu verir—sonraki işlemler için tam olarak ihtiyacınız olan bilgi.
 
-## Java’da PDF metaverisini alma
+## “retrieve pdf metadata java” nasıl yapılır
 
-Kaynak belge bir PDF ise, aynı `IDocumentInfo` çağrıları PDF‑özel metaverisini (ör. PDF sürümü, şifreleme durumu) döndürür. Ek bir kod gerekmez; aynı `getDocumentInfo()` metodunu kullanmanız yeterlidir.
+Kaynak belge bir PDF ise, aynı `IDocumentInfo` çağrıları PDF‑özel meta verileri (ör. PDF sürümü, şifreleme durumu) döndürür. Ek bir kod gerekmez; aynı `getDocumentInfo()` metodunu kullanmanız yeterlidir.
 
-## Yaygın Sorunlar ve Çözümleri
-- **Dosya bulunamadı:** `Redactor`'a gönderdiğiniz mutlak veya göreli yolu doğrulayın.  
+## Yaygın Kullanım Senaryoları
+1. **Belge Yönetim Sistemleri:** Dosyaları depolamadan önce türüne veya boyutuna göre otomatik sınıflandırın.  
+2. **İçerik İşleme Hatları:** Sayfa sayısına göre farklı işleme stratejileri seçin (ör. büyük PDF'leri toplu redakte etmek, küçük Word belgelerini farklı işlemek).  
+3. **Dijital Varlık Kütüphaneleri:** Kullanıcılara dosyayı açmadan belge özelliklerinin hızlı önizlemesini gösterin.
+
+## Yaygın Sorunlar ve Çözümler
+- **Dosya bulunamadı:** `Redactor`'a verdiğiniz mutlak ya da göreli yolu doğrulayın.  
 - **Desteklenmeyen format:** Belgenizin uzantısının GroupDocs.Redaction tarafından desteklendiğinden emin olun.  
-- **Lisans hataları:** Geçerli bir deneme veya kalıcı lisans kullanın; aksi takdirde API bir lisanslama istisnası fırlatır.  
+- **Lisans hataları:** Geçerli bir deneme veya kalıcı lisans kullanın; aksi takdirde API bir lisans istisnası fırlatır.  
 
-## Pratik Uygulamalar
-
-**get file type java** ve ilgili metaveriyi anlamak, birçok senaryoyu açığa çıkarır:
-
-1. **Belge Yönetim Sistemleri:** Dosyaları türüne veya boyutuna göre otomatik sınıflandırarak depolamadan önce kategorize edin.  
-2. **İçerik İşleme Hatları:** Sayfa sayısına göre farklı işleme stratejileri seçin.  
-3. **Dijital Varlık Kütüphaneleri:** Kullanıcılara belge özelliklerinin hızlı ön izlemelerini sunun.  
+## Sorun Giderme İpuçları (read document metadata java)
+- Meta veri çağrılarını bir `try‑catch` bloğuna sararak bozuk dosyaları sorunsuz şekilde ele alın.  
+- Meta verileri okumadan önce şifreli PDF'leri tespit etmek için `redactor.isEncrypted()` (varsa) kullanın.  
+- Birçok dosya işlenirken bir thread‑pool yeniden kullanın ve her `Redactor` örneğini dosya tutamağı sızıntılarını önlemek için hemen kapatın.
 
 ## Performans Düşünceleri
 
-Büyük toplu işlemler yaparken:
+Büyük partilerle çalışırken:
 
-- Her belgeyi `try‑with‑resources` bloğu içinde açarak dosya tutamaçlarının zamanında serbest bırakılmasını sağlayın.  
-- Yalnızca ihtiyacınız olan metaveriyi önbelleğe alın; tam belge içeriğini gereksiz yere yüklemekten kaçının.  
+- Her belgeyi bir `try‑with‑resources` bloğunda açarak dosya tutamağının zamanında serbest bırakılmasını garanti edin.  
+- Sadece ihtiyacınız olan meta verileri önbelleğe alın; gerekmedikçe tam belge içeriğini yüklemekten kaçının.  
 
 ## Sonuç
 
-Artık GroupDocs.Redaction kullanarak **get file type java**, **get document size java**, **get page count java** ve **retrieve pdf metadata java** işlemlerini nasıl yapacağınızı biliyorsunuz. Bu kod parçacıklarını Java uygulamalarınıza entegre ederek belge işleme kararlarını daha akıllı bir şekilde verebilirsiniz.
+Artık GroupDocs.Redaction kullanarak **get file type java**, **get document size java**, **get page count java** ve **retrieve pdf metadata java** nasıl yapılacağını biliyorsunuz. Bu kod parçacıklarını Java uygulamalarınıza entegre ederek belge işleme konusunda daha akıllı kararlar alabilir, performansı artırabilir ve daha zengin kullanıcı deneyimleri sunabilirsiniz.
 
 ## SSS Bölümü
 
 **S1: GroupDocs.Redaction nedir?**  
-C1: Java uygulamalarında belge bilgilerini gizlemek ve yönetmek için kullanılan bir kütüphanedir.
+C1: Java uygulamalarında belge bilgilerini redakte etmek ve yönetmek için bir kütüphanedir.
 
-**S2: PDF dosyalarından metaveri alabilir miyim?**  
-C2: Evet, kütüphane PDF’ler dahil olmak üzere çeşitli dosya formatlarını destekler.
+**S2: PDF dosyalarından meta veri alabilir miyim?**  
+C2: Evet, kütüphane PDF'ler dahil çeşitli dosya formatlarını destekler.
 
 **S3: Belge bilgilerini alırken istisnaları nasıl yönetebilirim?**  
-C3: Olası hataları nazikçe ele almak için `try‑catch` blokları kullanın.
+C3: Olası hataları sorunsuz bir şekilde yönetmek için try‑catch blokları kullanın.
 
 **S4: Bir belge hakkında ne tür bilgiler alabilirim?**  
-C4: Dosya türü, sayfa sayısı ve bayt cinsinden boyut gibi detayları elde edebilirsiniz.
+C4: Dosya türü, sayfa sayısı ve bayt cinsinden boyut, alabileceğiniz detaylar arasındadır.
 
-**S5: Word dışındaki dosya formatları için destek var mı?**  
-C5: Evet, GroupDocs.Redaction PDF, Excel dosyaları ve daha fazlası dahil olmak üzere birden çok dosya türünü destekler.
+**S5: Word belgeleri dışındaki diğer dosya formatları destekleniyor mu?**  
+C5: Evet, GroupDocs.Redaction PDF, Excel dosyaları ve daha fazlası dahil olmak üzere birden fazla dosya türünü destekler.
 
 ## Ek Sık Sorulan Sorular
 
-**S: API, PDF sürümünü (ör. 1.7) metaverinin bir parçası olarak döndürür mü?**  
+**S: API, PDF sürümünü (ör. 1.7) meta verinin bir parçası olarak döndürür mü?**  
 C: `IDocumentInfo` nesnesi temel PDF özelliklerini içerir; ayrıntılı sürüm bilgisi için Redactor API üzerinden PDF‑özel özellikleri sorgulayabilirsiniz.
 
-**S: Belgeyi belleğe tamamen yüklemeden metaveri alabilir miyim?**  
-C: Evet, `getDocumentInfo()` yalnızca metaveri için gereken başlık bilgilerini okur, bellek kullanımını düşük tutar.
+**S: Tüm belgeyi belleğe yüklemeden meta veri alabilir miyim?**  
+C: Evet, `getDocumentInfo()` meta veri için gereken yalnızca başlık bilgilerini okur, bellek kullanımını düşük tutar.
 
-**S: Birçok belgeyi verimli bir şekilde toplu işleme alabilir miyim?**  
-C: Her belgenin işlenmesini kendi `Redactor` örneği içinde sarın ve iş yükünü paralelleştirmek için bir iş parçacığı havuzu yeniden kullanın.
+**S: Birçok belgeyi verimli bir şekilde toplu işleyebilir miyim?**  
+C: Her belgenin işlenmesini kendi `Redactor` örneği içinde sarın ve iş yükünü paralelleştirmek için bir thread‑pool yeniden kullanın.
 
 **Kaynaklar**  
 - **Dokümantasyon:** [GroupDocs Redaction Java Documentation](https://docs.groupdocs.com/redaction/java/)  
@@ -187,10 +193,10 @@ C: Her belgenin işlenmesini kendi `Redactor` örneği içinde sarın ve iş yü
 - **İndirme:** [GroupDocs.Redaction for Java Downloads](https://releases.groupdocs.com/redaction/java/)  
 - **GitHub:** [GroupDocs GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - **Ücretsiz Destek:** [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)  
-- **Geçici Lisans:** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/)
+- **Geçici Lisans Al:** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/)  
 
 ---
 
-**Son Güncelleme:** 2025-12-20  
-**Test Edilen:** GroupDocs.Redaction 24.9 for Java  
-**Yazar:** GroupDocs  
+**Son Güncelleme:** 2026-03-20  
+**Test Edilen Sürüm:** GroupDocs.Redaction 24.9 for Java  
+**Yazar:** GroupDocs
