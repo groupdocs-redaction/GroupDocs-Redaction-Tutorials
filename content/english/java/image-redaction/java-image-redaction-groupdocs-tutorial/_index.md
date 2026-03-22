@@ -1,7 +1,7 @@
 ---
-title: "How to Redact Scanned Document Images with GroupDocs in Java"
-description: "Learn how to redact scanned document images using GroupDocs.Redaction for Java. Step‑by‑step guide covering setup, image area redaction, and verification."
-date: "2025-12-29"
+title: "How to redact scanned image java using GroupDocs"
+description: "Learn how to redact scanned image java with GroupDocs.Redaction. This step‑by‑step guide covers setup, image area redaction, and verification."
+date: "2026-03-22"
 weight: 1
 url: "/java/image-redaction/java-image-redaction-groupdocs-tutorial/"
 keywords:
@@ -11,9 +11,9 @@ keywords:
 type: docs
 ---
 
-# How to Redact Scanned Document Images with GroupDocs in Java
+# How to redact scanned image java using GroupDocs
 
-In today's digital landscape, **redact scanned document** images is essential for protecting privacy and meeting compliance requirements. Whether you need to hide personal data in a scanned contract or obscure patient details in a medical image, this tutorial shows you **how to redact image** content quickly and reliably using **GroupDocs.Redaction for Java**. We'll walk through everything from project setup to verifying that the redaction succeeded, so you can integrate the solution into any Java application with confidence.
+In today's digital landscape, **redact scanned image java** is essential for protecting privacy and meeting compliance requirements. Whether you need to hide personal data in a scanned contract or obscure patient details in a medical image, this tutorial shows you **how to redact image** content quickly and reliably using **GroupDocs.Redaction for Java**. We'll walk through everything from project setup to verifying that the redaction succeeded, so you can integrate the solution into any Java application with confidence.
 
 ## Quick Answers
 - **What library handles image redaction in Java?** GroupDocs.Redaction for Java  
@@ -22,7 +22,7 @@ In today's digital landscape, **redact scanned document** images is essential fo
 - **Will the original image be overwritten?** No – you save the result to a new file  
 - **What Java version is supported?** Java 8+ (compatible with modern JDKs)
 
-## What is image redaction and why redact scanned document images?
+## What is image redaction and why redact scanned image java?
 Image redaction means permanently obscuring sensitive visual information—such as names, numbers, or signatures—so it cannot be recovered. When you work with scanned documents, the data is embedded as pixels, making traditional text redaction tools ineffective. Using GroupDocs.Redaction lets you target exact pixel regions and replace them with a solid color, ensuring the information is truly removed.
 
 ## Prerequisites
@@ -153,7 +153,7 @@ A: Iterate over each page image extracted from the PDF, apply the same redaction
 A: You can render the `Redactor` to a `BufferedImage` and display it in a Swing or JavaFX UI before committing the changes.
 
 ## Conclusion
-You now have a complete, production‑ready guide on **how to redact image** content and, specifically, how to **redact scanned document** images using GroupDocs.Redaction for Java. By following the steps above, you can protect sensitive visual data across a wide range of industries. Explore the additional APIs—such as text redaction or PDF page redaction—to build a comprehensive data‑privacy solution for your organization.
+You now have a complete, production‑ready guide on **how to redact image** content and, specifically, how to **redact scanned image java** using GroupDocs.Redaction for Java. By following the steps above, you can protect sensitive visual data across a wide range of industries. Explore the additional APIs—such as text redaction or PDF page redaction—to build a comprehensive data‑privacy solution for your organization.
 
 **Resources**  
 - [Documentation](https://docs.groupdocs.com/redaction/java/)  
@@ -165,6 +165,6 @@ You now have a complete, production‑ready guide on **how to redact image** con
 
 ---
 
-**Last Updated:** 2025-12-29  
+**Last Updated:** 2026-03-22  
 **Tested With:** GroupDocs.Redaction 24.9 (Java)  
-**Author:** GroupDocs  
+**Author:** GroupDocs
