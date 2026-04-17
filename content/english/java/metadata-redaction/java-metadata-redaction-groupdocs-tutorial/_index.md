@@ -1,7 +1,7 @@
 ---
-title: "How to Use MetadataSearchRedaction in Java with GroupDocs"
-description: "Learn how to use MetadataSearchRedaction in Java with GroupDocs.Redaction to securely redact sensitive document metadata."
-date: "2026-01-08"
+title: "How to Perform metadata redaction with GroupDocs in Java"
+description: "Learn how to perform metadata redaction with GroupDocs in Java, securely removing confidential document metadata using GroupDocs.Redaction."
+date: "2026-03-22"
 weight: 1
 url: "/java/metadata-redaction/java-metadata-redaction-groupdocs-tutorial/"
 keywords:
@@ -11,9 +11,9 @@ keywords:
 type: docs
 ---
 
-# How to Use MetadataSearchRedaction in Java with GroupDocs
+# How to Perform metadata redaction with GroupDocs in Java
 
-In this comprehensive guide you’ll discover **how to use MetadataSearchRedaction** to strip confidential metadata—such as company names—from Word, PDF, and other document formats using GroupDocs.Redaction for Java. By the end of the tutorial you’ll be able to integrate metadata redaction into any Java‑based workflow and keep sensitive information safe.
+In this comprehensive guide you’ll discover **how to use metadata redaction with GroupDocs** to strip confidential metadata—such as company names—from Word, PDF, and other document formats using GroupDocs.Redaction for Java. By the end of the tutorial you’ll be able to integrate metadata redaction into any Java‑based workflow and keep sensitive information safe.
 
 ## Quick Answers
 - **What does MetadataSearchRedaction do?** It searches for specific metadata fields and replaces their values with custom text.  
@@ -22,10 +22,10 @@ In this comprehensive guide you’ll discover **how to use MetadataSearchRedacti
 - **Can I keep the original file format?** Yes—use `SaveOptions` to preserve the original format.  
 - **Is this approach thread‑safe?** Each `Redactor` instance is independent, so you can process documents in parallel.
 
-## What is MetadataSearchRedaction?
-`MetadataSearchRedaction` is a specialized redaction class that lets you target a particular metadata property (e.g., *Company*, *Author*) and replace its content with a placeholder. It’s ideal when you need to anonymize corporate data before sharing documents with external partners.
+## What is metadata redaction with GroupDocs?
+`MetadataSearchRedaction` is a specialized class that lets you target a particular metadata property (e.g., *Company*, *Author*) and replace its content with a placeholder. It’s ideal when you need to anonymize corporate data before sharing documents with external partners.
 
-## Why use MetadataSearchRedaction for metadata redaction?
+## Why use metadata redaction with GroupDocs?
 - **Precision** – Redact only the fields you specify, leaving the rest of the document untouched.  
 - **Compliance** – Helps meet GDPR, HIPAA, and other privacy regulations by removing hidden identifiers.  
 - **Automation‑ready** – Fits seamlessly into batch processing pipelines or micro‑services.
@@ -115,7 +115,7 @@ Configure `SaveOptions` so the redacted file gets a “_Redacted” suffix while
 ```java
 SaveOptions tmp0 = new SaveOptions();
 tmp0.setAddSuffix(true);  // Adds "_Redacted" to file name
-	tmp0.setRasterizeToPDF(false);  // Keeps original format
+tmp0.setRasterizeToPDF(false);  // Keeps original format
 
 redactor.save(tmp0);
 ```
@@ -145,7 +145,7 @@ finally {
 - **Stay Updated** – New releases bring performance tweaks and bug fixes; always target the latest stable version.
 
 ## Conclusion
-You now know **how to use MetadataSearchRedaction** to securely strip company metadata from documents using GroupDocs.Redaction for Java. Incorporate these steps into your document‑processing pipelines to stay compliant and protect sensitive information.
+You now know **how to use metadata redaction with GroupDocs** to securely strip company metadata from documents using GroupDocs.Redaction for Java. Incorporate these steps into your document‑processing pipelines to stay compliant and protect sensitive information.
 
 **Next Steps**
 - Experiment with other metadata fields like *Author* or *Creator*.  
@@ -182,7 +182,7 @@ A: You can call `redactor.getRedactions()` to retrieve a list of pending redacti
 
 ---
 
-**Last Updated:** 2026-01-08  
+**Last Updated:** 2026-03-22  
 **Tested With:** GroupDocs.Redaction 24.9 for Java  
 **Author:** GroupDocs  
 

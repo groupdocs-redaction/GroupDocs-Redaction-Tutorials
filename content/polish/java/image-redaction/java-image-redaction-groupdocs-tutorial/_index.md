@@ -1,31 +1,31 @@
 ---
-date: '2025-12-29'
-description: Dowiedz się, jak redagować zeskanowane obrazy dokumentów przy użyciu
-  GroupDocs.Redaction dla Javy. Przewodnik krok po kroku obejmujący konfigurację,
-  redakcję obszaru obrazu oraz weryfikację.
+date: '2026-03-22'
+description: Dowiedz się, jak redagować zeskanowany obraz w Javie przy użyciu GroupDocs.Redaction.
+  Ten przewodnik krok po kroku obejmuje konfigurację, redakcję obszaru obrazu oraz
+  weryfikację.
 keywords:
 - Java image redaction
 - GroupDocs.Redaction for Java
 - image area redaction
-title: Jak redagować zeskanowane obrazy dokumentów przy użyciu GroupDocs w Javie
+title: Jak redagować zeskanowany obraz w Javie przy użyciu GroupDocs
 type: docs
 url: /pl/java/image-redaction/java-image-redaction-groupdocs-tutorial/
 weight: 1
 ---
 
-# Jak Redagować Skanowane Obrazy Dokumentów przy użyciu GroupDocs w Javie
+# Jak redagować zeskanowany obraz w Javie przy użyciu GroupDocs
 
-W dzisiejszym cyfrowym krajobrazie **redagowanie zeskanowanych dokumentów** jest niezbędne do ochrony prywatności i spełniania wymogów zgodności. Niezależnie od tego, czy musisz ukryć dane osobowe w zeskanowanym kontrakcie, czy zamazać szczegóły pacjenta na obrazie medycznym, ten samouczek pokaże Ci **jak redagować obrazy** szybko i niezawodnie przy użyciu **GroupDocs.Redaction for Java**. Przeprowadzimy Cię przez wszystkie kroki, od konfiguracji projektu po weryfikację, że redakcja zakończyła się sukcesem, abyś mógł zintegrować rozwiązanie z dowolną aplikacją Java z pewnością.
+W dzisiejszym cyfrowym świecie **redact scanned image java** jest niezbędny do ochrony prywatności i spełniania wymogów zgodności. Niezależnie od tego, czy musisz ukryć dane osobowe w zeskanowanym kontrakcie, czy zamazać szczegóły pacjenta na obrazie medycznym, ten samouczek pokaże Ci, **jak redagować obraz** szybko i niezawodnie przy użyciu **GroupDocs.Redaction for Java**. Przeprowadzimy Cię przez wszystkie kroki, od konfiguracji projektu po weryfikację, że redakcja zakończyła się sukcesem, abyś mógł zintegrować rozwiązanie z dowolną aplikacją Java z pełnym przekonaniem.
 
 ## Szybkie odpowiedzi
-- **Jaka biblioteka obsługuje redakcję obrazów w Javie?** GroupDocs.Redaction for Java  
+- **Jaką bibliotekę obsługuje redakcję obrazu w Javie?** GroupDocs.Redaction for Java  
 - **Czy mogę wybrać kolor redakcji?** Tak – dowolny `java.awt.Color` (np. `Color.BLUE`)  
 - **Czy wymagana jest licencja do produkcji?** Tak, potrzebna jest ważna licencja GroupDocs  
 - **Czy oryginalny obraz zostanie nadpisany?** Nie – zapisujesz wynik do nowego pliku  
 - **Jaką wersję Javy obsługuje?** Java 8+ (kompatybilna z nowoczesnymi JDK)
 
-## Czym jest redakcja obrazu i dlaczego redagować zeskanowane obrazy dokumentów?
-Redakcja obrazu oznacza trwałe zamaskowanie wrażliwych informacji wizualnych — takich jak imiona, numery czy podpisy — tak aby nie mogły zostać odzyskane. Gdy pracujesz ze zeskanowanymi dokumentami, dane są osadzone jako piksele, co sprawia, że tradycyjne narzędzia do redakcji tekstu są nieskuteczne. Korzystanie z GroupDocs.Redaction pozwala celować w dokładne obszary pikseli i zastępować je jednolitym kolorem, zapewniając, że informacje są naprawdę usunięte.
+## Czym jest redakcja obrazu i dlaczego redagować zeskanowany obraz w Javie?
+Redakcja obrazu oznacza trwałe ukrycie wrażliwych informacji wizualnych — takich jak imiona, numery czy podpisy — tak, aby nie mogły zostać odzyskane. Gdy pracujesz ze zeskanowanymi dokumentami, dane są osadzone jako piksele, co sprawia, że tradycyjne narzędzia do redakcji tekstu są nieskuteczne. Korzystanie z GroupDocs.Redaction pozwala celować w dokładne obszary pikseli i zastępować je jednolitym kolorem, zapewniając, że informacje są naprawdę usunięte.
 
 ## Wymagania wstępne
 - **JDK 8 lub nowszy** zainstalowany  
@@ -36,7 +36,7 @@ Redakcja obrazu oznacza trwałe zamaskowanie wrażliwych informacji wizualnych �
 ## Konfiguracja GroupDocs.Redaction dla Javy
 
 ### Konfiguracja Maven
-Dodaj repozytorium GroupDocs i zależność do swojego `pom.xml`:
+Dodaj repozytorium GroupDocs oraz zależność do swojego `pom.xml`:
 
 ```xml
 <repositories>
@@ -60,16 +60,16 @@ Dodaj repozytorium GroupDocs i zależność do swojego `pom.xml`:
 Alternatywnie, pobierz najnowszy plik JAR z oficjalnej strony wydań: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
 ### Uzyskanie licencji
-- **Darmowa wersja próbna:** Zarejestruj się, aby wypróbować API.  
-- **Licencja tymczasowa:** Użyj tymczasowego klucza do dłuższego testowania.  
-- **Pełny zakup:** Uzyskaj licencję produkcyjną do nieograniczonego użytku.
+- **Bezpłatna wersja próbna:** Zarejestruj się, aby wypróbować API.  
+- **Licencja tymczasowa:** Użyj tymczasowego klucza do rozszerzonego testowania.  
+- **Pełny zakup:** Uzyskaj licencję produkcyjną do nieograniczonego użycia.
 
 ## Przewodnik implementacji
 
-Podzielimy implementację na dwie podstawowe funkcje: **Redakcja obszaru obrazu** (rzeczywiste maskowanie) oraz **Sprawdzanie statusu redakcji** (weryfikacja sukcesu).
+Podzielimy implementację na dwie podstawowe funkcje: **Image Area Redaction** (rzeczywiste maskowanie) oraz **Redaction Status Check** (weryfikacja sukcesu).
 
 ### Jak redagować zeskanowane obrazy dokumentów – Krok 1: Inicjalizacja Redaktora
-Najpierw utwórz instancję `Redactor`, która wskazuje na obraz, który chcesz przetworzyć.
+Najpierw utwórz instancję `Redactor`, wskazującą na obraz, który chcesz przetworzyć.
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_JPG");
@@ -120,52 +120,51 @@ if (result != null && result.getStatus() != RedactionStatus.Failed) {
 
 ## Praktyczne zastosowania
 - **Obsługa dokumentów poufnych:** Automatyczne maskowanie danych osobowych w zeskanowanych kontraktach przed udostępnieniem stronom zewnętrznym.  
-- **Dokumentacja prawna:** Zapewnienie zgodności z GDPR lub HIPAA poprzez redakcję identyfikatorów na obrazach dowodowych.  
-- **Rekordy medyczne:** Ochrona prywatności pacjentów poprzez zamaskowanie twarzy lub odręcznych notatek na obrazach radiologicznych.
+- **Dokumentacja prawna:** Zapewnienie zgodności z RODO lub HIPAA poprzez redakcję identyfikatorów na obrazach dowodowych.  
+- **Rekordy medyczne:** Ochrona prywatności pacjentów poprzez zamazywanie twarzy lub odręcznych notatek na obrazach radiologicznych.
 
 ## Rozważania dotyczące wydajności
 - **Przetwarzanie wsadowe:** Ładuj i redaguj obrazy w małych partiach, aby utrzymać niskie zużycie pamięci.  
 - **Efektywne struktury danych:** Ponownie używaj obiektów `Point` i `Dimension` przy przetwarzaniu wielu obrazów.  
-- **Bądź na bieżąco:** Regularnie aktualizuj do najnowszej wersji GroupDocs.Redaction, aby uzyskać poprawki wydajności i naprawy błędów.
+- **Bądź na bieżąco:** Regularnie aktualizuj do najnowszej wersji GroupDocs.Redaction, aby uzyskać poprawę wydajności i naprawy błędów.
 
-## Częste problemy i rozwiązania
-
+## Typowe problemy i rozwiązania
 | Problem | Przyczyna | Rozwiązanie |
 |-------|-------|-----|
-| **Redakcja nie powiodła się z statusem `Failed`** | Nieprawidłowa ścieżka pliku lub nieobsługiwany format obrazu | Zweryfikuj, czy obraz istnieje i jest w obsługiwanym formacie (JPG, PNG, BMP). |
-| **Plik wyjściowy jest pusty** | `redactor.save()` wywołane przed zakończeniem redakcji | Upewnij się, że `apply()` zwraca status sukcesu przed zapisem. |
-| **Kolor nie został zastosowany** | Użycie koloru przezroczystego | Wybierz nieprzezroczysty `Color` (np. `Color.BLACK` lub `Color.BLUE`). |
+| **Redakcja nie powiodła się z statusem `Failed`** | Nieprawidłowa ścieżka pliku lub nieobsługiwany format obrazu | Sprawdź, czy obraz istnieje i jest w obsługiwanym formacie (JPG, PNG, BMP). |
+| **Plik wyjściowy jest pusty** | `redactor.save()` wywołane przed zakończeniem redakcji | Upewnij się, że `apply()` zwraca pomyślny status przed zapisem. |
+| **Kolor nie został zastosowany** | Użycie przezroczystego koloru | Wybierz nieprzezroczysty `Color` (np. `Color.BLACK` lub `Color.BLUE`). |
 
 ## Najczęściej zadawane pytania
 
-**P: Jaka jest różnica między `ImageAreaRedaction` a redakcją tekstu?**  
-O: `ImageAreaRedaction` działa na współrzędnych pikseli, podczas gdy redakcja tekstu analizuje warstwy OCR, aby zlokalizować i usunąć treść tekstową.
+**P:** Co to jest różnica między `ImageAreaRedaction` a redakcją tekstu?  
+**O:** `ImageAreaRedaction` działa na współrzędnych pikseli, podczas gdy redakcja tekstu analizuje warstwy OCR, aby zlokalizować i usunąć treść tekstową.
 
-**P: Czy mogę redagować wiele regionów na jednym obrazie?**  
-O: Tak — wywołuj `redactor.apply()` wielokrotnie z różnymi obiektami `ImageAreaRedaction` przed zapisaniem.
+**P:** Czy mogę redagować wiele obszarów na jednym obrazie?  
+**O:** Tak — wywołuj `redactor.apply()` wielokrotnie z różnymi obiektami `ImageAreaRedaction` przed zapisaniem.
 
-**P: Czy GroupDocs.Redaction obsługuje inne formaty obrazów, takie jak TIFF?**  
-O: Biblioteka obsługuje popularne formaty rastrowe (JPG, PNG, BMP, GIF). W przypadku TIFF, najpierw skonwertuj do obsługiwanego formatu.
+**P:** Czy GroupDocs.Redaction obsługuje inne formaty obrazów, takie jak TIFF?  
+**O:** Biblioteka obsługuje popularne formaty rastrowe (JPG, PNG, BMP, GIF). W przypadku TIFF należy najpierw przekonwertować go na obsługiwany format.
 
-**P: Jak zautomatyzować redakcję dla folderu zeskanowanych PDF‑ów?**  
-O: Przejdź po każdym obrazie strony wyodrębnionym z PDF‑a, zastosuj tę samą logikę redakcji, a następnie odbuduj PDF przy użyciu biblioteki PDF.
+**P:** Jak zautomatyzować redakcję dla folderu zeskanowanych PDF‑ów?  
+**O:** Iteruj po każdym obrazie strony wyodrębnionym z PDF, zastosuj tę samą logikę redakcji, a następnie odbuduj PDF przy użyciu biblioteki PDF.
 
-**P: Czy istnieje sposób podglądu redakcji przed zapisaniem?**  
-O: Możesz wyrenderować `Redactor` do `BufferedImage` i wyświetlić go w interfejsie Swing lub JavaFX przed zatwierdzeniem zmian.
+**P:** Czy istnieje sposób podglądu redakcji przed zapisaniem?  
+**O:** Możesz wyrenderować `Redactor` do `BufferedImage` i wyświetlić go w interfejsie Swing lub JavaFX przed zatwierdzeniem zmian.
 
 ## Zakończenie
-Masz teraz kompletny, gotowy do produkcji przewodnik, jak **redagować zawartość obrazu** oraz, konkretnie, jak **redagować zeskanowane obrazy dokumentów** przy użyciu GroupDocs.Redaction dla Javy. Postępując zgodnie z powyższymi krokami, możesz chronić wrażliwe dane wizualne w różnych branżach. Zapoznaj się z dodatkowymi API — takimi jak redakcja tekstu czy redakcja stron PDF — aby zbudować kompleksowe rozwiązanie zapewniające prywatność danych w Twojej organizacji.
+Masz teraz kompletny, gotowy do produkcji przewodnik, jak **redagować zawartość obrazu** i konkretnie jak **redagować zeskanowany obraz w Javie** przy użyciu GroupDocs.Redaction for Java. Postępując zgodnie z powyższymi krokami, możesz chronić wrażliwe dane wizualne w różnych branżach. Zapoznaj się z dodatkowymi API — takimi jak redakcja tekstu czy redakcja stron PDF — aby zbudować kompleksowe rozwiązanie zapewniające prywatność danych w Twojej organizacji.
 
-**Zasoby**  
+**Resources**  
 - [Dokumentacja](https://docs.groupdocs.com/redaction/java/)  
 - [Referencja API](https://reference.groupdocs.com/redaction/java)  
 - [Pobierz](https://releases.groupdocs.com/redaction/java/)  
 - [Repozytorium GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - [Darmowe forum wsparcia](https://forum.groupdocs.com/c/redaction/33)  
-- [Licencja tymczasowa](https://purchase.groupdocs.com/temporary-license/)
+- [Licencja tymczasowa](https://purchase.groupdocs.com/temporary-license/) 
 
 ---
 
-**Ostatnia aktualizacja:** 2025-12-29  
-**Testowane z:** GroupDocs.Redaction 24.9 (Java)  
-**Autor:** GroupDocs  
+**Ostatnia aktualizacja:** 2026-03-22  
+**Testowano z:** GroupDocs.Redaction 24.9 (Java)  
+**Autor:** GroupDocs
