@@ -1,41 +1,45 @@
 ---
-title: "How to Delete Multiple PDF Pages Using GroupDocs.Redaction for Java"
-description: "Learn how to delete multiple PDF pages and remove pages from PDF documents with GroupDocs.Redaction for Java. Follow this step‑by‑step guide for efficient page range deletion."
-date: "2026-04-20"
-weight: 1
-url: "/java/page-redaction/java-pdf-page-range-deletion-groupdocs-redaction/"
+date: '2026-04-20'
+description: Apprenez à supprimer plusieurs pages PDF et à retirer des pages de documents
+  PDF avec GroupDocs.Redaction pour Java. Suivez ce guide étape par étape pour une
+  suppression efficace de plages de pages.
 keywords:
 - delete multiple pdf pages
 - remove pages from pdf
 - pdf page count java
 - remove pdf page range
+title: Comment supprimer plusieurs pages PDF à l'aide de GroupDocs.Redaction pour
+  Java
 type: docs
+url: /fr/java/page-redaction/java-pdf-page-range-deletion-groupdocs-redaction/
+weight: 1
 ---
-# Delete Multiple PDF Pages Using GroupDocs.Redaction for Java
 
-Removing sensitive or redundant information from PDFs quickly is essential, especially when you need to **delete multiple PDF pages** in a large document. With **GroupDocs.Redaction for Java**, you can programmatically remove specific page ranges, keep your files compliant, and streamline document workflows.
+# Supprimer plusieurs pages PDF à l'aide de GroupDocs.Redaction pour Java
 
-In this tutorial you’ll discover how to set up the library, determine the PDF page count, and safely delete the pages you don’t need.
+Supprimer les informations sensibles ou redondantes des PDF rapidement est essentiel, surtout lorsque vous devez **supprimer plusieurs pages PDF** dans un grand document. Avec **GroupDocs.Redaction for Java**, vous pouvez supprimer programmétiquement des plages de pages spécifiques, garder vos fichiers conformes et rationaliser les flux de travail des documents.
 
-## Quick Answers
+Dans ce tutoriel, vous découvrirez comment configurer la bibliothèque, déterminer le nombre de pages PDF, et supprimer en toute sécurité les pages dont vous n’avez pas besoin.
+
+## Réponses rapides
 - **What can I delete?** Any page range in a multi‑page PDF using GroupDocs.Redaction.  
 - **Do I need a license?** A free trial or temporary license works for development; a full license is required for production.  
 - **Which Java version?** JDK 8 or higher is recommended.  
 - **Can I delete pages from a single‑page PDF?** No – the document must contain at least two pages.  
 - **Is it safe for large files?** Yes, just close the `Redactor` instance and manage memory wisely.
 
-## Prerequisites
+## Prérequis
 
 - **Java Development Kit (JDK)** 8 or newer.  
 - Familiarity with Maven (or the ability to add JARs manually).  
 - An IDE such as IntelliJ IDEA or Eclipse.  
 
-## Setting Up GroupDocs.Redaction for Java
+## Configuration de GroupDocs.Redaction pour Java
 
 ### Installation
 
 **Maven Setup:**  
-Add the repository and dependency to your `pom.xml`:
+Ajoutez le référentiel et la dépendance à votre `pom.xml` :
 
 ```xml
 <repositories>
@@ -56,15 +60,15 @@ Add the repository and dependency to your `pom.xml`:
 ```
 
 **Direct Download:**  
-Alternatively, download the latest JAR from [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+Sinon, téléchargez le dernier JAR depuis [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
-### License Acquisition
+### Acquisition de licence
 
-Obtain a free trial or temporary license from [GroupDocs' official site](https://purchase.groupdocs.com/temporary-license/) to unlock all features.
+Obtenez un essai gratuit ou une licence temporaire depuis [GroupDocs' official site](https://purchase.groupdocs.com/temporary-license/) pour débloquer toutes les fonctionnalités.
 
-### Basic Initialization and Setup
+### Initialisation et configuration de base
 
-Once the library is on your classpath, create a `Redactor` instance:
+Une fois la bibliothèque sur votre classpath, créez une instance `Redactor` :
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -77,13 +81,13 @@ LoadOptions loadOptions = new LoadOptions();
 final Redactor redactor = new Redactor(documentPath, loadOptions);
 ```
 
-## How to Delete Multiple PDF Pages in Java
+## Comment supprimer plusieurs pages PDF en Java
 
-Below is a complete, step‑by‑step walkthrough that shows how to **remove pages from PDF** files, check the **pdf page count java**, and save the edited document.
+Ci‑dessous se trouve un guide complet, étape par étape, qui montre comment **remove pages from PDF** files, check the **pdf page count java**, and save the edited document.
 
-### Step 1: Load the Document
+### Étape 1 : charger le document
 
-First, load a multi‑page PDF that you want to edit:
+Tout d'abord, chargez un PDF multi‑pages que vous souhaitez modifier :
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -92,9 +96,9 @@ import com.groupdocs.redaction.examples.java.Constants;
 final Redactor redactor = new Redactor(Constants.MULTIPAGE_PDF);
 ```
 
-### Step 2: Check Page Count and Define the Range
+### Étape 2 : vérifier le nombre de pages et définir la plage
 
-Retrieve document information to ensure the requested range exists:
+Récupérez les informations du document pour vous assurer que la plage demandée existe :
 
 ```java
 import com.groupdocs.redaction.IDocumentInfo;
@@ -108,21 +112,21 @@ if (info.getPageCount() >= 2) {
 }
 ```
 
-> **Pro tip:** Use `info.getPageCount()` (the **pdf page count java** method) to dynamically calculate ranges for batch deletions.
+> **Astuce :** Utilisez `info.getPageCount()` (la méthode **pdf page count java**) pour calculer dynamiquement les plages lors de suppressions par lots.
 
-### Step 3: Apply the Redaction to Delete Pages
+### Étape 3 : appliquer la rédaction pour supprimer les pages
 
-Create a `RemovePageRedaction` object that specifies which pages to drop:
+Créez un objet `RemovePageRedaction` qui spécifie les pages à supprimer :
 
 ```java
 redactor.apply(new RemovePageRedaction(0, startIndex, pagesToDelete));
 ```
 
-The `startIndex` and `pagesToDelete` values define the exact page range you want to **remove pdf page range**. Adjust them to delete multiple consecutive pages in one call.
+Les valeurs `startIndex` et `pagesToDelete` définissent la plage exacte de pages que vous voulez **remove pdf page range**. Ajustez‑les pour supprimer plusieurs pages consécutives en un seul appel.
 
-### Step 4: Save the Modified Document
+### Étape 4 : enregistrer le document modifié
 
-Configure save options and write the result back to disk:
+Configurez les options d’enregistrement et écrivez le résultat sur le disque :
 
 ```java
 import com.groupdocs.redaction.options.SaveOptions;
@@ -134,12 +138,12 @@ saveOptions.setRasterizeToPDF(false);
 redactor.save(saveOptions);
 ```
 
-### Troubleshooting Tips
+### Conseils de dépannage
 - Verify that `startIndex` and `pagesToDelete` stay within the document’s bounds.  
 - Wrap redaction calls in `try‑catch` blocks to handle I/O errors gracefully.  
 - Always close the `Redactor` instance (`redactor.close()`) after saving to free resources.
 
-## Load Document from a Custom Path
+## Charger le document depuis un chemin personnalisé
 
 If your PDF lives outside the default folder, load it like this:
 
@@ -149,13 +153,13 @@ LoadOptions loadOptions = new LoadOptions();
 final Redactor redactor = new Redactor(documentPath, loadOptions);
 ```
 
-## Practical Applications
+## Applications pratiques
 
 1. **Data‑Privacy Compliance:** Strip out confidential pages before sharing documents with external partners.  
 2. **Document Customization:** Create tailored versions of a contract by removing sections that don’t apply to a specific client.  
 3. **Automated Workflows:** Integrate page‑deletion logic into batch processing pipelines that prepare PDFs for archiving.
 
-## Performance Considerations
+## Considérations de performance
 
 - Close the `Redactor` object promptly to release file handles.  
 - For very large PDFs, consider processing pages in smaller batches to keep memory usage low.  
@@ -168,7 +172,7 @@ You now have a solid method for **delete multiple PDF pages** using GroupDocs.Re
 - Explore other redaction capabilities such as text removal or metadata stripping.  
 - Combine this approach with your existing document management system for end‑to‑end automation.
 
-## Frequently Asked Questions
+## Questions fréquemment posées
 
 **Q: What is GroupDocs.Redaction?**  
 A: A powerful Java library that enables you to delete pages, remove text, and edit metadata across many document formats.
@@ -185,17 +189,17 @@ A: Adjust the `startIndex` and `pagesToDelete` parameters in `RemovePageRedactio
 **Q: Where can I find more advanced redaction techniques?**  
 A: See the official guide at [GroupDocs documentation](https://docs.groupdocs.com/redaction/java/).
 
-## Resources
+## Ressources
 
 - [Documentation](https://docs.groupdocs.com/redaction/java/)
-- [API Reference](https://reference.groupdocs.com/redaction/java)
-- [Download](https://releases.groupdocs.com/redaction/java/)
-- [GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
-- [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)
-- [Temporary License](https://purchase.groupdocs.com/temporary-license/)
+- [Référence API](https://reference.groupdocs.com/redaction/java)
+- [Téléchargement](https://releases.groupdocs.com/redaction/java/)
+- [Dépôt GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
+- [Forum d'assistance gratuit](https://forum.groupdocs.com/c/redaction/33)
+- [Licence temporaire](https://purchase.groupdocs.com/temporary-license/)
 
 ---
 
-**Last Updated:** 2026-04-20  
-**Tested With:** GroupDocs.Redaction 24.9 for Java  
-**Author:** GroupDocs
+**Dernière mise à jour:** 2026-04-20  
+**Testé avec:** GroupDocs.Redaction 24.9 for Java  
+**Auteur:** GroupDocs
