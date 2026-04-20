@@ -1,14 +1,16 @@
 ---
-date: '2026-01-16'
+date: '2026-04-20'
 description: Pelajari cara menyensor file PDF secara aman dengan Aspose OCR, Java,
   dan pola regex. Panduan ini menunjukkan cara menyimpan dokumen PDF yang telah disensor
   sambil menyamarkan data sensitif PDF.
 keywords:
-- secure PDF redaction
-- Aspose OCR integration Java
-- regex patterns GroupDocs Redaction
-title: 'Cara Menyensor PDF dengan Aspose OCR dan Java - Menerapkan Pola Regex menggunakan
-  GroupDocs.Redaction'
+- how to redact pdf
+- save redacted pdf
+- java pdf ocr
+- secure pdf redaction
+- pdf redaction java
+title: Cara Menyensor PDF dengan Aspose OCR dan Java – Menerapkan Pola Regex menggunakan
+  GroupDocs.Redaction
 type: docs
 url: /id/java/ocr-integration/aspose-ocr-java-pdf-redaction/
 weight: 1
@@ -16,20 +18,25 @@ weight: 1
 
 # Cara Menyensor PDF dengan Aspose OCR dan Java
 
-Di lanskap digital saat ini, **cara menyensor PDF** dengan aman menjadi prioritas utama bagi perusahaan yang menangani informasi pribadi, keuangan, atau rahasia. Dengan menggabungkan kemampuan cloud Aspose OCR dengan mesin regex yang kuat dari GroupDocs.Redaction, Anda dapat **mengamankan penyensoran PDF**, **menyembunyikan data sensitif PDF**, dan **menyimpan output PDF yang telah disensor** secara otomatis. Tutorial ini memandu Anda melalui setiap langkah—dari menyiapkan lingkungan hingga menerapkan penyensoran berbasis regex—sehingga Anda dapat melindungi konten sensitif dengan percaya diri.
+Di era digital saat ini, **cara menyensor PDF** secara aman menjadi prioritas utama bagi bisnis yang menangani informasi pribadi, keuangan, atau rahasia. Dengan menggabungkan kemampuan cloud Aspose OCR dengan mesin regex kuat dari GroupDocs.Redaction, Anda dapat **mengamankan penyensoran PDF**, **menyembunyikan data sensitif PDF**, dan **menyimpan PDF yang telah disensor** secara otomatis. Tutorial ini membimbing Anda melalui setiap langkah—dari menyiapkan lingkungan hingga menerapkan penyensoran berbasis regex—sehingga Anda dapat melindungi konten sensitif dengan percaya diri.
 
 ## Jawaban Cepat
 - **Apa yang dibahas dalam tutorial ini?** Mengintegrasikan Aspose OCR dengan GroupDocs.Redaction di Java untuk menyensor PDF menggunakan pola regex.  
 - **Apakah saya memerlukan lisensi?** Versi percobaan gratis dapat digunakan untuk evaluasi; lisensi permanen diperlukan untuk produksi.  
-- **Versi Java apa yang diperlukan?** JDK 8 atau lebih tinggi.  
-- **Bisakah saya menyimpan hasil sebagai PDF baru?** Ya—gunakan `SaveOptions` untuk **menyimpan PDF yang disensor**.  
-- **Apakah solusi ini cocok untuk dokumen besar?** Dengan manajemen memori yang tepat dan pemrosesan paralel opsional, solusi ini dapat diskalakan dengan baik.
+- **Versi Java mana yang dibutuhkan?** JDK 8 atau lebih tinggi.  
+- **Bisakah saya menyimpan hasilnya sebagai PDF baru?** Ya—gunakan `SaveOptions` untuk **menyimpan PDF yang telah disensor**.  
+- **Apakah solusi ini cocok untuk dokumen besar?** Dengan manajemen memori yang tepat dan pemrosesan paralel opsional, solusi ini dapat diskalakan dengan baik.  
 
-## Apa itu Penyensoran PDF dan Mengapa Menggunakannya?
+## Apa Itu Penyensoran PDF dan Mengapa Menggunakannya?
 Penyensoran PDF secara permanen menghapus atau menyembunyikan informasi rahasia dari sebuah dokumen. Tidak seperti sekadar menyembunyikan, penyensoran memastikan data tidak dapat dipulihkan, menjadikannya penting untuk kepatuhan terhadap regulasi seperti GDPR, HIPAA, dan PCI‑DSS.
 
-## Prasyarat
+## Mengapa Menggunakan Penyensoran PDF Aman dengan Java?
+- **Siap otomatisasi**: Tanamkan penyensoran ke dalam pekerjaan batch atau layanan web.  
+- **Dukungan OCR**: Menangani PDF yang dipindai dan berbasis gambar secara langsung.  
+- **Kekuatan Regex**: Menargetkan pola seperti nomor kartu kredit, tanggal, atau pengidentifikasi khusus.  
+- **Lintas platform**: Berfungsi di Windows, Linux, dan macOS dengan basis kode Java yang sama.
 
+## Prasyarat
 - **GroupDocs.Redaction untuk Java** (perpustakaan untuk menerapkan penyensoran)  
 - **Aspose.OCR Cloud SDK** (mesin OCR berbasis cloud)  
 - JDK 8+ dan IDE seperti IntelliJ IDEA atau Eclipse  
@@ -37,11 +44,11 @@ Penyensoran PDF secara permanen menghapus atau menyembunyikan informasi rahasia 
 
 ## Menyiapkan GroupDocs.Redaction untuk Java
 
-Anda dapat menambahkan perpustakaan ke proyek Anda melalui Maven atau dengan mengunduh JAR secara langsung.
+Anda dapat menambahkan perpustakaan ke proyek melalui Maven atau dengan mengunduh JAR secara langsung.
 
 ### Menggunakan Maven
 
-Add the following configuration to your `pom.xml` file:
+Tambahkan konfigurasi berikut ke file `pom.xml` Anda:
 
 ```xml
 <repositories>
@@ -63,12 +70,12 @@ Add the following configuration to your `pom.xml` file:
 
 ### Unduhan Langsung
 
-Alternatively, download the latest version from [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+Atau, unduh versi terbaru dari [GroupDocs.Redaction untuk rilis Java](https://releases.groupdocs.com/redaction/java/).
 
-### Langkah-langkah Akuisisi Lisensi
-- **Free Trial**: Mulai dengan percobaan gratis untuk menjelajahi fitur.  
-- **Temporary License**: Dapatkan lisensi sementara untuk pengujian yang lebih lama.  
-- **Purchase**: Dapatkan lisensi penuh untuk penggunaan produksi.  
+### Langkah-Langkah Akuisisi Lisensi
+- **Percobaan Gratis**: Mulai dengan percobaan gratis untuk menjelajahi fitur.  
+- **Lisensi Sementara**: Dapatkan lisensi sementara untuk pengujian lanjutan.  
+- **Pembelian**: Peroleh lisensi penuh untuk penggunaan produksi.  
 
 ## Inisialisasi Dasar
 
@@ -91,15 +98,15 @@ RedactorSettings settings = new RedactorSettings(new AsposeCloudOcrConnector());
 
 - **Tujuan**: Menghubungkan GroupDocs.Redaction ke layanan OCR Aspose sehingga teks dalam gambar yang dipindai menjadi dapat dicari.
 
-### Tentukan Opsi Penggantian (Penyamaran)
+### Menentukan Opsi Penggantian (Masking)
 
 ```java
 ReplacementOptions marker = new ReplacementOptions(java.awt.Color.BLACK);
 ```
 
-- **Penjelasan**: Ini membuat kotak hitam yang akan **menyembunyikan data sensitif PDF** di mana pun ada kecocokan regex.
+- **Penjelasan**: Ini membuat kotak hitam yang akan **menyembunyikan data sensitif PDF** setiap kali ada kecocokan regex.
 
-### Terapkan Pola Regex untuk Penyensoran
+### Menerapkan Pola Regex untuk Penyensoran
 
 ```java
 RedactorChangeLog result = redactor.apply(new Redaction[] {
@@ -111,7 +118,7 @@ RedactorChangeLog result = redactor.apply(new Redaction[] {
 
 - **Penjelasan**: Setiap objek `RegexRedaction` mendefinisikan pola untuk menemukan informasi pribadi dan menggantinya dengan penanda hitam yang didefinisikan di atas.
 
-### Simpan Dokumen yang Disensor
+### Menyimpan Dokumen yang Telah Disensor
 
 ```java
 if (result.getStatus() != RedactionStatus.Failed) {
@@ -119,57 +126,55 @@ if (result.getStatus() != RedactionStatus.Failed) {
 }
 ```
 
-- **Penjelasan**: Ketika penyensoran berhasil, dokumen ditulis ke disk, secara efektif **menyimpan PDF yang disensor**. Anda dapat mengubah folder output atau format melalui `SaveOptions`.
+- **Penjelasan**: Ketika penyensoran berhasil, dokumen ditulis ke disk, secara efektif **menyimpan PDF yang telah disensor**. Anda dapat mengubah folder output atau format melalui `SaveOptions`.
 
 ## Aplikasi Praktis
-
 1. **Keamanan Dokumen Keuangan** – Menyembunyikan nomor kartu kredit sebelum mengirimkan pernyataan kepada klien.  
 2. **Perlindungan Data Kesehatan** – Menyensor pengidentifikasi pasien untuk tetap mematuhi HIPAA.  
 3. **Kerahasiaan Korporat** – Menyembunyikan klausul sensitif dalam kontrak selama tinjauan internal.  
-4. **Penanganan Dokumen Hukum** – Memastikan informasi istimewa tetap pribadi saat berbagi berkas kasus.  
+4. **Penanganan Dokumen Hukum** – Memastikan informasi yang bersifat istimewa tetap pribadi saat berbagi berkas kasus.  
 5. **Catatan Pemerintah** – Melindungi data warga dalam PDF publik.  
 
-## Pertimbangan Kinerja
-
-- **Pengaturan OCR**: Sesuaikan Aspose OCR untuk kecepatan vs. akurasi berdasarkan kualitas dokumen.  
-- **Manajemen Memori**: Proses PDF besar dalam aliran untuk menghindari `OutOfMemoryError`.  
-- **Pemrosesan Paralel**: Manfaatkan `ExecutorService` Java untuk menyensor beberapa file secara bersamaan.  
+## Tips Kinerja dan Manajemen Memori
+- **Pengaturan OCR**: Pilih paket bahasa dan DPI yang sesuai; DPI lebih tinggi meningkatkan akurasi tetapi menggunakan lebih banyak memori.  
+- **Pemrosesan Streaming**: Untuk PDF berukuran lebih dari 100 MB, proses halaman secara streaming untuk menghindari `OutOfMemoryError`.  
+- **Penyensoran Paralel**: Gunakan `ExecutorService` Java untuk menyensor beberapa file secara bersamaan, namun pantau penggunaan heap.  
 
 ## Masalah Umum & Pemecahan Masalah
 
 | Gejala | Penyebab Kemungkinan | Solusi |
 |--------|----------------------|--------|
 | Tidak ada teks yang disensor | OCR tidak mendeteksi teks | Verifikasi kredensial layanan OCR dan tingkatkan DPI gambar |
-| Kotak penyensoran tidak sejajar | Rotasi halaman yang salah | Gunakan `LoadOptions.setRotatePages(true)` |
+| Kotak penyensoran tidak sejajar | Rotasi halaman tidak tepat | Gunakan `LoadOptions.setRotatePages(true)` |
 | Aplikasi crash pada PDF besar | Memori heap tidak cukup | Tingkatkan flag JVM `-Xmx` atau proses halaman secara batch |
 
 ## Pertanyaan yang Sering Diajukan
 
-**Q: Apa itu Aspose OCR?**  
-A: Layanan berbasis cloud yang mengekstrak teks dari gambar, memungkinkan pemrosesan PDF yang dapat dicari.
+**T: Apa itu Aspose OCR?**  
+J: Layanan berbasis cloud yang mengekstrak teks dari gambar, memungkinkan pemrosesan PDF yang dapat dicari.
 
-**Q: Bisakah saya menggunakan pola regex dengan tipe file selain PDF?**  
-A: Ya—GroupDocs.Redaction mendukung Word, Excel, PowerPoint, dan lainnya.
+**T: Bisakah saya menggunakan pola regex dengan tipe file selain PDF?**  
+J: Ya—GroupDocs.Redaction mendukung Word, Excel, PowerPoint, dan lainnya.
 
-**Q: Bagaimana saya menangani PDF yang sudah berbasis teks?**  
-A: Anda dapat melewati langkah OCR dan menerapkan penyensoran regex langsung pada lapisan teks.
+**T: Bagaimana menangani PDF yang sudah berbasis teks?**  
+J: Anda dapat melewati langkah OCR dan langsung menerapkan penyensoran regex pada lapisan teks.
 
-**Q: Regex saya tidak cocok dengan data yang diharapkan. Apa yang harus saya lakukan?**  
-A: Uji pola dengan penguji regex daring, dan pastikan Anda menggunakan urutan pelolosan yang benar untuk string Java.
+**T: Regex saya tidak menemukan data yang diharapkan. Apa yang harus saya lakukan?**  
+J: Uji pola dengan penguji regex daring, dan pastikan Anda meloloskan backslash dengan benar dalam string Java.
 
-**Q: Di mana saya dapat menemukan dokumentasi API yang lebih detail?**  
-A: Lihat dokumen resmi di [GroupDocs Documentation](https://docs.groupdocs.com/redaction/java/).
+**T: Di mana saya dapat menemukan dokumentasi API yang lebih detail?**  
+J: Lihat dokumen resmi di [GroupDocs Documentation](https://docs.groupdocs.com/redaction/java/).
 
-## Sumber Daya
+## Sumber Daya Tambahan
 - **Dokumentasi**: [GroupDocs Redaction Java Docs](https://docs.groupdocs.com/redaction/java/)
 - **Referensi API**: [GroupDocs Redaction API Reference](https://reference.groupdocs.com/redaction/java)
-- **Unduhan**: [Get Group Docs Redaction for Java](https://releases.groupdocs.com/redaction/java/)
-- **Repositori GitHub**: [GroupDocs.Redaction for Java GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
+- **Unduhan**: [Dapatkan Group Docs Redaction untuk Java](https://releases.groupdocs.com/redaction/java/)
+- **Repositori GitHub**: [GroupDocs.Redaction untuk Java GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
 - **Forum Dukungan**: [GroupDocs Free Support](https://forum.groupdocs.com/c/redaction/33)
-- **Temporary License**: [Obtain a Temporary Li
+- **Lisensi Sementara**: [Dapatkan Lisensi Sementara Li
 
 ---
 
-**Terakhir Diperbarui:** 2026-01-16  
+**Terakhir Diperbarui:** 2026-04-20  
 **Diuji Dengan:** GroupDocs.Redaction 24.9, Aspose.OCR Cloud SDK (terbaru)  
 **Penulis:** GroupDocs
