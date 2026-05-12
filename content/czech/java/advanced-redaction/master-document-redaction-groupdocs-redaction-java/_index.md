@@ -1,13 +1,13 @@
 ---
-date: '2025-12-17'
-description: Naučte se, jak přidat příponu k názvu souboru a redigovat citlivé informace
-  v dokumentech pomocí GroupDocs.Redaction pro Javu. Efektivně zvyšte bezpečnost a
-  soukromí dokumentů.
+date: '2026-02-16'
+description: Naučte se, jak použít závislost GroupDocs Maven k přidání přípony k názvům
+  souborů při redakci dokumentů v Javě. Zahrnuje načítání ze streamu, mazání anotací
+  a možnosti uložení.
 keywords:
 - document redaction Java
 - GroupDocs.Redaction tutorial
 - secure document handling
-title: Jak přidat příponu k názvu souboru při redakci dokumentů v Javě s GroupDocs.Redaction
+title: GroupDocs Maven závislost – Přidat příponu k názvu souboru v Javě
 type: docs
 url: /cs/java/advanced-redaction/master-document-redaction-groupdocs-redaction-java/
 weight: 1
@@ -15,38 +15,38 @@ weight: 1
 
 # Jak přidat příponu k názvu souboru při redakci dokumentů v Javě s GroupDocs.Redaction
 
-Redakce důvěrných údajů je jen polovina boje—musíte také zajistit, aby uložený soubor jasně naznačoval, že byl zpracován. V tomto průvodci se naučíte **jak přidat příponu k názvu souboru** při ukládání redigovaného dokumentu, spolu s načítáním, anotací a ukládáním pomocí GroupDocs.Redaction pro Javu. Ať už chráníte právní smlouvy, lékařské záznamy nebo finanční zprávy, tyto kroky udrží váš pracovní postup bezpečný a auditovatelný.
+Redakce důvěrných údajů je jen polovinou boje—musíte také zajistit, aby uložený soubor jasně naznačoval, že byl zpracován. **Použití závislosti groupdocs maven to činí jednoduchým**, což vám umožní přidat příponu k názvu výstupního souboru během několika řádků kódu. V tomto průvodci se naučíte, jak přidat příponu k názvu souboru při ukládání redigovaného dokumentu, spolu s načítáním, anotací a ukládáním pomocí GroupDocs.Redaction pro Java. Ať už chráníte právní smlouvy, lékařské záznamy nebo finanční zprávy, tyto kroky udrží váš pracovní postup bezpečný a auditovatelný.
 
 ## Rychlé odpovědi
 - **Co dělá „add suffix to filename“?**  
-  Přidá vlastní příponu (např. „_redacted“) k názvu výstupního souboru, takže můžete okamžitě rozpoznat zpracované soubory.
+  Přidá vlastní příponu (např. „_redacted“) k názvu výstupního souboru, takže můžete okamžitě rozpoznat zpracované soubory.  
 - **Mohu načíst dokument ze streamu?**  
-  Ano—GroupDocs.Redaction podporuje načítání z libovolného `InputStream`, ideální pro cloudové úložiště nebo zpracování v paměti.
+  Ano—GroupDocs.Redaction podporuje načítání z libovolného `InputStream`, což je ideální pro cloudové úložiště nebo zpracování v paměti.  
 - **Potřebuji licenci pro tuto funkci?**  
-  Bezplatná zkušební verze funguje pro základní redakci; dočasná nebo plná licence odemkne všechny pokročilé možnosti, včetně zpracování přípony.
+  Bezplatná zkušební verze funguje pro základní redakci; dočasná nebo plná licence odemyká všechny pokročilé možnosti, včetně zpracování přípony.  
 - **Jaké formáty jsou podporovány?**  
-  Knihovna pracuje s DOCX, PDF, PPTX, XLSX a mnoha dalšími.
+  Knihovna pracuje s DOCX, PDF, PPTX, XLSX a mnoha dalšími.  
 - **Je rasterizace vyžadována pro výstup PDF?**  
-  Rasterizace je volitelná; povolte ji, když potřebujete dokument zploštit pro vyšší zabezpečení.
+  Rasterizace je volitelná; povolte ji, když potřebujete dokument zploštit pro zvýšenou bezpečnost.
 
 ## Co je přidání přípony k názvu souboru?
 Přidání přípony je jednoduchá konvence pojmenování, která signalizuje, že soubor prošel redakcí. Zabraňuje neúmyslnému sdílení původních, neredigovaných verzí a pomáhá automatizovaným pipeline sledovat stav zpracování.
 
 ## Proč použít GroupDocs.Redaction pro tento úkol?
-GroupDocs.Redaction poskytuje plynulé Java API, které vám umožníovat redakční akce s možnostmi manipulace se soubory—jako **přidání přípony k názvu souboru**—pouze v několika řádcích kódu. To šetří čas vývoje a snižuje riziko manuálních chyb.
+GroupDocs.Redaction poskytuje plynulé Java API, které vám umožní kombinovat redakční akce s možnostmi manipulace se soubory—jako **přidání přípony k názvu souboru**—během několika řádků kódu. To šetří čas vývoje a snižuje riziko manuálních chyb.
 
 ## Předpoklady
-- **Java Development Kit (JDK):** Verze 8 nebo vyšší.
-- **GroupDocs.Redaction Library:** Hlavní knihovna pro úkoly redakce.
-- **IDE:** IntelliJ IDEA, Eclipse nebo jakýkoli Java‑kompatibilní editor.
-- **Maven:** Pro správu závislostí.
+- **Java Development Kit (JDK):** Verze 8 nebo vyšší.  
+- **GroupDocs.Redaction Library:** Hlavní knihovna pro úkoly redakce.  
+- **IDE:** IntelliJ IDEA, Eclipse nebo jakýkoli Java‑kompatibilní editor.  
+- **Maven:** Pro správu závislostí.  
 
 ### Znalostní předpoklady
 Znalost Java I/O a základních objektově orientovaných konceptů usnadní sledování příkladů.
 
-## Nastavení GroupDocs.Redaction pro Javu
+## Nastavení GroupDocs.Redaction pro Java
 ### Maven nastavení
-Do souboru `pom.xml` zahrňte následující konfiguraci pro přístup k knihovnám GroupDocs přes Maven:
+Do svého souboru `pom.xml` zahrňte následující konfiguraci pro přístup k knihovnám GroupDocs přes Maven:
 
 ```xml
 <repositories>
@@ -85,11 +85,11 @@ S tímto nastavením jste připraveni implementovat funkce redakce dokumentů.
 
 ## Průvodce implementací
 
-### Funkce 1: Načíst dokument ze streamu
+### Funkce 1: Načtení dokumentu ze streamu
 **Přehled:** Naučte se, jak načíst dokumenty do `InputStream` pro zpracování.
 
-#### Krok za krokem implementace
-##### Krok 1.1: Vytvořit InputStream
+#### Implementace krok za krokem
+##### Krok 1.1: Vytvoření InputStream
 
 ```java
 import java.io.FileInputStream;
@@ -105,13 +105,13 @@ try (InputStream stream = new FileInputStream("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DO
 }
 ```
 
-- **Proč:** Použití `InputStream` vám umožňuje bezproblémově pracovat s dokumenty uloženými v různých formátech, což je nezbytné, když potřebujete **load document from stream** v cloudových nebo mikro‑servisních scénářích.
+- **Proč:** Použití `InputStream` vám umožní bezproblémově pracovat s dokumenty uloženými v různých formátech, což je nezbytné, když potřebujete **load document from stream** v cloudových nebo mikro‑službových scénářích.
 
-### Funkce 2: Použít redakci odstranění anotací
-**Přehled:** Odstraňte anotace ze svého dokumentu pomocí `DeleteAnnotationRedaction`.
+### Funkce 2: Použití redakce mazání anotací
+**Přehled:** Odstraňte anotace z dokumentu pomocí `DeleteAnnotationRedaction`.
 
-#### Krok za krokem implementace
-##### Krok 2.1: Použít DeleteAnnotationRedaction
+#### Implementace krok za krokem
+##### Krok 2.1: Použití DeleteAnnotationRedaction
 
 ```java
 import com.groupdocs.redaction.redactions.DeleteAnnotationRedaction;
@@ -122,12 +122,12 @@ try (Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX")) {
 }
 ```
 
-- **Proč:** Tento krok zajišťuje, že všechny citlivé anotace jsou odstraněny, čímž se zvyšuje soukromí dokumentu.
+- **Proč:** Tento krok zajišťuje, že všechny citlivé anotace jsou odstraněny, což zvyšuje soukromí dokumentu.
 
-### Funkce 3: Uložit dokument s možnostmi
+### Funkce 3: Uložení dokumentu s možnostmi
 **Přehled:** Naučte se, jak uložit zpracovaný dokument s konkrétními možnostmi, jako je rasterizace a **přidání přípony k názvu souboru**.
 
-#### Krok za krokem implementace
+#### Implementace krok za krokem
 ##### Krok 3.1: Konfigurace SaveOptions
 
 ```java
@@ -148,22 +148,25 @@ try (Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX")) {
 
 - **Proč:** Přizpůsobení možností uložení umožňuje flexibilní výstupní formáty a konvence pojmenování. Povolení `setAddSuffix(true)` **přidá příponu k názvu souboru**, což jasně ukazuje, že soubor byl redigován.
 
+## Přehled závislosti groupdocs maven
+**groupdocs maven dependency** přináší celé Redaction SDK do vašeho projektu pomocí jediného záznamu `<dependency>`. Spravuje tranzitivní závislosti, udržuje knihovny aktuální a zjednodušuje automatizaci sestavení. Deklarací závislosti v `pom.xml` se vyhnete ručnímu řízení JAR souborů a zajistíte kompatibilitu s nejnovějšími bezpečnostními záplatami.
+
 ## Proč je přidání přípony důležité
-- **Auditovatelnost:** Týmy mohou okamžitě rozpoznat, které soubory jsou bezpečné k distribuci.
-- **Automatizace:** Skripty mohou filtrovat soubory podle přípony, čímž se zabrání neúmyslnému zpracování původních dokumentů.
+- **Auditovatelnost:** Týmy mohou okamžitě rozpoznat, které soubory jsou bezpečné k distribuci.  
+- **Automatizace:** Skripty mohou filtrovat soubory podle přípony, čímž zabrání neúmyslnému zpracování původních dokumentů.  
 - **Soulad:** Mnoho předpisů vyžaduje jasné označení sanitovaných dokumentů.
 
 ## Praktické aplikace
-Prozkoumejte tyto reálné příklady použití:
-1. **Legal Document Redaction:** Zabezpečte smlouvy před sdílením s klientem.  
+Prozkoumejte tyto reálné případy použití:
+1. **Legal Document Redaction:** Zabezpečte smlouvy před sdílením s klienty.  
 2. **Medical Record Handling:** Chraňte identifikátory pacientů.  
 3. **Financial Reporting:** Udržujte citlivá čísla důvěrná.  
-4. **CRM Integration:** Automaticky odstraňujte zákaznická data před exportem.  
-5. **Collaboration Tools:** Zajistěte, aby sdílené koncepty nikdy neodhalily skryté komentáře.
+4. **CRM Integration:** Automaticky redigujte zákaznická data před exportem.  
+5. **Collaboration Tools:** Zajistěte, aby sdílené návrhy nikdy neodhalily skryté komentáře.
 
 ## Úvahy o výkonu
 ### Optimalizace výkonu
-- Používejte streamování (`load document from stream`) k zabránění načítání celých souborů do paměti.  
+- Používejte streamování (`load document from stream`), abyste se vyhnuli načítání celých souborů do paměti.  
 - Okamžitě uzavřete instance `Redactor`, aby se uvolnily zdroje.
 
 ### Pokyny pro využití zdrojů
@@ -172,15 +175,15 @@ Prozkoumejte tyto reálné příklady použití:
 
 ### Nejlepší postupy pro správu paměti v Javě
 - Znovu používejte objekty `Redactor` při zpracování více souborů stejného typu.  
-- Zavolejte `close()` v bloku `finally` nebo pomocí try‑with‑resources, aby se zabránilo únikům.
+- Zavolejte `close()` v bloku `try‑with‑resources`, aby se zabránilo únikům.
 
 ## Časté problémy a řešení
-| Problém | Příčina | Oprava |
+| Problém | Příčina | Řešení |
 |-------|-------|-----|
-| **Suffix not appearing** | `setAddSuffix(false)` nebo chybějící volání | Zajistěte, že `options.setAddSuffix(true)` je nastaveno před `save()`. |
-| **OutOfMemoryError on large DOCX** | Načítání celého souboru do paměti | Přepněte na načítání pomocí `InputStream` (viz Funkce 1). |
-| **Annotations still visible** | Redakce nebyla aplikována před uložením | Zavolejte `redactor.apply(new DeleteAnnotationRedaction())` před `save()`. |
-| **PDF rasterization not applied** | `setRasterizeToPDF(false)` nebo vynecháno | Nastavte `options.setRasterizeToPDF(true)`, když potřebujete zploštělý PDF. |
+| **Přípona se nezobrazuje** | `setAddSuffix(false)` nebo chybějící volání | Ujistěte se, že `options.setAddSuffix(true)` je nastaveno před voláním `save()`. |
+| **OutOfMemoryError u velkého DOCX** | Načítání celého souboru do paměti | Přepněte na načítání pomocí `InputStream` (viz Funkce 1). |
+| **Anotace stále viditelné** | Redakce nebyla aplikována před uložením | Zavolejte `redactor.apply(new DeleteAnnotationRedaction())` před `save()`. |
+| **Rasterizace PDF nebyla použita** | `setRasterizeToPDF(false)` nebo vynecháno | Nastavte `options.setRasterizeToPDF(true)`, když potřebujete zploštělý PDF. |
 
 ## Často kladené otázky
 
@@ -191,24 +194,22 @@ A: Ano, knihovna podporuje PDF, DOCX, PPTX, XLSX a mnoho dalších formátů.
 A: Používejte streamování (`load document from stream`) a rychle uzavírejte zdroje, aby byl nízký odběr paměti.
 
 **Q: Je možné přizpůsobit text přípony?**  
-A: API automaticky přidá výchozí příponu (např. „_redacted“). Pro vlastní přípony můžete po uložení soubor přejmenovat.
+A: API automaticky přidá výchozí příponu (např. „_redacted“). Pro vlastní přípony můžete po uložení přejmenovat výstupní soubor.
 
 **Q: Jak získám dočasnou licenci pro GroupDocs.Redaction?**  
 A: Navštivte [Temporary License page](https://purchase.groupdocs.com/temporary-license/) a postupujte podle instrukcí.
 
 **Q: Kde mohu získat pomoc, pokud narazím na problémy?**  
-A: Připojte se k [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33) pro odbornou pomoc.
+A: Připojte se k [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33) pro odbornou asistenci.
 
 ## Zdroje
 - **Documentation:** Prozkoumejte podrobné průvodce na [GroupDocs Documentation](https://docs.groupdocs.com/redaction/java/).  
-- **API Reference:** Získejte komplexní podrobnosti API na [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java).  
+- **API Reference:** Získejte podrobné informace o API na [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java).  
 - **Download:** Stáhněte nejnovější verzi z [GroupDocs Downloads](https://releases.groupdocs.com/redaction/java/).  
 - **GitHub Repository:** Přispívejte nebo prozkoumejte zdrojový kód na [GroupDocs GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java).
 
 ---
 
-**Poslední aktualizace:** 2025-12-17  
-**Testováno s:** GroupDocs.Redaction 24.9 pro Javu  
-**Autor:** GroupDocs  
-
----
+**Poslední aktualizace:** 2026-02-16  
+**Testováno s:** GroupDocs.Redaction 24.9 pro Java  
+**Autor:** GroupDocs

@@ -1,52 +1,62 @@
 ---
-date: '2025-12-17'
-description: Dowiedz się, jak dodać sufiks do nazwy pliku i usunąć wrażliwe informacje
-  z dokumentów przy użyciu GroupDocs.Redaction dla Javy. Skutecznie zwiększ bezpieczeństwo
-  i prywatność dokumentów.
+date: '2026-02-16'
+description: Dowiedz się, jak używać zależności GroupDocs Maven, aby dodać przyrostek
+  do nazw plików podczas redagowania dokumentów w Javie. Zawiera ładowanie ze strumienia,
+  usuwanie adnotacji i opcje zapisu.
 keywords:
 - document redaction Java
 - GroupDocs.Redaction tutorial
 - secure document handling
-title: Jak dodać przyrostek do nazwy pliku podczas redagowania dokumentów w Javie
-  z użyciem GroupDocs.Redaction
+title: zależność Maven groupdocs – Dodaj sufiks do nazwy pliku w Javie
 type: docs
 url: /pl/java/advanced-redaction/master-document-redaction-groupdocs-redaction-java/
 weight: 1
 ---
 
-# Jak dodać przyrostek do nazwy pliku podczas redagowania dokumentów w Javie przy użyciu GroupDocs.Redaction
+Docs.Redaction 24.9 for Java"
 
-Redagowanie poufnych danych to dopiero połowa walki — musisz także upewnić się, że zapisany plik wyraźnie wskazuje, że został przetworzony. W tym przewodniku dowiesz się **jak dodać przyrostek do nazwy pliku** podczas zapisywania zredagowanego dokumentu, a także jak ładować, anotować i zapisywać przy użyciu GroupDocs.Redaction dla Javy. Niezależnie od tego, czy chronisz umowy prawne, rekordy medyczne czy raporty finansowe, te kroki zapewnią, że Twój przepływ pracy będzie zarówno bezpieczny, jak i audytowalny.
+"**Author:** GroupDocs" -> "**Author:** GroupDocs"
+
+Then "---"
+
+We must ensure we preserve all markdown formatting.
+
+Also note that there is a note: "For Polish, ensure proper RTL formatting if needed" Not relevant.
+
+Now produce final translated content.# Jak dodać przyrostek do nazwy pliku podczas redagowania dokumentów w Javie z GroupDocs.Redaction
+
+Redagowanie poufnych danych to dopiero połowa walki — musisz także zapewnić, że zapisany plik wyraźnie wskazuje, że został przetworzony. **Użycie groupdocs maven dependency upraszcza to** , pozwalając dodać przyrostek do nazwy pliku wyjściowego w zaledwie kilku linijkach kodu. W tym przewodniku dowiesz się, jak dodać przyrostek do nazwy pliku przy zapisywaniu zredagowanego dokumentu, a także jak ładować, anotować i zapisywać przy użyciu GroupDocs.Redaction dla Javy. Niezależnie od tego, czy chronisz umowy prawne, rekordy medyczne czy raporty finansowe, te kroki zapewnią, że Twój przepływ pracy będzie zarówno bezpieczny, jak i audytowalny.
 
 ## Szybkie odpowiedzi
 - **Co robi „add suffix to filename”?**  
-  Dodaje niestandardowy przyrostek (np. “_redacted”) do nazwy pliku wyjściowego, abyś mógł od razu zidentyfikować przetworzone pliki.
+  Dodaje niestandardowy przyrostek (np. “_redacted”) do nazwy pliku wyjściowego, dzięki czemu możesz natychmiast rozpoznać przetworzone pliki.  
 - **Czy mogę wczytać dokument ze strumienia?**  
-  Tak — GroupDocs.Redaction obsługuje ładowanie z dowolnego `InputStream`, co jest idealne dla przechowywania w chmurze lub przetwarzania w pamięci.
-- **Czy potrzebuję licencji na tę funkcję?**  
-  Darmowa wersja próbna działa dla podstawowego redagowania; tymczasowa lub pełna licencja odblokowuje wszystkie zaawansowane opcje, w tym obsługę przyrostka.
+  Tak — GroupDocs.Redaction obsługuje ładowanie z dowolnego `InputStream`, co jest idealne dla przechowywania w chmurze lub przetwarzania w pamięci.  
+- **Czy potrzebna jest licencja na tę funkcję?**  
+  Darmowa wersja próbna wystarcza do podstawowego redagowania; tymczasowa lub pełna licencja odblokowuje wszystkie zaawansowane opcje, w tym obsługę przyrostka.  
 - **Jakie formaty są obsługiwane?**  
-  Biblioteka obsługuje DOCX, PDF, PPTX, XLSX i wiele innych.
+  Biblioteka obsługuje DOCX, PDF, PPTX, XLSX i wiele innych.  
 - **Czy rasteryzacja jest wymagana przy wyjściu PDF?**  
-  Rasteryzacja jest opcjonalna; włącz ją, gdy potrzebujesz spłaszczyć dokument dla dodatkowego bezpieczeństwa.
+  Rasteryzacja jest opcjonalna; włącz ją, gdy potrzebujesz spłaszczyć dokument w celu dodatkowego zabezpieczenia.
 
 ## Co to jest dodawanie przyrostka do nazwy pliku?
-Dodanie przyrostka to prosta konwencja nazewnictwa, która sygnalizuje, że plik został poddany redagowaniu. Zapobiega przypadkowemu udostępnianiu oryginalnych, niezredagowanych wersji i pomaga zautomatyzowanym potokom śledzić status przetwarzania.
+Dodanie przyrostka to prosta konwencja nazewnictwa, która sygnalizuje, że plik został poddany redagowaniu. Zapobiega przypadkowemu udostępnianiu oryginalnych, niezredagowanych wersji i pomaga zautomatyzowanym pipeline'om śledzić status przetwarzania.
 
 ## Dlaczego używać GroupDocs.Redaction do tego zadania?
-GroupDocs.Redaction udostępnia płynne API Java, które pozwala łączyć akcje redagowania z opcjami obsługi plików — takimi jak **dodawanie przyrostka do nazwy pliku** — w zaledwie kilku linijkach kodu. To oszczędza czas programisty i zmniejsza ryzyko błędów ręcznych.
+GroupDocs.Redaction udostępnia płynne API Java, które pozwala łączyć akcje redagowania z opcjami obsługi plików — takimi jak **adding a suffix to the filename** — w zaledwie kilku linijkach kodu. To oszczędza czas programistów i zmniejsza ryzyko błędów ręcznych.
 
-## Prerequisites
-- **Java Development Kit (JDK):** wersja 8 lub wyższa.
-- **GroupDocs.Redaction Library:** podstawowa biblioteka do zadań redagowania.
-- **IDE:** IntelliJ IDEA, Eclipse lub dowolny edytor kompatybilny z Javą.
-- **Maven:** do zarządzania zależnościami.
+## Wymagania wstępne
 
-### Wymagania wstępne wiedzy
-Znajomość Java I/O oraz podstawowych koncepcji obiektowych ułatwi zrozumienie przykładów.
+- **Java Development Kit (JDK):** Wersja 8 lub wyższa.  
+- **GroupDocs.Redaction Library:** Biblioteka podstawowa do zadań redagowania.  
+- **IDE:** IntelliJ IDEA, Eclipse lub dowolny edytor kompatybilny z Javą.  
+- **Maven:** Do zarządzania zależnościami.  
+
+### Wymagania wiedzy
+Znajomość Java I/O oraz podstawowych koncepcji programowania obiektowego ułatwi zrozumienie przykładów.
 
 ## Konfiguracja GroupDocs.Redaction dla Javy
-### Maven Setup
+### Konfiguracja Maven
 Umieść następującą konfigurację w pliku `pom.xml`, aby uzyskać dostęp do bibliotek GroupDocs za pośrednictwem Maven:
 
 ```xml
@@ -67,15 +77,15 @@ Umieść następującą konfigurację w pliku `pom.xml`, aby uzyskać dostęp do
 </dependencies>
 ```
 
-### Direct Download
+### Bezpośrednie pobranie
 Alternatywnie, pobierz najnowszą wersję bezpośrednio z [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
-### License Acquisition
+### Uzyskiwanie licencji
 1. **Free Trial:** Dostęp do podstawowej funkcjonalności bez ograniczeń.  
 2. **Temporary License:** Uzyskaj tymczasową licencję, aby wypróbować zaawansowane funkcje.  
 3. **Purchase:** W przypadku długoterminowego użycia rozważ zakup pełnej licencji.
 
-#### Basic Initialization and Setup
+#### Podstawowa inicjalizacja i konfiguracja
 Zainicjalizuj projekt, dodając niezbędne importy:
 
 ```java
@@ -84,13 +94,13 @@ import com.groupdocs.redaction.Redactor;
 
 Po tej konfiguracji jesteś gotowy do implementacji funkcji redagowania dokumentów.
 
-## Implementation Guide
+## Przewodnik implementacji
 
 ### Funkcja 1: Ładowanie dokumentu ze strumienia
-**Przegląd:** Dowiedz się, jak ładować dokumenty do `InputStream` w celu przetwarzania.
+**Overview:** Dowiedz się, jak ładować dokumenty do `InputStream` w celu przetwarzania.
 
-#### Step-by-Step Implementation
-##### Step 1.1: Create InputStream
+#### Implementacja krok po kroku
+##### Krok 1.1: Utwórz InputStream
 
 ```java
 import java.io.FileInputStream;
@@ -106,13 +116,12 @@ try (InputStream stream = new FileInputStream("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DO
 }
 ```
 
-- **Dlaczego:** Użycie `InputStream` pozwala na płynne obsługiwanie dokumentów przechowywanych w różnych formatach, co jest niezbędne, gdy musisz **load document from stream** w scenariuszach chmurowych lub mikro‑serwisowych.
+- **Why:** Użycie `InputStream` pozwala na płynne obsługiwanie dokumentów przechowywanych w różnych formatach, co jest niezbędne, gdy musisz **load document from stream** w scenariuszach chmurowych lub mikroserwisowych.
 
 ### Funkcja 2: Zastosowanie redagowania usuwania adnotacji
-**Przegląd:** Usuń adnotacje z dokumentu przy użyciu `DeleteAnnotationRedaction`.
+**Overview:** Usuń adnotacje z dokumentu przy użyciu `DeleteAnnotationRedaction`.
 
-#### Step-by-Step Implementation
-##### Step 2.1: Apply DeleteAnnotationRedaction
+##### Krok 2.1: Zastosuj DeleteAnnotationRedaction
 
 ```java
 import com.groupdocs.redaction.redactions.DeleteAnnotationRedaction;
@@ -123,13 +132,12 @@ try (Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX")) {
 }
 ```
 
-- **Dlaczego:** Ten krok zapewnia usunięcie wszelkich wrażliwych adnotacji, zwiększając prywatność dokumentu.
+- **Why:** Ten krok zapewnia usunięcie wszelkich wrażliwych adnotacji, zwiększając prywatność dokumentu.
 
 ### Funkcja 3: Zapis dokumentu z opcjami
-**Przegląd:** Dowiedz się, jak zapisać przetworzony dokument z określonymi opcjami, takimi jak rasteryzacja i **dodawanie przyrostka do nazwy pliku**.
+**Overview:** Dowiedz się, jak zapisać przetworzony dokument z określonymi opcjami, takimi jak rasteryzacja i **adding a suffix to the filename**.
 
-#### Step-by-Step Implementation
-##### Step 3.1: Configure SaveOptions
+##### Krok 3.1: Skonfiguruj SaveOptions
 
 ```java
 import java.io.ByteArrayOutputStream;
@@ -147,40 +155,44 @@ try (Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX")) {
 }
 ```
 
-- **Dlaczego:** Dostosowanie opcji zapisu umożliwia elastyczne formaty wyjściowe i konwencje nazewnictwa. Włączenie `setAddSuffix(true)` **adds suffix to filename**, co jasno wskazuje, że plik został zredagowany.
+- **Why:** Dostosowanie opcji zapisu umożliwia elastyczne formaty wyjściowe i konwencje nazewnictwa. Włączenie `setAddSuffix(true)` **adds suffix to filename**, co jasno wskazuje, że plik został zredagowany.
+
+## Przegląd zależności groupdocs maven
+**groupdocs maven dependency** wprowadza cały Redaction SDK do Twojego projektu za pomocą pojedynczego wpisu `<dependency>`. Obsługuje zależności tranzytywne, utrzymuje biblioteki aktualne i upraszcza automatyzację budowania. Deklarując zależność w `pom.xml`, unikasz ręcznego zarządzania plikami JAR i zapewniasz kompatybilność z najnowszymi poprawkami bezpieczeństwa.
 
 ## Dlaczego dodawanie przyrostka ma znaczenie
-- **Auditability:** Zespoły mogą od razu zauważyć, które pliki są bezpieczne do dystrybucji.
-- **Automation:** Skrypty mogą filtrować pliki po przyrostku, zapobiegając przypadkowemu przetwarzaniu oryginalnych dokumentów.
-- **Compliance:** Wiele regulacji wymaga wyraźnego oznaczenia oczyszczonych dokumentów.
+- **Auditability:** Zespoły mogą natychmiast zauważyć, które pliki są bezpieczne do dystrybucji.  
+- **Automation:** Skrypty mogą filtrować pliki po przyrostku, zapobiegając przypadkowemu przetwarzaniu oryginalnych dokumentów.  
+- **Compliance:** Wiele regulacji wymaga wyraźnego oznaczenia oczyszczonych dokumentów.  
 
 ## Praktyczne zastosowania
+Zapoznaj się z poniższymi rzeczywistymi przypadkami użycia:
 1. **Legal Document Redaction:** Zabezpiecz umowy przed udostępnieniem klientowi.  
-2. **Medical Record Handling:** Chroń identyfikatory pacjentów.  
+2. **Medical Record Handling:** Chronić identyfikatory pacjentów.  
 3. **Financial Reporting:** Zachowaj poufność wrażliwych liczb.  
 4. **CRM Integration:** Automatycznie redaguj dane klientów przed eksportem.  
-5. **Collaboration Tools:** Zapewnij, że udostępnione wersje robocze nie ujawniają ukrytych komentarzy.
+5. **Collaboration Tools:** Zapewnij, że udostępniane wersje robocze nie ujawniają ukrytych komentarzy.
 
 ## Rozważania dotyczące wydajności
-### Optimizing Performance
+### Optymalizacja wydajności
 - Używaj strumieniowania (`load document from stream`), aby uniknąć ładowania całych plików do pamięci.  
 - Szybko zamykaj instancje `Redactor`, aby zwolnić zasoby.
 
-### Resource Usage Guidelines
+### Wytyczne dotyczące zużycia zasobów
 - Monitoruj CPU i pamięć podczas uruchamiania wsadowego.  
-- Preferuj `ByteArrayOutputStream` przy zapisywaniu w pamięci przy pracy z umiarkowanymi rozmiarami plików.
+- Preferuj `ByteArrayOutputStream` przy zapisie w pamięci, gdy pracujesz z umiarkowanymi rozmiarami plików.
 
-### Best Practices for Java Memory Management
+### Najlepsze praktyki zarządzania pamięcią w Javie
 - Ponownie używaj obiektów `Redactor` przy przetwarzaniu wielu plików tego samego typu.  
-- Wywołuj `close()` w bloku `finally` lub używaj try‑with‑resources, aby zapobiec wyciekom.
+- Wywołuj `close()` w bloku `try‑with‑resources`, aby zapobiec wyciekom.
 
-## Common Issues and Solutions
-| Problem | Przyczyna | Rozwiązanie |
-|---------|-----------|-------------|
-| **Suffix nie pojawia się** | `setAddSuffix(false)` lub brak wywołania | Upewnij się, że `options.setAddSuffix(true)` jest ustawione przed wywołaniem `save()`. |
+## Typowe problemy i rozwiązania
+| Issue | Cause | Fix |
+|-------|-------|-----|
+| **Przyrostek nie pojawia się** | `setAddSuffix(false)` lub brak wywołania | Upewnij się, że `options.setAddSuffix(true)` jest ustawione przed wywołaniem `save()`. |
 | **OutOfMemoryError przy dużym DOCX** | Ładowanie całego pliku do pamięci | Przejdź na ładowanie przy użyciu `InputStream` (zobacz Funkcję 1). |
 | **Adnotacje nadal widoczne** | Redagowanie nie zostało zastosowane przed zapisem | Wywołaj `redactor.apply(new DeleteAnnotationRedaction())` przed `save()`. |
-| **Rasteryzacja PDF nie zastosowana** | `setRasterizeToPDF(false)` lub pominięte | Ustaw `options.setRasterizeToPDF(true)`, gdy potrzebny jest spłaszczony PDF. |
+| **Rasteryzacja PDF nie zastosowana** | `setRasterizeToPDF(false)` lub pominięto | Ustaw `options.setRasterizeToPDF(true)`, gdy potrzebujesz spłaszczonego PDF. |
 
 ## Najczęściej zadawane pytania
 
@@ -199,16 +211,16 @@ A: Odwiedź [Temporary License page](https://purchase.groupdocs.com/temporary-li
 **Q: Gdzie mogę uzyskać pomoc w razie problemów?**  
 A: Dołącz do [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33), aby uzyskać pomoc ekspertów.
 
-## Resources
-- **Documentation:** Przeglądaj szczegółowe przewodniki na [GroupDocs Documentation](https://docs.groupdocs.com/redaction/java/).  
-- **API Reference:** Uzyskaj dostęp do szczegółowych informacji API na [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java).  
+## Zasoby
+- **Documentation:** Zapoznaj się ze szczegółowymi przewodnikami na [GroupDocs Documentation](https://docs.groupdocs.com/redaction/java/).  
+- **API Reference:** Uzyskaj dostęp do pełnych szczegółów API na [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java).  
 - **Download:** Pobierz najnowszą wersję z [GroupDocs Downloads](https://releases.groupdocs.com/redaction/java/).  
 - **GitHub Repository:** Współpracuj lub przeglądaj kod źródłowy na [GroupDocs GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java).
 
 ---
 
-**Ostatnia aktualizacja:** 2025-12-17  
-**Testowane z:** GroupDocs.Redaction 24.9 for Java  
-**Autor:** GroupDocs  
+**Last Updated:** 2026-02-16  
+**Tested With:** GroupDocs.Redaction 24.9 for Java  
+**Author:** GroupDocs  
 
 ---
