@@ -1,47 +1,83 @@
 ---
-date: '2026-02-16'
-description: เรียนรู้วิธีซ่อนข้อมูลที่ละเอียดอ่อนใน Java และทำการลบข้อมูลส่วนบุคคลใน
-  PDF ด้วย Java โดยใช้ GroupDocs.Redaction เพื่อให้เป็นไปตามข้อกำหนดความเป็นส่วนตัวและการปกป้องข้อมูล.
+date: '2026-05-17'
+description: เรียนรู้วิธีลบข้อมูลใน PDF และปกปิดข้อมูลที่ละเอียดอ่อนด้วย Java โดยใช้
+  GroupDocs.Redaction เพื่อให้สอดคล้องกับ GDPR และการปกป้องข้อมูลที่แข็งแกร่ง
 keywords:
-- Java document redaction
-- GroupDocs.Redaction setup
-- Precise document redactions
-title: ปกปิดข้อมูลที่ละเอียดอ่อนใน Java – ลบข้อมูลส่วนบุคคลด้วย GroupDocs.Redaction
+- how to redact pdf
+- mask sensitive data java
+- java redact text
+- redact personal data pdf
+schemas:
+- author: GroupDocs
+  dateModified: '2026-05-17'
+  description: Learn how to redact PDF and mask sensitive data java using GroupDocs.Redaction,
+    ensuring GDPR compliance and robust data protection.
+  headline: How to Redact PDF and Mask Sensitive Data Java with GroupDocs
+  type: TechArticle
+- description: Learn how to redact PDF and mask sensitive data java using GroupDocs.Redaction,
+    ensuring GDPR compliance and robust data protection.
+  name: How to Redact PDF and Mask Sensitive Data Java with GroupDocs
+  steps:
+  - name: Initialize the Redactor
+    text: The Redactor class is the core engine that loads and prepares a document
+      for redaction operations.
+  - name: Define and Apply the Exact‑Phrase Redaction
+    text: ExactPhraseRedaction defines a rule that matches a literal text string,
+      while ReplacementOptions specify how the matched content is visually replaced.
+  - name: Save the Redacted Document with Custom Options
+    text: SaveOptions configures the output parameters such as file format, suffix,
+      and rasterization behavior for the redacted document.
+  type: HowTo
+- questions:
+  - answer: Use a list of `Redaction` objects and call `redactor.applyAll()`. The
+      API processes all patterns in one pass, minimizing file reads.
+    question: How do I handle multiple redactions at once?
+  - answer: Yes, the API is platform‑agnostic and can be invoked from web services,
+      micro‑services, or desktop applications.
+    question: Can I integrate GroupDocs.Redaction with other document management systems?
+  - answer: It supports **30+ formats** including DOCX, PDF, XLSX, PPTX, HTML, and
+      common image types, handling each natively without conversion.
+    question: What file formats does GroupDocs.Redaction support?
+  - answer: Stream input files, reuse a single `Redactor` instance for batch jobs,
+      and always close the instance to release resources promptly.
+    question: How should I manage performance when redacting large documents?
+  - answer: Yes—pass the password to the `Redactor` constructor, and the engine will
+      decrypt, redact, and re‑encrypt the file automatically.
+    question: Does the library work with password‑protected PDFs?
+  type: FAQPage
+title: วิธีลบข้อมูลใน PDF และปกปิดข้อมูลที่ละเอียดอ่อนด้วย Java กับ GroupDocs
 type: docs
 url: /th/java/advanced-redaction/master-document-redaction-java-groupdocs-redaction/
 weight: 1
 ---
 
-# ปกปิดข้อมูลที่ละเอียดอ่อนใน Java – ลบข้อมูลส่วนบุคคลด้วย GroupDocs.Redaction
+# วิธีการลบข้อมูล PDF และปกปิดข้อมูลที่ละเอียดอ่อนใน Java ด้วย GroupDocs
 
-ในยุคดิจิทัลที่เคลื่อนที่อย่างรวดเร็วในปัจจุบัน, **masking sensitive data java** ไม่ได้เป็นเรื่องเลือกได้อีกต่อไป—เป็นข้อกำหนดด้านการปฏิบัติตามกฎระเบียบ ไม่ว่าคุณจะกำลังเตรียมสัญญาสำหรับลูกค้า, แชร์บันทึกทางการแพทย์, หรือเพียงแค่ทำความสะอาดรายงานภายใน, คุณต้องการวิธีที่เชื่อถือได้ในการซ่อนตัวระบุส่วนบุคคลในขณะที่รักษาการจัดวางเอกสารต้นฉบับให้คงเดิม ในบทแนะนำนี้เราจะอธิบายวิธี **mask sensitive data java** และยัง **redact personal data pdf** ด้วยไลบรารีที่ทรงพลังของ GroupDocs.Redaction สำหรับ Java.
+ในยุคดิจิทัลที่เคลื่อนที่อย่างรวดเร็วในวันนี้ การเรียนรู้ **how to redact PDF** และ **mask sensitive data java** ไม่ได้เป็นเรื่องเลือกได้อีกต่อไป—เป็นข้อกำหนดด้านการปฏิบัติตามกฎระเบียบ ไม่ว่าคุณจะกำลังเตรียมสัญญาลูกค้า แชร์บันทึกทางการแพทย์ หรือทำความสะอาดรายงานภายใน คุณต้องการวิธีที่เชื่อถือได้ในการซ่อนตัวระบุส่วนบุคคลในขณะที่รักษาเลย์เอาต์เดิมไว้ ในบทแนะนำนี้เราจะเดินผ่านกระบวนการทั้งหมดโดยใช้ไลบรารี **GroupDocs.Redaction** ที่ทรงพลังสำหรับ Java
 
-## คำตอบอย่างรวดเร็ว
-- **What does “mask sensitive data java” mean?** หมายถึงการค้นหาและซ่อนข้อมูลส่วนบุคคล (เช่น ชื่อ, ID, ฯลฯ) อย่างโปรแกรมมิ่งในเวิร์กโฟลว์เอกสารที่ใช้ Java.  
-- **Which library handles it?** GroupDocs.Redaction for Java.  
-- **Do I need a license?** การทดลองใช้ฟรีเหมาะสำหรับการทดสอบ; จำเป็นต้องมีไลเซนส์เต็มรูปแบบสำหรับการใช้งานในสภาพแวดล้อมการผลิต.  
-- **Can I redact personal data pdf files as well?** แน่นอน—GroupDocs.Redaction รองรับ PDF, DOCX, XLSX, PPTX และรูปแบบอื่น ๆ อีกมากมาย.  
-- **What Java version is required?** JDK 8 หรือสูงกว่า.
+## คำตอบสั้น
+- **What does “mask sensitive data java” mean?** หมายถึงการค้นหาและซ่อนข้อมูลส่วนบุคคล (ชื่อ, หมายเลขประจำตัว ฯลฯ) อย่างอัตโนมัติในกระบวนการทำงานเอกสารที่ใช้ Java  
+- **Which library handles it?** GroupDocs.Redaction for Java  
+- **Do I need a license?** ทดลองใช้ฟรีเหมาะสำหรับการทดสอบ; จำเป็นต้องมีใบอนุญาตเต็มสำหรับการใช้งานในสภาพแวดล้อมการผลิต  
+- **Can I redact personal data pdf files as well?** แน่นอน—GroupDocs.Redaction ทำงานกับ PDF, DOCX, XLSX, PPTX และรูปแบบอื่น ๆ อีกมากมาย  
+- **What Java version is required?** JDK 8 หรือสูงกว่า  
 
 ## Mask Sensitive Data Java คืออะไร?
-การปกปิดข้อมูลที่ละเอียดอ่อนใน Java หมายถึงการใช้โค้ดเพื่อค้นหาวลีหรือรูปแบบเฉพาะภายในเอกสารและแทนที่ด้วยตัวแทน (เช่น “[personal]”). กระบวนการนี้รับประกันว่าข้อมูลต้นฉบับจะไม่สามารถกู้คืนได้ในขณะที่รักษาความสมบูรณ์ของการแสดงผลเอกสาร.
+การปกปิดข้อมูลที่ละเอียดอ่อนใน Java หมายถึงการใช้โค้ดเพื่อค้นหาวลีหรือรูปแบบเฉพาะภายในเอกสารและแทนที่ด้วยตัวแทน (เช่น “[personal]”) กระบวนการนี้รับประกันว่าข้อมูลต้นฉบับไม่สามารถกู้คืนได้ในขณะที่รักษาความสมบูรณ์ของการแสดงผลเอกสารไว้
 
-## ทำไมต้องใช้ GroupDocs.Redaction สำหรับการปกปิดข้อมูล?
-- **Full‑format support** – ลบข้อมูลจาก PDF, ไฟล์ Word, สเปรดชีต, และงานนำเสนอโดยไม่ต้องแปลงไฟล์.  
-- **Exact‑phrase matching** – กำหนดเป้าหมายสตริงที่แม่นยำเช่น “John Doe”.  
-- **Custom replacement options** – เลือกข้อความ, กล่องสีดำ, หรือการซ้อนภาพ.  
-- **Compliance‑ready** – ปฏิบัติตาม GDPR, HIPAA, และระเบียบความเป็นส่วนตัวอื่น ๆ ได้ทันที.
+## ทำไมต้องใช้ GroupDocs.Redaction สำหรับการปกปิด?
+GroupDocs.Redaction ให้การสนับสนุนรูปแบบเต็มรูปแบบ ทำให้ไฟล์ PDF, Word, Excel และ PowerPoint สามารถลบข้อมูลได้โดยไม่ต้องแปลงไฟล์ มันมีการจับคู่วลีอย่างแม่นยำสำหรับสตริงเฉพาะเช่น “John Doe”, การแทนที่ที่ปรับแต่งได้เช่น ข้อความ, กล่องสีดำ หรือรูปภาพ, และเทมเพลตการปฏิบัติตามที่สร้างไว้ล่วงหน้าซึ่งสอดคล้องกับ GDPR, HIPAA และกฎระเบียบความเป็นส่วนตัวอื่น ๆ
 
 ## ข้อกำหนดเบื้องต้น
-- **Java Development Kit (JDK) 8+** ติดตั้งแล้ว.  
-- **An IDE** เช่น IntelliJ IDEA หรือ Eclipse เพื่อการดีบักที่ง่าย.  
-- **GroupDocs.Redaction for Java** (เวอร์ชัน 24.9 หรือใหม่กว่า).  
-- ความรู้พื้นฐานการจัดการไฟล์ใน Java.
+- **Java Development Kit (JDK) 8+** ที่ติดตั้งแล้ว  
+- **IDE** เช่น IntelliJ IDEA หรือ Eclipse สำหรับการดีบัก  
+- **GroupDocs.Redaction for Java** (เวอร์ชัน 24.9 หรือใหม่กว่า)  
+- ความรู้พื้นฐานการจัดการไฟล์ใน Java  
 
 ## การตั้งค่า GroupDocs.Redaction สำหรับ Java
 
 ### การตั้งค่า Maven
-Add the GroupDocs repository and dependency to your `pom.xml`:
+เพิ่มรีโพสิตอรีของ GroupDocs และ dependency ลงใน `pom.xml` ของคุณ:
 
 ```xml
 <repositories>
@@ -62,20 +98,20 @@ Add the GroupDocs repository and dependency to your `pom.xml`:
 ```
 
 ### ดาวน์โหลดโดยตรง
-หากคุณต้องการจัดการด้วยตนเอง, ดาวน์โหลด JAR ล่าสุดจากหน้ารีลีสอย่างเป็นทางการ: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+หากคุณต้องการจัดการด้วยตนเอง ให้ดาวน์โหลด JAR ล่าสุดจากหน้าปล่อยอย่างเป็นทางการ: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/)
 
-### การรับไลเซนส์
-- **Free trial** – เหมาะสำหรับการประเมิน API.  
-- **Temporary license** – มีประโยชน์สำหรับการทดสอบต่อเนื่องโดยไม่ต้องซื้อ.  
-- **Full license** – จำเป็นสำหรับการใช้งานเชิงพาณิชย์และการลบข้อมูลไม่จำกัด.
+### การรับใบอนุญาต
+- **Free trial** – เหมาะสำหรับการประเมิน API  
+- **Temporary license** – มีประโยชน์สำหรับการทดสอบต่อเนื่องโดยไม่ต้องซื้อ  
+- **Full license** – จำเป็นสำหรับการใช้งานเชิงพาณิชย์และการลบข้อมูลไม่จำกัด  
 
-## วิธีปกปิดข้อมูลที่ละเอียดอ่อนใน Java ด้วย GroupDocs.Redaction
+## วิธีลบข้อมูล PDF ด้วย GroupDocs.Redaction ใน Java
 
-ด้านล่างเราจะแบ่งการทำงานออกเป็นขั้นตอนที่ชัดเจนและเป็นลำดับเลข. แต่ละขั้นตอนมีคำอธิบายสั้น ๆ ตามด้วยบล็อกโค้ดต้นฉบับ (ไม่เปลี่ยนแปลง).
+เพื่อทำการลบข้อมูล PDF ด้วย GroupDocs.Redaction ก่อนอื่นให้โหลดเอกสารเข้าสู่ตัวอย่าง Redactor จากนั้นกำหนดกฎการลบข้อมูลหนึ่งหรือหลายกฎ เช่น ExactPhraseRedaction และสุดท้ายบันทึกไฟล์ที่แก้ไขโดยใช้ SaveOptions กระบวนการสามขั้นตอนนี้จะรักษาเลย์เอาต์เดิมไว้ขณะลบเนื้อหาที่ละเอียดอ่อนอย่างปลอดภัย
 
 ### ขั้นตอนที่ 1: เริ่มต้น Redactor
 
-Load the document you want to process. This creates a `Redactor` instance that will manage all subsequent redaction actions.
+คลาส Redactor เป็นเอนจินหลักที่โหลดและเตรียมเอกสารสำหรับการดำเนินการลบข้อมูล
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -88,7 +124,7 @@ final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/sample.docx");
 
 ### ขั้นตอนที่ 2: กำหนดและใช้ Exact‑Phrase Redaction
 
-Specify the exact phrase you wish to mask (e.g., a person's name) and the replacement text that will appear in the final document.
+ExactPhraseRedaction กำหนดกฎที่ตรงกับสตริงข้อความตรง ๆ ขณะที่ ReplacementOptions ระบุวิธีที่เนื้อหาที่ตรงกันจะถูกแทนที่ในเชิงภาพ
 
 ```java
 try {
@@ -102,14 +138,9 @@ try {
 }
 ```
 
-**จุดสำคัญ**  
-- `ExactPhraseRedaction` มุ่งเป้าไปที่สตริงตรง “John Doe”.  
-- `ReplacementOptions("[personal]")` บอกให้เอนจินแทนที่วลีด้วยตัวแทน “[personal]”.  
-- ควรปิด `Redactor` เสมอเพื่อปลดปล่อยทรัพยากร.
+### ขั้นตอนที่ 3: บันทึกเอกสารที่ลบข้อมูลด้วยตัวเลือกที่กำหนดเอง
 
-### ขั้นตอนที่ 3: บันทึกเอกสารที่ลบข้อมูลด้วยตัวเลือกกำหนดเอง
-
-After masking the data, you’ll likely want to keep the original file format and add a helpful suffix (e.g., a date) to the filename.
+SaveOptions กำหนดพารามิเตอร์ผลลัพธ์ เช่น รูปแบบไฟล์, suffix, และพฤติกรรมการเรสเตอร์ไลซ์สำหรับเอกสารที่ลบข้อมูล
 
 ```java
 import com.groupdocs.redaction.options.SaveOptions;
@@ -135,49 +166,54 @@ try {
 }
 ```
 
-**ตัวเลือกทำอะไร**  
-- `setAddSuffix(true)` จะเพิ่มส่วนต่อท้ายที่สร้างขึ้นโดยอัตโนมัติไปยังชื่อไฟล์ใหม่.  
-- `setRasterizeToPDF(false)` รักษารูปแบบต้นฉบับ (DOCX, PDF, ฯลฯ) แทนการแปลงทั้งหมดเป็น PDF ที่อิงภาพ.  
+## วิธีใช้หลายการลบข้อมูลพร้อมกันอย่างมีประสิทธิภาพ?
 
-## วิธีลบข้อมูลส่วนบุคคลใน PDF ด้วย Java
+เมธอด `applyAll()` จะดำเนินการกฎ Redaction ทั้งหมดที่คิวไว้ในหนึ่งการทำงาน เมื่อคุณต้องการใช้หลายกฎการลบข้อมูล ให้สร้างรายการของอ็อบเจ็กต์ Redaction—รวมถึง ExactPhraseRedaction, RegexRedaction หรือ ImageRedaction—และส่งคอลเลกชันนั้นไปยัง `redactor.applyAll()` การประมวลผลแบบแบตช์นี้ทำงานทั้งหมดในหนึ่งรอบ ลดการดำเนินการ I/O และเพิ่มประสิทธิภาพอย่างมากสำหรับชุดเอกสารขนาดใหญ่
 
-API เดียวกันทำงานกับไฟล์ PDF เพียงชี้ตัวสร้าง `Redactor` ไปที่ไฟล์ `.pdf` แล้วทำตามขั้นตอน exact‑phrase ด้านบน เนื่องจากไลบรารีทำการวิเคราะห์ชั้นข้อความของ PDF คุณจึงสามารถปกปิดตัวระบุในสัญญา, ใบแจ้งหนี้, หรือรายงานอื่น ๆ ที่เป็น PDF ได้โดยไม่สูญเสียข้อความที่สามารถค้นหาได้.
+## การประยุกต์ใช้งานจริง
 
-## การประยุกต์ใช้ในทางปฏิบัติ
-1. **Legal Document Management** – ลบชื่อของลูกค้าออกจากสัญญาก่อนแชร์กับบุคคลที่สาม.  
-2. **Healthcare Data Processing** – ปกปิดตัวระบุผู้ป่วยเพื่อให้สอดคล้องกับ HIPAA.  
-3. **Financial Services** – ซ่อนหมายเลขบัญชีในใบแจ้งยอดสำหรับการตรวจสอบ.  
-4. **Human Resources** – ปกป้องข้อมูลส่วนบุคคลของพนักงานระหว่างการตรวจสอบภายใน.
+1. **Legal Document Management** – ลบชื่อของลูกค้าออกจากสัญญาก่อนแชร์ให้กับบุคคลที่สาม  
+2. **Healthcare Data Processing** – ปกปิดตัวระบุผู้ป่วยเพื่อให้เป็นไปตาม HIPAA  
+3. **Financial Services** – ซ่อนหมายเลขบัญชีในใบแจ้งยอดสำหรับการตรวจสอบ  
+4. **Human Resources** – ปกป้องข้อมูลส่วนบุคคลของพนักงานระหว่างการตรวจสอบภายใน  
 
 ## เคล็ดลับประสิทธิภาพสำหรับไฟล์ขนาดใหญ่
-- **Close Redactor instances promptly** เพื่อปลดปล่อยหน่วยความจำ.  
-- **Batch process** เอกสารหลายไฟล์โดยใช้ลูปและใช้ `Redactor` ตัวเดียวซ้ำได้เมื่อเป็นไปได้.  
-- **Monitor CPU and RAM** ระหว่างงานหนัก; พิจารณาเพิ่มขนาด heap ของ JVM หากพบ `OutOfMemoryError`.
 
-## ปัญหาทั่วไป & วิธีแก้
+- **Close Redactor instances promptly** เพื่อคืนหน่วยความจำ  
+- **Batch process** เอกสารหลายไฟล์โดยใช้ลูปและใช้ `Redactor` ตัวเดียวซ้ำเมื่อเป็นไปได้  
+- **Monitor CPU and RAM** ระหว่างงานหนัก; พิจารณาเพิ่มขนาด heap ของ JVM หากพบ `OutOfMemoryError`  
 
-| ปัญหา | วิธีแก้ |
+## ปัญหาทั่วไป & วิธีแก้ไข
+
+| ปัญหา | วิธีแก้ไข |
 |-------|----------|
-| **Redaction not applied** | ตรวจสอบว่าข้อความตรงกับกรณีอักษร (case‑sensitivity) หรือไม่; ใช้ `ExactPhraseRedaction` พร้อมตัวเลือก `ignoreCase` หากจำเป็น. |
-| **PDF output looks blank** | ตรวจสอบว่าได้ตั้งค่า `setRasterizeToPDF(false)` แล้ว; การ rasterize จะลบข้อความที่สามารถค้นหาได้. |
-| **License error** | ยืนยันว่าไฟล์ไลเซนส์ทดลองหรือเต็มถูกวางไว้ถูกต้องและเส้นทางถูกระบุผ่าน `License.setLicense("path/to/license.lic")`. |
+| **การลบข้อมูลไม่ทำงาน** | ตรวจสอบว่าการจับคู่วลีตรงกับความไวต่อกรณี (case‑sensitivity); ใช้ `ExactPhraseRedaction` พร้อมตัวเลือก `ignoreCase` หากจำเป็น |
+| **ผลลัพธ์ PDF เป็นสีขาว** | ตรวจสอบให้แน่ใจว่าได้ตั้งค่า `setRasterizeToPDF(false)`; การเรสเตอร์ไลซ์จะลบข้อความที่ค้นหาได้ |
+| **ข้อผิดพลาดใบอนุญาต** | ยืนยันว่าไฟล์ใบอนุญาตทดลองหรือเต็มถูกวางไว้ในตำแหน่งที่ถูกต้องและเส้นทางถูกส่งผ่าน `License.setLicense("path/to/license.lic")` |
 
 ## คำถามที่พบบ่อย
 
-**Q1: How do I handle multiple redactions at once?**  
-A1: คุณสามารถใช้รายการของอ็อบเจ็กต์ `Redaction` ด้วย `redactor.applyAll()` ซึ่งจะประมวลผลหลายรูปแบบในหนึ่งรอบ.
+**ถาม: ฉันจะจัดการหลายการลบข้อมูลพร้อมกันอย่างไร?**  
+ตอบ: ใช้รายการของอ็อบเจ็กต์ `Redaction` แล้วเรียก `redactor.applyAll()` API จะประมวลผลรูปแบบทั้งหมดในหนึ่งรอบ ลดการอ่านไฟล์หลายครั้ง  
 
-**Q2: Can I integrate GroupDocs.Redaction with other document management systems?**  
-A2: ได้, API ไม่ขึ้นกับแพลตฟอร์มและสามารถเรียกใช้จากเว็บเซอร์วิส, ไมโครเซอร์วิส, หรือแอปพลิเคชันเดสก์ท็อป.
+**ถาม: สามารถรวม GroupDocs.Redaction กับระบบจัดการเอกสารอื่น ๆ ได้หรือไม่?**  
+ตอบ: ได้, API ไม่ขึ้นกับแพลตฟอร์มและสามารถเรียกใช้จากเว็บเซอร์วิส, ไมโครเซอร์วิส หรือแอปพลิเคชันเดสก์ท็อป  
 
-**Q3: What file formats does GroupDocs.Redaction support?**  
-A3: รองรับ DOCX, PDF, XLSX, PPTX และรูปแบบธุรกิจทั่วไปอื่น ๆ อีกหลายรูปแบบ.
+**ถาม: GroupDocs.Redaction รองรับรูปแบบไฟล์อะไรบ้าง?**  
+ตอบ: รองรับ **30+ รูปแบบ** รวมถึง DOCX, PDF, XLSX, PPTX, HTML และรูปแบบภาพทั่วไป โดยจัดการแต่ละรูปแบบโดยตรงโดยไม่ต้องแปลง  
 
-**Q4: How do I manage performance when redacting large documents?**  
-A5: พิจารณาใช้การประมวลผลแบบแบตช์, สตรีมไฟล์อินพุต, และปิดอินสแตนซ์ `Redactor` เสมอเพื่อปลดปล่อยทรัพยากรโดยเร็ว.
+**ถาม: ควรจัดการประสิทธิภาพอย่างไรเมื่อทำการลบข้อมูลในเอกสารขนาดใหญ่?**  
+ตอบ: สตรีมไฟล์อินพุต, ใช้ `Redactor` ตัวเดียวสำหรับงานแบตช์, และปิดอินสแตนซ์เสมอเพื่อปล่อยทรัพยากรโดยเร็ว  
 
----
+**ถาม: ไลบรารีทำงานกับ PDF ที่มีการป้องกันด้วยรหัสผ่านหรือไม่?**  
+ตอบ: ใช่—ส่งรหัสผ่านไปยังคอนสตรัคเตอร์ของ `Redactor` แล้วเอนจินจะถอดรหัส, ลบข้อมูล, และเข้ารหัสไฟล์ใหม่โดยอัตโนมัติ  
 
-**อัปเดตล่าสุด:** 2026-02-16  
-**ทดสอบด้วย:** GroupDocs.Redaction 24.9 for Java  
-**ผู้เขียน:** GroupDocs
+**อัปเดตล่าสุด:** 2026-05-17  
+**ทดสอบด้วย:** GroupDocs.Redaction 24.9 สำหรับ Java  
+**ผู้เขียน:** GroupDocs  
+
+## บทแนะนำที่เกี่ยวข้อง
+
+- [วิธีลบข้อมูลที่ละเอียดอ่อนด้วย GroupDocs Redaction Java License จากเส้นทางไฟล์ – คู่มือขั้นตอนโดยละเอียด](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)  
+- [วิธีทำ Text Redaction ใน Java ด้วย GroupDocs.Redaction สำหรับการจัดการเอกสารอย่างปลอดภัย](/redaction/java/text-redaction/groupdocs-redaction-java-text-redaction-guide/)  
+- [เชี่ยวชาญการเรสเตอร์ไลซ์ขั้นสูงใน Java: ขอบกำหนดเองด้วย GroupDocs.Redaction](/redaction/java/rasterization-options/advanced-rasterization-java-custom-borders-groupdocs-redaction/)
