@@ -1,52 +1,96 @@
 ---
-date: '2026-02-16'
-description: เรียนรู้วิธีใช้การพึ่งพา GroupDocs Maven เพื่อเพิ่มส่วนต่อท้ายให้กับชื่อไฟล์ขณะทำการลบข้อมูลในเอกสารด้วย
-  Java รวมถึงการโหลดจากสตรีม การลบคำอธิบาย และตัวเลือกการบันทึก.
+date: '2026-05-22'
+description: เรียนรู้วิธีเพิ่มส่วนต่อท้ายชื่อไฟล์ java โดยใช้การพึ่งพา GroupDocs Maven
+  ในขณะทำการลบข้อมูลลับจากเอกสาร รวมถึง streaming load, annotation deletion, และ save
+  options.
 keywords:
-- document redaction Java
-- GroupDocs.Redaction tutorial
-- secure document handling
-title: การพึ่งพา Maven ของ GroupDocs – เพิ่มส่วนต่อท้ายให้ชื่อไฟล์ใน Java
+- add suffix filename java
+- groupdocs redaction java
+- document redaction workflow
+schemas:
+- author: GroupDocs
+  dateModified: '2026-05-22'
+  description: Learn how to add suffix filename java using the GroupDocs Maven dependency
+    while redacting documents. Includes streaming load, annotation deletion, and save
+    options.
+  headline: Add suffix filename java with GroupDocs Maven
+  type: TechArticle
+- description: Learn how to add suffix filename java using the GroupDocs Maven dependency
+    while redacting documents. Includes streaming load, annotation deletion, and save
+    options.
+  name: Add suffix filename java with GroupDocs Maven
+  steps:
+  - name: '1: Create InputStream'
+    text: '- **Why:** Using `InputStream` allows you to handle documents stored in
+      various locations—cloud buckets, databases, or in‑memory buffers—without first
+      writing them to disk. This approach is essential when you need to **load document
+      from stream** in micro‑service architectures.'
+  - name: '1: Apply DeleteAnnotationRedaction'
+    text: '- **Why:** This step ensures that any sensitive annotations (comments,
+      highlights, or hidden notes) are stripped from the document, enhancing privacy
+      and compliance.'
+  - name: '1: Configure SaveOptions'
+    text: '- **Why:** Customizing save options allows flexible output formats and
+      naming conventions. Enabling `setAddSuffix(true)` **adds suffix to filename**,
+      making it clear that the file has been redacted.'
+  type: HowTo
+- questions:
+  - answer: Yes, the library supports PDFs, DOCX, PPTX, XLSX, and many other formats.
+    question: Can I redact PDF documents using GroupDocs.Redaction?
+  - answer: Use streaming (`load document from stream`) and close resources promptly
+      to keep memory usage low.
+    question: What is the best way to handle large files with GroupDocs.Redaction?
+  - answer: The API automatically adds a default suffix (e.g., “_redacted”). For custom
+      suffixes, rename the output file after saving.
+    question: Is it possible to customize the suffix text?
+  - answer: Visit the [Temporary License page](https://purchase.groupdocs.com/temporary-license/)
+      and follow the instructions.
+    question: How do I obtain a temporary license for GroupDocs.Redaction?
+  - answer: Join the [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33)
+      for expert assistance.
+    question: Where can I get help if I encounter issues?
+  type: FAQPage
+title: เพิ่มส่วนต่อท้ายชื่อไฟล์ java ด้วย GroupDocs Maven
 type: docs
 url: /th/java/advanced-redaction/master-document-redaction-groupdocs-redaction-java/
 weight: 1
 ---
 
- answer.# วิธีเพิ่มส่วนต่อท้ายให้กับชื่อไฟล์ขณะทำการลบข้อมูลในเอกสารด้วย Java และ GroupDocs.Redaction
+# เพิ่มส่วนต่อท้ายชื่อไฟล์ java ด้วย GroupDocs Maven
 
-การลบข้อมูลที่เป็นความลับเป็นเพียงครึ่งหนึ่งของการปกป้อง—คุณยังต้องทำให้ไฟล์ที่บันทึกไว้แสดงอย่างชัดเจนว่าถูกประมวลผลแล้ว **การใช้ dependency ของ groupdocs ใน Maven ทำให้เรื่องนี้ง่ายขึ้นมาก** เพียงไม่กี่บรรทัดของโค้ดคุณก็สามารถเพิ่มส่วนต่อท้ายให้กับชื่อไฟล์ผลลัพธ์ได้ ในคู่มือนี้คุณจะได้เรียนรู้วิธีเพิ่มส่วนต่อท้ายให้กับชื่อไฟล์เมื่อบันทึกเอกสารที่ถูกลบข้อมูล พร้อมกับการโหลด, การทำ annotation, และการบันทึกโดยใช้ GroupDocs.Redaction สำหรับ Java ไม่ว่าคุณจะกำลังปกป้องสัญญากฎหมาย, บันทึกทางการแพทย์, หรือรายงานการเงิน ขั้นตอนเหล่านี้จะช่วยให้กระบวนการทำงานของคุณปลอดภัยและตรวจสอบได้
+การลบข้อมูลลับเป็นเพียงครึ่งหนึ่งของการต่อสู้—คุณยังต้องตรวจสอบให้แน่ใจว่าไฟล์ที่บันทึกไว้แสดงอย่างชัดเจนว่ามันได้รับการประมวลผลแล้ว. **การใช้ dependency ของ GroupDocs Maven ทำให้เรื่องนี้ง่ายขึ้น**, ช่วยให้คุณเพิ่มส่วนต่อท้ายชื่อไฟล์ผลลัพธ์ได้ในไม่กี่บรรทัดของโค้ด. วิธี **add suffix filename java** เป็นการกำหนดค่าแบบบรรทัดเดียวที่ทำเครื่องหมายไฟล์ที่ลบข้อมูลโดยทันที, ช่วยให้คุณปฏิบัติตามข้อกำหนดและพร้อมสำหรับการตรวจสอบ.
 
-## คำตอบสั้น
-- **“เพิ่มส่วนต่อท้ายให้กับชื่อไฟล์” ทำอะไร?**  
-  จะต่อส่วนต่อท้ายที่กำหนดเอง (เช่น “_redacted”) ไปที่ชื่อไฟล์ผลลัพธ์ เพื่อให้คุณสามารถระบุไฟล์ที่ผ่านการประมวลผลได้ทันที  
+## คำตอบด่วน
+- **เพิ่มส่วนต่อท้ายชื่อไฟล์ทำอะไร?**  
+  มันเพิ่มส่วนต่อท้ายที่กำหนดเอง (เช่น “_redacted”) ไปยังชื่อไฟล์ผลลัพธ์เพื่อให้คุณสามารถระบุไฟล์ที่ผ่านการประมวลผลได้ทันที.  
 - **ฉันสามารถโหลดเอกสารจากสตรีมได้หรือไม่?**  
-  ได้—GroupDocs.Redaction รองรับการโหลดจาก `InputStream` ใด ๆ เหมาะสำหรับการจัดเก็บบนคลาวด์หรือการประมวลผลในหน่วยความจำ  
-- **ต้องมีลิขสิทธิ์สำหรับฟีเจอร์นี้หรือไม่?**  
-  การทดลองใช้ฟรีทำงานสำหรับการลบข้อมูลพื้นฐาน; ลิขสิทธิ์ชั่วคราวหรือเต็มจะเปิดใช้งานตัวเลือกขั้นสูงทั้งหมดรวมถึงการจัดการส่วนต่อท้าย  
-- **รองรับรูปแบบไฟล์ใดบ้าง?**  
-  ไลบรารีรองรับ DOCX, PDF, PPTX, XLSX และอื่น ๆ อีกมาก  
-- **ต้องทำ rasterization สำหรับผลลัพธ์ PDF หรือไม่?**  
-  rasterization เป็นตัวเลือก; เปิดใช้งานเมื่อคุณต้องการแปลงเอกสารให้เป็นภาพเพื่อความปลอดภัยเพิ่มขึ้น
+  ได้—GroupDocs.Redaction รองรับการโหลดจาก `InputStream` ใดก็ได้, เหมาะสำหรับการจัดเก็บบนคลาวด์หรือการประมวลผลในหน่วยความจำ.  
+- **ฉันต้องการไลเซนส์สำหรับฟีเจอร์นี้หรือไม่?**  
+  การทดลองใช้ฟรีทำงานสำหรับการลบข้อมูลพื้นฐาน; ไลเซนส์ชั่วคราวหรือเต็มจะเปิดใช้งานตัวเลือกขั้นสูงทั้งหมด, รวมถึงการจัดการส่วนต่อท้าย.  
+- **ฟอร์แมตใดบ้างที่รองรับ?**  
+  ไลบรารีรองรับ DOCX, PDF, PPTX, XLSX และอื่น ๆ อีกมาก.  
+- **ต้องการการเรสเตอร์ไลซ์สำหรับเอาต์พุต PDF หรือไม่?**  
+  การเรสเตอร์ไลซ์เป็นตัวเลือก; เปิดใช้งานเมื่อคุณต้องการทำให้เอกสารแบนเพื่อความปลอดภัยเพิ่มเติม.
 
-## การเพิ่มส่วนต่อท้ายให้กับชื่อไฟล์คืออะไร?
-การต่อส่วนต่อท้ายเป็นแนวปฏิบัติการตั้งชื่ออย่างง่ายที่บ่งบอกว่าไฟล์ได้ผ่านการลบข้อมูลแล้ว ช่วยป้องกันการแชร์ไฟล์ต้นฉบับที่ยังไม่ได้ลบข้อมูลโดยบังเอิญและช่วยให้ pipeline อัตโนมัติดึงสถานะการประมวลผลได้ง่ายขึ้น
+## add suffix filename java คืออะไร?
+เทคนิค **add suffix filename java** เพิ่มสตริงที่กำหนดล่วงหน้าไปยังชื่อไฟล์ระหว่างการบันทึก, ทำเครื่องหมายเอกสารว่าเป็นการลบข้อมูลอย่างชัดเจน. แนวทางง่าย ๆ นี้ป้องกันการแจกจ่ายไฟล์ต้นฉบับที่ยังไม่ได้ลบข้อมูลโดยบังเอิญและทำงานร่วมกับ pipeline อัตโนมัติได้อย่างราบรื่น.
 
 ## ทำไมต้องใช้ GroupDocs.Redaction สำหรับงานนี้?
-GroupDocs.Redaction มี API Java ที่เป็น fluent ทำให้คุณสามารถผสานการลบข้อมูลกับตัวเลือกการจัดการไฟล์—เช่น **การเพิ่มส่วนต่อท้ายให้กับชื่อไฟล์**—ได้ในไม่กี่บรรทัดของโค้ด สิ่งนี้ช่วยลดเวลาในการพัฒนาและลดความเสี่ยงจากข้อผิดพลาดที่ทำด้วยมือ
+GroupDocs.Redaction มี Java API ที่ใช้งานง่ายซึ่งทำให้คุณสามารถรวมการลบข้อมูลกับตัวเลือกการจัดการไฟล์—เช่น **add suffix filename java**—ได้ในไม่กี่บรรทัดของโค้ด. SDK รองรับ **รูปแบบอินพุตและเอาต์พุตกว่า 50+** และสามารถประมวลผลเอกสารหลายร้อยหน้าโดยไม่ต้องโหลดไฟล์ทั้งหมดเข้าสู่หน่วยความจำ, ให้ความเร็วและใช้หน่วยความจำน้อย.
 
 ## ข้อกำหนดเบื้องต้น
 
-- **Java Development Kit (JDK):** เวอร์ชัน 8 หรือสูงกว่า  
-- **GroupDocs.Redaction Library:** ไลบรารีหลักสำหรับงานลบข้อมูล  
-- **IDE:** IntelliJ IDEA, Eclipse หรือเครื่องมือแก้ไข Java ใดก็ได้  
-- **Maven:** สำหรับการจัดการ dependency  
+- **Java Development Kit (JDK):** เวอร์ชัน 8 หรือสูงกว่า.  
+- **GroupDocs.Redaction Library:** ไลบรารีหลักสำหรับงานลบข้อมูล.  
+- **IDE:** IntelliJ IDEA, Eclipse หรือโปรแกรมแก้ไขที่รองรับ Java ใด ๆ.  
+- **Maven:** สำหรับการจัดการ dependency.  
 
-### ความรู้เบื้องต้นที่ต้องมี
-ความคุ้นเคยกับ Java I/O และแนวคิดพื้นฐานของ OOP จะทำให้ตัวอย่างต่าง ๆ เข้าใจได้ง่ายขึ้น
+### ความรู้เบื้องต้นที่จำเป็น
+ความคุ้นเคยกับ Java I/O และแนวคิดพื้นฐานของการเขียนแบบวัตถุจะทำให้ตัวอย่างง่ายต่อการทำตาม.
 
 ## การตั้งค่า GroupDocs.Redaction สำหรับ Java
 ### การตั้งค่า Maven
-เพิ่มการกำหนดค่าต่อไปนี้ในไฟล์ `pom.xml` ของคุณเพื่อเข้าถึงไลบรารีของ GroupDocs ผ่าน Maven:
+ใส่การกำหนดค่าดังต่อไปนี้ในไฟล์ `pom.xml` ของคุณเพื่อเข้าถึงไลบรารีของ GroupDocs ผ่าน Maven:
 
 ```xml
 <repositories>
@@ -67,28 +111,28 @@ GroupDocs.Redaction มี API Java ที่เป็น fluent ทำให้
 ```
 
 ### ดาวน์โหลดโดยตรง
-หรือคุณสามารถดาวน์โหลดเวอร์ชันล่าสุดได้โดยตรงจาก [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/)  
+หรือคุณสามารถดาวน์โหลดเวอร์ชันล่าสุดโดยตรงจาก [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
-### การรับลิขสิทธิ์
-1. **Free Trial:** เข้าถึงฟังก์ชันพื้นฐานโดยไม่มีข้อจำกัด  
-2. **Temporary License:** รับลิขสิทธิ์ชั่วคราวเพื่อสำรวจฟีเจอร์ขั้นสูง  
-3. **Purchase:** สำหรับการใช้งานระยะยาว ควรพิจารณาซื้อลิขสิทธิ์เต็มรูปแบบ  
+### การรับไลเซนส์
+1. **Free Trial:** เข้าถึงฟังก์ชันพื้นฐานโดยไม่มีข้อจำกัด.  
+2. **Temporary License:** รับไลเซนส์ชั่วคราวเพื่อสำรวจฟีเจอร์ขั้นสูง.  
+3. **Purchase:** สำหรับการใช้งานระยะยาว, พิจารณาซื้อไลเซนส์เต็ม.
 
-#### การเริ่มต้นและการตั้งค่าพื้นฐาน
-เพิ่ม import ที่จำเป็นลงในโปรเจกต์ของคุณ:
+#### การเริ่มต้นและตั้งค่าเบื้องต้น
+เริ่มต้นโปรเจกต์ของคุณโดยเพิ่มการนำเข้า (import) ที่จำเป็น:
 
 ```java
 import com.groupdocs.redaction.Redactor;
 ```
 
-เมื่อทำการตั้งค่าเสร็จแล้ว คุณก็พร้อมที่จะเริ่มใช้งานฟังก์ชันการลบข้อมูลในเอกสารแล้ว
+ด้วยการตั้งค่านี้, คุณพร้อมที่จะใช้งานฟังก์ชันการลบข้อมูลในเอกสาร.
 
-## คู่มือการทำงาน
+## คู่มือการใช้งาน
 
 ### ฟีเจอร์ 1: โหลดเอกสารจากสตรีม
-**ภาพรวม:** เรียนรู้วิธีโหลดเอกสารเข้าสู่ `InputStream` เพื่อทำการประมวลผล  
+**Overview:** เรียนรู้วิธีโหลดเอกสารเข้าสู่ `InputStream` เพื่อการประมวลผล.
 
-#### ขั้นตอนการทำงานแบบละเอียด
+#### การดำเนินการแบบขั้นตอน
 ##### ขั้นตอน 1.1: สร้าง InputStream
 
 ```java
@@ -105,12 +149,12 @@ try (InputStream stream = new FileInputStream("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DO
 }
 ```
 
-- **ทำไม:** การใช้ `InputStream` ช่วยให้คุณจัดการเอกสารที่เก็บในรูปแบบต่าง ๆ ได้อย่างราบรื่น ซึ่งจำเป็นเมื่อคุณต้อง **โหลดเอกสารจากสตรีม** ในสภาพแวดล้อมคลาวด์หรือ micro‑service  
+- **Why:** การใช้ `InputStream` ช่วยให้คุณจัดการเอกสารที่เก็บในหลายตำแหน่ง—คลาวด์บัคเก็ต, ฐานข้อมูล, หรือบัฟเฟอร์ในหน่วยความจำ—โดยไม่ต้องเขียนลงดิสก์ก่อน. วิธีนี้จำเป็นเมื่อคุณต้อง **load document from stream** ในสถาปัตยกรรมไมโครเซอร์วิส.
 
-### ฟีเจอร์ 2: ลบ Annotation ด้วย Redaction
-**ภาพรวม:** ลบ annotation จากเอกสารของคุณด้วย `DeleteAnnotationRedaction`  
+### ฟีเจอร์ 2: ใช้การลบ Annotation Redaction
+**Overview:** ลบ annotation จากเอกสารของคุณโดยใช้ `DeleteAnnotationRedaction`.
 
-#### ขั้นตอนการทำงานแบบละเอียด
+#### การดำเนินการแบบขั้นตอน
 ##### ขั้นตอน 2.1: ใช้ DeleteAnnotationRedaction
 
 ```java
@@ -122,12 +166,12 @@ try (Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX")) {
 }
 ```
 
-- **ทำไม:** ขั้นตอนนี้ทำให้แน่ใจว่า annotation ที่อาจมีข้อมูลสำคัญถูกลบออกไป เพิ่มความเป็นส่วนตัวของเอกสาร  
+- **Why:** ขั้นตอนนี้ทำให้แน่ใจว่า annotation ที่เป็นข้อมูลสำคัญ (เช่น คอมเมนต์, ไฮไลท์, หรือโน้ตที่ซ่อน) ถูกลบออกจากเอกสาร, เพิ่มความเป็นส่วนตัวและการปฏิบัติตาม.
 
-### ฟีเจอร์ 3: บันทึกเอกสารพร้อมตัวเลือก
-**ภาพรวม:** เรียนรู้วิธีบันทึกเอกสารที่ผ่านการประมวลผลด้วยตัวเลือกต่าง ๆ เช่น rasterization และ **การเพิ่มส่วนต่อท้ายให้กับชื่อไฟล์**  
+### ฟีเจอร์ 3: บันทึกเอกสารด้วยตัวเลือก
+**Overview:** เรียนรู้วิธีบันทึกเอกสารที่ประมวลผลแล้วด้วยตัวเลือกเฉพาะเช่นการเรสเตอร์ไลซ์และ **add suffix filename java**.
 
-#### ขั้นตอนการทำงานแบบละเอียด
+#### การดำเนินการแบบขั้นตอน
 ##### ขั้นตอน 3.1: กำหนดค่า SaveOptions
 
 ```java
@@ -146,70 +190,90 @@ try (Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX")) {
 }
 ```
 
-- **ทำไม:** การปรับแต่งตัวเลือกการบันทึกทำให้คุณเลือกรูปแบบผลลัพธ์และแนวปฏิบัติการตั้งชื่อได้อย่างยืดหยุ่น การเปิด `setAddSuffix(true)` **จะเพิ่มส่วนต่อท้ายให้กับชื่อไฟล์** ทำให้เห็นชัดว่าไฟล์นั้นถูกลบข้อมูลแล้ว  
+- **Why:** การปรับแต่งตัวเลือกการบันทึกทำให้สามารถกำหนดรูปแบบเอาต์พุตและแนวทางการตั้งชื่อได้ยืดหยุ่น. การเปิดใช้งาน `setAddSuffix(true)` **adds suffix to filename**, ทำให้ชัดเจนว่าไฟล์ถูกลบข้อมูล.
+
+## วิธีเพิ่มส่วนต่อท้ายชื่อไฟล์ java เมื่อบันทึกเอกสาร?
+`Redactor` เป็นคลาสหลักใน GroupDocs.Redaction ที่โหลดเอกสารและใช้การลบข้อมูล.  
+`setAddSuffix` เป็นเมธอดของ `SaveOptions` ที่เปิดใช้งานการเพิ่มส่วนต่อท้ายอัตโนมัติให้กับชื่อไฟล์ผลลัพธ์.  
+
+โหลดอินสแตนซ์ `Redactor` ของคุณ, ใช้การลบข้อมูลตามต้องการ, จากนั้นเรียก `save()` พร้อม `SaveOptions` ที่เปิด `setAddSuffix(true)`. การกำหนดค่าเดียวนี้จะเพิ่ม “_redacted” (หรือส่วนต่อท้ายเริ่มต้น) ไปยังชื่อไฟล์โดยอัตโนมัติ, ลดการเปลี่ยนชื่อด้วยมือและลดข้อผิดพลาดของมนุษย์. การดำเนินการเสร็จในเวลา O(n) ตามขนาดเอกสารและทำงานกับทุกฟอร์แมตที่รองรับ.
 
 ## ภาพรวมของ groupdocs maven dependency
-**groupdocs maven dependency** นำ Redaction SDK ทั้งหมดเข้ามาในโปรเจกต์ของคุณด้วยรายการ `<dependency>` เพียงรายการเดียว มันจัดการ dependency ที่เป็น transitive, ทำให้ไลบรารีเป็นเวอร์ชันล่าสุดเสมอ และทำให้การอัตโนมัติของการสร้างโปรเจกต์ง่ายขึ้น โดยการประกาศ dependency ใน `pom.xml` คุณจะไม่ต้องจัดการ JAR ด้วยตนเองและมั่นใจได้ว่าเข้ากันได้กับแพตช์ความปลอดภัยล่าสุด
+**groupdocs maven dependency** นำ Redaction SDK ทั้งหมดเข้ามาในโปรเจกต์ของคุณด้วยรายการ `<dependency>` เพียงรายการเดียว. มันจัดการ dependency ที่ตามมา, ทำให้ไลบรารีเป็นเวอร์ชันล่าสุด, และทำให้การอัตโนมัติการสร้างง่ายขึ้น. การประกาศ dependency ใน `pom.xml` จะช่วยหลีกเลี่ยงการจัดการ JAR ด้วยตนเองและรับประกันความเข้ากันได้กับแพตช์ความปลอดภัยล่าสุด.
 
 ## ทำไมการเพิ่มส่วนต่อท้ายจึงสำคัญ
-- **Auditability:** ทีมงานสามารถมองเห็นไฟล์ที่ปลอดภัยต่อการแจกจ่ายได้ทันที  
-- **Automation:** สคริปต์สามารถกรองไฟล์ตามส่วนต่อท้าย ป้องกันการประมวลผลไฟล์ต้นฉบับโดยบังเอิญ  
-- **Compliance:** กฎระเบียบหลายฉบับกำหนดให้ต้องมีการระบุชัดเจนว่าเอกสารถูกทำความสะอาดแล้ว  
+การเพิ่มส่วนต่อท้ายให้การยืนยันด้วยภาพทันทีว่าเอกสารถูกประมวลผล, ซึ่งเป็นสิ่งสำคัญสำหรับการตรวจสอบ, workflow อัตโนมัติ, และการปฏิบัติตามกฎระเบียบในอุตสาหกรรมต่าง ๆ.
 
-## การประยุกต์ใช้ในเชิงปฏิบัติ
+- **Auditability:** ทีมสามารถระบุไฟล์ที่ปลอดภัยสำหรับการแจกจ่ายได้ทันที.  
+- **Automation:** สคริปต์สามารถกรองไฟล์ตามส่วนต่อท้าย, ป้องกันการประมวลผลไฟล์ต้นฉบับโดยบังเอิญ.  
+- **Compliance:** กฎระเบียบหลายฉบับต้องการการติดป้ายชัดเจนบนเอกสารที่ทำความสะอาดแล้ว.
+
+## การประยุกต์ใช้งานจริง
 สำรวจกรณีการใช้งานจริงต่อไปนี้:
-1. **Legal Document Redaction:** ปกป้องสัญญาก่อนส่งให้ลูกค้า  
-2. **Medical Record Handling:** ปกป้องข้อมูลระบุตัวผู้ป่วย  
-3. **Financial Reporting:** รักษาความลับของตัวเลขสำคัญ  
-4. **CRM Integration:** ลบข้อมูลลูกค้าอัตโนมัติก่อนส่งออก  
-5. **Collaboration Tools:** ทำให้ร่างที่แชร์ไม่เปิดเผยคอมเมนต์ที่ซ่อนอยู่  
 
-## การพิจารณาประสิทธิภาพ
+1. **Legal Document Redaction:** ปกป้องสัญญาก่อนแชร์กับลูกค้า.  
+2. **Medical Record Handling:** ปกป้องข้อมูลระบุตัวผู้ป่วยพร้อมรักษาข้อมูลคลินิก.  
+3. **Financial Reporting:** รักษาตัวเลขสำคัญให้เป็นความลับระหว่างการตรวจสอบภายนอก.  
+4. **CRM Integration:** ลบข้อมูลลูกค้าโดยอัตโนมัติก่อนส่งออกไปยังเครื่องมือของบุคคลที่สาม.  
+5. **Collaboration Tools:** ทำให้แน่ใจว่าร่างที่แชร์ไม่เปิดเผยคอมเมนต์หรือเมตาดาต้าที่ซ่อนอยู่.
+
+## พิจารณาด้านประสิทธิภาพ
 ### การเพิ่มประสิทธิภาพ
-- ใช้การสตรีม (`load document from stream`) เพื่อลดการโหลดไฟล์ทั้งหมดเข้าสู่หน่วยความจำ  
-- ปิดอินสแตนซ์ `Redactor` อย่างทันท่วงทีเพื่อคืนทรัพยากร  
+- ใช้การสตรีม (`load document from stream`) เพื่อหลีกเลี่ยงการโหลดไฟล์ทั้งหมดเข้าสู่หน่วยความจำ.  
+- ปิดอินสแตนซ์ `Redactor` อย่างเร็วเพื่อปล่อยทรัพยากร.  
 
 ### แนวทางการใช้ทรัพยากร
-- ตรวจสอบการใช้ CPU และหน่วยความจำระหว่างการทำงานแบบ batch  
-- แนะนำให้ใช้ `ByteArrayOutputStream` สำหรับการบันทึกในหน่วยความจำเมื่อไฟล์มีขนาดปานกลาง  
+- ตรวจสอบการใช้ CPU และหน่วยความจำระหว่างการรันแบบแบตช์.  
+- แนะนำให้ใช้ `ByteArrayOutputStream` สำหรับการบันทึกในหน่วยความจำเมื่อทำงานกับไฟล์ขนาดปานกลาง.  
 
 ### แนวทางปฏิบัติที่ดีที่สุดสำหรับการจัดการหน่วยความจำใน Java
-- ใช้ `Redactor` ซ้ำเมื่อประมวลผลหลายไฟล์ที่เป็นประเภทเดียวกัน  
-- เรียก `close()` ภายในบล็อก `try‑with‑resources` เพื่อป้องกันการรั่วไหล  
+- ใช้ `Redactor` ซ้ำเมื่อประมวลผลหลายไฟล์ประเภทเดียวกัน.  
+- เรียก `close()` ภายในบล็อก `try‑with‑resources` เพื่อป้องกันการรั่วไหล.  
 
-## ปัญหาที่พบบ่อยและวิธีแก้
+## ปัญหาทั่วไปและวิธีแก้
 | ปัญหา | สาเหตุ | วิธีแก้ |
-|-------|--------|--------|
-| **ส่วนต่อท้ายไม่แสดง** | `setAddSuffix(false)` หรือไม่ได้เรียก | ตรวจสอบให้แน่ใจว่าได้ตั้ง `options.setAddSuffix(true)` ก่อนเรียก `save()` |
-| **OutOfMemoryError กับ DOCX ขนาดใหญ่** | โหลดไฟล์ทั้งหมดเข้าสู่หน่วยความจำ | เปลี่ยนเป็นการโหลดด้วย `InputStream` (ดูฟีเจอร์ 1) |
-| **Annotations ยังคงปรากฏ** | Redaction ไม่ได้ทำก่อนบันทึก | เรียก `redactor.apply(new DeleteAnnotationRedaction())` ก่อน `save()` |
-| **PDF rasterization ไม่ทำงาน** | `setRasterizeToPDF(false)` หรือไม่ได้ตั้งค่า | ตั้ง `options.setRasterizeToPDF(true)` เมื่อจำเป็นต้องได้ PDF ที่แบนลงเป็นภาพ |
+|-------|-------|-----|
+| **ส่วนต่อท้ายไม่ปรากฏ** | `setAddSuffix(false)` หรือการเรียกที่หายไป | ตรวจสอบให้แน่ใจว่าได้ตั้งค่า `options.setAddSuffix(true)` ก่อน `save()`. |
+| **OutOfMemoryError บน DOCX ขนาดใหญ่** | โหลดไฟล์ทั้งหมดเข้าสู่หน่วยความจำ | เปลี่ยนเป็นการโหลดด้วย `InputStream` (ดู Feature 1). |
+| **Annotations ยังปรากฏ** | การลบข้อมูลไม่ได้ทำก่อนการบันทึก | เรียก `redactor.apply(new DeleteAnnotationRedaction())` ก่อน `save()`. |
+| **PDF rasterization ไม่ได้ใช้** | `setRasterizeToPDF(false)` หรือไม่ได้ตั้งค่า | ตั้งค่า `options.setRasterizeToPDF(true)` เมื่อคุณต้องการ PDF แบน. |
 
 ## คำถามที่พบบ่อย
 
-**Q: สามารถลบข้อมูลในไฟล์ PDF ด้วย GroupDocs.Redaction ได้หรือไม่?**  
-A: ได้, ไลบรารีรองรับ PDF, DOCX, PPTX, XLSX และรูปแบบอื่น ๆ อีกหลายประเภท  
+**Q: ฉันสามารถลบข้อมูลในเอกสาร PDF ด้วย GroupDocs.Redaction ได้หรือไม่?**  
+A: ใช่, ไลบรารีรองรับ PDF, DOCX, PPTX, XLSX และรูปแบบอื่น ๆ อีกมาก.
 
 **Q: วิธีที่ดีที่สุดในการจัดการไฟล์ขนาดใหญ่กับ GroupDocs.Redaction คืออะไร?**  
-A: ใช้การสตรีม (`load document from stream`) และปิดทรัพยากรโดยเร็วเพื่อให้การใช้หน่วยความจำน้อยที่สุด  
+A: ใช้การสตรีม (`load document from stream`) และปิดทรัพยากรอย่างเร็วเพื่อรักษาการใช้หน่วยความจำให้ต่ำ.
 
 **Q: สามารถกำหนดข้อความส่วนต่อท้ายเองได้หรือไม่?**  
-A: API จะเพิ่มส่วนต่อท้ายเริ่มต้น (เช่น “_redacted”) ให้โดยอัตโนมัติ หากต้องการส่วนต่อท้ายแบบกำหนดเอง คุณสามารถเปลี่ยนชื่อไฟล์ผลลัพธ์หลังจากบันทึกได้  
+A: API จะเพิ่มส่วนต่อท้ายเริ่มต้นโดยอัตโนมัติ (เช่น “_redacted”). หากต้องการส่วนต่อท้ายแบบกำหนดเอง, ให้เปลี่ยนชื่อไฟล์ผลลัพธ์หลังการบันทึก.
 
-**Q: จะขอรับลิขสิทธิ์ชั่วคราวสำหรับ GroupDocs.Redaction ได้อย่างไร?**  
-A: เยี่ยมชมหน้า [Temporary License page](https://purchase.groupdocs.com/temporary-license/) แล้วทำตามขั้นตอนที่ระบุ  
+**Q: ฉันจะขอรับไลเซนส์ชั่วคราวสำหรับ GroupDocs.Redaction ได้อย่างไร?**  
+A: ไปที่ [Temporary License page](https://purchase.groupdocs.com/temporary-license/) และทำตามคำแนะนำ.
 
-**Q: หากพบปัญหา จะขอรับความช่วยเหลือได้จากที่ไหน?**  
-A: เข้าร่วม [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33) เพื่อรับคำแนะนำจากผู้เชี่ยวชาญ  
+**Q: ฉันจะหาแนวทางช่วยเหลือเมื่อเจอปัญหาได้จากที่ไหน?**  
+A: เข้าร่วม [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33) เพื่อรับความช่วยเหลือจากผู้เชี่ยวชาญ.
 
 ## แหล่งข้อมูล
-- **Documentation:** ค้นหาคู่มือโดยละเอียดได้ที่ [GroupDocs Documentation](https://docs.groupdocs.com/redaction/java/)  
-- **API Reference:** ดูรายละเอียด API อย่างครบถ้วนที่ [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)  
-- **Download:** ดาวน์โหลดเวอร์ชันล่าสุดจาก [GroupDocs Downloads](https://releases.groupdocs.com/redaction/java/)  
-- **GitHub Repository:** มีส่วนร่วมหรือสำรวจซอร์สโค้ดได้ที่ [GroupDocs GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
+- **Documentation:** สำรวจคู่มือโดยละเอียดที่ [GroupDocs Documentation](https://docs.groupdocs.com/redaction/java/).  
+- **API Reference:** เข้าถึงรายละเอียด API อย่างครบถ้วนที่ [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java).  
+- **Download:** ดาวน์โหลดเวอร์ชันล่าสุดจาก [GroupDocs Downloads](https://releases.groupdocs.com/redaction/java/).  
+- **GitHub Repository:** มีส่วนร่วมหรือสำรวจซอร์สโค้ดที่ [GroupDocs GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java).
 
 ---
 
-**อัปเดตล่าสุด:** 2026-02-16  
-**ทดสอบกับ:** GroupDocs.Redaction 24.9 for Java  
-**ผู้เขียน:** GroupDocs
+**อัปเดตล่าสุด:** 2026-05-22  
+**ทดสอบด้วย:** GroupDocs.Redaction 24.9 for Java  
+**ผู้เขียน:** GroupDocs  
+
+{< /blocks/products/pf/tutorial-page-section >}
+{< /blocks/products/pf/main-container >}
+{< /blocks/products/pf/main-wrap-class >}
+{< blocks/products/products-backtop-button >}
+
+## บทแนะนำที่เกี่ยวข้อง
+
+- [แปลง Word เป็น PDF และบันทึกเอกสารที่ลบข้อมูลด้วย GroupDocs.Redaction Java](/redaction/java/document-saving/)
+- [ดูตัวอย่างหน้าจากเอกสาร Java Loading ด้วย GroupDocs.Redaction](/redaction/java/document-loading/)
+- [เทคนิคการลบข้อมูลขั้นสูงสำหรับ GroupDocs.Redaction Java](/redaction/java/advanced-redaction/)
