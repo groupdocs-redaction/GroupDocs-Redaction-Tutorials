@@ -1,95 +1,99 @@
 ---
-date: 2025-12-21
-description: Pelajari cara membuat penangan format khusus, bekerja dengan berbagai
-  format file, dan memperluas dukungan format menggunakan GroupDocs.Redaction untuk
-  Java.
-title: Buat Penangan Format Kustom dengan GroupDocs.Redaction Java
+date: 2026-02-21
+description: Pelajari cara menyensor file menggunakan penangan format khusus di GroupDocs.Redaction
+  untuk Java. Panduan langkah demi langkah, prasyarat, pendaftaran, dan tips penyebaran.
+title: Cara Menyensor File dengan Handler – GroupDocs Redaction Java
 type: docs
 url: /id/java/format-handling/
 weight: 14
 ---
 
-# Buat Penangan Format Kustom – Tutorial Penanganan Format untuk GroupDocs.Redaction Java
+# Cara Menyunting File dengan Handler – GroupDocs Redaction Java
 
-## Jawaban Cepat
-- **Apa itu penangan format kustom?** Kelas plug‑in yang memberi tahu Redaction cara membaca, memodifikasi, dan menulis tipe file tertentu.  
-- **Mengapa membuatnya?** Untuk meredaksi dokumen yang tidak didukung secara bawaan oleh GroupDocs.Redaction (mis., log proprietari, XML khusus).  
-- **Prasyarat?** Java 17+, pustaka GroupDocs.Redaction untuk Java, dan lisensi yang valid untuk penggunaan produksi.  
+Dalam tutorial ini Anda akan menemukan **cara menyunting file** dengan membuat custom format handler untuk GroupDocs.Redaction menggunakan Java. Menambahkan handler Anda sendiri memungkinkan Anda bekerja dengan tipe file yang tidak didukung secara default, memberi aplikasi Anda fleksibilitas untuk melindungi informasi sensitif dalam hampir semua format dokumen. Kami akan membahas pendekatan keseluruhan, menyoroti skenario umum, dan mengarahkan Anda ke tutorial terperinci yang memperlihatkan kode dalam aksi.
+
+## Quick Answers
+- **Apa itu custom format handler?** Kelas plug‑in yang memberi tahu Redaction cara membaca, memodifikasi, dan menulis tipe file tertentu.  
+- **Mengapa membuatnya?** Untuk menyunting dokumen yang tidak didukung secara default oleh GroupDocs.Redaction (misalnya, log proprietari, XML khusus).  
+- **Prasyarat?** Java 17+, perpustakaan GroupDocs.Redaction untuk Java, dan lisensi yang valid untuk penggunaan produksi.  
 - **Berapa lama implementasinya?** Biasanya 30 menit hingga beberapa jam, tergantung pada kompleksitas file.  
 - **Bisakah saya menguji tanpa lisensi?** Ya – lisensi sementara tersedia untuk evaluasi.
 
-## Apa itu Penangan Format Kustom?
-**Penangan format kustom** adalah kelas Java yang mengimplementasikan antarmuka `IFormatHandler` yang disediakan oleh GroupDocs.Redaction. Kelas ini menentukan bagaimana perpustakaan mem-parsing dokumen masuk, menerapkan instruksi redaksi, dan menulis kembali file yang telah diperbarui ke disk.
+## Apa itu Custom Format Handler?
+Sebuah **custom format handler** adalah kelas Java yang mengimplementasikan antarmuka `IFormatHandler` yang disediakan oleh GroupDocs.Redaction. Kelas ini menentukan bagaimana perpustakaan mengurai dokumen yang masuk, menerapkan instruksi penyuntingan, dan menulis file yang diperbarui kembali ke disk.
 
 ## Mengapa Menggunakan GroupDocs.Redaction untuk Format Kustom?
-- **API Terpadu:** Setelah penangan Anda terdaftar, Anda bekerja dengan API Redaction yang sama seperti untuk PDF, DOCX, dll.  
-- **Keamanan‑Pertama:** Redaksi dilakukan di sisi server, memastikan tidak ada data sensitif yang bocor.  
-- **Skalabilitas:** Penangan dapat digunakan kembali di layanan mikro, pekerjaan batch, atau alat desktop.
+- **Unified API:** Setelah handler Anda terdaftar, Anda bekerja dengan API Redaction yang sama seperti yang Anda gunakan untuk PDF, DOCX, dll.  
+- **Security‑First:** Penyuntingan dilakukan di sisi server, memastikan tidak ada kebocoran data sensitif.  
+- **Scalability:** Handler dapat digunakan kembali di seluruh micro‑services, batch job, atau alat desktop.
 
 ## Prasyarat
 - Java Development Kit (JDK) 17 atau lebih baru.  
 - GroupDocs.Redaction untuk Java (dapat diunduh dari tautan di bawah).  
 - Familiaritas dasar dengan antarmuka Java dan I/O file.
 
-## Panduan Langkah‑per‑Langkah Membuat Penangan Format Kustom
+## Step‑by‑Step Guide to Create a Custom Format Handler
 
-### 1. Definisikan Kelas Penangan
+### 1. Define the Handler Class
 Buat kelas baru yang mengimplementasikan `IFormatHandler`. Di dalamnya, Anda akan menimpa metode seperti `load()`, `applyRedactions()`, dan `save()`.
 
-> **Pro tip:** Usahakan penangan tetap stateless bila memungkinkan; ini membuatnya thread‑safe untuk layanan dengan throughput tinggi.
+> **Pro tip:** Jaga agar handler tetap stateless bila memungkinkan; ini membuatnya thread‑safe untuk layanan dengan throughput tinggi.
 
-### 2. Daftarkan Penangan dengan Redaction Engine
-Gunakan konfigurasi `RedactionEngine` untuk memetakan ekstensi file Anda (mis., `.mydoc`) ke kelas penangan.
+### 2. Register the Handler with Redaction Engine
+Gunakan konfigurasi `RedactionEngine` untuk memetakan ekstensi file Anda (mis., `.mydoc`) ke kelas handler.
 
-### 3. Uji Penangan Secara Lokal
-Tulis unit test sederhana yang memuat file contoh, menerapkan aturan redaksi, dan memverifikasi output. Ini memastikan implementasi Anda berfungsi sebelum diproduksi.
+### 3. Test the Handler Locally
+Tuliskan unit test sederhana yang memuat file contoh, menerapkan aturan penyuntingan, dan memverifikasi output. Ini memastikan implementasi Anda berfungsi sebelum dideploy.
 
-### 4. Deploy ke Produksi
-Kemasi penangan ke dalam JAR/WAR aplikasi Anda dan deploy bersama pustaka GroupDocs.Redaction. Tidak diperlukan konfigurasi server tambahan.
+### 4. Deploy to Production
+Kemasan handler ke dalam JAR/WAR aplikasi Anda dan deploy bersama perpustakaan GroupDocs.Redaction. Tidak diperlukan konfigurasi server tambahan.
 
-## Tutorial yang Tersedia
+## Available Tutorials
 
-### [Implement Custom Format Handlers in Java with GroupDocs.Redaction: A Comprehensive Guide](./implement-custom-format-handlers-java-groupdocs-redaction/)
-Pelajari cara mengimplementasikan penangan format kustom dan menerapkan redaksi menggunakan GroupDocs.Redaction untuk Java. Amankan informasi sensitif secara efektif.
+### [Implement Custom Format Handlers di Java dengan GroupDocs.Redaction: Panduan Komprehensif](./implement-custom-format-handlers-java-groupdocs-redaction/)
+Pelajari cara mengimplementasikan custom format handler dan menerapkan penyuntingan menggunakan GroupDocs.Redaction untuk Java. Amankan informasi sensitif secara efektif.
 
-### [Master Java File Operations: Copy and Redact Files Using GroupDocs.Redaction for Enhanced Data Security](./java-file-operations-copy-redact-groupdocs/)
-Pelajari cara menyalin file secara efektif dan menerapkan redaksi di Java menggunakan GroupDocs.Redaction. Pastikan keamanan dan integritas dokumen dengan panduan lengkap kami.
+### [Menguasai Operasi File Java: Menyalin dan Menyunting File Menggunakan GroupDocs.Redaction untuk Keamanan Data yang Ditingkatkan](./java-file-operations-copy-redact-groupdocs/)
+Pelajari cara menyalin file secara efektif dan menerapkan penyuntingan di Java menggunakan GroupDocs.Redaction. Pastikan keamanan dan integritas dokumen dengan panduan komprehensif kami.
 
-## Sumber Daya Tambahan
+## Additional Resources
 
-- [GroupDocs.Redaction for Java Documentation](https://docs.groupdocs.com/redaction/java/)
-- [GroupDocs.Redaction for Java API Reference](https://reference.groupdocs.com/redaction/java/)
-- [Download GroupDocs.Redaction for Java](https://releases.groupdocs.com/redaction/java/)
-- [GroupDocs.Redaction Forum](https://forum.groupdocs.com/c/redaction/33)
-- [Free Support](https://forum.groupdocs.com/)
-- [Temporary License](https://purchase.groupdocs.com/temporary-license/)
+- [Dokumentasi GroupDocs.Redaction untuk Java](https://docs.groupdocs.com/redaction/java/)
+- [Referensi API GroupDocs.Redaction untuk Java](https://reference.groupdocs.com/redaction/java/)
+- [Unduh GroupDocs.Redaction untuk Java](https://releases.groupdocs.com/redaction/java/)
+- [Forum GroupDocs.Redaction](https://forum.groupdocs.com/c/redaction/33)
+- [Dukungan Gratis](https://forum.groupdocs.com/)
+- [Lisensi Sementara](https://purchase.groupdocs.com/temporary-license/)
 
-## Kesalahan Umum & Cara Menghindarinya
+## Common Pitfalls & How to Avoid Them
 | Masalah | Alasan | Solusi |
-|---------|--------|--------|
-| Penangan tidak dipanggil | Ekstensi file tidak dipetakan dengan benar | Verifikasi pendaftaran ekstensi‑ke‑penangan dalam konfigurasi `RedactionEngine`. |
-| Redaksi tidak diterapkan | Logika `applyRedactions()` melewatkan node tertentu | Pastikan Anda mengiterasi semua bagian dokumen (mis., node XML, aliran biner). |
-| Penurunan kinerja pada file besar | Penangan memproses seluruh file dalam memori | Alirkan file atau proses dalam potongan bila memungkinkan. |
+|-------|--------|----------|
+| Handler tidak dipanggil | Ekstensi file tidak dipetakan dengan benar | Verifikasi pendaftaran ekstensi‑ke‑handler dalam konfigurasi `RedactionEngine`. |
+| Penyuntingan tidak diterapkan | Logika `applyRedactions()` melewatkan node tertentu | Pastikan Anda mengiterasi semua bagian dokumen (mis., node XML, aliran biner). |
+| Penurunan performa pada file besar | Handler memproses seluruh file di memori | Stream file atau proses dalam potongan bila memungkinkan. |
 
-## Pertanyaan yang Sering Diajukan
+## Frequently Asked Questions
 
-**T: Bisakah saya menggunakan kembali penangan yang ada untuk tipe file serupa?**  
-J: Ya – jika struktur file kompatibel, Anda dapat memperluas kelas penangan yang sama dan menimpa hanya bagian yang diperlukan.
+**T: Bisakah saya menggunakan kembali handler yang ada untuk tipe file serupa?**  
+J: Ya – jika struktur file kompatibel, Anda dapat memperluas kelas handler yang sama dan menimpa hanya bagian yang diperlukan.
 
-**T: Apakah saya memerlukan lisensi terpisah untuk penangan kustom?**  
-J: Tidak. Lisensi standar GroupDocs.Redaction mencakup semua penangan yang Anda buat.
+**T: Apakah saya memerlukan lisensi terpisah untuk custom handler?**  
+J: Tidak. Lisensi standar GroupDocs.Redaction mencakup semua handler yang Anda buat.
 
-**T: Bagaimana cara menangani dokumen yang dilindungi kata sandi?**  
-J: Kirimkan kata sandi ke metode `load()` penangan Anda; mesin Redaction akan mendekripsi file sebelum diproses.
+**T: Bagaimana cara menangani dokumen yang dilindungi password?**  
+J: Kirimkan password ke metode `load()` pada handler Anda; mesin Redaction akan mendekripsi file sebelum diproses.
 
-**T: Apakah memungkinkan untuk men-debug penangan di dalam IDE?**  
-J: Tentu saja. Karena penangan adalah kode Java biasa, Anda dapat menempatkan breakpoint dan menelusuri metode `load`, `applyRedactions`, dan `save`.
+**T: Apakah memungkinkan untuk debug handler di dalam IDE?**  
+J: Tentu saja. Karena handler adalah kode Java biasa, Anda dapat menempatkan breakpoint dan melangkah melalui metode `load`, `applyRedactions`, dan `save`.
 
-**T: Bagaimana jika format kustom berubah di versi mendatang?**  
-J: Jaga logika penangan tetap modular dan terkontrol versi; perbarui penangan ketika spesifikasi file berkembang.
+**T: Bagaimana jika format khusus berubah di versi mendatang?**  
+J: Jaga logika handler tetap modular dan terkontrol versi; perbarui handler ketika spesifikasi file berkembang.
+
+**T: Bagaimana ini membantu saya **cara menyunting file** dalam alur kerja format campuran?**  
+J: Dengan memasang custom handler ke dalam Redaction, Anda memperlakukan format proprietari apa pun sama seperti PDF atau DOCX, menyederhanakan proses **cara menyunting file** di seluruh pipeline Anda.
 
 ---
 
-**Terakhir Diperbarui:** 2025-12-21  
+**Terakhir Diperbarui:** 2026-02-21  
 **Diuji Dengan:** GroupDocs.Redaction untuk Java 23.10  
 **Penulis:** GroupDocs

@@ -1,8 +1,8 @@
 ---
-date: '2025-12-21'
-description: تعلم كيفية تحويل ملفات docx إلى صورة وتحرير ملفات Word باستخدام GroupDocs
-  Redaction للغة Java. دليل خطوة بخطوة يغطي التحويل إلى رسومات نقطية، وتحرير مناطق
-  الصورة، وإعداد Maven.
+date: '2026-02-21'
+description: تعلم كيفية تحويل ملفات docx إلى صورة وإزالة المعلومات الحساسة من ملفات Word باستخدام GroupDocs
+  Redaction للغة Java. دليل خطوة بخطوة يغطي التحويل إلى رسومات نقطية، وإزالة المعلومات
+  من مناطق الصورة، وإعداد Maven.
 keywords:
 - GroupDocs Redaction Java
 - Word document rasterization
@@ -14,43 +14,36 @@ url: /ar/java/document-saving/groupdocs-redaction-java-rasterize-word-docs/
 weight: 1
 ---
 
-# تحويل DOCX إلى صورة وإزالة معلومات من مستندات Word باستخدام GroupDocs Redaction Java
+# تحويل DOCX إلى صورة وإزالة معلومات Word باستخدام GroupDocs Redaction Java
 
-حماية المعلومات الحساسة في ملفات Microsoft Word تمثل تحديًا يوميًا للمطورين الذين يبنون تطبيقات تركز على المستندات. سواء كنت بحاجة إلى إخفاء البيانات الشخصية، أو الامتثال للائحة GDPR، أو إعداد العقود القانونية للمراجعة الخارجية، فإن **converting docx to image** قبل الإزالة يضمن بقاء التخطيط الأصلي كما هو بينما يتم إخفاء المحتوى بأمان.
-
-في هذا البرنامج التعليمي ستتعلم كيفية:
-
-- **Convert DOCX to image** عن طريق تحويل مستند Word إلى صورة نقطية باستخدام GroupDocs Redaction for Java.  
-- تطبيق **image area redaction** على ملف PDF المحول إلى صورة لإخفاء النص أو الرسومات.  
-- إعداد **GroupDocs Maven dependency** وإدارة الترخيص.  
-
-دعونا نتبع العملية الكاملة، من إعداد البيئة إلى حفظ المستند النهائي.
+حماية المعلومات الحساسة في ملفات Microsoft Word تمثل تحديًا يوميًا للمطورين الذين يبنون تطبيقات مركزة على المستندات. سواء كنت بحاجة إلى إخفاء البيانات الشخصية، أو الامتثال للائحة GDPR، أو إعداد العقود القانونية للمراجعة الخارجية، فإن **convert docx to image** قبل الإزالة يضمن بقاء التخطيط الأصلي سليمًا بينما يتم إخفاء المحتوى بأمان. في هذا الدليل ستتعرف أيضًا على كيفية **convert word to pdf** بفعالية، مما يمنحك ملف PDF مُرصّص مثالي لإزالة البيانات الحساسة.
 
 ## إجابات سريعة
-- **What does “convert docx to image” mean?** يقوم بتحويل كل صفحة من ملف Word إلى صورة نقطية (bitmap)، مع الحفاظ على التخطيط لضمان إزالة موثوقة.  
-- **Which Maven artifact is required?** `com.groupdocs:groupdocs-redaction` (انظر قسم *groupdocs maven dependency*).  
-- **Can I hide text in Java?** نعم—استخدم `ImageAreaRedaction` مع `RegionReplacementOptions` لتغطية لون صلب.  
-- **Do I need a license?** ترخيص تجريبي يعمل للتقييم؛ ترخيص تجاري مطلوب للإنتاج.  
-- **Is the output a PDF or an image file?** خطوة التحويل إلى صورة تنتج ملف PDF حيث كل صفحة هي صورة، جاهزة للإزالة.
+- **ما معنى “convert docx to image”؟** It rasterizes each page of a Word file into a bitmap, preserving layout for reliable redaction.  
+- **ما هو الـ Maven artifact المطلوب؟** `com.groupdocs:groupdocs-redaction` (see the *groupdocs maven dependency* section).  
+- **هل يمكنني إخفاء النص في Java؟** Yes—use `ImageAreaRedaction` with `RegionReplacementOptions` to overlay a solid color.  
+- **هل أحتاج إلى ترخيص؟** A trial license works for evaluation; a commercial license is required for production.  
+- **هل الناتج PDF أم ملف صورة؟** The rasterization step produces a PDF where each page is an image, ready for redaction.
 
 ## ما هو “convert docx to image”؟
-تحويل ملف DOCX إلى صورة (Rasterizing) يحول كل صفحة إلى صورة (عادةً مدمجة في ملف PDF). هذه العملية تُزيل النص القابل للتحديد، مما يجعل عمليات الإزالة اللاحقة غير قابلة للعكس ومضادة للتلاعب.
+تحويل ملف DOCX إلى صورة يحول كل صفحة إلى صورة (عادةً ما تكون مدمجة في PDF). هذه العملية تُزيل النص القابل للتحديد، مما يجعل عمليات الإزالة اللاحقة غير قابلة للعكس ومضادة للعبث.
 
-## لماذا نستخدم GroupDocs Redaction for Java؟
+## لماذا نستخدم GroupDocs Redaction للـ Java؟
 - **Accurate layout preservation** – يبقى تنسيق Word الأصلي كما هو تمامًا.  
-- **Fine‑grained redaction** – يمكنك استهداف مناطق محددة، صور، أو صفحات كاملة.  
+- **Fine‑grained redaction** – يمكنك استهداف مناطق محددة، أو صور، أو صفحات كاملة.  
 - **Seamless Maven integration** – *groupdocs maven dependency* خفيف الوزن ويتم تحديثه بانتظام.  
-- **Cross‑platform support** – يعمل على أي نظام تشغيل يدعم Java 8+.
+- **Cross‑platform support** – يعمل على أي نظام تشغيل يدعم Java 8+.  
+- **Redact sensitive data** – تم بناء المكتبة لإزالة المعلومات الشخصية أو السرية بأمان.
 
 ## المتطلبات المسبقة
 - JDK 8 أو أحدث مثبت.  
 - بيئة تطوير متكاملة مثل IntelliJ IDEA أو Eclipse أو NetBeans.  
-- اتصال بالإنترنت لتحميل ملفات Maven أو الـ JAR المباشر.  
+- اتصال بالإنترنت لتحميل Maven artifacts أو ملف JAR المباشر.  
 - معرفة أساسية بـ Java وإلمام بـ Maven.
 
 ## إعداد GroupDocs.Redaction للـ Java
 
-### اعتماد Maven (groupdocs maven dependency)
+### تبعية Maven (groupdocs maven dependency)
 
 أضف مستودع GroupDocs الرسمي ومكتبة Redaction إلى ملف `pom.xml` الخاص بك:
 
@@ -72,12 +65,11 @@ weight: 1
 </dependencies>
 ```
 
-**Direct Download** – إذا كنت تفضل عدم استخدام Maven، احصل على أحدث JAR من الصفحة الرسمية: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+**Direct Download** – إذا كنت تفضل عدم استخدام Maven، قم بتحميل أحدث JAR من الصفحة الرسمية: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
 ### الحصول على الترخيص
-
-1. اطلب **ترخيص تجريبي مجاني** من بوابة GroupDocs.  
-2. لتطبيقات الإنتاج، اشترِ **ترخيصًا تجاريًا** واستبدل مفتاح التجربة بالمفتاح الدائم الخاص بك.
+1. اطلب **free trial license** من بوابة GroupDocs.  
+2. للبيئات الإنتاجية، اشترِ **commercial license** واستبدل مفتاح التجربة بالمفتاح الدائم الخاص بك.
 
 ## دليل خطوة بخطوة
 
@@ -92,7 +84,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 ```
 
-### الخطوة 2: تحميل وتحويل DOCX إلى صورة (convert docx to image)
+### الخطوة 2: تحميل ورسم DOCX (convert docx to image)
 
 ```java
 String inputFilePath = "YOUR_DOCUMENT_DIRECTORY/sample.docx";
@@ -108,17 +100,17 @@ try (Redactor rasterizer = new Redactor(inputFilePath)) {
 }
 ```
 
-**Explanation:** `RasterizationOptions` يخبر GroupDocs بإنشاء كل صفحة كصورة. `ByteArrayOutputStream` يحتفظ بالنتيجة في الذاكرة، جاهزة للخطوة التالية دون كتابة ملفات وسيطة.
+**Explanation:** `RasterizationOptions` يخبر GroupDocs برسم كل صفحة كصورة. `ByteArrayOutputStream` يحتفظ بالنتيجة في الذاكرة، جاهزة للخطوة التالية دون كتابة ملفات وسيطة. هذه الخطوة أيضًا **convert word to pdf** في الخلفية—كل صفحة مُرصّصة تُخزن داخل حاوية PDF.
 
-### الخطوة 3: إعداد المخرجات المحولة إلى صورة للإزالة
+### الخطوة 3: إعداد المخرجات المرصّصة للإزالة
 
 ```java
 ByteArrayInputStream inputStream = new ByteArrayInputStream(stream.toByteArray());
 ```
 
-الآن ملف PDF المحول إلى صورة متاح كـ `InputStream`، ويمكنك تمريره مباشرة إلى محرك الإزالة.
+الآن PDF المرصّص متاح كـ `InputStream`، يمكنك تمريره مباشرة إلى محرك الإزالة.
 
-### الخطوة 4: تطبيق Image Area Redaction (how to redact word)
+### الخطوة 4: تطبيق إلغاء منطقة الصورة (how to redact word)
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -154,50 +146,57 @@ try (Redactor redactor = new Redactor(inputStream)) {
 ```
 
 **Explanation:**  
-- `ImageAreaRedaction` يستهدف منطقة مستطيلة محددة بـ `startPoint` و `size`.  
+- `ImageAreaRedaction` يستهدف منطقة مستطيلة معرفة بـ `startPoint` و `size`.  
 - `RegionReplacementOptions` يتيح لك اختيار لون التغطية (أزرق في هذا المثال) وحجم المستطيل البديل.  
-- بعد تطبيق الإزالة، يتم حفظ المستند كملف PDF محول إلى صورة مع إخفاء المنطقة الحساسة بأمان.
+- بعد تطبيق الإزالة، يتم حفظ المستند كـ PDF مرصّص مع إخفاء المنطقة الحساسة بأمان. هذه هي الطريقة الأساسية لـ **hide text java** التي يحتاجها المطورون عند التعامل مع محتوى Word سري.
+
+## كيفية تحويل Word إلى PDF وإزالة البيانات الحساسة
+عملية الرصّص تلقائيًا **convert word to pdf**، حيث يتم تضمين كل صفحة كصورة داخل ملف PDF. بمجرد أن يكون بهذا الشكل، يمكنك استخدام GroupDocs Redaction لـ **redact sensitive data** مثل المعرفات الشخصية، الأرقام المالية، أو الرسومات المملوكة. لأن النص لم يعد قابلًا للتحديد، تصبح الإزالة مضادة للعبث.
+
+## كيفية إخفاء النص في Java باستخدام GroupDocs
+إذا كان هدفك هو ببساطة إخفاء أجزاء من المستند، فإن فئة `ImageAreaRedaction` توفر واجهة برمجة تطبيقات بسيطة. من خلال تحديد الإحداثيات ولون الاستبدال، يمكنك **hide text in Java** دون الحاجة للتعامل مع معالجة PDF منخفضة المستوى.
 
 ## تطبيقات عملية (how to redact word)
 
-| السيناريو | لماذا التحويل إلى صورة والإزالة؟ |
-|----------|-----------------------------------|
-| **Legal contracts** | يضمن سرية العميل قبل مشاركة المسودات. |
-| **Medical records** | يزيل معلومات PHI مع الحفاظ على تخطيط التقرير الأصلي. |
-| **Financial statements** | يخفي أرقام الحسابات أو الأرقام الخاصة للتدقيق الخارجي. |
+| السيناريو | لماذا الرصّص والإزالة؟ |
+|----------|--------------------------|
+| **العقود القانونية** | يضمن سرية العميل قبل مشاركة المسودات. |
+| **السجلات الطبية** | يزيل PHI مع الحفاظ على تخطيط التقرير الأصلي. |
+| **البيانات المالية** | يخفي أرقام الحسابات أو الأرقام المملوكة للتدقيق الخارجي. |
 
 ## اعتبارات الأداء
+
 - **Memory Management:** استخدم التدفقات (`ByteArrayOutputStream` / `ByteArrayInputStream`) لتجنب تحميل الملفات بالكامل في الذاكرة.  
-- **CPU Usage:** التحويل إلى صورة يتطلب استهلاكًا عاليًا للمعالج؛ فكر في زيادة حجم heap للـ JVM (`-Xmx2g`) للملفات DOCX الكبيرة.  
-- **Version Updates:** حافظ على تحديث مكتبة GroupDocs إلى أحدث نسخة (مثلاً 24.9) للاستفادة من تحسينات الأداء وإصلاح الأخطاء.
+- **CPU Usage:** الرصّص يستهلك الكثير من CPU؛ فكر في زيادة حجم heap للـ JVM (`-Xmx2g`) للملفات DOCX الكبيرة.  
+- **Version Updates:** حافظ على تحديث مكتبة GroupDocs (مثلاً 24.9) للاستفادة من تحسينات الأداء وإصلاح الأخطاء.
 
 ## المشكلات الشائعة والحلول (hide text java)
 
 | المشكلة | الحل |
 |-------|----------|
-| **OutOfMemoryError** عند معالجة DOCX كبير | عالج المستند على أجزاء أو زد حجم heap للـ JVM. |
-| **Redaction not applied** | تأكد أن `result.getStatus()` ليس `Failed` وأن الإحداثيات داخل حدود الصفحة. |
-| **Output PDF blank** | تأكد من أن `RasterizationOptions.setEnabled(false)` يتم فقط بعد الإزالة؛ احتفظ به `true` أثناء التحويل الأولي إلى صورة. |
+| **OutOfMemoryError** عند معالجة DOCX كبير | قم بمعالجة المستند على أجزاء أو زيادة حجم heap للـ JVM. |
+| **Redaction not applied** | تحقق من أن `result.getStatus()` ليس `Failed` وأن الإحداثيات داخل حدود الصفحة. |
+| **Output PDF blank** | تأكد من أن `RasterizationOptions.setEnabled(false)` يتم تفعيله فقط بعد الإزالة؛ احتفظ به `true` أثناء الرصّص الأولي. |
 
 ## الأسئلة المتكررة
 
-**Q: What does “convert docx to image” actually produce?**  
-A: العملية تنشئ ملف PDF حيث كل صفحة هي صورة bitmap مدمجة، مما يجعل النص غير قابل للتحديد وآمن للإزالة.
+**س: ما الذي ينتجه “convert docx to image” فعليًا؟**  
+ج: العملية تنشئ PDF حيث تكون كل صفحة صورة مدمجة، مما يجعل النص غير قابل للتحديد وآمن للإزالة.
 
-**Q: Can I use GroupDocs Redaction for other file types?**  
-A: نعم، يدعم ملفات PDF، الصور، والعديد من صيغ المستندات الأخرى.
+**س: هل يمكنني استخدام GroupDocs Redaction لأنواع ملفات أخرى؟**  
+ج: نعم، يدعم PDFs، الصور، والعديد من صيغ المستندات الأخرى.
 
-**Q: How does the temporary license work?**  
-A: الترخيص التجريبي يفتح جميع الميزات لفترة محدودة، مما يتيح لك تقييم التحويل إلى صورة والإزالة دون قيود.
+**س: كيف يعمل الترخيص المؤقت؟**  
+ج: الترخيص التجريبي يفتح جميع الميزات لفترة محدودة، مما يسمح لك بتقييم الرصّص والإزالة دون قيود.
 
-**Q: Is there a way to redact multiple regions at once?**  
-A: بالتأكيد—استدعِ `redactor.apply()` عدة مرات أو مرّر مجموعة من كائنات `ImageAreaRedaction`.
+**س: هل هناك طريقة لإزالة عدة مناطق مرة واحدة؟**  
+ج: بالتأكيد—استدعِ `redactor.apply()` عدة مرات أو مرّر مجموعة من كائنات `ImageAreaRedaction`.
 
-**Q: Do I need to convert the DOCX to PDF first?**  
-A: لا. يمكن للـ Redactor تحويل DOCX مباشرة وإنتاج PDF في خطوة واحدة، كما هو موضح أعلاه.
+**س: هل أحتاج إلى تحويل DOCX إلى PDF أولاً؟**  
+ج: لا. يمكن للمحرك Rasterizer معالجة DOCX مباشرة وإنتاج PDF في خطوة واحدة، كما هو موضح أعلاه.
 
 ---
 
-**آخر تحديث:** 2025-12-21  
-**تم الاختبار مع:** GroupDocs.Redaction 24.9 (Java)  
-**المؤلف:** GroupDocs
+**Last Updated:** 2026-02-21  
+**Tested With:** GroupDocs.Redaction 24.9 (Java)  
+**Author:** GroupDocs
