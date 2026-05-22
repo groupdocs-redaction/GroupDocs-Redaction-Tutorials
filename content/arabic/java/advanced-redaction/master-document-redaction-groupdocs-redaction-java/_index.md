@@ -1,52 +1,95 @@
 ---
-date: '2026-02-16'
-description: تعلم كيفية استخدام تبعية GroupDocs Maven لإضافة لاحقة إلى أسماء الملفات
-  أثناء تعديل المستندات في جافا. يتضمن التحميل من تدفق، حذف التعليقات التوضيحية، وخيارات
-  الحفظ.
+date: '2026-05-22'
+description: تعلم كيفية إضافة suffix filename java باستخدام GroupDocs Maven dependency
+  أثناء تعديل المستندات. يتضمن streaming load، annotation deletion، و save options.
 keywords:
-- document redaction Java
-- GroupDocs.Redaction tutorial
-- secure document handling
-title: اعتماد groupdocs maven – إضافة لاحقة إلى اسم الملف في جافا
+- add suffix filename java
+- groupdocs redaction java
+- document redaction workflow
+schemas:
+- author: GroupDocs
+  dateModified: '2026-05-22'
+  description: Learn how to add suffix filename java using the GroupDocs Maven dependency
+    while redacting documents. Includes streaming load, annotation deletion, and save
+    options.
+  headline: Add suffix filename java with GroupDocs Maven
+  type: TechArticle
+- description: Learn how to add suffix filename java using the GroupDocs Maven dependency
+    while redacting documents. Includes streaming load, annotation deletion, and save
+    options.
+  name: Add suffix filename java with GroupDocs Maven
+  steps:
+  - name: '1: Create InputStream'
+    text: '- **Why:** Using `InputStream` allows you to handle documents stored in
+      various locations—cloud buckets, databases, or in‑memory buffers—without first
+      writing them to disk. This approach is essential when you need to **load document
+      from stream** in micro‑service architectures.'
+  - name: '1: Apply DeleteAnnotationRedaction'
+    text: '- **Why:** This step ensures that any sensitive annotations (comments,
+      highlights, or hidden notes) are stripped from the document, enhancing privacy
+      and compliance.'
+  - name: '1: Configure SaveOptions'
+    text: '- **Why:** Customizing save options allows flexible output formats and
+      naming conventions. Enabling `setAddSuffix(true)` **adds suffix to filename**,
+      making it clear that the file has been redacted.'
+  type: HowTo
+- questions:
+  - answer: Yes, the library supports PDFs, DOCX, PPTX, XLSX, and many other formats.
+    question: Can I redact PDF documents using GroupDocs.Redaction?
+  - answer: Use streaming (`load document from stream`) and close resources promptly
+      to keep memory usage low.
+    question: What is the best way to handle large files with GroupDocs.Redaction?
+  - answer: The API automatically adds a default suffix (e.g., “_redacted”). For custom
+      suffixes, rename the output file after saving.
+    question: Is it possible to customize the suffix text?
+  - answer: Visit the [Temporary License page](https://purchase.groupdocs.com/temporary-license/)
+      and follow the instructions.
+    question: How do I obtain a temporary license for GroupDocs.Redaction?
+  - answer: Join the [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33)
+      for expert assistance.
+    question: Where can I get help if I encounter issues?
+  type: FAQPage
+title: إضافة suffix filename java باستخدام GroupDocs Maven
 type: docs
 url: /ar/java/advanced-redaction/master-document-redaction-groupdocs-redaction-java/
 weight: 1
 ---
 
-# كيفية إضافة لاحقة إلى اسم الملف أثناء تعديل المستندات في Java باستخدام GroupDocs.Redaction
+# إضافة لاحقة لاسم الملف java باستخدام GroupDocs Maven
 
-تعديل البيانات السرية هو نصف المعركة فقط—يجب عليك أيضًا التأكد من أن الملف المحفوظ يشير بوضوح إلى أنه تمت معالجته. **استخدام تبعية groupdocs maven يجعل ذلك بسيطًا**، مما يتيح لك إضافة لاحقة إلى اسم ملف الإخراج في بضع أسطر من الشيفرة فقط. في هذا الدليل ستتعلم كيفية إضافة لاحقة إلى اسم الملف عند حفظ مستند مُعدّل، بالإضافة إلى التحميل، التعليق، والحفظ باستخدام GroupDocs.Redaction للـ Java. سواءً كنت تحمي العقود القانونية، السجلات الطبية، أو التقارير المالية، فإن هذه الخطوات ستحافظ على سير عملك آمنًا وقابلاً للتدقيق.
+إزالة البيانات السرية ليست سوى نصف المعركة — عليك أيضًا التأكد من أن الملف المحفوظ يوضح بوضوح أنه قد تم معالجته. **استخدام تبعية GroupDocs Maven يجعل ذلك بسيطًا**، حيث يتيح لك إضافة لاحقة إلى اسم ملف الإخراج في بضع أسطر من الشيفرة فقط. الطريقة **add suffix filename java** هي تكوين سطر واحد يضع علامة فورية على ملفاتك المُحذوفة، مما يساعدك على البقاء متوافقًا وجاهزًا للتدقيق.
 
 ## إجابات سريعة
-- **ما الذي يفعله “add suffix to filename”؟**  
-  يضيف لاحقة مخصصة (مثل “_redacted”) إلى اسم ملف الإخراج بحيث يمكنك التعرف فورًا على الملفات المعالجة.  
-- **هل يمكنني تحميل مستند من تدفق (stream)؟**  
-  نعم—GroupDocs.Redaction يدعم التحميل من أي `InputStream`، وهو مثالي لتخزين السحابة أو المعالجة في الذاكرة.  
+- **ماذا يفعل “add suffix to filename”؟**  
+  يضيف لاحقة مخصصة (مثال: “_redacted”) إلى اسم ملف الإخراج حتى تتمكن من التعرف فورًا على الملفات المعالجة.  
+- **هل يمكنني تحميل مستند من تدفق؟**  
+  نعم — يدعم GroupDocs.Redaction التحميل من أي `InputStream`، وهو مثالي للتخزين السحابي أو المعالجة في الذاكرة.  
 - **هل أحتاج إلى ترخيص لهذه الميزة؟**  
-  النسخة التجريبية المجانية تعمل للـ redaction الأساسي؛ الترخيص المؤقت أو الكامل يفتح جميع الخيارات المتقدمة، بما في ذلك معالجة اللاحقة.  
+  نسخة تجريبية مجانية تعمل للمعالجة الأساسية؛ ترخيص مؤقت أو كامل يفتح جميع الخيارات المتقدمة، بما في ذلك معالجة اللاحقة.  
 - **ما الصيغ المدعومة؟**  
   المكتبة تدعم DOCX، PDF، PPTX، XLSX والعديد غيرها.  
 - **هل rasterization مطلوب لإخراج PDF؟**  
-  rasterization اختياري؛ فعّله عندما تحتاج إلى تسطيح المستند لمزيد من الأمان.  
+  rasterization اختياري؛ فعّله عندما تحتاج إلى تسطيح المستند لمزيد من الأمان.
 
-## ما هو إضافة لاحقة إلى اسم الملف؟
-إضافة لاحقة هي مجرد اتفاقية تسمية بسيطة تشير إلى أن الملف خضع لعملية redaction. إنها تمنع مشاركة النسخ الأصلية غير المعدّلة عن طريق الخطأ وتساعد خطوط الأنابيب الآلية في تتبع حالة المعالجة.
+## ما هو add suffix filename java؟
+تقنية **add suffix filename java** تضيف سلسلة محددة مسبقًا إلى اسم الملف أثناء عملية الحفظ، مما يوضح بوضوح أن المستند تم حذفه. هذه الاتفاقية البسيطة تمنع التوزيع غير المقصود للملفات الأصلية غير المحذوفة وتندمج بسلاسة مع خطوط الأنابيب الآلية.
 
 ## لماذا نستخدم GroupDocs.Redaction لهذه المهمة؟
-GroupDocs.Redaction توفر API Java سلس يتيح لك دمج إجراءات الـ redaction مع خيارات معالجة الملفات—مثل **إضافة لاحقة إلى اسم الملف**—في بضع أسطر من الشيفرة فقط. هذا يوفر وقت التطوير ويقلل من خطر الأخطاء اليدوية.
+يوفر GroupDocs.Redaction واجهة برمجة تطبيقات Java سلسة تسمح بدمج إجراءات الحذف مع خيارات معالجة الملفات — مثل **add suffix filename java** — في بضع أسطر من الشيفرة فقط. يدعم SDK **أكثر من 50 صيغة إدخال وإخراج** ويمكنه معالجة مستندات مئات الصفحات دون تحميل الملف بالكامل إلى الذاكرة، مما يضمن السرعة واستهلاكًا منخفضًا للذاكرة.
 
 ## المتطلبات المسبقة
+
 - **Java Development Kit (JDK):** الإصدار 8 أو أعلى.  
-- **GroupDocs.Redaction Library:** المكتبة الأساسية لمهام الـ redaction.  
-- **IDE:** IntelliJ IDEA، Eclipse، أو أي محرر متوافق مع Java.  
+- **GroupDocs.Redaction Library:** المكتبة الأساسية لمهام الحذف.  
+- **IDE:** IntelliJ IDEA، Eclipse، أو أي محرر يدعم Java.  
 - **Maven:** لإدارة التبعيات.  
 
 ### المتطلبات المعرفية
-الإلمام بـ Java I/O ومفاهيم البرمجة الكائنية الأساسية سيسهل متابعة الأمثلة.
+الإلمام بـ Java I/O ومفاهيم البرمجة الكائنية سيسهل متابعة الأمثلة.
 
 ## إعداد GroupDocs.Redaction للـ Java
 ### إعداد Maven
-أدرج التكوين التالي في ملف `pom.xml` الخاص بك للوصول إلى مكتبات GroupDocs عبر Maven:
+أضف التكوين التالي إلى ملف `pom.xml` الخاص بك للوصول إلى مكتبات GroupDocs عبر Maven:
 
 ```xml
 <repositories>
@@ -67,26 +110,26 @@ GroupDocs.Redaction توفر API Java سلس يتيح لك دمج إجراءات
 ```
 
 ### التحميل المباشر
-بدلاً من ذلك، قم بتحميل أحدث نسخة مباشرةً من [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+بدلاً من ذلك، حمّل أحدث نسخة مباشرة من [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
 ### الحصول على الترخيص
-1. **Free Trial:** الوصول إلى الوظائف الأساسية دون قيود.  
-2. **Temporary License:** الحصول على ترخيص مؤقت لاستكشاف الميزات المتقدمة.  
-3. **Purchase:** للاستخدام طويل الأمد، فكر في شراء ترخيص كامل.  
+1. **نسخة تجريبية مجانية:** الوصول إلى الوظائف الأساسية دون قيود.  
+2. **ترخيص مؤقت:** احصل على ترخيص مؤقت لاستكشاف الميزات المتقدمة.  
+3. **شراء:** للاستخدام طويل الأمد، فكر في شراء ترخيص كامل.
 
-#### التهيئة والإعداد الأساسي
+#### التهيئة الأساسية والإعداد
 ابدأ مشروعك بإضافة الاستيرادات اللازمة:
 
 ```java
 import com.groupdocs.redaction.Redactor;
 ```
 
-مع هذا الإعداد، أنت جاهز لتنفيذ وظائف تعديل المستندات.
+مع هذا الإعداد، أنت جاهز لتنفيذ وظائف حذف المستندات.
 
 ## دليل التنفيذ
 
-### الميزة 1: تحميل المستند من تدفق (Stream)
-**نظرة عامة:** تعلم كيفية تحميل المستندات إلى `InputStream` للمعالجة.
+### الميزة 1: تحميل المستند من تدفق
+**نظرة عامة:** تعلّم كيفية تحميل المستندات إلى `InputStream` للمعالجة.
 
 #### تنفيذ خطوة بخطوة
 ##### الخطوة 1.1: إنشاء InputStream
@@ -105,10 +148,10 @@ try (InputStream stream = new FileInputStream("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DO
 }
 ```
 
-- **السبب:** استخدام `InputStream` يتيح لك التعامل مع المستندات المخزنة بصيغ مختلفة بسلاسة، وهو أمر أساسي عندما تحتاج إلى **load document from stream** في سيناريوهات السحابة أو الخدمات المصغرة.
+- **السبب:** يتيح لك `InputStream` التعامل مع المستندات المخزنة في مواقع مختلفة — دلاء سحابية، قواعد بيانات، أو مخازن في الذاكرة — دون الحاجة لكتابتها على القرص أولًا. هذا النهج أساسي عندما تحتاج إلى **load document from stream** في بنى الخدمات الدقيقة.
 
-### الميزة 2: تطبيق حذف التعليقات التوضيحية (Annotation Deletion Redaction)
-**نظرة عامة:** إزالة التعليقات التوضيحية من المستند باستخدام `DeleteAnnotationRedaction`.
+### الميزة 2: تطبيق حذف تعليقات التوضيح
+**نظرة عامة:** إزالة التعليقات التوضيحية من مستندك باستخدام `DeleteAnnotationRedaction`.
 
 #### تنفيذ خطوة بخطوة
 ##### الخطوة 2.1: تطبيق DeleteAnnotationRedaction
@@ -122,10 +165,10 @@ try (Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX")) {
 }
 ```
 
-- **السبب:** هذه الخطوة تضمن إزالة أي تعليقات توضيحية حساسة، مما يعزز خصوصية المستند.
+- **السبب:** تضمن هذه الخطوة حذف أي تعليقات توضيحية حساسة (تعليقات، تظليل، أو ملاحظات مخفية) من المستند، مما يعزز الخصوصية والامتثال.
 
 ### الميزة 3: حفظ المستند مع الخيارات
-**نظرة عامة:** تعلم كيفية حفظ المستند المعالج مع خيارات محددة مثل rasterization و **إضافة لاحقة إلى اسم الملف**.
+**نظرة عامة:** تعلّم كيفية حفظ المستند المعالج مع خيارات محددة مثل rasterization و **add suffix filename java**.
 
 #### تنفيذ خطوة بخطوة
 ##### الخطوة 3.1: تكوين SaveOptions
@@ -146,71 +189,90 @@ try (Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX")) {
 }
 ```
 
-- **السبب:** تخصيص خيارات الحفظ يتيح صيغ إخراج مرنة واتفاقيات تسمية. تفعيل `setAddSuffix(true)` **يضيف لاحقة إلى اسم الملف**، مما يجعل من الواضح أن الملف تم تعديله.
+- **السبب:** تخصيص خيارات الحفظ يتيح مرونة في صيغ الإخراج واتفاقيات التسمية. تفعيل `setAddSuffix(true)` **يضيف لاحقة إلى اسم الملف**، مما يجعل من الواضح أن الملف تم حذفه.
+
+## كيف تضيف suffix filename java عند حفظ المستند؟
+`Redactor` هو الفئة الرئيسية في GroupDocs.Redaction التي تقوم بتحميل المستند وتطبيق عمليات الحذف.  
+`setAddSuffix` هي طريقة في `SaveOptions` تُفعّل الإضافة التلقائية لللاحقة إلى اسم ملف الإخراج.  
+
+حمّل كائن `Redactor` الخاص بك، طبّق الحذف المطلوب، ثم استدعِ `save()` مع `SaveOptions` حيث تم تفعيل `setAddSuffix(true)`. هذا التكوين السطر الواحد يضيف تلقائيًا “_redacted” (أو اللاحقة الافتراضية) إلى اسم الملف، مما يلغي الحاجة لإعادة التسمية يدويًا ويقلل الأخطاء البشرية. العملية تكتمل في زمن O(n) نسبةً لحجم المستند وتعمل على جميع الصيغ المدعومة.
 
 ## نظرة عامة على تبعية groupdocs maven
-تجلب **groupdocs maven dependency** مجموعة Redaction SDK بالكامل إلى مشروعك بإدخال `<dependency>` واحد. إنها تدير التبعيات المتسلسلة، تحافظ على تحديث المكتبات، وتبسط أتمتة البناء. من خلال إعلان التبعية في `pom.xml`، تتجنب إدارة ملفات JAR يدويًا وتضمن التوافق مع أحدث تصحيحات الأمان.
+**groupdocs maven dependency** تجلب كامل SDK الحذف إلى مشروعك بإدخال `<dependency>` واحد. تدير التبعيات المتداخلة، تحافظ على تحديث المكتبات، وتبسط أتمتة البناء. بإعلان التبعية في `pom.xml`، تتجنب إدارة ملفات JAR يدويًا وتضمن التوافق مع أحدث تصحيحات الأمان.
 
-## لماذا إضافة لاحقة مهمة
+## لماذا إضافة لاحقة أمر مهم
+إضافة لاحقة توفر تأكيدًا بصريًا فوريًا بأن المستند قد تم معالجته، وهو أمر أساسي لسلاسل التدقيق، سير العمل الآلي، والامتثال التنظيمي عبر الصناعات.
+
 - **قابلية التدقيق:** يمكن للفرق التعرف فورًا على الملفات الآمنة للتوزيع.  
-- **الأتمتة:** يمكن للسكريبتات تصفية الملفات حسب اللاحقة، مما يمنع معالجة المستندات الأصلية عن طريق الخطأ.  
-- **الامتثال:** تتطلب العديد من اللوائح وضع تسمية واضحة للمستندات المنقاة.
+- **الأتمتة:** يمكن للسكريبتات تصفية الملفات حسب اللاحقة، مما يمنع معالجة الملفات الأصلية عن طريق الخطأ.  
+- **الامتثال:** تتطلب العديد من اللوائح وضع علامة واضحة على المستندات المنقاة.
 
-## التطبيقات العملية
-استكشف هذه الحالات العملية:
-1. **Legal Document Redaction:** تأمين العقود قبل مشاركتها مع العملاء.  
-2. **Medical Record Handling:** حماية معرفات المرضى.  
-3. **Financial Reporting:** الحفاظ على سرية الأرقام الحساسة.  
-4. **CRM Integration:** حذف بيانات العملاء تلقائيًا قبل التصدير.  
-5. **Collaboration Tools:** ضمان عدم كشف التعليقات المخفية في المسودات المشتركة.
+## تطبيقات عملية
+استكشف هذه الحالات الواقعية:
+
+1. **حذف المستندات القانونية:** تأمين العقود قبل مشاركتها مع العملاء.  
+2. **معالجة السجلات الطبية:** حماية معرفات المرضى مع الحفاظ على البيانات السريرية.  
+3. **التقارير المالية:** إبقاء الأرقام الحساسة سرية أثناء التدقيق الخارجي.  
+4. **تكامل CRM:** حذف بيانات العملاء تلقائيًا قبل تصديرها إلى أدوات طرف ثالث.  
+5. **أدوات التعاون:** ضمان عدم كشف المسودات المشتركة لتعليقات أو بيانات ميتا مخفية.
 
 ## اعتبارات الأداء
 ### تحسين الأداء
-- استخدم البث (`load document from stream`) لتجنب تحميل الملفات بالكامل في الذاكرة.  
-- أغلق كائنات `Redactor` فورًا لتحرير الموارد.
+- استخدم التدفق (`load document from stream`) لتجنب تحميل الملفات بالكامل في الذاكرة.  
+- أغلق كائنات `Redactor` بسرعة لتحرير الموارد.  
 
 ### إرشادات استخدام الموارد
-- راقب استهلاك CPU والذاكرة أثناء عمليات الدُفعات.  
-- يفضَّل استخدام `ByteArrayOutputStream` للحفظ في الذاكرة عند التعامل مع ملفات بحجم معتدل.
+- راقب استهلاك CPU والذاكرة أثناء عمليات الدفعة.  
+- فضل `ByteArrayOutputStream` للحفظ في الذاكرة عند التعامل مع ملفات صغيرة إلى متوسطة الحجم.
 
-### أفضل الممارسات لإدارة ذاكرة Java
-- أعد استخدام كائنات `Redactor` عند معالجة ملفات متعددة من نفس النوع.  
-- استدعِ `close()` داخل كتلة `try‑with‑resources` لمنع التسريبات.
+### أفضل الممارسات لإدارة الذاكرة في Java
+- أعد استخدام كائنات `Redactor` عند معالجة عدة ملفات من نفس النوع.  
+- استدعِ `close()` داخل كتلة `try‑with‑resources` لتجنب التسريبات.
 
 ## المشكلات الشائعة والحلول
-| المشكلة | السبب | الحل |
+| Issue | Cause | Fix |
 |-------|-------|-----|
-| **Suffix not appearing** | `setAddSuffix(false)` أو عدم استدعائه | تأكد من ضبط `options.setAddSuffix(true)` قبل `save()`. |
-| **OutOfMemoryError on large DOCX** | تحميل الملف بالكامل في الذاكرة | التحول إلى تحميل باستخدام `InputStream` (انظر الميزة 1). |
-| **Annotations still visible** | لم يتم تطبيق الـ redaction قبل الحفظ | استدعِ `redactor.apply(new DeleteAnnotationRedaction())` قبل `save()`. |
-| **PDF rasterization not applied** | `setRasterizeToPDF(false)` أو إغفاله | اضبط `options.setRasterizeToPDF(true)` عندما تحتاج إلى PDF مسطح. |
+| **Suffix not appearing** | `setAddSuffix(false)` أو عدم استدعاء الدالة | تأكد من ضبط `options.setAddSuffix(true)` قبل `save()`. |
+| **OutOfMemoryError on large DOCX** | تحميل الملف بالكامل في الذاكرة | انتقل إلى التحميل عبر `InputStream` (انظر الميزة 1). |
+| **Annotations still visible** | عدم تطبيق الحذف قبل الحفظ | استدعِ `redactor.apply(new DeleteAnnotationRedaction())` قبل `save()`. |
+| **PDF rasterization not applied** | `setRasterizeToPDF(false)` أو إغفالها | اضبط `options.setRasterizeToPDF(true)` عندما تحتاج إلى PDF مسطح. |
 
 ## الأسئلة المتكررة
-**س: هل يمكنني تعديل مستندات PDF باستخدام GroupDocs.Redaction؟**  
-**ج:** نعم، المكتبة تدعم PDFs، DOCX، PPTX، XLSX، والعديد من الصيغ الأخرى.
+
+**س: هل يمكنني حذف مستندات PDF باستخدام GroupDocs.Redaction؟**  
+ج: نعم، المكتبة تدعم PDFs، DOCX، PPTX، XLSX والعديد من الصيغ الأخرى.
 
 **س: ما هي أفضل طريقة للتعامل مع الملفات الكبيرة باستخدام GroupDocs.Redaction؟**  
-**ج:** استخدم البث (`load document from stream`) وأغلق الموارد فورًا للحفاظ على انخفاض استهلاك الذاكرة.
+ج: استخدم التدفق (`load document from stream`) وأغلق الموارد بسرعة للحفاظ على استهلاك منخفض للذاكرة.
 
 **س: هل يمكن تخصيص نص اللاحقة؟**  
-**ج:** الـ API يضيف تلقائيًا لاحقة افتراضية (مثل “_redacted”). للحصول على لاحقة مخصصة، يمكنك إعادة تسمية ملف الإخراج بعد الحفظ.
+ج: يضيف API لاحقة افتراضية (مثل “_redacted”). لتخصيص اللاحقة، أعد تسمية الملف الناتج بعد الحفظ.
 
 **س: كيف أحصل على ترخيص مؤقت لـ GroupDocs.Redaction؟**  
-**ج:** زر [صفحة الترخيص المؤقت](https://purchase.groupdocs.com/temporary-license/) واتبع التعليمات.
+ج: زر [Temporary License page](https://purchase.groupdocs.com/temporary-license/) واتبع التعليمات.
 
 **س: أين يمكنني الحصول على مساعدة إذا واجهت مشاكل؟**  
-**ج:** انضم إلى [منتدى دعم GroupDocs](https://forum.groupdocs.com/c/redaction/33) للحصول على مساعدة من الخبراء.
+ج: انضم إلى [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33) للحصول على مساعدة الخبراء.
 
-## الموارد
-- **Documentation:** استكشف الأدلة التفصيلية على [GroupDocs Documentation](https://docs.groupdocs.com/redaction/java/).  
-- **API Reference:** احصل على تفاصيل شاملة للـ API على [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java).  
-- **Download:** احصل على أحدث نسخة من [GroupDocs Downloads](https://releases.groupdocs.com/redaction/java/).  
-- **GitHub Repository:** ساهم أو استكشف الشيفرة المصدرية على [GroupDocs GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java).
+## موارد
+- **الوثائق:** استكشف الأدلة التفصيلية على [GroupDocs Documentation](https://docs.groupdocs.com/redaction/java/).  
+- **مرجع API:** احصل على تفاصيل شاملة للـ API على [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java).  
+- **التنزيل:** احصل على أحدث نسخة من [GroupDocs Downloads](https://releases.groupdocs.com/redaction/java/).  
+- **مستودع GitHub:** ساهم أو استكشف الشيفرة المصدرية على [GroupDocs GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java).
 
 ---
 
-**آخر تحديث:** 2026-02-16  
-**تم الاختبار مع:** GroupDocs.Redaction 24.9 للـ Java  
+**آخر تحديث:** 2026-05-22  
+**تم الاختبار مع:** GroupDocs.Redaction 24.9 for Java  
 **المؤلف:** GroupDocs  
 
----
+{< /blocks/products/pf/tutorial-page-section >}
+{< /blocks/products/pf/main-container >}
+{< /blocks/products/pf/main-wrap-class >}
+{< blocks/products/products-backtop-button >}
+
+## دروس ذات صلة
+
+- [Convert Word to PDF and Save Redacted Documents with GroupDocs.Redaction Java](/redaction/java/document-saving/)
+- [Preview Document Pages Java Loading with GroupDocs.Redaction](/redaction/java/document-loading/)
+- [Advanced Redaction Techniques for GroupDocs.Redaction Java](/redaction/java/advanced-redaction/)
