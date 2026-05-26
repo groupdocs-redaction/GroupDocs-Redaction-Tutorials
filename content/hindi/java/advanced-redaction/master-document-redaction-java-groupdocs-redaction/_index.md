@@ -1,49 +1,83 @@
 ---
-date: '2026-02-16'
-description: GroupDocs.Redaction का उपयोग करके जावा में संवेदनशील डेटा को मास्क करना
-  और पीडीएफ में व्यक्तिगत डेटा को रिडैक्ट करना सीखें, जिससे गोपनीयता अनुपालन और डेटा
-  सुरक्षा सुनिश्चित हो।
+date: '2026-05-17'
+description: GroupDocs.Redaction का उपयोग करके Java में PDF को रीडैक्ट और संवेदनशील
+  डेटा को मास्क करना सीखें, जिससे GDPR अनुपालन और मजबूत डेटा सुरक्षा सुनिश्चित हो।
 keywords:
-- Java document redaction
-- GroupDocs.Redaction setup
-- Precise document redactions
-title: संवेदनशील डेटा को मास्क करें जावा – GroupDocs.Redaction के साथ व्यक्तिगत जानकारी
-  को रिडैक्ट करें
+- how to redact pdf
+- mask sensitive data java
+- java redact text
+- redact personal data pdf
+schemas:
+- author: GroupDocs
+  dateModified: '2026-05-17'
+  description: Learn how to redact PDF and mask sensitive data java using GroupDocs.Redaction,
+    ensuring GDPR compliance and robust data protection.
+  headline: How to Redact PDF and Mask Sensitive Data Java with GroupDocs
+  type: TechArticle
+- description: Learn how to redact PDF and mask sensitive data java using GroupDocs.Redaction,
+    ensuring GDPR compliance and robust data protection.
+  name: How to Redact PDF and Mask Sensitive Data Java with GroupDocs
+  steps:
+  - name: Initialize the Redactor
+    text: The Redactor class is the core engine that loads and prepares a document
+      for redaction operations.
+  - name: Define and Apply the Exact‑Phrase Redaction
+    text: ExactPhraseRedaction defines a rule that matches a literal text string,
+      while ReplacementOptions specify how the matched content is visually replaced.
+  - name: Save the Redacted Document with Custom Options
+    text: SaveOptions configures the output parameters such as file format, suffix,
+      and rasterization behavior for the redacted document.
+  type: HowTo
+- questions:
+  - answer: Use a list of `Redaction` objects and call `redactor.applyAll()`. The
+      API processes all patterns in one pass, minimizing file reads.
+    question: How do I handle multiple redactions at once?
+  - answer: Yes, the API is platform‑agnostic and can be invoked from web services,
+      micro‑services, or desktop applications.
+    question: Can I integrate GroupDocs.Redaction with other document management systems?
+  - answer: It supports **30+ formats** including DOCX, PDF, XLSX, PPTX, HTML, and
+      common image types, handling each natively without conversion.
+    question: What file formats does GroupDocs.Redaction support?
+  - answer: Stream input files, reuse a single `Redactor` instance for batch jobs,
+      and always close the instance to release resources promptly.
+    question: How should I manage performance when redacting large documents?
+  - answer: Yes—pass the password to the `Redactor` constructor, and the engine will
+      decrypt, redact, and re‑encrypt the file automatically.
+    question: Does the library work with password‑protected PDFs?
+  type: FAQPage
+title: GroupDocs के साथ Java में PDF को रीडैक्ट और संवेदनशील डेटा को मास्क कैसे करें
 type: docs
 url: /hi/java/advanced-redaction/master-document-redaction-java-groupdocs-redaction/
 weight: 1
 ---
 
-# संवेदनशील डेटा को मास्क करें Java – GroupDocs.Redaction के साथ व्यक्तिगत जानकारी को रिडैक्ट करें
+# GroupDocs के साथ जावा में PDF को रिडैक्ट और संवेदनशील डेटा को मास्क कैसे करें
 
-आज के तेज़ी से बदलते डिजिटल परिदृश्य में, **masking sensitive data java** अब वैकल्पिक नहीं है—यह एक अनुपालन आवश्यकता है। चाहे आप क्लाइंट के लिए अनुबंध तैयार कर रहे हों, मेडिकल रिकॉर्ड साझा कर रहे हों, या सिर्फ़ एक आंतरिक रिपोर्ट को साफ़ कर रहे हों, आपको व्यक्तिगत पहचानकर्ताओं को छिपाने का एक विश्वसनीय तरीका चाहिए जबकि दस्तावेज़ की मूल लेआउट अपरिवर्तित रहे। इस ट्यूटोरियल में हम देखेंगे कि कैसे **mask sensitive data java** और साथ ही **redact personal data pdf** को शक्तिशाली GroupDocs.Redaction लाइब्रेरी for Java का उपयोग करके किया जाता है।
+आज के तेज़ गति वाले डिजिटल परिदृश्य में, **PDF को रिडैक्ट करने** और **जावा में संवेदनशील डेटा को मास्क करने** के बारे में सीखना अब वैकल्पिक नहीं है—यह एक अनुपालन आवश्यकता है। चाहे आप क्लाइंट कॉन्ट्रैक्ट तैयार कर रहे हों, मेडिकल रिकॉर्ड साझा कर रहे हों, या आंतरिक रिपोर्ट को साफ़ कर रहे हों, आपको व्यक्तिगत पहचानकर्ताओं को छिपाने का एक भरोसेमंद तरीका चाहिए जबकि मूल लेआउट को बरकरार रखा जाए। इस ट्यूटोरियल में हम शक्तिशाली **GroupDocs.Redaction** लाइब्रेरी का उपयोग करके पूरी प्रक्रिया को चरण-दर-चरण देखेंगे।
 
 ## त्वरित उत्तर
-- **“mask sensitive data java” का क्या अर्थ है?** इसका मतलब है कि जावा‑आधारित दस्तावेज़ वर्कफ़्लो में प्रोग्रामेटिक रूप से निजी जानकारी (नाम, आईडी आदि) को खोजकर छिपाना।  
-- **कौन सी लाइब्रेरी इसे संभालती है?** GroupDocs.Redaction for Java।  
-- **क्या मुझे लाइसेंस चाहिए?** परीक्षण के लिए एक फ्री ट्रायल पर्याप्त है; उत्पादन उपयोग के लिए पूर्ण लाइसेंस आवश्यक है।  
-- **क्या मैं PDF फ़ाइलों में भी व्यक्तिगत डेटा रिडैक्ट कर सकता हूँ?** बिल्कुल—GroupDocs.Redaction PDF, DOCX, XLSX, PPTX और कई अन्य फ़ॉर्मेट्स के साथ काम करता है।  
+- **“mask sensitive data java” का क्या अर्थ है?** यह जावा‑आधारित दस्तावेज़ वर्कफ़्लो में निजी जानकारी (नाम, आईडी आदि) को प्रोग्रामेटिक रूप से खोजने और छिपाने का मतलब है।  
+- **कौन सी लाइब्रेरी इसे संभालती है?** GroupDocs.Redaction for Java.  
+- **क्या मुझे लाइसेंस चाहिए?** एक मुफ्त ट्रायल परीक्षण के लिए उपयुक्त है; उत्पादन उपयोग के लिए पूर्ण लाइसेंस आवश्यक है।  
+- **क्या मैं व्यक्तिगत डेटा वाले PDF फ़ाइलों को भी रिडैक्ट कर सकता हूँ?** बिल्कुल—GroupDocs.Redaction PDF, DOCX, XLSX, PPTX और कई अन्य फ़ॉर्मैट्स के साथ काम करता है।  
 - **कौन सा जावा संस्करण आवश्यक है?** JDK 8 या उससे ऊपर।
 
-## Mask Sensitive Data Java क्या है?
+## जावा में संवेदनशील डेटा को मास्क करना क्या है?
 जावा में संवेदनशील डेटा को मास्क करना मतलब कोड का उपयोग करके दस्तावेज़ के भीतर विशिष्ट वाक्यांश या पैटर्न को खोजना और उन्हें प्लेसहोल्डर (जैसे, “[personal]”) से बदलना है। यह प्रक्रिया सुनिश्चित करती है कि मूल सामग्री को पुनः प्राप्त नहीं किया जा सकता जबकि दस्तावेज़ की दृश्य अखंडता बनी रहती है।
 
-## क्यों उपयोग करें GroupDocs.Redaction को मास्किंग के लिए?
-- **Full‑format support** – PDF, Word फ़ाइलें, स्प्रेडशीट और प्रेज़ेंटेशन को बिना कनवर्ट किए रिडैक्ट करें।  
-- **Exact‑phrase matching** – “John Doe” जैसे सटीक स्ट्रिंग को लक्षित करें।  
-- **Custom replacement options** – टेक्स्ट, ब्लैक बॉक्स या इमेज ओवरले चुनें।  
-- **Compliance‑ready** – बॉक्स से बाहर निकलते ही GDPR, HIPAA और अन्य गोपनीयता नियमों का पालन करें।
+## मास्किंग के लिए GroupDocs.Redaction का उपयोग क्यों करें?
+GroupDocs.Redaction पूर्ण‑फ़ॉर्मेट समर्थन प्रदान करता है, जिससे PDF, Word, Excel और PowerPoint फ़ाइलों को बिना रूपांतरण के रिडैक्ट किया जा सकता है। यह “John Doe” जैसे सटीक स्ट्रिंग्स के लिए एक्ज़ैक्ट‑फ़्रेज़ मैचिंग, टेक्स्ट, ब्लैक बॉक्स या इमेज जैसी कस्टमाइज़ेबल रिप्लेसमेंट, और बिल्ट‑इन अनुपालन टेम्प्लेट्स प्रदान करता है जो GDPR, HIPAA और अन्य गोपनीयता नियमों को पूरा करते हैं।
 
-## Prerequisites
-- **Java Development Kit (JDK) 8+** स्थापित हो।  
-- **An IDE** जैसे IntelliJ IDEA या Eclipse आसान डिबगिंग के लिए।  
-- **GroupDocs.Redaction for Java** (version 24.9 या बाद का)।  
-- बेसिक जावा फ़ाइल‑हैंडलिंग ज्ञान।
+## पूर्वापेक्षाएँ
+- **Java Development Kit (JDK) 8+** स्थापित है।  
+- **एक IDE** जैसे IntelliJ IDEA या Eclipse डिबगिंग के लिए।  
+- **GroupDocs.Redaction for Java** (संस्करण 24.9 या बाद का)।  
+- बुनियादी जावा फ़ाइल‑हैंडलिंग ज्ञान।
 
-## Setting Up GroupDocs.Redaction for Java
+## GroupDocs.Redaction for Java सेटअप करना
 
-### Maven Setup
-अपने `pom.xml` में GroupDocs रिपॉज़िटरी और डिपेंडेंसी जोड़ें:
+### Maven सेटअप
+अपने `pom.xml` में GroupDocs रिपॉजिटरी और डिपेंडेंसी जोड़ें:
 
 ```xml
 <repositories>
@@ -63,20 +97,20 @@ weight: 1
 </dependencies>
 ```
 
-### Direct Download
+### डायरेक्ट डाउनलोड
 यदि आप मैन्युअल प्रबंधन पसंद करते हैं, तो आधिकारिक रिलीज़ पेज से नवीनतम JAR प्राप्त करें: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/)।
 
-### License Acquisition
-- **Free trial** – API का मूल्यांकन करने के लिए परफेक्ट।  
+### लाइसेंस प्राप्त करना
+- **Free trial** – API का मूल्यांकन करने के लिए उपयुक्त।  
 - **Temporary license** – बिना खरीद के विस्तारित परीक्षण के लिए उपयोगी।  
-- **Full license** – व्यावसायिक डिप्लॉयमेंट और अनलिमिटेड रिडैक्शन के लिए आवश्यक।
+- **Full license** – व्यावसायिक डिप्लॉयमेंट और असीमित रिडैक्शन के लिए आवश्यक।
 
-## How to Mask Sensitive Data Java Using GroupDocs.Redaction
+## जावा में GroupDocs.Redaction का उपयोग करके PDF को रिडैक्ट कैसे करें
 
-नीचे हम कार्यान्वयन को स्पष्ट, क्रमांकित चरणों में विभाजित करते हैं। प्रत्येक चरण में एक छोटा स्पष्टीकरण और मूल कोड ब्लॉक (अपरिवर्तित) शामिल है।
+GroupDocs.Redaction के साथ PDF को रिडैक्ट करने के लिए, पहले दस्तावेज़ को Redactor इंस्टेंस में लोड करें, फिर ExactPhraseRedaction जैसी एक या अधिक रिडैक्शन नियम परिभाषित करें, और अंत में SaveOptions का उपयोग करके संशोधित फ़ाइल सहेजें। यह तीन‑स्टेप वर्कफ़्लो मूल लेआउट को बरकरार रखता है जबकि संवेदनशील सामग्री को सुरक्षित रूप से हटाता है।
 
-### Step 1: Initialize the Redactor
-उस दस्तावेज़ को लोड करें जिसे आप प्रोसेस करना चाहते हैं। यह एक `Redactor` इंस्टेंस बनाता है जो सभी बाद के रिडैक्शन कार्यों को मैनेज करेगा।
+### चरण 1: Redactor को इनिशियलाइज़ करें
+Redactor क्लास वह कोर इंजन है जो दस्तावेज़ को लोड करता है और रिडैक्शन ऑपरेशन्स के लिए तैयार करता है।
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -87,8 +121,8 @@ import com.groupdocs.redaction.redactions.ReplacementOptions;
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/sample.docx");
 ```
 
-### Step 2: Define and Apply the Exact‑Phrase Redaction
-वह सटीक वाक्यांश निर्दिष्ट करें जिसे आप मास्क करना चाहते हैं (उदा., किसी व्यक्ति का नाम) और वह प्रतिस्थापन टेक्स्ट जो अंतिम दस्तावेज़ में दिखाई देगा।
+### चरण 2: Exact‑Phrase रिडैक्शन को परिभाषित और लागू करें
+ExactPhraseRedaction एक नियम परिभाषित करता है जो शाब्दिक टेक्स्ट स्ट्रिंग से मेल खाता है, जबकि ReplacementOptions यह निर्धारित करता है कि मेल खाई सामग्री को दृश्य रूप से कैसे बदलना है।
 
 ```java
 try {
@@ -102,13 +136,8 @@ try {
 }
 ```
 
-**Key points**  
-- `ExactPhraseRedaction` लिटरल स्ट्रिंग “John Doe” को टार्गेट करता है।  
-- `ReplacementOptions("[personal]")` इंजन को बताता है कि वाक्यांश को प्लेसहोल्डर “[personal]” से बदलें।  
-- हमेशा `Redactor` को बंद करें ताकि संसाधन मुक्त हो सकें।
-
-### Step 3: Save the Redacted Document with Custom Options
-डेटा को मास्क करने के बाद, आप संभवतः मूल फ़ाइल फ़ॉर्मेट को बनाए रखना चाहेंगे और फ़ाइलनाम में एक सहायक सफ़िक्स (उदा., तिथि) जोड़ना चाहेंगे।
+### चरण 3: कस्टम विकल्पों के साथ रिडैक्टेड दस्तावेज़ को सहेजें
+SaveOptions रिडैक्टेड दस्तावेज़ के लिए फ़ाइल फ़ॉर्मेट, सफ़िक्स, और रास्टराइज़ेशन व्यवहार जैसे आउटपुट पैरामीटर कॉन्फ़िगर करता है।
 
 ```java
 import com.groupdocs.redaction.options.SaveOptions;
@@ -134,48 +163,51 @@ try {
 }
 ```
 
-**What the options do**  
-- `setAddSuffix(true)` स्वचालित रूप से उत्पन्न सफ़िक्स को नए फ़ाइल नाम में जोड़ता है।  
-- `setRasterizeToPDF(false)` मूल फ़ॉर्मेट (DOCX, PDF, आदि) को बरकरार रखता है, बजाय सभी को इमेज‑बेस्ड PDF में बदलने के।
+## कई रिडैक्शन को प्रभावी ढंग से कैसे लागू करें?
+applyAll() मेथड सभी कतारबद्ध Redaction नियमों को एक ही ऑपरेशन में निष्पादित करता है। जब आपको कई रिडैक्शन नियम लागू करने हों, तो Redaction ऑब्जेक्ट्स की एक सूची बनाएं—जिसमें ExactPhraseRedaction, RegexRedaction या ImageRedaction शामिल हों—और इस संग्रह को redactor.applyAll() को पास करें। यह बैच प्रोसेसिंग सभी नियमों को एक ही पास में चलाता है, I/O ऑपरेशन्स को न्यूनतम करता है और बड़े दस्तावेज़ सेटों पर प्रदर्शन को उल्लेखनीय रूप से सुधारता है।
 
-## How to Redact Personal Data PDF in Java
-उसी API का उपयोग PDF फ़ाइलों के लिए भी किया जा सकता है। बस `Redactor` कंस्ट्रक्टर को एक `.pdf` फ़ाइल की ओर पॉइंट करें और ऊपर बताए गए Exact‑Phrase चरणों का पालन करें। क्योंकि लाइब्रेरी PDF टेक्स्ट लेयर्स को पार्स करती है, आप कॉन्ट्रैक्ट, इनवॉइस या किसी भी PDF‑आधारित रिपोर्ट में पहचानकर्ताओं को मास्क कर सकते हैं बिना सर्चेबल टेक्स्ट खोए।
+## व्यावहारिक अनुप्रयोग
+1. **Legal Document Management** – थर्ड पार्टीज़ के साथ साझा करने से पहले कॉन्ट्रैक्ट से क्लाइंट नाम हटाएँ।  
+2. **Healthcare Data Processing** – HIPAA‑अनुपालन बनाए रखने के लिए रोगी पहचानकर्ताओं को मास्क करें।  
+3. **Financial Services** – ऑडिट के लिए स्टेटमेंट्स में अकाउंट नंबर छिपाएँ।  
+4. **Human Resources** – आंतरिक समीक्षाओं के दौरान कर्मचारी व्यक्तिगत डेटा की सुरक्षा करें।
 
-## Practical Applications
-1. **Legal Document Management** – थर्ड पार्टीज़ के साथ शेयर करने से पहले कॉन्ट्रैक्ट से क्लाइंट नाम हटाएँ।  
-2. **Healthcare Data Processing** – HIPAA‑अनुपालन के लिए रोगी पहचानकर्ताओं को मास्क करें।  
-3. **Financial Services** – ऑडिट के लिए स्टेटमेंट में अकाउंट नंबर छिपाएँ।  
-4. **Human Resources** – आंतरिक रिव्यू के दौरान कर्मचारी व्यक्तिगत डेटा की सुरक्षा करें।
-
-## Performance Tips for Large Files
+## बड़े फ़ाइलों के लिए प्रदर्शन टिप्स
 - **Redactor इंस्टेंस को तुरंत बंद करें** ताकि मेमोरी मुक्त हो सके।  
-- **बैच प्रोसेस** कई दस्तावेज़ों को लूप में प्रोसेस करें और जहाँ संभव हो एक ही `Redactor` को पुन: उपयोग करें।  
-- **CPU और RAM की निगरानी** करें; यदि `OutOfMemoryError` मिले तो JVM हीप साइज बढ़ाने पर विचार करें।
+- **बैच प्रोसेस** कई दस्तावेज़ों को लूप का उपयोग करके प्रोसेस करें और जहाँ संभव हो एक ही `Redactor` को पुनः उपयोग करें।  
+- **भारी वर्कलोड के दौरान CPU और RAM की निगरानी करें**; यदि `OutOfMemoryError` मिलता है तो JVM हीप साइज बढ़ाने पर विचार करें।
 
-## Common Issues & Solutions
-
-| Issue | Solution |
+## सामान्य समस्याएँ और समाधान
+| समस्या | समाधान |
 |-------|----------|
-| **Redaction not applied** | सटीक वाक्यांश केस‑सेंसिटिविटी से मेल खाता है या नहीं, जांचें; आवश्यक होने पर `ExactPhraseRedaction` के साथ `ignoreCase` विकल्प उपयोग करें। |
-| **PDF output looks blank** | सुनिश्चित करें कि `setRasterizeToPDF(false)` सेट है; रास्टराइज़ करने से सर्चेबल टेक्स्ट हट जाता है। |
-| **License error** | पुष्टि करें कि ट्रायल या फुल लाइसेंस फ़ाइल सही जगह रखी गई है और पाथ `License.setLicense("path/to/license.lic")` के माध्यम से प्रदान किया गया है। |
+| **Redaction लागू नहीं हुआ** | सुनिश्चित करें कि एक्ज़ैक्ट फ़्रेज़ केस‑सेंसिटिविटी से मेल खाता है; आवश्यकता होने पर `ignoreCase` विकल्प के साथ `ExactPhraseRedaction` का उपयोग करें। |
+| **PDF आउटपुट खाली दिख रहा है** | `setRasterizeToPDF(false)` सेट है यह सुनिश्चित करें; रास्टराइज़ करने से सर्चेबल टेक्स्ट हट जाता है। |
+| **License त्रुटि** | पुष्टि करें कि ट्रायल या पूर्ण लाइसेंस फ़ाइल सही स्थान पर रखी गई है और पाथ `License.setLicense("path/to/license.lic")` के माध्यम से प्रदान किया गया है। |
 
-## Frequently Asked Questions
+## अक्सर पूछे जाने वाले प्रश्न
 
-**Q1: How do I handle multiple redactions at once?**  
-A1: आप `Redaction` ऑब्जेक्ट्स की एक लिस्ट को `redactor.applyAll()` के साथ लागू कर सकते हैं, जो कई पैटर्न को एक ही पास में प्रोसेस करता है।
+**Q: मैं एक साथ कई रिडैक्शन कैसे संभालूँ?**  
+A: एक सूची `Redaction` ऑब्जेक्ट्स की बनाएं और `redactor.applyAll()` को कॉल करें। API सभी पैटर्न को एक ही पास में प्रोसेस करता है, फ़ाइल पढ़ने को न्यूनतम करता है।
 
-**Q2: Can I integrate GroupDocs.Redaction with other document management systems?**  
-A2: हाँ, API प्लेटफ़ॉर्म‑अज्ञेय है और वेब सर्विसेज, माइक्रो‑सर्विसेज या डेस्कटॉप एप्लिकेशन से कॉल किया जा सकता है।
+**Q: क्या मैं GroupDocs.Redaction को अन्य दस्तावेज़ प्रबंधन सिस्टम्स के साथ एकीकृत कर सकता हूँ?**  
+A: हाँ, API प्लेटफ़ॉर्म‑अज्ञेय है और इसे वेब सर्विसेज़, माइक्रो‑सर्विसेज़ या डेस्कटॉप एप्लिकेशन से कॉल किया जा सकता है।
 
-**Q3: What file formats does GroupDocs.Redaction support?**  
-A3: यह DOCX, PDF, XLSX, PPTX और कई अन्य सामान्य बिज़नेस फ़ॉर्मेट्स को सपोर्ट करता है।
+**Q: GroupDocs.Redaction कौन‑से फ़ाइल फ़ॉर्मैट्स को सपोर्ट करता है?**  
+A: यह **30+ फ़ॉर्मैट्स** को सपोर्ट करता है, जिसमें DOCX, PDF, XLSX, PPTX, HTML, और सामान्य इमेज टाइप्स शामिल हैं, और प्रत्येक को बिना रूपांतरण के नेटिव रूप से संभालता है।
 
-**Q4: How do I manage performance when redacting large documents?**  
-A5: बैच प्रोसेसिंग का उपयोग करें, इनपुट फ़ाइलों को स्ट्रीम करें, और हमेशा `Redactor` इंस्टेंस को तुरंत बंद करें ताकि संसाधन तुरंत मुक्त हो सकें।
+**Q: बड़े दस्तावेज़ों को रिडैक्ट करते समय प्रदर्शन को कैसे प्रबंधित करूँ?**  
+A: इनपुट फ़ाइलों को स्ट्रीम करें, बैच जॉब्स के लिए एक ही `Redactor` इंस्टेंस को पुनः उपयोग करें, और हमेशा इंस्टेंस को तुरंत बंद करके संसाधनों को मुक्त करें।
+
+**Q: क्या लाइब्रेरी पासवर्ड‑सुरक्षित PDFs के साथ काम करती है?**  
+A: हाँ—पासवर्ड को `Redactor` कंस्ट्रक्टर में पास करें, और इंजन स्वचालित रूप से फ़ाइल को डिक्रिप्ट, रिडैक्ट और पुनः‑एन्क्रिप्ट करेगा।
 
 ---
 
-**Last Updated:** 2026-02-16  
-**Tested With:** GroupDocs.Redaction 24.9 for Java  
-**Author:** GroupDocs
+**अंतिम अपडेट:** 2026-05-17  
+**परीक्षित संस्करण:** GroupDocs.Redaction 24.9 for Java  
+**लेखक:** GroupDocs
+
+## संबंधित ट्यूटोरियल
+- [फ़ाइल पाथ से GroupDocs Redaction जावा लाइसेंस के साथ संवेदनशील डेटा को रिडैक्ट कैसे करें – चरण-दर-चरण गाइड](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)
+- [सुरक्षित दस्तावेज़ हैंडलिंग के लिए GroupDocs.Redaction का उपयोग करके जावा में टेक्स्ट रिडैक्शन कैसे लागू करें](/redaction/java/text-redaction/groupdocs-redaction-java-text-redaction-guide/)
+- [जावा में उन्नत रास्टराइज़ेशन में महारत: GroupDocs.Redaction के साथ कस्टम बॉर्डर्स](/redaction/java/rasterization-options/advanced-rasterization-java-custom-borders-groupdocs-redaction/)
