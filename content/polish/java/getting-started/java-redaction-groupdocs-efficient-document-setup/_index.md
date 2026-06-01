@@ -1,49 +1,47 @@
 ---
-date: '2025-12-26'
-description: Naucz się tworzyć folder wyjściowy w Javie i stosować redakcję dokumentów
-  za pomocą GroupDocs.Redaction. Krok po kroku konfiguracja, przykłady kodu i najlepsze
-  praktyki.
+date: '2026-02-26'
+description: Dowiedz się, jak rozwiązać problem „java file not found”, tworząc katalog
+  wyjściowy Java i stosując redakcję GroupDocs.Redaction. Przewodnik krok po kroku
+  z przykładami kodu.
 keywords:
 - Java Redaction
 - GroupDocs.Redaction Setup
 - Document Redaction
-title: Utwórz folder wyjściowy – przewodnik Java dla GroupDocs.Redaction
+title: Plik Java nie znaleziony – Utwórz folder wyjściowy w Javie
 type: docs
 url: /pl/java/getting-started/java-redaction-groupdocs-efficient-document-setup/
 weight: 1
 ---
 
-# Przewodnik po tworzeniu folderu wyjściowego w Javie dla GroupDocs.Redaction
+# java file not found – Utwórz folder wyjściowy w Javie
 
-W dzisiejszej erze cyfrowej ochrona wrażliwych informacji w dokumentach jest priorytetem. Ten samouczek pokazuje, **jak utworzyć folder wyjściowy w Javie** i następnie użyć GroupDocs.Redaction do szybkiego i niezawodnego ukrywania poufnych danych. Przejdziemy przez konfigurację środowiska, tworzenie folderu, implementację redakcji oraz wskazówki dotyczące wydajności, abyś mógł chronić dane osobowe, finansowe lub firmowe z pełnym przekonaniem.
+W nowoczesnych aplikacjach napotkanie błędów **java file not found** może zatrzymać Twój pipeline przetwarzania. Częstą przyczyną jest próba zapisania dokumentu po redakcji do katalogu, który nie istnieje. Ten samouczek pokaże Ci dokładnie, jak utworzyć wymagany folder wyjściowy w Javie, zintegrować go z **GroupDocs.Redaction**, i uniknąć irytujących wyjątków typu file‑not‑found. Po zakończeniu będziesz mieć czysty, wielokrotnego użytku przepływ pracy, który chroni oryginalne pliki, a jednocześnie przechowuje redagowane kopie w dedykowanym **java output directory**.
 
 ## Szybkie odpowiedzi
-- **Jaki jest pierwszy krok?** Utwórz folder wyjściowy w Javie i dodaj bibliotekę GroupDocs.Redaction.  
-- **Jakiej wersji biblioteki potrzebujesz?** GroupDocs.Redaction 24.9 lub nowsza.  
-- **Czy potrzebna jest licencja?** Bezpłatna wersja próbna wystarczy do testów; licencja płatna jest wymagana w środowisku produkcyjnym.  
-- **Czy mogę zachować oryginalny format dokumentu?** Tak — wyłącz rasteryzację przy zapisie.  
-- **Czy to rozwiązanie nadaje się do dużych plików?** Tak, przy odpowiednim dostrojeniu pamięci.
+- **What is the first step?** Utwórz folder wyjściowy w Javie i dodaj bibliotekę GroupDocs.Redaction.  
+- **Which library version is required?** GroupDocs.Redaction 24.9 lub nowsza.  
+- **Do I need a license?** Darmowa wersja próbna działa do testów; płatna licencja jest wymagana w produkcji.  
+- **Can I keep the original document format?** Tak — wyłącz rasteryzację przy zapisie.  
+- **Is this suitable for large files?** Tak, przy odpowiednim dostrojeniu pamięci.
 
 ## Co to jest „create output folder java”?
-Tworzenie folderu wyjściowego w Javie oznacza programowe sprawdzenie, czy katalog istnieje, i w razie potrzeby jego utworzenie, aby przetworzone pliki miały dedykowane miejsce do zapisu. Ten krok oddziela dokumenty poddane redakcji od oryginałów i pomaga utrzymać porządek w projekcie.
+Utworzenie folderu wyjściowego w Javie oznacza programowe sprawdzenie, czy katalog istnieje, i w razie jego braku utworzenie go, aby przetworzone pliki miały dedykowane miejsce do zapisu. Ten krok oddziela Twoje redagowane dokumenty od oryginałów i utrzymuje projekt w porządku.
 
-## Dlaczego warto tworzyć folder wyjściowy w Javie z GroupDocs.Redaction?
-- **Separacja obowiązków:** Oryginalne i zredagowane pliki są przechowywane osobno.  
-- **Skalowalność:** Umożliwia przetwarzanie wsadowe wielu dokumentów w jednym miejscu.  
-- **Zgodność:** Ułatwia tworzenie ścieżek audytu, przechowując wyłącznie wersje oczyszczone.  
-- **Wydajność:** Redukuje bałagan w systemie plików, co może przyspieszyć operacje I/O.
+## Dlaczego tworzyć output folder java z GroupDocs.Redaction?
+- **Separation of concerns:** Utrzymuje oryginalne i redagowane pliki oddzielnie.  
+- **Scalability:** Umożliwia przetwarzanie wsadowe wielu dokumentów w jednym miejscu.  
+- **Compliance:** Ułatwia ścieżki audytu, przechowując tylko zsanitowane wersje.  
+- **Performance:** Zmniejsza bałagan w systemie plików, co może poprawić prędkość I/O.
 
-## Wymagania wstępne
-Zanim przejdziesz do dalszych kroków, upewnij się, że masz następujące elementy:
-
-- **Biblioteka GroupDocs.Redaction** – wersja 24.9 lub nowsza.  
+## Prerequisites
+- **GroupDocs.Redaction Library** – wersja 24.9 lub nowsza.  
 - **Java Development Kit (JDK)** – wersja 8 lub wyższa.  
-- Środowisko IDE, np. IntelliJ IDEA lub Eclipse.  
+- Środowisko IDE Java, takie jak IntelliJ IDEA lub Eclipse.  
 - Maven zainstalowany do zarządzania zależnościami.  
-- Podstawowa znajomość Javy, szczególnie obsługi plików.
+- Podstawowa znajomość Javy, szczególnie obsługa plików.
 
 ## Konfiguracja GroupDocs.Redaction dla Javy
-Dodaj repozytorium GroupDocs oraz zależność Redaction do swojego `pom.xml`:
+Dodaj repozytorium GroupDocs i zależność Redaction do swojego `pom.xml`:
 
 ```xml
 <repositories>
@@ -63,18 +61,18 @@ Dodaj repozytorium GroupDocs oraz zależność Redaction do swojego `pom.xml`:
 </dependencies>
 ```
 
-Jeśli wolisz ręczne pobranie, ściągnij najnowszy plik JAR z oficjalnej strony wydań: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+Jeśli wolisz ręczne pobranie, pobierz najnowszy JAR ze strony wydania: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
 ### Kroki uzyskania licencji
-Rozpocznij od bezpłatnej wersji próbnej, aby zapoznać się z API. Gdy będziesz gotowy do produkcji, uzyskaj tymczasową lub pełną licencję w portalu GroupDocs.
+Rozpocznij od darmowej wersji próbnej, aby zapoznać się z API. Gdy będziesz gotowy do produkcji, uzyskaj tymczasową lub pełną licencję z portalu GroupDocs.
 
 ## Przewodnik implementacji
 
-### Jak utworzyć folder wyjściowy w Javie
-Organizacja lokalizacji wyjściowej jest podstawą czystego procesu redakcji. Poniżej utworzymy folder o nazwie `HelloWorld` wewnątrz katalogu bazowego, który określisz.
+### Jak utworzyć output folder java
+Organizacja lokalizacji wyjściowej jest podstawą czystego przepływu pracy redakcji. Poniżej utworzymy folder o nazwie `HelloWorld` wewnątrz katalogu bazowego, który określisz.
 
-#### Konfiguracja katalogu dokumentów
-Poniższy fragment kodu sprawdza, czy folder istnieje, i tworzy go w razie potrzeby. Przygotowuje także ścieżkę do dokumentu po redakcji.
+#### Konfiguracja katalogu dokumentu
+Następujący fragment sprawdza, czy folder istnieje i tworzy go w razie potrzeby. Przygotowuje także ścieżkę do redagowanego dokumentu.
 
 ```java
 import java.io.File;
@@ -91,10 +89,10 @@ public class DocumentDirectorySetup {
 }
 ```
 
-- **Dlaczego to ważne:** Programowe tworzenie folderu zapewnia, że krok redakcji zawsze ma prawidłowe miejsce docelowe, zapobiegając błędom `FileNotFoundException`.
+- **Why this matters:** Programowe tworzenie folderu zapewnia, że krok redakcji zawsze ma prawidłowe miejsce docelowe, zapobiegając błędom `FileNotFoundException`.
 
 ### Aplikacja redakcji
-Gdy folder wyjściowy istnieje, możemy wczytać plik źródłowy, zastosować redakcję i zapisać wynik w właśnie utworzonym folderze.
+Teraz, gdy folder wyjściowy istnieje, możemy wczytać plik źródłowy, zastosować redakcję i zapisać wynik w folderze, który właśnie utworzyliśmy.
 
 #### Kod redakcji
 ```java
@@ -130,48 +128,58 @@ public class RedactionApplication {
 }
 ```
 
-- **Wyjaśnienie:** `Redactor` wczytuje `sample_document.docx`, wyszukuje dokładną frazę „John Doe”, zastępuje ją czerwonym nakładką i zapisuje wynik w folderze utworzonym wcześniej. Wyłączenie rasteryzacji zachowuje oryginalny układ DOCX.
+- **Explanation:** `Redactor` wczytuje `sample_document.docx`, wyszukuje dokładną frazę „John Doe”, zastępuje ją czerwonym nakładką i zapisuje wynik w folderze, który utworzyliśmy wcześniej. Wyłączenie rasteryzacji zachowuje oryginalny układ DOCX.
 
-#### Wskazówki rozwiązywania problemów
-- **Nieprawidłowe ścieżki:** Sprawdź, czy `YOUR_DOCUMENT_DIRECTORY` i `YOUR_OUTPUT_DIRECTORY` wskazują rzeczywiste lokalizacje.  
-- **Konflikty wersji:** Upewnij się, że zależność Maven odpowiada wersji biblioteki, którą pobrałeś.  
-- **Błędy licencji:** Brak lub nieprawidłowa licencja spowoduje wyrzucenie wyjątku w czasie wykonywania.
+#### Porady rozwiązywania problemów
+- **Incorrect paths:** Sprawdź dwukrotnie, czy `YOUR_DOCUMENT_DIRECTORY` i `YOUR_OUTPUT_DIRECTORY` wskazują rzeczywiste lokalizacje.  
+- **Version conflicts:** Upewnij się, że zależność Maven odpowiada wersji biblioteki, którą pobrałeś.  
+- **License errors:** Brak lub nieprawidłowa licencja spowoduje wyrzucenie wyjątku w czasie wykonywania.
+
+## Jak naprawić błąd java file not found przy tworzeniu folderu wyjściowego
+Jeśli nadal widzisz wyjątek **java file not found** po dodaniu kodu tworzącego folder, rozważ następujące dodatkowe kontrole:
+
+1. **Absolute vs. relative paths:** Użyj ścieżki bezwzględnej (`C:/data/HelloWorld`), aby wykluczyć nieporozumienia związane z katalogiem roboczym.  
+2. **File permissions:** Zweryfikuj, czy proces Java ma uprawnienia do zapisu w docelowym katalogu.  
+3. **Path separators:** W systemie Windows preferuj `File.separator` lub ukośniki (`/`), aby uniknąć problemów ze znakami ucieczki.  
+
+Stosowanie tych zabezpieczeń zapewnia, że krok redakcji nigdy nie zawiedzie z powodu braku docelowego folderu.
 
 ## Praktyczne zastosowania
-Scenariusze rzeczywiste, w których **tworzysz folder wyjściowy w Javie** i używasz GroupDocs.Redaction, obejmują:
+Scenariusze rzeczywiste, w których **create output folder java** i użycie GroupDocs.Redaction są przydatne, obejmują:
 
-1. **Zarządzanie zgodnością:** Automatyczne usuwanie danych osobowych z umów przed ich archiwizacją.  
-2. **Raportowanie finansowe:** Maskowanie numerów kont w kwartalnych raportach udostępnianych audytorom zewnętrznym.  
-3. **Rekordy medyczne:** Usuwanie identyfikatorów pacjentów z dokumentacji medycznej w celu spełnienia wymogów HIPAA.
+1. **Compliance Management:** Automatyczne usuwanie danych osobowych z umów przed ich archiwizacją.  
+2. **Financial Reporting:** Ukrywanie numerów kont w kwartalnych raportach udostępnianych zewnętrznym audytorom.  
+3. **Healthcare Records:** Usuwanie identyfikatorów pacjentów z dokumentacji medycznej w celu spełnienia wymagań HIPAA.
 
 ## Rozważania dotyczące wydajności
-- **Zarządzanie pamięcią:** Korzystaj z API strumieniowych przy bardzo dużych plikach DOCX lub PDF, aby nie ładować całego dokumentu do pamięci.  
-- **Przetwarzanie wsadowe:** Iteruj po liście plików i, w miarę możliwości, ponownie używaj jednej instancji `Redactor`.  
-- **Dostrajanie JVM:** Zwiększ rozmiar sterty (`-Xmx2g`), jeśli regularnie przetwarzasz dokumenty większe niż 50 MB.
+- **Memory Management:** Używaj API strumieniowych dla bardzo dużych plików DOCX lub PDF, aby uniknąć ładowania całego dokumentu do pamięci.  
+- **Batch Processing:** Przeglądaj listę plików i, gdy to możliwe, ponownie używaj jednej instancji `Redactor`.  
+- **JVM Tuning:** Zwiększ rozmiar sterty (`-Xmx2g`), jeśli regularnie przetwarzasz dokumenty większe niż 50 MB.
 
-## Podsumowanie
-Wiesz już, jak **utworzyć folder wyjściowy w Javie**, zintegrować GroupDocs.Redaction i zastosować precyzyjne redakcje przy zachowaniu oryginalnego formatowania. Ten przepływ pracy pomaga spełniać standardy zgodności i skutecznie chronić wrażliwe dane.
+## Zakończenie
+Teraz wiesz, jak **create output folder java**, zintegrować GroupDocs.Redaction i zastosować precyzyjne redakcje, zachowując oryginalne formatowanie. Ten przepływ pracy pomaga spełnić standardy zgodności i skutecznie chronić wrażliwe dane, a także eliminuje niechciane błędy **java file not found**, które mogą zakłócić automatyzację.
 
-Po więcej informacji odwiedź oficjalną dokumentację: [GroupDocs documentation](https://docs.groupdocs.com/redaction/java/).
+Aby zgłębić temat, odwiedź oficjalną dokumentację: [GroupDocs documentation](https://docs.groupdocs.com/redaction/java/).
 
-## Sekcja FAQ
-1. **Jak rozpocząć pracę z GroupDocs.Redaction?**  
-   Dodaj zależność Maven pokazane powyżej, utwórz folder wyjściowy i zainicjuj `Redactor` zgodnie z przykładem.  
+## Najczęściej zadawane pytania
 
-2. **Czy GroupDocs.Redaction radzi sobie z dużymi dokumentami efektywnie?**  
-   Tak — przy rozsądnym zarządzaniu pamięcią i wyłączonej rasteryzacji możesz przetwarzać duże pliki bez nadmiernego obciążenia.  
+**Q: Jak rozpocząć pracę z GroupDocs.Redaction?**  
+A: Zacznij od dodania zależności Maven pokazanej powyżej, następnie utwórz folder wyjściowy i zainstaluj `Redactor` zgodnie z przykładem.
 
-3. **Czy licencja jest wymagana w środowisku produkcyjnym?**  
-   Bezpłatna wersja próbna wystarczy do oceny, ale licencja płatna jest obowiązkowa przy wdrożeniach komercyjnych.  
+**Q: Czy GroupDocs.Redaction radzi sobie efektywnie z dużymi dokumentami?**  
+A: Tak — zarządzając pamięcią rozważnie i wyłączając rasteryzację, możesz przetwarzać duże pliki bez nadmiernego obciążenia.
 
-4. **Jakie formaty plików są obsługiwane?**  
-   GroupDocs.Redaction obsługuje DOCX, PDF, PPTX, XLSX oraz kilka formatów graficznych.  
+**Q: Czy licencja jest wymagana w środowisku produkcyjnym?**  
+A: Darmowa wersja próbna wystarczy do oceny, ale płatna licencja jest obowiązkowa w zastosowaniach komercyjnych.
 
-5. **Jak zautomatyzować redakcję wielu plików?**  
-   Umieść logikę redakcji w pętli iterującej po plikach w katalogu, ponownie używając tego samego wzorca folderu wyjściowego.
+**Q: Jakie formaty plików są obsługiwane?**  
+A: GroupDocs.Redaction obsługuje DOCX, PDF, PPTX, XLSX oraz kilka formatów obrazów.
+
+**Q: Jak mogę zautomatyzować redakcję wielu plików?**  
+A: Umieść logikę redakcji w pętli, która iteruje po plikach w katalogu, ponownie używając tego samego wzorca folderu wyjściowego.
 
 ---
 
-**Ostatnia aktualizacja:** 2025-12-26  
+**Ostatnia aktualizacja:** 2026-02-26  
 **Testowano z:** GroupDocs.Redaction 24.9  
 **Autor:** GroupDocs

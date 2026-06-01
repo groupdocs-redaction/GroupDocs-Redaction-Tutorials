@@ -1,42 +1,42 @@
 ---
-date: '2025-12-26'
-description: Pelajari cara membuat folder output Java dan menerapkan redaksi dokumen
-  menggunakan GroupDocs.Redaction. Penyiapan langkah demi langkah, contoh kode, dan
-  praktik terbaik.
+date: '2026-02-26'
+description: Pelajari cara mengatasi “java file not found” dengan membuat direktori
+  output Java dan menerapkan redaksi GroupDocs.Redaction. Panduan langkah demi langkah
+  dengan contoh kode.
 keywords:
 - Java Redaction
 - GroupDocs.Redaction Setup
 - Document Redaction
-title: Panduan Java Membuat Folder Output untuk GroupDocs.Redaction
+title: File Java tidak ditemukan – Buat Folder Output di Java
 type: docs
 url: /id/java/getting-started/java-redaction-groupdocs-efficient-document-setup/
 weight: 1
 ---
 
-# Panduan Membuat Folder Output Java untuk GroupDocs.Redaction
+# java file not found – Buat Folder Output di Java
 
-Di era digital saat ini, melindungi informasi sensitif dalam dokumen menjadi prioritas utama. Tutorial ini menunjukkan **cara membuat folder output java** dan kemudian menggunakan GroupDocs.Redaction untuk menyembunyikan data rahasia secara cepat dan dapat diandalkan. Kami akan membahas penyiapan lingkungan, pembuatan folder, implementasi redaksi, dan tips kinerja sehingga Anda dapat melindungi catatan pribadi, keuangan, atau bisnis dengan percaya diri.
+Dalam aplikasi modern, menghadapi error **java file not found** dapat menghentikan pipeline pemrosesan Anda. Penyebab umum adalah mencoba menulis dokumen yang telah disensor ke direktori yang tidak ada. Tutorial ini menunjukkan secara tepat cara membuat folder output yang diperlukan di Java, mengintegrasikannya dengan **GroupDocs.Redaction**, dan menghindari pengecualian file‑not‑found yang menjengkelkan. Pada akhir tutorial, Anda akan memiliki alur kerja bersih dan dapat digunakan kembali yang menjaga file asli Anda tetap aman sambil menyimpan salinan yang disensor di **direktori output java** yang khusus.
 
 ## Jawaban Cepat
-- **Apa langkah pertama?** Buat folder output di Java dan tambahkan pustaka GroupDocs.Redaction.  
-- **Versi pustaka apa yang diperlukan?** GroupDocs.Redaction 24.9 atau lebih baru.  
-- **Apakah saya memerlukan lisensi?** Versi percobaan gratis cukup untuk pengujian; lisensi berbayar diperlukan untuk produksi.  
-- **Bisakah saya mempertahankan format dokumen asli?** Ya—nonaktifkan rasterisasi saat menyimpan.  
-- **Apakah ini cocok untuk file besar?** Dengan penyesuaian memori yang tepat, ya.
+- **What is the first step?** Buat folder output di Java dan tambahkan pustaka GroupDocs.Redaction.  
+- **Which library version is required?** GroupDocs.Redaction 24.9 atau yang lebih baru.  
+- **Do I need a license?** Versi percobaan gratis dapat digunakan untuk pengujian; lisensi berbayar diperlukan untuk produksi.  
+- **Can I keep the original document format?** Ya—nonaktifkan rasterisasi saat menyimpan.  
+- **Is this suitable for large files?** Dengan penyesuaian memori yang tepat, ya.
 
 ## Apa itu “create output folder java”?
-Membuat folder output di Java berarti memeriksa secara programatik apakah sebuah direktori ada dan, jika tidak, membuatnya sehingga file yang diproses memiliki tempat khusus untuk disimpan. Langkah ini memisahkan dokumen yang telah direduksi dari yang asli dan menjaga proyek Anda tetap terorganisir.
+Membuat folder output di Java berarti memeriksa secara programatik apakah sebuah direktori ada dan, jika tidak, membuatnya sehingga file yang diproses memiliki tempat khusus untuk disimpan. Langkah ini memisahkan dokumen yang disensor dari yang asli dan menjaga proyek Anda tetap teratur.
 
 ## Mengapa membuat folder output java dengan GroupDocs.Redaction?
-- **Pemisahan kepentingan:** Menjaga file asli dan file yang direduksi tetap terpisah.  
-- **Skalabilitas:** Memungkinkan pemrosesan batch banyak dokumen ke satu lokasi.  
-- **Kepatuhan:** Mempermudah jejak audit dengan menyimpan hanya versi yang disanitasi.  
-- **Kinerja:** Mengurangi kekacauan sistem file, yang dapat meningkatkan kecepatan I/O.
+- **Separation of concerns:** Menjaga file asli dan file yang disensor tetap terpisah.  
+- **Scalability:** Memungkinkan pemrosesan batch banyak dokumen ke satu lokasi.  
+- **Compliance:** Mempermudah jejak audit dengan menyimpan hanya versi yang disanitasi.  
+- **Performance:** Mengurangi kekacauan sistem file, yang dapat meningkatkan kecepatan I/O.
 
 ## Prasyarat
 Sebelum memulai, pastikan Anda memiliki hal berikut:
 
-- **Pustaka GroupDocs.Redaction** – versi 24.9 atau lebih baru.  
+- **GroupDocs.Redaction Library** – versi 24.9 atau lebih baru.  
 - **Java Development Kit (JDK)** – versi 8 atau lebih tinggi.  
 - Sebuah IDE Java seperti IntelliJ IDEA atau Eclipse.  
 - Maven terpasang untuk manajemen dependensi.  
@@ -66,15 +66,15 @@ Tambahkan repositori GroupDocs dan dependensi Redaction ke `pom.xml` Anda:
 Jika Anda lebih suka mengunduh secara manual, dapatkan JAR terbaru dari halaman rilis resmi: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
 ### Langkah-langkah Akuisisi Lisensi
-Mulailah dengan percobaan gratis untuk menjelajahi API. Saat Anda siap untuk produksi, dapatkan lisensi sementara atau penuh dari portal GroupDocs.
+Mulailah dengan percobaan gratis untuk menjelajahi API. Ketika Anda siap untuk produksi, dapatkan lisensi sementara atau penuh dari portal GroupDocs.
 
 ## Panduan Implementasi
 
 ### Cara membuat folder output java
-Mengatur lokasi output Anda adalah dasar dari alur kerja redaksi yang bersih. Di bawah ini kami akan membuat folder bernama `HelloWorld` di dalam direktori dasar yang Anda tentukan.
+Mengatur lokasi output Anda adalah dasar dari alur kerja redaksi yang bersih. Di bawah ini kita akan membuat folder bernama `HelloWorld` di dalam direktori dasar yang Anda tentukan.
 
-#### Penyiapan Direktori Dokumen
-Potongan kode berikut memeriksa keberadaan folder dan membuatnya jika diperlukan. Ini juga menyiapkan jalur untuk dokumen yang direduksi.
+#### Pengaturan Direktori Dokumen
+Potongan kode berikut memeriksa keberadaan folder dan membuatnya jika diperlukan. Ini juga menyiapkan jalur untuk dokumen yang disensor.
 
 ```java
 import java.io.File;
@@ -91,7 +91,7 @@ public class DocumentDirectorySetup {
 }
 ```
 
-- **Mengapa ini penting:** Dengan membuat folder secara programatik, Anda menjamin bahwa langkah redaksi selalu memiliki tujuan yang valid, mencegah error `FileNotFoundException`.
+- **Why this matters:** Dengan membuat folder secara programatik, Anda menjamin bahwa langkah redaksi selalu memiliki tujuan yang valid, mencegah error `FileNotFoundException`.
 
 ### Aplikasi Redaksi
 Sekarang folder output sudah ada, kita dapat memuat file sumber, menerapkan redaksi, dan menyimpan hasilnya ke folder yang baru saja dibuat.
@@ -130,46 +130,58 @@ public class RedactionApplication {
 }
 ```
 
-- **Penjelasan:** `Redactor` memuat `sample_document.docx`, mencari frasa tepat “John Doe”, menggantinya dengan lapisan merah, dan menulis hasilnya ke folder yang kami buat sebelumnya. Menonaktifkan rasterisasi mempertahankan tata letak DOCX asli.
+- **Explanation:** `Redactor` memuat `sample_document.docx`, mencari frasa tepat “John Doe”, menggantinya dengan lapisan merah, dan menulis hasilnya ke folder yang kami buat sebelumnya. Menonaktifkan rasterisasi mempertahankan tata letak DOCX asli.
 
 #### Tips Pemecahan Masalah
-- **Path tidak tepat:** Periksa kembali bahwa `YOUR_DOCUMENT_DIRECTORY` dan `YOUR_OUTPUT_DIRECTORY` mengarah ke lokasi yang nyata.  
-- **Konflik versi:** Pastikan dependensi Maven cocok dengan versi pustaka yang Anda unduh.  
-- **Error lisensi:** Lisensi yang hilang atau tidak valid akan melemparkan pengecualian saat runtime.
+- **Incorrect paths:** Periksa kembali bahwa `YOUR_DOCUMENT_DIRECTORY` dan `YOUR_OUTPUT_DIRECTORY` mengarah ke lokasi yang nyata.  
+- **Version conflicts:** Pastikan dependensi Maven cocok dengan versi pustaka yang Anda unduh.  
+- **License errors:** Lisensi yang hilang atau tidak valid akan melemparkan pengecualian saat runtime.
+
+## Cara memperbaiki java file not found saat membuat folder output
+Jika Anda masih melihat pengecualian **java file not found** setelah menambahkan kode pembuatan folder, pertimbangkan pemeriksaan tambahan berikut:
+
+1. **Absolute vs. relative paths:** Gunakan jalur absolut (`C:/data/HelloWorld`) untuk menghindari kebingungan direktori kerja.  
+2. **File permissions:** Verifikasi bahwa proses Java memiliki izin menulis pada direktori target.  
+3. **Path separators:** Di Windows, gunakan `File.separator` atau garis miring maju untuk menghindari masalah karakter escape.  
+
+Menerapkan langkah-langkah pengamanan ini memastikan langkah redaksi tidak pernah gagal karena folder tujuan tidak ada.
 
 ## Aplikasi Praktis
-Skenario dunia nyata di mana Anda akan **membuat folder output java** dan menggunakan GroupDocs.Redaction meliputi:
+Skenario dunia nyata di mana Anda akan **create output folder java** dan menggunakan GroupDocs.Redaction meliputi:
 
-1. **Manajemen Kepatuhan:** Secara otomatis membersihkan data pribadi dari kontrak sebelum diajukan.  
-2. **Pelaporan Keuangan:** Menyembunyikan nomor akun dalam laporan triwulanan yang dibagikan kepada auditor eksternal.  
-3. **Rekam Medis:** Menghapus pengidentifikasi pasien dari dokumen medis untuk memenuhi persyaratan HIPAA.
+1. **Compliance Management:** Secara otomatis menghapus data pribadi dari kontrak sebelum disimpan.  
+2. **Financial Reporting:** Menyembunyikan nomor akun dalam laporan kuartalan yang dibagikan kepada auditor eksternal.  
+3. **Healthcare Records:** Menghapus pengidentifikasi pasien dari dokumen medis untuk memenuhi persyaratan HIPAA.
 
 ## Pertimbangan Kinerja
-- **Manajemen Memori:** Gunakan API streaming untuk file DOCX atau PDF yang sangat besar agar tidak memuat seluruh dokumen ke memori.  
-- **Pemrosesan Batch:** Loop melalui daftar file dan gunakan kembali satu instance `Redactor` bila memungkinkan.  
-- **Penyesuaian JVM:** Tingkatkan ukuran heap (`-Xmx2g`) jika Anda secara rutin memproses dokumen lebih besar dari 50 MB.
+- **Memory Management:** Gunakan API streaming untuk file DOCX atau PDF yang sangat besar agar tidak memuat seluruh dokumen ke memori.  
+- **Batch Processing:** Loop melalui daftar file dan gunakan kembali satu instance `Redactor` bila memungkinkan.  
+- **JVM Tuning:** Tingkatkan ukuran heap (`-Xmx2g`) jika Anda secara rutin memproses dokumen lebih besar dari 50 MB.
 
 ## Kesimpulan
-Anda kini tahu cara **membuat folder output java**, mengintegrasikan GroupDocs.Redaction, dan menerapkan redaksi yang tepat sambil mempertahankan format asli. Alur kerja ini membantu Anda memenuhi standar kepatuhan dan melindungi data sensitif secara efisien.
+Anda sekarang tahu cara **create output folder java**, mengintegrasikan GroupDocs.Redaction, dan menerapkan redaksi yang tepat sambil mempertahankan format asli. Alur kerja ini membantu Anda memenuhi standar kepatuhan dan melindungi data sensitif secara efisien, serta menghilangkan error **java file not found** yang menakutkan yang dapat menggagalkan pipeline otomatisasi.
 
-Untuk eksplorasi lebih mendalam, kunjungi dokumentasi resmi: [GroupDocs documentation](https://docs.groupdocs.com/redaction/java/).
+Untuk eksplorasi lebih lanjut, kunjungi dokumentasi resmi: [GroupDocs documentation](https://docs.groupdocs.com/redaction/java/).
 
-## Bagian FAQ
-1. **Bagaimana cara memulai dengan GroupDocs.Redaction?**  
-   Mulailah dengan menambahkan dependensi Maven yang ditunjukkan di atas, kemudian buat folder output dan buat instance `Redactor` seperti yang didemonstrasikan.  
+## Pertanyaan yang Sering Diajukan
 
-2. **Apakah GroupDocs.Redaction dapat menangani dokumen besar secara efisien?**  
-   Ya—dengan mengelola memori secara bijaksana dan menonaktifkan rasterisasi, Anda dapat memproses file berukuran besar tanpa beban berlebih.  
+**Q: How do I get started with GroupDocs.Redaction?**  
+A: Mulailah dengan menambahkan dependensi Maven yang ditunjukkan di atas, kemudian buat folder output dan instantiate `Redactor` seperti yang ditunjukkan.
 
-3. **Apakah lisensi diperlukan untuk penggunaan produksi?**  
-   Versi percobaan gratis cukup untuk evaluasi, tetapi lisensi berbayar wajib untuk penerapan komersial.  
+**Q: Can GroupDocs.Redaction handle large documents efficiently?**  
+A: Ya—dengan mengelola memori secara bijak dan menonaktifkan rasterisasi, Anda dapat memproses file berukuran besar tanpa beban berlebih.
 
-4. **Format file apa yang didukung?**  
-   GroupDocs.Redaction bekerja dengan DOCX, PDF, PPTX, XLSX, dan beberapa format gambar.  
+**Q: Is a license required for production use?**  
+A: Versi percobaan gratis cukup untuk evaluasi, tetapi lisensi berbayar wajib untuk penggunaan komersial.
 
-5. **Bagaimana cara mengotomatisasi redaksi untuk banyak file?**  
-   Bungkus logika redaksi dalam loop yang mengiterasi file dalam sebuah direktori, menggunakan pola folder output yang sama.  
+**Q: What file formats are supported?**  
+A: GroupDocs.Redaction bekerja dengan DOCX, PDF, PPTX, XLSX, dan beberapa format gambar.
 
-**Terakhir Diperbarui:** 2025-12-26  
+**Q: How can I automate redaction for multiple files?**  
+A: Bungkus logika redaksi dalam loop yang mengiterasi file dalam sebuah direktori, menggunakan pola folder output yang sama.
+
+---
+
+**Terakhir Diperbarui:** 2026-02-26  
 **Diuji Dengan:** GroupDocs.Redaction 24.9  
 **Penulis:** GroupDocs

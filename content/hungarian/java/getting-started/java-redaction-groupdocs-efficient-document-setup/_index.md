@@ -1,47 +1,55 @@
 ---
-date: '2025-12-26'
-description: Tanulja meg, hogyan hozhat létre kimeneti mappát Java-ban, és alkalmazhatja
-  a dokumentum redakciót a GroupDocs.Redaction segítségével. Lépésről‑lépésre beállítás,
-  kódrészletek és legjobb gyakorlatok.
+date: '2026-02-26'
+description: Tanulja meg, hogyan oldja meg a „java file not found” hibát egy Java
+  kimeneti könyvtár létrehozásával és a GroupDocs.Redaction redakció alkalmazásával.
+  Lépésről‑lépésre útmutató kódrészletekkel.
 keywords:
 - Java Redaction
 - GroupDocs.Redaction Setup
 - Document Redaction
-title: Kimeneti mappa létrehozása – Java útmutató a GroupDocs.Redaction-hez
+title: java fájl nem található – Kimeneti mappa létrehozása Java-ban
 type: docs
 url: /hu/java/getting-started/java-redaction-groupdocs-efficient-document-setup/
 weight: 1
 ---
 
-# CsoportDocs.Redaction Java útmutató a kimeneti mappa létrehozásához
+imeneti Mappa Létrehozása Java-ban". Keep "java file not found" unchanged? It's a phrase but maybe keep as is? The phrase is technical term, but we can keep it as is. The rest translate.
 
-A mai digitális korszakban a dokumentumokban lévő érzékeny információk védelme elsődleges feladat. Ez az útmutató megmutatja, hogyan **hozzunk létre kimeneti mappát Java-ban**, majd a GroupDocs.Redaction segítségével gyorsan és megbízhatóan rejtsük el a bizalmas adatokat. Végigvezetünk a környezet beállításán, a mappa létrehozásán, a redakció megvalósításán és a teljesítmény tippeken, hogy magabiztosan védhesse a személyes, pénzügyi vagy üzleti nyilvántartásokat.
+Proceed.
 
-## Gyors válaszok
-- **Mi az első lépés?** Hozzon létre egy kimeneti mappát Java-ban, és adja hozzá a GroupDocs.Redaction könyvtárat.  
+Will produce final markdown.
+
+# java file not found – Kimeneti Mappa Létrehozása Java-ban
+
+A modern alkalmazásokban a **java file not found** hibák leállíthatják a feldolgozási csővezetékedet. Gyakori ok, hogy egy redigált dokumentumot egy nem létező könyvtárba próbálsz írni. Ez a bemutató pontosan megmutatja, hogyan hozhatsz létre egy szükséges kimeneti mappát Java-ban, hogyan integrálhatod a **GroupDocs.Redaction**-t, és hogyan kerülheted el a frusztráló file‑not‑found kivételeket. A végére egy tiszta, újrahasználható munkafolyamatod lesz, amely megőrzi az eredeti fájlokat, miközben a redigált példányokat egy dedikált **java output directory**-ban tárolja.
+
+## Quick Answers
+- **Mi az első lépés?** Hozz létre egy kimeneti mappát Java-ban, és add hozzá a GroupDocs.Redaction könyvtárat.  
 - **Melyik könyvtárverzió szükséges?** GroupDocs.Redaction 24.9 vagy újabb.  
-- **Szükségem van licencre?** Egy ingyenes próba a teszteléshez elegendő; a termeléshez fizetett licenc szükséges.  
-- **Megőrizhetem az eredeti dokumentum formátumát?** Igen – a mentéskor tiltsa le a rasterizációt.  
+- **Szükség van licencre?** Egy ingyenes próba elegendő a teszteléshez; a termeléshez fizetett licenc szükséges.  
+- **Megőrizhetem az eredeti dokumentum formátumát?** Igen — tiltsd le a rasterizálást mentéskor.  
 - **Alkalmas nagy fájlokra?** Megfelelő memóriahangolással igen.
 
-## Mi az a „kimeneti mappa létrehozása Java-ban”?
-A kimeneti mappa létrehozása Java-ban azt jelenti, hogy programozottan ellenőrizzük, létezik-e a könyvtár, és ha nem, létrehozzuk, hogy a feldolgozott fájloknak dedikált helyük legyen a mentéshez. Ez a lépés elkülöníti a redakciózott dokumentumokat az eredetiektől, és rendezetten tartja a projektet.
+## What is “create output folder java”?
+A kimeneti mappa létrehozása Java-ban azt jelenti, hogy programozottan ellenőrzöd, létezik‑e egy könyvtár, és ha nem, akkor létrehozod, hogy a feldolgozott fájloknak legyen egy dedikált helyük a mentéshez. Ez a lépés elkülöníti a redigált dokumentumokat az eredetiektől, és rendezetten tartja a projektet.
 
-## Miért hozzunk létre kimeneti mappát Java-ban a GroupDocs.Redaction segítségével?
-- **Felelősségek elkülönítése:** Az eredeti és a redakciózott fájlok különállóak maradnak.  
-- **Skálázhatóság:** Lehetővé teszi sok dokumentum kötegelt feldolgozását egyetlen helyre.  
-- **Megfelelőség:** Az audit nyomvonalakat egyszerűbbé teszi, ha csak tisztított verziókat tárol.  
-- **Teljesítmény:** Csökkenti a fájlrendszer zsúfoltságát, ami javíthatja az I/O sebességet.
+## Why create output folder java with GroupDocs.Redaction?
+- **Separation of concerns:** Az eredeti és a redigált fájlok különállóak maradnak.  
+- **Scalability:** Lehetővé teszi sok dokumentum kötegelt feldolgozását egyetlen helyre.  
+- **Compliance:** Könnyebbé teszi az audit nyomvonalak nyomon követését, mivel csak tisztított verziókat tárolsz.  
+- **Performance:** Csökkenti a fájlrendszer zsúfoltságát, ami javíthatja az I/O sebességet.
 
-## Előkövetelmények
-- **GroupDocs.Redaction könyvtár** – 24.9 vagy újabb verzió.  
-- **Java Development Kit (JDK)** – 8 vagy újabb verzió.  
-- IntelliJ IDEA vagy Eclipse típusú Java IDE.  
+## Prerequisites
+Mielőtt belevágnál, győződj meg róla, hogy a következők rendelkezésedre állnak:
+
+- **GroupDocs.Redaction Library** – 24.9 vagy újabb verzió.  
+- **Java Development Kit (JDK)** – 8 vagy újabb verzió.  
+- Java IDE, például IntelliJ IDEA vagy Eclipse.  
 - Maven telepítve a függőségkezeléshez.  
-- Alapvető Java ismeretek, különösen a fájlkezelés.
+- Alapvető Java ismeretek, különösen a fájlkezelés terén.
 
-## A GroupDocs.Redaction beállítása Java-hoz
-Adja hozzá a GroupDocs tárolót és a Redaction függőséget a `pom.xml` fájlhoz:
+## Setting Up GroupDocs.Redaction for Java
+Add the GroupDocs repository and the Redaction dependency to your `pom.xml`:
 
 ```xml
 <repositories>
@@ -61,18 +69,18 @@ Adja hozzá a GroupDocs tárolót és a Redaction függőséget a `pom.xml` fáj
 </dependencies>
 ```
 
-Ha inkább manuálisan szeretné letölteni, szerezze be a legújabb JAR-t a hivatalos kiadási oldalról: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+Ha inkább manuálisan szeretnéd letölteni, szerezd be a legújabb JAR‑t a hivatalos kiadási oldalról: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
-### Licencbeszerzési lépések
-Kezdje egy ingyenes próbaidőszakkal az API felfedezéséhez. Amikor készen áll a termelésre, szerezzen be egy ideiglenes vagy teljes licencet a GroupDocs portálról.
+### License Acquisition Steps
+Kezdd egy ingyenes próbaidőszakkal az API felfedezéséhez. Amikor készen állsz a termelésre, szerezz ideiglenes vagy teljes licencet a GroupDocs portálon.
 
-## Implementációs útmutató
+## Implementation Guide
 
-### Hogyan hozzunk létre kimeneti mappát Java-ban
-A kimeneti hely szervezése a tiszta redakciós munkafolyamat alapja. Az alábbiakban létrehozunk egy `HelloWorld` nevű mappát egy általad meghatározott alapkönyvtárban.
+### How to create output folder java
+A kimeneti hely szervezése a tiszta redigálási munkafolyamat alapja. Az alábbiakban létrehozunk egy `HelloWorld` nevű mappát egy általad definiált alapkönyvtárban.
 
-#### Dokumentumkönyvtár beállítása
-A következő kódrészlet ellenőrzi a mappa létezését, és szükség esetén létrehozza. Emellett előkészíti az útvonalat a redakciózott dokumentum számára.
+#### Document Directory Setup
+A következő kódrészlet ellenőrzi a mappa létezését, és szükség esetén létrehozza. Emellett előkészíti az útvonalat a redigált dokumentum számára.
 
 ```java
 import java.io.File;
@@ -89,12 +97,12 @@ public class DocumentDirectorySetup {
 }
 ```
 
-- **Miért fontos:** A mappa programozott létrehozásával biztosítja, hogy a redakciós lépés mindig rendelkezzen érvényes célhellyel, elkerülve a `FileNotFoundException` hibákat.
+- **Why this matters:** A mappa programozott létrehozásával garantálod, hogy a redigálási lépés mindig érvényes célhelyet kap, ezáltal elkerülve a `FileNotFoundException` hibákat.
 
-### Redakció alkalmazása
-Miután a kimeneti mappa létezik, betölthetünk egy forrásfájlt, alkalmazhatunk egy redakciót, és elmenthetjük az eredményt a most létrehozott mappába.
+### Redaction Application
+Miután a kimeneti mappa létezik, betölthetünk egy forrásfájlt, alkalmazhatunk redigálást, és elmenthetjük az eredményt a most létrehozott mappába.
 
-#### Redakció kódja
+#### Redaction Code
 ```java
 import com.groupdocs.redaction.Redactor;
 import java.io.FileOutputStream;
@@ -128,48 +136,58 @@ public class RedactionApplication {
 }
 ```
 
-- **Magyarázat:** A `Redactor` betölti a `sample_document.docx` fájlt, megkeresi a pontos „John Doe” kifejezést, piros átfedéssel helyettesíti, és az eredményt a korábban létrehozott mappába írja. A rasterizáció letiltása megőrzi az eredeti DOCX elrendezést.
+- **Explanation:** A `Redactor` betölti a `sample_document.docx` fájlt, megkeresi a pontos „John Doe” kifejezést, piros átfedéssel helyettesíti, és az eredményt a korábban létrehozott mappába írja. A rasterizálás letiltása megőrzi az eredeti DOCX elrendezést.
 
-#### Hibaelhárítási tippek
-- **Helytelen útvonalak:** Ellenőrizze, hogy a `YOUR_DOCUMENT_DIRECTORY` és a `YOUR_OUTPUT_DIRECTORY` valós helyekre mutatnak.  
-- **Verzióütközések:** Győződjön meg róla, hogy a Maven függőség megegyezik a letöltött könyvtár verziójával.  
-- **Licenc hibák:** Hiányzó vagy érvénytelen licenc futásidőben kivételt dob.
+#### Troubleshooting Tips
+- **Incorrect paths:** Ellenőrizd, hogy a `YOUR_DOCUMENT_DIRECTORY` és a `YOUR_OUTPUT_DIRECTORY` valódi helyekre mutatnak-e.  
+- **Version conflicts:** Győződj meg róla, hogy a Maven‑függőség megegyezik a letöltött könyvtár verziójával.  
+- **License errors:** Hiányzó vagy érvénytelen licenc futásidőben kivételt dob.
 
-## Gyakorlati alkalmazások
-Valós példák, ahol **kimeneti mappát hozhat létre Java-ban** és a GroupDocs.Redaction-t használja:
+## How to fix java file not found when creating the output folder
+Ha a **java file not found** kivételt továbbra is látod a mappa‑létrehozó kód hozzáadása után, vedd figyelembe a következő ellenőrzéseket:
 
-1. **Megfelelőség-kezelés:** Automatikusan eltávolítja a személyes adatokat a szerződésekből a benyújtás előtt.  
-2. **Pénzügyi jelentés:** Elrejti a számlaszámokat a külső auditorokkal megosztott negyedéves jelentésekben.  
-3. **Egészségügyi nyilvántartások:** Eltávolítja a betegazonosítókat az orvosi dokumentumokból a HIPAA követelményeknek való megfelelés érdekében.
+1. **Absolute vs. relative paths:** Használj abszolút útvonalat (`C:/data/HelloWorld`), hogy kizárd a munkakönyvtár‑zavarokat.  
+2. **File permissions:** Ellenőrizd, hogy a Java folyamatnak van‑e írási joga a célkönyvtárra.  
+3. **Path separators:** Windows‑on részesítsd előnyben a `File.separator`‑t vagy a perjel (`/`) használatát, hogy elkerüld a escape‑karakter problémákat.  
 
-## Teljesítményfontosságú szempontok
-- **Memória kezelés:** Használjon streaming API-kat nagyon nagy DOCX vagy PDF fájlok esetén, hogy elkerülje a teljes dokumentum memóriába betöltését.  
-- **Kötegelt feldolgozás:** Iteráljon egy fájllistán, és ahol lehetséges, használjon egyetlen `Redactor` példányt újra.  
-- **JVM hangolás:** Növelje a heap méretet (`-Xmx2g`), ha rendszeresen 50 MB-nál nagyobb dokumentumokat dolgoz fel.
+Ezeknek a biztonsági intézkedéseknek a alkalmazásával a redigálási lépés soha nem bukik meg a hiányzó célmappa miatt.
 
-## Következtetés
-Most már tudja, hogyan **hozzon létre kimeneti mappát Java-ban**, integrálja a GroupDocs.Redaction-t, és alkalmazzon pontos redakciókat az eredeti formátum megőrzése mellett. Ez a munkafolyamat segít a megfelelőségi előírások betartásában és az érzékeny adatok hatékony védelmében.
+## Practical Applications
+Valós életbeli szcenáriók, ahol **create output folder java**‑t és a GroupDocs.Redaction‑t használod:
 
-A mélyebb megismeréshez látogassa meg a hivatalos dokumentációt: [GroupDocs documentation](https://docs.groupdocs.com/redaction/java/).
+1. **Compliance Management:** Szerződések személyes adatainak automatikus megtisztítása a benyújtás előtt.  
+2. **Financial Reporting:** Számlaszámok elrejtése a negyedéves jelentésekben, amelyeket külső auditoroknak adsz át.  
+3. **Healthcare Records:** Betegazonosítók eltávolítása orvosi dokumentumokból a HIPAA‑követelményeknek megfelelően.
 
-## GyIK szekció
-1. **Hogyan kezdjek hozzá a GroupDocs.Redaction-hez?**  
-   Kezdje az előbb bemutatott Maven függőség hozzáadásával, majd hozza létre a kimeneti mappát és példányosítsa a `Redactor`-t a bemutatott módon.  
+## Performance Considerations
+- **Memory Management:** Nagyon nagy DOCX vagy PDF fájlok esetén használj streaming API‑kat, hogy ne töltsd be a teljes dokumentumot a memóriába.  
+- **Batch Processing:** Futtass egy ciklust a fájlok listáján, és ahol lehetséges, újrahasználd egyetlen `Redactor` példányt.  
+- **JVM Tuning:** Növeld a heap méretét (`-Xmx2g`), ha rendszeresen 50 MB‑nál nagyobb dokumentumokat dolgozol fel.
 
-2. **Képes a GroupDocs.Redaction hatékonyan kezelni nagy dokumentumokat?**  
-   Igen – a memória bölcs kezelésével és a rasterizáció letiltásával nagy fájlokat is feldolgozhat anélkül, hogy túlzott erőforrásigényt jelentene.  
+## Conclusion
+Most már tudod, hogyan **create output folder java**, hogyan integráld a GroupDocs.Redaction‑t, és hogyan alkalmazz pontos redigálásokat az eredeti formátum megőrzése mellett. Ez a munkafolyamat segít a megfelelőségi előírások betartásában és az érzékeny adatok hatékony védelmében, miközben megszünteti a bosszantó **java file not found** hibákat, amelyek leállíthatják az automatizálási csővezetékeket.
 
-3. **Szükséges licenc a termeléshez?**  
-   Az ingyenes próba elegű a kiértékeléshez, de a kereskedelmi üzemeltetéshez fizetett licenc kötelező.  
+A mélyebb feltáráshoz látogasd meg a hivatalos dokumentációt: [GroupDocs documentation](https://docs.groupdocs.com/redaction/java/).
 
-4. **Milyen fájlformátumok támogatottak?**  
-   A GroupDocs.Redaction a DOCX, PDF, PPTX, XLSX és több képformátumot támogat.  
+## Frequently Asked Questions
 
-5. **Hogyan automatizálhatom a redakciót több fájlra?**  
-   Tegye a redakciós logikát egy ciklusba, amely egy könyvtárban lévő fájlokon iterál, és ugyanazt a kimeneti mappa mintát használja újra.
+**Q: How do I get started with GroupDocs.Redaction?**  
+A: Kezdd a fent bemutatott Maven‑függőség hozzáadásával, majd hozz létre egy kimeneti mappát és példányosítsd a `Redactor`‑t a bemutatott módon.
+
+**Q: Can GroupDocs.Redaction handle large documents efficiently?**  
+A: Igen — memória okos kezelése és a rasterizálás letiltása mellett nagy fájlokat is feldolgozhatsz jelentős terhelés nélkül.
+
+**Q: Is a license required for production use?**  
+A: Az ingyenes próba elegendő a kiértékeléshez, de a kereskedelmi bevetéshez fizetett licenc kötelező.
+
+**Q: What file formats are supported?**  
+A: A GroupDocs.Redaction támogatja a DOCX, PDF, PPTX, XLSX és több képfájltípust.
+
+**Q: How can I automate redaction for multiple files?**  
+A: Csomagold a redigálási logikát egy ciklusba, amely egy könyvtárban lévő fájlokon iterál, és ugyanazt a kimeneti mappa‑mintát használja.
 
 ---
 
-**Utoljára frissítve:** 2025-12-26  
-**Tesztelt verzió:** GroupDocs.Redaction 24.9  
-**Szerző:** GroupDocs
+**Last Updated:** 2026-02-26  
+**Tested With:** GroupDocs.Redaction 24.9  
+**Author:** GroupDocs
