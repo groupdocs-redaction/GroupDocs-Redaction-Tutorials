@@ -1,6 +1,7 @@
 ---
-date: '2025-12-19'
-description: Java에서 GroupDocs.Redaction API를 사용해 주석을 제거하는 방법을 단계별 Java 튜토리얼로 배워보세요.
+date: '2026-02-18'
+description: Step-by-step Java 튜토리얼에서 GroupDocs.Redaction API를 사용하여 Java에서 주석을 제거하는
+  방법을 배우세요.
 keywords:
 - remove annotations java
 - GroupDocs Redaction API
@@ -13,36 +14,34 @@ weight: 1
 
 # GroupDocs.Redaction을 사용한 Java 주석 제거
 
-When you need to **remove annotations java**, cluttered comments and markup can make documents hard to read and process. Whether you’re cleaning up legal contracts, academic drafts, or internal reports, the GroupDocs.Redaction API for Java gives you a fast, reliable way to strip every annotation in a single call. In this guide we’ll walk through everything you need—from environment setup to the exact code that clears annotations—so you can integrate this capability into your own Java applications.
+Java에서 **remove annotations java**가 필요할 때, 복잡한 댓글과 마크업 때문에 문서를 읽고 처리하기 어려울 수 있습니다. 법률 계약서, 학술 초안, 내부 보고서 등을 정리하든, GroupDocs.Redaction API for Java는 한 번의 호출로 모든 주석을 빠르고 안정적으로 제거하는 방법을 제공합니다. 이 가이드에서는 환경 설정부터 주석을 제거하는 정확한 코드까지 필요한 모든 내용을 단계별로 안내하므로, 여러분의 Java 애플리케이션에 이 기능을 통합할 수 있습니다.
 
 ## 빠른 답변
-- **“remove annotations java”는 무엇을 의미합니까?** It refers to programmatically deleting all comment‑type objects from a document using Java code.  
-- **어떤 라이브러리가 이를 처리합니까?** GroupDocs.Redaction for Java.  
-- **라이선스가 필요합니까?** A temporary license works for evaluation; a full license is required for production.  
-- **원본 파일 형식을 유지할 수 있습니까?** Yes, the API saves the document in its original format by default.  
-- **작업 수행 시간은 얼마나 걸립니까?** Typically under a second for average‑size files; larger PDFs may need a few seconds.
+- **What does “remove annotations java” mean?** 문서에서 모든 댓글 유형 객체를 Java 코드로 프로그래밍 방식으로 삭제하는 것을 의미합니다.  
+- **Which library handles this?** GroupDocs.Redaction for Java.  
+- **Do I need a license?** 평가용으로는 임시 라이선스가 작동하며, 프로덕션에서는 정식 라이선스가 필요합니다.  
+- **Can I keep the original file format?** 네, API는 기본적으로 문서를 원본 형식으로 저장합니다.  
+- **How long does the operation take?** 평균 크기 파일은 보통 1초 미만이며, 큰 PDF는 몇 초가 걸릴 수 있습니다.
 
-## “remove annotations java”란 무엇입니까?
-Removing annotations in Java means using the GroupDocs.Redaction SDK to locate every annotation object (comments, highlights, stamps, etc.) in a document and delete them automatically. This eliminates the manual step of opening each file in a word processor and clearing notes one by one.
+## “remove annotations java”란?
+Java에서 주석을 제거한다는 것은 GroupDocs.Redaction SDK를 사용하여 문서 내 모든 주석 객체(댓글, 강조 표시, 스탬프 등)를 찾아 자동으로 삭제하는 것을 의미합니다. 이를 통해 워드 프로세서에서 파일을 하나씩 열어 메모를 일일이 제거하는 수동 작업을 없앨 수 있습니다.
 
 ## 왜 주석을 제거해야 할까요?
-- **법적 준수:** Ensure contracts are free of reviewer notes before signing.  
-- **출판 준비:** Strip reviewer comments from manuscripts before submission.  
-- **성능:** Cleaner files load faster in downstream processing pipelines.  
+- **Legal compliance:** 서명 전에 계약서에 검토자 메모가 없도록 합니다.  
+- **Publishing readiness:** 제출 전에 원고에서 검토자 댓글을 제거합니다.  
+- **Performance:** 정리된 파일은 후속 처리 파이프라인에서 더 빠르게 로드됩니다.  
 
 ## 사전 요구 사항
 
-Before you start, make sure you have:
-
-- **GroupDocs.Redaction for Java** version 24.9 or newer.  
-- **Maven** (if you prefer dependency management) or the direct JAR download.  
-- A **JDK** (Java 8+ recommended) and an IDE such as IntelliJ IDEA or Eclipse.  
-- Basic Java knowledge and familiarity with file I/O.
+- **GroupDocs.Redaction for Java** 버전 24.9 이상.  
+- **Maven**(의존성 관리를 선호하는 경우) 또는 직접 JAR 다운로드.  
+- **JDK**(Java 8 이상 권장)와 IntelliJ IDEA 또는 Eclipse와 같은 IDE.  
+- 기본 Java 지식 및 파일 I/O에 대한 이해.  
 
 ## GroupDocs.Redaction for Java 설정
 
 ### Maven 설정
-Add the repository and dependency to your `pom.xml`:
+다음과 같이 `pom.xml`에 저장소와 의존성을 추가합니다:
 
 ```xml
 <repositories>
@@ -63,13 +62,13 @@ Add the repository and dependency to your `pom.xml`:
 ```
 
 ### 직접 다운로드
-Alternatively, download the latest JAR from [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+또는 최신 JAR를 [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/)에서 다운로드하십시오.
 
 ### 라이선스 획득
-To unlock full functionality, obtain a temporary license from the [license page](https://purchase.groupdocs.com/temporary-license/). This lets you test without evaluation limits.
+전체 기능을 사용하려면 [license page](https://purchase.groupdocs.com/temporary-license/)에서 임시 라이선스를 획득하십시오. 이를 통해 평가 제한 없이 테스트할 수 있습니다.
 
 ### 기본 초기화
-Below is a minimal starter class that opens a document. Keep the code unchanged—this is the exact block you’ll use later.
+다음은 문서를 여는 최소 스타터 클래스입니다. 코드를 변경하지 마세요—이 블록을 나중에 그대로 사용합니다.
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -92,10 +91,10 @@ public class InitializeGroupDocs {
 ## 구현 가이드: 모든 주석 제거
 
 ### 개요
-We’ll use the `DeleteAnnotationRedaction` class, which tells the Redactor to delete every annotation it finds. The process consists of five clear steps.
+`DeleteAnnotationRedaction` 클래스를 사용하여 Redactor가 찾은 모든 주석을 삭제하도록 합니다. 이 과정은 다섯 단계로 구성됩니다.
 
-### Step 1 – Import Packages
-These imports give you access to the Redactor, save options, and the specific redaction type.
+### Step 1 – 패키지 가져오기
+이러한 import는 Redactor, 저장 옵션 및 특정 redaction 유형에 접근할 수 있게 합니다.
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -103,22 +102,22 @@ import com.groupdocs.redaction.options.SaveOptions;
 import com.groupdocs.redaction.redactions.DeleteAnnotationRedaction;
 ```
 
-### Step 2 – Initialize the Redactor
-Create a `Redactor` instance pointing at the file you want to clean.
+### Step 2 – Redactor 초기화
+정리하려는 파일을 가리키는 `Redactor` 인스턴스를 생성합니다.
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/sample.docx");
 ```
 
-### Step 3 – Apply the DeleteAnnotationRedaction
-This single line tells the SDK to strip every annotation from the document.
+### Step 3 – DeleteAnnotationRedaction 적용
+이 한 줄은 SDK에 문서의 모든 주석을 제거하도록 지시합니다.
 
 ```java
 redactor.apply(new DeleteAnnotationRedaction());
 ```
 
-### Step 4 – Configure Save Options
-We add a suffix to the output file name so the original stays untouched, and we keep the original format.
+### Step 4 – 저장 옵션 구성
+원본 파일이 변경되지 않도록 출력 파일 이름에 접미사를 추가하고, 원본 형식을 유지합니다.
 
 ```java
 SaveOptions saveOptions = new SaveOptions();
@@ -126,76 +125,83 @@ saveOptions.setAddSuffix(true);
 saveOptions.setRasterizeToPDF(false);
 ```
 
-### Step 5 – Save the Modified Document
-Finally, write the changes back to disk.
+### Step 5 – 수정된 문서 저장
+마지막으로 변경 사항을 디스크에 기록합니다.
 
 ```java
 redactor.save(saveOptions);
 ```
 
 ### 전체 예제 요약
-Putting the pieces together, the workflow looks like this:
+구성을 모두 합치면 워크플로는 다음과 같습니다:
 
-1. Import the required classes.  
-2. Instantiate `Redactor` with your source file.  
-3. Call `apply(new DeleteAnnotationRedaction())`.  
-4. Set `SaveOptions` (add suffix, keep format).  
-5. Invoke `redactor.save(saveOptions)`.
+1. 필요한 클래스를 import합니다.  
+2. 소스 파일로 `Redactor`를 인스턴스화합니다.  
+3. `apply(new DeleteAnnotationRedaction())`를 호출합니다.  
+4. `SaveOptions`를 설정합니다(접미사 추가, 형식 유지).  
+5. `redactor.save(saveOptions)`를 호출합니다.  
 
-## 문제 해결 팁
-- **파일 경로 오류:** Verify that the path you pass to `Redactor` is absolute or correctly relative to your project.  
-- **누락된 종속성:** Double‑check your `pom.xml` or JAR classpath; the Redactor won’t start without the core library.  
-- **라이선스 미적용:** If you see a licensing exception, ensure the temporary license file is placed in the correct directory and referenced in your code (not shown here for brevity).  
+## 왜 중요한가: 실제 시나리오
+- **Batch processing:** 아카이브 전에 수천 개의 PDF를 정리하기 위해 스니펫을 루프에서 실행합니다.  
+- **CI/CD pipelines:** 자동 문서 생성 단계에 호출을 통합하여 주석이 없는 출력을 보장합니다.  
+- **Compliance audits:** 수동 편집 없이 깨끗한 감사 추적을 생성하기 위해 API를 사용합니다.  
+
+## 일반적인 문제와 해결책
+- **File path errors:** `Redactor`에 전달하는 경로가 절대 경로나 프로젝트에 대해 올바르게 상대적인지 확인합니다.  
+- **Missing dependencies:** `pom.xml` 또는 JAR 클래스패스를 다시 확인하세요; 핵심 라이브러리가 없으면 Redactor가 시작되지 않습니다.  
+- **License not applied:** 라이선스 예외가 발생하면 임시 라이선스 파일이 올바른 디렉터리에 배치되고 코드에서 참조되는지 확인하세요(간략히 표시되지 않음).  
 
 ## 실용적인 적용 사례
 
-1. **법률 문서 검토:** Remove reviewer comments before final signatures.  
-2. **학술 출판:** Clean manuscripts of peer‑review notes prior to journal submission.  
-3. **내부 보고서:** Deliver polished reports without draft annotations cluttering the view.  
+1. **Legal Document Review:** 최종 서명 전에 검토자 댓글을 제거합니다.  
+2. **Academic Publishing:** 저널 제출 전에 원고에서 동료 검토 메모를 정리합니다.  
+3. **Internal Reports:** 초안 주석이 없는 깔끔한 보고서를 제공합니다.  
 
 ## 성능 고려 사항
 
-- **리소스 관리:** Always call `redactor.close()` (as shown in the initialization example) to free native resources.  
-- **대용량 파일:** For multi‑hundred‑page PDFs, consider processing in chunks or increasing JVM heap size.  
-- **업데이트 유지:** New releases bring performance tweaks—keep your Maven version current.  
+- **Resource Management:** 항상 `redactor.close()`를 호출하여(초기화 예제와 같이) 네이티브 리소스를 해제합니다.  
+- **Large Files:** 수백 페이지 PDF의 경우 청크로 처리하거나 JVM 힙 크기를 늘리는 것을 고려하세요.  
+- **Stay Updated:** 새로운 릴리스는 성능 개선을 포함하므로 Maven 버전을 최신 상태로 유지하세요.  
 
 ## 일반적인 함정 및 회피 방법
-| 함정 | 해결책 |
-|------|--------|
-| `redactor.close()` 호출을 잊음 | Wrap usage in a try‑finally block (as in the starter class). |
-| 경로에 잘못된 파일 확장자 사용 | Ensure the path matches the actual file type (DOCX, PDF, etc.). |
-| 접미사를 추가하지 않아 원본을 덮어씀 | Set `saveOptions.setAddSuffix(true)` to preserve the source file. |
+| Pitfall | Solution |
+|---------|----------|
+| Forgetting `redactor.close()` | 사용을 try‑finally 블록으로 감싸세요(스타터 클래스와 같이). |
+| Using the wrong file extension in the path | 경로가 실제 파일 유형(DOCX, PDF 등)과 일치하는지 확인하세요. |
+| Not adding a suffix and overwriting the original | `saveOptions.setAddSuffix(true)`를 설정하여 원본 파일을 보존하세요. |
 
 ## 자주 묻는 질문
 
-**Q: GroupDocs.Redaction이란 무엇입니까?**  
-A: GroupDocs.Redaction is a Java API that lets you programmatically redact or delete sensitive content—including annotations—from a wide range of document formats.
+**Q: What is GroupDocs.Redaction?**  
+A: GroupDocs.Redaction은 다양한 문서 형식에서 주석을 포함한 민감한 콘텐츠를 프로그래밍 방식으로 가리거나 삭제할 수 있는 Java API입니다.
 
-**Q: 상용 프로젝트에서 사용할 수 있습니까?**  
-A: Yes, provided you have a valid commercial license. The temporary license is for evaluation only.
+**Q: Can I use this in a commercial project?**  
+A: 네, 유효한 상업용 라이선스가 있다면 사용할 수 있습니다. 임시 라이선스는 평가용에만 제공됩니다.
 
-**Q: API가 PDF, DOCX 및 기타 형식을 지원합니까?**  
-A: Absolutely. It works with PDF, DOCX, PPTX, XLSX, and many more file types.
+**Q: Does the API support PDF, DOCX, and other formats?**  
+A: 물론입니다. PDF, DOCX, PPTX, XLSX 등 다양한 파일 형식을 지원합니다.
 
-**Q: 삭제할 수 있는 주석 수에 제한이 있습니까?**  
-A: No hard limit; performance depends on document size and system resources.
+**Q: Is there any limit to the number of annotations I can delete?**  
+A: 제한은 없으며, 성능은 문서 크기와 시스템 리소스에 따라 달라집니다.
 
-**Q: 실수로 주석을 삭제했을 경우 어떻게 복구할 수 있습니까?**  
-A: The API overwrites the file you save. Keep a backup of the original document before running the redaction.
+**Q: How can I revert the changes if I delete annotations by mistake?**  
+A: API는 저장한 파일을 덮어씁니다. Redaction을 실행하기 전에 원본 문서의 백업을 유지하세요.
 
 ## 리소스
 
 - **문서:** [GroupDocs Redaction Java Documentation](https://docs.groupdocs.com/redaction/java/)  
-- **API 레퍼런스:** [API Reference](https://reference.groupdocs.com/redaction/java)  
+- **API 참조:** [API Reference](https://reference.groupdocs.com/redaction/java)  
 - **다운로드:** [Latest Releases](https://releases.groupdocs.com/redaction/java/)  
 - **GitHub 저장소:** [GroupDocs.Redaction for Java](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - **무료 지원 포럼:** [GroupDocs Community Forum](https://forum.groupdocs.com/c/redaction/33)  
 - **임시 라이선스:** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/)  
 
-By following this guide, you now have a reliable method to **remove annotations java** using GroupDocs.Redaction. Integrate the snippet into your batch processing pipelines, and enjoy cleaner, annotation‑free documents every time.
+이 가이드를 따라 하면 GroupDocs.Redaction을 사용하여 **remove annotations java**를 수행하는 신뢰할 수 있는 방법을 얻게 됩니다. 스니펫을 배치 처리 파이프라인에 통합하여 매번 더 깔끔하고 주석이 없는 문서를 얻으세요.
 
 ---
 
-**Last Updated:** 2025-12-19  
-**Tested With:** GroupDocs.Redaction 24.9 for Java  
-**Author:** GroupDocs
+**마지막 업데이트:** 2026-02-18  
+**테스트 환경:** GroupDocs.Redaction 24.9 for Java  
+**작성자:** GroupDocs  
+
+---

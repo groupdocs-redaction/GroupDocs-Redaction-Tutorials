@@ -1,5 +1,5 @@
 ---
-date: 2025-12-20
+date: 2026-02-18
 description: GroupDocs.Redaction for Java を使用して、プレビューの生成、ドキュメント情報の取得、ドキュメントサイズの確認、ページ数の取得方法に関する完全なチュートリアル。
 title: プレビューの生成方法 – GroupDocs.Redaction Java のドキュメント情報チュートリアル
 type: docs
@@ -9,57 +9,68 @@ weight: 15
 
 # プレビュー生成方法 – GroupDocs.Redaction Java 用ドキュメント情報チュートリアル
 
-インテリジェントな赤字ワークフローを構築する際、ドキュメントの **プレビュー生成** 方法を把握していることは不可欠です。これらのプレビューにより、赤字ルールを適用する前にコンテンツを可視化し、ページレイアウトを確認し、ユーザーエクスペリエンスを向上させることができます。本ガイドでは、GroupDocs.Redaction for Java が提供するドキュメント情報機能（ドキュメントサイズ取得、メタデータ抽出、ページ数取得など）を包括的に解説します。最後まで読むと、プレビュー生成がなぜ重要か、そしてそれが完全なドキュメント分析パイプラインにどのように組み込まれるかが理解できるようになります。
+インテリジェントな赤字ワークフローを構築する際、ドキュメントの **how to generate preview** 画像を生成する方法を知っていることは不可欠です。これらのプレビューにより、赤字ルールを適用する前にコンテンツを可視化し、ページレイアウトを確認し、ユーザーエクスペリエンスを向上させることができます。本ガイドでは、GroupDocs.Redaction for Java が提供するドキュメント情報機能（ドキュメントサイズ取得、メタデータ抽出、ページ数取得など）を幅広く解説します。最後まで読むと、プレビュー生成がなぜ重要か、そしてそれが完全なドキュメント分析パイプラインにどのように組み込まれるかが理解できるようになります。
 
-## クイック回答
-- **「プレビュー生成」とは何ですか？** ドキュメントの各ページを画像（例：PNG、JPEG）に変換し、UI に表示できるようにすることを指します。  
-- **赤字処理の前にプレビューを生成する理由は？** 赤字ルールが正しいビジュアル要素を対象としているかを検証でき、誤ってデータが漏洩するリスクを低減します。  
-- **対応フォーマットは？** PDF、DOCX、PPTX、画像ファイルなど、GroupDocs.Redaction が認識できるすべての形式が対象です。  
-- **ライセンスは必要ですか？** 評価用の一時ライセンスで動作しますが、本番環境ではフルライセンスが必要です。  
-- **取得できる追加情報は？** document size Java、document page count、メタデータ抽出はすべて同じ API で取得可能です。
+## Quick Answers
+- **“how to generate preview” とは何ですか？**  
+  ドキュメントの各ページを画像（例: PNG、JPEG）に変換し、UI に表示できるようにすることを指します。  
+- **赤字処理の前にプレビューを生成する理由は？**  
+  赤字ルールが正しいビジュアル要素を対象としているかを検証でき、誤ってデータが漏洩するリスクを低減します。  
+- **対応フォーマットは？**  
+  PDF、DOCX、PPTX、画像ファイルなど、GroupDocs.Redaction が認識できるすべての形式が対象です。  
+- **ライセンスは必要ですか？**  
+  評価用の一時ライセンスで動作しますが、本番環境ではフルライセンスが必要です。  
+- **取得できる追加情報は？**  
+  Document size Java、document page count、そしてドキュメントメタデータの抽出が同じ API で利用可能です。
 
-## GroupDocs.Redaction の文脈で「プレビュー生成」とは？
+## What is “how to generate preview” in the context of GroupDocs.Redaction?
 プレビュー生成とは、ソースファイルの各ページをラスタ画像に変換することです。このプロセスは高速でメモリ効率が高く、プラットフォームに依存しないため、Web やデスクトップアプリケーションにページサムネイルやフルサイズプレビューを直接埋め込むことができます。
 
-## なぜ GroupDocs.Redaction をプレビュー生成に使うのか？
-- **正確性:** プレビューは赤字エンジンが処理するレイアウトと外観をそのまま反映します。  
-- **パフォーマンス:** 最適化されたレンダリングエンジンにより、大容量 PDF でも数ミリ秒でプレビューを生成できます。  
-- **柔軟性:** 画像形式、解像度、品質を UI 要件に合わせて指定可能です。  
-- **統合メタデータアクセス:** プレビュー生成と同時に、document size Java、document page count、メタデータ抽出を追加の API 呼び出しなしで取得できます。
+## Why use GroupDocs.Redaction for preview generation?
+- **Accuracy:** プレビューは、赤字エンジンが処理する正確なレイアウトとビジュアル外観を反映します。  
+- **Performance:** 最適化されたレンダリングエンジンにより、大きな PDF でもミリ秒単位でプレビューが生成されます。  
+- **Flexibility:** 画像形式、解像度、品質を UI の要件に合わせて指定できます。  
+- **Integrated metadata access:** プレビュー生成と同時に、Document size Java、document page count、ドキュメントメタデータを追加の API 呼び出しなしで取得できます。
 
-## 前提条件
+## Document preview java – Why it matters
+Java ベースのドキュメント管理システムを開発する場合、**document preview java** というフレーズは「変換が行われる前にファイルの外観をユーザーに示す」重要な機能を示しています。高解像度のプレビューを提供することで、ユーザーの信頼感が向上し、サポートチケットが減少し、コンプライアンスチェックが円滑になります。
+
+## Prerequisites
 - Java 8 以上がインストールされていること。  
-- プロジェクトに GroupDocs.Redaction for Java ライブラリを追加（Maven/Gradle）。  
-- 有効な（一時またはフル）GroupDocs.Redaction ライセンス。
+- プロジェクトに GroupDocs.Redaction for Java ライブラリを追加していること（Maven/Gradle）。  
+- 有効な（一時またはフル）GroupDocs.Redaction ライセンスを保持していること。
 
-## ドキュメント情報とプレビュー生成のステップバイステップガイド
+## Step‑by‑Step Guide to Document Information & Preview Generation
 
-### 手順 1: Redaction Engine の初期化
-`RedactionEngine` インスタンスを作成し、対象ドキュメントをロードします。この段階でサイズやページ数といったドキュメント情報プロパティにアクセスできます。
+### Step 1: Initialize the Redaction Engine
+`RedactionEngine` インスタンスを作成し、対象ドキュメントをロードします。このステップで、サイズやページ数といったドキュメント情報プロパティにもアクセスできるようになります。
 
-### 手順 2: 基本的なドキュメント情報の取得
-提供されている API メソッドを使用して **document size Java**、**document page count**、埋め込みメタデータを取得します。これらの値に基づき、高解像度プレビューの生成やバッチ赤字の適用可否を判断します。
+### Step 2: Retrieve Basic Document Information
+提供されている API メソッドを使用して **document size Java**、**document page count**、および埋め込みメタデータを取得します。これらの値に基づき、高解像度プレビューの生成やバッチ赤字の適用可否を判断します。
 
-### 手順 3: ページプレビューの生成
-プレビュー API を呼び出して各ページを画像としてレンダリングします。ページをループして PNG または JPEG ファイルとして保存するか、UI コンポーネントへ直接ストリームすることが可能です。
+### Step 3: Generate Page Previews
+プレビュー API を呼び出して各ページを画像としてレンダリングします。ページをループ処理して PNG や JPEG ファイルとして保存するか、UI コンポーネントへ直接ストリーム送信できます。
 
-### 手順 4: （オプション）ドキュメントメタデータの抽出
+### Step 4: (Optional) Extract Document Metadata
 ソースファイルの監査が必要な場合は、メタデータ抽出メソッドを呼び出して作成者、作成日、カスタムプロパティなどを取得します。
 
-### 手順 5: 赤字ルールの適用（プレビュー確認後）
-プレビューでビジュアルレイアウトを確認したら、正しいコンテンツを対象にしていることを確信した上で赤字ルールを定義・適用します。
+### Step 5: Apply Redaction Rules (After Preview Verification)
+プレビューでビジュアルレイアウトを確認した後、正しいコンテンツを対象としていることを確信したうえで赤字ルールを定義・適用します。
 
-## よくある問題と解決策
-- **プレビュー画像がぼやける:** プレビュー呼び出し時の解像度パラメータを上げてください。  
-- **大容量 PDF でメモリ不足エラー:** ページをバッチ処理し、使用後は画像ストリームを破棄してください。  
-- **メタデータが取得できない:** ソースファイルにメタデータが実際に含まれているか確認してください。一部形式（例：プレーンテキスト）ではサポートされません。
+## How to get document page count using GroupDocs.Redaction Java
+ロードしたドキュメントオブジェクトの `getPageCount()` メソッドは、総ページ数を表す整数を返します。ページ数を事前に把握しておくことで、リソースの割り当てやプレビュー解像度設定を効率的に行えます。
 
-## 利用可能なチュートリアル
+## Common Issues and Solutions
+- **Preview images are blurry:** プレビュー呼び出し時の解像度パラメータを上げてください。  
+- **Out‑of‑memory errors on large PDFs:** ページをバッチ処理し、使用後は画像ストリームを破棄してください。  
+- **Missing metadata:** ソースファイルにメタデータが実際に含まれているか確認してください。プレーンテキストなど一部形式はメタデータをサポートしていません。
 
-### [How to Retrieve Document Information Using GroupDocs.Redaction in Java](./retrieve-document-info-using-groupdocs-redaction-java/)
-GroupDocs.Redaction for Java を使用して、ファイルタイプ、ページ数、サイズなどのドキュメント情報を効率的に取得する方法を学びましょう。Java アプリケーションの機能を今すぐ強化できます。
+## Available Tutorials
 
-## 追加リソース
+### [Java で GroupDocs.Redaction を使用してドキュメント情報を取得する方法](./retrieve-document-info-using-groupdocs-redaction-java/)
+GroupDocs.Redaction for Java を使ってファイルタイプ、ページ数、サイズなどのドキュメント情報を効率的に取得する方法を学び、Java アプリケーションを強化しましょう。
+
+## Additional Resources
 
 - [GroupDocs.Redaction for Java Documentation](https://docs.groupdocs.com/redaction/java/)
 - [GroupDocs.Redaction for Java API Reference](https://reference.groupdocs.com/redaction/java/)
@@ -68,25 +79,23 @@ GroupDocs.Redaction for Java を使用して、ファイルタイプ、ページ
 - [Free Support](https://forum.groupdocs.com/)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)
 
-## FAQ（よくある質問）
+## Frequently Asked Questions
 
-**Q: ドキュメントのページ数をプログラムから取得するには？**  
-A: ロードしたドキュメントオブジェクトの `getPageCount()` メソッドを使用します。整数で総ページ数が返ります。
+**Q: How do I programmatically get the document page count?**  
+A: ロードしたドキュメントオブジェクトの `getPageCount()` メソッドを使用します。これにより、総ページ数を表す整数が返されます。
 
-**Q: パスワード保護されたファイルのプレビューも生成できますか？**  
-A: はい。ドキュメントを開く際にパスワードを指定すれば、通常通りプレビュー API を利用できます。
+**Q: Can I generate previews for password‑protected files?**  
+A: はい。ドキュメントを開く際にパスワードを指定すれば、通常通りプレビュー API を使用できます。
 
-**Q: プレビューでサポートされている画像形式は？**  
-A: PNG と JPEG が完全にサポートされており、DPI と品質設定をカスタマイズ可能です。
+**Q: What image formats are supported for previews?**  
+A: PNG と JPEG が完全にサポートされており、DPI や品質設定をカスタマイズできます。
 
-**Q: ドキュメント全体をメモリに読み込まずに元のファイルサイズ（document size Java）を取得できますか？**  
-A: ライブラリは `getFileSize()` メソッドを提供しており、ファイルシステムのメタデータからサイズを取得するため、全文解析は不要です。
+**Q: Is it possible to retrieve the original file size (document size Java) without loading the entire document into memory?**  
+A: ライブラリは `getFileSize()` メソッドを提供しており、ファイルシステムのメタデータからサイズを取得するため、ドキュメント全体を解析する必要がありません。
 
-**Q: DOCX ファイルからカスタムメタデータフィールドを抽出するには？**  
-A: ドキュメントロード後に `getCustomProperties()` コレクションを使用し、キー‑バリューのペアをイテレートして各カスタムプロパティにアクセスします。
+**Q: How can I extract custom metadata fields from a DOCX file?**  
+A: ドキュメントをロードした後に `getCustomProperties()` コレクションを使用し、キーと値のペアをイテレートして各カスタムプロパティにアクセスします。
 
----
-
-**最終更新日:** 2025-12-20  
-**テスト環境:** GroupDocs.Redaction for Java 23.12  
-**作成者:** GroupDocs
+**Last Updated:** 2026-02-18  
+**Tested With:** GroupDocs.Redaction for Java 23.12  
+**Author:** GroupDocs

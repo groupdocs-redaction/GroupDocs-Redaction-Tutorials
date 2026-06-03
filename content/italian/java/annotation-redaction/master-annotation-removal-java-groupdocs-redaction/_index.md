@@ -1,46 +1,46 @@
 ---
-date: '2025-12-19'
-description: Impara come eliminare le annotazioni in Java usando GroupDocs.Redaction
-  e le espressioni regolari. Ottimizza la gestione dei documenti con la nostra guida
-  completa.
+date: '2026-02-18'
+description: Scopri come rimuovere le annotazioni PDF in Java utilizzando GroupDocs.Redaction,
+  il filtraggio tramite regex e salvare il documento redatto con un suffisso nel nome
+  del file.
 keywords:
 - annotation removal java
 - groupdocs redaction setup
 - regex annotation cleanup
-title: Come eliminare le annotazioni in Java con GroupDocs.Redaction
+title: Rimuovi le annotazioni PDF in Java con GroupDocs.Redaction
 type: docs
 url: /it/java/annotation-redaction/master-annotation-removal-java-groupdocs-redaction/
 weight: 1
 ---
 
-# Come eliminare le annotazioni in Java con GroupDocs.Redaction
+# Rimuovere le annotazioni PDF in Java con GroupDocs.Redaction
 
-Se ti è mai capitato di rimanere bloccato nel tentativo di **eliminare le annotazioni** da PDF, file Word o fogli Excel, sai quanto può essere dispendioso in tempo il pulire manualmente. Fortunatamente, GroupDocs.Redaction per Java ti offre un modo programmatico per rimuovere note, commenti o evidenziazioni indesiderate in poche righe di codice. In questa guida ti mostreremo tutto ciò di cui hai bisogno—dalla configurazione della dipendenza Maven all'applicazione di un filtro basato su regex che rimuove solo le annotazioni che desideri.
+Se hai bisogno di **rimuovere le annotazioni PDF** in modo rapido e affidabile—che siano commenti, evidenziazioni o note adesive—GroupDocs.Redaction per Java ti offre una soluzione pulita e programmatica. In questo tutorial ti guideremo passo passo, dalla configurazione di Maven a un filtro basato su regex che elimina solo le annotazioni che desideri, e ti mostreremo come **salvare il documento redatto** con un suffisso aggiunto al nome file in modo che l'originale rimanga intatto.
 
 ## Risposte rapide
-- **Quale libreria gestisce l'eliminazione delle annotazioni?** GroupDocs.Redaction for Java.  
-- **Quale parola chiave attiva la rimozione?** Un pattern di espressione regolare che definisci (ad es., `(?im:(use|show|describe))`).  
+- **Quale libreria gestisce l'eliminazione delle annotazioni?** GroupDocs.Redaction per Java.  
+- **Quale parola chiave attiva la rimozione?** Un modello di espressione regolare che definisci (ad es., `(?im:(use|show|describe))`).  
 - **Ho bisogno di una licenza?** Una versione di prova funziona per la valutazione; è necessaria una licenza commerciale per la produzione.  
 - **Posso salvare il file pulito con un nuovo nome?** Sì—usa `SaveOptions.setAddSuffix(true)`.  
-- **Maven è l'unico modo per aggiungere la libreria?** No, puoi anche scaricare il JAR direttamente.
+- **Maven è l'unico modo per aggiungere la libreria?** No, puoi anche scaricare direttamente il JAR.
 
-## Cos'è “come eliminare le annotazioni” nel contesto di Java?
-Eliminare le annotazioni significa individuare e rimuovere programmaticamente gli oggetti di markup (commenti, evidenziazioni, note adesive) da un documento. Con GroupDocs.Redaction puoi mirare a questi oggetti in base al contenuto testuale, rendendolo ideale per progetti di **data anonymization java**, **legal document redaction**, o qualsiasi flusso di lavoro che richieda un file pulito e pronto per la condivisione.
+## Cos'è la rimozione delle annotazioni PDF?
+Rimuovere le annotazioni PDF significa individuare e cancellare programmaticamente gli oggetti di markup (commenti, evidenziazioni, note adesive) da un documento. Con GroupDocs.Redaction puoi mirare a questi oggetti in base al loro contenuto testuale, rendendolo perfetto per la **redazione di documenti legali**, progetti di anonimizzazione dei dati, o qualsiasi flusso di lavoro che richieda un file pulito e pronto per la condivisione.
 
-## Perché usare GroupDocs.Redaction per la rimozione delle annotazioni?
+## Perché usare la rimozione delle annotazioni PDF con GroupDocs.Redaction?
 - **Precisione** – Le regex ti consentono di specificare esattamente quali note cancellare.  
-- **Velocità** – Processa centinaia di file in batch senza aprirli manualmente.  
-- **Conformità** – Assicura che i commenti sensibili non escano dalla tua organizzazione.  
-- **Supporto multi‑formato** – Funziona con PDF, DOCX, XLSX e altri.
+- **Velocità** – Elabora **più documenti** in batch senza aprirli manualmente uno per uno.  
+- **Conformità** – Garantisce che i commenti sensibili non escano mai dalla tua organizzazione.  
+- **Supporto multi‑formato** – Funziona con PDF, DOCX, XLSX e altri, così puoi gestire tutti i tuoi file office in un unico posto.
 
 ## Prerequisiti
-- Java JDK 1.8 o successivo.  
+- Java JDK 1.8 o versioni successive.  
 - Un IDE come IntelliJ IDEA o Eclipse.  
 - Familiarità di base con le espressioni regolari.  
 
 ## Dipendenza Maven GroupDocs
 
-Aggiungi il repository GroupDocs e l'artefatto Redaction al tuo `pom.xml`:
+Aggiungi il repository GroupDocs e l'artifact Redaction al tuo `pom.xml`:
 
 ```xml
 <repositories>
@@ -67,7 +67,7 @@ Se preferisci non usare Maven, scarica l'ultimo JAR dalla pagina ufficiale: [Gro
 #### Passaggi per l'acquisizione della licenza
 1. **Prova gratuita** – Scarica la versione di prova per esplorare le funzionalità principali.  
 2. **Licenza temporanea** – Richiedi una chiave temporanea per testare tutte le funzionalità.  
-3. **Acquisto** – Ottieni una licenza commerciale per l'uso in produzione.  
+3. **Acquisto** – Ottieni una licenza commerciale per l'uso in produzione.
 
 ## Inizializzazione e configurazione di base
 
@@ -98,7 +98,7 @@ public class InitializeRedaction {
 }
 ```
 
-## Guida passo‑passo per eliminare le annotazioni
+## Guida passo‑passo per rimuovere le annotazioni PDF
 
 ### Passo 1: Carica il tuo documento
 
@@ -106,7 +106,7 @@ public class InitializeRedaction {
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/ANNOTATED_XLSX");
 ```
 
-### Passo 2: Applica la rimozione delle annotazioni basata su regex
+### Passo 2: Applica la rimozione delle annotazioni basata su Regex
 
 ```java
 redactor.apply(new DeleteAnnotationRedaction("(?im:(use|show|describe))"));
@@ -114,7 +114,7 @@ redactor.apply(new DeleteAnnotationRedaction("(?im:(use|show|describe))"));
 
 - **Spiegazione** – Il pattern `(?im:(use|show|describe))` è case‑insensitive (`i`) e multilinea (`m`). Corrisponde a qualsiasi annotazione contenente *use*, *show* o *describe*.
 
-### Passo 3: Configura le opzioni di salvataggio
+### Passo 3: Configura le opzioni di salvataggio (aggiungi suffisso al nome file)
 
 ```java
 SaveOptions saveOptions = new SaveOptions();
@@ -122,7 +122,7 @@ saveOptions.setAddSuffix(true);  // Append a suffix to the output filename
 saveOptions.setRasterizeToPDF(false);  // Do not convert to PDF format
 ```
 
-### Passo 4: Salva e rilascia le risorse
+### Passo 4: Salva e rilascia le risorse (salva il documento redatto)
 
 ```java
 redactor.save(saveOptions, "YOUR_OUTPUT_DIRECTORY/RedactedDocument");
@@ -133,37 +133,32 @@ redactor.close();  // Always close the Redactor instance
 - Verifica che la tua regex corrisponda effettivamente al testo dell'annotazione che intendi eliminare.  
 - Controlla nuovamente i permessi del file system se la chiamata `save` genera un `IOException`.  
 
-## Rimuovere le annotazioni Java – Casi d'uso comuni
-1. **Data Anonymization Java** – Rimuovi i commenti dei revisori che contengono identificatori personali prima di condividere i dataset.  
-2. **Legal Document Redaction** – Elimina automaticamente le note interne che potrebbero rivelare informazioni privilegiate.  
-3. **Pipeline di elaborazione batch** – Integra i passaggi precedenti in un job CI/CD che pulisce i report generati al volo.  
-
-## Salva il documento redatto – Best practice
-- **Aggiungi un suffisso** (`setAddSuffix(true)`) per preservare il file originale indicando chiaramente la versione redatta.  
-- **Evita il raster** a meno che non ti serva un PDF appiattito; mantenere il documento nel suo formato nativo conserva la ricercabilità.  
-- **Chiudi il Redactor** prontamente per liberare la memoria nativa ed evitare perdite in servizi a lunga esecuzione.  
+## Casi d'uso comuni
+1. **Anonimizzazione dei dati Java** – Rimuovi i commenti dei revisori che contengono identificatori personali prima di condividere i dataset.  
+2. **Redazione di documenti legali** – Elimina automaticamente le note interne che potrebbero rivelare informazioni privilegiate.  
+3. **Pipeline di elaborazione batch** – Integra i passaggi precedenti in un job CI/CD che **elabora più documenti** e pulisce i report generati al volo.  
 
 ## Considerazioni sulle prestazioni
 - **Ottimizza i pattern regex** – Espressioni complesse possono aumentare il tempo CPU, specialmente su PDF di grandi dimensioni.  
-- **Riutilizza le istanze Redactor** solo quando elabori più documenti dello stesso tipo; altrimenti, istanzia per file per mantenere basso l'utilizzo di memoria.  
-- **Profilazione** – Usa strumenti di profiling Java (ad es., VisualVM) per individuare colli di bottiglia nelle operazioni di massa.  
+- **Riutilizza le istanze Redactor** solo quando elabori più file dello stesso tipo; altrimenti, crea una nuova istanza per file per mantenere basso l'utilizzo di memoria.  
+- **Profilatura** – Usa strumenti di profilazione Java (ad es., VisualVM) per individuare i colli di bottiglia nelle operazioni di massa.  
 
 ## Domande frequenti
 
-**Q: Cos'è GroupDocs.Redaction per Java?**  
-A: È una libreria Java che consente di redigere testo, metadati e annotazioni su molti formati di documento.
+**D: Cos'è GroupDocs.Redaction per Java?**  
+R: È una libreria Java che consente di redigere testo, metadati e annotazioni su molti formati di documento.
 
-**Q: Come posso applicare più pattern regex in un'unica passata?**  
-A: Combinali con l'operatore pipe (`|`) all'interno di un unico pattern o concatenando più chiamate `DeleteAnnotationRedaction`.
+**D: Come posso applicare più pattern regex in un'unica passata?**  
+R: Combinali con l'operatore pipe (`|`) all'interno di un unico pattern o concatena più chiamate `DeleteAnnotationRedaction`.
 
-**Q: La libreria supporta formati non testuali come le immagini?**  
-A: Sì, può redigere PDF basati su immagini e altri formati raster, sebbene la rimozione delle annotazioni sia applicabile solo ai formati vettoriali supportati.
+**D: La libreria supporta formati non testuali come le immagini?**  
+R: Sì, può redigere PDF basati su immagini e altri formati raster, sebbene la rimozione delle annotazioni sia applicabile solo ai formati vettoriali supportati.
 
-**Q: Cosa succede se il mio tipo di documento non è elencato tra quelli supportati?**  
-A: Controlla la più recente [Documentation](https://docs.groupdocs.com/redaction/java/) per gli aggiornamenti, oppure converti il file in un formato supportato prima.
+**D: E se il mio tipo di documento non è elencato tra quelli supportati?**  
+R: Controlla la più recente [Documentation](https://docs.groupdocs.com/redaction/java/) per gli aggiornamenti, oppure converti il file in un formato supportato prima.
 
-**Q: Come devo gestire le eccezioni durante la redazione?**  
-A: Avvolgi la logica di redazione in blocchi try‑catch, registra i dettagli dell'eccezione e assicurati che `redactor.close()` venga eseguito in un blocco finally.
+**D: Come devo gestire le eccezioni durante la redazione?**  
+R: Avvolgi la logica di redazione in blocchi try‑catch, registra i dettagli dell'eccezione e assicurati che `redactor.close()` venga eseguito in un blocco finally.
 
 ## Risorse aggiuntive
 - [Documentazione](https://docs.groupdocs.com/redaction/java/)
@@ -174,6 +169,6 @@ A: Avvolgi la logica di redazione in blocchi try‑catch, registra i dettagli de
 
 ---
 
-**Ultimo aggiornamento:** 2025-12-19  
-**Testato con:** GroupDocs.Redaction 24.9 for Java  
+**Ultimo aggiornamento:** 2026-02-18  
+**Testato con:** GroupDocs.Redaction 24.9 per Java  
 **Autore:** GroupDocs

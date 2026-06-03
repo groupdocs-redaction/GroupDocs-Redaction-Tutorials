@@ -1,41 +1,41 @@
 ---
-date: '2025-12-19'
-description: GroupDocs.Redaction ve regex kullanarak Java'da açıklamaları nasıl sileceğinizi
-  öğrenin. Kapsamlı rehberimizle belge yönetimini kolaylaştırın.
+date: '2026-02-18'
+description: Java'da GroupDocs.Redaction ve regex filtreleme kullanarak PDF açıklamalarını
+  nasıl kaldıracağınızı öğrenin ve kırpılmış belgeyi dosya adı son ekiyle kaydedin.
 keywords:
 - annotation removal java
 - groupdocs redaction setup
 - regex annotation cleanup
-title: Java'da GroupDocs.Redaction ile Açıklamaları Silme
+title: Java ile GroupDocs.Redaction Kullanarak PDF Açıklamalarını Kaldır
 type: docs
 url: /tr/java/annotation-redaction/master-annotation-removal-java-groupdocs-redaction/
 weight: 1
 ---
 
-# Java ile GroupDocs.Redaction Kullanarak Açıklamaları Silme
+# Java ile GroupDocs.Redaction kullanarak PDF Açıklamaları Kaldırma
 
-PDF'lerden, Word dosyalarından veya Excel sayfalarından **açıklamaları silmeye** çalışırken takıldıysanız, manuel temizlik işleminin ne kadar zaman alıcı olabileceğini biliyorsunuz. Neyse ki, GroupDocs.Redaction for Java, istenmeyen notları, yorumları veya vurgulamaları sadece birkaç kod satırıyla kaldırmanıza programatik bir yol sunar. Bu rehberde, Maven bağımlılığını kurmaktan hedeflediğiniz açıklamaları yalnızca kaldıran regex tabanlı bir filtre uygulamaya kadar ihtiyacınız olan her şeyi adım adım göstereceğiz.
+Eğer **PDF açıklamalarını** hızlı ve güvenilir bir şekilde kaldırmanız gerekiyorsa—yorumlar, vurgulamalar veya yapışkan notlar olsun—GroupDocs.Redaction for Java size temiz, programatik bir çözüm sunar. Bu öğreticide Maven kurulumundan yalnızca hedeflediğiniz açıklamaları silen regex‑tabanlı filtreye kadar her şeyi adım adım gösterecek ve **kırpılmış belgeyi** orijinal dosya dokunulmaz kalacak şekilde ek bir dosya adı sonekiyle nasıl **kaydedeceğinizi** göstereceğiz.
 
 ## Hızlı Yanıtlar
 - **Açıklama silmeyi hangi kütüphane yönetir?** GroupDocs.Redaction for Java.  
 - **Hangi anahtar kelime kaldırmayı tetikler?** Tanımladığınız bir regular‑expression deseni (örnek: `(?im:(use|show|describe))`).  
-- **Lisans gerekiyor mu?** Değerlendirme için bir deneme sürümü çalışır; üretim için ticari bir lisans gereklidir.  
+- **Bir lisansa ihtiyacım var mı?** Değerlendirme için deneme sürümü çalışır; üretim için ticari bir lisans gereklidir.  
 - **Temizlenmiş dosyayı yeni bir adla kaydedebilir miyim?** Evet—`SaveOptions.setAddSuffix(true)` kullanın.  
 - **Kütüphaneyi eklemenin tek yolu Maven mi?** Hayır, JAR dosyasını doğrudan da indirebilirsiniz.
 
-## Java bağlamında “açıklamaları silme” ne anlama geliyor?
-Açıklamaları silmek, bir belgedeki işaretleme nesnelerini (yorumlar, vurgulamalar, yapışkan notlar) programatik olarak bulup kaldırmak anlamına gelir. GroupDocs.Redaction ile bu nesneleri metin içeriğine göre hedefleyebilirsiniz; bu da **data anonymization java** projeleri, **legal document redaction** veya temiz, paylaşım‑hazır bir dosya gerektiren herhangi bir iş akışı için idealdir.
+## PDF Açıklamaları Kaldırma Nedir?
+PDF açıklamalarını kaldırmak, bir belgedeki işaretleme nesnelerini (yorumlar, vurgulamalar, yapışkan notlar) programatik olarak bulup silmek anlamına gelir. GroupDocs.Redaction ile bu nesneleri metin içeriklerine göre hedefleyebilir, bu da **hukuki belge kırpma**, veri‑anonimleştirme projeleri veya temiz, paylaşım‑hazır bir dosya gerektiren herhangi bir iş akışı için mükemmeldir.
 
-## Neden GroupDocs.Redaction'ı açıklama kaldırma için kullanmalısınız?
-- **Kesinlik** – Regex, hangi notların silineceğini tam olarak belirtmenizi sağlar.  
-- **Speed** – Her birini manuel olarak açmadan toplu olarak yüzlerce dosyayı işleyin.  
-- **Compliance** – Hassas yorumların organizasyonunuzdan dışarı çıkmadığından emin olun.  
-- **Cross‑format support** – PDF, DOCX, XLSX ve daha fazlası ile çalışır.
+## Neden GroupDocs.Redaction ile PDF Açıklamaları Kaldırma Kullanmalı?
+- **Hassasiyet** – Regex, silinecek notları tam olarak belirlemenizi sağlar.  
+- **Hız** – **Birden fazla belgeyi** toplu olarak, her birini manuel olarak açmadan işleyin.  
+- **Uyumluluk** – Hassas yorumların kuruluşunuzdan asla çıkmamasını sağlayın.  
+- **Çapraz‑format desteği** – PDF, DOCX, XLSX ve daha fazlasıyla çalışır, böylece tüm ofis dosyalarınızı tek bir yerden yönetebilirsiniz.
 
 ## Önkoşullar
 - Java JDK 1.8 veya daha yeni bir sürüm.  
 - IntelliJ IDEA veya Eclipse gibi bir IDE.  
-- Regular expressions konusunda temel bilgi.  
+- Regular expression'lara temel aşinalık.
 
 ## Maven Bağımlılığı GroupDocs
 
@@ -61,12 +61,12 @@ GroupDocs deposunu ve Redaction artefaktını `pom.xml` dosyanıza ekleyin:
 
 ### Doğrudan İndirme (alternatif)
 
-Maven kullanmak istemiyorsanız, resmi sayfadan en son JAR dosyasını edinin: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+Maven kullanmak istemiyorsanız, resmi sayfadan en son JAR'ı alın: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
 #### Lisans Edinme Adımları
-1. **Free Trial** – Temel özellikleri keşfetmek için deneme sürümünü indirin.  
-2. **Temporary License** – Tam özellikli test için geçici bir anahtar isteyin.  
-3. **Purchase** – Üretim kullanımı için ticari bir lisans edinin.
+1. **Ücretsiz Deneme** – Temel özellikleri keşfetmek için deneme sürümünü indirin.  
+2. **Geçici Lisans** – Tam özellikli test için geçici bir anahtar isteyin.  
+3. **Satın Alma** – Üretim kullanımı için ticari bir lisans edinin.
 
 ## Temel Başlatma ve Kurulum
 
@@ -97,7 +97,7 @@ public class InitializeRedaction {
 }
 ```
 
-## Açıklamaları Silmek İçin Adım‑Adım Kılavuz
+## PDF Açıklamaları Kaldırma İçin Adım‑Adım Kılavuz
 
 ### Adım 1: Belgenizi Yükleyin
 
@@ -105,15 +105,15 @@ public class InitializeRedaction {
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/ANNOTATED_XLSX");
 ```
 
-### Adım 2: Regex‑Tabanlı Açıklama Kaldırma Uygulayın
+### Adım 2: Regex‑Tabanlı Açıklama Kaldırmayı Uygulayın
 
 ```java
 redactor.apply(new DeleteAnnotationRedaction("(?im:(use|show|describe))"));
 ```
 
-- **Explanation** – `(?im:(use|show|describe))` deseni büyük/küçük harfe duyarsız (`i`) ve çok satırlı (`m`) olarak ayarlanmıştır. *use*, *show* veya *describe* içeren herhangi bir açıklamayı eşleştirir.
+- **Açıklama** – `(?im:(use|show|describe))` deseni büyük/küçük harfe duyarsız (`i`) ve çok satırlı (`m`) olarak ayarlanmıştır. *use*, *show* veya *describe* içeren herhangi bir açıklamayı eşleştirir.
 
-### Adım 3: Kaydetme Seçeneklerini Yapılandırın
+### Adım 3: Kaydetme Seçeneklerini Yapılandırın (dosya adı soneki ekleyin)
 
 ```java
 SaveOptions saveOptions = new SaveOptions();
@@ -121,7 +121,7 @@ saveOptions.setAddSuffix(true);  // Append a suffix to the output filename
 saveOptions.setRasterizeToPDF(false);  // Do not convert to PDF format
 ```
 
-### Adım 4: Kaydedin ve Kaynakları Serbest Bırakın
+### Adım 4: Kaydedin ve Kaynakları Serbest Bırakın (kırpılmış belgeyi kaydedin)
 
 ```java
 redactor.save(saveOptions, "YOUR_OUTPUT_DIRECTORY/RedactedDocument");
@@ -130,39 +130,34 @@ redactor.close();  // Always close the Redactor instance
 
 **Sorun Giderme İpuçları**  
 - Regex'inizin silmek istediğiniz açıklama metniyle gerçekten eşleştiğini doğrulayın.  
-- `save` çağrısı bir `IOException` fırlatıyorsa dosya sistemi izinlerini iki kez kontrol edin.  
+- `save` çağrısı bir `IOException` fırlatıyorsa dosya sistemi izinlerini iki kez kontrol edin.
 
-## Java’da Açıklama Kaldırma – Yaygın Kullanım Senaryoları
-1. **Data Anonymization Java** – Veri setlerini paylaşmadan önce kişisel tanımlayıcılar içeren gözden geçiren yorumlarını kaldırın.  
-2. **Legal Document Redaction** – Yetkili bilgileri ortaya çıkarabilecek iç notları otomatik olarak silin.  
-3. **Batch Processing Pipelines** – Yukarıdaki adımları, oluşturulan raporları anında temizleyen bir CI/CD işine entegre edin.  
-
-## Kırpılmış Belgeyi Kaydet – En İyi Uygulamalar
-- **Add a suffix** (`setAddSuffix(true)`) – Orijinal dosyayı korurken kırpılmış sürümü açıkça göstermek için bir ek ekleyin.  
-- **Avoid rasterizing** – Düzleştirilmiş bir PDF'ye ihtiyacınız yoksa rasterleştirmeyin; belgeyi yerel formatında tutmak arama yapılabilirliği korur.  
-- **Close the Redactor** – Yerel belleği serbest bırakmak ve uzun süren hizmetlerde sızıntıları önlemek için Redactor'ı hemen kapatın.  
+## Yaygın Kullanım Senaryoları
+1. **Java Veri Anonimleştirme** – Veri setlerini paylaşmadan önce kişisel tanımlayıcılar içeren gözden geçiren yorumlarını temizleyin.  
+2. **Hukuki Belge Kırpma** – Ayrıcalıklı bilgileri ortaya çıkarabilecek iç notları otomatik olarak silin.  
+3. **Toplu İşleme Boru Hatları** – Yukarıdaki adımları, **birden fazla belgeyi işleyen** bir CI/CD işine entegre edin ve oluşturulan raporları anında temizleyin.  
 
 ## Performans Düşünceleri
-- **Optimize regex patterns** – Karmaşık ifadeler CPU süresini artırabilir, özellikle büyük PDF'lerde.  
-- **Reuse Redactor instances** – Aynı tipte birden fazla belge işlenirken Redactor örneklerini yeniden kullanın; aksi takdirde, bellek ayak izini düşük tutmak için dosya başına yeni bir örnek oluşturun.  
-- **Profile** – Toplu işlemlerde darboğazları tespit etmek için Java profil araçlarını (ör. VisualVM) kullanın.  
+- **Regex desenlerini optimize edin** – Karmaşık ifadeler CPU süresini artırabilir, özellikle büyük PDF'lerde.  
+- **Redactor örneklerini yeniden kullanın** yalnızca aynı tipte birden fazla dosya işlenirken; aksi takdirde her dosya için yeni örnek oluşturun ve bellek ayak izini düşük tutun.  
+- **Profil oluşturun** – Toplu işlemlerde darboğazları tespit etmek için Java profil araçlarını (ör. VisualVM) kullanın.
 
 ## Sıkça Sorulan Sorular
 
-**Q: GroupDocs.Redaction for Java nedir?**  
-A: Metin, meta veri ve açıklamaları birçok belge formatında kırpmanıza olanak sağlayan bir Java kütüphanesidir.
+**S: GroupDocs.Redaction for Java nedir?**  
+C: Metin, meta veri ve açıklamaları birçok belge formatında kırpmanıza olanak tanıyan bir Java kütüphanesidir.
 
-**Q: Tek bir geçişte birden fazla regex deseni nasıl uygulayabilirim?**  
-A: Tek bir desen içinde boru (`|`) operatörüyle birleştirin veya birden fazla `DeleteAnnotationRedaction` çağrısını zincirleyin.
+**S: Tek bir geçişte birden fazla regex deseni nasıl uygulayabilirim?**  
+C: Tek bir desen içinde boru (`|`) operatörüyle birleştirin veya birden fazla `DeleteAnnotationRedaction` çağrısını zincirleyin.
 
-**Q: Kütüphane görüntüler gibi metin dışı formatları destekliyor mu?**  
-A: Evet, görüntü tabanlı PDF'leri ve diğer raster formatları kırpabilir; ancak açıklama kaldırma yalnızca desteklenen vektör formatları için geçerlidir.
+**S: Kütüphane görüntü gibi metin dışı formatları destekliyor mu?**  
+C: Evet, görüntü‑tabanlı PDF'leri ve diğer raster formatları kırpabilir, ancak açıklama kaldırma yalnızca desteklenen vektör formatlarında uygulanabilir.
 
-**Q: Belge tipim desteklenenler listesinde yoksa ne yapmalıyım?**  
-A: Güncellemeler için en son [Documentation](https://docs.groupdocs.com/redaction/java/) sayfasına bakın veya önce dosyayı desteklenen bir formata dönüştürün.
+**S: Belge tipim desteklenenler arasında listelenmemişse ne yapmalıyım?**  
+C: Güncellemeler için en son [Documentation](https://docs.groupdocs.com/redaction/java/) sayfasını kontrol edin veya önce dosyayı desteklenen bir formata dönüştürün.
 
-**Q: Kırpma sırasında istisnaları nasıl ele almalı?**  
-A: Kırpma mantığını try‑catch bloklarıyla sarın, istisna detaylarını kaydedin ve `redactor.close()` metodunun finally bloğunda çalıştığından emin olun.
+**S: Kırpma sırasında istisnaları nasıl ele almalı?**  
+C: Kırpma mantığını try‑catch blokları içinde sarın, istisna detaylarını kaydedin ve `redactor.close()` metodunun finally bloğunda çalıştığından emin olun.
 
 ## Ek Kaynaklar
 - [Dokümantasyon](https://docs.groupdocs.com/redaction/java/)
@@ -173,6 +168,6 @@ A: Kırpma mantığını try‑catch bloklarıyla sarın, istisna detaylarını 
 
 ---
 
-**Son Güncelleme:** 2025-12-19  
+**Son Güncelleme:** 2026-02-18  
 **Test Edilen Sürüm:** GroupDocs.Redaction 24.9 for Java  
 **Yazar:** GroupDocs
