@@ -1,51 +1,47 @@
 ---
-date: '2025-12-31'
-description: Dowiedz się, jak redagować obrazy w dokumentach Word przy użyciu GroupDocs.Redaction
+date: '2026-03-04'
+description: Dowiedz się, jak cenzurować obrazy w dokumentach Word przy użyciu GroupDocs.Redaction
   dla Javy. Ten krok po kroku poradnik pokaże Ci, jak bezpiecznie ukrywać dane wizualne.
 keywords:
 - redact images in word documents using java
 - groupdocs.redaction for java
 - image redaction in word documents
 title: Jak redagować obrazy w dokumentach Word przy użyciu GroupDocs.Redaction dla
-  Javy – Kompletny przewodnik
+  Javy – kompleksowy przewodnik
 type: docs
 url: /pl/java/image-redaction/redact-images-word-docs-groupdocs-redaction-java/
 weight: 1
 ---
 
-# Jak Redagować Obrazy w Dokumentach Word przy użyciu GroupDocs.Redaction dla Javy
+# Jak redagować obrazy w dokumentach Word przy użyciu GroupDocs.Redaction for Java
 
-W dzisiejszej erze cyfrowej **jak redagować obrazy w plikach Word** jest kluczową umiejętnością ochrony poufnych grafik, logotypów lub prywatnych zdjęć. Ten samouczek przeprowadzi Cię przez użycie GroupDocs.Redaction dla Javy w celu zlokalizowania i bezpiecznego ukrycia osadzonych obrazów w dokumentach Microsoft Word. Po zakończeniu zrozumiesz pełny przepływ pracy — od konfiguracji biblioteki po zastosowanie precyzyjnych redakcji obrazów — dzięki czemu możesz chronić wrażliwe dane wizualne przed niepowołanymi osobami.
+W dzisiejszej erze cyfrowej, **how to redact images in word** pliki to kluczowa umiejętność ochrony poufnych grafik, logotypów lub prywatnych zdjęć. Ten tutorial prowadzi Cię przez użycie GroupDocs.Redaction for Java do lokalizowania i bezpiecznego ukrywania osadzonych obrazów w dokumentach Microsoft Word. Po zakończeniu zrozumiesz pełny przepływ pracy — od konfiguracji biblioteki po zastosowanie precyzyjnych redakcji obrazów — aby móc chronić wrażliwe dane wizualne przed niepowołanymi osobami.
 
 ## Szybkie odpowiedzi
-- **Jaką bibliotekę obsługuje redakcję obrazów?** GroupDocs.Redaction dla Javy  
-- **Jaką wersję Javy wymaga się używać?** JDK 8 lub wyższą  
-- **Czy potrzebna jest licencja?** Darmowa wersja próbna wystarcza do testów; pełna licencja jest wymagana w środowisku produkcyjnym  
-- **Czy mogę redagować inne typy plików?** Tak — obsługiwane są PDF, Excel i inne  
-- **Czy proces jest efektywny pamięciowo?** Tak, szczególnie przy zarządzaniu zasobami i przetwarzaniu dużych dokumentów w partiach  
+- **Jaka biblioteka obsługuje redakcję obrazów?** GroupDocs.Redaction for Java  
+- **Która wersja Javy jest wymagana?** JDK 8 lub wyższa  
+- **Czy potrzebna jest licencja?** Darmowa wersja próbna działa do testów; pełna licencja jest wymagana w produkcji  
+- **Czy mogę redagować inne typy plików?** Tak — PDF, Excel i inne są obsługiwane  
+- **Czy proces jest pamięcio‑efektywny?** Tak, szczególnie gdy zarządzasz zasobami i przetwarzasz duże dokumenty w partiach  
 
-## Co to jest „jak redagować obrazy w Word”?
+## Jak redagować obrazy w dokumentach Word?
+Redagowanie obrazów w dokumencie Word oznacza trwałe usunięcie lub zamaskowanie elementów wizualnych zawierających prywatne lub własnościowe informacje. GroupDocs.Redaction zapewnia programistyczną kontrolę umożliwiającą definiowanie dokładnych obszarów, zastąpienie ich jednolitym kolorem lub całkowite usunięcie danych obrazu.
 
-Redagowanie obrazów w dokumencie Word oznacza trwałe usunięcie lub zamaskowanie elementów wizualnych zawierających prywatne lub własnościowe informacje. GroupDocs.Redaction zapewnia programistyczną kontrolę umożliwiającą definiowanie dokładnych obszarów, zastępowanie ich jednolitym kolorem lub całkowite wymazanie danych obrazu.
-
-## Dlaczego warto używać GroupDocs.Redaction dla Javy?
-
-- **Precyzja:** Celowanie w konkretne współrzędne, zapewniając ukrycie wyłącznie zamierzonego obszaru.  
+## Dlaczego warto używać GroupDocs.Redaction for Java?
+- **Precyzja:** Celowanie w określone współrzędne, zapewniając ukrycie tylko zamierzonego obszaru.  
 - **Wydajność:** Optymalizowane pod kątem dużych plików i przetwarzania wsadowego.  
-- **Obsługa wielu formatów:** Działa z DOCX, PDF, PPTX i innymi, umożliwiając ponowne wykorzystanie tego samego kodu.  
-- **Zgodność:** Pomaga spełnić wymogi GDPR, HIPAA i innych regulacji prywatności, gwarantując, że zredagowana treść nie może zostać odzyskana.
+- **Obsługa wielu formatów:** Działa z DOCX, PDF, PPTX i innymi, umożliwiając ponowne użycie tego samego kodu.  
+- **Zgodność:** Pomaga spełnić wymogi GDPR, HIPAA i innych regulacji prywatności, gwarantując, że zredagowana treść nie może zostać odzyskana.  
 
 ## Wymagania wstępne
-
 - **Java Development Kit (JDK) 8+** zainstalowany na Twoim komputerze.  
 - **Maven** (lub możliwość ręcznego dodania plików JAR).  
 - Podstawowa znajomość składni Javy i struktury projektu.  
 
-## Konfiguracja GroupDocs.Redaction dla Javy
+## Konfigurowanie GroupDocs.Redaction for Java
 
-### Instalacja za pomocą Maven
-
-Dodaj repozytorium GroupDocs oraz zależność do swojego pliku `pom.xml`:
+### Instalacja przy użyciu Maven
+Dodaj repozytorium GroupDocs oraz zależność do swojego `pom.xml`:
 
 ```xml
 <repositories>
@@ -66,24 +62,21 @@ Dodaj repozytorium GroupDocs oraz zależność do swojego pliku `pom.xml`:
 ```
 
 ### Bezpośrednie pobranie
-
-Jeśli nie chcesz używać Maven, pobierz najnowszy plik JAR ze strony wydania: [GroupDocs.Redaction for Java releases](releases.groupdocs.com/redaction/java/).
+Jeśli wolisz nie używać Maven, pobierz najnowszy plik JAR z oficjalnej strony wydań: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
 ### Uzyskanie licencji
-
-- **Darmowa wersja próbna:** Idealna do oceny funkcji.  
-- **Licencja tymczasowa:** Rozszerza możliwości wersji próbnej na określony czas.  
-- **Pełny zakup:** Odblokowuje wszystkie opcje redakcji i wsparcie premium.
+- **Free Trial:** Idealny do oceny funkcji.  
+- **Temporary License:** Wydłuża możliwości wersji próbnej na ograniczony czas.  
+- **Full Purchase:** Odblokowuje wszystkie opcje redakcji oraz wsparcie premium.
 
 ### Podstawowa inicjalizacja
-
-Poniżej znajduje się minimalny kod Javy otwierający dokument Word przy użyciu klasy `Redactor`:
+Poniżej znajduje się minimalny kod Java otwierający dokument Word przy użyciu klasy `Redactor`:
 
 ```java
 import com.groupdocs.redaction.Redactor;
 
 public class RedactImagesExample {
-    public static void main(String[] args) {
+    public static main(String[] args) {
         String documentPath = "YOUR_DOCUMENT_DIRECTORY/sample.docx";
         
         try (Redactor redactor = new Redactor(documentPath)) {
@@ -97,11 +90,8 @@ public class RedactImagesExample {
 
 ## Przewodnik implementacji – krok po kroku
 
-### Jak redagować obrazy w Word przy użyciu GroupDocs.Redaction Java?
-
-#### Krok 1: Zdefiniuj ścieżkę do dokumentu i zainicjalizuj Redactor
-
-Najpierw wskaż bibliotece plik DOCX, który ma zostać przetworzony:
+### Krok 1: Zdefiniuj ścieżkę dokumentu i zainicjalizuj Redactor
+Najpierw wskaż bibliotece DOCX, który chcesz przetworzyć:
 
 ```java
 String documentPath = "YOUR_DOCUMENT_DIRECTORY/sample.docx";
@@ -115,19 +105,17 @@ try (final Redactor redactor = new Redactor(documentPath)) {
 }
 ```
 
-#### Krok 2: Ustaw współrzędne i wymiary
-
-Określ dokładny obszar obrazu, który chcesz ukryć. `Point` definiuje lewy górny róg, natomiast `Dimension` ustawia szerokość i wysokość pola redakcji:
+### Krok 2: Ustaw współrzędne i wymiary
+Zidentyfikuj dokładny obszar obrazu, który chcesz ukryć. `Point` definiuje lewy górny róg, natomiast `Dimension` ustawia szerokość i wysokość pola redakcji:
 
 ```java
 java.awt.Point samplePoint = new java.awt.Point(516, 311); // Define starting point
 java.awt.Dimension sampleSize = new java.awt.Dimension(170, 35); // Set dimensions
 ```
 
-> **Wskazówka:** Użyj podglądu Worda lub Office Open XML SDK, aby sprawdzić pozycje obrazów, jeśli potrzebujesz precyzyjnych współrzędnych.
+> **Pro tip:** Użyj przeglądarki Word lub Office Open XML SDK, aby sprawdzić pozycje obrazów, jeśli potrzebujesz precyzyjnych współrzędnych.
 
-#### Krok 3: Zastosuj redakcję obrazu
-
+### Krok 3: Zastosuj redakcję obrazu
 Utwórz obiekt `ImageAreaRedaction`, określ kolor zastąpienia (niebieski w tym przykładzie) i wykonaj zmianę:
 
 ```java
@@ -141,80 +129,79 @@ if (result.getStatus() != RedactionStatus.Failed) {
 }
 ```
 
-Obszar zredagowany zostaje zastąpiony jednolitym niebieskim prostokątem, a oryginalna treść wizualna staje się nieodwracalna.
+Zredagowany obszar został teraz zastąpiony jednolitym niebieskim prostokątem, co sprawia, że oryginalna zawartość wizualna jest nieodwracalna. To podejście pokazuje także **replace image color java** — możesz zamienić `java.awt.Color.BLUE` na dowolny kolor pasujący do Twojej polityki zgodności.
 
-### Porady rozwiązywania problemów
+### Krok 4: Zapisz zmiany przy użyciu java redactor save
+Wywołanie `redactor.save()` to krok **java redactor save**, który zapisuje zmodyfikowany dokument na dysk. Ponieważ `Redactor` implementuje `AutoCloseable`, umieszczenie go w bloku try‑with‑resources zapewnia zwolnienie wszystkich zasobów natywnych, utrzymując niskie zużycie pamięci.
 
-- **Współrzędne poza zakresem:** Upewnij się, że `samplePoint` i `sampleSize` mieszczą się w granicach marginesów strony.  
-- **Brakujące zależności:** Sprawdź ponownie współrzędne Maven lub ścieżki do plików JAR.  
-- **Błędy licencyjne:** Upewnij się, że plik licencji jest prawidłowo umieszczony i okres próbny nie wygasł.
+## Porady dotyczące rozwiązywania problemów
+- **Współrzędne poza zakresem:** Sprawdź, czy `samplePoint` i `sampleSize` mieszczą się w granicach marginesów strony.  
+- **Brakujące zależności:** Podwójnie sprawdź współrzędne Maven lub ścieżki JAR.  
+- **Błędy licencji:** Upewnij się, że plik licencji jest prawidłowo umieszczony i okres próbny nie wygasł.  
 
 ## Praktyczne zastosowania
-
-1. **Projekty prawne:** Usuwanie poufnych pieczęci przed udostępnieniem ich przeciwnikowi.  
-2. **Raporty finansowe:** Ukrywanie własnościowych wykresów przy dystrybucji wersji podglądowych.  
-3. **Rekordy medyczne:** Usuwanie zdjęć pacjentów w celu spełnienia wymogów HIPAA.  
+1. **Legal Drafts:** Usuń poufne pieczęcie przed udostępnieniem przeciwnej stronie.  
+2. **Financial Reports:** Ukryj własnościowe wykresy przy dystrybucji wersji podglądowych.  
+3. **Medical Records:** Usuń zdjęcia pacjentów, aby spełnić wymogi HIPAA.  
 
 ## Rozważania dotyczące wydajności
-
 - **Zarządzanie pamięcią:** Umieść `Redactor` w bloku try‑with‑resources (jak pokazano), aby zapewnić prawidłowe zwolnienie zasobów.  
-- **Duże pliki:** Przetwarzaj dokument w partiach lub używaj asynchronicznego wykonania, aby interfejs użytkownika pozostał responsywny.  
-- **Monitorowanie:** Loguj szczegóły `RedactorChangeLog`, aby audytować, co i kiedy zostało zredagowane.
+- **Duże pliki:** Przetwarzaj dokumenty w partiach lub używaj asynchronicznego wykonania, aby UI pozostało responsywne.  
+- **Monitorowanie:** Loguj szczegóły `RedactorChangeLog`, aby audytować, co i kiedy zostało zredagowane.  
 
-## Podsumowanie
-
-Masz teraz kompletną, gotową do produkcji metodę **jak redagować obrazy w Word** przy użyciu GroupDocs.Redaction dla Javy. Definiując dokładne współrzędne i stosując zamianę koloru, możesz chronić wszelkie dane wizualne, które w przeciwnym razie mogłyby ujawnić wrażliwe informacje.
+## Zakończenie
+Masz teraz kompletną, gotową do produkcji metodę **how to redact images in word** dokumentów przy użyciu GroupDocs.Redaction for Java. Definiując dokładne współrzędne i stosując zamianę koloru, możesz chronić wszelkie dane wizualne, które w przeciwnym razie mogłyby ujawnić wrażliwe informacje.
 
 ### Kolejne kroki
-
-- Poznaj inne typy redakcji (tekst, metadane, adnotacje).  
-- Zintegruj przepływ pracy z usługą sieciową lub przetwarzaniem wsadowym.  
-- Przejrzyj oficjalną dokumentację API, aby poznać zaawansowane opcje.
+- Zbadaj inne typy redakcji (tekst, metadane, adnotacje).  
+- Zintegruj przepływ pracy z usługą webową lub przetwarzaniem wsadowym.  
+- Przejrzyj oficjalną dokumentację API w poszukiwaniu zaawansowanych opcji.  
 
 ## Sekcja FAQ
 
-**P: Jak radzić sobie z nieprawidłowymi współrzędnymi podczas redakcji?**  
-O: Upewnij się, że współrzędne są dokładnie oblic na podstawie wymiarów obrazu w dokumencie.
+**Q: Jak radzić sobie z nieprawidłowymi współrzędnymi podczas redakcji?**  
+A: Upewnij się, że współrzędne są dokładnie obliczone na podstawie wymiarów obrazu w dokumencie.
 
-**P: Czy GroupDocs.Redaction działa z innymi formatami plików?**  
-O: Tak, obsługuje wiele formatów poza Wordem, w tym PDF i arkusze kalkulacyjne.
+**Q: Czy GroupDocs.Redaction może pracować z innymi formatami plików?**  
+A: Tak, obsługuje wiele formatów poza Word, w tym PDF i arkusze kalkulacyjne.
 
-**P: Co zrobić, gdy pojawią się problemy z wydajnością?**  
-O: Optymalizuj środowisko Javy i rozważ użycie przetwarzania asynchronicznego dla dużych plików.
+**Q: Co zrobić, jeśli napotkam problemy z wydajnością?**  
+A: Optymalizuj środowisko Java i rozważ użycie przetwarzania asynchronicznego dla dużych plików.
 
-**P: Jak przedłużyć okres próbny licencji?**  
-O: Skontaktuj się z zespołem wsparcia GroupDocs, aby omówić opcje uzyskania licencji tymczasowej lub pełnej.
+**Q: Jak przedłużyć licencję próbną?**  
+A: Skontaktuj się z wsparciem GroupDocs, aby omówić opcje uzyskania tymczasowej lub pełnej licencji.
 
-**P: Czy istnieje wsparcie społecznościowe w razie problemów?**  
-O: Tak, pomoc można uzyskać na [GroupDocs Free Support Forum](https://forum.groupdocs.com/c/redaction/33).
+**Q: Czy dostępne jest wsparcie społeczności w rozwiązywaniu problemów?**  
+A: Tak, możesz uzyskać pomoc na [GroupDocs Free Support Forum](https://forum.groupdocs.com/c/redaction/33).
 
-## Często zadawane pytania (dodatkowe)
+## Najczęściej zadawane pytania (dodatkowe)
 
-**P: Czy mogę zastąpić kolor redakcji własnym obrazem lub wzorem?**  
-O: Tak — użyj `RegionReplacementOptions` z własnym `java.awt.Image` zamiast jednolitego koloru.
+**Q: Czy mogę zastąpić kolor redakcji własnym obrazem lub wzorem?**  
+A: Tak — użyj `RegionReplacementOptions` z własnym `java.awt.Image` zamiast jednolitego koloru.
 
-**P: Czy proces redakcji trwale usuwa oryginalne dane obrazu?**  
-O: Absolutnie. Po zapisaniu oryginalne piksele są usunięte i nie mogą zostać odzyskane.
+**Q: Czy proces redakcji trwale usuwa oryginalne dane obrazu?**  
+A: Zdecydowanie tak. Po zapisaniu oryginalne dane pikseli są usunięte i nie mogą zostać odzyskane.
 
-**P: Jak mogę przetwarzać wiele dokumentów jednocześnie?**  
-O: Iteruj po kolekcji ścieżek do plików, twórz `Redactor` dla każdego i stosuj tę samą logikę redakcji.
+**Q: Jak mogę przetwarzać wiele dokumentów jednocześnie?**  
+A: Iteruj po kolekcji ścieżek plików, twórz `Redactor` dla każdego i zastosuj tę samą logikę redakcji.
 
-**P: Czy istnieją ograniczenia dotyczące formatów obrazów w plikach DOCX?**  
-O: GroupDocs.Redaction obsługuje standardowe typy obrazów osadzonych w Office Open XML (PNG, JPEG, GIF, BMP).
+**Q: Czy istnieją ograniczenia dotyczące formatów obrazów w plikach DOCX?**  
+A: GroupDocs.Redaction obsługuje standardowe typy obrazów osadzonych w Office Open XML (PNG, JPEG, GIF, BMP).
+
+**Q: Gdzie mogę znaleźć bardziej szczegółową dokumentację?**  
+A: Zobacz oficjalną dokumentację i linki do referencji API poniżej.
 
 ## Zasoby
 
-- **Dokumentacja:** [GroupDocs.Redaction Java Documentation](https://docs.groupdocs.com/redaction/java/)  
-- **Referencja API:** [GroupDocs Redaction API for Java](https://reference.groupdocs.com/redaction/java)  
-- **Pobieranie:** [Latest Releases](https://releases.groupdocs.com/redaction/java/)  
+- **Documentation:** [GroupDocs.Redaction Java Documentation](https://docs.groupdocs.com/redaction/java/)  
+- **API Reference:** [GroupDocs Redaction API for Java](https://reference.groupdocs.com/redaction/java)  
+- **Download:** [Latest Releases](https://releases.groupdocs.com/redaction/java/)  
 - **GitHub:** [GroupDocs GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
-- **Wsparcie darmowe:** [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33)  
-- **Licencja tymczasowa:** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/) 
+- **Free Support:** [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33)  
+- **Temporary License:** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
 ---
 
-**Ostatnia aktualizacja2025-12-31  
+**Ostatnia aktualizacja:** 2026-03-04  
 **Testowano z:** GroupDocs.Redaction 24.9 for Java  
-**Autor:** GroupDocs  
-
----
+**Autor:** GroupDocs
