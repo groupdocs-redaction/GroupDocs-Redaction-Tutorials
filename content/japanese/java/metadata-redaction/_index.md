@@ -1,45 +1,107 @@
 ---
-date: 2026-01-06
-description: Javaドキュメントのメタデータを編集し、ドキュメントプロパティを削除し、隠しコメントを削除し、GroupDocs.Redactionを使用してファイルを保護する方法を学びましょう。
-title: GroupDocs.Redaction for Javaを使用したメタデータの編集方法
+date: 2026-03-09
+description: GroupDocs.Redaction for Java を使用して、メタデータの削除とドキュメントの保護方法を学びましょう。隠しコメントを削除し、プロパティを消去し、ファイルを保護します。
+title: GroupDocs.Redaction を使用した Java のメタデータ削除方法
 type: docs
 url: /ja/java/metadata-redaction/
 weight: 5
 ---
 
-# GroupDocs.Redaction for Javaでメタデータを編集する方法
+# GroupDocs.Redaction を使用した Java のメタデータの編集方法
 
-このガイドでは、強力な **GroupDocs.Redaction** ライブラリを使用して Java ドキュメントから **メタデータを編集する方法** を紹介します。**ドキュメントプロパティの削除**、**非表示コメントの削除**、または **Java スタイルでドキュメントを保護** したい場合でも、これらのチュートリアルは隠れた情報の特定から完全なクリーンアップまで、すべての手順を段階的に案内します。概要を読み終えると、メタデータ編集が重要なセキュリティ対策である理由と、提供されたコードサンプルを自分のアプリケーションに統合する方法が理解できるようになります。
+このガイドでは、ドキュメントから **how to redact metadata java** を学び、セキュリティ上の重要性と Java アプリケーションへの統合方法を説明します。著者名の削除、非表示コメントの消去、カスタムプロパティの消去が必要な場合でも、以下の手順で **secure documents java** を迅速かつ確実に行う方法を示します。
 
-## メタデータ編集 – クイック概要
+## Quick Answers
+- **“redact metadata java” とは何ですか?**  
+  Java コードを使用して、非表示または明示的なドキュメント情報（プロパティ、コメント、カスタムタグ）を削除することです。  
 
-メタデータは裏で隠れていることが多く、著者名、リビジョン履歴、カスタムプロパティ、さらには見えないコメントまで含まれます。これらがチェックされないまま残っていると、機密ビジネス情報が漏洩する恐れがあります。**GroupDocs.Redaction for Java** は次のようなシンプルな API を提供します。
+- **なぜメタデータを編集する必要があるのですか?**  
+  偶発的なデータ漏洩を防止し、プライバシー規制に準拠し、知的財産を保護するためです。  
 
-* **ドキュメントメタデータを抽出** して削除前に検査できる。  
-* **メタデータテキストを安全なプレースホルダーに置換** できる。  
-* **機密メモが含まれる可能性のある非表示コメントを削除** できる。  
-* **著者、会社、カスタムタグなどのドキュメントプロパティを削除** できる。  
+- **どのライブラリが最適ですか?**  
+  GroupDocs.Redaction for Java は、メタデータの抽出と削除のためのクリーンな API を提供します。  
 
-これらの機能により、配布、アーカイブ、コンプライアンス監査の前に **ドキュメントを安全に保護** できます。
+- **ライセンスは必要ですか?**  
+  テスト用の一時ライセンスで動作しますが、本番環境ではフルライセンスが必要です。  
 
-## 利用可能なチュートリアル
+- **複数のファイル形式を処理できますか?**  
+  はい – API は PDF、DOCX、PPTX、XLSX など多数の形式をサポートしています。
 
-### [How to Implement Metadata Redaction in Java Using GroupDocs&#58; A Step-by-Step Guide](./groupdocs-redaction-java-metadata-implementation/)
-GroupDocs を使用して Java でメタデータ編集を実装する方法を学びます。ステップバイステップの手順とコード例で機密情報を保護します。
+## Java におけるメタデータの編集とは？
+Java でメタデータを編集するとは、可視コンテンツの一部ではない埋め込み情報をプログラムで検出し削除することを意味します。これには、著者フィールド、リビジョン履歴、カスタムドキュメントプロパティ、組織に関する機密情報を含む可能性のある非表示コメントが含まれます。
 
-### [Java Metadata Redaction Guide&#58; Securely Replace Text in Documents](./java-redaction-metadata-text-replacement-guide/)
-GroupDocs.Redaction for Java を使ってメタデータテキストを安全に置換する方法を学びます。このガイドではセットアップ、実装、ストプラクティスをカバーします。
+## なぜ GroupDocs.Redaction for Java を使用するのか？
+GroupDocs.Redaction は **single, well‑documented API** を提供し、数十種類のファイル形式で動作します。主な機能は次のとおりです。
 
-### [Master Document Metadata Extraction in Java with GroupDocs.Redaction](./groupdocs-redaction-java-document-metadata-extraction/)
-GroupDocs.Redaction for Java を使用してドキュメントメタデータを効率的に抽出する方法を学びます。セットアップ、装、シームレスな統合のための最適化手法を解説します。
+* メタデータを抽出して削除前に確認できる。  
+* メタデータの値をプレースホルダー（例: “[REDACTED]”）に置き換えることができる。  
+* 非表示コメントを削除し、機密メモを除去できる。  
+* 著者、会社、カスタムタグなどのドキュメントプロパティを削除または上書きできる。  
 
-### [Master Metadata Redaction with GroupDocs.Redaction for Java&#58; A Comprehensive Guide](./metadata-redaction-groupdocs-java-guide/)
-GroupDocs.Redaction for Java を使ってメタデータを削除し、ドキュメントを保護する方法を学びます。ステップバイステップの手順とベストプラクティスを提供します。
+これらの操作により、**secure documents java** を内部・外部に共有する前に確実に保護できます。
 
-### [Step-by-Step Guide to Redacting Metadata in Java using GroupDocs.Redaction](./java-metadata-redaction-groupdocs-tutorial/)
-GroupDocs.Redaction for Java を使用して、ドキュメントから機密企業メタデータを安全に編集・削除する方法を包括的に学べます。
+## 前提条件
+- Java 8 以上がインストールされていること。  
+- Maven または Gradle による依存関係管理。  
+- 有効な GroupDocs.Redaction for Java ライセンス（評価用に一時ライセンスが使用可能）。
 
-## 追加リソース
+## メタデータの編集手順
+
+### Step 1: GroupDocs.Redaction の依存関係を追加
+`pom.xml`（Maven）または `build.gradle`（Gradle）にライブラリを追加します。これにより `Redactor` クラスと関連ユーティリティが利用可能になります。
+
+### Step 2: ドキュメントをロード
+`Redactor` インスタンスを作成し、クリーンにしたいファイルを開きます。API が自動的に形式を検出します。
+
+### Step 3: 既存メタデータを確認
+`getDocumentInfo()` を呼び出して、すべてのメタデータエントリの一覧を取得します。これらの値をログに出力することで、保持する項目と削除する項目を判断できます。
+
+### Step 4: メタデータを削除または置換
+`removeDocumentInfo()` メソッドで完全に削除するか、`replaceDocumentInfo()` で特定フィールドを安全なプレースホルダーに置き換えます。
+
+### Step 5: 非表示コメントを削除
+`removeComments()` を呼び出して、レンダリングされたドキュメントに表示されないコメントオブジェクトをすべて除去します。
+
+### Step 6: サニタイズされたファイルを保存
+クリーンになったドキュメントをディスクに書き戻すか、直接レスポンスオブジェクトにストリームしてダウンロードできるようにします。
+
+> **プロのコツ:** まずファイルのコピーで検査ステップを実行してください。これにより、元のファイルを変更せずにどのメタデータフィールドが存在するかを確認できます。
+
+## よくある問題と解決策
+| Issue | Solution |
+|-------|----------|
+| **Metadata still appears after redaction** | `save()` を呼び出したことを確認してください。一部の形式では保存前に明示的に `apply()` を呼び出す必要があります。 |
+| **Hidden comments are not removed** | ドキュメントに実際にコメントオブジェクトが含まれているか確認してください。形式によっては別ストリームに格納されていることがあります。 |
+| **Performance lag on large files** | ドキュメントをチャンク単位で処理するか、`setMaxMemoryUsage()` メソッドで RAM 使用量を制限してください。 |
+
+## Frequently Asked Questions
+
+**Q: パスワード保護されたファイルのメタデータも編集できますか?**  
+A: はい。パスワードでドキュメントを開き、同じ編集メソッドを適用します。
+
+**Q: バッチ処理はサポートされていますか?**  
+A: もちろんです。ファイルパスのリストをループし、各ファイルに同じ編集手順を適用します。
+
+**Q: 編集がドキュメントのレイアウトに影響しますか?**  
+A: いいえ。メタデータとコメントは非表示要素なので、可視コンテンツは変更されません。
+
+**Q: 保存前に削除対象をプレビューする方法はありますか?**  
+A: `getDocumentInfo()` を使用してすべてのメタデータエントリを一覧表示し、削除または置換する項目を決定できます。
+
+**Q: 各デプロイごとにライセンスを更新する必要がありますか?**  
+A: 同一製品バージョンであれば、1 つのライセンスで全環境をカバーできます。ライセンスファイルまたは文字列をアプリケーションに埋め込むだけです。
+
+## Additional Resources
+
+### Available Tutorials
+
+- [Java で GroupDocs を使用したメタデータ編集の実装方法&#58; ステップバイステップガイド](./groupdocs-redaction-java-metadata-implementation/)
+- [Java メタデータ編集ガイド&#58; ドキュメント内テキストを安全に置換する方法](./java-redaction-metadata-text-replacement-guide/)
+- [GroupDocs.Redaction を使用した Java のドキュメントメタデータ抽出マスター](./groupdocs-redaction-java-document-metadata-extraction/)
+- [GroupDocs.Redaction for Java のメタデータ編集マスター&#58; 包括的ガイド](./metadata-redaction-groupdocs-java-guide/)
+- [GroupDocs.Redaction を使用した Java のメタデータ編集ステップバイステップガイド](./java-metadata-redaction-groupdocs-tutorial/)
+
+### Additional Resources
 
 - [GroupDocs.Redaction for Java Documentation](https://docs.groupdocs.com/redaction/java/)
 - [GroupDocs.Redaction for Java API Reference](https://reference.groupdocs.com/redaction/java/)
@@ -50,6 +112,6 @@ GroupDocs.Redaction for Java を使用して、ドキュメントから機密企
 
 ---
 
-**最終更新日:** 2026-01-06  
+**最終更新日:** 2026-03-09  
 **テスト環境:** GroupDocs.Redaction 23.11 for Java  
-**作者:** GroupDocs
+**作成者:** GroupDocs
