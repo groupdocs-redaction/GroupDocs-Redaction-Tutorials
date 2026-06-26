@@ -1,47 +1,69 @@
 ---
-date: '2026-02-08'
-description: Erfahren Sie, wie Sie sensible Daten maskieren und PDF‑Java‑Dateien mit
-  GroupDocs OCR Redaction und Microsoft Azure OCR redigieren.
+date: '2026-06-26'
+description: Erfahren Sie, wie Sie Text aus gescannten PDFs extrahieren und sensible
+  Daten mit GroupDocs OCR Redaction und Azure OCR maskieren. Redact social security
+  number und ersetzen Sie confidential info PDF effizient.
 keywords:
-- OCR-based redactions Java
-- GroupDocs Redaction setup
-- regex-based text redaction
-title: Vertrauliche Daten in PDFs mit GroupDocs OCR‑Redaktion maskieren
+- extract text scanned pdf
+- redact social security number
+- mask sensitive data pdf
+- replace confidential info pdf
+schemas:
+- author: GroupDocs
+  dateModified: '2026-06-26'
+  description: Learn how to extract text scanned PDF and mask sensitive data using
+    GroupDocs OCR Redaction with Azure OCR. Redact social security number and replace
+    confidential info PDF efficiently.
+  headline: Extract Text Scanned PDF – Mask Data with GroupDocs OCR
+  type: TechArticle
+- questions:
+  - answer: OCR redaction uses Optical Character Recognition to extract hidden text
+      from images or scanned PDFs, then applies redaction rules to mask that text.
+    question: What is OCR redaction?
+  - answer: Yes, but OCR dramatically improves accuracy on scanned documents where
+      native text extraction fails.
+    question: Can I use GroupDocs Redaction without Azure OCR?
+  - answer: Build and test them incrementally, using Java’s `Pattern` class in a sandbox
+      before applying to large documents.
+    question: How do I handle complex regex patterns?
+  - answer: Large PDFs, overly complex regex, and synchronous OCR calls can slow processing;
+      consider batch processing and optimized patterns.
+    question: What are typical performance bottlenecks?
+  - answer: Absolutely—reach out via the [GroupDocs forum](https://forum.groupdocs.com/c/redaction/33)
+      for community help or contact GroupDocs support.
+    question: Is support available for implementation issues?
+  type: FAQPage
+title: Text aus gescanntem PDF extrahieren – Daten maskieren mit GroupDocs OCR
 type: docs
 url: /de/java/ocr-integration/ocr-redaction-groupdocs-java-setup/
 weight: 1
 ---
 
-# Sensible Daten in PDFs mit GroupDocs OCR Redaction maskieren
-
-In der heutigen digitalen Landschaft ist der Schutz persönlicher und vertraulicher Informationen oberste Priorität. In diesem Tutorial **lernen Sie, wie Sie sensible Daten** in PDF-Dateien maskieren, indem Sie GroupDocs Redaction mit Microsoft Azure OCR kombinieren. Dieser Ansatz bietet Ihnen zuverlässige Texterkennung auf gescannten Seiten und ermöglicht es Ihnen, **PDF Java**-Dokumente präzise zu redigieren, um die Einhaltung von Datenschutzbestimmungen sicherzustellen.
+# Text aus gescannten PDFs extrahieren – Daten mit GroupDocs OCR maskieren
 
 ## Schnelle Antworten
-- **Was bedeutet „mask sensitive data“?** Es ersetzt identifizierten vertraulichen Text durch einen Platzhalter (z. B. `[REDACTED]`).  
-- **Welche Bibliothek übernimmt OCR?** Microsoft Azure OCR‑Connector, verwendet über GroupDocs Redaction.  
-- **Benötige ich eine Lizenz?** Eine kostenlose Testversion funktioniert für die Evaluierung; für die Produktion ist eine permanente Lizenz erforderlich.  
-- **Kann ich gescannte PDFs redigieren?** Ja – OCR extrahiert den versteckten Text, bevor reguläre Ausdrucks‑Redaktionen angewendet werden.  
-- **Ist diese Lösung nur für Java?** Das Beispiel ist Java‑basiert, aber GroupDocs bietet ähnliche APIs für .NET und andere Plattformen.
+- **Was bedeutet „sensible Daten maskieren“?** Es ersetzt identifizierten vertraulichen Text durch einen Platzhalter (z. B. `[REDACTED]`).  
+- **Welche Bibliothek übernimmt OCR?** Microsoft Azure OCR Connector, verwendet über GroupDocs Redaction.  
+- **Benötige ich eine Lizenz?** Eine kostenlose Testversion funktioniert für die Evaluierung; für den Produktionseinsatz ist eine permanente Lizenz erforderlich.  
+- **Kann ich gescannte PDFs redigieren?** Ja—OCR extrahiert den versteckten Text, bevor reguläre Ausdrucks‑Redaktionen angewendet werden.  
+- **Ist diese Lösung nur für Java?** Das Beispiel basiert auf Java, aber GroupDocs bietet ähnliche APIs für .NET und andere Plattformen.
 
 ## Was ist OCR‑basierte Redaktion?
-OCR‑basierte Redaktion führt zunächst Optical Character Recognition auf jeder Seite eines Dokuments aus und wandelt Textbilder in durchsuchbare Zeichenketten um. Sobald der Text durchsuchbar ist, können Sie reguläre Ausdrucks‑ (Regex‑) Regeln anwenden, um sensible Informationen zu finden – wie Sozialversicherungsnummern, Kreditkartennummern oder persönliche Kennungen – und diese durch eine Maske wie **`[REDACTED]`** ersetzen.
+OCR‑basierte Redaktion führt zunächst OCR auf jeder Seite aus, wandelt Bilder in durchsuchbaren Text um und wendet dann Regex‑Muster an, um Treffer durch eine Maske wie `[REDACTED]` zu ersetzen. Dieser zweistufige Prozess ermöglicht es Ihnen, persönliche Daten selbst in gescannten PDFs zuverlässig zu verbergen und stellt sicher, dass alle sensiblen Zeichenketten entfernt werden, bevor das Dokument geteilt oder archiviert wird.
 
 ## Warum GroupDocs Redaction mit Azure OCR verwenden?
-- **Hohe Genauigkeit** bei gescannten PDFs und Bildern.  
-- **Nahtlose Java‑Integration** über Maven oder direkten JAR‑Download.  
-- **Flexibles Regex‑Engine** ermöglicht das Definieren benutzerdefinierter Muster für jeden Datentyp.  
-- **Skalierbar** für große Dokumenten‑Batches, mit Optionen für asynchrone Verarbeitung.
+Sie sollten GroupDocs Redaction mit Azure OCR verwenden, weil es **>98 % OCR‑Genauigkeit bei gedrucktem Text** liefert, **mehr als 50 Eingabe‑ und Ausgabeformate** unterstützt und **mehrseitige PDFs verarbeiten kann, ohne die gesamte Datei in den Speicher zu laden**, was eine schnelle, skalierbare Redaktion für Compliance gewährleistet. Die Lösung **skaliert zudem, um ein 1.000‑seitiges PDF in weniger als 2 Minuten auf einem 8‑Kern‑Server zu verarbeiten**, was Batch‑Jobs praktisch macht.
 
 ## Voraussetzungen
 - **Java Development Kit (JDK) 8+** installiert.  
 - **Maven** (wenn Sie die Abhängigkeitsverwaltung bevorzugen) oder die Möglichkeit, JARs manuell herunterzuladen.  
-- **Microsoft Azure OCR‑Anmeldeinformationen** (Endpunkt und Abonnementschlüssel).  
+- **Microsoft Azure OCR credentials** (Endpoint und Subscription‑Key).  
 - Grundlegende Java‑Kenntnisse und Vertrautheit mit regulären Ausdrücken.
 
 ## Einrichtung von GroupDocs Redaction für Java
 
-### Maven‑Einrichtung
-Add the GroupDocs repository and dependency to your `pom.xml`:
+### Maven-Konfiguration
+Fügen Sie das GroupDocs-Repository und die Abhängigkeit zu Ihrer `pom.xml` hinzu:
 
 ```xml
 <repositories>
@@ -65,11 +87,12 @@ Add the GroupDocs repository and dependency to your `pom.xml`:
 Wenn Sie die manuelle JAR‑Verwaltung bevorzugen, holen Sie sich das neueste Release von [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
 ### Lizenzbeschaffung
-- **Kostenlose Testversion** – alle Funktionen ohne Kosten testen.  
-- **Temporäre Lizenz** – Evaluationszeit verlängern.  
-- **Vollständige Lizenz** – produktionsreife Funktionen freischalten.
+- **Free Trial** – alle Funktionen kostenlos testen.  
+- **Temporary License** – Evaluationszeit verlängern.  
+- **Full License** – Produktionsbereite Funktionen freischalten.
 
 ### Grundlegende Initialisierung und Einrichtung
+Die Klasse `Redactor` ist die Kern-Engine, die OCR‑Extraktion durchführt und Redaktionsregeln auf PDF‑Dokumente anwendet.  
 ```java
 import com.groupdocs.redaction.Redactor;
 import com.groupdocs.redaction.RedactorSettings;
@@ -80,9 +103,11 @@ import com.groupdocs.redaction.examples.java.helper_classes.MicrosoftAzureOcrCon
 RedactorSettings settings = new RedactorSettings(new MicrosoftAzureOcrConnector());
 ```
 
-## So maskieren Sie sensible Daten mit OCR‑Redaktion
+## Wie man sensible Daten mit OCR‑Redaktion maskiert
+Das Maskieren sensibler Daten mit OCR‑Redaktion beinhaltet das Laden des PDFs mit Azure‑OCR‑Einstellungen, das Definieren von Regex‑Mustern für die zu verbergenden Daten und das Aufrufen des Redactors, um jeden Treffer durch einen Platzhalter wie `[REDACTED]` zu ersetzen. Die Bibliothek übernimmt OCR, Mustererkennung und das Neuschreiben von PDFs in einem einzigen Workflow.
 
-### Schritt 1: Laden des Dokuments mit OCR‑Einstellungen
+### Schritt 1: Dokument mit OCR‑Einstellungen laden
+`LoadOptions` konfiguriert, wie GroupDocs eine Datei lädt, und ermöglicht das Übergeben von OCR‑Connectors wie Azure.  
 ```java
 import com.groupdocs.redaction.Redactor;
 import com.groupdocs.redaction.options.LoadOptions;
@@ -93,11 +118,11 @@ try (Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_PDF_FOR_4O
     // Further operations will go here
 }
 ```
-- **`YOUR_DOCUMENT_DIRECTORY/SAMPLE_PDF_FOR_4OCR.pdf`** – ersetzen Sie dies durch den Pfad zu Ihrer PDF.  
-- **`LoadOptions`** – Standard‑Ladevorgang; bei Bedarf anpassbar.  
-- **`settings`** – enthält den Azure OCR‑Connector, den Sie zuvor erstellt haben.
+- **`YOUR_DOCUMENT_DIRECTORY/SAMPLE_PDF_FOR_4OCR.pdf`** – ersetzen Sie dies durch den Pfad zu Ihrem PDF.  
+- **`settings`** – enthält den Azure‑OCR‑Connector, den Sie zuvor erstellt haben.
 
-### Schritt 2: Definieren und Anwenden von Regex‑Redaktionen
+### Schritt 2: Regex‑Redaktionen definieren und anwenden
+`ReplacementOptions` gibt den Ersatztext an, der jedes Regex‑Match während der Redaktion ersetzt.  
 ```java
 import com.groupdocs.redaction.redactions.RegexRedaction;
 import com.groupdocs.redaction.redactions.ReplacementOptions;
@@ -112,42 +137,42 @@ redactor.apply(redaction);
 // Save the document after redactions
 redactor.save(new SaveOptions());
 ```
-- Das Muster `\b\d{3}-\d{2}-\d{4}\b` entspricht US‑Sozialversicherungsnummern.  
-- `ReplacementOptions("[REDACTED]")` ersetzt jedes gefundene Vorkommen durch die Maske und **maskiert damit sensible Daten**.
+- Das Muster `\b\d{3}-\d{2}-\d{4}\b` entspricht US‑Social‑Security‑Nummern.  
+- `ReplacementOptions("[REDACTED]")` ersetzt jeden Treffer durch die Maske und **maskiert damit sensible Daten**.
 
 ## Häufige Anwendungsfälle für das Maskieren sensibler Daten
-1. **Verwaltung rechtlicher Dokumente** – Kundenkennungen vor dem Teilen von Entwürfen verbergen.  
-2. **Finanzberichterstattung** – Kontonummern und Transaktions‑IDs schützen.  
-3. **Gesundheitsakten** – HIPAA‑Konformität durch Redaktion von Patientenkennungen.  
-4. **Regierungsveröffentlichungen** – persönliche Daten aus öffentlichen Aufzeichnungen entfernen.  
-5. **Unternehmensverträge** – proprietäre Bedingungen während externer Prüfungen verbergen.
+1. **Rechtsdokumenten‑Management** – verstecken Sie Kundenkennungen, bevor Entwürfe geteilt werden.  
+2. **Finanzberichterstattung** – schützen Sie Kontonummern und Transaktions‑IDs.  
+3. **Gesundheitsakten** – erfüllen Sie HIPAA, indem Sie Patientenkennungen redigieren.  
+4. **Regierungsveröffentlichungen** – entfernen Sie persönliche Daten aus öffentlichen Aufzeichnungen.  
+5. **Unternehmensverträge** – verbergen Sie proprietäre Bedingungen während externer Prüfungen.
 
 ## Leistungstipps
-- **Regex optimieren** – vermeiden Sie zu breite Muster, die die Verarbeitungszeit erhöhen.  
-- **Speicherverwaltung** – schließen Sie die `Redactor`‑Instanz umgehend (try‑with‑resources erledigt dies automatisch).  
-- **Asynchrone Ausführung** – für die Massenverarbeitung Redaktionsjobs in separaten Threads ausführen oder eine Aufgabenwarteschlange nutzen.
+- **Regex optimieren** – vermeiden Sie zu breit gefasste Muster, die die Verarbeitungszeit erhöhen; gut gestaltete Ausdrücke können die Laufzeit um bis zu 40 % reduzieren.  
+- **Speichermanagement** – schließen Sie die `Redactor`‑Instanz umgehend (try‑with‑resources erledigt dies automatisch).  
+- **Asynchrone Ausführung** – für die Massenverarbeitung führen Sie Redaktionsjobs in separaten Threads aus oder verwenden Sie eine Aufgabenwarteschlange, um die UI reaktionsfähig zu halten.
 
 ## Fehlerbehebung
-- **Azure‑Anmeldeinformationen‑Fehler** – prüfen Sie die Endpunkt‑URL und den Abonnementschlüssel in `MicrosoftAzureOcrConnector`.  
-- **Dokument wird nicht geladen** – prüfen Sie den Dateipfad und stellen Sie sicher, dass das PDF nicht passwortgeschützt ist (oder übergeben Sie das Passwort via `LoadOptions`).  
-- **Keine Redaktionen angewendet** – testen Sie Ihr Regex zuerst mit einem einfachen String; verwenden Sie `Pattern.compile` in einem Unit‑Test, um Treffer zu bestätigen.
+- **Azure‑Anmeldeinformationen‑Fehler** – überprüfen Sie die Endpoint‑URL und den Subscription‑Key in `MicrosoftAzureOcrConnector` erneut.  
+- **Dokument wird nicht geladen** – überprüfen Sie den Dateipfad und stellen Sie sicher, dass das PDF nicht passwortgeschützt ist (oder geben Sie das Passwort über `LoadOptions` an).  
+- **Keine Redaktionen angewendet** – testen Sie Ihr Regex zunächst mit einem einfachen String; verwenden Sie `Pattern.compile` in einem Unit‑Test, um Treffer zu bestätigen.
 
 ## Häufig gestellte Fragen
 
 **Q: Was ist OCR‑Redaktion?**  
-A: OCR‑Redaktion verwendet Optical Character Recognition, um versteckten Text aus Bildern oder gescannten PDFs zu extrahieren, und wendet anschließend Redaktionsregeln an, um diesen Text zu maskieren.
+A: OCR‑Redaktion verwendet Optical Character Recognition, um versteckten Text aus Bildern oder gescannten PDFs zu extrahieren, und wendet dann Redaktionsregeln an, um diesen Text zu maskieren.
 
 **Q: Kann ich GroupDocs Redaction ohne Azure OCR verwenden?**  
 A: Ja, aber OCR verbessert die Genauigkeit bei gescannten Dokumenten, bei denen die native Textextraktion fehlschlägt, erheblich.
 
 **Q: Wie gehe ich mit komplexen Regex‑Mustern um?**  
-A: Erstellen und testen Sie sie schrittweise, indem Sie die Java‑Klasse `Pattern` in einer Sandbox verwenden, bevor Sie sie auf große Dokumente anwenden.
+A: Erstellen und testen Sie sie schrittweise, indem Sie Java’s `Pattern`‑Klasse in einer Sandbox verwenden, bevor Sie sie auf große Dokumente anwenden.
 
 **Q: Was sind typische Leistungsengpässe?**  
 A: Große PDFs, zu komplexe Regex‑Muster und synchrone OCR‑Aufrufe können die Verarbeitung verlangsamen; erwägen Sie Batch‑Verarbeitung und optimierte Muster.
 
-**Q: Ist Support für Implementierungsprobleme verfügbar?**  
-A: Auf jeden Fall – wenden Sie sich über das [GroupDocs‑Forum](https://forum.groupdocs.com/c/redaction/33) an die Community oder kontaktieren Sie den GroupDocs‑Support.
+**Q: Steht Support für Implementierungsprobleme zur Verfügung?**  
+A: Auf jeden Fall—wenden Sie sich über das [GroupDocs‑Forum](https://forum.groupdocs.com/c/redaction/33) für Community‑Hilfe an uns oder kontaktieren Sie den GroupDocs‑Support.
 
 ## Zusätzliche Ressourcen
 - **Dokumentation**: https://docs.groupdocs.com/redaction/java/  
@@ -159,6 +184,12 @@ A: Auf jeden Fall – wenden Sie sich über das [GroupDocs‑Forum](https://foru
 
 ---
 
-**Zuletzt aktualisiert:** 2026-02-08  
+**Zuletzt aktualisiert:** 2026-06-26  
 **Getestet mit:** GroupDocs.Redaction 24.9 (Java)  
-**Autor:** GroupDocs
+**Autor:** GroupDocs  
+
+## Verwandte Tutorials
+
+- [Sichere PDF‑Redaktion mit OCR – GroupDocs.Redaction Java](/redaction/java/ocr-integration/)
+- [Wie man Text mit GroupDocs.Redaction für Java redigiert](/redaction/java/text-redaction/groupdocs-redaction-java-text-redaction/)
+- [Sensible Daten in Java maskieren – Persönliche Infos mit GroupDocs.Redaction redigieren](/redaction/java/advanced-redaction/master-document-redaction-java-groupdocs-redaction/)

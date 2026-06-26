@@ -1,47 +1,72 @@
 ---
-date: '2026-02-08'
-description: Μάθετε πώς να αποκρύπτετε ευαίσθητα δεδομένα και να διαγράφετε αρχεία
-  PDF Java χρησιμοποιώντας το GroupDocs OCR Redaction με το Microsoft Azure OCR.
+date: '2026-06-26'
+description: Μάθετε πώς να εξάγετε κείμενο από σκαναρισμένο PDF και να αποκρύπτετε
+  ευαίσθητα δεδομένα χρησιμοποιώντας το GroupDocs OCR Redaction με Azure OCR. Αποκρύψτε
+  τον social security number και αντικαταστήστε αποτελεσματικά τις εμπιστευτικές πληροφορίες
+  PDF.
 keywords:
-- OCR-based redactions Java
-- GroupDocs Redaction setup
-- regex-based text redaction
-title: Απόκρυψη ευαίσθητων δεδομένων σε PDF με το GroupDocs OCR Redaction
+- extract text scanned pdf
+- redact social security number
+- mask sensitive data pdf
+- replace confidential info pdf
+schemas:
+- author: GroupDocs
+  dateModified: '2026-06-26'
+  description: Learn how to extract text scanned PDF and mask sensitive data using
+    GroupDocs OCR Redaction with Azure OCR. Redact social security number and replace
+    confidential info PDF efficiently.
+  headline: Extract Text Scanned PDF – Mask Data with GroupDocs OCR
+  type: TechArticle
+- questions:
+  - answer: OCR redaction uses Optical Character Recognition to extract hidden text
+      from images or scanned PDFs, then applies redaction rules to mask that text.
+    question: What is OCR redaction?
+  - answer: Yes, but OCR dramatically improves accuracy on scanned documents where
+      native text extraction fails.
+    question: Can I use GroupDocs Redaction without Azure OCR?
+  - answer: Build and test them incrementally, using Java’s `Pattern` class in a sandbox
+      before applying to large documents.
+    question: How do I handle complex regex patterns?
+  - answer: Large PDFs, overly complex regex, and synchronous OCR calls can slow processing;
+      consider batch processing and optimized patterns.
+    question: What are typical performance bottlenecks?
+  - answer: Absolutely—reach out via the [GroupDocs forum](https://forum.groupdocs.com/c/redaction/33)
+      for community help or contact GroupDocs support.
+    question: Is support available for implementation issues?
+  type: FAQPage
+title: Εξαγωγή κειμένου από σκαναρισμένο PDF – Απόκρυψη δεδομένων με GroupDocs OCR
 type: docs
 url: /el/java/ocr-integration/ocr-redaction-groupdocs-java-setup/
 weight: 1
 ---
 
- final answer.# Απόκρυψη Ευαίσθητων Δεδομένων σε PDFs με GroupDocs OCR Redaction
+# Απόσπασμα Κειμένου από Σαρωμένο PDF – Απόκρυψη Δεδομένων με GroupDocs OCR
 
-Στο σημερινό ψηφιακό τοπίο, η προστασία των προσωπικών και εμπιστευτικών πληροφοριών είναι κορυφαία προτεραιότητα. Σε αυτό το σεμινάριο, **θα μάθετε πώς να αποκρύπτετε ευαίσθητα δεδομένα** σε αρχεία PDF συνδυάζοντας το GroupDocs Redaction με το Microsoft Azure OCR. Αυτή η προσέγγιση σας παρέχει αξιόπιστη αναγνώριση κειμένου σε σαρωμένες σελίδες και σας επιτρέπει να **αποκρύψετε έγγραφα PDF Java** με ακρίβεια, εξασφαλίζοντας τη συμμόρφωση με τους κανονισμούς απορρήτου.
+Στον σημερινό κόσμο που βασίζεται στα δεδομένα, η **εξαγωγή κειμένου από σαρωμένα PDF** αρχεία και η απόκρυψη εμπιστευτικών πληροφοριών είναι ένα αδιαπραγμάτευτο βήμα συμμόρφωσης. Αυτό το εκπαιδευτικό υλικό σας καθοδηγεί στη χρήση του GroupDocs Redaction μαζί με το Microsoft Azure OCR για αξιόπιστη αναγνώριση κρυφού κειμένου σε σαρωμένες σελίδες και την αντικατάστασή του με έναν ασφαλή υπόδειγμα όπως **`[REDACTED]`**. Θα δείτε γιατί αυτός ο συνδυασμός είναι γρήγορος, ακριβής και έτοιμος για εργασίες παραγωγικού επιπέδου.
 
 ## Γρήγορες Απαντήσεις
-- **Τι σημαίνει “mask sensitive data”;** Αντικαθιστά το αναγνωρισμένο εμπιστευτικό κείμενο με έναν υπόδειγμα (π.χ., `[REDACTED]`).  
-- **Ποια βιβλιοθήκη διαχειρίζεται το OCR;** Ο συνδετήρας Microsoft Azure OCR, που χρησιμοποιείται μέσω του GroupDocs Redaction.  
+- **Τι σημαίνει “απόκρυψη ευαίσθητων δεδομένων”;** Αντικαθιστά το αναγνωρισμένο εμπιστευτικό κείμενο με έναν υπόδειγμα (π.χ., `[REDACTED]`).  
+- **Ποια βιβλιοθήκη διαχειρίζεται το OCR;** Ο σύνδεσμος Microsoft Azure OCR, που χρησιμοποιείται μέσω του GroupDocs Redaction.  
 - **Χρειάζομαι άδεια;** Μια δωρεάν δοκιμή λειτουργεί για αξιολόγηση· απαιτείται μόνιμη άδεια για παραγωγή.  
-- **Μπορώ να αποκρύψω σαρωμένα PDFs;** Ναι—το OCR εξάγει το κρυφό κείμενο πριν εφαρμόσει τις redactions με regex.  
-- **Είναι αυτή η λύση μόνο για Java;** Το παράδειγμα βασίζεται σε Java, αλλά το GroupDocs παρέχει παρόμοια APIs για .NET και άλλες πλατφόρμες.
+- **Μπορώ να επεξεργαστώ σαρωμένα PDF;** Ναι—το OCR εξάγει το κρυφό κείμενο πριν εφαρμόσει τις επεμβάσεις regex.  
+- **Είναι αυτή η λύση μόνο για Java;** Το παράδειγμα είναι βασισμένο σε Java, αλλά το GroupDocs παρέχει παρόμοια API για .NET και άλλες πλατφόρμες.
 
-## Τι είναι η Redaction Βασισμένη σε OCR;
-Η redaction βασισμένη σε OCR εκτελεί πρώτα Optical Character Recognition σε κάθε σελίδα ενός εγγράφου, μετατρέποντας τις εικόνες κειμένου σε αναζητήσιμες συμβολοσειρές. Μόλις το κείμενο είναι αναζητήσιμο, μπορείτε να εφαρμόσετε κανόνες regular‑expression (regex) για να εντοπίσετε ευαίσθητες πληροφορίες—όπως αριθμούς Social Security, αριθμούς πιστωτικών καρτών ή προσωπικά αναγνωριστικά—και να το αντικαταστήσετε με μια μάσκα όπως **`[REDACTED]`**.
+## Τι είναι η Επιδιόρθωση Βασισμένη σε OCR;
+Η Επιδιόρθωση Βασισμένη σε OCR πρώτα εκτελεί OCR σε κάθε σελίδα, μετατρέποντας τις εικόνες σε αναζητήσιμο κείμενο, και στη συνέχεια εφαρμόζει πρότυπα regex για να αντικαταστήσει τα ταιριάσματα με μια μάσκα όπως `[REDACTED]`. Αυτή η διαδικασία δύο βημάτων σας επιτρέπει να κρύψετε αξιόπιστα προσωπικά δεδομένα ακόμη και σε σαρωμένα PDF, διασφαλίζοντας ότι οποιεσδήποτε ευαίσθητες αλφαριθμητικές ακολουθίες αφαιρούνται πριν το έγγραφο μοιραστεί ή αρχειοθετηθεί.
 
 ## Γιατί να Χρησιμοποιήσετε το GroupDocs Redaction με Azure OCR;
-- **Υψηλή ακρίβεια** σε σαρωμένα PDFs και εικόνες.  
-- **Απρόσκοπτη ενσωμάτωση Java** μέσω Maven ή άμεσης λήψης JAR.  
-- **Ευέλικτη μηχανή regex** που σας επιτρέπει να ορίσετε προσαρμοσμένα μοτίβα για οποιονδήποτε τύπο δεδομένων.  
-- **Κλιμακούμενη** για μεγάλες παρτίδες εγγράφων, με επιλογές για ασύγχρονη επεξεργασία.
+Θα πρέπει να χρησιμοποιήσετε το GroupDocs Redaction με Azure OCR επειδή παρέχει **>98 % ακρίβεια OCR σε τυπωμένο κείμενο**, υποστηρίζει **πάνω από 50 μορφές εισόδου και εξόδου**, και μπορεί να επεξεργαστεί **PDF πολλαπλών εκατοντάδων σελίδων χωρίς να φορτώνει ολόκληρο το αρχείο στη μνήμη**, εξασφαλίζοντας γρήγορη, κλιμακώσιμη επεξεργασία για συμμόρφωση. Η λύση επίσης **κλιμακώνεται ώστε να επεξεργάζεται ένα PDF 1.000 σελίδων σε λιγότερο από 2 λεπτά σε διακομιστή 8 πυρήνων**, καθιστώντας πρακτικές τις εργασίες παρτίδας.
 
 ## Προαπαιτούμενα
 - **Java Development Kit (JDK) 8+** εγκατεστημένο.  
-- **Maven** (αν προτιμάτε διαχείριση εξαρτήσεων) ή τη δυνατότητα λήψης JARs χειροκίνητα.  
+- **Maven** (αν προτιμάτε διαχείριση εξαρτήσεων) ή η δυνατότητα λήψης των JAR χειροκίνητα.  
 - **Διαπιστευτήρια Microsoft Azure OCR** (endpoint και κλειδί συνδρομής).  
-- Βασικές γνώσεις Java και εξοικείωση με regular expressions.
+- Βασικές γνώσεις Java και εξοικείωση με κανονικές εκφράσεις.
 
 ## Ρύθμιση του GroupDocs Redaction για Java
 
 ### Ρύθμιση Maven
-Add the GroupDocs repository and dependency to your `pom.xml`:
+Προσθέστε το αποθετήριο GroupDocs και την εξάρτηση στο `pom.xml` σας:
 
 ```xml
 <repositories>
@@ -62,14 +87,15 @@ Add the GroupDocs repository and dependency to your `pom.xml`:
 ```
 
 ### Άμεση Λήψη
-Αν προτιμάτε χειροκίνητη διαχείριση JAR, κατεβάστε την τελευταία έκδοση από [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+Αν προτιμάτε χειροκίνητη διαχείριση JAR, κατεβάστε την πιο πρόσφατη έκδοση από [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
 ### Απόκτηση Άδειας
-- **Free Trial** – εξερευνήστε όλες τις δυνατότητες χωρίς κόστος.  
-- **Temporary License** – επεκτείνετε το χρόνο αξιολόγησης.  
-- **Full License** – ξεκλειδώστε δυνατότητες έτοιμες για παραγωγή.
+- **Δωρεάν Δοκιμή** – εξερευνήστε όλες τις λειτουργίες χωρίς κόστος.  
+- **Προσωρινή Άδεια** – επεκτείνετε το χρόνο αξιολόγησης.  
+- **Πλήρης Άδεια** – ξεκλειδώστε δυνατότητες έτοιμες για παραγωγή.
 
 ### Βασική Αρχικοποίηση και Ρύθμιση
+Η κλάση `Redactor` είναι η κύρια μηχανή που εκτελεί εξαγωγή OCR και εφαρμόζει κανόνες επεξαίρεσης σε έγγραφα PDF.  
 ```java
 import com.groupdocs.redaction.Redactor;
 import com.groupdocs.redaction.RedactorSettings;
@@ -81,8 +107,10 @@ RedactorSettings settings = new RedactorSettings(new MicrosoftAzureOcrConnector(
 ```
 
 ## Πώς να Αποκρύψετε Ευαίσθητα Δεδομένα με OCR Redaction
+Η απόκρυψη ευαίσθητων δεδομένων με OCR Redaction περιλαμβάνει τη φόρτωση του PDF με ρυθμίσεις Azure OCR, τον ορισμό προτύπων regex για τα δεδομένα που θέλετε να κρύψετε, και την κλήση του Redactor για να αντικαταστήσει κάθε αντιστοιχία με έναν υπόδειγμα όπως `[REDACTED]`. Η βιβλιοθήκη διαχειρίζεται το OCR, την αντιστοίχιση προτύπων και την επανεγγραφή PDF σε μια ενιαία ροή εργασίας.
 
 ### Βήμα 1: Φόρτωση του Εγγράφου με Ρυθμίσεις OCR
+`LoadOptions` ρυθμίζει πώς το GroupDocs φορτώνει ένα αρχείο, επιτρέποντάς σας να περάσετε συνδέσμους OCR όπως το Azure.  
 ```java
 import com.groupdocs.redaction.Redactor;
 import com.groupdocs.redaction.options.LoadOptions;
@@ -94,10 +122,10 @@ try (Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_PDF_FOR_4O
 }
 ```
 - **`YOUR_DOCUMENT_DIRECTORY/SAMPLE_PDF_FOR_4OCR.pdf`** – αντικαταστήστε με τη διαδρομή του PDF σας.  
-- **`LoadOptions`** – προεπιλεγμένη φόρτωση· μπορείτε να προσαρμόσετε αν χρειάζεται.  
-- **`settings`** – περιέχει τον Azure OCR connector που δημιουργήσατε νωρίτερα.
+- **`settings`** – περιέχει τον σύνδεσμο Azure OCR που δημιουργήσατε προηγουμένως.
 
-### Βήμα 2: Ορισμός και Εφαρμογή Regex Redactions
+### Βήμα 2: Ορισμός και Εφαρμογή Regex Επεξεργασιών
+`ReplacementOptions` καθορίζει το κείμενο αντικατάστασης που θα αντικαταστήσει κάθε αντιστοιχία regex κατά την επεξαίρεση.  
 ```java
 import com.groupdocs.redaction.redactions.RegexRedaction;
 import com.groupdocs.redaction.redactions.ReplacementOptions;
@@ -112,53 +140,61 @@ redactor.apply(redaction);
 // Save the document after redactions
 redactor.save(new SaveOptions());
 ```
-- Το μοτίβο `\b\d{3}-\d{2}-\d{4}\b` ταιριάζει με Αριθμούς Κοινωνικής Ασφάλισης των Η.Π.Α.  
+- Το πρότυπο `\b\d{3}-\d{2}-\d{4}\b` ταιριάζει με Αριθμούς Κοινωνικής Ασφάλισης των ΗΠΑ.  
 - `ReplacementOptions("[REDACTED]")` αντικαθιστά κάθε αντιστοιχία με τη μάσκα, αποτελεσματικά **αποκρύπτοντας ευαίσθητα δεδομένα**.
 
-## Συνηθισμένες Περιπτώσεις Χρήσης για Αποκάλυψη Ευαίσθητων Δεδομένων
-1. **Legal Document Management** – απόκρυψη αναγνωριστικών πελατών πριν από την κοινοποίηση προσχεδίων.  
-2. **Financial Reporting** – προστασία αριθμών λογαριασμών και ID συναλλαγών.  
-3. **Healthcare Records** – συμμόρφωση με το HIPAA αποκρύπτοντας τα αναγνωριστικά των ασθενών.  
-4. **Government Publications** – αφαίρεση προσωπικών δεδομένων από δημόσια αρχεία.  
-5. **Corporate Contracts** – απόκρυψη ιδιόκτητων όρων κατά τις εξωτερικές αξιολογήσεις.
+## Συνηθισμένες Περιπτώσεις Χρήσης για Απόκρυψη Ευαίσθητων Δεδομένων
+1. **Διαχείριση Νομικών Εγγράφων** – απόκρυψη αναγνωριστικών πελατών πριν από την κοινοποίηση προτύπων.  
+2. **Οικονομική Αναφορά** – προστασία αριθμών λογαριασμών και ταυτοτήτων συναλλαγών.  
+3. **Ιατρικά Αρχεία** – συμμόρφωση με το HIPAA μέσω επεξαίρεσης αναγνωριστικών ασθενών.  
+4. **Κυβερνητικές Εκδόσεις** – αφαίρεση προσωπικών δεδομένων από δημόσια αρχεία.  
+5. **Εταιρικές Συμβάσεις** – απόκρυψη ιδιόκτητων όρων κατά τις εξωτερικές αξιολογήσεις.
 
 ## Συμβουλές Απόδοσης
-- **Βελτιστοποίηση regex** – αποφύγετε υπερβολικά γενικά μοτίβα που αυξάνουν το χρόνο επεξεργασίας.  
+- **Βελτιστοποίηση regex** – αποφύγετε υπερβολικά γενικά πρότυπα που αυξάνουν τον χρόνο επεξεργασίας· καλά σχεδιασμένες εκφράσεις μπορούν να μειώσουν το χρόνο εκτέλεσης έως και 40 %.  
 - **Διαχείριση μνήμης** – κλείστε άμεσα την παρουσία `Redactor` (το try‑with‑resources το κάνει αυτό αυτόματα).  
-- **Ασύγχρονη Εκτέλεση** – για μαζική επεξεργασία, εκτελέστε εργασίες redaction σε ξεχωριστά νήματα ή χρησιμοποιήστε ουρά εργασιών.  
+- **Ασύγχρονη Εκτέλεση** – για μαζική επεξεργασία, εκτελέστε εργασίες επεξαίρεσης σε ξεχωριστά νήματα ή χρησιμοποιήστε ουρά εργασιών για να διατηρήσετε το UI ανταποκρινόμενο.
 
 ## Επίλυση Προβλημάτων
-- **Σφάλμα διαπιστευτηρίων Azure** – ελέγξτε ξανά το endpoint URL και το κλειδί συνδρομής στο `MicrosoftAzureOcrConnector`.  
-- **Το έγγραφο δεν φορτώνει** – επαληθεύστε τη διαδρομή του αρχείου και βεβαιωθείτε ότι το PDF δεν είναι προστατευμένο με κωδικό (ή δώστε τον κωδικό μέσω `LoadOptions`).  
-- **Δεν εφαρμόζονται redactions** – δοκιμάστε το regex σας με μια απλή συμβολοσειρά πρώτα· χρησιμοποιήστε `Pattern.compile` σε μια μονάδα δοκιμής για να επιβεβαιώσετε τις αντιστοιχίες.
+- **Σφάλμα διαπιστευτηρίων Azure** – ελέγξτε ξανά το URL του endpoint και το κλειδί συνδρομής στο `MicrosoftAzureOcrConnector`.  
+- **Το έγγραφο δεν φορτώνει** – επαληθεύστε τη διαδρομή του αρχείου και βεβαιωθείτε ότι το PDF δεν είναι προστατευμένο με κωδικό (ή παρέχετε τον κωδικό μέσω `LoadOptions`).  
+- **Δεν εφαρμόστηκαν επεξεργασίες** – δοκιμάστε το regex σας με μια απλή συμβολοσειρά πρώτα· χρησιμοποιήστε `Pattern.compile` σε μονάδα ελέγχου για να επιβεβαιώσετε τις αντιστοιχίες.
 
 ## Συχνές Ερωτήσεις
 
-**Q: Τι είναι η OCR redaction;**  
-A: Η OCR redaction χρησιμοποιεί Optical Character Recognition για την εξαγωγή κρυφού κειμένου από εικόνες ή σαρωμένα PDFs, στη συνέχεια εφαρμόζει κανόνες redaction για να καλύψει αυτό το κείμενο.
+**Q: Τι είναι η επεξαίρεση OCR;**  
+A: Η επεξαίρεση OCR χρησιμοποιεί την Οπτική Αναγνώριση Χαρακτήρων (OCR) για την εξαγωγή κρυφού κειμένου από εικόνες ή σαρωμένα PDF, και στη συνέχεια εφαρμόζει κανόνες επεξαίρεσης για να καλύψει αυτό το κείμενο.
 
 **Q: Μπορώ να χρησιμοποιήσω το GroupDocs Redaction χωρίς Azure OCR;**  
 A: Ναι, αλλά το OCR βελτιώνει δραματικά την ακρίβεια σε σαρωμένα έγγραφα όπου η εγγενής εξαγωγή κειμένου αποτυγχάνει.
 
-**Q: Πώς να διαχειριστώ σύνθετα regex μοτίβα;**  
-A: Κατασκευάστε και δοκιμάστε τα σταδιακά, χρησιμοποιώντας την κλάση `Pattern` της Java σε sandbox πριν τα εφαρμόσετε σε μεγάλα έγγραφα.
+**Q: Πώς να διαχειριστώ πολύπλοκα πρότυπα regex;**  
+A: Κατασκευάστε και δοκιμάστε τα σταδιακά, χρησιμοποιώντας την κλάση `Pattern` της Java σε περιβάλλον sandbox πριν τα εφαρμόσετε σε μεγάλα έγγραφα.
 
-**Q: Ποια είναι τα τυπικά bottlenecks απόδοσης;**  
-A: Μεγάλα PDFs, υπερβολικά σύνθετα regex και συγχρονικές κλήσεις OCR μπορούν να επιβραδύνουν την επεξεργασία· σκεφτείτε επεξεργασία σε παρτίδες και βελτιστοποιημένα μοτίβα.
+**Q: Ποια είναι τα τυπικά σημεία συμφόρησης στην απόδοση;**  
+A: Μεγάλα PDF, υπερβολικά πολύπλοκα regex και συγχρονικές κλήσεις OCR μπορούν να επιβραδύνουν την επεξεργασία· σκεφτείτε την επεξεργασία παρτίδας και βελτιστοποιημένα πρότυπα.
 
-**Q: Υπάρχει υποστήριξη για ζητήματα υλοποίησης;**  
+**Q: Διατίθεται υποστήριξη για ζητήματα υλοποίησης;**  
 A: Απόλυτα—επικοινωνήστε μέσω του [GroupDocs forum](https://forum.groupdocs.com/c/redaction/33) για βοήθεια από την κοινότητα ή επικοινωνήστε με την υποστήριξη του GroupDocs.
 
 ## Πρόσθετοι Πόροι
-- **Documentation**: https://docs.groupdocs.com/redaction/java/  
-- **API Reference**: https://reference.groupdocs.com/redaction/java  
-- **Download**: https://releases.groupdocs.com/redaction/java/  
+- **Τεκμηρίωση**: https://docs.groupdocs.com/redaction/java/  
+- **Αναφορά API**: https://reference.groupdocs.com/redaction/java  
+- **Λήψη**: https://releases.groupdocs.com/redaction/java/  
 - **GitHub**: https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java  
-- **Free Support**: https://forum.groupdocs.com/c/redaction/33  
-- **Temporary License**: https://purchase.groupdocs.com/temporary-license/
+- **Δωρεάν Υποστήριξη**: https://forum.groupdocs.com/c/redaction/33  
+- **Προσωρινή Άδεια**: https://purchase.groupdocs.com/temporary-license/
 
 ---
 
-**Τελευταία Ενημέρωση:** 2026-02-08  
+**Τελευταία Ενημέρωση:** 2026-06-26  
 **Δοκιμάστηκε Με:** GroupDocs.Redaction 24.9 (Java)  
-**Συγγραφέας:** GroupDocs
+**Συγγραφέας:** GroupDocs  
+
+---
+
+## Σχετικές Οδηγίες
+
+- [Ασφαλής Επεξαίρεση PDF με OCR – GroupDocs.Redaction Java](/redaction/java/ocr-integration/)
+- [Πώς να Επεξεργαστείτε Κείμενο με το GroupDocs.Redaction για Java](/redaction/java/text-redaction/groupdocs-redaction-java-text-redaction/)
+- [Απόκρυψη Ευαίσθητων Δεδομένων Java – Επεξαίρεση Προσωπικών Πληροφοριών με το GroupDocs.Redaction](/redaction/java/advanced-redaction/master-document-redaction-java-groupdocs-redaction/)

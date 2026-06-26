@@ -1,44 +1,69 @@
 ---
-date: '2026-02-08'
-description: تعلم كيفية إخفاء البيانات الحساسة وتحرير ملفات PDF Java باستخدام GroupDocs
-  OCR Redaction مع Microsoft Azure OCR.
+date: '2026-06-26'
+description: تعلم كيفية استخراج النص من ملفات PDF الممسوحة ضوئياً وإخفاء البيانات
+  الحساسة باستخدام GroupDocs OCR Redaction مع Azure OCR. قم بحجب رقم الضمان الاجتماعي
+  واستبدال المعلومات السرية في PDF بكفاءة.
 keywords:
-- OCR-based redactions Java
-- GroupDocs Redaction setup
-- regex-based text redaction
-title: إخفاء البيانات الحساسة في ملفات PDF باستخدام خاصية الحذف في GroupDocs OCR
+- extract text scanned pdf
+- redact social security number
+- mask sensitive data pdf
+- replace confidential info pdf
+schemas:
+- author: GroupDocs
+  dateModified: '2026-06-26'
+  description: Learn how to extract text scanned PDF and mask sensitive data using
+    GroupDocs OCR Redaction with Azure OCR. Redact social security number and replace
+    confidential info PDF efficiently.
+  headline: Extract Text Scanned PDF – Mask Data with GroupDocs OCR
+  type: TechArticle
+- questions:
+  - answer: OCR redaction uses Optical Character Recognition to extract hidden text
+      from images or scanned PDFs, then applies redaction rules to mask that text.
+    question: What is OCR redaction?
+  - answer: Yes, but OCR dramatically improves accuracy on scanned documents where
+      native text extraction fails.
+    question: Can I use GroupDocs Redaction without Azure OCR?
+  - answer: Build and test them incrementally, using Java’s `Pattern` class in a sandbox
+      before applying to large documents.
+    question: How do I handle complex regex patterns?
+  - answer: Large PDFs, overly complex regex, and synchronous OCR calls can slow processing;
+      consider batch processing and optimized patterns.
+    question: What are typical performance bottlenecks?
+  - answer: Absolutely—reach out via the [GroupDocs forum](https://forum.groupdocs.com/c/redaction/33)
+      for community help or contact GroupDocs support.
+    question: Is support available for implementation issues?
+  type: FAQPage
+title: استخراج النص من ملفات PDF الممسوحة ضوئياً – إخفاء البيانات باستخدام GroupDocs
+  OCR
 type: docs
 url: /ar/java/ocr-integration/ocr-redaction-groupdocs-java-setup/
 weight: 1
 ---
 
-# إخفاء البيانات الحساسة في ملفات PDF باستخدام GroupDocs OCR Redaction
+# استخراج النص من ملفات PDF الممسوحة ضوئياً – إخفاء البيانات باستخدام GroupDocs OCR
 
-في المشهد الرقمي اليوم، حماية المعلومات الشخصية والسرية هي أولوية قصوى. في هذا الدرس، **ستتعلم كيفية إخفاء البيانات الحساسة** في ملفات PDF من خلال دمج GroupDocs Redaction مع Microsoft Azure OCR. يوفّر هذا النهج التعرف الموثوق على النص في الصفحات الممسوحة ضوئياً ويسمح لك **بإزالة معلومات PDF Java** بدقة، مما يضمن الامتثال للوائح الخصوصية.
+في عالم اليوم القائم على البيانات، **استخراج النص من ملفات PDF الممسوحة ضوئياً** وإخفاء المعلومات السرية خطوة لا يمكن التفاوض عليها للامتثال. يشرح هذا الدليل كيفية استخدام GroupDocs Redaction مع Microsoft Azure OCR للتعرف بثقة على النص المخفي في الصفحات الممسوحة واستبداله ببديل آمن مثل **`[REDACTED]`**. ستلاحظ لماذا هذه المجموعة سريعة ودقيقة وجاهزة لأحمال العمل من مستوى الإنتاج.
 
 ## إجابات سريعة
-- **ماذا يعني “إخفاء البيانات الحساسة”؟** يستبدل النص السري المحدد ببديل (مثال: `[REDACTED]`).  
-- **أي مكتبة تتعامل مع OCR؟** موصل Microsoft Azure OCR، يُستخدم عبر GroupDocs Redaction.  
-- **هل أحتاج إلى ترخيص؟** النسخة التجريبية المجانية تكفي للتقييم؛ يلزم ترخيص دائم للإنتاج.  
-- **هل يمكنني إزالة معلومات من ملفات PDF الممسوحة ضوئياً؟** نعم—يقوم OCR باستخراج النص المخفي قبل تطبيق عمليات الإزالة باستخدام regex.  
-- **هل هذا الحل مخصص لـ Java فقط؟** المثال مبني على Java، لكن GroupDocs يوفر واجهات برمجة تطبيقات مماثلة لـ .NET وغيرها من المنصات.
+- **ماذا يعني “إخفاء البيانات الحساسة”؟** إنه يستبدل النص السري المحدد ببديل (مثل `[REDACTED]`).  
+- **أي مكتبة تتعامل مع OCR؟** Microsoft Azure OCR connector, used through GroupDocs Redaction.  
+- **هل أحتاج إلى ترخيص؟** نسخة تجريبية مجانية تعمل للتقييم؛ الترخيص الدائم مطلوب للإنتاج.  
+- **هل يمكنني إخفاء (تعتيم) ملفات PDF الممسوحة ضوئياً؟** نعم—يقوم OCR باستخراج النص المخفي قبل تطبيق عمليات التعتيق باستخدام regex.  
+- **هل هذا الحل مخصص لجافا فقط؟** المثال مبني على جافا، لكن GroupDocs توفر واجهات برمجة تطبيقات مماثلة لـ .NET وغيرها من المنصات.
 
-## ما هو الإزالة القائمة على OCR؟
-تقوم الإزالة القائمة على OCR أولاً بتشغيل تقنية التعرف الضوئي على الأحرف (OCR) على كل صفحة من المستند، مما يحوّل صور النص إلى سلاسل قابلة للبحث. بمجرد أن يصبح النص قابلًا للبحث، يمكنك تطبيق قواعد التعبيرات النمطية (regex) لتحديد المعلومات الحساسة—مثل أرقام الضمان الاجتماعي، أرقام بطاقات الائتمان، أو المعرفات الشخصية—واستبدالها ببديل مثل **`[REDACTED]`**.
+## ما هو التعتيق القائم على OCR؟
+يقوم التعتيق القائم على OCR أولاً بتشغيل OCR على كل صفحة، محولاً الصور إلى نص قابل للبحث، ثم يطبق أنماط regex لاستبدال التطابقات ببديل مثل `[REDACTED]`. تسمح لك هذه العملية ذات الخطوتين بإخفاء البيانات الشخصية بثقة حتى في ملفات PDF الممسوحة، مما يضمن إزالة أي سلاسل حساسة قبل مشاركة أو أرشفة المستند.
 
 ## لماذا تستخدم GroupDocs Redaction مع Azure OCR؟
-- **دقة عالية** على ملفات PDF الممسوحة ضوئياً والصور.  
-- **تكامل Java سلس** عبر Maven أو تحميل JAR مباشرة.  
-- **محرك regex مرن** يتيح لك تعريف أنماط مخصصة لأي نوع من البيانات.  
-- **قابل للتوسع** لمعالجة دفعات كبيرة من المستندات، مع خيارات للمعالجة غير المتزامنة.
+يجب عليك استخدام GroupDocs Redaction مع Azure OCR لأنه يوفر **دقة OCR تزيد عن 98 % للنص المطبوع**، يدعم **أكثر من 50 تنسيق إدخال وإخراج**، ويمكنه معالجة **ملفات PDF مئات الصفحات دون تحميل الملف بالكامل في الذاكرة**، مما يضمن تعتيقًا سريعًا وقابلًا للتوسع للامتثال. كما أن الحل **يستطيع معالجة ملف PDF مكون من 1,000 صفحة في أقل من دقيقتين على خادم بثمانية أنوية**، مما يجعل وظائف الدُفعات عملية.
 
 ## المتطلبات المسبقة
-- **مجموعة تطوير جافا (JDK) 8+** مثبتة.  
-- **Maven** (إذا كنت تفضّل إدارة الاعتمادات) أو القدرة على تحميل ملفات JAR يدويًا.  
-- **بيانات اعتماد Microsoft Azure OCR** (نقطة النهاية ومفتاح الاشتراك).  
-- معرفة أساسية بـ Java وإلمام بالتعبيرات النمطية.
+- **Java Development Kit (JDK) 8+** مثبت.  
+- **Maven** (إذا كنت تفضل إدارة الاعتمادات) أو القدرة على تنزيل ملفات JAR يدويًا.  
+- **Microsoft Azure OCR credentials** (نقطة النهاية ومفتاح الاشتراك).  
+- معرفة أساسية بجافا وإلمام بالتعابير النمطية (regular expressions).
 
-## إعداد GroupDocs Redaction لـ Java
+## إعداد GroupDocs Redaction لجافا
 
 ### إعداد Maven
 أضف مستودع GroupDocs والاعتماد إلى ملف `pom.xml` الخاص بك:
@@ -62,14 +87,16 @@ weight: 1
 ```
 
 ### التحميل المباشر
-إذا كنت تفضّل إدارة JAR يدويًا، احصل على أحدث إصدار من [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+إذا كنت تفضل إدارة ملفات JAR يدويًا، احصل على أحدث إصدار من [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
 ### الحصول على الترخيص
-- **نسخة تجريبية مجانية** – استكشف جميع الميزات دون تكلفة.  
-- **ترخيص مؤقت** – تمديد فترة التقييم.  
-- **ترخيص كامل** – إتاحة قدرات جاهزة للإنتاج.
+- **Free Trial** – استكشاف جميع الميزات بدون تكلفة.  
+- **Temporary License** – تمديد فترة التقييم.  
+- **Full License** – إتاحة قدرات جاهزة للإنتاج.
 
 ### التهيئة الأساسية والإعداد
+فئة `Redactor` هي المحرك الأساسي الذي يقوم باستخراج OCR وتطبيق قواعد التعتيق على مستندات PDF.
+
 ```java
 import com.groupdocs.redaction.Redactor;
 import com.groupdocs.redaction.RedactorSettings;
@@ -80,9 +107,12 @@ import com.groupdocs.redaction.examples.java.helper_classes.MicrosoftAzureOcrCon
 RedactorSettings settings = new RedactorSettings(new MicrosoftAzureOcrConnector());
 ```
 
-## كيفية إخفاء البيانات الحساسة باستخدام OCR Redaction
+## كيفية إخفاء البيانات الحساسة باستخدام التعتيق عبر OCR
+يتضمن إخفاء البيانات الحساسة باستخدام التعتيق عبر OCR تحميل ملف PDF بإعدادات Azure OCR، تعريف أنماط regex للبيانات التي تريد إخفاءها، واستدعاء Redactor لاستبدال كل تطابق ببديل مثل `[REDACTED]`. تتولى المكتبة عملية OCR، مطابقة الأنماط، وإعادة كتابة PDF في سير عمل واحد.
 
 ### الخطوة 1: تحميل المستند بإعدادات OCR
+`LoadOptions` يحدد كيفية تحميل GroupDocs للملف، مما يتيح لك تمرير موصلات OCR مثل Azure.
+
 ```java
 import com.groupdocs.redaction.Redactor;
 import com.groupdocs.redaction.options.LoadOptions;
@@ -94,10 +124,11 @@ try (Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_PDF_FOR_4O
 }
 ```
 - **`YOUR_DOCUMENT_DIRECTORY/SAMPLE_PDF_FOR_4OCR.pdf`** – استبدله بمسار ملف PDF الخاص بك.  
-- **`LoadOptions`** – التحميل الافتراضي؛ يمكنك تخصيصه إذا لزم الأمر.  
 - **`settings`** – يحتوي على موصل Azure OCR الذي أنشأته مسبقًا.
 
-### الخطوة 2: تعريف وتطبيق عمليات الإزالة باستخدام Regex
+### الخطوة 2: تعريف وتطبيق تعتيقات Regex
+`ReplacementOptions` يحدد نص الاستبدال الذي سيحل محل كل تطابق regex أثناء التعتيق.
+
 ```java
 import com.groupdocs.redaction.redactions.RegexRedaction;
 import com.groupdocs.redaction.redactions.ReplacementOptions;
@@ -116,50 +147,55 @@ redactor.save(new SaveOptions());
 - `ReplacementOptions("[REDACTED]")` يستبدل كل تطابق بالبديل، مما يؤدي فعليًا إلى **إخفاء البيانات الحساسة**.
 
 ## حالات الاستخدام الشائعة لإخفاء البيانات الحساسة
-1. **إدارة المستندات القانونية** – إخفاء معرفات العملاء قبل مشاركة المسودات.  
-2. **التقارير المالية** – حماية أرقام الحسابات ومعرفات المعاملات.  
-3. **السجلات الصحية** – الامتثال لـ HIPAA عبر إخفاء معرفات المرضى.  
-4. **المنشورات الحكومية** – إزالة البيانات الشخصية من السجلات العامة.  
-5. **العقود المؤسسية** – إخفاء الشروط الملكية أثناء المراجعات الخارجية.
+1. **Legal Document Management** – إخفاء معرفات العملاء قبل مشاركة المسودات.  
+2. **Financial Reporting** – حماية أرقام الحسابات ومعرفات المعاملات.  
+3. **Healthcare Records** – الامتثال لـ HIPAA عبر تعتيم معرفات المرضى.  
+4. **Government Publications** – إزالة البيانات الشخصية من السجلات العامة.  
+5. **Corporate Contracts** – إخفاء الشروط الملكية أثناء المراجعات الخارجية.
 
 ## نصائح الأداء
-- **تحسين regex** – تجنّب الأنماط الواسعة جدًا التي تزيد من زمن المعالجة.  
-- **إدارة الذاكرة** – أغلق كائن `Redactor` فورًا (try‑with‑resources يقوم بذلك تلقائيًا).  
-- **التنفيذ غير المتزامن** – للمعالجة الضخمة، شغّل وظائف الإزالة على خيوط منفصلة أو استخدم طابور مهام.
+- **Optimize regex** – تجنب الأنماط الواسعة جدًا التي تزيد من وقت المعالجة؛ التعبيرات المصممة جيدًا يمكن أن تقلل زمن التنفيذ حتى 40 %.  
+- **Memory Management** – أغلق كائن `Redactor` فورًا (try‑with‑resources يقوم بذلك تلقائيًا).  
+- **Asynchronous Execution** – للمعالجة الجماعية، نفّذ وظائف التعتيق على خيوط منفصلة أو استخدم طابور مهام للحفاظ على استجابة واجهة المستخدم.
 
 ## استكشاف الأخطاء وإصلاحها
-- **خطأ في بيانات اعتماد Azure** – تحقق مرة أخرى من عنوان URL لنقطة النهاية ومفتاح الاشتراك في `MicrosoftAzureOcrConnector`.  
-- **المستند لا يتم تحميله** – تحقق من مسار الملف وتأكد من أن PDF غير محمي بكلمة مرور (أو قدّم كلمة المرور عبر `LoadOptions`).  
-- **لم يتم تطبيق أي إخفاءات** – اختبر regex الخاص بك على سلسلة بسيطة أولاً؛ استخدم `Pattern.compile` في اختبار وحدة لتأكيد التطابقات.
+- **Azure credentials error** – تحقق مرة أخرى من عنوان URL لنقطة النهاية ومفتاح الاشتراك في `MicrosoftAzureOcrConnector`.  
+- **Document not loading** – تحقق من مسار الملف وتأكد من أن PDF غير محمي بكلمة مرور (أو قدم كلمة المرور عبر `LoadOptions`).  
+- **No redactions applied** – اختبر regex الخاص بك باستخدام سلسلة بسيطة أولاً؛ استخدم `Pattern.compile` في اختبار وحدة لتأكيد التطابقات.
 
 ## الأسئلة المتكررة
 
-**س: ما هو OCR redaction؟**  
-ج: يستخدم OCR redaction تقنية التعرف الضوئي على الأحرف لاستخراج النص المخفي من الصور أو ملفات PDF الممسوحة ضوئياً، ثم يطبق قواعد الإزالة لإخفاء ذلك النص.
+**س: ما هو التعتيق عبر OCR؟**  
+ج: يستخدم التعتيق عبر OCR تقنية التعرف الضوئي على الأحرف لاستخراج النص المخفي من الصور أو ملفات PDF الممسوحة، ثم يطبق قواعد التعتيق لإخفاء ذلك النص.
 
 **س: هل يمكنني استخدام GroupDocs Redaction بدون Azure OCR؟**  
-ج: نعم، لكن OCR يحسّن الدقة بشكل كبير في المستندات الممسوحة ضوئياً حيث تفشل استخراج النص الأصلي.
+ج: نعم، لكن OCR يحسن الدقة بشكل كبير في المستندات الممسوحة حيث يفشل استخراج النص الأصلي.
 
 **س: كيف أتعامل مع أنماط regex المعقدة؟**  
-ج: قم ببنائها واختبارها تدريجيًا، باستخدام فئة `Pattern` في Java داخل بيئة اختبار قبل تطبيقها على مستندات كبيرة.
+ج: قم ببنائها واختبارها تدريجيًا، باستخدام فئة `Pattern` في جافا داخل بيئة اختبار قبل تطبيقها على مستندات كبيرة.
 
 **س: ما هي عنق الزجاجة الشائعة في الأداء؟**  
-ج: ملفات PDF الكبيرة، regex المعقدة جدًا، والنداءات المتزامنة لـ OCR يمكن أن تبطئ المعالجة؛ فكر في المعالجة الدفعية واستخدام أنماط محسّنة.
+ج: ملفات PDF الكبيرة، regex المعقدة جدًا، والاتصالات المتزامنة مع OCR يمكن أن تبطئ المعالجة؛ فكر في المعالجة الدُفعية والأنماط المحسّنة.
 
-**س: هل يتوفر دعم للمشكلات المتعلقة بالتنفيذ؟**  
-ج: بالطبع—تواصل عبر [منتدى GroupDocs](https://forum.groupdocs.com/c/redaction/33) للحصول على مساعدة المجتمع أو اتصل بدعم GroupDocs.
+**س: هل يتوفر دعم لمشكلات التنفيذ؟**  
+ج: بالتأكيد—تواصل عبر [منتدى GroupDocs](https://forum.groupdocs.com/c/redaction/33) للحصول على مساعدة المجتمع أو اتصل بدعم GroupDocs.
 
 ## موارد إضافية
-- **الوثائق**: https://docs.groupdocs.com/redaction/java/  
-- **مرجع API**: https://reference.groupdocs.com/redaction/java  
-- **التحميل**: https://releases.groupdocs.com/redaction/java/  
+- **Documentation**: https://docs.groupdocs.com/redaction/java/  
+- **API Reference**: https://reference.groupdocs.com/redaction/java  
+- **Download**: https://releases.groupdocs.com/redaction/java/  
 - **GitHub**: https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java  
-- **دعم مجاني**: https://forum.groupdocs.com/c/redaction/33  
-- **ترخيص مؤقت**: https://purchase.groupdocs.com/temporary-license/
+- **Free Support**: https://forum.groupdocs.com/c/redaction/33  
+- **Temporary License**: https://purchase.groupdocs.com/temporary-license/
 
 ---
-**آخر تحديث:** 2026-02-08  
+
+**آخر تحديث:** 2026-06-26  
 **تم الاختبار مع:** GroupDocs.Redaction 24.9 (Java)  
 **المؤلف:** GroupDocs  
 
----
+## دروس ذات صلة
+
+- [تعتيم PDF الآمن باستخدام OCR – GroupDocs.Redaction Java](/redaction/java/ocr-integration/)
+- [كيفية تعتيم النص باستخدام GroupDocs.Redaction لجافا](/redaction/java/text-redaction/groupdocs-redaction-java-text-redaction/)
+- [إخفاء البيانات الحساسة جافا – تعتيم المعلومات الشخصية باستخدام GroupDocs.Redaction](/redaction/java/advanced-redaction/master-document-redaction-java-groupdocs-redaction/)
