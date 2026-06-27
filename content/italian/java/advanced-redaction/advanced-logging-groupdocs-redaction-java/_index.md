@@ -1,52 +1,61 @@
 ---
-date: '2025-12-17'
-description: Padroneggia le tecniche di logger personalizzato in Java usando GroupDocs
-  Redaction per Java. Impara l'elaborazione batch dei documenti, come monitorare la
-  redazione e ottimizza il tuo flusso di lavoro di debug.
+date: '2026-03-14'
+description: Scopri come implementare un logger personalizzato in Java per GroupDocs
+  Redaction, consentendo un monitoraggio dettagliato della redazione, dell'elaborazione
+  batch e del debug.
 keywords:
 - custom logger java
 - batch document processing
 - how to monitor redaction
-title: 'Logger Personalizzato Java - Implementa il Logging Avanzato con GroupDocs Redaction
-  – Guida Completa'
+title: 'Logger personalizzato Java: Registrazione avanzata di GroupDocs Redaction'
 type: docs
 url: /it/java/advanced-redaction/advanced-logging-groupdocs-redaction-java/
 weight: 1
 ---
 
-# Logger Personalizzato Java: Implementa il Logging Avanzato in Java con GroupDocs Redaction
+** No, the same GroupDocs Redaction license covers all features.  
+- **Which Maven version is required?** GroupDocs.Redaction 24.9 or later.
 
-## Introduzione
+Translate bullet points.
 
-Stai avendo difficoltà a tenere traccia delle modifiche e degli errori durante l'utilizzo di GroupDocs Redaction nelle tue applicazioni Java? Con le funzionalità di **custom logger java** puoi semplificare il processo di debug, ottenere preziose informazioni su come vengono applicate le redazioni dei documenti e persino supportare l'elaborazione batch dei documenti. Questo tutorial ti guiderà nell'implementazione di un `ILogger` personalizzato con GroupDocs Redaction per Java, migliorando la tua capacità di monitorare le redazioni, eseguire il debug in modo efficiente e scalare i tuoi flussi di lavoro.
+## What is a Custom Logger Java?
+...
 
-**Cosa Imparerai**
-- Configurare GroupDocs.Redaction in un progetto Java  
-- Implementare **custom logger java** per il logging avanzato  
-- Applicare le redazioni monitorando errori e prestazioni  
-- Migliori pratiche per la gestione delle risorse, l'elaborazione batch e l'ottimizzazione delle prestazioni  
+Translate all.
 
-Immergiamoci nella configurazione del tuo ambiente così potrai iniziare a sfruttare questa potente funzionalità.
+Tables: keep pipe formatting.
 
-## Risposte Rapide
+Make sure to keep code block placeholders unchanged.
+
+Let's craft final output.
+
+# Custom Logger Java: Registrazione avanzata di GroupDocs Redaction
+
+Stai avendo difficoltà a tenere traccia delle modifiche e degli errori durante l'uso di GroupDocs Redaction nelle tue applicazioni Java? Con le funzionalità di **custom logger java** puoi semplificare il processo di debug, ottenere preziose informazioni su come vengono applicate le redazioni dei documenti e persino supportare l'elaborazione batch dei documenti. In questa guida vedremo perché un logger personalizzato è importante, come configurarlo e come monitorare efficacemente le redazioni.
+
+## Risposte rapide
 - **Qual è la classe principale per il logging?** Implementa `ILogger` e passala a `RedactorSettings`.  
 - **Posso elaborare più file contemporaneamente?** Sì—combina il logger con cicli di elaborazione batch dei documenti.  
 - **Come faccio a sapere se una redazione è fallita?** Controlla `logger.hasErrors()` prima di salvare.  
-- **Ho bisogno di una licenza separata per il logging?** No, la stessa licenza di GroupDocs Redaction copre tutte le funzionalità.  
+- **È necessaria una licenza separata per il logging?** No, la stessa licenza di GroupDocs Redaction copre tutte le funzionalità.  
 - **Quale versione di Maven è richiesta?** GroupDocs.Redaction 24.9 o successiva.
 
 ## Cos'è un Custom Logger Java?
-Un **custom logger java** è un'implementazione definita dall'utente dell'interfaccia `ILogger` che cattura i messaggi di log, gli errori e le informazioni diagnostiche generate dal motore GroupDocs Redaction. Personalizzando il logger, decidi cosa viene registrato, dove viene memorizzato e come si integra con i framework di logging esistenti come Log4j o SLF4J.
+Un **custom logger java** è un'implementazione definita dall'utente dell'interfaccia `ILogger` che cattura i messaggi di log, gli errori e le informazioni diagnostiche generate dal motore GroupDocs Redaction. Personalizzando il logger, decidi cosa registrare, dove memorizzarlo e come integrarlo con i framework di logging esistenti come Log4j o SLF4J.
 
-## Perché Usare un Custom Logger con GroupDocs Redaction?
-- **Monitoraggio dettagliato** – Vedi esattamente quali redazioni sono riuscite o fallite.  
+## Perché utilizzare un Custom Logger con GroupDocs Redaction?
+- **Monitoraggio fine‑grained** – Vedi esattamente quali redazioni sono riuscite o fallite.  
 - **Conformità e tracciabilità** – Conserva registri dettagliati per i requisiti normativi.  
-- **Informazioni sulle prestazioni** – Registra i tempi e l'uso delle risorse, particolarmente utile per l'elaborazione batch dei documenti.  
-- **Integrazione senza soluzione di continuità** – Collegati al tuo ecosistema di logging Java esistente.
+- **Insight sulle prestazioni** – Registra tempi e utilizzo delle risorse, particolarmente utile per l'elaborazione batch dei documenti.  
+- **Integrazione senza soluzione di continuità** – Collegalo al tuo ecosistema di logging Java esistente.
+
+## Casi d'uso comuni
+1. **Audit di conformità** – Traccia ogni evento di redazione per soddisfare standard legali e di settore.  
+2. **Redazione batch automatizzata** – Elabora migliaia di documenti in un ciclo mantenendo un registro di audit per file.  
+3. **Flussi di lavoro basati su errori** – Metti in pausa o riprova un batch quando `logger.hasErrors()` segnala un problema.  
 
 ## Prerequisiti
-
-- **Librerie richieste**: GroupDocs.Redaction per Java versione 24.9 o successiva.  
+- **Librerie richieste**: GroupDocs.Redaction per Java versione 24.9 o successiva.  
 - **Ambiente**: Java 8+ e Maven installati.  
 - **Conoscenze**: Programmazione Java di base e familiarità con i concetti di logging.
 
@@ -74,13 +83,13 @@ Aggiungi la seguente configurazione al tuo file `pom.xml` per includere le dipen
 </dependencies>
 ```
 
-### Download Diretto
+### Download diretto
 
 In alternativa, scarica l'ultima versione da [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
-**Acquisizione della Licenza**: Inizia con una prova gratuita per esplorare le capacità di GroupDocs Redaction. Per l'uso in produzione, ottieni una licenza temporanea o completa.
+**Acquisizione della licenza**: Inizia con una prova gratuita per esplorare le funzionalità di GroupDocs Redaction. Per l'uso in produzione, ottieni una licenza temporanea o completa.
 
-## Inizializzazione e Configurazione di Base
+## Inizializzazione e configurazione di base
 
 Inizializza il tuo progetto creando un'istanza di `RedactorSettings` con un logger personalizzato:
 
@@ -94,15 +103,15 @@ CustomLogger logger = new CustomLogger();
 RedactorSettings settings = new RedactorSettings(logger);
 ```
 
-## Guida all'Implementazione
+## Guida all'implementazione
 
-### Logging Avanzato con un Custom Logger
+### Logging avanzato con un Custom Logger
 
 #### Panoramica
 
-Il logging avanzato cattura informazioni dettagliate sulle operazioni eseguite sui documenti, rendendo più semplice la risoluzione dei problemi e l'ottimizzazione. Utilizzare un **custom logger java** ti dà il pieno controllo su ciò che viene registrato e su come vengono segnalati gli errori.
+Il logging avanzato cattura informazioni dettagliate sulle operazioni eseguite sui documenti, facilitando il troubleshooting e l'ottimizzazione. L'uso di un **custom logger java** ti offre il pieno controllo su cosa viene registrato e come vengono segnalati gli errori.
 
-#### Implementazione Passo‑Passo
+#### Implementazione passo‑passo
 
 ##### Passo 1: Creare un Custom Logger
 
@@ -116,7 +125,7 @@ public class CustomLogger implements ILogger {
 
 Questo logger personalizzato cattura e gestisce i messaggi di log durante il processo di redazione.
 
-##### Passo 2: Caricare il Documento con RedactorSettings
+##### Passo 2: Caricare il documento con RedactorSettings
 
 Carica il tuo documento usando la classe `Redactor`, passando il tuo logger personalizzato:
 
@@ -127,15 +136,15 @@ final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX",
 
 Questa configurazione garantisce che tutte le operazioni vengano registrate tramite la tua implementazione personalizzata.
 
-##### Passo 3: Applicare le Redazioni
+##### Passo 3: Applicare le redazioni
 
-Applica la redazione desiderata al tuo documento. Qui, dimostriamo la cancellazione delle annotazioni:
+Applica la redazione desiderata al documento. Qui dimostriamo la cancellazione delle annotazioni:
 
 ```java
 redactor.apply(new com.groupdocs.redaction.redactions.DeleteAnnotationRedaction());
 ```
 
-##### Passo 4: Salvare le Modifiche Condizionatamente
+##### Passo 4: Salvare le modifiche in modo condizionale
 
 Salva le modifiche solo se non sono stati registrati errori:
 
@@ -145,11 +154,11 @@ if (!logger.hasErrors()) {
 }
 ```
 
-Questo approccio garantisce che tu venga avvisato di eventuali problemi durante l'elaborazione.
+Questo approccio assicura che tu venga avvisato di eventuali problemi durante l'elaborazione.
 
-##### Passo 5: Risorse
+##### Passo 5: Pulire le risorse
 
-Rilascia sempre le risorse correttamente chiudendo l'istanza `Redactor` in un blocco `finally`:
+Chiudi sempre le risorse correttamente chiudendo l'istanza `Redactor` in un blocco `finally`:
 
 ```java
 finally {
@@ -157,65 +166,61 @@ finally {
 }
 ```
 
-## Come Monitorare la Redazione con Custom Logger Java
+## Come monitorare la redazione con Custom Logger Java
 
-Controllando `logger.hasErrors()` e revisionando i messaggi catturati dalla tua implementazione `ILogger`, puoi **monitorare la redazione** in tempo reale. Per progetti su larga scala, potresti scrivere le voci di log in un database o in un servizio di logging centralizzato (ad es., stack ELK) per analizzare le tendenze tra molti documenti.
+Controllando `logger.hasErrors()` e revisionando i messaggi catturati dalla tua implementazione `ILogger`, puoi **monitorare la redazione** in tempo reale. Per progetti su larga scala, potresti scrivere le voci di log in un database o in un servizio di logging centralizzato (ad esempio, ELK stack) per analizzare le tendenze su molti documenti.
 
-## Applicazioni Pratiche
+## Considerazioni sulle prestazioni
 
-Il logging avanzato è fondamentale per vari scenari reali, come:
+Per mantenere l'applicazione veloce e reattiva, soprattutto durante l'elaborazione batch di documenti, segui questi consigli:
 
-1. **Audit di Conformità** – Traccia le modifiche ai documenti sensibili per soddisfare i requisiti normativi.  
-2. **Sicurezza dei Dati** – Monitora tentativi non autorizzati di accedere o modificare i documenti.  
-3. **Automazione del Flusso di Lavoro** – Combina con l'elaborazione batch dei documenti per redigere automaticamente migliaia di file mantenendo una traccia di audit dettagliata.  
+- **Gestione delle risorse** – Chiudi correttamente le istanze `Redactor` per evitare perdite di memoria.  
+- **Livelli di logging** – Usa i livelli `info`, `debug` e `error` per controllare la verbosità e ridurre l'overhead.  
+- **Elaborazione batch** – Processa i documenti in gruppi e riutilizza una singola istanza di logger per minimizzare la creazione di oggetti.  
 
-Questi casi d'uso dimostrano la potenza e la versatilità di **custom logger java** integrato con GroupDocs Redaction.
+## Suggerimenti e best practice
 
-## Considerazioni sulle Prestazioni
+- **Pro tip:** Avvolgi le chiamate al logger in blocchi try‑catch per evitare che eccezioni inaspettate si propagino.  
+- **Evita il logging eccessivo** in produzione; passa al livello `info` a meno che non stia facendo troubleshooting.  
+- **Persisti i log** in un archivio durevole (file, DB o cloud) quando hai bisogno di una traccia di audit per la conformità.  
 
-Per mantenere la tua applicazione veloce e reattiva, soprattutto durante l'elaborazione batch dei documenti, segui questi consigli:
-
-- **Gestione delle Risorse** – Chiudi correttamente le istanze `Redactor` per prevenire perdite di memoria.  
-- **Livelli di Logging** – Usa i livelli `info`, `debug` e `error` per controllare la verbosità e ridurre l'overhead.  
-- **Elaborazione Batch** Elabora i documenti in gruppi e riutilizza una singola istanza di logger per minimizzare la creazione di oggetti.  
-
-## Problemi Comuni e Soluzioni
+## Problemi comuni e soluzioni
 
 | Problema | Soluzione |
 |----------|-----------|
 | Nessun log appare | Assicurati che il tuo `CustomLogger` implementi tutti i metodi richiesti di `ILogger` e che l'istanza del logger sia passata a `RedactorSettings`. |
-| L'applicazione rallenta durante grandi batch | Riduci i dettagli del log (ad esempio, passa da `debug` a `info`) o scrivi i log in modo asincrono. |
+| L'applicazione rallenta durante batch di grandi dimensioni | Riduci il dettaglio del log (ad esempio, passa da `debug` a `info`) o scrivi i log in modo asincrono. |
 | Gli errori vengono ignorati | Verifica che `logger.hasErrors()` sia controllato prima di chiamare `save()`. |
 
-## Domande Frequenti
+## Domande frequenti
 
-**Q: Come configuro un custom logger per GroupDocs Redaction?**  
-A: Implementa l'interfaccia `ILogger`, crea un'istanza (ad es., `CustomLogger logger = new CustomLogger();`) e passala a `RedactorSettings`.
+**D: Come configuro un custom logger per GroupDocs Redaction?**  
+R: Implementa l'interfaccia `ILogger`, crea un'istanza (ad es., `CustomLogger logger = new CustomLogger();`) e passala a `RedactorSettings`.
 
-**Q: Posso usare GroupDocs Redaction con altri framework di logging Java?**  
-A: Sì. Il tuo custom logger può delegare a Log4j, SLF4J o java.util.logging, consentendo un'integrazione senza soluzione di continuità.
+**D: Posso usare GroupDocs Redaction con altri framework di logging Java?**  
+R: Sì. Il tuo custom logger può delegare a Log4j, SLF4J o `java.util.logging`, consentendo un'integrazione senza soluzione di continuità.
 
-**Q: Quali tipi di redazioni sono supportati da GroupDocs Redaction?**  
-A: Le redazioni supportate includono la sostituzione di testo, la cancellazione di annotazioni, la rimozione di immagini e altro ancora.
+**D: Quali tipi di redazione sono supportati da GroupDocs Redaction?**  
+R: Le redazioni supportate includono sostituzione del testo, cancellazione di annotazioni, rimozione di immagini e altro ancora.
 
-**Q: Come gestisco gli errori durante il processo di redazione?**  
-A: Usa `logger.hasErrors()` dopo aver applicato le redazioni; se vero, salta `save()` e analizza i messaggi registrati.
+**D: Come gestisco gli errori durante il processo di redazione?**  
+R: Usa `logger.hasErrors()` dopo aver applicato le redazioni; se true, salta `save()` e analizza i messaggi di log.
 
-**Q: È possibile integrare GroupDocs Redaction con altri sistemi?**  
-A: Assolutamente. Puoi collegarlo a piattaforme di gestione documentale, motori di workflow o servizi di storage cloud per un'automazione end‑to‑end.
+**D: È possibile integrare GroupDocs Redaction con altri sistemi?**  
+R: Assolutamente. Puoi collegarlo a piattaforme di gestione documentale, motori di workflow o servizi di storage cloud per un'automazione end‑to‑end.
 
 ## Risorse
 - **Documentazione**: [GroupDocs Redaction Java Docs](https://docs.groupdocs.com/redaction/java/)
 - **Riferimento API**: [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)
 - **Download**: [Latest Releases](https://releases.groupdocs.com/redaction/java/)
 - **Repository GitHub**: [GroupDocs.Redaction for Java on GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
-- **Forum di Supporto Gratuito**: [GroupDocs Redaction Forum](https://forum.groupdocs.com/c/redaction/33)
-- **Licenza Temporanea**: [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/)
+- **Forum di supporto gratuito**: [GroupDocs Redaction Forum](https://forum.groupdocs.com/c/redaction/33)
+- **Licenza temporanea**: [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
-Seguendo questa guida, sei sulla buona strada per padroneggiare **custom logger java** con GroupDocs Redaction per Java. Buon coding!
+Seguendo questa guida, sarai pronto a padroneggiare **custom logger java** con GroupDocs Redaction per Java. Buon coding!
 
 ---
 
-**Last Updated:** 2025-12-17  
-**Tested With:** GroupDocs Redaction 24.9  
-**Author:** GroupDocs
+**Ultimo aggiornamento:** 2026-03-14  
+**Testato con:** GroupDocs Redaction 24.9  
+**Autore:** GroupDocs

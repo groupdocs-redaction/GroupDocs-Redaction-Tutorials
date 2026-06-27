@@ -1,43 +1,40 @@
 ---
-date: '2025-12-17'
-description: Pelajari cara menyensor file PDF menggunakan GroupDocs.Redaction untuk
-  Java, termasuk teknik menghapus anotasi Java. Panduan ini mencakup konfigurasi,
-  manajemen kebijakan, dan aplikasi praktis.
+date: '2026-03-14'
+description: Pelajari cara membuat kebijakan redaksi dan menghapus/redact dokumen
+  PDF Java, termasuk menghapus anotasi Java dan menghapus metadata PDF. Panduan lengkap.
 keywords:
 - redact sensitive information
 - GroupDocs.Redaction Java
 - document redaction
-title: 'Cara Menyensor Dokumen PDF dengan GroupDocs.Redaction untuk Java - Panduan
-  Langkah demi Langkah'
+title: Buat Kebijakan Redaksi untuk PDF dengan GroupDocs.Redaction Java
 type: docs
 url: /id/java/advanced-redaction/master-redaction-groupdocs-java-guide/
 weight: 1
 ---
 
-# Menguasai Teknik Redaksi dengan GroupDocs.Redaction untuk Java: Panduan Langkah-demi-Langkah
+ text but keep URL unchanged.
 
-Di lanskap digital saat ini, mengelola informasi sensitif sangat penting. **How to redact PDF** file dengan cepat dan dapat diandalkan adalah tantangan umum bagi pengembang yang menangani kontrak, laporan, atau data pribadi. Dengan GroupDocs.Redaction untuk Java, Anda dapat dengan mulus menerapkan berbagai redaksi dalam aplikasi Anda sekaligus belajar cara **remove annotations java** bila diperlukan. Panduan ini akan memandu Anda melalui pembuatan dan penyimpanan kebijakan redaksi menggunakan alat yang kuat ini.
+Check for code blocks: placeholders remain.
 
-**Apa yang Akan Anda Pelajari:**
-- Mengonfigurasi berbagai jenis redaksi
-- Menyimpan kebijakan redaksi sebagai file XML untuk penggunaan kembali
-- Aplikasi praktis GroupDocs.Redaction Java
+Check for tables: we translated.
 
-Mari kita mulai dengan menyiapkan lingkungan Anda untuk mengimplementasikan fitur-fitur ini.
+Now produce final answer.# Buat Kebijakan Redaksi untuk PDF dengan GroupDocs.Redaction untuk Java
+
+Dalam lanskap digital saat ini, mengelola informasi sensitif sangat penting, dan **membuat kebijakan redaksi** adalah cara tercepat untuk memastikan data rahasia tidak pernah bocor dari file PDF Anda. Baik Anda perlu **redact PDF Java** dokumen, **remove annotations java**, atau **erase metadata pdf**, GroupDocs.Redaction untuk Java memberi Anda pendekatan bersih dan programatik yang bekerja di semua platform utama.
 
 ## Jawaban Cepat
-- **What is the primary purpose of GroupDocs.Redaction?** Untuk secara programatik meredaksi konten sensitif dari PDF dan format dokumen lainnya.  
-- **Can I remove annotations with Java?** Ya—gunakan kelas `DeleteAnnotationRedaction` (remove annotations java).  
-- **Do I need a license for development?** Trial gratis atau lisensi sementara dapat digunakan untuk pengujian; lisensi penuh diperlukan untuk produksi.  
-- **Which Java version is supported?** JDK 8 atau yang lebih baru.  
-- **Where can I find the XML policy file?** Anda menentukan jalur output dalam kode Anda dan memanggil `policy.save(...)`.
+- **Apa tujuan utama GroupDocs.Redaction?** Untuk secara programatik melakukan redaksi konten sensitif dari PDF dan format dokumen lainnya.  
+- **Apakah saya dapat menghapus anotasi dengan Java?** Ya—gunakan kelas `DeleteAnnotationRedaction` (remove annotations java).  
+- **Apakah saya memerlukan lisensi untuk pengembangan?** Trial gratis atau lisensi sementara dapat digunakan untuk pengujian; lisensi penuh diperlukan untuk produksi.  
+- **Versi Java mana yang didukung?** JDK 8 atau yang lebih baru.  
+- **Di mana saya dapat menemukan file kebijakan XML?** Anda menentukan jalur output dalam kode Anda dan memanggil `policy.save(...)`.
 
-## Apa itu “how to redact PDF”?
-Meredaksi PDF berarti secara permanen menghapus atau menyamarkan teks, gambar, metadata, atau anotasi rahasia sehingga tidak dapat dipulihkan. GroupDocs.Redaction menyediakan API tingkat tinggi yang memungkinkan Anda mendefinisikan redaksi exact‑phrase, regex, dan metadata, kemudian menerapkannya dalam satu proses.
+## Apa itu kebijakan redaksi dan cara **create redaction policy**?
+Kebijakan redaksi adalah sekumpulan aturan yang dapat digunakan kembali yang memberi tahu GroupDocs.Redaction secara tepat apa yang harus disembunyikan, dihapus, atau diganti di dalam sebuah dokumen. Dengan mendefinisikan kebijakan sekali dan menyimpannya sebagai file XML, Anda dapat menerapkan **redact sensitive info** yang sama pada banyak PDF tanpa menulis ulang kode.
 
-## Mengapa Menggunakan GroupDocs.Redaction untuk Java?
+## Mengapa menggunakan GroupDocs.Redaction untuk Java?
 - **Compliance‑ready** – Memenuhi GDPR, HIPAA, dan regulasi lainnya.  
-- **Fine‑grained control** – Pilih dari exact phrase, regex, penghapusan anotasi, dan penghapusan metadata.  
+- **Fine‑grained control** – Pilih dari exact phrase, regex, penghapusan anotasi, dan **erase metadata pdf**.  
 - **Reusable policies** – Simpan konfigurasi sebagai XML dan gunakan kembali di berbagai proyek.  
 - **Performance‑optimized** – Menangani PDF besar secara efisien dengan jejak memori minimal.
 
@@ -46,8 +43,8 @@ Meredaksi PDF berarti secara permanen menghapus atau menyamarkan teks, gambar, m
 Untuk memulai dengan GroupDocs.Redaction untuk Java, pastikan Anda memiliki hal berikut:
 
 - **Libraries and Dependencies**: Sertakan GroupDocs.Redaction dalam proyek Anda melalui Maven atau unduhan langsung.  
-- **Environment Setup**: Pastikan lingkungan pengembangan Java dengan JDK 8 atau yang lebih baru siap.  
-- **Knowledge Prerequisites**: Familiaritas dasar dengan konsep pemrograman Java dan regular expressions sangat membantu.
+- **Environment Setup**: Pastikan lingkungan pengembangan Java dengan JDK 8 atau lebih baru siap.  
+- **Knowledge Prerequisites**: Familiaritas dasar dengan konsep pemrograman Java dan regular expression sangat membantu.
 
 ## Menyiapkan GroupDocs.Redaction untuk Java
 
@@ -104,15 +101,15 @@ public class RedactionSetup {
 
 Mari kita uraikan implementasi menjadi fitur-fitur spesifik.
 
-### How to redact PDF: Membuat dan Menyimpan Kebijakan Redaksi
+### Cara **create redaction policy**: Buat dan Simpan Kebijakan Redaksi
 
 #### Gambaran Umum
 
-Fitur ini memungkinkan Anda mengonfigurasi berbagai jenis redaksi, seperti exact phrase, regex, dan penghapusan metadata. Anda kemudian dapat menyimpan konfigurasi ini sebagai file XML untuk penggunaan di masa mendatang.
+Fitur ini memungkinkan Anda mengkonfigurasi berbagai jenis redaksi, seperti exact phrase, regex, dan penghapusan metadata. Anda kemudian dapat menyimpan konfigurasi ini sebagai file XML untuk penggunaan di masa mendatang.
 
-##### Langkah 1: Mengonfigurasi Redaksi
+##### Langkah 1: Konfigurasikan Redaksi
 
-Konfigurasikan redaksi menggunakan kelas‑kelas berbeda yang disediakan oleh GroupDocs.Redaction:
+Konfigurasikan redaksi menggunakan berbagai kelas yang disediakan oleh GroupDocs.Redaction:
 
 ```java
 import com.groupdocs.redaction.RedactionPolicy;
@@ -139,9 +136,9 @@ RedactionPolicy policy = new RedactionPolicy(new Redaction[] {
 });
 ```
 
-##### Langkah 2: Menyimpan Kebijakan Redaksi
+##### Langkah 2: Simpan Kebijakan Redaksi
 
-Simpan kebijakan yang dikonfigurasi sebagai file XML:
+Simpan kebijakan yang telah dikonfigurasi sebagai file XML:
 
 ```java
 // Define your output directory path
@@ -149,15 +146,15 @@ String outputPath = YOUR_DOCUMENT_DIRECTORY + "YOUR_OUTPUT_DIRECTORY/POLICY_SAVE
 policy.save(outputPath);
 ```
 
-### How to remove annotations java: Mengonfigurasi Redaksi Exact Phrase
+### Cara **remove annotations java**: Konfigurasikan Redaksi Frasa Tepat
 
 #### Gambaran Umum
 
 Fitur ini menargetkan frasa tertentu untuk redaksi, menggantinya dengan teks yang telah ditentukan.
 
-##### Langkah 1: Membuat Redaksi Exact Phrase
+##### Langkah 1: Buat Redaksi Frasa Tepat
 
-Implementasikan redaksi exact phrase:
+Implementasikan redaksi frasa tepat:
 
 ```java
 import com.groupdocs.redaction.Redaction;
@@ -171,13 +168,13 @@ Redaction exactPhraseRedaction = new ExactPhraseRedaction(
 );
 ```
 
-### How to remove annotations java: Mengonfigurasi Redaksi Regex
+### Cara **remove annotations java**: Konfigurasikan Redaksi Regex
 
 #### Gambaran Umum
 
-Gunakan regular expressions untuk mengidentifikasi dan mengganti pola dalam dokumen Anda.
+Gunakan regular expression untuk mengidentifikasi dan mengganti pola dalam dokumen Anda.
 
-##### Langkah 1: Membuat Redaksi Regex
+##### Langkah 1: Buat Redaksi Regex
 
 Definisikan redaksi berbasis regex:
 
@@ -196,8 +193,8 @@ Redaction regexRedaction = new RegexRedaction(
 
 ## Aplikasi Praktis
 
-1. **Confidential Document Management**: Secara otomatis meredaksi informasi sensitif seperti nama, nomor jaminan sosial, atau data keuangan dalam dokumen hukum dan HR.  
-2. **Compliance Automation**: Memastikan kepatuhan GDPR, HIPAA, dan regulasi lainnya dengan meredaksi pengidentifikasi pribadi dalam komunikasi pelanggan.  
+1. **Confidential Document Management**: Secara otomatis **redact sensitive info** seperti nama, nomor jaminan sosial, atau data keuangan dalam dokumen hukum dan HR.  
+2. **Compliance Automation**: Pastikan kepatuhan GDPR, HIPAA, dan regulasi lainnya dengan meredaksi pengidentifikasi pribadi dalam komunikasi pelanggan.  
 3. **Data Anonymization for Testing**: Gunakan redaksi berbasis regex untuk menganonimkan dataset pengujian sambil mempertahankan integritas struktural.
 
 ## Pertimbangan Kinerja
@@ -209,39 +206,39 @@ Redaction regexRedaction = new RegexRedaction(
 ## Masalah Umum dan Solusinya
 
 | Masalah | Penyebab | Solusi |
-|---------|----------|--------|
+|-------|-------|-----|
 | Redaksi tidak diterapkan | Frasa salah/kepedulian huruf besar‑kecil | Gunakan opsi tidak sensitif huruf atau verifikasi teks tepat |
-| Anotasi tetap ada | `DeleteAnnotationRedaction` tidak ditambahkan ke kebijakan | Tambahkan `new DeleteAnnotationRedaction()` ke array kebijakan |
+| Anotasi tetap | `DeleteAnnotationRedaction` tidak ditambahkan ke kebijakan | Tambahkan `new DeleteAnnotationRedaction()` ke array kebijakan |
 | Pemrosesan lambat pada PDF besar | Pemindaian regex yang tidak perlu | Batasi ruang lingkup regex atau pra‑filter halaman |
 
 ## Pertanyaan yang Sering Diajukan
 
-**Q: What is GroupDocs.Redaction?**  
-A: Sebuah pustaka kuat untuk meredaksi informasi sensitif dari berbagai format dokumen menggunakan Java.
+**Q: Apa itu GroupDocs.Redaction?**  
+A: Sebuah perpustakaan kuat untuk meredaksi informasi sensitif dari berbagai format dokumen menggunakan Java.
 
-**Q: How do I get started with GroupDocs.Redaction?**  
+**Q: Bagaimana cara memulai dengan GroupDocs.Redaction?**  
 A: Siapkan lingkungan Anda, sertakan dependensi Maven, dan ikuti panduan inisialisasi di atas.
 
-**Q: Can I customize redaction patterns in GroupDocs.Redaction?**  
-A: Ya—gunakan exact phrases, regularhapusan metadata bawaan.
+**Q: Bisakah saya menyesuaikan pola redaksi di GroupDocs.Redaction?**  
+A: Ya—gunakan exact phrases, regular expressions, atau kelas penghapusan metadata bawaan.
 
-**Q: Is it possible to save and reuse redaction configurations?**  
+**Q: Apakah memungkinkan untuk menyimpan dan menggunakan kembali konfigurasi redaksi?**  
 A: Tentu—simpan `RedactionPolicy` Anda sebagai file XML dan muat kembali nanti.
 
-**Q: What are the best practices for optimizing performance with GroupDocs.Redaction?**  
+**Q: Apa praktik terbaik untuk mengoptimalkan kinerja dengan GroupDocs.Redaction?**  
 A: Terapkan hanya redaksi yang diperlukan, kelola ukuran heap Java, dan tulis pola regex yang efisien.
 
 ## Sumber Daya
 
 - [Dokumentasi](https://docs.groupdocs.com/redaction/java/)
 - [Referensi API](https://reference.groupdocs.com/redaction/java)
-- [Unduh](https://releases.groupdocs.com/redaction/java/)
+- [Unduhan](https://releases.groupdocs.com/redaction/java/)
 - [Repositori GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
 - [Forum Dukungan Gratis](https://forum.groupdocs.com/c/redaction/33)
 - [Lisensi Sementara](https://purchase.groupdocs.com/temporary-license/)
 
 ---
 
-**Terakhir Diperbarui:** 2025-12-17  
-**Diuji Dengan:** GroupDocs.Redaction 24.9 for Java  
+**Terakhir Diperbarui:** 2026-03-14  
+**Diuji Dengan:** GroupDocs.Redaction 24.9 untuk Java  
 **Penulis:** GroupDocs
