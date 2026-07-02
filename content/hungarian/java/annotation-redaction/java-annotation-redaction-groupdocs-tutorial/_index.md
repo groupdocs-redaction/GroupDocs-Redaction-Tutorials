@@ -1,13 +1,13 @@
 ---
-date: '2025-12-19'
-description: Tanulja meg, hogyan lehet kitakarni a megjegyzéseket Java-ban a GroupDocs.Redaction
+date: '2026-03-17'
+description: Tanulja meg, hogyan lehet cenzúrázni a megjegyzéseket Java-ban a GroupDocs.Redaction
   segítségével. Kövesse ezt a lépésről‑lépésre útmutatót az adatvédelem és a megfelelőség
   érdekében.
 keywords:
 - annotation redaction Java
 - GroupDocs.Redaction tutorial
 - redact annotations in documents
-title: Hogyan cenzúrázzuk a megjegyzéseket Java-ban a GroupDocs-szel
+title: Hogyan cenzúrázzuk a megjegyzéseket Java-ban a GroupDocs-szal
 type: docs
 url: /hu/java/annotation-redaction/java-annotation-redaction-groupdocs-tutorial/
 weight: 1
@@ -15,39 +15,42 @@ weight: 1
 
 # Hogyan redigáljunk annotációkat Java-ban a GroupDocs használatával: Teljes útmutató
 
-A mai digitális korban a dokumentumok **hogyan redigáljunk annotációkat** kritikus készség a érzékeny adatok védelme és a adatvédelmi szabályozásoknak való megfelelés érdekében. Akár pénzügyi kimutatásokat, jogi szerződéseket vagy személyes nyilvántartásokat kezel, a megjegyzés tartalmának eltávolítása vagy maszkolása biztosítja, hogy a bizalmas információk soha ne szivárogjanak ki, amikor a fájlt megosztják. Ez az útmutató végigvezet a GroupDocs.Redaction for Java használatával történő automatikus annotációs szöveg keresés és redigálás folyamatán.
+A mai digitális korban a dokumentumokban **hogyan redigáljunk annotációkat** kritikus készség a érzékeny adatok védelme és a adatvédelmi szabályozásoknak való megfelelés érdekében. Akár pénzügyi kimutatásokat, jogi szerződéseket vagy személyes nyilvántartásokat kezel, az annotációk tartalmának eltávolítása vagy maszkolása biztosítja, hogy a bizalmas információk ne szivárogjanak ki, amikor a fájlt megosztják. Ez az útmutató végigvezeti a GroupDocs.Redaction for Java használatával történő automatikus annotációs szöveg keresésének és redigálásának teljes folyamatán.
 
 ## Gyors válaszok
-- **Mi jelent a „annotation redaction”?** A megjegyzések, jegyzetek és egyéb dokumentum annotációk belsejében lévő szöveg eltávolítása vagy maszkolása.  
+- **Mit jelent a „annotation redaction”?** A megjegyzések, jegyzetek és egyéb dokumentum-annotációk belsejében lévő szöveg eltávolítása vagy maszkolása.  
 - **Melyik könyvtár kezeli?** GroupDocs.Redaction for Java.  
 - **Szükségem van licencre?** Egy ideiglenes licenc elegendő a teszteléshez; egy teljes licenc minden funkciót felold.  
 - **Használhatok regex mintákat?** Igen—`AnnotationRedaction` reguláris kifejezéseket fogad a pontos egyezéshez.  
 - **Alkalmas a megoldás nagy fájlokra?** Igen, a később leírt megfelelő memória‑kezelési gyakorlatokkal.
 
 ## Mi az annotáció redigálás?
-Az annotáció redigálás a dokumentum megjegyzéseiben, lábjegyzeiben vagy egyéb jelölőelemeiben található érzékeny szöveg megtalálását és helyettesítését jelenti egy helykitöltővel (pl. „[redacted]”). A sima szöveg redigálással ellentétben ez a gyakran a kézi ellenőrzés elől rejtett rétegeket célozza.
+Az annotáció redigálás a dokumentum megjegyzések, lábjegyzetek vagy egyéb jelölőelemek belsejében található érzékeny szöveg megtalálását és helyettesítését placeholderrel (pl. “[redacted]”) jelenti. A sima szövegvágáskal szemben ez a rejtett rétegeket célozza, amelyek gyakran kimaradnak a manuális ellenőrzésből.
 
 ## Miért használjuk a GroupDocs.Redaction for Java-t?
 - **Teljes dokumentumtámogatás:** Word, Excel, PowerPoint, PDF és számos más formátummal működik.  
 - **Regex‑alapú pontosság:** Csak a rejtendő adatokat célozza.  
 - **Teljesítmény‑optimalizált:** Nagy fájlokat kezel alacsony memóriaigénnyel.  
-- **Megfelelőség‑kész:** Alapból megfelel a GDPR, HIPAA és egyéb adatvédelmi szabványoknak.
+- **Megfelelőség‑kész:** Kiindulásként megfelel a GDPR, HIPAA és egyéb adatvédelmi szabványoknak.
 
-## Előkövetelmények
+## Hogyan redigáljunk annotációkat Java-ban – Teljes munkafolyamat
+Az alábbiakban egy lépésről‑lépésre útmutatót találsz, amely összekapcsolja a fent bemutatott koncepciókat. Először a környezet beállításával kezdünk, majd a tényleges redigálási kóddal folytatunk, végül a legjobb gyakorlatokkal zárjuk a redigált dokumentum mentését és a redaktor erőforrásainak kezelését.
 
-Mielőtt elkezdené, győződjön meg róla, hogy rendelkezik a szükséges könyvtárakkal és környezeti beállításokkal. Szüksége lesz:
+## Előfeltételek
+
+Az elkezdés előtt győződj meg róla, hogy a szükséges könyvtárak és környezet be van állítva. Szükséged lesz:
 
 - **Szükséges könyvtárak:** GroupDocs.Redaction könyvtár 24.9 vagy újabb verziója.  
-- **Környezeti beállítás:** A gépén telepített Java Development Kit (JDK).  
+- **Környezet beállítása:** A gépeden telepített Java Development Kit (JDK).  
 - **Tudás előfeltételek:** Alapvető Java programozási ismeretek.
 
 ## A GroupDocs.Redaction for Java beállítása
 
-A GroupDocs.Redaction projektjébe való bevezetéséhez Maven-en keresztül vagy a könyvtár közvetlen letöltésével kell integrálni.
+Ahhoz, hogy a GroupDocs.Redaction-t a projektedben használd, integrálnod kell Maven-en keresztül vagy közvetlenül letölteni a könyvtárat.
 
 ### Maven telepítés
 
-Adja hozzá a következő tárolót és függőséget a `pom.xml`-hez:
+Add the following repository and dependency to your `pom.xml`:
 
 ```xml
 <repositories>
@@ -69,15 +72,15 @@ Adja hozzá a következő tárolót és függőséget a `pom.xml`-hez:
 
 ### Közvetlen letöltés
 
-Alternatívaként töltse le a legújabb verziót a [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/) oldalról.
+Alternatív megoldásként töltsd le a legújabb verziót a [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/)-ról.
 
 #### Licenc beszerzése
 
-Ideiglenes licencet szerezhet, vagy teljes licencet vásárolhat a funkciók feloldásához. Próbaverzióhoz ideiglenes licencet kérhet a [vásárlási oldalukon](https://purchase.groupdocs.com/temporary-license/).
+Szerezhetsz ideiglenes licencet vagy vásárolhatsz teljes licencet a funkciók feloldásához. Próbaverzióhoz ideiglenes licencet kérhetsz a [vásárlási oldalon](https://purchase.groupdocs.com/temporary-license/).
 
-### Alap inicializálás és beállítás
+### Alapvető inicializálás és beállítás
 
-Először győződjön meg róla, hogy a projektje a szükséges függőségekkel van beállítva. Miután ez megtörtént, importálja a GroupDocs.Redaction osztályokat a Java fájljába:
+Először győződj meg róla, hogy a projekted a szükséges függőségekkel van beállítva. Miután ez megtörtént, importáld a GroupDocs.Redaction osztályokat a Java fájlodba:
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -87,11 +90,11 @@ import com.groupdocs.redaction.redactions.AnnotationRedaction;
 
 ## Implementációs útmutató
 
-Most lépésről lépésre bemutatjuk az annotáció redigálás megvalósítását a GroupDocs.Redaction használatával.
+Most nézzük meg, hogyan valósítható meg az annotáció redigálás a GroupDocs.Redaction segítségével.
 
 ### 1. lépés: A Redactor inicializálása
 
-Kezdje egy `Redactor` példány létrehozásával a dokumentum útvonalával. Itt adja meg a redigálandó annotációkat tartalmazó fájlt.
+Kezdj egy `Redactor` példány létrehozásával a dokumentum útvonalával. Itt adod meg azt a fájlt, amelyben a redigálandó annotációk vannak.
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/ANNOTATED_XLSX");
@@ -99,18 +102,18 @@ final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/ANNOTATED_XLSX")
 
 ### 2. lépés: AnnotationRedaction alkalmazása
 
-Használja a `AnnotationRedaction`-t a specifikus mintának megfelelő annotációs szöveg célzásához. Ebben az esetben a „john” előfordulásait cseréljük „[redacted]” szövegre.
+Használd a `AnnotationRedaction`-t, hogy egy adott mintának megfelelő annotációs szöveget célozz meg. Ebben a példában a „john” előfordulásait cseréljük le „[redacted]” szövegre.
 
 ```java
 redactor.apply(new AnnotationRedaction("(?im:john)", "[redacted]");
 ```
 
-- **Mintaillesztés:** A `(?im:john)` regex a „john” szót keresésérzékenység nélkül.  
-- **Csere szöveg:** A „[redacted]” lesz a mintáknak megfelelő szöveg helyettesítője.
+- **Mintaillesztés:** A `(?im:john)` regex kis- és nagybetű függetlenül keresi a „john” szót.  
+- **Csere szöveg:** A „[redacted]” lesz a szöveg, amely a megtalált mintákat helyettesíti.
 
 ### 3. lépés: Mentési beállítások konfigurálása
 
-Állítsa be a `SaveOptions`-t, hogy meghatározza, hogyan legyen mentve a redigált dokumentum. Megadhatja, hogy legyen-e utótag, vagy rasterizálja a dokumentumot PDF formátumba.
+Állítsd be a `SaveOptions`-t, hogy meghatározd, hogyan legyen mentve a redigált dokumentum. Megadhatod, hogy legyen-e utótag, vagy rasterizálja-e a dokumentumot PDF formátumba.
 
 ```java
 SaveOptions saveOptions = new SaveOptions();
@@ -120,15 +123,15 @@ saveOptions.setRasterizeToPDF(false);
 
 ### 4. lépés: A redigált dokumentum mentése
 
-Végül mentse el a módosításokat a beállított `SaveOptions` használatával. Ez a lépés biztosítja, hogy a redigálás megfelelően alkalmazásra és tárolásra kerüljön.
+Végül mentsd a módosításokat a konfigurált `SaveOptions` segítségével. Ez a lépés biztosítja, hogy a redigálások helyesen alkalmazásra és tárolásra kerüljenek.
 
 ```java
 redactor.save(saveOptions);
 ```
 
-### Erőforrás-kezelés
+### 5. lépés: A Redactor megfelelő lezárása – Redactor erőforrások kezelése
 
-Mindig zárja le a `Redactor` példányt az erőforrások felszabadításához:
+Mindig zárd le a `Redactor` példányt, hogy felszabadítsd az erőforrásokat és elkerüld a memória szivárgásokat:
 
 ```java
 finally {
@@ -136,52 +139,75 @@ finally {
 }
 ```
 
+## Hogyan mentsük a redigált dokumentumot
+
+A `SaveOptions` objektum finomhangolt vezérlést biztosít a kimeneti fájl felett. A `setAddSuffix(true)` beállítás automatikusan hozzáadja a „_redacted” utótagot az eredeti fájlnévhez, így egyértelmű, melyik verzió tartalmaz redigálásokat. A `setRasterizeToPDF` kapcsolóval PDF‑csak kimenetet is beállíthatsz a fokozott biztonság érdekében.
+
 ## Gyakorlati alkalmazások
 
 Az annotáció redigálás számos helyzetben felbecsülhetetlen értékű lehet:
 
 - **Adatvédelem:** Biztosítja, hogy a személyes azonosítók soha ne hagyják el a biztonságos környezetet.  
-- **Megfelelőség:** A GDPR, HIPAA vagy iparágspecifikus szabályozások betartása az automatikus bizalmas jegyzetek tisztításával.  
-- **Dokumentum megosztás:** Biztonságosan terjeszti a vázlatokat külső partnereknek anélkül, hogy belső megjegyzéseket felfedne.
+- **Megfelelőség:** A GDPR, HIPAA vagy iparágspecifikus szabályozások betartása azáltal, hogy automatikusan eltávolítja a bizalmas jegyzeteket.  
+- **Dokumentum megosztás:** Biztonságosan terjesztheted a vázlatokat külső partnereknek anélkül, hogy a belső megjegyzéseket felfednéd.
 
-A GroupDocs.Redaction integrálható más rendszerekkel (pl. dokumentumkezelő platformok, automatizált munkafolyamatok), hogy végponttól végpontig tartó redigálási csővezetékeket hozzon létre.
+A GroupDocs.Redaction integrálható más rendszerekkel (pl. dokumentumkezelő platformok, automatizált munkafolyamatok), hogy végponttól végpontig terjedő redigálási csővezetékeket hozz létre.
 
-## Teljesítménybeli megfontolások
+## Teljesítmény szempontok
 
-Nagyméretű dokumentumokkal vagy kötegelt feldolgozással dolgozva:
+Nagy dokumentumok vagy kötegelt feldolgozás esetén:
 
-- **Memória kezelés:** Amikor lehetséges, újrahasználja a `Redactor` példányokat, és gyorsan zárja le őket.  
-- **Szálkezelés:** Fájlokat csak akkor dolgozzon fel párhuzamosan, ha elegendő heap memóriája van.  
-- **Megfigyelés:** Naplózza a feldolgozási időket és a memóriahasználatot a szűk keresztmetszetek korai azonosításához.
+- **Memória kezelés:** Amikor lehetséges, újrahasználd a `Redactor` példányokat, és zárd le őket gyorsan.  
+- **Szálkezelés:** Fájlokat párhuzamosan csak akkor dolgozz fel, ha elegendő heap memóriád van.  
+- **Megfigyelés:** Naplózd a feldolgozási időket és a memóriahasználatot, hogy időben felismerd a szűk keresztmetszeteket.
 
 ## Gyakori problémák és hibaelhárítás
 
-| Tünet | Valószínű ok | Javítás |
-|-------|--------------|---------|
-| Nincs változás a `save()` után | Helytelen regex vagy nagybetű‑érzékenység | Ellenőrizze a mintát; használja a `(?i)`‑t a nagybetű‑érzékenység nélküli egyezéshez. |
-| OutOfMemoryError nagy fájlok esetén | A Redactor az egész dokumentumot memóriában tartja | Növelje a JVM heap méretét (`-Xmx`) vagy dolgozzon kisebb darabokban. |
-| LicenseException | Érvényes licencfájl nélkül próbaverzió használata | Helyezze az ideiglenes licencfájlt a projekt gyökerébe, vagy konfigurálja a licencet programkódból. |
+| Tünet | Valószínű ok | Megoldás |
+|-------|--------------|----------|
+| Nincs változás a `save()` után | Rossz regex vagy nagybetű‑érzékenység | Ellenőrizd a mintát; használd a `(?i)`‑t a nagybetű‑érzéketlen egyezéshez. |
+| OutOfMemoryError nagy fájloknál | A Redactor az egész dokumentumot memóriában tartja | Növeld a JVM heap-et (`-Xmx`) vagy dolgozd fel a fájlokat kisebb darabokban. |
+| LicenseException | Próba verzió használata érvényes licencfájl nélkül | Helyezd az ideiglenes licencfájlt a projekt gyökerébe vagy konfiguráld a licencet programozottan. |
 
 ## GyIK szekció
 1. **Mi a GroupDocs.Redaction for Java?**  
    - Egy könyvtár, amely lehetővé teszi a szöveg redigálását a dokumentumokban, biztosítva, hogy az érzékeny információk védve legyenek.  
-2. **Hogyan állítsam be a GroupDocs.Redaction‑t a Java projektemben?**  
-   - Használjon Maven‑t vagy töltse le a könyvtárat közvetlenül, és adja hozzá a projekt függőségeihez.  
+2. **Hogyan állítsam be a GroupDocs.Redaction-t a Java projektemben?**  
+   - Használd a Maven-t vagy töltsd le a könyvtárat közvetlenül, majd add hozzá a projekt függőségeihez.  
 3. **Használhatok regex mintákat specifikus szöveg redigálásához?**  
-   - Igen, a `AnnotationRedaction` regex mintákat támogat a célzott szövegcsere érdekében.  
+   - Igen, a `AnnotationRedaction` támogatja a regex mintákat a célzott szövegcseréhez.  
 4. **Mik a gyakori felhasználási esetek az annotáció redigálásra?**  
-   - Az adatvédelem, a szabályozásoknak való megfelelés és a biztonságos dokumentummegosztás a fő alkalmazások.  
-5. **Hogyan optimalizálhatom a teljesítményt a GroupDocs.Redaction használatakor?**  
-   - Hatékonyan kezelje a memóriahasználatot, és kövesse a Java legjobb gyakorlatait a hatékony feldolgozás érdekében.
+   - Adatvédelem, szabályozási megfelelőség és biztonságos dokumentummegosztás a fő alkalmazások.  
+5. **Hogyan optimalizálhatom a teljesítményt a GroupDocs.Redaction használata közben?**  
+   - Kezeld hatékonyan a memóriát és kövesd a Java legjobb gyakorlatait a hatékony feldolgozás érdekében.
+
+## Gyakran Ismételt Kérdések
+
+**Q: Redigálhatok annotációkat jelszóval védett fájlokban?**  
+A: Igen. Nyisd meg a dokumentumot a megfelelő jelszóval, mielőtt létrehoznád a `Redactor` példányt.
+
+**Q: Támogatja a könyvtár több fájl kötegelt feldolgozását?**  
+A: Teljes mértékben. Végigiterálhatsz egy fájlútvonal-gyűjteményen, minden egyeshez példányosíthatod a `Redactor`‑t, és alkalmazhatod ugyanazokat a redigálási szabályokat.
+
+**Q: Mi történik az eredeti annotációkkal a redigálás után?**  
+A: A megadott csere szöveggel (pl. “[redacted]”) helyettesítődnek, és az eredeti tartalom már nem lesz jelen a mentett fájlban.
+
+**Q: Van mód a redigálások előnézetére mentés előtt?**  
+A: Exportálhatod a dokumentumot PDF‑be a `setRasterizeToPDF(true)` beállítással, így vizuális előnézetet kapsz, amely elrejti az eredeti annotációs rétegeket.
+
+**Q: Hogyan kezeljem a több millió cellát tartalmazó hatalmas Excel munkafüzeteket?**  
+A: Növeld a JVM heap méretét, dolgozd fel a munkalapokat egyenként, ha lehetséges, és fontold meg a `setAddSuffix` opció használatát, hogy a köztes fájlok kezelhetőek maradjanak.
 
 ## Források
-- [Dokumentáció](https://docs.groupdocs.com/redaction/java/)  
-- [API referencia](https://reference.groupdocs.com/redaction/java)  
-- [Letöltés](https://releases.groupdocs.com/redaction/java/)  
-- [GitHub tároló](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
-- [Ingyenes támogatási fórum](https://forum.groupdocs.com/c/redaction/33)  
+- [Dokumentáció](https://docs.groupdocs.com/redaction/java/)
+- [API referencia](https://reference.groupdocs.com/redaction/java)
+- [Letöltés](https://releases.groupdocs.com/redaction/java/)
+- [GitHub tároló](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
+- [Ingyenes támogatási fórum](https://forum.groupdocs.com/c/redaction/33)
 - [Ideiglenes licenc](https://purchase.groupdocs.com/temporary-license/)
 
-**Utolsó frissítés:** 2025-12-19  
+---
+
+**Utolsó frissítés:** 2026-03-17  
 **Tesztelve ezzel:** GroupDocs.Redaction 24.9 for Java  
 **Szerző:** GroupDocs
