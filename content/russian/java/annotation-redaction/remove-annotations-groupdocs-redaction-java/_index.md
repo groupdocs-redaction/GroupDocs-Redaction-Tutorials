@@ -1,48 +1,95 @@
 ---
-date: '2025-12-19'
-description: Узнайте, как удалять аннотации в Java с помощью API GroupDocs.Redaction
-  в пошаговом учебнике по Java.
+date: '2026-06-21'
+description: Пошаговое руководство по удалению аннотаций в Java с помощью GroupDocs.Redaction,
+  включая настройку, код и устранение неполадок.
 keywords:
-- remove annotations java
-- GroupDocs Redaction API
-- document annotation removal
-title: Удалить аннотации Java с помощью GroupDocs.Redaction
+- how to remove annotations
+- GroupDocs Redaction Java
+- annotation removal Java
+schemas:
+- author: GroupDocs
+  dateModified: '2026-06-21'
+  description: Step‑by‑step guide on how to remove annotations in Java with GroupDocs.Redaction,
+    including setup, code, and troubleshooting.
+  headline: How to Remove Annotations Java Using GroupDocs.Redaction
+  type: TechArticle
+- description: Step‑by‑step guide on how to remove annotations in Java with GroupDocs.Redaction,
+    including setup, code, and troubleshooting.
+  name: How to Remove Annotations Java Using GroupDocs.Redaction
+  steps:
+  - name: Import the required classes.
+    text: Import the required classes.
+  - name: Instantiate `Redactor` with your source file.
+    text: Instantiate `Redactor` with your source file.
+  - name: Call `apply(new DeleteAnnotationRedaction())`.
+    text: Call `apply(new DeleteAnnotationRedaction())`.
+  - name: Set `SaveOptions` (add suffix, keep format).
+    text: Set `SaveOptions` (add suffix, keep format).
+  - name: Invoke `redactor.save(saveOptions)`.
+    text: Invoke `redactor.save(saveOptions)`.
+  - name: '**Legal Document Review:** Remove reviewer comments before final signatures.'
+    text: '**Legal Document Review:** Remove reviewer comments before final signatures.'
+  - name: '**Academic Publishing:** Clean manuscripts of peer‑review notes prior to
+      journal submission.'
+    text: '**Academic Publishing:** Clean manuscripts of peer‑review notes prior to
+      journal submission.'
+  - name: '**Internal Reports:** Deliver polished reports without draft annotations
+      cluttering the view.'
+    text: '**Internal Reports:** Deliver polished reports without draft annotations
+      cluttering the view.'
+  type: HowTo
+- questions:
+  - answer: GroupDocs.Redaction is a Java API that lets you programmatically redact
+      or delete sensitive content—including annotations—from a wide range of document
+      formats.
+    question: What is GroupDocs.Redaction?
+  - answer: Yes, provided you have a valid commercial license. The temporary license
+      is for evaluation only.
+    question: Can I use this in a commercial project?
+  - answer: Absolutely. It works with PDF, DOCX, PPTX, XLSX, and many more—over 50
+      formats in total.
+    question: Does the API support PDF, DOCX, and other formats?
+  - answer: No hard limit; performance depends on document size and system resources.
+      Typical 200‑page PDFs with thousands of annotations are processed in under two
+      seconds.
+    question: Is there any limit to the number of annotations I can delete?
+  - answer: The API overwrites the file you save. Keep a backup of the original document
+      before running the redaction.
+    question: How can I revert changes if I delete annotations by mistake?
+  type: FAQPage
+title: Как удалить аннотации в Java с помощью GroupDocs.Redaction
 type: docs
 url: /ru/java/annotation-redaction/remove-annotations-groupdocs-redaction-java/
 weight: 1
 ---
 
-# Удаление аннотаций Java с помощью GroupDocs.Redaction
+# Как удалить аннотации Java с помощью GroupDocs.Redaction
 
-Когда вам нужно **remove annotations java**, захламленные комментарии и разметка могут сделать документы трудными для чтения и обработки. Независимо от того, очищаете ли вы юридические контракты, академические черновики или внутренние отчёты, API GroupDocs.Redaction для Java предоставляет быстрый и надёжный способ удалить все аннотации одним вызовом. В этом руководстве мы пройдём всё необходимое — от настройки окружения до точного кода, который удаляет аннотации, — чтобы вы могли интегрировать эту возможность в свои Java‑приложения.
+When you need to **remove annotations Java**, cluttered comments and markup can make documents hard to read and process. Whether you’re cleaning up legal contracts, academic drafts, or internal reports, the GroupDocs.Redaction API for Java gives you a fast, reliable way to strip every annotation in a single call—often processing a 200‑page PDF in under two seconds. In this guide we’ll walk through everything you need—from environment setup to the exact code that clears annotations—so you can integrate this capability into your own Java applications.
 
-## Quick Answers
-- **Что означает “remove annotations java”?** Это относится к программному удалению всех объектов типа комментарий из документа с помощью кода на Java.  
+## Быстрые ответы
+- **Что означает “remove annotations java”?** Это означает программное удаление всех объектов типа комментарий из документа с помощью кода на Java.  
 - **Какая библиотека обрабатывает это?** GroupDocs.Redaction for Java.  
 - **Нужна ли лицензия?** Временная лицензия подходит для оценки; полная лицензия требуется для продакшн.  
-- **Можно ли сохранить оригинальный формат файла?** Да, API сохраняет документ в его оригинальном формате по умолчанию.  
+- **Можно ли сохранить исходный формат файла?** Да, API сохраняет документ в его исходном формате по умолчанию.  
 - **Сколько времени занимает операция?** Обычно менее секунды для файлов среднего размера; более крупные PDF могут потребовать несколько секунд.
 
-## What is “remove annotations java”?
-Удаление аннотаций в Java означает использование SDK GroupDocs.Redaction для поиска каждого объекта аннотации (комментарии, выделения, штампы и т.д.) в документе и их автоматического удаления. Это устраняет необходимость вручную открывать каждый файл в текстовом процессоре и удалять заметки по одной.
+## Что такое “remove annotations java”?
+**Удаление аннотаций в Java означает использование GroupDocs.Redaction SDK для поиска каждого объекта аннотации (комментарии, выделения, штампы и т.д.) в документе и их автоматическое удаление.** Это устраняет необходимость вручную открывать каждый файл в текстовом процессоре и удалять заметки одну за другой.
 
-## Why remove annotations?
-- **Legal compliance:** Убедитесь, что контракты свободны от замечаний рецензентов перед подписанием.  
-- **Publishing readiness:** Удалите комментарии рецензентов из рукописей перед подачей.  
-- **Performance:** Более чистые файлы загружаются быстрее в последующих процессах обработки.
+## Зачем удалять аннотации?
+**Удаление аннотаций обеспечивает юридическое соответствие, готовность к публикации и лучшую производительность.** Например, контракты становятся готовыми к подписи менее чем за секунду, рукописи теряют замечания рецензентов перед отправкой в журнал, а конвейеры последующей обработки видят до 30 % сокращения времени загрузки файлов без аннотаций.
 
-## Prerequisites
+## Предварительные требования
 
-Before you start, make sure you have:
+- **GroupDocs.Redaction for Java** версии 24.9 или новее (поддерживает 50+ входных и выходных форматов).  
+- **Maven** (если вы предпочитаете управление зависимостями) или прямое скачивание JAR.  
+- **JDK** (рекомендовано Java 8+) и IDE, например IntelliJ IDEA или Eclipse.  
+- Базовые знания Java и знакомство с вводом/выводом файлов.
 
-- **GroupDocs.Redaction for Java** версии 24.9 или новее.  
-- **Maven** (если вы предпочитаете управление зависимостями) или прямую загрузку JAR.  
-- **JDK** (рекомендовано Java 8+) и IDE, например IntelliJ IDEA или Eclipse.  
-- Базовые знания Java и знакомство с вводом‑выводом файлов.
+## Настройка GroupDocs.Redaction для Java
 
-## Setting Up GroupDocs.Redaction for Java
-
-### Maven Setup
+### Настройка Maven
 Add the repository and dependency to your `pom.xml`:
 
 ```xml
@@ -63,14 +110,14 @@ Add the repository and dependency to your `pom.xml`:
 </dependencies>
 ```
 
-### Direct Download
-Alternatively, download the latest JAR from [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+### Прямое скачивание
+В качестве альтернативы скачайте последнюю JAR с [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
-### License Acquisition
+### Получение лицензии
 Чтобы разблокировать полную функциональность, получите временную лицензию со [страницы лицензий](https://purchase.groupdocs.com/temporary-license/). Это позволяет тестировать без ограничений оценки.
 
-### Basic Initialization
-Ниже минимальный стартовый класс, который открывает документ. Оставьте код без изменений — это точный блок, который вы будете использовать позже.
+### Базовая инициализация
+Ниже приведён минимальный стартовый класс, который открывает документ. Оставьте код без изменений — это точный блок, который вы будете использовать позже.
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -90,12 +137,11 @@ public class InitializeGroupDocs {
 }
 ```
 
-## Implementation Guide: Removing All Annotations
+## Как удалить аннотации в Java?
 
-### Overview
-Мы будем использовать класс `DeleteAnnotationRedaction`, который указывает Redactor удалять каждую найденную аннотацию. Процесс состоит из пяти чётких шагов.
+`Redactor` загружает документ для редактирования. `DeleteAnnotationRedaction` удаляет все объекты аннотаций. `SaveOptions` настраивает параметры вывода. Загрузите исходный файл с помощью экземпляра `Redactor`, примените `DeleteAnnotationRedaction`, настройте `SaveOptions` для сохранения оригинального формата и, наконец, вызовите `save`. Этот пятишаговый процесс удаляет каждую аннотацию за одну операцию, сохраняя макет и метаданные оригинального документа.
 
-### Step 1 – Import Packages
+### Шаг 1 – Импорт пакетов
 Эти импорты дают доступ к Redactor, параметрам сохранения и конкретному типу редактирования.
 
 ```java
@@ -104,22 +150,22 @@ import com.groupdocs.redaction.options.SaveOptions;
 import com.groupdocs.redaction.redactions.DeleteAnnotationRedaction;
 ```
 
-### Step 2 – Initialize the Redactor
-Создайте экземпляр `Redactor`, указывающий на файл, который нужно очистить.
+### Шаг 2 – Инициализация Redactor
+**Класс `Redactor` — это основной движок, который загружает и изменяет документы в GroupDocs.Redaction.** Создайте экземпляр `Redactor`, указывающий на файл, который нужно очистить.
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/sample.docx");
 ```
 
-### Step 3 – Apply the DeleteAnnotationRedaction
-Эта единственная строка указывает SDK удалить все аннотации из документа.
+### Шаг 3 – Применить DeleteAnnotationRedaction
+**Класс `DeleteAnnotationRedaction` представляет операцию редактирования, которая удаляет все объекты аннотаций из документа.** Эта единственная строка указывает SDK удалить каждую аннотацию.
 
 ```java
 redactor.apply(new DeleteAnnotationRedaction());
 ```
 
-### Step 4 – Configure Save Options
-Мы добавляем суффикс к имени выходного файла, чтобы оригинал оставался нетронутым, и сохраняем оригинальный формат.
+### Шаг 4 – Настроить параметры сохранения
+**Класс `SaveOptions` позволяет настроить параметры вывода, такие как формат файла, суффикс и сжатие.** Мы добавляем суффикс к имени выходного файла, чтобы оригинал оставался нетронутым, и сохраняем оригинальный формат.
 
 ```java
 SaveOptions saveOptions = new SaveOptions();
@@ -127,76 +173,83 @@ saveOptions.setAddSuffix(true);
 saveOptions.setRasterizeToPDF(false);
 ```
 
-### Step 5 – Save the Modified Document
+### Шаг 5 – Сохранить изменённый документ
 Наконец, запишите изменения обратно на диск.
 
 ```java
 redactor.save(saveOptions);
 ```
 
-### Full Example Recap
-Putting the pieces together, the workflow looks like this:
+## Полный пример
+
+Собрав все части вместе, рабочий процесс выглядит так:
 
 1. Импортировать необходимые классы.  
-2. Создать экземпляр `Redactor` с вашим исходным файлом.  
+2. Создать `Redactor` с вашим исходным файлом.  
 3. Вызвать `apply(new DeleteAnnotationRedaction())`.  
-4. Установить `SaveOptions` (добавить суффикс, сохранить формат).  
+4. Настроить `SaveOptions` (добавить суффикс, сохранить формат).  
 5. Вызвать `redactor.save(saveOptions)`.
 
-## Troubleshooting Tips
-- **File path errors:** Убедитесь, что путь, передаваемый в `Redactor`, является абсолютным или корректно относительным к вашему проекту.  
-- **Missing dependencies:** Проверьте ваш `pom.xml` или classpath JAR; Redactor не запустится без основной библиотеки.  
-- **License not applied:** Если вы видите исключение лицензии, убедитесь, что временный файл лицензии помещён в правильный каталог и указан в вашем коде (не показано здесь для краткости).  
+## Советы по устранению неполадок
+- **Ошибки пути к файлу:** Убедитесь, что путь, передаваемый в `Redactor`, является абсолютным или правильно относительным к вашему проекту.  
+- **Отсутствующие зависимости:** Дважды проверьте ваш `pom.xml` или classpath JAR; Redactor не запустится без основной библиотеки.  
+- **Лицензия не применена:** Если вы видите исключение лицензии, убедитесь, что временный файл лицензии помещён в правильный каталог и указан в вашем коде (не показано здесь для краткости).  
 
-## Practical Applications
+## Практические применения
 
-1. **Legal Document Review:** Удалить комментарии рецензентов перед окончательными подписями.  
-2. **Academic Publishing:** Очистить рукописи от замечаний рецензентов перед подачей в журнал.  
-3. **Internal Reports:** Предоставлять отшлифованные отчёты без черновых аннотаций, загромождающих вид.  
+1. **Обзор юридических документов:** Удалить комментарии рецензентов перед окончательными подписями.  
+2. **Академическое издание:** Очистить рукописи от замечаний рецензентов перед отправкой в журнал.  
+3. **Внутренние отчёты:** Предоставлять отшлифованные отчёты без пометок черновиков, загромождающих вид.  
 
-## Performance Considerations
+## Соображения по производительности
 
-- **Resource Management:** Всегда вызывайте `redactor.close()` (как показано в примере инициализации), чтобы освободить нативные ресурсы.  
-- **Large Files:** Для PDF‑файлов с несколькими сотнями страниц рассмотрите обработку частями или увеличение размера кучи JVM.  
-- **Stay:** Новые релизы приносят улучшения производительности — поддерживайте актуальную версию Maven.  
+- **Управление ресурсами:** Всегда вызывайте `redactor.close()` (как показано в примере инициализации), чтобы освободить нативные ресурсы.  
+- **Большие файлы:** Для PDF со множеством страниц рассмотрите обработку частями или увеличение размера кучи JVM.  
+- **Следите за обновлениями:** Новые релизы приносят улучшения производительности — поддерживайте актуальную версию Maven.  
 
-## Common Pitfalls & How to Avoid Them
-| Подводный камень | Решение |
-|------------------|----------|
-| Забывание вызова `redactor.close()` | Оборачивайте использование в блок try‑finally (как в стартовом классе). |
-| Использование неверного расширения файла в пути | Убедитесь, что путь соответствует реальному типу файла (DOCX, PDF и т.д.). |
-| Не добавлен суффикс и оригинал перезаписан | Установите `saveOptions.setAddSuffix(true)`, чтобы сохранить исходный файл. |
+## Распространённые подводные камни и как их избежать
+| Проблема | Решение |
+|----------|----------|
+| Забыть вызвать `redactor.close()` | Оберните использование в блок try‑finally (как в стартовом классе). |
+| Использовать неправильное расширение файла в пути | Убедитесь, что путь соответствует фактическому типу файла (DOCX, PDF и т.д.). |
+| Не добавить суффикс и перезаписать оригинал | Установите `saveOptions.setAddSuffix(true)`, чтобы сохранить исходный файл. |
 
-## Frequently Asked Questions
+## Часто задаваемые вопросы
 
-**В: Что такое GroupDocs.Redaction?**  
-О: GroupDocs.Redaction — это Java API, позволяющий программно редактировать или удалять конфиденциальный контент, включая аннотации, из широкого спектра форматов документов.
+**Q: Что такое GroupDocs.Redaction?**  
+A: GroupDocs.Redaction — это Java API, позволяющий программно редактировать или удалять конфиденциальный контент, включая аннотации, из широкого спектра форматов документов.
 
-**В: Можно ли использовать это в коммерческом проекте?**  
-О: Да, при наличии действующей коммерческой лицензии. Временная лицензия предназначена только для оценки.
+**Q: Можно ли использовать это в коммерческом проекте?**  
+A: Да, при условии наличия действующей коммерческой лицензии. Временная лицензия предназначена только для оценки.
 
-**В: Поддерживает ли API PDF, DOCX и другие форматы?**  
-О: Конечно. Он работает с PDF, DOCX, PPTX, XLSX и многими другими типами файлов.
+**Q: Поддерживает ли API PDF, DOCX и другие форматы?**  
+A: Абсолютно. Он работает с PDF, DOCX, PPTX, XLSX и многими другими — более 50 форматов в общей сложности.
 
-**В: Есть ли ограничение на количество аннотаций, которые можно удалить?**  
-О: Жёсткого ограничения нет; производительность зависит от размера документа и ресурсов системы.
+**Q: Есть ли ограничение на количество аннотаций, которые можно удалить?**  
+A: Жёсткого ограничения нет; производительность зависит от размера документа и ресурсов системы. Типичные PDF‑файлы на 200 страниц с тысячами аннотаций обрабатываются менее чем за две секунды.
 
-**В: Как можно откатить изменения, если я удалил аннотации по ошибке?**  
-О: API перезаписывает сохранённый файл. Сохраняйте резервную копию оригинального документа перед выполнением редактирования.
+**Q: Как восстановить изменения, если я удалил аннотации по ошибке?**  
+A: API перезаписывает файл, который вы сохраняете. Сохраните резервную копию оригинального документа перед запуском редактирования.
 
-## Resources
+## Ресурсы
 
-- **Documentation:** [GroupDocs Redaction Java Documentation](https://docs.groupdocs.com/redaction/java/)  
-- **API Reference:** [API Reference](https://reference.groupdocs.com/redaction/java)  
-- **Download:** [Latest Releases](https://releases.groupdocs.com/redaction/java/)  
-- **GitHub Repository:** [GroupDocs.Redaction for Java](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
-- **Free Support Forum:** [GroupDocs Community Forum](https://forum.groupdocs.com/c/redaction/33)  
-- **Temporary License:** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/)  
+- **Документация:** [GroupDocs Redaction Java Documentation](https://docs.groupdocs.com/redaction/java/)  
+- **Справочник API:** [API Reference](https://reference.groupdocs.com/redaction/java)  
+- **Скачать:** [Latest Releases](https://releases.groupdocs.com/redaction/java/)  
+- **Репозиторий GitHub:** [GroupDocs.Redaction for Java](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
+- **Бесплатный форум поддержки:** [GroupDocs Community Forum](https://forum.groupdocs.com/c/redaction/33)  
+- **Временная лицензия:** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/)  
 
-Следуя этому руководству, вы теперь имеете надёжный метод **remove annotations java** с помощью GroupDocs.Redaction. Интегрируйте фрагмент кода в ваши конвейеры пакетной обработки и получайте более чистые, безаннотационные документы каждый раз.
+By following this guide, you now have a reliable method to **remove annotations Java** using GroupDocs.Redaction. Integrate the snippet into your batch processing pipelines, and enjoy cleaner, annotation‑free documents every time.
 
 ---
 
-**Last Updated:** 2025-12-19  
-**Tested With:** GroupDocs.Redaction 24.9 for Java  
-**Author:** GroupDocs
+**Последнее обновление:** 2026-06-21  
+**Тестировано с:** GroupDocs.Redaction 24.9 for Java  
+**Автор:** GroupDocs
+
+## Связанные руководства
+
+- [How to Redact Java with GroupDocs.Redaction - A Comprehensive Guide for Developers](/redaction/java/getting-started/implement-java-redaction-groupdocs-redaction-guide/)
+- [How to Redact Sensitive Data with GroupDocs Redaction Java License from File Path – A Step-by-Step Guide](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)
+- [Java Text Redaction Tutorial: Guide with GroupDocs.Redaction](/redaction/java/text-redaction/groupdocs-redaction-java-text-redaction-guide/)

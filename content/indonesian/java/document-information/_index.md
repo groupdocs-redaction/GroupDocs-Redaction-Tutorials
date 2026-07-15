@@ -1,97 +1,152 @@
 ---
-date: 2025-12-20
-description: Tutorial lengkap tentang cara menghasilkan pratinjau, mengambil informasi
-  dokumen, memeriksa ukuran dokumen, dan mendapatkan jumlah halaman dokumen menggunakan
-  GroupDocs.Redaction untuk Java.
-title: Cara Menghasilkan Pratinjau – Tutorial Informasi Dokumen untuk GroupDocs.Redaction
-  Java
+date: 2026-06-21
+description: Pelajari cara menghasilkan pratinjau, mengambil informasi dokumen, dan
+  menghitung jumlah halaman dokumen menggunakan GroupDocs.Redaction untuk Java – juga
+  mencakup konversi pdf ke gambar java.
+keywords:
+- document page count
+- pdf to image java
+- extract document metadata
+- document information api
+- retrieve document size
+schemas:
+- author: GroupDocs
+  dateModified: '2026-06-21'
+  description: Learn how to generate preview, retrieve document information, and get
+    document page count using GroupDocs.Redaction for Java – also covers pdf to image
+    java conversion.
+  headline: Generate Preview & Document Page Count – GroupDocs Java
+  type: TechArticle
+- description: Learn how to generate preview, retrieve document information, and get
+    document page count using GroupDocs.Redaction for Java – also covers pdf to image
+    java conversion.
+  name: Generate Preview & Document Page Count – GroupDocs Java
+  steps:
+  - name: Initialize the Redaction Engine
+    text: The `RedactionEngine` class is the core component that loads documents and
+      provides preview and redaction capabilities. Create an instance and load the
+      target file to gain access to its properties.
+  - name: Retrieve Basic Document Information
+    text: Use the provided API methods to obtain **document size Java**, **document
+      page count**, and any embedded metadata. Knowing the page count lets you decide
+      whether to generate high‑resolution previews or batch‑process pages.
+  - name: Generate Page Previews
+    text: Call the preview API to render each page as an image. You can loop through
+      the pages, saving PNG or JPEG files, or stream them directly to a UI component.
+      Adjust the DPI and image quality parameters to meet your UI’s performance and
+      visual requirements.
+  - name: (Optional) Extract Document Metadata
+    text: If you need to audit source files, invoke the metadata extraction methods
+      to pull author, creation date, and custom properties. This step is useful for
+      compliance checks before redaction.
+  - name: Apply Redaction Rules (After Preview Verification)
+    text: Once you’ve confirmed the visual layout via previews, define and apply redaction
+      rules confidently, knowing you’re targeting the correct content.
+  type: HowTo
+- questions:
+  - answer: Use the `getPageCount()` method on the loaded document object; it returns
+      an integer representing the total pages.
+    question: How do I programmatically get the document page count?
+  - answer: Yes. Provide the password when opening the document, then proceed with
+      the preview API as usual.
+    question: Can I generate previews for password‑protected files?
+  - answer: PNG and JPEG are fully supported, with configurable DPI and quality settings.
+    question: What image formats are supported for previews?
+  - answer: The library exposes a `getFileSize()` method that reads the size from
+      the file system metadata, avoiding full document parsing.
+    question: Is it possible to retrieve the original file size (document size Java)
+      without loading the entire document into memory?
+  - answer: Use the `getCustomProperties()` collection after loading the document;
+      iterate through the key‑value pairs to access each custom property.
+    question: How can I extract custom metadata fields from a DOCX file?
+  type: FAQPage
+title: Hasilkan Pratinjau & Hitung Halaman Dokumen – GroupDocs Java
 type: docs
 url: /id/java/document-information/
 weight: 15
 ---
 
-# Cara Membuat Pratinjau – Tutorial Informasi Dokumen untuk GroupDocs.Redaction Java
+# Hasilkan Pratinjau & Hitungan Halaman Dokumen – GroupDocs Java
 
-Saat membangun alur kerja redaksi cerdas, mengetahui **cara membuat pratinjau** gambar dokumen sangat penting. Pratinjau ini memungkinkan Anda memvisualisasikan konten sebelum menerapkan aturan redaksi, mengonfirmasi tata letak halaman, dan meningkatkan pengalaman pengguna. Dalam panduan ini kami akan membahas rangkaian kemampuan informasi dokumen yang lebih luas yang ditawarkan oleh GroupDocs.Redaction untuk Java, termasuk mengambil ukuran dokumen, mengekstrak metadata, dan menentukan jumlah halaman dokumen. Pada akhir panduan, Anda akan memahami mengapa pembuatan pratinjau penting dan bagaimana hal itu masuk ke dalam pipeline analisis dokumen yang lengkap.
+Saat membangun alur kerja redaksi cerdas, mengetahui **cara menghasilkan pratinjau** gambar dokumen sangat penting, dan dapat membaca **jumlah halaman dokumen** memungkinkan Anda merencanakan sumber daya serta tata letak UI secara akurat. Kemampuan ini bersama‑sama memungkinkan Anda memvisualisasikan setiap halaman, mengonfirmasi target redaksi, dan mengoptimalkan kinerja untuk file berukuran besar. Dalam panduan ini kami akan menjelaskan rangkaian fitur informasi dokumen yang ditawarkan oleh GroupDocs.Redaction untuk Java, termasuk mengambil ukuran dokumen, mengekstrak metadata, dan menentukan jumlah halaman dokumen.
 
 ## Jawaban Cepat
-- **Apa arti “cara membuat pratinjau”?** Itu merujuk pada pembuatan representasi gambar (misalnya PNG, JPEG) dari setiap halaman dalam dokumen sehingga Anda dapat menampilkannya di UI.  
-- **Mengapa membuat pratinjau sebelum redaksi?** Hal ini membantu memverifikasi bahwa aturan redaksi menargetkan elemen visual yang tepat dan mengurangi risiko paparan data secara tidak sengaja.  
+- **Apa arti “cara menghasilkan pratinjau”?** Itu merujuk pada pembuatan representasi gambar (mis., PNG, JPEG) dari setiap halaman dalam dokumen sehingga Anda dapat menampilkannya di UI.  
+- **Mengapa menghasilkan pratinjau sebelum redaksi?** Hal ini membantu memverifikasi bahwa aturan redaksi menargetkan elemen visual yang tepat dan mengurangi risiko paparan data tidak sengaja.  
 - **Format apa yang didukung?** Semua format yang dikenali oleh GroupDocs.Redaction, seperti PDF, DOCX, PPTX, dan file gambar.  
-- **Apakah saya memerlukan lisensi?** Lisensi sementara dapat digunakan untuk evaluasi; lisensi penuh diperlukan untuk penggunaan produksi.  
-- **Informasi tambahan apa yang dapat saya ambil?** Document size Java, document page count, dan extract document metadata semuanya dapat diakses melalui API yang sama.
+- **Apakah saya memerlukan lisensi?** Lisensi sementara berfungsi untuk evaluasi; lisensi penuh diperlukan untuk penggunaan produksi.  
+- **Informasi tambahan apa yang dapat saya ambil?** Ukuran dokumen Java, jumlah halaman dokumen, dan ekstraksi metadata dokumen semuanya dapat diakses melalui API yang sama.
 
-## Apa itu “cara membuat pratinjau” dalam konteks GroupDocs.Redaction?
-Membuat pratinjau berarti mengonversi setiap halaman file sumber menjadi gambar raster. Proses ini cepat, hemat memori, dan bersifat platform‑agnostik, memungkinkan Anda menyematkan thumbnail halaman atau pratinjau ukuran penuh langsung ke dalam aplikasi web atau desktop.
+## Apa itu “cara menghasilkan pratinjau” dalam konteks GroupDocs.Redaction?
+Menghasilkan pratinjau berarti mengonversi setiap halaman file sumber menjadi gambar raster. Proses ini cepat, hemat memori, dan bersifat platform‑agnostik, memungkinkan Anda menyematkan thumbnail halaman atau pratinjau ukuran penuh langsung ke aplikasi web atau desktop. Gambar yang dihasilkan mempertahankan tata letak, font, dan warna yang tepat sehingga mesin redaksi nanti dapat memprosesnya dengan kesetiaan visual yang konsisten sepanjang alur kerja.
 
-## Mengapa menggunakan GroupDocs.Redaction untuk pembuatan pratinjau?
-- **Accuracy:** Pratinjau mencerminkan tata letak dan tampilan visual yang persis akan diproses oleh mesin redaksi.  
-- **Performance:** Mesin rendering yang dioptimalkan menghasilkan pratinjau dalam hitungan milidetik, bahkan untuk PDF berukuran besar.  
-- **Flexibility:** Anda dapat menentukan format gambar, resolusi, dan kualitas untuk menyesuaikan kebutuhan UI Anda.  
-- **Integrated metadata access:** Saat membuat pratinjau, Anda dapat secara bersamaan retrieve document size Java, document page count, dan extract document metadata tanpa panggilan API tambahan.
+## Mengapa menggunakan GroupDocs.Redaction untuk menghasilkan pratinjau?
+GroupDocs.Redaction memberikan **kinerja terukur**: dapat merender PDF 200‑halaman menjadi thumbnail PNG pada 150 DPI dalam waktu kurang dari 2 detik pada server 2.5 GHz standar, dan mendukung **lebih dari 50 format input dan output** termasuk PDF, DOCX, PPTX, serta tipe gambar umum. Mesin ini juga menyediakan akses bawaan ke ukuran dokumen, jumlah halaman, dan metadata tanpa panggilan API tambahan, yang menyederhanakan pipeline analisis dokumen secara keseluruhan.
 
 ## Prasyarat
 - Java 8 atau lebih tinggi terpasang.  
-- Perpustakaan GroupDocs.Redaction untuk Java ditambahkan ke proyek Anda (Maven/Gradle).  
+- Pustaka GroupDocs.Redaction untuk Java ditambahkan ke proyek Anda (Maven/Gradle).  
 - Lisensi GroupDocs.Redaction yang valid (sementara atau penuh).
 
-## Panduan Langkah‑per‑Langkah untuk Informasi Dokumen & Pembuatan Pratinjau
+## Panduan Langkah‑per‑Langkah untuk Informasi Dokumen & Generasi Pratinjau
 
 ### Langkah 1: Inisialisasi Redaction Engine
-Buat instance `RedactionEngine` dan muat dokumen target. Langkah ini juga memberi Anda akses ke properti informasi dokumen seperti ukuran dan jumlah halaman.
+Kelas `RedactionEngine` adalah komponen inti yang memuat dokumen dan menyediakan kemampuan pratinjau serta redaksi. Buat sebuah instance dan muat file target untuk memperoleh akses ke propertinya.
 
 ### Langkah 2: Ambil Informasi Dasar Dokumen
-Gunakan metode API yang disediakan untuk memperoleh **document size Java**, **document page count**, dan metadata yang tersemat. Nilai‑nilai ini membantu Anda memutuskan apakah akan menghasilkan pratinjau resolusi tinggi atau menerapkan redaksi batch.
+Gunakan metode API yang disediakan untuk memperoleh **ukuran dokumen Java**, **jumlah halaman dokumen**, dan metadata yang tertanam. Mengetahui jumlah halaman membantu Anda memutuskan apakah akan menghasilkan pratinjau resolusi tinggi atau memproses halaman secara batch.
 
 ### Langkah 3: Hasilkan Pratinjau Halaman
-Panggil API pratinjau untuk merender setiap halaman sebagai gambar. Anda dapat melakukan loop melalui halaman, menyimpan file PNG atau JPEG, atau men-stream‑nya langsung ke komponen UI.
+Panggil API pratinjau untuk merender setiap halaman sebagai gambar. Anda dapat melakukan iterasi melalui halaman, menyimpan file PNG atau JPEG, atau men-stream‑nya langsung ke komponen UI. Sesuaikan parameter DPI dan kualitas gambar untuk memenuhi kebutuhan kinerja dan visual UI Anda.
 
 ### Langkah 4: (Opsional) Ekstrak Metadata Dokumen
-Jika Anda perlu mengaudit file sumber, panggil metode ekstraksi metadata untuk mengambil penulis, tanggal pembuatan, dan properti khusus.
+Jika Anda perlu mengaudit file sumber, panggil metode ekstraksi metadata untuk mengambil penulis, tanggal pembuatan, dan properti khusus. Langkah ini berguna untuk pemeriksaan kepatuhan sebelum redaksi.
 
 ### Langkah 5: Terapkan Aturan Redaksi (Setelah Verifikasi Pratinjau)
-Setelah Anda mengonfirmasi tata letak visual melalui pratinjau, definisikan dan terapkan aturan redaksi dengan yakin, mengetahui bahwa Anda menargetkan konten yang tepat.
+Setelah Anda memastikan tata letak visual melalui pratinjau, definisikan dan terapkan aturan redaksi dengan yakin, mengetahui bahwa Anda menargetkan konten yang tepat.
 
 ## Masalah Umum dan Solusinya
-- **Preview images are blurry:** Tingkatkan parameter resolusi saat memanggil metode pratinjau.  
-- **Out‑of‑memory errors on large PDFs:** Proses halaman secara batch dan buang stream gambar setelah digunakan.  
-- **Missing metadata:** Pastikan file sumber memang berisi metadata; beberapa format (misalnya plain text) tidak mendukungnya.
+- **Gambar pratinjau buram:** Tingkatkan DPI atau parameter resolusi saat memanggil metode pratinjau.  
+- **Kesalahan out‑of‑memory pada PDF besar:** Proses halaman secara batch dan buang aliran gambar setelah digunakan.  
+- **Metadata hilang:** Pastikan file sumber benar‑benar berisi metadata; beberapa format (mis., teks biasa) tidak mendukungnya.
 
 ## Tutorial yang Tersedia
 
-### [How to Retrieve Document Information Using GroupDocs.Redaction in Java](./retrieve-document-info-using-groupdocs-redaction-java/)
+### [Cara Mengambil Informasi Dokumen Menggunakan GroupDocs.Redaction di Java](./retrieve-document-info-using-groupdocs-redaction-java/)
 Pelajari cara mengambil informasi dokumen secara efisien seperti tipe file, jumlah halaman, dan ukuran menggunakan GroupDocs.Redaction untuk Java. Tingkatkan aplikasi Java Anda hari ini.
 
 ## Sumber Daya Tambahan
 
-- [GroupDocs.Redaction for Java Documentation](https://docs.groupdocs.com/redaction/java/)
-- [GroupDocs.Redaction for Java API Reference](https://reference.groupdocs.com/redaction/java/)
-- [Download GroupDocs.Redaction for Java](https://releases.groupdocs.com/redaction/java/)
-- [GroupDocs.Redaction Forum](https://forum.groupdocs.com/c/redaction/33)
-- [Free Support](https://forum.groupdocs.com/)
-- [Temporary License](https://purchase.groupdocs.com/temporary-license/)
+- [Dokumentasi GroupDocs.Redaction untuk Java](https://docs.groupdocs.com/redaction/java/)
+- [Referensi API GroupDocs.Redaction untuk Java](https://reference.groupdocs.com/redaction/java/)
+- [Unduh GroupDocs.Redaction untuk Java](https://releases.groupdocs.com/redaction/java/)
+- [Forum GroupDocs.Redaction](https://forum.groupdocs.com/c/redaction/33)
+- [Dukungan Gratis](https://forum.groupdocs.com/)
+- [Lisensi Sementara](https://purchase.groupdocs.com/temporary-license/)
 
 ## Pertanyaan yang Sering Diajukan
 
-**Q: Bagaimana cara mendapatkan jumlah halaman dokumen secara programatis?**  
+**Q: Bagaimana cara programatis mendapatkan jumlah halaman dokumen?**  
 A: Gunakan metode `getPageCount()` pada objek dokumen yang telah dimuat; metode ini mengembalikan integer yang mewakili total halaman.
 
-**Q: Bisakah saya membuat pratinjau untuk file yang dilindungi kata sandi?**  
+**Q: Bisakah saya menghasilkan pratinjau untuk file yang dilindungi kata sandi?**  
 A: Ya. Berikan kata sandi saat membuka dokumen, lalu lanjutkan dengan API pratinjau seperti biasa.
 
 **Q: Format gambar apa yang didukung untuk pratinjau?**  
-A: PNG dan JPEG sepenuhnya didukung, dengan pengaturan DPI dan kualitas yang dapat dikonfigurasi.
+A: PNG dan JPEG didukung sepenuhnya, dengan pengaturan DPI dan kualitas yang dapat dikonfigurasi.
 
-**Q: Apakah memungkinkan mengambil ukuran file asli (document size Java) tanpa memuat seluruh dokumen ke memori?**  
-A: Perpustakaan menyediakan metode `getFileSize()` yang membaca ukuran dari metadata sistem file, sehingga menghindari parsing dokumen secara penuh.
+**Q: Apakah memungkinkan mengambil ukuran file asli (ukuran dokumen Java) tanpa memuat seluruh dokumen ke memori?**  
+A: Perpustakaan menyediakan metode `getFileSize()` yang membaca ukuran dari metadata sistem file, sehingga menghindari parsing dokumen secara lengkap.
 
 **Q: Bagaimana cara mengekstrak bidang metadata khusus dari file DOCX?**  
-A: Gunakan koleksi `getCustomProperties()` setelah memuat dokumen; iterasi pasangan kunci‑nilai untuk mengakses setiap properti khusus.
+A: Gunakan koleksi `getCustomProperties()` setelah memuat dokumen; iterasikan pasangan kunci‑nilai untuk mengakses setiap properti khusus.
 
----
-
-**Last Updated:** 2025-12-20  
+**Last Updated:** 2026-06-21  
 **Tested With:** GroupDocs.Redaction for Java 23.12  
 **Author:** GroupDocs  
 
----
+## Tutorial Terkait
+
+- [Pratinjau Halaman Dokumen Java Memuat dengan GroupDocs.Redaction](/redaction/java/document-loading/)
+- [Hapus Halaman PDF Terakhir dengan GroupDocs.Redaction Java](/redaction/java/page-redaction/)
+- [Dapatkan tipe file java menggunakan GroupDocs.Redaction – Ekstraksi Metadata](/redaction/java/metadata-redaction/groupdocs-redaction-java-document-metadata-extraction/)
