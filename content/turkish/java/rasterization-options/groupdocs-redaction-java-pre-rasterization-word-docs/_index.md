@@ -1,46 +1,93 @@
 ---
-date: '2026-02-16'
-description: GroupDocs Redaction'ı ön rasterizasyon ile kullanarak Word belgelerindeki
-  görüntüleri güvenli bir şekilde nasıl gizleyeceğinizi öğrenin. Adım adım kurulum,
-  kod ve sorun giderme içerir.
+date: '2026-05-22'
+description: GroupDocs Redaction Java ile Word belgelerini önceden rasterleştirerek
+  Word görüntülerini bitmap'e dönüştürmeyi ve güvenli bir şekilde kırpmayı öğrenin.
+  Kurulum, kullanım ve sorun giderme adımlarını içeren adım adım kılavuz.
 keywords:
-- GroupDocs.Redaction Java
-- pre-rasterization Word documents
-- image area redaction
-title: 'Java için GroupDocs Redaction nasıl kullanılır: Word Belgelerinde Ön Rasterleştirme'
+- how to pre rasterize
+- convert word images bitmap
+- groupdocs redaction java
+schemas:
+- author: GroupDocs
+  dateModified: '2026-05-22'
+  description: Learn how to pre rasterize Word docs with GroupDocs Redaction Java
+    to convert Word images to bitmap and securely redact them. Step‑by‑step guide
+    with setup, usage, and troubleshooting.
+  headline: How to pre rasterize Word docs with GroupDocs Redaction Java
+  type: TechArticle
+- description: Learn how to pre rasterize Word docs with GroupDocs Redaction Java
+    to convert Word images to bitmap and securely redact them. Step‑by‑step guide
+    with setup, usage, and troubleshooting.
+  name: How to pre rasterize Word docs with GroupDocs Redaction Java
+  steps:
+  - name: '**Sensitive Data Redaction:** Automatically obscure personal photos, signatures,
+      or scanned IDs before sharing.'
+    text: '**Sensitive Data Redaction:** Automatically obscure personal photos, signatures,
+      or scanned IDs before sharing.'
+  - name: '**Compliance Management:** Meet industry‑specific regulations by scrubbing
+      visual data from contracts or reports.'
+    text: '**Compliance Management:** Meet industry‑specific regulations by scrubbing
+      visual data from contracts or reports.'
+  - name: '**Secure Document Sharing:** Provide partners with redacted versions while
+      preserving the original layout.'
+    text: '**Secure Document Sharing:** Provide partners with redacted versions while
+      preserving the original layout.'
+  type: HowTo
+- questions:
+  - answer: It converts images inside a document to raster format during loading,
+      allowing pixel‑level redaction.
+    question: What is pre‑rasterization in GroupDocs Redaction for Java?
+  - answer: Use the `TextRedaction` class to define text patterns and replacement
+      options.
+    question: How do I apply text‑based redactions with this library?
+  - answer: Yes—wrap the redaction logic in a loop and reuse `LoadOptions` for each
+      file.
+    question: Can I process multiple documents in a single run?
+  - answer: Verify the file path, ensure the file isn’t locked, and confirm that `LoadOptions`
+      is correctly configured.
+    question: My document isn’t loading—what should I check?
+  - answer: Large images may need extra heap memory; increase the JVM `-Xmx` setting
+      or process pages individually.
+    question: Are there limits to redacting large images?
+  type: FAQPage
+title: GroupDocs Redaction Java kullanarak Word belgelerini önceden rasterleştirme
 type: docs
 url: /tr/java/rasterization-options/groupdocs-redaction-java-pre-rasterization-word-docs/
 weight: 1
 ---
 
-# Java için groupdocs redaction nasıl kullanılır: Word Belgelerinde Ön‑Rasterleştirme
+# Word belgelerini GroupDocs Redaction Java ile önceden rasterleştirme nasıl yapılır
 
-Bu öğreticide **groupdocs redaction** kullanarak Microsoft Word dosyalarını işlerken ön‑rasterleştirmeyi etkinleştirecek ve **Word belgelerindeki görüntüleri karartma** kolaylaştıracaksınız. Tam kurulumu adım adım gösterecek, kütüphaneyi nasıl yapılandıracağınızı anlatacak ve görüntü‑alanı karartmayı net, sohbet tarzı açıklamalarla göstereceğiz.
+Bu öğreticide, GroupDocs Redaction for Java kullanarak **Word belgelerini önceden rasterleştirmeyi** öğrenecek, **Word görüntülerini bitmap'e dönüştürmenizi** ve ardından piksel‑tam doğrulukla gizlemenizi sağlayacaksınız. Tam kurulumu adım adım gösterecek, temel API kavramlarını açıklayacak ve görüntü‑alanı gizlemesini gerçekleştirmek için kesin adımları sohbet tarzında, kolay‑takip edilebilir bir biçimde sunacağız.
 
 ## Hızlı Yanıtlar
-- **Pre‑rasterleştirme ne yapar?** Gömülü görüntüleri raster formatına dönüştürür, böylece verimli bir şekilde düzenlenebilir veya karartılabilir.  
-- **Bir lisansa ihtiyacım var mı?** Geliştirme için ücretsiz deneme sürümü yeterlidir; üretim için tam lisans gereklidir.  
+- **Ön‑rasterleştirme ne yapar?** Word dosyasındaki tüm gömülü görüntüleri bir bitmap'e dönüştürür, böylece gizleme motoru pikselleri doğrudan düzenleyebilir.  
+- **Bir lisansa ihtiyacım var mı?** Geliştirme için ücretsiz deneme yeterlidir; üretim dağıtımları için tam lisans gereklidir.  
 - **Hangi Java sürümü gereklidir?** Java 8 veya daha yenisi (JDK 11+ önerilir).  
-- **Birden fazla dosyayı işleyebilir miyim?** Evet—karartma mantığını bir döngü içinde sararak toplu işleme yapabilirsiniz.  
-- **Bellek bir sorun mu?** Büyük görüntüler daha büyük yığın (heap) boyutu gerektirebilir; JVM bellek kullanımını izleyin.
+- **Birden fazla dosyayı işleyebilir miyim?** Evet—gizleme mantığını bir döngü içinde sararak toplu işleme yapabilirsiniz.  
+- **Bellek bir sorun mu?** Büyük görüntüler daha büyük bir JVM yığını gerektirebilir (ör. `-Xmx2g`); toplu çalıştırmalarda kullanımı izleyin.  
 
-## groupdocs redaction'da ön‑rasterleştirme nedir?
-Ön‑rasterleştirme, bir Word belgesi içindeki tüm görüntüleri, herhangi bir karartma işlemi uygulanmadan önce bitmap verisine dönüştüren bir yükleme seçeneğidir. Bu dönüşüm, `ImageAreaRedaction` sınıfının tam piksel bölgelerini hedeflemesini sağlar ve görsel içeriğin kesin olarak kaldırılmasını veya maskelemesini temin eder.
+## GroupDocs Redaction'da ön‑rasterleştirme nedir?
+`ImageAreaRedaction` bir görüntünün belirli bir dikdörtgen bölgesini gizlemeyi hedefler.  
+**Ön‑rasterleştirme** seçeneği, dosya yüklendiğinde kütüphanenin Word belgesi içindeki her görüntüyü bitmap olarak render etmesini zorlar. Bu tek seferlik dönüşüm, `ImageAreaRedaction` sınıfının tam piksel koordinatlarıyla çalışmasını sağlar ve görsel içeriğin kesin kaldırılması veya maskelemesini garanti eder. Bu dönüşüm ayrıca sonraki piksel‑seviyesindeki işlemlerin doğru görsel veriye yönlendirilmesini de sağlar.
 
-## Word belgelerindeki görüntüleri karartmak için groupdocs redaction neden kullanılmalı?
-- **Güvenlik uyumu:** GDPR, HIPAA veya diğer veri‑gizliliği düzenlemelerini kolayca karşılayın.  
-- **Otomasyona hazır:** Belge akışlarına, içerik‑yönetim sistemlerine veya mikro‑servislere entegre edin.  
-- **Performansa odaklı:** Yükleme sırasında bir kez rasterleştirme, tekrarlanan işleme yükünü azaltır.
+## Word belgelerindeki görüntüleri gizlemek için neden GroupDocs Redaction kullanılmalı?
+GroupDocs Redaction, Word dosyalarından görsel verileri kaldırmak için güvenli, otomatik bir yol sunar; bu, kuruluşların gizlilik düzenlemelerine uymasına, gizlemeyi belge iş akışlarına entegre etmesine ve görüntüleri yalnızca bir kez rasterleştirerek tekrar tekrar işlem yapmaktan kaçınarak performansı artırmasına yardımcı olur. Çok çeşitli formatları destekler ve düzeni korurken büyük, görüntü‑ağır belgelerle ölçeklenebilir.
+
+- **Düzenleyici uyumluluk:** Görsel verileri tamamen silerek GDPR, HIPAA ve diğer gizlilik zorunluluklarını karşılar.  
+- **Otomasyon‑hazır:** CI/CD iş akışlarına, belge‑yönetim sistemlerine veya mikro‑servislere sorunsuz bir şekilde entegre olur.  
+- **Performans artışı:** Yükleme sırasında bir kez rasterleştirme, özellikle görüntü‑ağır dosyalar için tekrar eden işlem yükünü azaltır.  
+- **Geniş format desteği:** GroupDocs Redaction **70+ giriş ve çıkış formatını** destekler; DOCX, PPTX, PDF ve görüntü türleri dahil olmak üzere çok sayfalı belgeleri tüm dosyayı belleğe yüklemeden işleyebilir.  
 
 ## Önkoşullar
-- **GroupDocs.Redaction 24.9** (veya daha yeni) – rasterleştirme özelliğini sağlayan kütüphane.  
-- **Java Development Kit (JDK)** – makinenizde yüklü olan 8 veya daha yeni sürüm.  
-- Java sözdizimi ve Maven yapı araçları hakkında temel bilgi.
+- **GroupDocs.Redaction 24.9** (veya daha yeni) – ön‑rasterleştirme özelliğini sağlar.  
+- **Java Development Kit (JDK)** – sürüm 8 veya daha yenisi kurulu.  
+- Java sözdizimi ve Maven yapı araçları hakkında temel bilgi.  
 
-## Java için GroupDocs.Redaction Kurulumu
+## GroupDocs.Redaction for Java Kurulumu
 
 ### Maven Kurulumu
-Depoyu ve bağımlılığı `pom.xml` dosyanıza ekleyin:
+`pom.xml` dosyanıza depo ve bağımlılığı ekleyin:
 
 ```xml
 <repositories>
@@ -61,14 +108,14 @@ Depoyu ve bağımlılığı `pom.xml` dosyanıza ekleyin:
 ```
 
 ### Doğrudan İndirme
-Maven kullanmak istemiyorsanız, resmi sürüm sayfasından en son JAR dosyasını indirin: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+Maven kullanmak istemiyorsanız, resmi sürüm sayfasından en son JAR'ı indirin: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
 #### Lisans Edinme
 Ürünü değerlendirmek için ücretsiz deneme ile başlayın veya geçici bir lisans isteyin. Tam üretim özellikleri için kalıcı bir lisans satın alın.
 
 ## Temel Başlatma
 
-Aşağıda, ön‑rasterleştirme açık olarak bir `Redactor` örneği oluşturmak için gereken minimal Java kodu bulunmaktadır. Bu kod parçacığını elinizin altında tutun; sonraki adımlarda üzerine ekleyeceğiz.
+`Redactor`, belgeleri yüklemek ve gizleme eylemlerini uygulamak için ana giriş noktasıdır. Aşağıda, ön‑rasterleştirme etkinleştirilmiş bir `Redactor` örneği oluşturmak için gereken minimal Java kodu yer almaktadır. Bu kod parçacığını elinizde bulundurun; sonraki adımlarda üzerine inşa edeceğiz.
 
 ```java
 // Ensure necessary imports are included
@@ -90,12 +137,15 @@ public class DocumentRedaction {
 
 ## Uygulama Kılavuzu
 
-### Ön‑Rasterleştirmeyi Etkinleştirme
+### Ön‑rasterleştirme nasıl çalışır?
+Belgeyi `LoadOptions` `true` olarak ayarlanmış şekilde yükleyin ve GroupDocs Redaction, herhangi bir gizleme eylemi uygulanmadan önce her gömülü görüntüyü otomatik olarak bitmap'e dönüştürür. Bu, sonraki piksel‑seviyesindeki işlemlerin doğru görsel veriye yönlendirilmesini sağlar. Rasterleştirilmiş görüntüler bellek içinde saklanır, böylece orijinal vektörleri yeniden render etmeden gizleme komutlarına hızlı erişim mümkün olur.
 
-#### Genel Bakış
-`LoadOptions` `true` ile oluşturulduğunda, GroupDocs.Redaction Word dosyasındaki her görüntüyü yüklerken rasterleştirir ve piksel‑düzeyinde manipülasyon için hazır hale getirir.
+#### Ön‑Rasterleştirmeyi Etkinleştirme
 
-#### Adım‑Adım Talimatlar
+##### Genel Bakış
+`LoadOptions`, bir belgenin nasıl açılacağını yapılandırır; buna ön‑rasterleştirmenin etkinleştirilip etkinleştirilmeyeceği de dahildir. `LoadOptions` `true` ile oluşturulduğunda, GroupDocs Redaction Word dosyasındaki her görüntüyü yüklenirken rasterleştirir ve piksel‑seviyesinde manipülasyon için hazır hale getirir.
+
+##### Adım‑Adım Talimatlar
 
 **3.1 Load Options Ayarlama**  
 Rasterleştirme bayrağı `true` olarak ayarlanmış bir `LoadOptions` nesnesi oluşturun:
@@ -106,15 +156,15 @@ LoadOptions loadOptions = new LoadOptions(true);
 ```
 
 **3.2 Redactor Nesnesini Başlatma**  
-Belge rasterleştirme ile açılacak şekilde `loadOptions` parametresini `Redactor` yapıcısına geçirin:
+Belgenin rasterleştirme ile açılması için `loadOptions`'ı `Redactor` yapıcısına geçirin:
 
 ```java
 // Initialize the Redactor object using specified file path and load options
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX", loadOptions);
 ```
 
-**3.3 Görüntü Alanı Karartma Uygulama**  
-Gizlemek istediğiniz dikdörtgen bir bölgeyi (x, y, genişlik, yükseklik) tanımlayın, ardından bunu katı bir renkle değiştirin:
+**3.3 Görüntü Alanı Gizleme Uygulama**  
+Gizlemek istediğiniz dikdörtgen bölgeyi (x, y, genişlik, yükseklik) tanımlayın, ardından bunu katı bir renk ile değiştirin:
 
 ```java
 import com.groupdocs.redaction.redactions.ImageAreaRedaction;
@@ -131,58 +181,66 @@ redactor.apply(areaRedaction);
 ```
 
 ### Yaygın Tuzaklar ve Sorun Giderme İpuçları
-- **Belge Yolu Hataları:** Dosya yolunun doğru olduğundan ve uygulamanın okuma/yazma izinlerine sahip olduğundan emin olun.  
-- **Rasterleştirme Sorunları:** `LoadOptions` bayrağının `true` olarak ayarlandığını kontrol edin; aksi takdirde görüntü alanları vektör‑tabanlı kalır ve karartılamaz.  
-- **Bellek Kısıtlamaları:** Çok sayıda yüksek çözünürlüklü görüntü içeren büyük Word dosyaları daha büyük bir JVM yığını (`-Xmx2g` veya daha yüksek) gerektirebilir.
+- **Belge Yolu Hataları:** Dosya yolunun doğru olduğunu ve uygulamanın okuma/yazma izinlerine sahip olduğunu doğrulayın.  
+- **Rasterleştirme Sorunları:** `LoadOptions` bayrağının `true` olduğundan emin olun; aksi takdirde görüntü alanları vektör‑tabanlı kalır ve gizlenemez.  
+- **Bellek Kısıtlamaları:** Çok sayıda yüksek çözünürlüklü görüntü içeren büyük Word dosyaları daha büyük bir JVM yığını (`-Xmx2g` veya daha yüksek) gerektirebilir.  
 
 ## Pratik Uygulamalar
-1. **Hassas Veri Karartma:** Paylaşmadan önce kişisel fotoğrafları, imzaları veya taranmış kimlikleri otomatik olarak gizleyin.  
-2. **Uyum Yönetimi:** Sözleşmelerden veya raporlardan görsel verileri temizleyerek sektöre özgü düzenlemelere uyun.  
-3. **Güvenli Belge Paylaşımı:** Orijinal düzeni koruyarak ortaklara karartılmış belge sürümleri sağlayın.
 
-groupdocs redaction'ı mevcut iş akışlarına (ör. CI/CD boru hatları, belge‑yönetim API'leri) entegre etmek, uyum kontrollerini daha da otomatikleştirebilir.
+1. **Hassas Veri Gizleme:** Paylaşmadan önce kişisel fotoğrafları, imzaları veya taranmış kimlikleri otomatik olarak gizleyin.  
+2. **Uyumluluk Yönetimi:** Sözleşmelerden veya raporlardan görsel verileri temizleyerek sektöre özgü düzenlemelere uyun.  
+3. **Güvenli Belge Paylaşımı:** Orijinal düzeni koruyarak ortaklara gizlenmiş sürümler sunun.  
+
+GroupDocs Redaction'ı mevcut iş akışlarına (ör. CI/CD iş akışları, belge‑yönetim API'leri) entegre etmek, uyumluluk kontrollerini daha da otomatikleştirebilir.
 
 ## Performans Düşünceleri
-- **Verimli Bellek Yönetimi:** Yeterli yığın alanı tahsis edin ve `Redactor` örneklerini hızlıca kapatın (`try‑with‑resources` bloğu bunu otomatik yapar).  
-- **Kaynak Optimizasyonu:** `LoadOptions`'ı akıllıca kullanın—görüntü‑alanı düzenlemelerine ihtiyacınız olduğunda yalnızca rasterleştirmeyi etkinleştirin; aksi takdirde sadece metin‑tabanlı karartmalar için devre dışı tutarak daha hızlı çalışır.
 
-Bu uygulamaları izlemek, büyük ve görüntü‑ağırlıklı Word dosyalarında bile yanıt veren bir işleme sağlamaya yardımcı olur.
+- **Verimli Bellek Yönetimi:** Yeterli yığın alanı ayırın ve `Redactor` örneklerini hızlıca kapatın (`try‑with‑resources` bloğu bunu otomatik yapar).  
+- **Kaynak Optimizasyonu:** `LoadOptions`'ı akıllıca kullanın—görüntü‑alanı düzenlemelerine ihtiyacınız olduğunda rasterleştirmeyi etkinleştirin; aksi takdirde yalnızca metin‑gizlemeleri için devre dışı bırakın, böylece daha hızlı olur.  
+
+Bu uygulamaları izlemek, büyük ve görüntü‑ağır Word dosyalarında bile yanıt veren işlemeyi sürdürmeye yardımcı olur.
 
 ## Sonuç
-Artık **groupdocs redaction** kullanarak Word belgelerinde ön‑rasterleştirmeyi etkinleştirmeyi ve kesin görüntü‑alanı karartmalarını nasıl yapacağınızı öğrendiniz. Bu yetenek, görsel içeriği korumanızı, uyumlu kalmanızı ve güvenli belge dağıtımını kolaylaştırmanızı sağlar.
 
-**Sonraki adımlar:** Ek karartma türlerini (metin, meta veri) keşfedin, toplu işleme deneyin veya kütüphaneyi isteğe bağlı karartma için bir RESTful servise entegre edin.
+Artık **GroupDocs Redaction for Java ile Word belgelerini önceden rasterleştirmeyi** ve kesin görüntü‑alanı gizlemelerini nasıl yapacağınızı öğrendiniz. Bu yetenek, görsel içeriği korumanızı, uyumlu kalmanızı ve güvenli belge dağıtımını kolaylaştırmanızı sağlar.
 
-## Sıkça Sorulan Sorular
+**Sonraki adımlar:** Ek gizleme türlerini (metin, meta veri) keşfedin, toplu işlemeyi deneyin veya kütüphaneyi isteğe bağlı gizleme için bir RESTful hizmete sarın.
 
-**S1: groupdocs redaction for Java'da ön‑rasterleştirme nedir?**  
-C: Bir belgedeki görüntüleri yükleme sırasında raster formatına dönüştürür ve piksel‑düzeyinde karartma yapılmasını sağlar.
+## Sık Sorulan Sorular
 
-**S2: Bu kütüphane ile metin‑tabanlı karartmalar nasıl uygulanır?**  
-C: Metin desenlerini ve değiştirme seçeneklerini belirtmek için `TextRedaction` sınıfını kullanın.
+**S: GroupDocs Redaction for Java'da ön‑rasterleştirme nedir?**  
+C: Belge içindeki görüntüleri yükleme sırasında raster formatına dönüştürür, piksel‑seviyesinde gizlemeye olanak tanır.
 
-**S3: Tek bir çalıştırmada birden fazla belge işleyebilir miyim?**  
-C: Evet—karartma mantığını bir döngü içinde sarın ve her dosya için `LoadOptions`'ı yeniden kullanın.
+**S: Bu kütüphane ile metin‑tabanlı gizlemeleri nasıl uygularım?**  
+C: Metin desenlerini ve değiştirme seçeneklerini tanımlamak için `TextRedaction` sınıfını kullanın.
 
-**S4: Belgem yüklenmıyor—ne kontrol etmeliyim?**  
+**S: Tek bir çalıştırmada birden fazla belge işleyebilir miyim?**  
+C: Evet—gizleme mantığını bir döngü içinde sarın ve her dosya için `LoadOptions`'ı yeniden kullanın.
+
+**S: Belgem yüklenmıyor—ne kontrol etmeliyim?**  
 C: Dosya yolunu doğrulayın, dosyanın kilitli olmadığından emin olun ve `LoadOptions`'ın doğru yapılandırıldığını kontrol edin.
 
-**S5: Büyük görüntüleri karartmada sınırlamalar var mı?**  
-C: Büyük görüntüler ek yığın belleği gerektirebilir; JVM `-Xmx` ayarını artırmayı veya sayfaları ayrı ayrı işlemeyi düşünün.
+**S: Büyük görüntüleri gizlemede sınırlamalar var mı?**  
+C: Büyük görüntüler ekstra yığın belleği gerektirebilir; JVM `-Xmx` ayarını artırın veya sayfaları tek tek işleyin.
 
-**S6: groupdocs redaction PDF dosyalarını da destekliyor mu?**  
-C: Kesinlikle—PDF'ler için benzer rasterleştirme seçenekleri bulunur ve formatlar arasında görüntü‑alanı karartmayı mümkün kılar.
+**S: GroupDocs Redaction PDF dosyalarını da destekliyor mu?**  
+C: Kesinlikle—PDF'ler için benzer rasterleştirme seçenekleri vardır ve formatlar arasında görüntü‑alanı gizlemesini sağlar.
 
 ---
 
-**Son Güncelleme:** 2026-02-16  
-**Test Edilen Versiyon:** GroupDocs.Redaction 24.9 for Java  
+**Son Güncelleme:** 2026-05-22  
+**Test Edilen:** GroupDocs.Redaction 24.9 for Java  
 **Yazar:** GroupDocs  
 
-**Kaynaklar**
 - **Dokümantasyon:** [GroupDocs.Redaction Java Documentation](https://docs.groupdocs.com/redaction/java/)  
 - **API Referansı:** [GroupDocs.Redaction API Reference](https://reference.groupdocs.com/redaction/java)  
 - **İndirme:** [GroupDocs.Redaction Downloads](https://releases.groupdocs.com/redaction/java/)  
 - **GitHub Deposu:** [GroupDocs.Redaction on GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - **Ücretsiz Destek Forumu:** [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33)  
-- **Geçici Lisans:** [Request a Temporary License](https://purchase.groupdocs.com/temporary-license/)
+- **Geçici Lisans:** [Request a Temporary License](https://purchase.groupdocs.com/temporary-license/)  
+
+## İlgili Öğreticiler
+
+- [GroupDocs Redaction Java Kullanarak DOCX'i Görüntüye Dönüştürme ve Word Belgelerini Gizleme](/redaction/java/document-saving/groupdocs-redaction-java-rasterize-word-docs/)
+- [GroupDocs.Redaction for Java Kullanarak Word Belgelerindeki Görüntüleri Gizleme – Kapsamlı Rehber](/redaction/java/image-redaction/redact-images-word-docs-groupdocs-redaction-java/)
+- [GroupDocs.Redaction Java için Rasterleştirme Seçenekleri Öğreticileri](/redaction/java/rasterization-options/)

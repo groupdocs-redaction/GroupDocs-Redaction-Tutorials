@@ -1,41 +1,87 @@
 ---
-date: '2026-02-16'
-description: Scopri come utilizzare GroupDocs Redaction con pre‑rasterizzazione per
-  cancellare in modo sicuro le immagini nei documenti Word. Include configurazione
-  passo‑passo, codice e risoluzione dei problemi.
+date: '2026-05-22'
+description: Scopri come pre‑rasterizzare i documenti Word con GroupDocs Redaction
+  Java per convertire le immagini Word in bitmap e redigerle in modo sicuro. Guida
+  passo‑passo con configurazione, utilizzo e risoluzione dei problemi.
 keywords:
-- GroupDocs.Redaction Java
-- pre-rasterization Word documents
-- image area redaction
-title: 'Come utilizzare GroupDocs Redaction per Java: pre‑rasterizzazione nei documenti
-  Word'
+- how to pre rasterize
+- convert word images bitmap
+- groupdocs redaction java
+schemas:
+- author: GroupDocs
+  dateModified: '2026-05-22'
+  description: Learn how to pre rasterize Word docs with GroupDocs Redaction Java
+    to convert Word images to bitmap and securely redact them. Step‑by‑step guide
+    with setup, usage, and troubleshooting.
+  headline: How to pre rasterize Word docs with GroupDocs Redaction Java
+  type: TechArticle
+- description: Learn how to pre rasterize Word docs with GroupDocs Redaction Java
+    to convert Word images to bitmap and securely redact them. Step‑by‑step guide
+    with setup, usage, and troubleshooting.
+  name: How to pre rasterize Word docs with GroupDocs Redaction Java
+  steps:
+  - name: '**Sensitive Data Redaction:** Automatically obscure personal photos, signatures,
+      or scanned IDs before sharing.'
+    text: '**Sensitive Data Redaction:** Automatically obscure personal photos, signatures,
+      or scanned IDs before sharing.'
+  - name: '**Compliance Management:** Meet industry‑specific regulations by scrubbing
+      visual data from contracts or reports.'
+    text: '**Compliance Management:** Meet industry‑specific regulations by scrubbing
+      visual data from contracts or reports.'
+  - name: '**Secure Document Sharing:** Provide partners with redacted versions while
+      preserving the original layout.'
+    text: '**Secure Document Sharing:** Provide partners with redacted versions while
+      preserving the original layout.'
+  type: HowTo
+- questions:
+  - answer: It converts images inside a document to raster format during loading,
+      allowing pixel‑level redaction.
+    question: What is pre‑rasterization in GroupDocs Redaction for Java?
+  - answer: Use the `TextRedaction` class to define text patterns and replacement
+      options.
+    question: How do I apply text‑based redactions with this library?
+  - answer: Yes—wrap the redaction logic in a loop and reuse `LoadOptions` for each
+      file.
+    question: Can I process multiple documents in a single run?
+  - answer: Verify the file path, ensure the file isn’t locked, and confirm that `LoadOptions`
+      is correctly configured.
+    question: My document isn’t loading—what should I check?
+  - answer: Large images may need extra heap memory; increase the JVM `-Xmx` setting
+      or process pages individually.
+    question: Are there limits to redacting large images?
+  type: FAQPage
+title: Come pre‑rasterizzare i documenti Word con GroupDocs Redaction Java
 type: docs
 url: /it/java/rasterization-options/groupdocs-redaction-java-pre-rasterization-word-docs/
 weight: 1
 ---
 
-# Come utilizzare groupdocs redaction per Java: Pre‑Rasterizzazione nei Documenti Word
+# Come pre‑rasterizzare documenti Word con GroupDocs Redaction Java
 
-In questo tutorial **userai groupdocs redaction** per abilitare la pre‑rasterizzazione durante l'elaborazione dei file Microsoft Word, rendendo più semplice **redigere le immagini contenute nei documenti Word**. Ti guideremo attraverso l'intera configurazione, ti mostreremo come impostare la libreria e dimostreremo la redazione di aree immagine con spiegazioni chiare e conversazionali.
+In questo tutorial imparerai **come pre‑rasterizzare i documenti Word** usando GroupDocs Redaction per Java, consentendoti di **convertire le immagini Word in bitmap** e poi redigerle con precisione pixel‑perfetta. Ti guideremo attraverso l'intera configurazione, spiegheremo i concetti chiave dell'API e ti mostreremo i passaggi esatti per eseguire la redazione di aree immagine in uno stile conversazionale e facile da seguire.
 
-## Risposte Rapide
-- **Cosa fa la pre‑rasterizzazione?** Converte le immagini incorporate in un formato raster in modo che possano essere modificate o redatte in modo efficiente.  
-- **Ho bisogno di una licenza?** Una versione di prova gratuita è sufficiente per lo sviluppo; è necessaria una licenza completa per la produzione.  
-- **Quale versione di Java è richiesta?** Java 8 o superiore (consigliato JDK 11+).  
-- **Posso elaborare più file?** Sì—incapsula la logica di redazione in un ciclo per l'elaborazione batch.  
-- **La memoria è un problema?** Le immagini di grandi dimensioni potrebbero richiedere un aumento della dimensione dell'heap; monitora l'uso della memoria della JVM.
+## Risposte rapide
+- **Che cosa fa la pre‑rasterizzazione?** Converte ogni immagine incorporata in un file Word in una bitmap in modo che il motore di redazione possa modificare i pixel direttamente.  
+- **Ho bisogno di una licenza?** Una prova gratuita è sufficiente per lo sviluppo; è necessaria una licenza completa per le distribuzioni in produzione.  
+- **Quale versione di Java è richiesta?** Java 8 o successiva (consigliato JDK 11+).  
+- **Posso elaborare più file?** Sì—avvolgi la logica di redazione in un ciclo per l'elaborazione batch.  
+- **La memoria è un problema?** Le immagini di grandi dimensioni potrebbero richiedere un heap JVM più grande (ad es., `-Xmx2g`); monitora l'utilizzo durante le esecuzioni batch.
 
-## Cos'è la pre‑rasterizzazione in groupdocs redaction?
-La pre‑rasterizzazione è un'opzione di caricamento che trasforma tutte le immagini all'interno di un documento Word in dati bitmap prima che vengano applicate le azioni di redazione. Questa conversione consente alla classe `ImageAreaRedaction` di mirare a regioni pixel‑precise, garantendo la rimozione o la mascheratura accurata del contenuto visivo.
+## Cos'è la pre‑rasterizzazione in GroupDocs Redaction?
+`ImageAreaRedaction` mira a una specifica regione rettangolare di un'immagine per la redazione.  
+L'opzione **pre‑rasterizzazione** costringe la libreria a renderizzare ogni immagine all'interno di un documento Word come bitmap quando il file viene caricato. Questa conversione una tantum consente alla classe `ImageAreaRedaction` di lavorare con coordinate pixel esatte, garantendo la rimozione o la mascheratura precisa del contenuto visivo. Questa conversione assicura inoltre che le operazioni successive a livello di pixel puntino ai dati visivi corretti.
 
-## Perché utilizzare groupdocs redaction per redigere le immagini nei documenti Word?
-- **Conformità alla sicurezza:** Rispettare facilmente GDPR, HIPAA o altre normative sulla privacy dei dati.  
-- **Pronto per l'automazione:** Integrarlo in pipeline di documenti, sistemi di gestione dei contenuti o micro‑servizi.  
-- **Focalizzato sulle prestazioni:** Rasterizzare una volta al caricamento riduce il sovraccarico di elaborazione ripetuta.  
+## Perché usare GroupDocs Redaction per redigere immagini nei documenti Word?
+GroupDocs Redaction fornisce un modo sicuro e automatizzato per rimuovere dati visivi dai file Word, aiutando le organizzazioni a rispettare le normative sulla privacy, integrare la redazione nei flussi di lavoro documentali e migliorare le prestazioni rasterizzando le immagini una sola volta anziché elaborararle ripetutamente. Supporta un'ampia gamma di formati e scala a documenti di grandi dimensioni ricchi di immagini, preservando il layout.
+
+- **Conformità normativa:** Soddisfa GDPR, HIPAA e altri obblighi di privacy cancellando completamente i dati visivi.  
+- **Pronto per l'automazione:** Si integra perfettamente nei pipeline CI/CD, sistemi di gestione documentale o micro‑servizi.  
+- **Miglioramento delle prestazioni:** Rasterizzare una sola volta al caricamento riduce il sovraccarico di elaborazione ripetuta, specialmente per file ricchi di immagini.  
+- **Ampio supporto di formati:** GroupDocs Redaction gestisce **oltre 70 formati di input e output**, inclusi DOCX, PPTX, PDF e tipi di immagine, e può elaborare documenti di centinaia di pagine senza caricare l'intero file in memoria.
 
 ## Prerequisiti
-- **GroupDocs.Redaction 24.9** (o successiva) – la libreria che fornisce la funzionalità di rasterizzazione.  
-- **Java Development Kit (JDK)** – versione 8 o successiva installata sulla tua macchina.  
+- **GroupDocs.Redaction 24.9** (o successivo) – fornisce la funzionalità di pre‑rasterizzazione.  
+- **Java Development Kit (JDK)** – versione 8 o successiva installata.  
 - Familiarità di base con la sintassi Java e gli strumenti di build Maven.  
 
 ## Configurazione di GroupDocs.Redaction per Java
@@ -61,15 +107,15 @@ Aggiungi il repository e la dipendenza al tuo file `pom.xml`:
 </dependencies>
 ```
 
-### Download Diretto
-Se preferisci non usare Maven, scarica l'ultimo JAR dalla pagina di rilascio ufficiale: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+### Download diretto
+Se preferisci non usare Maven, scarica l'ultimo JAR dalla pagina di rilascio ufficiale: [GroupDocs.Redaction per Java - rilasci](https://releases.groupdocs.com/redaction/java/).
 
-#### Acquisizione Licenza
+#### Acquisizione della licenza
 Inizia con una prova gratuita o richiedi una licenza temporanea per valutare il prodotto. Per le funzionalità complete in produzione, acquista una licenza permanente.
 
-## Inizializzazione di Base
+## Inizializzazione di base
 
-Di seguito trovi il codice Java minimo necessario per creare un'istanza `Redactor` con la pre‑rasterizzazione attivata. Tieni a portata di mano questo snippet; lo utilizzeremo nei passaggi successivi.
+`Redactor` è il punto di ingresso principale per caricare documenti e applicare azioni di redazione. Di seguito trovi il codice Java minimo necessario per creare un'istanza `Redactor` con la pre‑rasterizzazione attivata. Tieni a portata di mano questo snippet; lo utilizzeremo nei passaggi successivi.
 
 ```java
 // Ensure necessary imports are included
@@ -89,16 +135,19 @@ public class DocumentRedaction {
 }
 ```
 
-## Guida all'Implementazione
+## Guida all'implementazione
 
-### Abilitare la Pre‑Rasterizzazione
+### Come funziona la pre‑rasterizzazione?
+Carica il documento con `LoadOptions` impostato su `true` e GroupDocs Redaction converte automaticamente ogni immagine incorporata in una bitmap prima che vengano applicate le azioni di redazione. Questo garantisce che le operazioni successive a livello di pixel puntino ai dati visivi corretti. Le immagini rasterizzate sono memorizzate in memoria, consentendo un accesso rapido per i comandi di redazione senza dover rieseguire il rendering dei vettori originali.
 
-#### Panoramica
-Quando `LoadOptions` viene costruito con `true`, GroupDocs.Redaction rasterizza ogni immagine nel file Word al momento del caricamento, preparandola per la manipolazione a livello di pixel.
+#### Abilitazione della pre‑rasterizzazione
 
-#### Istruzioni Passo‑per‑Passo
+##### Panoramica
+`LoadOptions` configura il modo in cui un documento viene aperto, inclusa l'opzione di abilitare la pre‑rasterizzazione. Quando `LoadOptions` è costruito con `true`, GroupDocs Redaction rasterizza ogni immagine nel file Word al momento del caricamento, preparandole per la manipolazione a livello di pixel.
 
-**3.1 Configurazione delle Opzioni di Caricamento**  
+##### Istruzioni passo‑passo
+
+**3.1 Configurazione delle opzioni di caricamento**  
 Crea un oggetto `LoadOptions` con il flag di rasterizzazione impostato su `true`:
 
 ```java
@@ -106,15 +155,15 @@ Crea un oggetto `LoadOptions` con il flag di rasterizzazione impostato su `true`
 LoadOptions loadOptions = new LoadOptions(true);
 ```
 
-**3.2 Inizializzazione dell'Oggetto Redactor**  
-Passa `loadOptions` al costruttore `Redactor` in modo che il documento venga aperto con la rasterizzazione:
+**3.2 Inizializzazione dell'oggetto Redactor**  
+Passa `loadOptions` al costruttore `Redactor` affinché il documento venga aperto con la rasterizzazione:
 
 ```java
 // Initialize the Redactor object using specified file path and load options
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX", loadOptions);
 ```
 
-**3.3 Applicare la Redazione dell'Area Immagine**  
+**3.3 Applicazione della redazione di area immagine**  
 Definisci una regione rettangolare (x, y, larghezza, altezza) che desideri nascondere, quindi sostituiscila con un colore solido:
 
 ```java
@@ -131,63 +180,69 @@ RegionReplacementOptions options = new RegionReplacementOptions(java.awt.Color.B
 redactor.apply(areaRedaction);
 ```
 
-### Problemi Comuni & Suggerimenti per la Risoluzione
-- **Errori di Percorso del Documento:** Verifica che il percorso del file sia corretto e che l'applicazione abbia i permessi di lettura/scrittura.  
-- **Problemi di Rasterizzazione:** Assicurati che il flag `LoadOptions` sia impostato su `true`; altrimenti le aree immagine rimarranno basate su vettori e non potranno essere redatte.  
-- **Vincoli di Memoria:** File Word di grandi dimensioni con molte immagini ad alta risoluzione potrebbero richiedere un heap JVM più grande (`-Xmx2g` o superiore).  
+### Problemi comuni e suggerimenti per la risoluzione
+- **Errori di percorso del documento:** Verifica che il percorso del file sia corretto e che l'applicazione abbia i permessi di lettura/scrittura.  
+- **Problemi di rasterizzazione:** Assicurati che il flag `LoadOptions` sia impostato su `true`; altrimenti le aree immagine rimangono vettoriali e non possono essere redatte.  
+- **Vincoli di memoria:** I file Word di grandi dimensioni con molte immagini ad alta risoluzione potrebbero richiedere un heap JVM più grande (`-Xmx2g` o superiore).  
 
-## Applicazioni Pratiche
+## Applicazioni pratiche
 
-1. **Redazione di Dati Sensibili:** Oscura automaticamente foto personali, firme o ID scansionati prima della condivisione.  
-2. **Gestione della Conformità:** Rispetta le normative specifiche del settore eliminando i dati visivi da contratti o report.  
-3. **Condivisione Sicura dei Documenti:** Fornisci ai partner versioni redatte dei documenti mantenendo il layout originale.  
+1. **Redazione di dati sensibili:** Oscura automaticamente foto personali, firme o ID scansionati prima della condivisione.  
+2. **Gestione della conformità:** Rispetta le normative specifiche del settore rimuovendo i dati visivi da contratti o rapporti.  
+3. **Condivisione sicura di documenti:** Fornisci ai partner versioni redatte mantenendo il layout originale.  
 
-Integrare groupdocs redaction nei flussi di lavoro esistenti (ad es., pipeline CI/CD, API di gestione documenti) può automatizzare ulteriormente i controlli di conformità.
+Integrare GroupDocs Redaction nei flussi di lavoro esistenti (ad es., pipeline CI/CD, API di gestione documentale) può ulteriormente automatizzare i controlli di conformità.
 
-## Considerazioni sulle Prestazioni
+## Considerazioni sulle prestazioni
 
-- **Gestione Efficiente della Memoria:** Assegna spazio heap sufficiente e chiudi prontamente le istanze `Redactor` (il blocco `try‑with‑resources` lo fa automaticamente).  
-- **Ottimizzazione delle Risorse:** Usa `LoadOptions` con saggezza—abilita la rasterizzazione solo quando hai bisogno di modifiche alle aree immagine; altrimenti lasciala disabilitata per redazioni più veloci solo di testo.  
+- **Gestione efficiente della memoria:** Assegna spazio heap sufficiente e chiudi prontamente le istanze di `Redactor` (il blocco `try‑with‑resources` lo fa automaticamente).  
+- **Ottimizzazione delle risorse:** Usa saggiamente `LoadOptions`—abilita la rasterizzazione solo quando hai bisogno di modifiche su aree immagine; altrimenti mantienila disabilitata per redazioni più veloci solo di testo.  
 
 Seguire queste pratiche aiuta a mantenere un'elaborazione reattiva anche con file Word di grandi dimensioni e ricchi di immagini.
 
 ## Conclusione
 
-Ora hai imparato come **usare groupdocs redaction** per abilitare la pre‑rasterizzazione nei documenti Word e eseguire redazioni precise di aree immagine. Questa funzionalità ti consente di proteggere i contenuti visivi, rimanere conforme e semplificare la distribuzione sicura dei documenti.
+Hai ora imparato **come pre‑rasterizzare documenti Word con GroupDocs Redaction per Java** e eseguire redazioni precise di aree immagine. Questa capacità ti consente di proteggere i contenuti visivi, rimanere conforme e semplificare la distribuzione sicura dei documenti.
 
-**Passi successivi:** Esplora ulteriori tipi di redazione (testo, metadati), sperimenta l'elaborazione batch o integra la libreria in un servizio RESTful per redazione on‑demand.
+**Passi successivi:** Esplora altri tipi di redazione (testo, metadati), sperimenta l'elaborazione batch o avvolgi la libreria in un servizio RESTful per la redazione su richiesta.
 
-## Domande Frequenti
+## Domande frequenti
 
-**Q1: Cos'è la pre‑rasterizzazione in groupdocs redaction per Java?**  
-R: Converte le immagini all'interno di un documento in formato raster durante il caricamento, consentendo la redazione a livello di pixel.
+**Q: Che cos'è la pre‑rasterizzazione in GroupDocs Redaction per Java?**  
+A: Converte le immagini all'interno di un documento in formato raster durante il caricamento, consentendo la redazione a livello di pixel.
 
-**Q2: Come applicare redazioni basate su testo con questa libreria?**  
-R: Usa la classe `TextRedaction` per specificare i pattern di testo e le opzioni di sostituzione.
+**Q: Come applico redazioni basate su testo con questa libreria?**  
+A: Usa la classe `TextRedaction` per definire pattern di testo e opzioni di sostituzione.
 
-**Q3: Posso elaborare più documenti in un'unica esecuzione?**  
-R: Sì—incapsula la logica di redazione in un ciclo e riutilizza `LoadOptions` per ogni file.
+**Q: Posso elaborare più documenti in un'unica esecuzione?**  
+A: Sì—avvolgi la logica di redazione in un ciclo e riutilizza `LoadOptions` per ogni file.
 
-**Q4: Il mio documento non si carica—cosa devo controllare?**  
-R: Verifica il percorso del file, assicurati che il file non sia bloccato e conferma che `LoadOptions` sia configurato correttamente.
+**Q: Il mio documento non si carica—cosa devo controllare?**  
+A: Verifica il percorso del file, assicurati che il file non sia bloccato e conferma che `LoadOptions` sia configurato correttamente.
 
-**Q5: Ci sono limiti nella redazione di immagini di grandi dimensioni?**  
-R: Le immagini grandi potrebbero richiedere più memoria heap; considera di aumentare l'impostazione JVM `-Xmx` o di elaborare le pagine singolarmente.
+**Q: Ci sono limiti alla redazione di immagini di grandi dimensioni?**  
+A: Le immagini grandi possono richiedere più memoria heap; aumenta l'impostazione JVM `-Xmx` o elabora le pagine singolarmente.
 
-**Q6: groupdocs redaction supporta anche i file PDF?**  
-R: Assolutamente—esistono opzioni di rasterizzazione simili per i PDF, consentendo la redazione di aree immagine su più formati.
+**Q: GroupDocs Redaction supporta anche i file PDF?**  
+A: Assolutamente—esistono opzioni di rasterizzazione simili per i PDF, consentendo la redazione di aree immagine su tutti i formati.
 
 ---
 
-**Last Updated:** 2026-02-16  
-**Tested With:** GroupDocs.Redaction 24.9 for Java  
+**Last Updated:** 2026-05-22  
+**Tested With:** GroupDocs.Redaction 24.9 for Java  
 **Author:** GroupDocs  
 
 **Resources**
 
-- **Documentazione:** [GroupDocs.Redaction Java Documentation](https://docs.groupdocs.com/redaction/java/)  
-- **Riferimento API:** [GroupDocs.Redaction API Reference](https://reference.groupdocs.com/redaction/java)  
-- **Download:** [GroupDocs.Redaction Downloads](https://releases.groupdocs.com/redaction/java/)  
-- **Repository GitHub:** [GroupDocs.Redaction on GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
-- **Forum di Supporto Gratuito:** [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33)  
-- **Licenza Temporanea:** [Request a Temporary License](https://purchase.groupdocs.com/temporary-license/)
+- **Documentazione:** [Documentazione GroupDocs.Redaction Java](https://docs.groupdocs.com/redaction/java/)  
+- **Riferimento API:** [Riferimento API GroupDocs.Redaction](https://reference.groupdocs.com/redaction/java)  
+- **Download:** [Download GroupDocs.Redaction](https://releases.groupdocs.com/redaction/java/)  
+- **Repository GitHub:** [Repository GitHub di GroupDocs.Redaction](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
+- **Forum di supporto gratuito GroupDocs:** [Forum di supporto gratuito GroupDocs](https://forum.groupdocs.com/c/redaction/33)  
+- **Richiedi una licenza temporanea:** [Richiedi una licenza temporanea](https://purchase.groupdocs.com/temporary-license/)
+
+## Tutorial correlati
+
+- [Come convertire DOCX in immagine e redigere documenti Word usando GroupDocs Redaction Java](/redaction/java/document-saving/groupdocs-redaction-java-rasterize-word-docs/)
+- [Come redigere immagini nei documenti Word usando GroupDocs.Redaction per Java – Guida completa](/redaction/java/image-redaction/redact-images-word-docs-groupdocs-redaction-java/)
+- [Tutorial sulle opzioni di rasterizzazione per GroupDocs.Redaction Java](/redaction/java/rasterization-options/)

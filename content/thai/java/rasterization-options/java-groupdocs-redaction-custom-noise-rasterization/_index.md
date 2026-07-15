@@ -1,62 +1,89 @@
 ---
-date: '2026-02-13'
-description: เรียนรู้วิธีการทำ custom noise rasterization ใน Java และซ่อนข้อมูลที่ละเอียดอ่อนใน
-  Java ด้วย GroupDocs.Redaction for Java ปกป้องเอกสารด้วยการทำ redaction ที่ดูสวยงามและรักษาความเป็นส่วนตัวของข้อมูล.
+date: '2026-05-22'
+description: เรียนรู้วิธีลบข้อมูลในเอกสารโดยใช้ Custom Noise Rasterization ใน Java
+  กับ GroupDocs.Redaction และซ่อนข้อมูลที่ละเอียดอ่อนใน Java พร้อมคงรูปลักษณ์มืออาชีพ
 keywords:
-- custom noise rasterization Java
-- GroupDocs Redaction document security
-- Java document redaction techniques
-title: 'การเรสเตอร์ไลซ์นอยส์แบบกำหนดเองใน Java: ปกป้องข้อมูลที่ละเอียดอ่อนด้วย GroupDocs.Redaction'
+- how to redact documents
+- hide sensitive data java
+schemas:
+- author: GroupDocs
+  dateModified: '2026-05-22'
+  description: Learn how to redact documents using custom noise rasterization Java
+    with GroupDocs.Redaction, and hide sensitive data Java while keeping a professional
+    look.
+  headline: How to Redact Documents with Custom Noise Rasterization in Java
+  type: TechArticle
+- description: Learn how to redact documents using custom noise rasterization Java
+    with GroupDocs.Redaction, and hide sensitive data Java while keeping a professional
+    look.
+  name: How to Redact Documents with Custom Noise Rasterization in Java
+  steps:
+  - name: Initialize Redactor with Document
+    text: The `Redactor` class is GroupDocs.Redaction's core engine that loads, processes,
+      and saves PDF or image documents. First, create a `Redactor` object that points
+      to the file you want to protect. **Why?** Initializing the Redactor loads the
+      document into memory and sets up the internal engine needed f
+  - name: Configure SaveOptions with Advanced Noise Settings
+    text: The `SaveOptions` class holds all export‑time parameters, including rasterization
+      and custom noise settings. The `AdvancedRasterizationOptions.Noise` option accepts
+      a map of key/value pairs that define noise density and spot size. **Why?** These
+      settings let you control how dense the noise appears (
+  - name: Apply Settings and Save the Document
+    text: Call the `save` method with the configured `SaveOptions`. This writes a
+      new file that contains your custom noise rasterization, ready for distribution.
+      **Why?** Saving commits all changes, ensuring the redacted document is stored
+      with the noise effect applied and ready for secure sharing.
+  type: HowTo
+- questions:
+  - answer: A technique that fills redacted areas with randomly placed noise spots
+      to obscure underlying content.
+    question: What is custom noise rasterization java?
+  - answer: It provides a reliable API for redacting many document formats, including
+      PDFs, DOCX, and images.
+    question: Why use GroupDocs.Redaction?
+  - answer: A free trial works for testing; a production license is required for commercial
+      use.
+    question: Do I need a license?
+  - answer: JDK 8 or higher.
+    question: Which Java version is required?
+  - answer: Yes—parameters like `maxSpots` and `spotMaxSize` let you control density
+      and spot size.
+    question: Can I customize noise density?
+  type: FAQPage
+title: วิธีลบข้อมูลในเอกสารด้วย Custom Noise Rasterization ใน Java
 type: docs
 url: /th/java/rasterization-options/java-groupdocs-redaction-custom-noise-rasterization/
 weight: 1
 ---
 
-# Custom Noise Rasterization Java: ปกป้องข้อมูลที่ละเอียดอ่อนด้วย GroupDocs.Redaction
+# วิธีทำการลบข้อมูลในเอกสารด้วยการราสเตอร์เสียงรบกวนแบบกำหนดเองใน Java
 
-การปกป้องข้อมูลที่ละเอียดอ่อนในเอกสารพร้อมกับคงความสวยงามของภาพอาจเป็นเรื่องท้าทาย โดยเฉพาะเมื่อทำงานกับรูปภาพหรือหน้าที่สแกนไว้ ด้วย **GroupDocs.Redaction for Java** คุณสามารถใช้ **custom noise rasterization java** เพื่อทำให้ข้อมูลถูกทำให้มองไม่เห็นอย่างมีประสิทธิภาพและ **hide sensitive data java** บทเรียนนี้จะพาคุณผ่านกระบวนการทั้งหมด ตั้งแต่การตั้งค่าโปรเจกต์จนถึงการใช้เอฟเฟกต์เสียงรบกวนที่เป็นเอกลักษณ์เพื่อปกป้องเนื้อหาในเอกสารโดยไม่ทำให้การอ่านยากลง
+ในบทแนะนำนี้คุณจะได้ค้นพบ **วิธีลบข้อมูลในเอกสาร** โดยใช้การราสเตอร์เสียงรบกวนแบบกำหนดเองกับ GroupDocs.Redaction สำหรับ Java เราจะเดินผ่านการตั้งค่าห้องสมุด, การกำหนดค่าพารามิเตอร์เสียงรบกวน, และการบันทึกไฟล์ที่ลบข้อมูลแล้วอย่างเรียบหรู—เพื่อให้คุณสามารถปกป้องข้อมูลที่ละเอียดอ่อนได้โดยไม่เสียคุณภาพภาพ
 
-**What You'll Learn**
-- วิธีตั้งค่า GroupDocs.Redaction ในโปรเจกต์ Java
-- วิธีกำหนดค่าการทำ rasterization ของเสียงรบกวนแบบกำหนดเองโดยใช้ตัวเลือกขั้นสูง
-- วิธีบันทึกเอกสารที่ถูกลบข้อมูลแล้วให้ดูเป็นมืออาชีพพร้อมกับรักษาความเป็นส่วนตัวของข้อมูล
+## คำตอบสั้น
+- **Custom noise rasterization java คืออะไร?** เทคนิคที่เติมพื้นที่ที่ลบข้อมูลด้วยจุดเสียงรบกวนแบบสุ่มเพื่อทำให้เนื้อหาภายใต้ไม่สามารถมองเห็นได้  
+- **ทำไมต้องใช้ GroupDocs.Redaction?** มันให้ API ที่เชื่อถือได้สำหรับการลบข้อมูลในหลายรูปแบบเอกสาร รวมถึง PDF, DOCX, และรูปภาพ  
+- **ต้องการใบอนุญาตหรือไม่?** ฟรีเทรลทำงานสำหรับการทดสอบ; ใบอนุญาตการผลิตจำเป็นสำหรับการใช้งานเชิงพาณิชย์  
+- **ต้องใช้ Java เวอร์ชันใด?** JDK 8 หรือสูงกว่า  
+- **สามารถปรับความหนาแน่นของเสียงรบกวนได้หรือไม่?** ได้ — พารามิเตอร์เช่น `maxSpots` และ `spotMaxSize` ให้คุณควบคุมความหนาแน่นและขนาดของจุด
 
-มาเริ่มต้นด้วยการเตรียมความพร้อมกันเถอะ!
+## การราสเตอร์เสียงรบกวนแบบกำหนดเองใน Java คืออะไร
+Custom noise rasterization java แทนที่เนื้อหาที่คุณต้องการปกป้องด้วยลวดลายของจุดเสียงรบกวนแบบสุ่ม แตกต่างจากกล่องสีดำธรรมดา วิธีนี้ทำให้พื้นที่ที่ลบข้อมูลดูเป็นธรรมชาติและยากต่อการย้อนกลับ ซึ่งเป็นประโยชน์อย่างยิ่งสำหรับภาพสแกนหรือ PDF
 
-## Quick Answers
-- **What is custom noise rasterization java?** เทคนิคที่เติมพื้นที่ที่ถูกลบข้อมูลด้วยจุดเสียงรบกวนแบบสุ่มเพื่อทำให้เนื้อหาต้นฉบับถูกปกปิด
-- **Why use GroupDocs.Redaction?** มันให้ API ที่เชื่อถือได้สำหรับการลบข้อมูลในหลายรูปแบบเอกสาร รวมถึง PDF, DOCX และรูปภาพ
-- **Do I need a license?** สามารถใช้รุ่นทดลองฟรีสำหรับการทดสอบ; จำเป็นต้องมีไลเซนส์สำหรับการใช้งานเชิงพาณิชย์
-- **Which Java version is required?** JDK 8 หรือสูงกว่า
-- **Can I customize noise density?** ได้—พารามิเตอร์เช่น `maxSpots` และ `spotMaxSize` ให้คุณควบคุมความหนาแน่นและขนาดของจุดเสียงรบกวน
+## ทำไมต้องใช้การราสเตอร์เสียงรบกวนแบบกำหนดเอง
+การราสเตอร์เสียงรบกวนแบบกำหนดเองช่วยเพิ่มความเป็นส่วนตัวอย่างมากในขณะที่ยังคงรักษาความสวยงามของเอกสารไว้ โดยการกระจายจุดเล็ก ๆ จำนวนหลายพัน จุดทำให้การกู้คืนข้อมูลเป็นไปได้เกือบจะเป็นศูนย์ และหน้าที่ได้ยังคงดูเป็นมืออาชีพ ตรงตามมาตรฐานกฎหมายและระเบียบข้อบังคับอย่างเคร่งครัด อีกทั้งยังผสานเข้ากับเลย์เอาต์ที่มีอยู่ได้อย่างราบรื่น ทำให้การอ่านง่ายและดูดีสำหรับผู้ใช้ปลายทาง
 
-## What is Custom Noise Rasterization Java?
-Custom noise rasterization java แทนที่เนื้อหาที่คุณต้องการปกปิดด้วยรูปแบบของจุดเสียงรบกวนแบบสุ่ม แตกต่างจากกล่องสีดำธรรมดา วิธีนี้ทำให้พื้นที่ที่ถูกลบดูเป็นธรรมชาติและยากต่อการย้อนกลับ ซึ่งมีประโยชน์อย่างยิ่งสำหรับภาพสแกนหรือ PDF
+## ข้อกำหนดเบื้องต้น
+- **Java Development Kit (JDK):** JDK 8 หรือสูงกว่า  
+- **IDE:** IntelliJ IDEA, Eclipse หรือ IDE ที่รองรับ Java ใดก็ได้  
+- **GroupDocs.Redaction for Java:** ไลบรารีหลักที่ทำการลบข้อมูลในไฟล์กว่า 30 รูปแบบ รวมถึง PDF, DOCX, PPTX และรูปภาพทั่วไป สามารถจัดการไฟล์ขนาดสูงสุด 2 GB โดยไม่ต้องโหลดเอกสารทั้งหมดเข้าสู่หน่วยความจำ  
+- **Basic Java knowledge** และความคุ้นเคยกับ Maven (ถ้ามี)
 
-## Why Use Custom Noise Rasterization?
-- **Enhanced privacy** – เสียงรบกวนแบบสุ่มทำให้เกือบเป็นไปไม่ได้ที่จะกู้คืนข้อมูลเดิม
-- **Better visual integration** – เอกสารยังคงความเป็นมืออาชีพ หลีกเลี่ยงสี่เหลี่ยมสีดำที่ตัดกันอย่างชัดเจน
-- **Compliance** – ตรงตามข้อกำหนดการปกป้องข้อมูลที่เข้มงวดสำหรับเอกสารทางกฎหมาย, การแพทย์และการเงิน
-
-## Prerequisites
-ก่อนเริ่มทำงาน ให้ตรวจสอบว่าคุณมีสิ่งต่อไปนี้พร้อมแล้ว:
-
-### Required Libraries and Dependencies
-คุณต้องมี **GroupDocs.Redaction for Java** เพื่อทำการลบข้อมูลในเอกสารหลายรูปแบบ
-
-### Environment Setup Requirements
-- **Java Development Kit (JDK)**: JDK 8 หรือสูงกว่า
-- **IDE**: IntelliJ IDEA, Eclipse หรือ IDE ที่รองรับ Java ใดก็ได้
-
-### Knowledge Prerequisites
-- ความรู้พื้นฐานด้าน Java
-- ความคุ้นเคยกับ Maven จะเป็นประโยชน์แต่ไม่จำเป็น
-
-## Setting Up GroupDocs.Redaction for Java
+## การตั้งค่า GroupDocs.Redaction สำหรับ Java
 เพื่อใช้ GroupDocs.Redaction ในโปรเจกต์ของคุณ ให้เพิ่มเป็น dependency
 
-### Maven Setup
-หากคุณใช้ Maven ให้เพิ่ม repository และ dependency ในไฟล์ `pom.xml` ของคุณ:
+### การตั้งค่า Maven
+หากคุณใช้ Maven ให้รวม repository และ dependency ในไฟล์ `pom.xml` ของคุณ:
 
 ```xml
 <repositories>
@@ -76,16 +103,16 @@ Custom noise rasterization java แทนที่เนื้อหาที่
 </dependencies>
 ```
 
-### Direct Download
-หรือคุณสามารถดาวน์โหลดเวอร์ชันล่าสุดโดยตรงจาก [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/). เพิ่มไฟล์ JAR ลงใน build path ของโปรเจกต์
+### ดาวน์โหลดโดยตรง
+หรือคุณสามารถดาวน์โหลดเวอร์ชันล่าสุดโดยตรงจาก [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/). เพิ่มไฟล์ JAR ไปยัง build path ของโปรเจกต์
 
-#### License Acquisition Steps
-- **Free Trial** – เริ่มต้นด้วยไลเซนส์ทดลองฟรีเพื่อทดสอบฟังก์ชัน
-- **Temporary License** – รับไลเซนส์ชั่วคราวสำหรับการทดสอบระยะยาวจาก [here](https://purchase.groupdocs.com/temporary-license/)
-- **Purchase** – สำหรับการใช้งานในผลิตภัณฑ์ ให้ซื้อไลเซนส์จากเว็บไซต์ GroupDocs
+#### ขั้นตอนการรับใบอนุญาต
+- **Free Trial** – เริ่มต้นด้วยใบอนุญาตทดลองฟรีเพื่อทดสอบฟังก์ชัน  
+- **Temporary License** – รับใบอนุญาตชั่วคราวสำหรับการทดสอบต่อเนื่องจาก [here](https://purchase.groupdocs.com/temporary-license/)  
+- **Purchase** – สำหรับการใช้งานในผลิตภัณฑ์ ให้ซื้อใบอนุญาตจากเว็บไซต์ GroupDocs
 
-### Basic Initialization and Setup
-โค้ดด้านล่างเป็นโค้ดขั้นต่ำที่จำเป็นสำหรับการสร้างอินสแตนซ์ `Redactor` ซึ่งเตรียมเอกสารสำหรับการประมวลผลต่อไป
+### การเริ่มต้นและตั้งค่าพื้นฐาน
+ด้านล่างเป็นโค้ดขั้นต่ำที่จำเป็นเพื่อสร้างอินสแตนซ์ `Redactor`. โค้ดนี้เตรียมเอกสารสำหรับการประมวลผลต่อไป
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -104,20 +131,20 @@ public class Main {
 }
 ```
 
-## How to Apply Custom Noise Rasterization in Java
-ต่อไปนี้คือขั้นตอนสำคัญสามขั้นตอนเพื่อเปิดใช้งานและปรับแต่ง rasterization ของเสียงรบกวน
+## วิธีใช้การราสเตอร์เสียงรบกวนแบบกำหนดเองใน Java
+โหลดเอกสารของคุณ, กำหนดค่าตัวเลือกเสียงรบกวน, แล้วบันทึกผลลัพธ์ในสามขั้นตอนที่ง่ายดาย กระบวนการสั้นนี้ทำให้การลบข้อมูลทุกครั้งถูกนำไปใช้อย่างสม่ำเสมอและมีประสิทธิภาพ พร้อมให้คุณควบคุมความหนาแน่นของเสียงรบกวน, ขนาดจุด, และการผสมสีอย่างเต็มที่ การทำตามขั้นตอนเหล่านี้จะให้เอกสารที่ปลอดภัยและดูดีพร้อมสำหรับการแจกจ่าย
 
-### Step 1: Initialize Redactor with Document
-แรกเริ่ม สร้างอ็อบเจกต์ `Redactor` ที่ชี้ไปยังไฟล์ที่คุณต้องการปกปิด
+### ขั้นตอนที่ 1: เริ่มต้น Redactor ด้วยเอกสาร
+คลาส `Redactor` เป็นเอนจินหลักของ GroupDocs.Redaction ที่โหลด, ประมวลผล, และบันทึกไฟล์ PDF หรือรูปภาพ ก่อนอื่นให้สร้างอ็อบเจกต์ `Redactor` ที่ชี้ไปยังไฟล์ที่คุณต้องการปกป้อง
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/MULTIPAGE_SAMPLE_DOCX");
 ```
 
-**Why?** การเริ่มต้น Redactor จะโหลดเอกสารเข้าสู่หน่วยความจำและตั้งค่าเอนจินภายในที่จำเป็นสำหรับการทำลบข้อมูล
+**Why?** การเริ่มต้น Redactor จะโหลดเอกสารเข้าสู่หน่วยความจำและตั้งค่าเอนจินภายในที่จำเป็นสำหรับการดำเนินการลบข้อมูล
 
-### Step 2: Configure SaveOptions with Advanced Noise Settings
-ต่อไป ตั้งค่า `SaveOptions` เพื่อเปิดใช้งาน rasterization และกำหนดพารามิเตอร์เสียงรบกวนของคุณ ตัวเลือก `AdvancedRasterizationOptions.Noise` รับแผนที่ของคู่คีย์/ค่า
+### ขั้นตอนที่ 2: กำหนดค่า SaveOptions ด้วยการตั้งค่าเสียงรบกวนขั้นสูง
+คลาส `SaveOptions` เก็บพารามิเตอร์ทั้งหมดในช่วงการส่งออก รวมถึงการราสเตอร์และการตั้งค่าเสียงรบกวนแบบกำหนดเอง ตัวเลือก `AdvancedRasterizationOptions.Noise` รับแผนที่ของคีย์/ค่าเพื่อกำหนดความหนาแน่นของเสียงรบกวนและขนาดจุด
 
 ```java
 import com.groupdocs.redaction.options.AdvancedRasterizationOptions;
@@ -138,63 +165,69 @@ so.getRasterization().addAdvancedOption(
 );
 ```
 
-**Why?** การตั้งค่าเหล่านี้ทำให้คุณควบคุมความหนาแน่นของเสียงรบกวน (`maxSpots`) และขนาดสูงสุดของแต่ละจุด (`spotMaxSize`). การปรับค่าเหล่านี้ช่วยให้คุณหาจุดสมดุลระหว่างความสวยงามและความเป็นส่วนตัว
+**Why?** การตั้งค่าเหล่านี้ทำให้คุณควบคุมความหนาแน่นของเสียง (`maxSpots`) และขนาดสูงสุดของแต่ละจุด (`spotMaxSize`). การปรับค่าดังกล่าวช่วยให้คุณหาสมดุลระหว่างความสวยงามและความเป็นส่วนตัว
 
-### Step 3: Apply Settings and Save the Document
-สุดท้าย เรียก `save` พร้อมกับ `SaveOptions` ที่กำหนดไว้แล้ว การทำเช่นนี้จะสร้างไฟล์ใหม่ที่มี rasterization ของเสียงรบกวนตามที่คุณกำหนด
+### ขั้นตอนที่ 3: ใช้การตั้งค่าและบันทึกเอกสาร
+เรียกเมธอด `save` พร้อมกับ `SaveOptions` ที่กำหนดค่าไว้ นี้จะเขียนไฟล์ใหม่ที่มีการราสเตอร์เสียงรบกวนแบบกำหนดเอง พร้อมสำหรับการแจกจ่าย
 
 ```java
 // Save the document with applied settings
 redactor.save(so);
 ```
 
-**Why?** การบันทึกจะทำการคอมมิตการเปลี่ยนแปลงทั้งหมด เพื่อให้เอกสารที่ลบข้อมูลแล้วถูกเก็บพร้อมกับเอฟเฟกต์เสียงรบกวนและพร้อมสำหรับการแจกจ่าย
+**Why?** การบันทึกจะทำการคอมมิตการเปลี่ยนแปลงทั้งหมด, ทำให้เอกสารที่ลบข้อมูลถูกเก็บพร้อมกับเอฟเฟกต์เสียงรบกวนและพร้อมสำหรับการแชร์อย่างปลอดภัย
 
-### Troubleshooting Tips
-- **Changes not appearing after save** – ตรวจสอบให้แน่ใจว่าได้ตั้งค่า `so.setRedactedFileSuffix()`; หากไม่ตั้งค่า ไฟล์ต้นฉบับอาจถูกเขียนทับโดยไม่มีการเปลี่ยนแปลงที่มองเห็นได้
-- **Unexpected file size** – ค่าที่สูงของ `maxSpots` สามารถทำให้ขนาดไฟล์เพิ่มขึ้น; ปรับพารามิเตอร์เพื่อหาจุดสมดุลระหว่างความปลอดภัยและประสิทธิภาพ
+## เคล็ดลับการแก้ไขปัญหา
+- **Changes not appearing after save** – ตรวจสอบให้แน่ใจว่าได้ตั้งค่า `so.setRedactedFileSuffix()`; หากไม่ตั้งค่าไฟล์ต้นฉบับอาจถูกเขียนทับโดยไม่มีการเปลี่ยนแปลงที่มองเห็นได้  
+- **Unexpected file size** – ค่าที่สูงของ `maxSpots` สามารถทำให้ไฟล์ใหญ่ขึ้น; ปรับพารามิเตอร์เพื่อหาสมดุลระหว่างความปลอดภัยและประสิทธิภาพ
 
-## Hide Sensitive Data Java: Practical Applications
-เมื่อคุณเชี่ยวชาญเทคนิคนี้แล้ว ลองพิจารณาสถานการณ์จริงที่ **custom noise rasterization java** มีประโยชน์:
+## ซ่อนข้อมูลที่ละเอียดอ่อนใน Java: การประยุกต์ใช้งานจริง
+ตอนนี้คุณได้เชี่ยวชาญเทคนิคนี้แล้ว, พิจารณาสถานการณ์จริงต่อไปนี้ที่ **custom noise rasterization java** มีประโยชน์สูง:
 
-1. **Legal Documents** – ลบรายละเอียดคดีโดยคงรูปแบบเอกสารไว้สำหรับการยื่นต่อศาล
-2. **Medical Records** – ปกปิดตัวระบุผู้ป่วยเพื่อให้สอดคล้องกับ HIPAA โดยไม่ทำให้หน้ากระดาษเป็นสีดำทั้งหมด
-3. **Financial Reports** – ปกป้องตัวเลขที่เป็นความลับระหว่างการตรวจสอบภายในหรือการตรวจสอบภายนอก
+1. **Legal Documents** – ลบรายละเอียดคดีโดยยังคงรักษาเลย์เอาต์ของเอกสารสำหรับการยื่นต่อศาล  
+2. **Medical Records** – ปกปิดตัวระบุผู้ป่วยเพื่อให้สอดคล้องกับ HIPAA โดยไม่ทำให้หน้ากระดาษเป็นสีดำทั้งหมด  
+3. **Financial Reports** – ปกป้องตัวเลขที่เป็นทรัพย์สินส่วนตัวระหว่างการตรวจสอบภายในหรือการตรวจสอบภายนอก
 
-## Performance Considerations
-เมื่อประมวลผลไฟล์ขนาดใหญ่ ให้คำนึงถึงเคล็ดลับต่อไปนี้:
+## พิจารณาด้านประสิทธิภาพ
+เมื่อประมวลผลไฟล์ขนาดใหญ่, ควรคำนึงถึงเคล็ดลับต่อไปนี้:
 
-- **Memory Management** – ใช้บล็อก `try‑finally` (ตามที่แสดง) เพื่อปิด `Redactor` และปล่อยทรัพยากรอย่างทันท่วงที
-- **Batch Processing** – สำหรับชุดเอกสารจำนวนมาก ให้ประมวลผลเป็นชุดเล็ก ๆ เพื่อลดการกระตุ้นหน่วยความจำ
-- **Efficient Configuration** – ปรับพารามิเตอร์เสียงรบกวนให้เหมาะสม; `maxSpots` ที่มากเกินไปอาจทำให้การประมวลผลช้าลง
+- **Memory Management** – ใช้บล็อก `try‑finally` (ตามตัวอย่าง) เพื่อปิด `Redactor` และปล่อยทรัพยากรโดยเร็ว  
+- **Batch Processing** – สำหรับชุดเอกสารจำนวนมาก, ประมวลผลไฟล์เป็นชุดย่อยเพื่อหลีกเลี่ยงการเพิ่มขึ้นของหน่วยความจำอย่างฉับพลัน  
+- **Efficient Configuration** – ปรับจูนพารามิเตอร์เสียงรบกวน; `maxSpots` ที่มากเกินไปอาจทำให้การประมวลผลช้าลง
 
-## Conclusion
-คุณได้ทำ **custom noise rasterization java** ด้วย GroupDocs.Redaction เสร็จแล้ว ซึ่งเป็นวิธีที่ทรงพลังในการ **hide sensitive data java** พร้อมกับทำให้เอกสารของคุณดูเรียบร้อย วิธีนี้เพิ่มความเป็นส่วนตัว, ปฏิบัติตามมาตรฐานการปกป้องข้อมูล, และให้ความสวยงามระดับมืออาชีพ
+## สรุป
+คุณได้ทำการใช้งาน **custom noise rasterization java** กับ GroupDocs.Redaction แล้ว, วิธีที่ทรงพลังในการ **ซ่อนข้อมูลที่ละเอียดอ่อน java** พร้อมกับทำให้เอกสารของคุณดูเรียบหรู วิธีนี้เพิ่มความเป็นส่วนตัว, ปฏิบัติตามมาตรฐานการปฏิบัติตาม, และให้ความสวยงามระดับมืออาชีพ
 
 **Next Steps**
-- สำรวจฟีเจอร์การลบข้อมูลเพิ่มเติม เช่น การแทนที่ข้อความหรือการลบเมตาดาต้า
-- ผสานกระบวนการนี้เข้ากับระบบจัดการเอกสารขนาดใหญ่ที่ให้ความสำคัญกับความปลอดภัย
-- ศึกษา API อย่างละเอียดโดยตรวจสอบเอกสารอย่างเป็นทางการของ [GroupDocs documentation](https://docs.groupdocs.com/redaction/java/)
+- สำรวจฟีเจอร์การลบข้อมูลเพิ่มเติม เช่น การแทนที่ข้อความหรือการลบเมตาดาต้า  
+- ผสานกระบวนการนี้เข้ากับระบบจัดการเอกสารขนาดใหญ่ที่ความปลอดภัยเป็นหัวใจหลัก  
+- ศึกษา API อย่างลึกซึ้งโดยตรวจสอบ [GroupDocs documentation](https://docs.groupdocs.com/redaction/java/)
 
-## FAQ Section
+## ส่วนคำถามที่พบบ่อย
 
-### Q1: What versions of Java are supported with GroupDocs.Redaction?
-A1: It's compatible with JDK 8 and higher, ensuring wide applicability across modern development environments.
+### Q1: เวอร์ชันของ Java ที่รองรับกับ GroupDocs.Redaction คืออะไร
+A1: รองรับ JDK 8 และสูงกว่า, ทำให้สามารถใช้งานได้อย่างกว้างขวางในสภาพแวดล้อมการพัฒนาสมัยใหม่
 
-### Q2: Can I use this feature on PDF documents?
-A2: Yes, GroupDocs.Redaction supports a variety of document formats including PDFs. Customize noise rasterization to fit your specific needs.
+### Q2: ฉันสามารถใช้ฟีเจอร์นี้กับเอกสาร PDF ได้หรือไม่
+A2: ใช่, GroupDocs.Redaction รองรับรูปแบบเอกสารหลายประเภทรวมถึง PDF. คุณสามารถปรับการราสเตอร์เสียงรบกวนให้ตรงกับความต้องการของคุณได้
 
-### Q3: How do I obtain a temporary license for testing purposes?
-A3: Visit the [GroupDocs temporary license page](https://purchase.groupdocs.com/temporary-license/) and follow the instructions to apply.
+### Q3: ฉันจะขอรับใบอนุญาตชั่วคราวสำหรับการทดสอบได้อย่างไร
+A3: เยี่ยมชม [GroupDocs temporary license page](https://purchase.groupdocs.com/temporary-license/) แล้วทำตามขั้นตอนเพื่อขอรับใบอนุญาตชั่วคราว
 
-### Q4: What are some common issues with document redaction, and how can they be resolved?
-A4: Common issues include file format incompatibility or incorrect configuration settings. Ensure you're using supported formats and double‑check your `SaveOptions` setup.
+### Q4: ปัญหาทั่วไปที่พบกับการลบข้อมูลในเอกสารคืออะไรและจะแก้ไขอย่างไร
+A4: ปัญหาที่พบบ่อยรวมถึงความไม่เข้ากันของรูปแบบไฟล์หรือการตั้งค่าที่ไม่ถูกต้อง ตรวจสอบให้แน่ใจว่าคุณใช้รูปแบบที่รองรับและตรวจสอบการตั้งค่า `SaveOptions` ของคุณอีกครั้ง
 
-### Q5: How does GroupDocs.Redaction handle large documents efficiently?
-A5: It processes documents in memory‑efficient ways, allowing for chunk processing when necessary.
+### Q5: GroupDocs.Redaction จัดการกับเอกสารขนาดใหญ่อย่างมีประสิทธิภาพอย่างไร
+A5: มันประมวลผลเอกสารด้วยวิธีที่ประหยัดหน่วยความจำ, รองรับการประมวลผลเป็นชิ้นส่วนเมื่อจำเป็น และสามารถจัดการไฟล์ขนาดถึง 2 GB โดยไม่ต้องโหลดเนื้อหาทั้งหมดเข้าสู่ RAM
 
 ---
 
-**Last Updated:** 2026-02-13  
-**Tested With:** GroupDocs.Redaction 24.9 for Java  
-**Author:** GroupDocs
+**อัปเดตล่าสุด:** 2026-05-22  
+**ทดสอบด้วย:** GroupDocs.Redaction 24.9 for Java  
+**ผู้เขียน:** GroupDocs
+
+## บทแนะนำที่เกี่ยวข้อง
+
+- [เชี่ยวชาญการราสเตอร์ขั้นสูงใน Java: เส้นขอบแบบกำหนดเองกับ GroupDocs.Redaction](/redaction/java/rasterization-options/advanced-rasterization-java-custom-borders-groupdocs-redaction/)
+- [การนำเอาเอฟเฟกต์เอียงแบบกำหนดเองในเอกสารด้วย GroupDocs.Redaction Java](/redaction/java/rasterization-options/custom-tilt-effects-groupdocs-redaction-java/)
+- [วิธีใช้ groupdocs redaction สำหรับ Java: การราสเตอร์ล่วงหน้าในเอกสาร Word](/redaction/java/rasterization-options/groupdocs-redaction-java-pre-rasterization-word-docs/)

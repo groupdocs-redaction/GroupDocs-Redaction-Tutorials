@@ -1,27 +1,70 @@
 ---
-date: '2026-02-16'
-description: Lär dig hur du använder GroupDocs Maven‑beroendet för att lägga till
-  ett suffix på filnamn när du maskar dokument i Java. Inkluderar inläsning från ström,
-  borttagning av annotationer och sparalternativ.
+date: '2026-05-22'
+description: Lär dig hur du lägger till suffix filename java med hjälp av GroupDocs
+  Maven-beroendet när du maskerar dokument. Inkluderar streaming load, annotation
+  deletion och save options.
 keywords:
-- document redaction Java
-- GroupDocs.Redaction tutorial
-- secure document handling
-title: groupdocs Maven-beroende – Lägg till suffix till filnamn i Java
+- add suffix filename java
+- groupdocs redaction java
+- document redaction workflow
+schemas:
+- author: GroupDocs
+  dateModified: '2026-05-22'
+  description: Learn how to add suffix filename java using the GroupDocs Maven dependency
+    while redacting documents. Includes streaming load, annotation deletion, and save
+    options.
+  headline: Add suffix filename java with GroupDocs Maven
+  type: TechArticle
+- description: Learn how to add suffix filename java using the GroupDocs Maven dependency
+    while redacting documents. Includes streaming load, annotation deletion, and save
+    options.
+  name: Add suffix filename java with GroupDocs Maven
+  steps:
+  - name: '1: Create InputStream'
+    text: '- **Why:** Using `InputStream` allows you to handle documents stored in
+      various locations—cloud buckets, databases, or in‑memory buffers—without first
+      writing them to disk. This approach is essential when you need to **load document
+      from stream** in micro‑service architectures.'
+  - name: '1: Apply DeleteAnnotationRedaction'
+    text: '- **Why:** This step ensures that any sensitive annotations (comments,
+      highlights, or hidden notes) are stripped from the document, enhancing privacy
+      and compliance.'
+  - name: '1: Configure SaveOptions'
+    text: '- **Why:** Customizing save options allows flexible output formats and
+      naming conventions. Enabling `setAddSuffix(true)` **adds suffix to filename**,
+      making it clear that the file has been redacted.'
+  type: HowTo
+- questions:
+  - answer: Yes, the library supports PDFs, DOCX, PPTX, XLSX, and many other formats.
+    question: Can I redact PDF documents using GroupDocs.Redaction?
+  - answer: Use streaming (`load document from stream`) and close resources promptly
+      to keep memory usage low.
+    question: What is the best way to handle large files with GroupDocs.Redaction?
+  - answer: The API automatically adds a default suffix (e.g., “_redacted”). For custom
+      suffixes, rename the output file after saving.
+    question: Is it possible to customize the suffix text?
+  - answer: Visit the [Temporary License page](https://purchase.groupdocs.com/temporary-license/)
+      and follow the instructions.
+    question: How do I obtain a temporary license for GroupDocs.Redaction?
+  - answer: Join the [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33)
+      for expert assistance.
+    question: Where can I get help if I encounter issues?
+  type: FAQPage
+title: Lägg till suffix filename java med GroupDocs Maven
 type: docs
 url: /sv/java/advanced-redaction/master-document-redaction-groupdocs-redaction-java/
 weight: 1
 ---
 
-# Hur man lägger till suffix till filnamn när man maskerar dokument i Java med GroupDocs.Redaction
+# Lägg till suffix i filnamn java med GroupDocs Maven
 
-Att maskera konfidentiella data är bara halva striden—du måste också se till att den sparade filen tydligt visar att den har behandlats. **Att använda groupdocs maven‑beroendet gör detta enkelt**, så att du kan lägga till ett suffix till utdatafilens namn på bara några rader kod. I den här guiden lär du dig hur du lägger till suffix till filnamn när du sparar ett maskerat dokument, samt hur du laddar, annoterar och sparar med GroupDocs.Redaction för Java. Oavsett om du skyddar juridiska kontrakt, medicinska journaler eller finansiella rapporter, kommer dessa steg att hålla ditt arbetsflöde både säkert och spårbart.
+Att maskera konfidentiella data är bara halva striden—du måste också se till att den sparade filen tydligt visar att den har bearbetats. **Att använda GroupDocs Maven‑beroendet gör detta enkelt**, så att du kan lägga till ett suffix till utdatafilens namn med bara några kodrader. Metoden för **add suffix filename java** är en enradig konfiguration som omedelbart märker dina maskerade filer, vilket hjälper dig att vara efterlevande och redo för revision.
 
-## Quick Answers
+## Snabba svar
 - **Vad gör “add suffix to filename”?**  
-  Det lägger till ett anpassat suffix (t.ex. “_redacted”) till utdatafilens namn så att du omedelbart kan identifiera bearbetade filer.  
-- **Kan jag ladda ett dokument från en ström?**  
-  Ja—GroupDocs.Redaction stödjer laddning från vilken `InputStream` som helst, perfekt för molnlagring eller in‑minnesbearbetning.  
+  Den lägger till ett anpassat suffix (t.ex. “_redacted”) till utdatafilens namn så att du omedelbart kan identifiera bearbetade filer.  
+- **Kan jag ladda ett dokument från stream?**  
+  Ja—GroupDocs.Redaction stöder inläsning från vilken `InputStream` som helst, perfekt för molnlagring eller in‑minnesbearbetning.  
 - **Behöver jag en licens för den här funktionen?**  
   En gratis provperiod fungerar för grundläggande maskering; en tillfällig eller full licens låser upp alla avancerade alternativ, inklusive hantering av suffix.  
 - **Vilka format stöds?**  
@@ -29,24 +72,25 @@ Att maskera konfidentiella data är bara halva striden—du måste också se til
 - **Krävs rasterisering för PDF‑utdata?**  
   Rasterisering är valfri; aktivera den när du behöver platta till dokumentet för extra säkerhet.
 
-## Vad är att lägga till ett suffix till ett filnamn?
-Att lägga till ett suffix är en enkel namngivningskonvention som signalerar att en fil har genomgått maskering. Det förhindrar oavsiktlig delning av original, omaskerade versioner och hjälper automatiserade pipelines att spåra bearbetningsstatus.
+## Vad är add suffix filename java?
+**add suffix filename java**‑tekniken lägger till en fördefinierad sträng till filnamnet under sparningsoperationen, vilket tydligt markerar dokumentet som maskerat. Denna enkla konvention förhindrar oavsiktlig distribution av original‑, icke‑maskerade filer och integreras smidigt med automatiserade pipelines.
 
 ## Varför använda GroupDocs.Redaction för denna uppgift?
-GroupDocs.Redaction erbjuder ett flytande Java‑API som låter dig kombinera maskeringsåtgärder med filhanteringsalternativ—som **att lägga till ett suffix till filnamnet**—på bara några rader kod. Detta sparar utvecklingstid och minskar risken för manuella fel.
+GroupDocs.Redaction erbjuder ett flytande Java‑API som låter dig kombinera maskeringsåtgärder med filhanteringsalternativ—som **add suffix filename java**—med bara några kodrader. SDK:n stöder **50+ in‑ och utdataformat** och kan bearbeta dokument med flera hundra sidor utan att ladda hela filen i minnet, vilket ger både hastighet och låg minnesanvändning.
 
-## Prerequisites
+## Förutsättningar
+
 - **Java Development Kit (JDK):** Version 8 eller högre.  
 - **GroupDocs.Redaction Library:** Kärnbibliotek för maskeringsuppgifter.  
 - **IDE:** IntelliJ IDEA, Eclipse eller någon Java‑kompatibel editor.  
 - **Maven:** För beroendehantering.  
 
-### Knowledge Prerequisites
-Bekantskap med Java I/O och grundläggande objektorienterade koncept gör exemplen enklare att följa.
+### Kunskapsförutsättningar
+Bekantskap med Java I/O och grundläggande objektorienterade koncept gör exemplen lättare att följa.
 
-## Setting Up GroupDocs.Redaction for Java
-### Maven Setup
-Inkludera följande konfiguration i din `pom.xml`‑fil för att få åtkomst till GroupDocs‑biblioteken via Maven:
+## Konfigurera GroupDocs.Redaction för Java
+### Maven‑konfiguration
+Include the following configuration in your `pom.xml` file to access GroupDocs libraries via Maven:
 
 ```xml
 <repositories>
@@ -66,30 +110,30 @@ Inkludera följande konfiguration i din `pom.xml`‑fil för att få åtkomst ti
 </dependencies>
 ```
 
-### Direct Download
-Alternativt, ladda ner den senaste versionen direkt från [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+### Direktnedladdning
+Alternativt kan du ladda ner den senaste versionen direkt från [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
-### License Acquisition
-1. **Free Trial:** Åtkomst till grundläggande funktionalitet utan begränsningar.  
+### Licensanskaffning
+1. **Free Trial:** Få åtkomst till grundläggande funktionalitet utan begränsningar.  
 2. **Temporary License:** Skaffa en tillfällig licens för att utforska avancerade funktioner.  
 3. **Purchase:** För långsiktig användning, överväg att köpa en full licens.
 
-#### Basic Initialization and Setup
-Initiera ditt projekt genom att lägga till nödvändiga importeringar:
+#### Grundläggande initiering och konfiguration
+Initialize your project by adding the necessary imports:
 
 ```java
 import com.groupdocs.redaction.Redactor;
 ```
 
-Med den här konfigurationen är du redo att implementera funktioner för dokumentmaskering.
+Med denna konfiguration är du redo att implementera funktioner för dokumentmaskering.
 
-## Implementation Guide
+## Implementeringsguide
 
-### Feature 1: Load Document from Stream
+### Funktion 1: Ladda dokument från stream
 **Översikt:** Lär dig hur du laddar dokument i en `InputStream` för bearbetning.
 
-#### Step-by-Step Implementation
-##### Step 1.1: Create InputStream
+#### Steg‑för‑steg‑implementation
+##### Steg 1.1: Skapa InputStream
 
 ```java
 import java.io.FileInputStream;
@@ -105,13 +149,13 @@ try (InputStream stream = new FileInputStream("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DO
 }
 ```
 
-- **Varför:** Att använda `InputStream` låter dig hantera dokument lagrade i olika format sömlöst, vilket är viktigt när du behöver **ladda dokument från en ström** i moln‑ eller mikrotjänstscenario.
+- **Varför:** Att använda `InputStream` låter dig hantera dokument lagrade på olika platser—molnbuckets, databaser eller in‑minnesbuffertar—utan att först skriva dem till disk. Detta tillvägagångssätt är avgörande när du behöver **load document from stream** i mikrotjänstarkitekturer.
 
-### Feature 2: Apply Annotation Deletion Redaction
+### Funktion 2: Tillämpa Annotation Deletion Redaction
 **Översikt:** Ta bort annotationer från ditt dokument med `DeleteAnnotationRedaction`.
 
-#### Step-by-Step Implementation
-##### Step 2.1: Apply DeleteAnnotationRedaction
+#### Steg‑för‑steg‑implementation
+##### Steg 2.1: Tillämpa DeleteAnnotationRedaction
 
 ```java
 import com.groupdocs.redaction.redactions.DeleteAnnotationRedaction;
@@ -122,13 +166,13 @@ try (Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX")) {
 }
 ```
 
-- **Varför:** Detta steg säkerställer att känsliga annotationer tas bort, vilket förbättrar dokumentets sekretess.
+- **Varför:** Detta steg säkerställer att alla känsliga annotationer (kommentarer, markeringar eller dolda anteckningar) tas bort från dokumentet, vilket förbättrar integritet och efterlevnad.
 
-### Feature 3: Save Document with Options
-**Översikt:** Lär dig hur du sparar ditt bearbetade dokument med specifika alternativ som rasterisering och **att lägga till ett suffix till filnamnet**.
+### Funktion 3: Spara dokument med alternativ
+**Översikt:** Lär dig hur du sparar ditt bearbetade dokument med specifika alternativ som rasterisering och **add suffix filename java**.
 
-#### Step-by-Step Implementation
-##### Step 3.1: Configure SaveOptions
+#### Steg‑för‑steg‑implementation
+##### Steg 3.1: Konfigurera SaveOptions
 
 ```java
 import java.io.ByteArrayOutputStream;
@@ -146,55 +190,65 @@ try (Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX")) {
 }
 ```
 
-- **Varför:** Anpassning av sparalternativ möjliggör flexibla utdataformat och namngivningskonventioner. Att aktivera `setAddSuffix(true)` **lägger till suffix till filnamnet**, vilket tydligt visar att filen har maskerats.
+- **Varför:** Anpassning av sparalternativ möjliggör flexibla utdataformat och namngivningskonventioner. Aktivering av `setAddSuffix(true)` **adds suffix to filename**, vilket tydligt visar att filen har maskerats.
 
-## groupdocs maven dependency Overview
-**groupdocs maven dependency** för in hela Redaction‑SDK:n i ditt projekt med ett enda `<dependency>`‑element. Det hanterar transitiva beroenden, håller biblioteken uppdaterade och förenklar byggautomatisering. Genom att deklarera beroendet i `pom.xml` undviker du manuell JAR‑hantering och säkerställer kompatibilitet med de senaste säkerhetsuppdateringarna.
+## Hur lägger man till suffix filename java när man sparar ett dokument?
+`Redactor` är huvudklassen i GroupDocs.Redaction som laddar ett dokument och tillämpar maskeringsoperationer.  
+`setAddSuffix` är en metod i `SaveOptions` som möjliggör automatisk suffixläggning till utdatafilens namn.
 
-## Why Adding a Suffix Matters
-- **Auditability:** Team kan omedelbart identifiera vilka filer som är säkra att distribuera.  
+Ladda ditt `Redactor`‑instans, tillämpa önskade maskeringar och anropa sedan `save()` med `SaveOptions` där `setAddSuffix(true)` är aktiverat. Denna enkla konfiguration lägger automatiskt till “_redacted” (eller standardsuffixet) till filnamnet, vilket eliminerar manuell namnändring och minskar mänskliga fel. Operationen slutförs på O(n) tid i förhållande till dokumentets storlek och fungerar för alla stödda format.
+
+## Översikt av groupdocs maven‑beroende
+**groupdocs maven dependency** inför hela Redaction‑SDK:n i ditt projekt med ett enda `<dependency>`‑element. Den hanterar transitiva beroenden, håller biblioteken uppdaterade och förenklar byggautomatisering. Genom att deklarera beroendet i `pom.xml` undviker du manuell JAR‑hantering och säkerställer kompatibilitet med de senaste säkerhetsuppdateringarna.
+
+## Varför det är viktigt att lägga till ett suffix
+Att lägga till ett suffix ger omedelbar visuell bekräftelse på att ett dokument har bearbetats, vilket är avgörande för revisionsspår, automatiserade arbetsflöden och regulatorisk efterlevnad inom olika branscher.
+
+- **Auditability:** Team kan omedelbart se vilka filer som är säkra att distribuera.  
 - **Automation:** Skript kan filtrera filer efter suffix, vilket förhindrar oavsiktlig bearbetning av originaldokument.  
-- **Compliance:** Många regelverk kräver tydlig märkning av sanerade dokument.  
+- **Compliance:** Många regler kräver tydlig märkning av sanerade dokument.
 
-## Practical Applications
+## Praktiska tillämpningar
 Utforska dessa verkliga användningsfall:
-1. **Legal Document Redaction:** Säkerställ kontrakt innan de delas med klienten.  
-2. **Medical Record Handling:** Skydda patientidentifierare.  
-3. **Financial Reporting:** Håll känsliga siffror konfidentiella.  
-4. **CRM Integration:** Maskera automatiskt kunddata före export.  
-5. **Collaboration Tools:** Säkerställ att delade utkast aldrig avslöjar dolda kommentarer.
 
-## Performance Considerations
-### Optimizing Performance
+1. **Legal Document Redaction:** Säkerställ kontrakt innan de delas med klienter.  
+2. **Medical Record Handling:** Skydda patientidentifierare samtidigt som klinisk data bevaras.  
+3. **Financial Reporting:** Håll känsliga siffror konfidentiella under externa revisioner.  
+4. **CRM Integration:** Automatisk maskering av kunddata innan export till tredjepartsverktyg.  
+5. **Collaboration Tools:** Säkerställ att delade utkast aldrig avslöjar dolda kommentarer eller metadata.
+
+## Prestandaöverväganden
+### Optimera prestanda
 - Använd streaming (`load document from stream`) för att undvika att ladda hela filer i minnet.  
-- Stäng `Redactor`‑instanser omedelbart för att frigöra resurser.
+- Stäng `Redactor`‑instanser omedelbart för att frigöra resurser.  
 
-### Resource Usage Guidelines
+### Riktlinjer för resursanvändning
 - Övervaka CPU och minne under batchkörningar.  
-- Föredra `ByteArrayOutputStream` för in‑memory‑sparningar när du arbetar med måttliga filstorlekar.
+- Föredra `ByteArrayOutputStream` för in‑minneslagring när du arbetar med måttliga filstorlekar.  
 
-### Best Practices for Java Memory Management
+### Bästa praxis för Java‑minneshantering
 - Återanvänd `Redactor`‑objekt när du bearbetar flera filer av samma typ.  
-- Anropa `close()` i ett `try‑with‑resources`‑block för att förhindra läckor.
+- Anropa `close()` i ett `try‑with‑resources`‑block för att förhindra läckor.  
 
-## Common Issues and Solutions
+## Vanliga problem och lösningar
+
 | Problem | Orsak | Lösning |
 |-------|-------|-----|
 | **Suffix visas inte** | `setAddSuffix(false)` eller saknad anrop | Se till att `options.setAddSuffix(true)` är satt innan `save()`. |
-| **OutOfMemoryError på stor DOCX** | Laddar hela filen i minnet | Byt till `InputStream`‑laddning (se Feature 1). |
-| **Annotationer fortfarande synliga** | Maskering inte tillämpad före sparning | Anropa `redactor.apply(new DeleteAnnotationRedaction())` före `save()`. |
-| **PDF‑rasterisering inte tillämpad** | `setRasterizeToPDF(false)` eller utelämnad | Sätt `options.setRasterizeToPDF(true)` när du behöver en platt PDF. |
+| **OutOfMemoryError på stora DOCX** | Laddar hela filen i minnet | Byt till `InputStream`‑laddning (se Funktion 1). |
+| **Annotationer fortfarande synliga** | Maskering inte tillämpad innan sparning | Anropa `redactor.apply(new DeleteAnnotationRedaction())` innan `save()`. |
+| **PDF rasterization inte tillämpad** | `setRasterizeToPDF(false)` eller utelämnad | Ställ in `options.setRasterizeToPDF(true)` när du behöver en platt PDF. |
 
-## Frequently Asked Questions
+## Vanliga frågor
 
 **Q: Kan jag maskera PDF‑dokument med GroupDocs.Redaction?**  
-A: Ja, biblioteket stödjer PDF, DOCX, PPTX, XLSX och många andra format.
+A: Ja, biblioteket stöder PDF, DOCX, PPTX, XLSX och många andra format.
 
 **Q: Vad är det bästa sättet att hantera stora filer med GroupDocs.Redaction?**  
 A: Använd streaming (`load document from stream`) och stäng resurser omedelbart för att hålla minnesanvändningen låg.
 
 **Q: Är det möjligt att anpassa suffix‑texten?**  
-A: API:n lägger automatiskt till ett standardsuffix (t.ex. “_redacted”). För anpassade suffix kan du byta namn på utdatafilen efter sparning.
+A: API:n lägger automatiskt till ett standardsuffix (t.ex. “_redacted”). För anpassade suffix, byt namn på utdatafilen efter sparning.
 
 **Q: Hur får jag en tillfällig licens för GroupDocs.Redaction?**  
 A: Besök [Temporary License page](https://purchase.groupdocs.com/temporary-license/) och följ instruktionerna.
@@ -202,7 +256,7 @@ A: Besök [Temporary License page](https://purchase.groupdocs.com/temporary-lice
 **Q: Var kan jag få hjälp om jag stöter på problem?**  
 A: Gå med i [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33) för experthjälp.
 
-## Resources
+## Resurser
 - **Documentation:** Utforska detaljerade guider på [GroupDocs Documentation](https://docs.groupdocs.com/redaction/java/).  
 - **API Reference:** Få tillgång till omfattande API‑detaljer på [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java).  
 - **Download:** Hämta den senaste versionen från [GroupDocs Downloads](https://releases.groupdocs.com/redaction/java/).  
@@ -210,6 +264,17 @@ A: Gå med i [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/3
 
 ---
 
-**Last Updated:** 2026-02-16  
-**Tested With:** GroupDocs.Redaction 24.9 for Java  
-**Author:** GroupDocs
+**Senast uppdaterad:** 2026-05-22  
+**Testat med:** GroupDocs.Redaction 24.9 for Java  
+**Författare:** GroupDocs  
+
+{< /blocks/products/pf/tutorial-page-section >}
+{< /blocks/products/pf/main-container >}
+{< /blocks/products/pf/main-wrap-class >}
+{< blocks/products/products-backtop-button >}
+
+## Relaterade handledningar
+
+- [Konvertera Word till PDF och spara maskerade dokument med GroupDocs.Redaction Java](/redaction/java/document-saving/)
+- [Förhandsgranska dokumentsidor Java Loading med GroupDocs.Redaction](/redaction/java/document-loading/)
+- [Avancerade maskeringstekniker för GroupDocs.Redaction Java](/redaction/java/advanced-redaction/)
