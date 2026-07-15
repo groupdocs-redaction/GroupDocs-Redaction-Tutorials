@@ -1,42 +1,76 @@
 ---
-date: '2026-02-16'
-description: GroupDocs.Redaction kullanarak Java’da hassas verileri maskeleme ve PDF’de
-  kişisel verileri kırpma yöntemlerini öğrenin; gizlilik uyumluluğu ve veri korumasını
-  sağlayın.
+date: '2026-05-17'
+description: GroupDocs.Redaction kullanarak Java'da PDF'yi kırpma ve hassas verileri
+  maskeleme konusunda bilgi edinin, GDPR uyumluluğu ve güçlü veri koruması sağlar.
 keywords:
-- Java document redaction
-- GroupDocs.Redaction setup
-- Precise document redactions
-title: Java'da Hassas Verileri Maskele – GroupDocs.Redaction ile Kişisel Bilgileri
-  Kırp
+- how to redact pdf
+- mask sensitive data java
+- java redact text
+- redact personal data pdf
+schemas:
+- author: GroupDocs
+  dateModified: '2026-05-17'
+  description: Learn how to redact PDF and mask sensitive data java using GroupDocs.Redaction,
+    ensuring GDPR compliance and robust data protection.
+  headline: How to Redact PDF and Mask Sensitive Data Java with GroupDocs
+  type: TechArticle
+- description: Learn how to redact PDF and mask sensitive data java using GroupDocs.Redaction,
+    ensuring GDPR compliance and robust data protection.
+  name: How to Redact PDF and Mask Sensitive Data Java with GroupDocs
+  steps:
+  - name: Initialize the Redactor
+    text: The Redactor class is the core engine that loads and prepares a document
+      for redaction operations.
+  - name: Define and Apply the Exact‑Phrase Redaction
+    text: ExactPhraseRedaction defines a rule that matches a literal text string,
+      while ReplacementOptions specify how the matched content is visually replaced.
+  - name: Save the Redacted Document with Custom Options
+    text: SaveOptions configures the output parameters such as file format, suffix,
+      and rasterization behavior for the redacted document.
+  type: HowTo
+- questions:
+  - answer: Use a list of `Redaction` objects and call `redactor.applyAll()`. The
+      API processes all patterns in one pass, minimizing file reads.
+    question: How do I handle multiple redactions at once?
+  - answer: Yes, the API is platform‑agnostic and can be invoked from web services,
+      micro‑services, or desktop applications.
+    question: Can I integrate GroupDocs.Redaction with other document management systems?
+  - answer: It supports **30+ formats** including DOCX, PDF, XLSX, PPTX, HTML, and
+      common image types, handling each natively without conversion.
+    question: What file formats does GroupDocs.Redaction support?
+  - answer: Stream input files, reuse a single `Redactor` instance for batch jobs,
+      and always close the instance to release resources promptly.
+    question: How should I manage performance when redacting large documents?
+  - answer: Yes—pass the password to the `Redactor` constructor, and the engine will
+      decrypt, redact, and re‑encrypt the file automatically.
+    question: Does the library work with password‑protected PDFs?
+  type: FAQPage
+title: GroupDocs ile PDF'yi Kırpma ve Hassas Verileri Maskeleme (Java)
 type: docs
 url: /tr/java/advanced-redaction/master-document-redaction-java-groupdocs-redaction/
 weight: 1
 ---
 
-# Hassas Verileri Maskeleme Java – Kişisel Bilgileri GroupDocs.Redaction ile Kırpma
+# PDF'yi Kırpma ve Hassas Verileri Java ile Maskeleme GroupDocs ile
 
-Günümüzün hızlı dijital ortamında, **masking sensitive data java** artık isteğe bağlı değil—uygulama gereksinimidir. İster bir müşteri için sözleşme hazırlıyor olun, tıbbi bir kaydı paylaşıyor olun ya da sadece dahili bir raporu temizliyor olun, kişisel tanımlayıcıları gizlemenin ve belgenin orijinal düzenini korumanın güvenilir bir yoluna ihtiyacınız var. Bu öğreticide, **masking sensitive data java** ve ayrıca **redact personal data pdf** işlemlerini Java için güçlü GroupDocs.Redaction kütüphanesini kullanarak nasıl yapacağınızı adım adım göstereceğiz.
+Bugünün hızlı‑ hareketli dijital ortamında, **PDF'yi kırpma** ve **Java'da hassas verileri maskeleme** öğrenmek artık isteğe bağlı değil—uygulama gereksinimidir. İster bir müşteri sözleşmesi hazırlıyor, ister tıbbi bir kaydı paylaşıyor, ister iç raporu temizliyor olun, kişisel tanımlayıcıları gizlemek ve orijinal düzeni korumak için güvenilir bir yönteme ihtiyacınız var. Bu öğreticide, Java için güçlü **GroupDocs.Redaction** kütüphanesini kullanarak tam süreci adım adım göstereceğiz.
 
 ## Hızlı Yanıtlar
 - **“mask sensitive data java” ne anlama geliyor?** Java tabanlı belge iş akışlarında özel bilgileri (isimler, kimlikler vb.) programlı olarak bulup gizlemek anlamına gelir.  
 - **Hangi kütüphane bunu yönetir?** GroupDocs.Redaction for Java.  
-- **Bir lisansa ihtiyacım var mı?** Ücretsiz deneme testi için mükemmeldir; üretim kullanımı için tam lisans gereklidir.  
-- **PDF dosyalarında da kişisel verileri kırpabilir miyim?** Kesinlikle—GroupDocs.Redaction PDF, DOCX, XLSX, PPTX ve birçok diğer formatla çalışır.  
-- **Hangi Java sürümü gereklidir?** JDK 8 ve üzeri.
+- **Lisans gerekir mi?** Test için ücretsiz deneme yeterlidir; üretim kullanımı için tam lisans gereklidir.  
+- **Kişisel veri içeren PDF dosyalarını da kırpebilir miyim?** Kesinlikle—GroupDocs.Redaction PDF, DOCX, XLSX, PPTX ve birçok diğer formatla çalışır.  
+- **Hangi Java sürümü gerekiyor?** JDK 8 ve üzeri.
 
-## Mask Sensitive Data Java Nedir?
-Java’da hassas verileri maskeleme, bir belge içinde belirli ifadeleri veya desenleri bulmak ve bunları yer tutucularla (ör. “[personal]”) değiştirmek için kod kullanmak anlamına gelir. Bu süreç, orijinal içeriğin geri alınamaz olmasını sağlarken belgenin görsel bütünlüğünü korur.
+## Java'da Hassas Verileri Maskeleme Nedir?
+Java'da hassas verileri maskeleme, bir belge içinde belirli ifadeleri veya desenleri bulmak ve bunları yer tutucularla (ör. “[personal]”) değiştirmek için kod kullanmak anlamına gelir. Bu süreç, orijinal içeriğin geri alınamamasını sağlarken belgenin görsel bütünlüğünü korur.
 
-## Maskeleme İçin GroupDocs.Redaction Neden Kullanılmalı?
-- **Tam format desteği** – PDF, Word dosyaları, elektronik tablolar ve sunumları dönüştürmeden kırpar.  
-- **Tam ifade eşleşmesi** – “John Doe” gibi kesin dizeleri hedefler.  
-- **Özel değiştirme seçenekleri** – metin, siyah kutular veya resim bindirmeleri seçin.  
-- **Uyumluluk‑hazır** – GDPR, HIPAA ve diğer gizlilik düzenlemelerini kutudan çıkar çıkmaz karşılar.
+## Maskeleme İçin Neden GroupDocs.Redaction Kullanılmalı?
+GroupDocs.Redaction tam format desteği sağlar, PDF, Word, Excel ve PowerPoint dosyalarının dönüştürülmeden kırpılmasına olanak tanır. “John Doe” gibi kesin ifadeler için tam eşleşme, metin, siyah kutu veya görüntü gibi özelleştirilebilir değişiklikler ve GDPR, HIPAA ve diğer gizlilik düzenlemelerini karşılayan yerleşik uyumluluk şablonları sunar.
 
 ## Önkoşullar
 - **Java Development Kit (JDK) 8+** yüklü.  
-- **Bir IDE** (IntelliJ IDEA veya Eclipse gibi) kolay hata ayıklama için.  
+- **Bir IDE** (IntelliJ IDEA veya Eclipse gibi) hata ayıklama için.  
 - **GroupDocs.Redaction for Java** (sürüm 24.9 veya üzeri).  
 - Temel Java dosya işleme bilgisi.
 
@@ -66,18 +100,18 @@ GroupDocs deposunu ve bağımlılığı `pom.xml` dosyanıza ekleyin:
 ### Doğrudan İndirme
 Manuel yönetimi tercih ediyorsanız, resmi sürüm sayfasından en son JAR dosyasını alın: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
-### Lisans Edinme
-- **Ücretsiz deneme** – API’yi değerlendirmek için mükemmeldir.  
+### Lisans Edinimi
+- **Ücretsiz deneme** – API'yi değerlendirmek için mükemmeldir.  
 - **Geçici lisans** – satın alma olmadan uzun süreli test için faydalıdır.  
 - **Tam lisans** – ticari dağıtım ve sınırsız kırpma işlemleri için gereklidir.
 
-## GroupDocs.Redaction Kullanarak Java’da Hassas Verileri Nasıl Maskeleyebilirsiniz
+## Java'da GroupDocs.Redaction ile PDF Kırpma
 
-Aşağıda uygulamayı net, numaralı adımlara ayırıyoruz. Her adım kısa bir açıklama ve ardından (değiştirilmemiş) orijinal kod bloğu içerir.
+GroupDocs.Redaction ile bir PDF'i kırpmak için, önce belgeyi bir Redactor örneğine yükleyin, ardından ExactPhraseRedaction gibi bir veya daha fazla kırpma kuralı tanımlayın ve son olarak değiştirilmiş dosyayı SaveOptions kullanarak kaydedin. Bu üç adımlı iş akışı, orijinal düzeni korurken hassas içeriği güvenli bir şekilde kaldırır.
 
-### Adım 1: Redactor’ı Başlatma
+### Adım 1: Redactor'ı Başlatma
 
-İşlemek istediğiniz belgeyi yükleyin. Bu, sonraki tüm kırpma işlemlerini yönetecek bir `Redactor` örneği oluşturur.
+Redactor sınıfı, bir belgeyi kırpma işlemleri için yükleyen ve hazırlayan temel motorudur.
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -88,9 +122,9 @@ import com.groupdocs.redaction.redactions.ReplacementOptions;
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/sample.docx");
 ```
 
-### Adım 2: Tam İfade Kırpmasını Tanımlama ve Uygulama
+### Adım 2: Exact‑Phrase Kırpmasını Tanımlama ve Uygulama
 
-Maskelemek istediğiniz tam ifadeyi (ör. bir kişinin adı) ve son belgede görünecek değiştirme metnini belirtin.
+ExactPhraseRedaction, tam bir metin dizesiyle eşleşen bir kural tanımlar, ReplacementOptions ise eşleşen içeriğin görsel olarak nasıl değiştirileceğini belirler.
 
 ```java
 try {
@@ -104,14 +138,9 @@ try {
 }
 ```
 
-**Anahtar noktalar**  
-- `ExactPhraseRedaction` tam olarak “John Doe” dizesini hedefler.  
-- `ReplacementOptions("[personal]")` motorun ifadeyi “[personal]” yer tutucusuyla değiştirmesini sağlar.  
-- Her zaman `Redactor`ı kapatarak kaynakları serbest bırakın.
+### Adım 3: Özel Seçeneklerle Kırpılmış Belgeyi Kaydetme
 
-### Adım 3: Kırpılmış Belgeyi Özel Seçeneklerle Kaydetme
-
-Verileri maskeledikten sonra, muhtemelen orijinal dosya formatını korumak ve dosya adına faydalı bir ek (ör. tarih) eklemek isteyeceksiniz.
+SaveOptions, kırpılmış belge için dosya formatı, sonek ve rasterleştirme davranışı gibi çıktı parametrelerini yapılandırır.
 
 ```java
 import com.groupdocs.redaction.options.SaveOptions;
@@ -137,49 +166,56 @@ try {
 }
 ```
 
-**Seçeneklerin işlevi**  
-- `setAddSuffix(true)` otomatik olarak oluşturulan eki yeni dosya adına ekler.  
-- `setRasterizeToPDF(false)` her şeyi görüntü‑tabanlı PDF’ye dönüştürmek yerine orijinal formatı (DOCX, PDF vb.) korur.  
+## Birden Fazla Kırpmayı Verimli Bir Şekilde Nasıl Uygularsınız?
 
-## Java’da PDF Kişisel Verileri Nasıl Kırpılır
-
-Aynı API PDF dosyaları için de çalışır. `Redactor` yapıcısını bir `.pdf` dosyasına yönlendirin ve yukarıdaki tam‑ifade adımlarını izleyin. Kütüphane PDF metin katmanlarını ayrıştırdığı için, sözleşmelerde, faturalar içinde veya başka herhangi bir PDF‑tabanlı raporda tanımlayıcıları arama yapılabilir metni kaybetmeden maskeleyebilirsiniz.
+applyAll() yöntemi, sıraya alınmış tüm Redaction kurallarını tek bir işlemde yürütür. Birden fazla kırpma kuralı uygulamanız gerektiğinde, ExactPhraseRedaction, RegexRedaction veya ImageRedaction gibi Redaction nesnelerinden oluşan bir liste oluşturun ve bu koleksiyonu redactor.applyAll() metoduna gönderin. Bu toplu işleme, tüm kuralları tek bir geçişte çalıştırarak I/O işlemlerini en aza indirir ve büyük belge setlerinde performansı önemli ölçüde artırır.
 
 ## Pratik Uygulamalar
-1. **Hukuki Belge Yönetimi** – Üçüncü taraflarla paylaşmadan önce sözleşmelerden müşteri isimlerini kaldırın.  
-2. **Sağlık Verisi İşleme** – HIPAA uyumluluğunu korumak için hasta tanımlayıcılarını maskeleyin.  
+
+1. **Hukuki Belge Yönetimi** – Sözleşmelerden müşteri isimlerini üçüncü taraflarla paylaşmadan önce kaldırın.  
+2. **Sağlık Verisi İşleme** – HIPAA uyumluluğunu korumak için hasta kimlik bilgilerini maskeleyin.  
 3. **Finansal Hizmetler** – Denetimler için ekstrelerdeki hesap numaralarını gizleyin.  
-4. **İnsan Kaynakları** – İç incelemeler sırasında çalışan kişisel verilerini koruyun.
+4. **İnsan Kaynakları** – İç incelemeler sırasında çalışanların kişisel verilerini koruyun.
 
 ## Büyük Dosyalar İçin Performans İpuçları
+
 - **Redactor örneklerini hemen kapatın** bellek serbest bırakmak için.  
-- **Toplu işleme** bir döngü kullanarak birden fazla belgeyi işleyin ve mümkün olduğunda tek bir `Redactor`ı yeniden kullanın.  
-- **Yoğun iş yüklerinde CPU ve RAM’i izleyin**; `OutOfMemoryError` alırsanız JVM yığın boyutunu artırmayı düşünün.  
+- **Toplu işleyin** bir döngüyle birden fazla belgeyi ve mümkün olduğunda tek bir `Redactor` örneğini yeniden kullanın.  
+- **Yoğun iş yüklerinde CPU ve RAM'i izleyin**; `OutOfMemoryError` alırsanız JVM yığın boyutunu artırmayı düşünün.  
 
 ## Yaygın Sorunlar ve Çözümler
 
 | Sorun | Çözüm |
 |-------|----------|
-| **Kırpma uygulanmadı** | Tam ifadenin büyük/küçük harf duyarlılığına uygun olduğundan emin olun; gerekirse `ignoreCase` seçeneğiyle `ExactPhraseRedaction` kullanın. |
-| **PDF çıktısı boş görünüyor** | `setRasterizeToPDF(false)` ayarlandığından emin olun; rasterleştirme arama yapılabilir metni kaldırır. |
-| **Lisans hatası** | Deneme veya tam lisans dosyasının doğru konumlandırıldığını ve yolun `License.setLicense("path/to/license.lic")` ile sağlandığını doğrulayın. |
+| **Kırpma uygulanmadı** | Tam eşleşmenin büyük/küçük harf duyarlılığını kontrol edin; gerekirse `ignoreCase` seçeneğiyle `ExactPhraseRedaction` kullanın. |
+| **PDF çıktısı boş görünüyor** | `setRasterizeToPDF(false)` ayarlandığından emin olun; rasterleştirme aranabilir metni kaldırır. |
+| **Lisans hatası** | Deneme veya tam lisans dosyasının doğru konumda olduğundan ve yolun `License.setLicense("path/to/license.lic")` ile sağlandığından emin olun. |
 
 ## Sıkça Sorulan Sorular
 
-**S1: Birden fazla kırpmayı aynı anda nasıl yönetebilirim?**  
-C1: `redactor.applyAll()` kullanarak bir `Redaction` nesnesi listesi uygulayabilirsiniz; bu, birden fazla deseni tek bir geçişte işler.
+**S: Birden fazla kırpmayı aynı anda nasıl yönetirim?**  
+C: `Redaction` nesnelerinden oluşan bir liste kullanın ve `redactor.applyAll()` metodunu çağırın. API, tüm desenleri tek bir geçişte işleyerek dosya okuma işlemlerini en aza indirir.
 
-**S2: GroupDocs.Redaction’ı diğer belge yönetim sistemleriyle entegre edebilir miyim?**  
-C2: Evet, API platformdan bağımsızdır ve web servislerinden, mikro‑servislerden veya masaüstü uygulamalardan çağrılabilir.
+**S: GroupDocs.Redaction'ı diğer belge yönetim sistemleriyle entegre edebilir miyim?**  
+C: Evet, API platform bağımsızdır ve web servisleri, mikro servisler veya masaüstü uygulamalardan çağrılabilir.
 
-**S3: GroupDocs.Redaction hangi dosya formatlarını destekliyor?**  
-C3: DOCX, PDF, XLSX, PPTX ve birçok yaygın iş formatını destekler.
+**S: GroupDocs.Redaction hangi dosya formatlarını destekliyor?**  
+C: DOCX, PDF, XLSX, PPTX, HTML ve yaygın görüntü türleri dahil **30+ format**ı destekler, her birini dönüşüm olmadan yerel olarak işler.
 
-**S4: Büyük belgeleri kırparken performansı nasıl yönetebilirim?**  
-C5: Toplu işleme kullanmayı, giriş dosyalarını akış olarak işlemeyi ve her zaman `Redactor` örneklerini hemen kapatarak kaynakları serbest bırakmayı düşünün.
+**S: Büyük belgeleri kırparken performansı nasıl yönetmeliyim?**  
+C: Giriş dosyalarını akış olarak işleyin, toplu işler için tek bir `Redactor` örneğini yeniden kullanın ve kaynakları hemen serbest bırakmak için örneği her zaman kapatın.
+
+**S: Kütüphane şifre korumalı PDF'lerle çalışıyor mu?**  
+C: Evet—şifreyi `Redactor` yapıcısına iletin, motor dosyayı otomatik olarak çözer, kırpar ve yeniden şifreler.
 
 ---
 
-**Son Güncelleme:** 2026-02-16  
+**Son Güncelleme:** 2026-05-17  
 **Test Edilen Versiyon:** GroupDocs.Redaction 24.9 for Java  
 **Yazar:** GroupDocs
+
+## İlgili Öğreticiler
+
+- [Dosya Yolu Kullanarak GroupDocs Redaction Java Lisansı ile Hassas Verileri Kırpma – Adım Adım Kılavuz](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)
+- [GroupDocs.Redaction Kullanarak Java'da Metin Kırpmasını Uygulama – Güvenli Belge İşleme](/redaction/java/text-redaction/groupdocs-redaction-java-text-redaction-guide/)
+- [Java'da Gelişmiş Rasterleştirme Uzmanlığı: GroupDocs.Redaction ile Özel Kenarlıklar](/redaction/java/rasterization-options/advanced-rasterization-java-custom-borders-groupdocs-redaction/)

@@ -1,42 +1,75 @@
 ---
-date: '2026-02-16'
-description: Μάθετε πώς να καλύπτετε ευαίσθητα δεδομένα σε Java και να διαγράφετε
-  προσωπικά δεδομένα PDF σε Java χρησιμοποιώντας το GroupDocs.Redaction, διασφαλίζοντας
-  τη συμμόρφωση με την ιδιωτικότητα και την προστασία των δεδομένων.
+date: '2026-05-17'
+description: Μάθετε πώς να επεξεργάζεστε PDF και να καλύπτετε ευαίσθητα δεδομένα Java
+  χρησιμοποιώντας το GroupDocs.Redaction, διασφαλίζοντας τη συμμόρφωση με το GDPR
+  και την ισχυρή προστασία δεδομένων.
 keywords:
-- Java document redaction
-- GroupDocs.Redaction setup
-- Precise document redactions
-title: Απόκρυψη ευαίσθητων δεδομένων Java – Κατάργηση προσωπικών πληροφοριών με το
-  GroupDocs.Redaction
+- how to redact pdf
+- mask sensitive data java
+- java redact text
+- redact personal data pdf
+schemas:
+- author: GroupDocs
+  dateModified: '2026-05-17'
+  description: Learn how to redact PDF and mask sensitive data java using GroupDocs.Redaction,
+    ensuring GDPR compliance and robust data protection.
+  headline: How to Redact PDF and Mask Sensitive Data Java with GroupDocs
+  type: TechArticle
+- description: Learn how to redact PDF and mask sensitive data java using GroupDocs.Redaction,
+    ensuring GDPR compliance and robust data protection.
+  name: How to Redact PDF and Mask Sensitive Data Java with GroupDocs
+  steps:
+  - name: Initialize the Redactor
+    text: The Redactor class is the core engine that loads and prepares a document
+      for redaction operations.
+  - name: Define and Apply the Exact‑Phrase Redaction
+    text: ExactPhraseRedaction defines a rule that matches a literal text string,
+      while ReplacementOptions specify how the matched content is visually replaced.
+  - name: Save the Redacted Document with Custom Options
+    text: SaveOptions configures the output parameters such as file format, suffix,
+      and rasterization behavior for the redacted document.
+  type: HowTo
+- questions:
+  - answer: Use a list of `Redaction` objects and call `redactor.applyAll()`. The
+      API processes all patterns in one pass, minimizing file reads.
+    question: How do I handle multiple redactions at once?
+  - answer: Yes, the API is platform‑agnostic and can be invoked from web services,
+      micro‑services, or desktop applications.
+    question: Can I integrate GroupDocs.Redaction with other document management systems?
+  - answer: It supports **30+ formats** including DOCX, PDF, XLSX, PPTX, HTML, and
+      common image types, handling each natively without conversion.
+    question: What file formats does GroupDocs.Redaction support?
+  - answer: Stream input files, reuse a single `Redactor` instance for batch jobs,
+      and always close the instance to release resources promptly.
+    question: How should I manage performance when redacting large documents?
+  - answer: Yes—pass the password to the `Redactor` constructor, and the engine will
+      decrypt, redact, and re‑encrypt the file automatically.
+    question: Does the library work with password‑protected PDFs?
+  type: FAQPage
+title: Πώς να επεξεργαστείτε PDF και να καλύψετε ευαίσθητα δεδομένα Java με το GroupDocs
 type: docs
 url: /el/java/advanced-redaction/master-document-redaction-java-groupdocs-redaction/
 weight: 1
 ---
 
-# Απόκρυψη Ευαίσθητων Δεδομένων Java – Αφαίρεση Προσωπικών Πληροφοριών με GroupDocs.Redaction
+# Πώς να Redact PDF και Mask Sensitive Data Java με GroupDocs
 
-Στο σημερινό γρήγορα εξελισσόμενο ψηφιακό τοπίο, **masking sensitive data java** δεν είναι πλέον προαιρετικό—είναι απαίτηση συμμόρφωσης. Είτε ετοιμάζετε μια σύμβαση για έναν πελάτη, μοιράζεστε ιατρικό αρχείο, είτε απλώς καθαρίζετε μια εσωτερική αναφορά, χρειάζεστε έναν αξιόπιστο τρόπο να κρύψετε προσωπικά αναγνωριστικά ενώ διατηρείτε την αρχική διάταξη του εγγράφου αμετάβλητη. Σε αυτό το σεμινάριο θα δούμε πώς να **mask sensitive data java** και επίσης **redact personal data pdf** χρησιμοποιώντας τη δυνατή βιβλιοθήκη GroupDocs.Redaction για Java.
-
-## Γρήγορες Απαντήσεις
-- **Τι σημαίνει “mask sensitive data java”;** Σημαίνει τον προγραμματιστικό εντοπισμό και την απόκρυψη ιδιωτικών πληροφοριών (ονόματα, αριθμοί ταυτοποίησης κ.λπ.) σε ροές εργασίας εγγράφων βασισμένες σε Java.  
+## Σύντομες Απαντήσεις
+- **Τι σημαίνει “mask sensitive data java”;** Σημαίνει τον προγραμματιστικό εντοπισμό και απόκρυψη ιδιωτικών πληροφοριών (ονόματα, ταυτότητες κ.λπ.) σε ροές εργασίας εγγράφων βασισμένες σε Java.  
 - **Ποια βιβλιοθήκη το διαχειρίζεται;** GroupDocs.Redaction for Java.  
 - **Χρειάζομαι άδεια;** Μια δωρεάν δοκιμή είναι ιδανική για δοκιμές· απαιτείται πλήρης άδεια για χρήση σε παραγωγή.  
-- **Μπορώ επίσης να αφαιρέσω προσωπικά δεδομένα pdf;** Απόλυτα—το GroupDocs.Redaction λειτουργεί με PDF, DOCX, XLSX, PPTX και πολλές άλλες μορφές.  
-- **Ποια έκδοση της Java απαιτείται;** JDK 8 ή νεότερη.
+- **Μπορώ επίσης να Redact αρχεία PDF με προσωπικά δεδομένα;** Απόλυτα—το GroupDocs.Redaction λειτουργεί με PDF, DOCX, XLSX, PPTX και πολλές άλλες μορφές.  
+- **Ποια έκδοση Java απαιτείται;** JDK 8 ή νεότερη.
 
-## Τι είναι η Mask Sensitive Data Java;
-Η απόκρυψη ευαίσθητων δεδομένων σε Java σημαίνει χρήση κώδικα για τον εντοπισμό συγκεκριμένων φράσεων ή προτύπων μέσα σε ένα έγγραφο και την αντικατάστασή τους με σύμβολα κράτησης θέσης (π.χ., “[personal]”). Αυτή η διαδικασία εγγυάται ότι το αρχικό περιεχόμενο δεν μπορεί να ανακτηθεί, διατηρώντας ταυτόχρονα την οπτική ακεραιότητα του εγγράφου.
+## Τι είναι το Mask Sensitive Data Java;
+Η κάλυψη (masking) ευαίσθητων δεδομένων σε Java σημαίνει χρήση κώδικα για τον εντοπισμό συγκεκριμένων φράσεων ή προτύπων μέσα σε ένα έγγραφο και την αντικατάστασή τους με σύμβολα κράτησης θέσης (π.χ., “[personal]”). Αυτή η διαδικασία εγγυάται ότι το αρχικό περιεχόμενο δεν μπορεί να ανακτηθεί, διατηρώντας ταυτόχρονα την οπτική ακεραιότητα του εγγράφου.
 
-## Γιατί να Χρησιμοποιήσετε το GroupDocs.Redaction για Απόκρυψη;
-- **Full‑format support** – αφαίρεση (redact) PDF, αρχείων Word, λογιστικών φύλλων και παρουσιάσεων χωρίς μετατροπή.  
-- **Exact‑phrase matching** – στοχεύει ακριβείς συμβολοσειρές όπως “John Doe”.  
-- **Custom replacement options** – επιλέξτε κείμενο, μαύρα πλαίσια ή επικάλυψη εικόνας.  
-- **Compliance‑ready** – συμμορφώνεται με GDPR, HIPAA και άλλους κανονισμούς απορρήτου έτοιμο για χρήση.
+## Γιατί να χρησιμοποιήσετε το GroupDocs.Redaction για Masking;
+Το GroupDocs.Redaction παρέχει πλήρη υποστήριξη μορφών, επιτρέποντας την Redact αρχείων PDF, Word, Excel και PowerPoint χωρίς μετατροπή. Προσφέρει ακριβή αντιστοίχιση φράσεων για ακριβείς συμβολοσειρές όπως “John Doe”, προσαρμόσιμες αντικαταστάσεις όπως κείμενο, μαύρα κουτιά ή εικόνες, καθώς και ενσωματωμένα πρότυπα συμμόρφωσης που ικανοποιούν το GDPR, το HIPAA και άλλους κανονισμούς απορρήτου.
 
 ## Προαπαιτούμενα
 - **Java Development Kit (JDK) 8+** εγκατεστημένο.  
-- **Ένα IDE** όπως IntelliJ IDEA ή Eclipse για εύκολο debugging.  
+- **Ένα IDE** όπως το IntelliJ IDEA ή το Eclipse για αποσφαλμάτωση.  
 - **GroupDocs.Redaction for Java** (έκδοση 24.9 ή νεότερη).  
 - Βασικές γνώσεις διαχείρισης αρχείων Java.
 
@@ -64,18 +97,19 @@ weight: 1
 ```
 
 ### Άμεση Λήψη
-Αν προτιμάτε χειροκίνητη διαχείριση, κατεβάστε το πιο πρόσφατο JAR από την επίσημη σελίδα κυκλοφορίας: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+Αν προτιμάτε χειροκίνητη διαχείριση, κατεβάστε το τελευταίο JAR από τη σελίδα εκδόσεων: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
 ### Απόκτηση Άδειας
-- **Free trial** – ιδανική για αξιολόγηση του API.  
-- **Temporary license** – χρήσιμη για εκτεταμένες δοκιμές χωρίς αγορά.  
-- **Full license** – απαιτείται για εμπορική ανάπτυξη και απεριόριστες αφαιρέσεις.
+- **Δωρεάν δοκιμή** – ιδανική για αξιολόγηση του API.  
+- **Προσωρινή άδεια** – χρήσιμη για εκτεταμένες δοκιμές χωρίς αγορά.  
+- **Πλήρης άδεια** – απαιτείται για εμπορική ανάπτυξη και απεριόριστες Redact.
 
-## Πώς να Αποκρύψετε Ευαίσθητα Δεδομένα Java Χρησιμοποιώντας το GroupDocs.Redaction
-Παρακάτω χωρίζουμε την υλοποίηση σε σαφή, αριθμημένα βήματα. Κάθε βήμα περιλαμβάνει μια σύντομη εξήγηση ακολουθούμενη από το αρχικό μπλοκ κώδικα (αμετάβλητο).
+## Πώς να Redact PDF χρησιμοποιώντας το GroupDocs.Redaction σε Java
+
+Για να Redact ένα PDF με το GroupDocs.Redaction, πρώτα φορτώστε το έγγραφο σε μια παρουσίαση Redactor, στη συνέχεια ορίστε έναν ή περισσότερους κανόνες Redact όπως ExactPhraseRedaction, και τέλος αποθηκεύστε το τροποποιημένο αρχείο χρησιμοποιώντας SaveOptions. Αυτή η τριπλή διαδικασία διατηρεί την αρχική διάταξη ενώ αφαιρεί με ασφάλεια το ευαίσθητο περιεχόμενο.
 
 ### Βήμα 1: Αρχικοποίηση του Redactor
-Φορτώστε το έγγραφο που θέλετε να επεξεργαστείτε. Αυτό δημιουργεί μια παρουσία `Redactor` που θα διαχειρίζεται όλες τις επόμενες ενέργειες αφαίρεσης.
+Η κλάση Redactor είναι η κύρια μηχανή που φορτώνει και προετοιμάζει ένα έγγραφο για λειτουργίες Redact.
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -86,8 +120,8 @@ import com.groupdocs.redaction.redactions.ReplacementOptions;
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/sample.docx");
 ```
 
-### Βήμα 2: Ορισμός και Εφαρμογή της Αφαίρεσης Ακριβούς Φράσης
-Καθορίστε την ακριβή φράση που θέλετε να αποκρύψετε (π.χ., το όνομα ενός ατόμου) και το κείμενο αντικατάστασης που θα εμφανιστεί στο τελικό έγγραφο.
+### Βήμα 2: Ορισμός και Εφαρμογή της Exact‑Phrase Redaction
+Η ExactPhraseRedaction ορίζει έναν κανόνα που ταιριάζει με μια κυριολεκτική συμβολοσειρά, ενώ οι ReplacementOptions καθορίζουν πώς το ταιριασμένο περιεχόμενο αντικαθίσταται οπτικά.
 
 ```java
 try {
@@ -101,13 +135,8 @@ try {
 }
 ```
 
-**Key points**  
-- `ExactPhraseRedaction` στοχεύει στην κυριολεκτική συμβολοσειρά “John Doe”.  
-- `ReplacementOptions("[personal]")` λέει στη μηχανή να αντικαταστήσει τη φράση με το σύμβολο κράτησης θέσης “[personal]”.  
-- Πάντα κλείστε το `Redactor` για να ελευθερώσετε πόρους.
-
-### Βήμα 3: Αποθήκευση του Αφαιρεμένου Εγγράφου με Προσαρμοσμένες Επιλογές
-Μετά την απόκρυψη των δεδομένων, πιθανότατα θα θέλετε να διατηρήσετε την αρχική μορφή αρχείου και να προσθέσετε ένα χρήσιμο επίθημα (π.χ., ημερομηνία) στο όνομα του αρχείου.
+### Βήμα 3: Αποθήκευση του Redacted Εγγράφου με Προσαρμοσμένες Επιλογές
+Οι SaveOptions ρυθμίζουν τις παραμέτρους εξόδου όπως μορφή αρχείου, επίθημα και συμπεριφορά rasterization για το Redacted έγγραφο.
 
 ```java
 import com.groupdocs.redaction.options.SaveOptions;
@@ -133,48 +162,48 @@ try {
 }
 ```
 
-**What the options do**  
-- `setAddSuffix(true)` προσθέτει αυτόματα το παραγόμενο επίθημα στο νέο όνομα αρχείου.  
-- `setRasterizeToPDF(false)` διατηρεί την αρχική μορφή (DOCX, PDF κ.λπ.) αντί να μετατρέπει τα πάντα σε PDF βασισμένο σε εικόνα.
-
-## Πώς να Αφαιρέσετε Προσωπικά Δεδομένα PDF σε Java
-Το ίδιο API λειτουργεί για αρχεία PDF. Απλώς κατευθύνετε τον κατασκευαστή `Redactor` σε ένα αρχείο `.pdf` και ακολουθήστε τα βήματα ακριβούς φράσης παραπάνω. Επειδή η βιβλιοθήκη αναλύει τα επίπεδα κειμένου του PDF, μπορείτε να αποκρύψετε αναγνωριστικά σε συμβόλαια, τιμολόγια ή οποιαδήποτε άλλη αναφορά βασισμένη σε PDF χωρίς να χάσετε το αναζητήσιμο κείμενο.
+## Πώς να Εφαρμόσετε Πολλαπλές Redactions Αποτελεσματικά;
+Η μέθοδος applyAll() εκτελεί κάθε κανόνα Redaction που βρίσκεται στην ουρά σε μία ενιαία λειτουργία. Όταν χρειάζεται να εφαρμόσετε πολλούς κανόνες Redaction, δημιουργήστε μια λίστα αντικειμένων Redtion—συμπεριλαμβανομένων ExactPhraseRedaction, RegexRedaction ή ImageRedaction—και περάστε τη συλλογή στο redactor.applyAll(). Αυτή η επεξεργασία παρτίδας εκτελεί όλους τους κανόνες σε μία μόνο διέλευση, ελαχιστοποιώντας τις λειτουργίες I/O και βελτιώνοντας σημαντικά την απόδοση σε μεγάλα σύνολα εγγράφων.
 
 ## Πρακτικές Εφαρμογές
-1. **Legal Document Management** – Αφαιρέστε τα ονόματα πελατών από συμβόλαια πριν τα μοιραστείτε με τρίτους.  
-2. **Healthcare Data Processing** – Αποκρύψτε τα αναγνωριστικά ασθενών για συμμόρφωση με HIPAA.  
-3. **Financial Services** – Κρύψτε τους αριθμούς λογαριασμών σε καταστάσεις για ελέγχους.  
-4. **Human Resources** – Προστατέψτε τα προσωπικά δεδομένα των υπαλλήλων κατά τις εσωτερικές αξιολογήσεις.
+1. **Διαχείριση Νομικών Εγγράφων** – Αφαίρεση ονομάτων πελατών από συμβάσεις πριν τη διανομή σε τρίτους.  
+2. **Επεξεργασία Δεδομένων Υγείας** – Κάλυψη αναγνωριστικών ασθενών για συμμόρφωση με το HIPAA.  
+3. **Οικονομικές Υπηρεσίες** – Απόκρυψη αριθμών λογαριασμών σε καταστάσεις για ελέγχους.  
+4. **Ανθρώπινο Δυναμικό** – Προστασία προσωπικών δεδομένων υπαλλήλων κατά τις εσωτερικές αξιολογήσεις.
 
 ## Συμβουλές Απόδοσης για Μεγάλα Αρχεία
-- **Close Redactor instances promptly** για ελευθέρωση μνήμης.  
-- **Batch process** πολλαπλά έγγραφα χρησιμοποιώντας βρόχο και επαναχρησιμοποιώντας ένα μόνο `Redactor` όπου είναι δυνατόν.  
-- **Monitor CPU and RAM** κατά τη διάρκεια βαρέων φορτίων· σκεφτείτε την αύξηση του μεγέθους heap της JVM εάν αντιμετωπίσετε `OutOfMemoryError`.
+- **Κλείστε άμεσα τις παρουσίες Redactor** για απελευθέρωση μνήμης.  
+- **Επεξεργασία παρτίδας** πολλαπλών εγγράφων με βρόχο και επαναχρησιμοποίηση ενός `Redactor` όπου είναι δυνατόν.  
+- **Παρακολουθήστε CPU και RAM** κατά τη διάρκεια βαρέων φορτίων· σκεφτείτε την αύξηση του μεγέθους heap του JVM εάν αντιμετωπίσετε `OutOfMemoryError`.  
 
 ## Συχνά Προβλήματα & Λύσεις
-
-| Issue | Solution |
-|-------|----------|
-| **Redaction not applied** | Επαληθεύστε ότι η ακριβής φράση ταιριάζει με την ευαισθησία πεζών‑κεφαλαίων· χρησιμοποιήστε `ExactPhraseRedaction` με την επιλογή `ignoreCase` εάν χρειάζεται. |
-| **PDF output looks blank** | Βεβαιωθείτε ότι το `setRasterizeToPDF(false)` είναι ορισμένο· η rasterization αφαιρεί το αναζητήσιμο κείμενο. |
-| **License error** | Επιβεβαιώστε ότι το αρχείο δοκιμαστικής ή πλήρους άδειας είναι σωστά τοποθετημένο και η διαδρομή παρέχεται μέσω `License.setLicense("path/to/license.lic")`. |
+| Πρόβλημα | Λύση |
+|----------|------|
+| **Η Redaction δεν εφαρμόστηκε** | Επαληθεύστε ότι η ακριβής φράση ταιριάζει με ευαισθησία σε πεζά/κεφαλαία· χρησιμοποιήστε `ExactPhraseRedaction` με την επιλογή `ignoreCase` εάν χρειάζεται. |
+| **Η έξοδος PDF φαίνεται κενή** | Βεβαιωθείτε ότι έχει οριστεί `setRasterizeToPDF(false)`· η rasterization αφαιρεί το αναζητήσιμο κείμενο. |
+| **Σφάλμα άδειας** | Επιβεβαιώστε ότι το αρχείο δοκιμαστικής ή πλήρους άδειας βρίσκεται στη σωστή θέση και το μονοπάτι παρέχεται μέσω `License.setLicense("path/to/license.lic")`. |
 
 ## Συχνές Ερωτήσεις
+**Q: Πώς να διαχειριστώ πολλαπλές redactions ταυτόχρονα;**  
+A: Χρησιμοποιήστε μια λίστα αντικειμένων `Redaction` και καλέστε `redactor.applyAll()`. Το API επεξεργάζεται όλα τα μοτίβα σε μία διέλευση, ελαχιστοποιώντας τις αναγνώσεις αρχείων.
 
-**Q1: Πώς μπορώ να διαχειριστώ πολλαπλές αφαιρέσεις ταυτόχρονα;**  
-A1: Μπορείτε να εφαρμόσετε μια λίστα αντικειμένων `Redaction` χρησιμοποιώντας `redactor.applyAll()`, το οποίο επεξεργάζεται πολλά μοτίβα σε μία μόνο διεργασία.
+**Q: Μπορώ να ενσωματώσω το GroupDocs.Redaction με άλλα συστήματα διαχείρισης εγγράφων;**  
+A: Ναι, το API είναι ανεξάρτητο πλατφόρμας και μπορεί να κληθεί από web services, micro‑services ή εφαρμογές επιφάνειας εργασίας.
 
-**Q2: Μπορώ να ενσωματώσω το GroupDocs.Redaction με άλλα συστήματα διαχείρισης εγγράφων;**  
-A2: Ναι, το API είναι ανεξάρτητο από πλατφόρμα και μπορεί να κληθεί από web services, micro‑services ή εφαρμογές επιφάνειας εργασίας.
+**Q: Ποιοι τύποι αρχείων υποστηρίζει το GroupDocs.Redaction;**  
+A: Υποστηρίζει **30+ μορφές** συμπεριλαμβανομένων DOCX, PDF, XLSX, PPTX, HTML και κοινών τύπων εικόνας, επεξεργαζόμενος κάθε μία εγγενώς χωρίς μετατροπή.
 
-**Q3: Ποιες μορφές αρχείων υποστηρίζει το GroupDocs.Redaction;**  
-A3: Υποστηρίζει DOCX, PDF, XLSX, PPTX και πολλές άλλες κοινές επιχειρηματικές μορφές.
+**Q: Πώς να διαχειριστώ την απόδοση όταν Redact μεγάλα έγγραφα;**  
+A: Διαβάστε τα αρχεία εισόδου σε ροή, επαναχρησιμοποιήστε μια ενιαία παρουσίαση `Redactor` για εργασίες παρτίδας, και πάντα κλείστε την παρουσίαση για άμεση απελευθέρωση πόρων.
 
-**Q4: Πώς διαχειρίζομαι την απόδοση όταν αφαιρώ μεγάλα έγγραφα;**  
-A5: Σκεφτείτε τη χρήση batch processing, τη ροή (stream) των αρχείων εισόδου, και πάντα κλείστε τις παρουσίες `Redactor` για άμεση απελευθέρωση πόρων.
+**Q: Λειτουργεί η βιβλιοθήκη με PDF προστατευμένα με κωδικό;**  
+A: Ναι—παρέχετε τον κωδικό στον κατασκευαστή `Redactor`, και η μηχανή θα αποκρυπτογραφήσει, θα Redact και θα κρυπτογραφήσει ξανά το αρχείο αυτόματα.
 
----
-
-**Τελευταία Ενημέρωση:** 2026-02-16  
-**Δοκιμάστηκε Με:** GroupDocs.Redaction 24.9 for Java  
+**Τελευταία Ενημέρωση:** 2026-05-17  
+**Δοκιμή με:** GroupDocs.Redaction 24.9 for Java  
 **Συγγραφέας:** GroupDocs
+
+## Σχετικά Μαθήματα
+- [Πώς να Redact Ευαίσθητα Δεδομένα με το GroupDocs Redaction Java License από Διαδρομή Αρχείου – Οδηγός Βήμα-Βήμα](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)
+- [Πώς να Εφαρμόσετε Text Redaction σε Java Χρησιμοποιώντας το GroupDocs.Redaction για Ασφαλή Διαχείριση Εγγράφων](/redaction/java/text-redaction/groupdocs-redaction-java-text-redaction-guide/)
+- [Κατακτήστε την Προχωρημένη Rasterization σε Java: Προσαρμοσμένα Όρια με το GroupDocs.Redaction](/redaction/java/rasterization-options/advanced-rasterization-java-custom-borders-groupdocs-redaction/)
