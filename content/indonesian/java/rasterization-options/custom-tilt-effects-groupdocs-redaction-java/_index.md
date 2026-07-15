@@ -1,44 +1,88 @@
 ---
-date: '2026-02-11'
-description: Pelajari cara menerapkan efek miring khusus pada dokumen menggunakan
-  GroupDocs.Redaction untuk Java, dengan kode langkah demi langkah dan tips kinerja.
+date: '2026-06-01'
+description: Pelajari cara menggunakan tilt effect dengan GroupDocs.Redaction untuk
+  Java, termasuk kode step‑by‑step, tips kinerja, dan opsi penyesuaian.
 keywords:
+- how to use tilt
 - custom tilt effects
 - GroupDocs.Redaction Java
 - document rasterization
-title: Terapkan efek miring khusus dengan GroupDocs.Redaction Java
+schemas:
+- author: GroupDocs
+  dateModified: '2026-06-01'
+  description: Learn how to use tilt effect with GroupDocs.Redaction for Java, including
+    step‑by‑step code, performance tips, and customization options.
+  headline: How to Use Tilt Effect with GroupDocs.Redaction Java
+  type: TechArticle
+- description: Learn how to use tilt effect with GroupDocs.Redaction for Java, including
+    step‑by‑step code, performance tips, and customization options.
+  name: How to Use Tilt Effect with GroupDocs.Redaction Java
+  steps:
+  - name: Initialize Redactor and Save Options
+    text: First, create a `Redactor` instance pointing at your source file, then prepare
+      `SaveOptions` that will hold the rasterization configuration.
+  - name: Configure Tilt Effect Settings
+    text: Enable rasterization and define the tilt angle boundaries. The `AdvancedRasterizationOptions.Tilt`
+      object lets you set `minAngle` and `maxAngle` in degrees, controlling how much
+      each page can rotate.
+  - name: Save Document with Tilt Effect
+    text: Run the redaction process and output the rasterized, tilted document. The
+      `save` call writes each page as an image (PNG by default) while applying the
+      random tilt you specified.
+  type: HowTo
+- questions:
+  - answer: It redacts sensitive content while preserving document layout and also
+      supports advanced rasterization features like the tilt effect.
+    question: What is GroupDocs.Redaction Java used for?
+  - answer: By enabling rasterization and adding the `Tilt` advanced option with `minAngle`
+      and `maxAngle` parameters, as shown in the code samples.
+    question: How do I apply a tilt effect in my document using GroupDocs?
+  - answer: Yes, a free trial is available. For production use, obtain a temporary
+      or permanent license.
+    question: Can I use GroupDocs.Redaction for free?
+  - answer: It enhances visual appeal, adds a creative touch, and can help differentiate
+      marketing or presentation materials.
+    question: What are the benefits of using a tilt effect in documents?
+  - answer: Very large files may increase processing time and memory usage; proper
+      resource allocation mitigates this.
+    question: Are there any limitations to applying custom effects with GroupDocs.Redaction
+      Java?
+  type: FAQPage
+title: Cara Menggunakan Tilt Effect dengan GroupDocs.Redaction Java
 type: docs
 url: /id/java/rasterization-options/custom-tilt-effects-groupdocs-redaction-java/
 weight: 1
 ---
 
-# Terapkan efek miring khusus dengan GroupDocs.Redaction Java
+# Cara Menggunakan Efek Miring dengan GroupDocs.Redaction Java
 
-Memperbaiki daya tarik visual dokumen dengan **menerapkan efek miring khusus** selama rasterisasi dapat membuat laporan, materi pemasaran, atau pemindaian arsip menjadi menonjol. Dalam tutorial ini Anda akan menemukan mengapa efek ini penting, cara mengkonfigurasinya dengan GroupDocs.Redaction untuk Java, dan tips praktis untuk menjaga kinerja tetap lancar.
+Dalam tutorial ini Anda akan menemukan **cara menggunakan tilt** untuk memberikan dokumen rasterisasi Anda tampilan dinamis, seolah‑di‑pegang‑tangan, mengapa efek ini penting untuk presentasi modern, dan tepatnya pengaturan apa yang Anda perlukan di GroupDocs.Redaction untuk Java. Kami akan membimbing seluruh proses—dari menginstal pustaka hingga mengoptimalkan kinerja—sehingga Anda dapat menerapkan efek tilt dengan percaya diri dalam proyek nyata.
 
 ## Jawaban Cepat
-- **Apa yang dilakukan efek miring?** Itu memutar setiap halaman yang dirasterisasi dengan sudut acak dalam rentang yang ditentukan, menciptakan tampilan dinamis yang sedikit miring.  
+- **Apa yang dilakukan efek tilt?** Itu memutar setiap halaman yang dirasterisasi dengan sudut acak dalam rentang yang ditentukan, menciptakan tampilan dinamis, sedikit miring.  
 - **Perpustakaan mana yang menyediakan fitur ini?** GroupDocs.Redaction untuk Java (versi 24.9 atau lebih baru).  
 - **Apakah saya memerlukan lisensi?** Versi percobaan gratis dapat digunakan untuk evaluasi; lisensi permanen atau sementara diperlukan untuk produksi.  
-- **Apakah ini intensif memori?** Ini menambah beban CPU sedikit, tetapi pengaturan memori yang tepat membuatnya tetap efisien bahkan untuk file besar.  
+- **Apakah ini memakan banyak memori?** Ini menambah sedikit beban CPU, tetapi pengaturan memori yang tepat membuatnya tetap efisien bahkan untuk file besar.  
 - **Bisakah saya menyesuaikan rentang sudut?** Ya – gunakan parameter `minAngle` dan `maxAngle` dalam opsi rasterisasi.
 
-## Apa itu efek miring khusus?
+## Apa itu efek tilt khusus?
 
-Efek miring khusus adalah transformasi visual yang diterapkan saat mengonversi setiap halaman dokumen menjadi gambar. Dengan menentukan sudut minimum dan maksimum, rasterizer secara acak memiringkan halaman, memberikan hasil akhir nuansa artistik, “seperti dipegang tangan”.
+Efek tilt khusus adalah transformasi visual yang diterapkan saat mengonversi setiap halaman dokumen menjadi gambar. Dengan menentukan sudut minimum dan maksimum, rasterizer secara acak memiringkan halaman, memberikan hasil akhir nuansa artistik, “seolah‑di‑pegang‑tangan”. Efek ini sangat berguna ketika Anda ingin memecah tampilan kaku dan sempurna dari PDF standar serta menambahkan sentuhan kepribadian.
 
-## Mengapa menerapkan efek miring khusus dengan GroupDocs.Redaction?
+## Mengapa menerapkan efek tilt khusus dengan GroupDocs.Redaction?
+
+GroupDocs.Redaction mendukung rasterisasi untuk **lebih dari 70 format input dan output** dan dapat memproses PDF hingga **2.000 halaman** tanpa memuat seluruh file ke memori. Memanfaatkan opsi tilt bawaan berarti Anda menghindari perpustakaan gambar pihak ketiga, mengurangi kompleksitas integrasi, dan menjaga seluruh alur kerja dalam satu SDK yang telah teruji.
 
 - **Keterlibatan:** Halaman yang dimiringkan menarik perhatian pembaca, cocok untuk presentasi atau brosur pemasaran.  
 - **Branding:** Menambahkan tanda visual unik tanpa mengubah konten asli.  
-- **Fleksibilitas:** Anda mengontrol rentang sudut, memungkinkan miring yang halus atau dramatis.  
+- **Fleksibilitas:** Anda mengontrol rentang sudut, memungkinkan tilt yang halus atau dramatis.  
 - **Integrasi:** Efek ini terintegrasi dalam pipeline rasterisasi GroupDocs.Redaction, sehingga Anda tidak memerlukan alat pemrosesan gambar eksternal.
 
 ## Prasyarat
 
-- Java 8 atau lebih baru terpasang.  
+- Java 8 atau yang lebih baru terpasang.  
 - Maven (atau alat build lain) untuk mengelola dependensi.  
-- GroupDocs.Redaction 24.9 atau lebih baru (tutorial ini menggunakan rilis terbaru).  
+- GroupDocs.Redaction 24.9 atau yang lebih baru (tutorial ini menggunakan rilis terbaru).  
 - Familiaritas dasar dengan penanganan file Java.
 
 ## Menyiapkan GroupDocs.Redaction untuk Java
@@ -69,19 +113,19 @@ Sertakan GroupDocs.Redaction dalam proyek Maven Anda dengan menambahkan reposito
 
 **Unduhan Langsung**
 
-Atau, unduh versi terbaru secara langsung dari [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+Alternatifnya, unduh versi terbaru langsung dari [rilis GroupDocs.Redaction untuk Java](https://releases.groupdocs.com/redaction/java/).
 
-#### Akuisisi Lisensi
+#### Perolehan Lisensi
 
 Untuk memanfaatkan GroupDocs.Redaction secara penuh:
 
-- **Free Trial** – jelajahi fitur inti tanpa biaya.  
-- **Temporary License** – minta kunci berjangka waktu untuk evaluasi penuh melalui [GroupDocs Temporary License](https://purchase.groupdocs.com/temporary-license/).  
-- **Purchase** – dapatkan lisensi permanen untuk penggunaan produksi.
+- **Percobaan Gratis** – jelajahi fitur inti tanpa biaya.  
+- **Lisensi Sementara** – minta kunci berjangka waktu untuk evaluasi penuh melalui [Lisensi Sementara GroupDocs](https://purchase.groupdocs.com/temporary-license/).  
+- **Pembelian** – dapatkan lisensi permanen untuk penggunaan produksi.
 
-### Inisialisasi dan Pengaturan Dasar
+### Inisialisasi dan Penyiapan Dasar
 
-Untuk memulai, impor kelas yang diperlukan dan buat instance `Redactor` yang mengarah ke dokumen sumber Anda:
+Kelas `Redactor` adalah titik masuk untuk semua operasi redaksi dan rasterisasi di GroupDocs.Redaction. Ia mengelola pemuatan dokumen, pemrosesan, dan penyimpanan, memastikan sumber daya dilepaskan secara otomatis.
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -94,15 +138,15 @@ String documentPath = "YOUR_DOCUMENT_DIRECTORY/MULTIPAGE_SAMPLE_DOCX";
 Redactor redactor = new Redactor(documentPath);
 ```
 
-## Cara menerapkan efek miring khusus selama rasterisasi
+## Cara menerapkan efek tilt khusus selama rasterisasi
 
-### Gambaran Fitur
+Muat file sumber Anda, aktifkan rasterisasi, tetapkan rentang tilt yang diinginkan, lalu simpan dokumen yang telah diubah—semua dalam beberapa langkah singkat. Ikhtisar ini menjelaskan alur kerja lengkap, sehingga Anda tahu persis objek apa yang harus dibuat, opsi apa yang harus dikonfigurasi, dan cara memanggil operasi penyimpanan sebelum memeriksa kode detail.
 
-GroupDocs.Redaction memungkinkan Anda mengaktifkan rasterisasi dan menyuntikkan opsi lanjutan seperti efek miring. Dengan mengkonfigurasi `AdvancedRasterizationOptions.Tilt` Anda mengontrol rentang sudut yang diterapkan pada setiap halaman.
-
-### Implementasi Langkah‑per‑Langkah
+### Implementasi Langkah‑demi‑Langkah
 
 #### Langkah 1: Inisialisasi Redactor dan Opsi Penyimpanan
+
+Pertama, buat instance `Redactor` yang menunjuk ke file sumber Anda, kemudian siapkan `SaveOptions` yang akan menyimpan konfigurasi rasterisasi.
 
 ```java
 import com.groupdocs.redaction.options.AdvancedRasterizationOptions;
@@ -112,9 +156,9 @@ Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/MULTIPAGE_SAMPLE_DOCX"
 SaveOptions saveOptions = new SaveOptions();
 ```
 
-#### Langkah 2: Konfigurasikan Pengaturan Efek Miring
+#### Langkah 2: Konfigurasikan Pengaturan Efek Tilt
 
-Aktifkan rasterisasi dan tentukan batas sudut miring:
+Aktifkan rasterisasi dan definisikan batas sudut tilt. Objek `AdvancedRasterizationOptions.Tilt` memungkinkan Anda mengatur `minAngle` dan `maxAngle` dalam derajat, mengontrol seberapa banyak setiap halaman dapat diputar.
 
 ```java
 saveOptions.getRasterization().setEnabled(true);
@@ -128,9 +172,9 @@ saveOptions.getRasterization().addAdvancedOption(
 );
 ```
 
-#### Langkah 3: Simpan Dokumen dengan Efek Miring
+#### Langkah 3: Simpan Dokumen dengan Efek Tilt
 
-Jalankan proses redaksi dan keluarkan dokumen yang dirasterisasi dengan kemiringan:
+Jalankan proses redaksi dan keluarkan dokumen yang dirasterisasi dan dimiringkan. Pemanggilan `save` menulis setiap halaman sebagai gambar (PNG secara default) sambil menerapkan tilt acak yang Anda tentukan.
 
 ```java
 redactor.save("OUTPUT_DIRECTORY/MULTIPAGE_SAMPLE_DOCX_scan", saveOptions);
@@ -139,12 +183,13 @@ redactor.save("OUTPUT_DIRECTORY/MULTIPAGE_SAMPLE_DOCX_scan", saveOptions);
 ### Penjelasan Parameter
 
 - **minAngle** – rotasi terkecil (dalam derajat) yang dapat diterapkan pada sebuah halaman.  
-- **maxAngle** – rotasi terbesar (dalam derajat) yang diizinkan. Sesuaikan nilai ini untuk mendapatkan kemiringan yang halus atau mencolok.
+- **maxAngle** – rotasi terbesar (dalam derajat) yang diizinkan.  
+- Sesuaikan nilai ini untuk mencapai tilt yang halus atau mencolok.
 
 #### Tips Pemecahan Masalah
 
 - Pastikan direktori sumber dan output dapat ditulisi oleh JVM.  
-- Pastikan Anda menggunakan GroupDocs.Redaction 24.9 atau lebih baru; versi lama tidak memiliki opsi `Tilt`.  
+- Pastikan Anda menggunakan GroupDocs.Redaction 24.9 atau yang lebih baru; versi lama tidak memiliki opsi `Tilt`.  
 - Jika output terlihat terlalu terdistorsi, kurangi nilai `maxAngle`.
 
 ## Aplikasi Praktis
@@ -162,33 +207,33 @@ redactor.save("OUTPUT_DIRECTORY/MULTIPAGE_SAMPLE_DOCX_scan", saveOptions);
 
 ### Praktik Terbaik untuk Manajemen Memori Java
 
-- Panggil `System.gc()` secara hemat; bergantung pada garbage collector JVM.  
+- Panggil `System.gc()` secara jarang; bergantung pada pengumpul sampah JVM.  
 - Tutup stream dengan cepat (GroupDocs.Redaction menangani sebagian besar pembersihan secara internal).
 
 ## Masalah Umum dan Solusinya
 
 | Masalah | Penyebab Kemungkinan | Solusi |
 |-------|--------------|----------|
-| Miring tidak diterapkan | Rasterisasi dinonaktifkan | Pastikan `saveOptions.getRasterization().setEnabled(true);` |
-| File output kosong | Path output tidak benar | Verifikasi direktori ada dan memiliki izin menulis |
-| Sudut tidak terduga | `minAngle` > `maxAngle` | Tukar nilai sehingga `minAngle` ≤ `maxAngle` |
+| Tilt tidak diterapkan | Rasterisasi dinonaktifkan | Ensure `saveOptions.getRasterization().setEnabled(true);` |
+| File output kosong | Path output tidak benar | Verify the directory exists and has write permissions |
+| Sudut tidak terduga | `minAngle` > `maxAngle` | Swap values so `minAngle` ≤ `maxAngle` |
 
 ## Pertanyaan yang Sering Diajukan
 
 **Q: Apa kegunaan GroupDocs.Redaction Java?**  
-A: Ia menghapus konten sensitif sambil mempertahankan tata letak dokumen dan juga mendukung fitur rasterisasi lanjutan seperti efek miring.
+A: Ia menghapus konten sensitif sambil mempertahankan tata letak dokumen dan juga mendukung fitur rasterisasi lanjutan seperti efek tilt.
 
-**Q: Bagaimana cara menerapkan efek miring dalam dokumen saya menggunakan GroupDocs?**  
+**Q: Bagaimana cara menerapkan efek tilt dalam dokumen saya menggunakan GroupDocs?**  
 A: Dengan mengaktifkan rasterisasi dan menambahkan opsi lanjutan `Tilt` dengan parameter `minAngle` dan `maxAngle`, seperti yang ditunjukkan dalam contoh kode.
 
-**Q: Apakah saya dapat menggunakan GroupDocs.Redaction secara gratis?**  
+**Q: Bisakah saya menggunakan GroupDocs.Redaction secara gratis?**  
 A: Ya, percobaan gratis tersedia. Untuk penggunaan produksi, dapatkan lisensi sementara atau permanen.
 
-**Q: Apa manfaat menggunakan efek miring dalam dokumen?**  
-A: Ini meningkatkan daya tarik visual, menambahkan sentuhan kreatif, dan dapat membantu membedakan materi pemasaran atau presentasi.
+**Q: Apa manfaat menggunakan efek tilt dalam dokumen?**  
+A: Itu meningkatkan daya tarik visual, menambahkan sentuhan kreatif, dan dapat membantu membedakan materi pemasaran atau presentasi.
 
 **Q: Apakah ada batasan dalam menerapkan efek khusus dengan GroupDocs.Redaction Java?**  
-A: File yang sangat besar dapat meningkatkan waktu pemrosesan dan penggunaan memori; alokasi sumber daya yang tepat mengurangi hal ini.
+A: File yang sangat besar dapat meningkatkan waktu pemrosesan dan penggunaan memori; alokasi sumber daya yang tepat dapat mengurangi hal ini.
 
 ## Sumber Daya
 - [Dokumentasi GroupDocs Redaction](https://docs.groupdocs.com/redaction/java/)
@@ -200,6 +245,14 @@ A: File yang sangat besar dapat meningkatkan waktu pemrosesan dan penggunaan mem
 
 ---
 
-**Last Updated:** 2026-02-11  
-**Tested With:** GroupDocs.Redaction 24.9 for Java  
-**Author:** GroupDocs
+**Terakhir Diperbarui:** 2026-06-01  
+**Diuji Dengan:** GroupDocs.Redaction 24.9 untuk Java  
+**Penulis:** GroupDocs  
+
+---
+
+## Tutorial Terkait
+
+- [Tutorial Opsi Rasterisasi untuk GroupDocs.Redaction Java](/redaction/java/rasterization-options/)
+- [Rasterisasi Noise Kustom di Java: Amankan Informasi Sensitif dengan GroupDocs.Redaction](/redaction/java/rasterization-options/java-groupdocs-redaction-custom-noise-rasterization/)
+- [Cara menggunakan groupdocs redaction untuk Java: Pra‑Rasterisasi dalam Dokumen Word](/redaction/java/rasterization-options/groupdocs-redaction-java-pre-rasterization-word-docs/)
