@@ -1,41 +1,41 @@
 ---
-date: '2026-01-08'
-description: Leer hoe je MetadataSearchRedaction in Java met GroupDocs.Redaction kunt
-  gebruiken om gevoelige documentmetadata veilig te redigeren.
+date: '2026-03-22'
+description: Leer hoe u metadata‑redactie kunt uitvoeren met GroupDocs in Java, waarbij
+  u vertrouwelijke documentmetadata veilig verwijdert met behulp van GroupDocs.Redaction.
 keywords:
 - metadata redaction Java
 - GroupDocs Redaction tutorial
 - secure document metadata
-title: Hoe MetadataSearchRedaction te gebruiken in Java met GroupDocs
+title: Hoe metadata‑redactie uit te voeren met GroupDocs in Java
 type: docs
 url: /nl/java/metadata-redaction/java-metadata-redaction-groupdocs-tutorial/
 weight: 1
 ---
 
-# Hoe MetadataSearchRedaction te gebruiken in Java met GroupDocs
+# Hoe metadata‑redactie uit te voeren met GroupDocs in Java
 
-In deze uitgebreide gids ontdek je **hoe je MetadataSearchRedaction** kunt gebruiken om vertrouwelijke metadata—zoals bedrijfsnamen—te verwijderen uit Word-, PDF- en andere documentformaten met GroupDocs.Redaction voor Java. Aan het einde van de tutorial kun je metadata‑redactie integreren in elke Java‑gebaseerde workflow en gevoelige informatie veilig houden.
+In deze uitgebreide gids ontdek je **hoe je metadata‑redactie met GroupDocs** kunt gebruiken om vertrouwelijke metadata—zoals bedrijfsnamen—te verwijderen uit Word, PDF en andere documentformaten met GroupDocs.Redaction voor Java. Aan het einde van de tutorial kun je metadata‑redactie integreren in elke Java‑gebaseerde workflow en gevoelige informatie veilig houden.
 
 ## Snelle Antwoorden
 - **Wat doet MetadataSearchRedaction?** Het zoekt naar specifieke metadata‑velden en vervangt hun waarden door aangepaste tekst.  
 - **Welke bibliotheek is vereist?** GroupDocs.Redaction for Java (v24.9 of nieuwer).  
 - **Heb ik een licentie nodig?** Een gratis proefversie werkt voor evaluatie; een volledige licentie is vereist voor productie.  
-- **Kan ik het oorspronkelijke bestandsformaat behouden?** Ja—gebruik `SaveOptions` om het oorspronkelijke formaat te behouden.  
+- **Kan ik het oorspronkelijke bestandsformaat behouden?** Ja—gebruik `SaveOptions` om het originele formaat te behouden.  
 - **Is deze aanpak thread‑safe?** Elke `Redactor`‑instantie is onafhankelijk, zodat je documenten parallel kunt verwerken.
 
-## Wat is MetadataSearchRedaction?
-`MetadataSearchRedaction` is een gespecialiseerde redactieklaas die je in staat stelt een specifieke metadata‑eigenschap (bijv. *Company*, *Author*) te targeten en de inhoud te vervangen door een placeholder. Het is ideaal wanneer je bedrijfsgegevens moet anonimiseren voordat je documenten deelt met externe partners.
+## Wat is metadata‑redactie met GroupDocs?
+`MetadataSearchRedaction` is een gespecialiseerde klasse die je in staat stelt een specifieke metadata‑eigenschap (bijv. *Company*, *Author*) te targeten en de inhoud te vervangen door een placeholder. Het is ideaal wanneer je bedrijfsgegevens moet anonimiseren voordat je documenten deelt met externe partners.
 
-## Waarom MetadataSearchRedaction gebruiken voor metadata‑redactie?
-- **Precisie** – Redigeer alleen de velden die je opgeeft, en laat de rest van het document onaangeroerd.  
-- **Naleving** – Helpt te voldoen aan GDPR, HIPAA en andere privacy‑regelgeving door verborgen identifiers te verwijderen.  
+## Waarom metadata‑redactie gebruiken met GroupDocs?
+- **Precisie** – Redigeer alleen de velden die je opgeeft, terwijl de rest van het document onaangeroerd blijft.  
+- **Naleving** – Helpt te voldoen aan GDPR, HIPAA en andere privacy‑regelgeving door verborgen identificatoren te verwijderen.  
 - **Automatisering‑klaar** – Past naadloos in batch‑verwerkingspijplijnen of micro‑services.
 
 ## Vereisten
 - **GroupDocs.Redaction for Java** ≥ 24.9.  
 - Java 8 of nieuwer geïnstalleerd op je machine.  
 - Een IDE zoals IntelliJ IDEA of Eclipse (optioneel maar aanbevolen).  
-- Basiskennis van Maven (of mogelijkheid om JAR‑bestanden handmatig toe te voegen).  
+- Basiskennis van Maven (of de mogelijkheid om JAR‑bestanden handmatig toe te voegen).  
 
 ## GroupDocs.Redaction voor Java instellen
 Voeg de repository en afhankelijkheid toe aan je `pom.xml`. Deze stap zorgt ervoor dat Maven de bibliotheek automatisch kan downloaden.
@@ -61,13 +61,13 @@ Voeg de repository en afhankelijkheid toe aan je `pom.xml`. Deze stap zorgt ervo
 *Alternatief kun je de JAR direct downloaden van de officiële release‑pagina:*  
 [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/)
 
-### Licentie‑acquisitie
+### Licentie‑verwerving
 - **Gratis proefversie** – Download een proeflicentie om alle functies te verkennen.  
 - **Tijdelijke licentie** – Gebruik voor uitgebreid testen.  
 - **Volledige licentie** – Vereist voor productie‑implementaties.
 
 ## Basisinitialisatie
-Maak een `Redactor`‑instantie aan die naar het document wijst dat je wilt verwerken.
+Maak een `Redactor`‑instantie aan die wijst naar het document dat je wilt verwerken.
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -95,28 +95,28 @@ Instantieer de `Redactor` met het pad naar je bronbestand.
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX");
 ```
 
-### Stap 3: Configureer metadata‑zoekopdracht en redacties
-Maak een `MetadataSearchRedaction` die zoekt naar de exacte tekenreeks **"Company Ltd."** en deze vervangt door **"--company--"**. De `setFilter`‑aanroep beperkt de bewerking tot alleen het *Company* metadata‑veld.
+### Stap 3: Configureer metadata‑zoekopdracht en -redactie
+Maak een `MetadataSearchRedaction` die zoekt naar de exacte string **"Company Ltd."** en deze vervangt door **"--company--"**. De `setFilter`‑aanroep beperkt de bewerking tot alleen het *Company* metadata‑veld.
 
 ```java
 MetadataSearchRedaction redaction = new MetadataSearchRedaction("Company Ltd.", "--company--");
 redaction.setFilter(MetadataFilters.Company);
 ```
 
-### Stap 4: Pas de redacties toe
-Voer de redacties uit op het geopende document.
+### Stap 4: Pas de redactie toe
+Voer de redactie uit op het geopende document.
 
 ```java
 redactor.apply(redaction);
 ```
 
 ### Stap 5: Opslaan met aangepaste opties
-Configureer `SaveOptions` zodat het geredigeerde bestand een “_Redacted”‑achtervoegsel krijgt, terwijl het oorspronkelijke formaat behouden blijft.
+Configureer `SaveOptions` zodat het geredigeerde bestand een “_Redacted”‑achtervoegsel krijgt, terwijl het originele formaat behouden blijft.
 
 ```java
 SaveOptions tmp0 = new SaveOptions();
 tmp0.setAddSuffix(true);  // Adds "_Redacted" to file name
-	tmp0.setRasterizeToPDF(false);  // Keeps original format
+tmp0.setRasterizeToPDF(false);  // Keeps original format
 
 redactor.save(tmp0);
 ```
@@ -132,57 +132,57 @@ finally {
 
 ## Veelvoorkomende problemen en oplossingen
 - **FileNotFoundException** – Controleer het pad dat je aan `Redactor` doorgeeft. Gebruik absolute paden of `Paths.get(...)` voor betrouwbaarheid.  
-- **No changes observed** – Verifieer dat het metadata‑veld dat je target daadwerkelijk de zoekreeks bevat; metadata is standaard hoofdlettergevoelig.  
-- **Out‑of‑memory errors on large files** – Verwerk documenten in kleinere batches en roep `redactor.close()` direct na elk bestand aan.
+- **Geen wijzigingen waargenomen** – Verifieer dat het metadata‑veld dat je target daadwerkelijk de zoekstring bevat; metadata is standaard hoofdlettergevoelig.  
+- **Out‑of‑memory‑fouten bij grote bestanden** – Verwerk documenten in kleinere batches en roep `redactor.close()` direct na elk bestand aan.
 
 ## Praktische toepassingen
-1. **Legal Documentation** – Verwijder bedrijfsnamen van klanten voordat je contracten naar derden stuurt.  
-2. **Financial Reporting** – Anonimiseer interne identifiers in audit‑bestanden.  
-3. **Collaborative Projects** – Bescherm eigendomsinformatie bij het delen van concepten met externe leveranciers.
+1. **Juridische documentatie** – Verwijder klantbedrijfsnamen voordat je contracten naar derden stuurt.  
+2. **Financiële rapportage** – Anonimiseer interne identificatoren in audit‑bestanden.  
+3. **Samenwerkingsprojecten** – Bescherm eigendomsinformatie bij het delen van concepten met externe leveranciers.
 
 ## Prestatie‑overwegingen
-- **Memory Management** – De bibliotheek houdt het volledige document in het geheugen; het sluiten van de `Redactor` na elk bestand is essentieel.  
-- **Batch Processing** – Voor scenario's met een hoog volume, doorloop een collectie bestanden en hergebruik één `SaveOptions`‑instantie.  
-- **Stay Updated** – Nieuwe releases brengen prestatie‑verbeteringen en bug‑fixes; richt je altijd op de nieuwste stabiele versie.
+- **Geheugenbeheer** – De bibliotheek houdt het volledige document in het geheugen; het sluiten van de `Redactor` na elk bestand is essentieel.  
+- **Batch‑verwerking** – Voor scenario’s met hoog volume, loop door een collectie bestanden en hergebruik één `SaveOptions`‑instantie.  
+- **Blijf up‑to‑date** – Nieuwe releases brengen prestatie‑verbeteringen en bug‑fixes; richt je altijd op de nieuwste stabiele versie.
 
 ## Conclusie
-Je weet nu **hoe je MetadataSearchRedaction** kunt gebruiken om bedrijfs‑metadata veilig uit documenten te verwijderen met GroupDocs.Redaction voor Java. Neem deze stappen op in je document‑verwerkingspijplijnen om compliant te blijven en gevoelige informatie te beschermen.
+Je weet nu **hoe je metadata‑redactie met GroupDocs** kunt gebruiken om bedrijfs‑metadata veilig uit documenten te verwijderen met GroupDocs.Redaction voor Java. Neem deze stappen op in je document‑verwerkingspijplijnen om compliant te blijven en gevoelige informatie te beschermen.
 
 **Volgende stappen**
 - Experimenteer met andere metadata‑velden zoals *Author* of *Creator*.  
 - Combineer metadata‑redactie met tekst‑ of afbeelding‑redactie voor een volledige oplossing.  
 
-## FAQ‑sectie
+## Veelgestelde vragen
 1. **Wat is GroupDocs.Redaction voor Java?**  
    - Het is een krachtige bibliotheek die je in staat stelt tekst, metadata en afbeeldingen in documenten te redigeren met Java‑applicaties.  
 2. **Kan ik GroupDocs.Redaction gebruiken zonder een licentie aan te schaffen?**  
    - Ja, maar met beperkingen. Een gratis proefversie of tijdelijke licentie biedt volledige toegang voor testdoeleinden.  
-3. **Hoe zorg ik ervoor dat documentformaten behouden blijven tijdens redacties?**  
+3. **Hoe zorg ik ervoor dat documentformaten behouden blijven tijdens redactie?**  
    - Gebruik `SaveOptions` om je vereisten te specificeren, zoals het vermijden van rasterisatie naar PDF.  
-4. **Welke soorten documenten kunnen worden geredigeerd met GroupDocs.Redaction?**  
+4. **Welke documenttypen kunnen worden geredigeerd met GroupDocs.Redaction?**  
    - Het ondersteunt een breed scala, inclusief Word, Excel, PowerPoint, PDF en nog veel meer.  
 5. **Waar kan ik ondersteuning vinden als ik problemen ondervind?**  
    - Bezoek het [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33) voor hulp.  
 
 ## Veelgestelde vragen
-**Q: Werkt MetadataSearchRedaction met versleutelde documenten?**  
+**V: Werkt MetadataSearchRedaction met versleutelde documenten?**  
 A: Ja. Laad het document met het juiste wachtwoord via de `Redactor`‑constructor die een wachtwoordparameter accepteert.
 
-**Q: Kan ik meerdere metadata‑redacties achter elkaar uitvoeren in één run?**  
-A: Absoluut. Maak meerdere `MetadataSearchRedaction`‑objecten, stel verschillende filters in, en pas ze opeenvolgend toe vóór het opslaan.
+**V: Kan ik meerdere metadata‑redacties in één run combineren?**  
+A: Absoluut. Maak meerdere `MetadataSearchRedaction`‑objecten, stel verschillende filters in en pas ze opeenvolgend toe vóór het opslaan.
 
-**Q: Is het mogelijk om redacties te bekijken voordat je opslaat?**  
-A: Je kunt `redactor.getRedactions()` aanroepen om een lijst van pending redacties op te halen en deze programmatisch te inspecteren.
+**V: Is het mogelijk om redactie‑voorbeelden te bekijken vóór het opslaan?**  
+A: Je kunt `redactor.getRedactions()` aanroepen om een lijst met pending redactions op te halen en deze programmatisch te inspecteren.
 
 ## Bronnen
 - **Documentatie**: Verken gedetailleerde handleidingen op [GroupDocs Documentation](https://docs.groupdocs.com/redaction/java/).  
 - **API‑referentie**: Bekijk de volledige API‑referentie op [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java).  
 - **Bibliotheek downloaden**: Toegang tot de nieuwste release via [GroupDocs Downloads](https://releases.groupdocs.com/redaction/java/).  
 - **Broncode**: Bekijk en draag bij op [GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java).  
-- **Ondersteuning**: Krijg hulp via het gratis ondersteuningskanaal op [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33).
+- **Ondersteuning**: Krijg hulp via het gratis supportkanaal op [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33).
 
 ---
 
-**Laatst bijgewerkt:** 2026-01-08  
-**Getest met:** GroupDocs.Redaction 24.9 voor Java  
+**Laatst bijgewerkt:** 2026-03-22  
+**Getest met:** GroupDocs.Redaction 24.9 for Java  
 **Auteur:** GroupDocs
