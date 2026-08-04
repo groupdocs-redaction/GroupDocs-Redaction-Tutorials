@@ -1,49 +1,109 @@
 ---
-date: '2026-02-26'
-description: Aprende cómo resolver el error de archivo Java no encontrado creando
-  un directorio de salida Java y aplicando la redacción de GroupDocs.Redaction. Guía
+date: '2026-08-04'
+description: Aprende a resolver el error de archivo Java no encontrado creando un
+  directorio de salida Java y aplicando la redacción de GroupDocs.Redaction. Guía
   paso a paso con ejemplos de código.
 keywords:
-- Java Redaction
-- GroupDocs.Redaction Setup
-- Document Redaction
-title: Archivo Java no encontrado – Crear carpeta de salida en Java
+- java file not found
+- handle file not found
+- process large documents java
+lastmod: '2026-08-04'
+og_description: Resuelve los errores de archivo Java no encontrado creando una carpeta
+  de salida y usando GroupDocs.Redaction. Sigue este tutorial detallado de Java para
+  una redacción de documentos fiable.
+og_image_alt: Guide showing Java code that creates an output folder and applies GroupDocs.Redaction
+og_title: Archivo Java no encontrado – crear carpeta de salida en Java
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-04'
+  description: Learn how to resolve java file not found by creating a java output
+    directory and applying GroupDocs.Redaction redaction. Step‑by‑step guide with
+    code examples.
+  headline: Java file not found – create output folder in Java
+  type: TechArticle
+- description: Learn how to resolve java file not found by creating a java output
+    directory and applying GroupDocs.Redaction redaction. Step‑by‑step guide with
+    code examples.
+  name: Java file not found – create output folder in Java
+  steps:
+  - name: '**Absolute vs. relative paths:** Use an absolute path (`C:/data/HelloWorld`)
+      to rule out working‑directory confusion.'
+    text: '**Absolute vs. relative paths:** Use an absolute path (`C:/data/HelloWorld`)
+      to rule out working‑directory confusion.'
+  - name: '**File permissions:** Verify that the Java process has write permission
+      on the target directory.'
+    text: '**File permissions:** Verify that the Java process has write permission
+      on the target directory.'
+  - name: '**Path separators:** On Windows, prefer `File.separator` or forward slashes
+      to avoid escape‑character issues.'
+    text: '**Path separators:** On Windows, prefer `File.separator` or forward slashes
+      to avoid escape‑character issues.'
+  - name: '**Compliance management:** Automatically scrub personal data from contracts
+      before filing.'
+    text: '**Compliance management:** Automatically scrub personal data from contracts
+      before filing.'
+  - name: '**Financial reporting:** Hide account numbers in quarterly reports shared
+      with external auditors.'
+    text: '**Financial reporting:** Hide account numbers in quarterly reports shared
+      with external auditors.'
+  - name: '**Healthcare records:** Remove patient identifiers from medical documents
+      to meet HIPAA requirements.'
+    text: '**Healthcare records:** Remove patient identifiers from medical documents
+      to meet HIPAA requirements.'
+  type: HowTo
+- questions:
+  - answer: Add the Maven dependency shown above, create the output folder, and instantiate
+      `Redactor` as demonstrated.
+    question: How do I get started with GroupDocs.Redaction?
+  - answer: Yes—by using streaming APIs and disabling rasterization, you can process
+      multi‑hundred‑page files without excessive memory consumption.
+    question: Can GroupDocs.Redaction handle large documents efficiently?
+  - answer: A free trial is sufficient for evaluation, but a paid license is mandatory
+      for commercial deployments.
+    question: Is a license required for production use?
+  - answer: GroupDocs.Redaction works with DOCX, PDF, PPTX, XLSX, and several image
+      formats, covering more than 50 types in total.
+    question: What file formats are supported?
+  - answer: Wrap the redaction logic in a loop that iterates over files in a directory,
+      reusing the same output folder pattern for each document.
+    question: How can I automate redaction for multiple files?
+  type: FAQPage
+tags:
+- java file not found
+- groupdocs redaction
+- java document processing
+title: Archivo Java no encontrado – crear carpeta de salida en Java
 type: docs
 url: /es/java/getting-started/java-redaction-groupdocs-efficient-document-setup/
 weight: 1
 ---
 
- final content. Ensure no extra spaces or missing elements.# java file not found – Crear carpeta de salida en Java
+# Archivo Java no encontrado – crear carpeta de salida en Java
 
-En aplicaciones modernas, encontrarse con errores **java file not found** puede detener su canal de procesamiento. Una causa común es intentar escribir un documento redactado en un directorio que no existe. Este tutorial le muestra exactamente cómo crear la carpeta de salida requerida en Java, integrarla con **GroupDocs.Redaction**, y evitar esas frustrantes excepciones de archivo no encontrado. Al final, tendrá un flujo de trabajo limpio y reutilizable que mantiene sus archivos originales seguros mientras almacena copias redactadas en un **directorio de salida java**.
+Cuando una aplicación Java lanza una excepción **java file not found**, el culpable más común es intentar escribir un archivo en un directorio que no existe. En los flujos de trabajo de redacción esto suele ocurrir cuando intentas guardar un documento sanitizado sin asegurarte primero de que la carpeta de destino está presente. Este tutorial te guía para crear programáticamente una carpeta de salida, integrarla con **GroupDocs.Redaction**, y manejar documentos grandes de manera eficiente. Al final tendrás un patrón reutilizable que elimina el temido error *java file not found* y mantiene tus archivos originales intactos.
 
 ## Respuestas rápidas
-- **¿Cuál es el primer paso?** Crear una carpeta de salida en Java y agregar la biblioteca GroupDocs.Redaction.  
-- **¿Qué versión de la biblioteca se requiere?** GroupDocs.Redaction 24.9 o posterior.  
-- **¿Necesito una licencia?** Una prueba gratuita funciona para pruebas; se necesita una licencia paga para producción.  
-- **¿Puedo mantener el formato original del documento?** Sí—desactive la rasterización al guardar.  
-- **¿Es adecuado para archivos grandes?** Con una afinación adecuada de la memoria, sí.
+- **¿Cuál es el primer paso?** Create an output folder in Java and add the GroupDocs.Redaction library.  
+- **¿Qué versión de la biblioteca se requiere?** GroupDocs.Redaction 24.9 or later.  
+- **¿Necesito una licencia?** A free trial works for testing; a paid license is needed for production.  
+- **¿Puedo mantener el formato original del documento?** Yes—disable rasterization when saving.  
+- **¿Es adecuado para archivos grandes?** With proper memory tuning, yes.
 
-## ¿Qué es “create output folder java”?
-Crear una carpeta de salida en Java significa comprobar programáticamente si un directorio existe y, si no, crearlo para que los archivos procesados tengan un lugar dedicado donde guardarse. Este paso aísla sus documentos redactados de los originales y mantiene su proyecto organizado.
+## Qué es “create output folder java”?
+Crear una carpeta de salida en Java significa comprobar si un directorio existe y, si no, crearlo para que los archivos procesados tengan un lugar dedicado donde guardarse. Este paso aísla tus documentos redactados de los originales y mantiene tu proyecto organizado.
 
-## ¿Por qué crear output folder java con GroupDocs.Redaction?
-- **Separación de responsabilidades:** Mantiene los archivos originales y redactados distintos.  
-- **Escalabilidad:** Permite el procesamiento por lotes de muchos documentos en una única ubicación.  
-- **Cumplimiento:** Facilita las auditorías al almacenar solo versiones sanitizadas.  
-- **Rendimiento:** Reduce el desorden del sistema de archivos, lo que puede mejorar la velocidad de E/S.
+## Por qué crear carpeta de salida java con GroupDocs.Redaction?
+Puedes crear la carpeta, cargar un archivo fuente, aplicar una redacción y almacenar el resultado sin nunca ver una excepción *java file not found*. GroupDocs.Redaction soporta **50+ input and output formats**—incluyendo DOCX, PDF, PPTX, XLSX y tipos de imagen comunes—y puede procesar archivos de cientos de páginas sin cargar todo el documento en memoria. Al separar las rutas de origen y destino también obtienes mejor auditabilidad y procesamiento por lotes más sencillo.
 
 ## Requisitos previos
-Antes de comenzar, asegúrese de contar con lo siguiente:
-
-- **GroupDocs.Redaction Library** – versión 24.9 o más reciente.  
-- **Java Development Kit (JDK)** – versión 8 o superior.  
-- Un IDE de Java como IntelliJ IDEA o Eclipse.  
+- **GroupDocs.Redaction library** – version 24.9 or newer.  
+- **Java Development Kit (JDK)** – version 8 or higher.  
+- Un IDE como IntelliJ IDEA o Eclipse.  
 - Maven instalado para la gestión de dependencias.  
-- Conocimientos básicos de Java, especialmente manejo de archivos.
+- Familiaridad básica con Java file I/O.
 
 ## Configuración de GroupDocs.Redaction para Java
-Agregue el repositorio de GroupDocs y la dependencia Redaction a su `pom.xml`:
+Agrega el repositorio de GroupDocs y la dependencia Redaction a tu `pom.xml`:
 
 ```xml
 <repositories>
@@ -63,18 +123,15 @@ Agregue el repositorio de GroupDocs y la dependencia Redaction a su `pom.xml`:
 </dependencies>
 ```
 
-Si prefiere una descarga manual, obtenga el JAR más reciente desde la página oficial de lanzamientos: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+Si prefieres una descarga manual, obtén el JAR más reciente desde la página oficial de lanzamientos: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
-### Pasos para obtener la licencia
-Comience con una prueba gratuita para explorar la API. Cuando esté listo para producción, obtenga una licencia temporal o completa desde el portal de GroupDocs.
+### Pasos para adquirir la licencia
+Comienza con una prueba gratuita para explorar la API. Cuando estés listo para producción, obtén una licencia temporal o completa desde el portal de GroupDocs.
 
 ## Guía de implementación
 
-### Cómo crear output folder java
-Organizar su ubicación de salida es la base de un flujo de trabajo de redacción limpio. A continuación crearemos una carpeta llamada `HelloWorld` dentro de un directorio base que usted defina.
-
-#### Configuración del directorio de documentos
-El siguiente fragmento verifica la existencia de la carpeta y la crea si es necesario. También prepara la ruta para el documento redactado.
+## Cómo crear carpeta de salida java
+Necesitas una rutina fiable de creación de carpetas antes de que ocurra cualquier redacción. El código a continuación verifica la existencia de la carpeta, la crea si es necesario y construye la ruta completa para el archivo redactado. Esto garantiza que el paso de redacción posterior siempre tenga un destino válido, evitando `FileNotFoundException` y permitiendo que la aplicación se ejecute sin problemas incluso al procesar varios documentos en lote.
 
 ```java
 import java.io.File;
@@ -91,12 +148,11 @@ public class DocumentDirectorySetup {
 }
 ```
 
-- **Por qué es importante:** Al crear la carpeta programáticamente, garantiza que el paso de redacción siempre tenga un destino válido, evitando errores `FileNotFoundException`.
+- **Why this matters:** By programmatically creating the folder, you guarantee that the redaction step always has a valid destination, preventing `FileNotFoundException` errors.
 
-### Aplicación de redacción
-Ahora que la carpeta de salida existe, podemos cargar un archivo fuente, aplicar una redacción y guardar el resultado en la carpeta que acabamos de crear.
+## Cómo aplicar redacción con GroupDocs.Redaction
+`Redactor` es la clase principal que realiza operaciones de redacción sobre un documento. Carga un documento, busca contenido sensible y escribe la versión sanitizada ofreciendo opciones como búsquedas basadas en patrones, reemplazos de texto y control de rasterización. Usando `Redactor`, puedes cargar `sample_document.docx`, reemplazar la frase “John Doe” con una superposición roja y guardar el resultado en la carpeta que creaste antes, todo sin rasterizar la salida y preservando así el diseño original.
 
-#### Código de redacción
 ```java
 import com.groupdocs.redaction.Redactor;
 import java.io.FileOutputStream;
@@ -130,58 +186,59 @@ public class RedactionApplication {
 }
 ```
 
-- **Explicación:** El `Redactor` carga `sample_document.docx`, busca la frase exacta “John Doe”, la reemplaza con una superposición roja y escribe el resultado en la carpeta que creamos anteriormente. Desactivar la rasterización preserva el diseño original del DOCX.
-
-#### Consejos de solución de problemas
-- **Rutas incorrectas:** Verifique que `YOUR_DOCUMENT_DIRECTORY` y `YOUR_OUTPUT_DIRECTORY` apunten a ubicaciones reales.  
-- **Conflictos de versión:** Asegúrese de que la dependencia Maven coincida con la versión de la biblioteca que descargó.  
-- **Errores de licencia:** Una licencia faltante o inválida lanzará una excepción en tiempo de ejecución.
+- **Explanation:** The `Redactor` loads `sample_document.docx`, searches for the exact phrase “John Doe”, replaces it with a red overlay, and writes the result to the folder we created earlier. Disabling rasterization preserves the original DOCX layout.
 
 ## Cómo solucionar java file not found al crear la carpeta de salida
-Si aún ve la excepción **java file not found** después de agregar el código de creación de la carpeta, considere estas verificaciones adicionales:
+Si aún ves la excepción **java file not found** después de añadir el código de creación de carpeta, considera estas verificaciones adicionales. Primero, usa una ruta absoluta (p. ej., `C:/data/HelloWorld`) para eliminar confusiones sobre el directorio de trabajo actual. Segundo, verifica que el proceso Java tenga permiso de escritura en el directorio objetivo. Tercero, prefiere `File.separator` o barras diagonales (`/`) en Windows para evitar problemas con caracteres de escape. Aplicar estas salvaguardas asegura que el paso de redacción nunca falle porque la carpeta de destino falta.
 
-1. **Rutas absolutas vs. relativas:** Use una ruta absoluta (`C:/data/HelloWorld`) para descartar confusiones con el directorio de trabajo.  
-2. **Permisos de archivo:** Verifique que el proceso Java tenga permiso de escritura en el directorio de destino.  
-3. **Separadores de ruta:** En Windows, prefiera `File.separator` o barras diagonales (`/`) para evitar problemas con caracteres de escape.  
-
-Aplicar estas salvaguardas garantiza que el paso de redacción nunca falle porque la carpeta de destino falta.
+1. **Absolute vs. relative paths:** Use an absolute path (`C:/data/HelloWorld`) to rule out working‑directory confusion.  
+2. **File permissions:** Verify that the Java process has write permission on the target directory.  
+3. **Path separators:** On Windows, prefer `File.separator` or forward slashes to avoid escape‑character issues.  
 
 ## Aplicaciones prácticas
-Escenarios del mundo real donde **crear output folder java** y usar GroupDocs.Redaction incluyen:
+Escenarios del mundo real donde **create output folder java** y GroupDocs.Redaction son útiles incluyen:
 
-1. **Gestión de cumplimiento:** Eliminar automáticamente datos personales de los contratos antes de archivarlos.  
-2. **Informes financieros:** Ocultar números de cuenta en informes trimestrales compartidos con auditores externos.  
-3. **Registros de salud:** Eliminar identificadores de pacientes de documentos médicos para cumplir con los requisitos de HIPAA.
+1. **Compliance management:** Automatically scrub personal data from contracts before filing.  
+2. **Financial reporting:** Hide account numbers in quarterly reports shared with external auditors.  
+3. **Healthcare records:** Remove patient identifiers from medical documents to meet HIPAA requirements.
 
 ## Consideraciones de rendimiento
-- **Gestión de memoria:** Use APIs de streaming para archivos DOCX o PDF muy grandes para evitar cargar todo el documento en memoria.  
-- **Procesamiento por lotes:** Recorrer una lista de archivos y reutilizar una única instancia de `Redactor` cuando sea posible.  
-- **Ajuste de JVM:** Aumente el tamaño del heap (`-Xmx2g`) si procesa regularmente documentos mayores de 50 MB.
+- **Memory management:** Use streaming APIs for very large DOCX or PDF files to avoid loading the entire document into memory.  
+- **Batch processing:** Loop through a list of files and reuse a single `Redactor` instance where possible.  
+- **JVM tuning:** Increase heap size (`-Xmx2g`) if you regularly process documents larger than 50 MB.
 
 ## Conclusión
-Ahora sabe cómo **crear output folder java**, integrar GroupDocs.Redaction y aplicar redacciones precisas mientras preserva el formato original. Este flujo de trabajo le ayuda a cumplir con los estándares de cumplimiento y proteger datos sensibles de manera eficiente, y elimina los temidos errores **java file not found** que pueden descarrilar los pipelines de automatización.
+Ahora sabes cómo **create output folder java**, integrar GroupDocs.Redaction y aplicar redacciones precisas mientras preservas el formato original. Este flujo de trabajo te ayuda a cumplir con normas de cumplimiento, proteger datos sensibles y eliminar los temidos errores **java file not found** que pueden descarrilar pipelines de automatización.
 
-Para una exploración más profunda, visite la documentación oficial: [GroupDocs documentation](https://docs.groupdocs.com/redaction/java/).
+Para una exploración más profunda, visita la documentación oficial: [GroupDocs documentation](https://docs.groupdocs.com/redaction/java/).
 
 ## Preguntas frecuentes
 
-**Q: ¿Cómo empiezo con GroupDocs.Redaction?**  
-A: Comience agregando la dependencia Maven mostrada arriba, luego cree una carpeta de salida e instancie `Redactor` como se demuestra.
+**Q: How do I get started with GroupDocs.Redaction?**  
+A: Add the Maven dependency shown above, create the output folder, and instantiate `Redactor` as demonstrated.
 
-**Q: ¿Puede GroupDocs.Redaction manejar documentos grandes de manera eficiente?**  
-A: Sí—gestionando la memoria sabiamente y desactivando la rasterización, puede procesar archivos de gran tamaño sin una sobrecarga excesiva.
+**Q: Can GroupDocs.Redaction handle large documents efficiently?**  
+A: Yes—by using streaming APIs and disabling rasterization, you can process multi‑hundred‑page files without excessive memory consumption.
 
-**Q: ¿Se requiere una licencia para uso en producción?**  
-A: Una prueba gratuita es suficiente para evaluación, pero una licencia paga es obligatoria para implementaciones comerciales.
+**Q: Is a license required for production use?**  
+A: A free trial is sufficient for evaluation, but a paid license is mandatory for commercial deployments.
 
-**Q: ¿Qué formatos de archivo son compatibles?**  
-A: GroupDocs.Redaction funciona con DOCX, PDF, PPTX, XLSX y varios formatos de imagen.
+**Q: What file formats are supported?**  
+A: GroupDocs.Redaction works with DOCX, PDF, PPTX, XLSX, and several image formats, covering more than 50 types in total.
 
-**Q: ¿Cómo puedo automatizar la redacción para varios archivos?**  
-A: Envuelva la lógica de redacción en un bucle que itere sobre los archivos de un directorio, reutilizando el mismo patrón de carpeta de salida.
+**Q: How can I automate redaction for multiple files?**  
+A: Wrap the redaction logic in a loop that iterates over files in a directory, reusing the same output folder pattern for each document.
 
 ---
 
-**Última actualización:** 2026-02-26  
+**Última actualización:** 2026-08-04  
 **Probado con:** GroupDocs.Redaction 24.9  
-**Autor:** GroupDocs
+**Autor:** GroupDocs  
+
+---
+
+## Tutoriales relacionados
+
+- [How to Redact Documents with GroupDocs Redaction Java License from File Path – A Step‑by‑Step Guide](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)
+- [Master Java File Operations: Copy and Redact Files Using GroupDocs.Redaction for Enhanced Data Security](/redaction/java/format-handling/java-file-operations-copy-redact-groupdocs/)
+- [Preview Document Pages Java Loading with GroupDocs.Redaction](/redaction/java/document-loading/)
