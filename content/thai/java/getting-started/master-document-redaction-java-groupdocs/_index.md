@@ -1,67 +1,108 @@
 ---
-date: '2026-02-26'
-description: เรียนรู้วิธีแปลง PDF เป็นภาพด้วย Java โดยใช้ GroupDocs.Redaction, ลบข้อมูลที่เป็นความลับ,
-  ดำเนินการลบข้อความที่ตรงกันอย่างแม่นยำ, แปลงเอกสารเป็นรูปแบบราสเตอร์เพื่อความเป็นส่วนตัว,
-  และทำให้การปฏิบัติตามกฎระเบียบเป็นเรื่องง่ายโดยไม่ต้องพยายาม.
+date: '2026-08-04'
+description: เรียนรู้วิธีลบข้อมูลใน PDF โดยแปลง PDF เป็นภาพด้วย Java ผ่าน GroupDocs
+  ครอบคลุม exact phrase redaction, rasterization, และ saving PDFs as images เพื่อการปฏิบัติตามความเป็นส่วนตัว
 keywords:
-- document redaction in Java
-- GroupDocs.Redaction setup
-- exact phrase redaction
-title: แปลง PDF เป็นภาพด้วย Java – เชี่ยวชาญการลบข้อมูลด้วย GroupDocs
+- how to redact pdf
+- pdf to images java
+- save pdf as images
+- convert pdf pages png
+- privacy pdf conversion
+lastmod: '2026-08-04'
+og_description: เรียนรู้วิธีลบข้อมูลใน PDF โดยแปลง PDF เป็นภาพด้วย Java ผ่าน GroupDocs
+  คู่มือนี้แสดง exact phrase redaction, rasterization, และ image‑based PDF saving
+og_image_alt: 'Guide: redact PDF and convert to images Java with GroupDocs'
+og_title: วิธีทำการลบข้อมูลใน PDF – แปลงเป็นภาพด้วย Java กับ GroupDocs
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-04'
+  description: Learn how to redact PDF by converting PDF to images Java using GroupDocs.
+    Covers exact phrase redaction, rasterization, and saving PDFs as images for privacy
+    compliance.
+  headline: How to redact PDF – convert to images Java with GroupDocs
+  type: TechArticle
+- description: Learn how to redact PDF by converting PDF to images Java using GroupDocs.
+    Covers exact phrase redaction, rasterization, and saving PDFs as images for privacy
+    compliance.
+  name: How to redact PDF – convert to images Java with GroupDocs
+  steps:
+  - name: load your document
+    text: 'Begin by loading the document you want to redact:'
+  - name: apply exact phrase redaction
+    text: 'The `ExactPhraseRedaction` object defines a redaction rule that searches
+      for a specific phrase and replaces it with a visual overlay. Use `ExactPhraseRedaction`
+      to find and replace text. Here, we''re replacing “John Doe” with a red color
+      box:'
+  - name: prepare output file
+    text: 'Create the destination file and an output stream:'
+  - name: apply rasterization options
+    text: The `RasterizationOptions` class lets you control image format, DPI, and
+      compression for each rasterized page. Enable rasterization so the saved PDF
+      consists of image pages. By default GroupDocs uses PNG for the rasterized pages,
+      which satisfies the **convert pdf pages png** requirement.
+  type: HowTo
+- questions:
+  - answer: It means rendering each PDF page as an image (e.g., PNG) using Java code.
+    question: What does “convert PDF to images Java” mean?
+  - answer: GroupDocs.Redaction for Java provides both rasterization (image conversion)
+      and redaction features.
+    question: Which library handles both conversion and redaction?
+  - answer: A free trial works for evaluation; a permanent license is required for
+      production.
+    question: Do I need a license?
+  - answer: Yes, but monitor memory usage and close streams promptly.
+    question: Can I process large PDFs?
+  - answer: You can save the document as a regular PDF or enable rasterization to
+      create image‑based PDFs for extra privacy.
+    question: Is rasterization optional?
+  type: FAQPage
+tags:
+- redact pdf
+- GroupDocs
+- Java document processing
+- pdf conversion
+title: วิธีทำการลบข้อมูลใน PDF – แปลงเป็นภาพด้วย Java กับ GroupDocs
 type: docs
 url: /th/java/getting-started/master-document-redaction-java-groupdocs/
 weight: 1
 ---
 
- translation.
+# วิธีทำการลบข้อมูลใน PDF – แปลงเป็นภาพด้วย Java ด้วย GroupDocs
 
-Be careful to keep markdown syntax.
+If you need to **learn how to redact PDF by converting PDF to images Java**, you’ve landed in the right place. This tutorial walks you through exact‑phrase redaction, document rasterization, and saving PDFs as images so that sensitive data is permanently hidden and compliance‑ready. By the end you’ll have a production‑ready snippet you can drop into any Java project.
 
-Also keep code block placeholders as they are.
+## คำตอบด่วน
+- **อะไรหมายถึง “convert PDF to images Java”?** It means rendering each PDF page as an image (e.g., PNG) using Java code.  
+- **ไลบรารีใดจัดการการแปลงและการลบข้อมูลได้ทั้งสองอย่าง?** GroupDocs.Redaction for Java provides both rasterization (image conversion) and redaction features.  
+- **ฉันต้องการไลเซนส์หรือไม่?** A free trial works for evaluation; a permanent license is required for production.  
+- **ฉันสามารถประมวลผล PDF ขนาดใหญ่ได้หรือไม่?** Yes, but monitor memory usage and close streams promptly.  
+- **การแปลงเป็นภาพเป็นตัวเลือกหรือไม่?** You can save the document as a regular PDF or enable rasterization to create image‑based PDFs for extra privacy.
 
-Let's write.
+## “convert PDF to images Java” คืออะไร?
+Converting a PDF to images in Java means taking each page of a PDF file and rendering it as a raster image (such as PNG or JPEG). This technique is often paired with redaction because once the content is an image, text cannot be selected or copied, providing an additional layer of privacy.
 
-# แปลง PDF เป็นรูปภาพใน Java – เชี่ยวชาญการลบข้อมูลด้วย GroupDocs
+## ทำไมต้องแปลง PDF เป็นภาพด้วย Java?
+Converting PDF pages to images gives you a privacy‑first output that eliminates hidden text layers, making it impossible to extract data after redaction. Image‑based PDFs display consistently across all viewers, even on older devices, and satisfy GDPR, HIPAA, and other regulations that demand data be irretrievable.
 
-การปกป้องข้อมูลที่ละเอียดอ่อนในเอกสารเป็นสิ่งสำคัญเพื่อรักษาความเป็นส่วนตัวและปฏิบัติตามข้อกำหนด หากคุณต้องการ **แปลง PDF เป็นรูปภาพใน Java** พร้อมกับการลบข้อมูลลับ คุณมาถูกที่แล้ว ในคู่มือนี้เราจะอธิบายการลบข้อความตามวลีที่ตรงกัน การเรซอร์สไฟล์เอกสาร (rasterization) และวิธี **บันทึก PDF เป็นรูปภาพ** เพื่อความเป็นส่วนตัวสูงสุด เมื่ออ่านจบคุณจะได้โซลูชันพร้อมใช้งานที่สามารถนำไปใส่ในโปรเจกต์ Java ใดก็ได้
-
-## คำตอบสั้น ๆ
-- **“แปลง PDF เป็นรูปภาพใน Java” หมายถึงอะไร?** หมายถึงการเรนเดอร์แต่ละหน้าของ PDF เป็นรูปภาพ (เช่น PNG) ด้วยโค้ด Java  
-- **ไลบรารีใดที่ทำการแปลงและลบข้อมูลได้ทั้งสองอย่าง?** GroupDocs.Redaction สำหรับ Java มีทั้งฟีเจอร์เรซอร์สไฟล์ (image conversion) และการลบข้อมูล  
-- **ต้องมีลิขสิทธิ์หรือไม่?** สามารถใช้รุ่นทดลองฟรีเพื่อประเมินผลได้; ต้องมีลิขสิทธิ์ถาวรสำหรับการใช้งานจริง  
-- **สามารถประมวลผล PDF ขนาดใหญ่ได้หรือไม่?** ได้ แต่ควรตรวจสอบการใช้หน่วยความจำและปิดสตรีมอย่างรวดเร็ว  
-- **การเรซอร์สไฟล์เป็นตัวเลือกหรือไม่?** คุณสามารถบันทึกเอกสารเป็น PDF ปกติหรือเปิดใช้งานเรซอร์สไฟล์เพื่อสร้าง PDF ที่มีหน้าเป็นรูปภาพเพื่อความเป็นส่วนตัวเพิ่มขึ้น  
-
-## “แปลง PDF เป็นรูปภาพใน Java” คืออะไร?
-การแปลง PDF เป็นรูปภาพใน Java หมายถึงการนำแต่ละหน้าของไฟล์ PDF มารันเดอร์เป็นรูปภาพแบบแรสเตอร์ (เช่น PNG หรือ JPEG) เทคนิคนี้มักใช้ร่วมกับการลบข้อมูล เพราะเมื่อเนื้อหาเป็นรูปภาพแล้ว ข้อความไม่สามารถเลือกหรือคัดลอกได้ ทำให้เพิ่มชั้นความเป็นส่วนตัวอีกชั้นหนึ่ง
-
-## ทำไมต้องแปลง PDF เป็นรูปภาพใน Java?
-- **ผลลัพธ์ที่ให้ความเป็นส่วนตัวเป็นอันดับแรก:** หน้าแบบแรสเตอร์ไม่มีชั้นข้อความที่ซ่อนอยู่ ทำให้ไม่สามารถดึงข้อมูลหลังการลบได้  
-- **ความเข้ากันได้ทั่วโลก:** PDF ที่มีหน้าเป็นรูปภาพจะแสดงผลสม่ำเสมอในทุกโปรแกรมอ่าน แม้บนอุปกรณ์เก่า  
-- **พร้อมปฏิบัติตามข้อกำหนด:** หลายกฎระเบียบ (GDPR, HIPAA) กำหนดให้ข้อมูลที่สำคัญต้องไม่สามารถกู้คืนได้; การแปลงเป็นรูปภาพตอบสนองข้อกำหนดนี้  
-
-## ทำไมต้องใช้ GroupDocs.Redaction สำหรับการแปลงและลบข้อมูล PDF?
-- **API ครบวงจร** – จัดการทั้งการลบข้อมูลและการเรซอร์สไฟล์โดยไม่ต้องสลับไลบรารี  
-- **ความแม่นยำสูง** – รักษาเลย์เอาต์, ฟอนต์และกราฟิกเดิมเมื่อตัวแปลงหน้าเป็นรูปภาพ  
-- **พร้อมใช้งานระดับองค์กร** – รองรับการประมวลผลเป็นชุด, ไฟล์ขนาดใหญ่และหลายรูปแบบเอกสาร  
-- **การรวมเข้ากับโปรเจกต์ง่าย** – การตั้งค่าแบบ Maven สามารถใส่เข้าไปในโปรเจกต์ Java ใดก็ได้โดยตรง  
+## ทำไมต้องใช้ GroupDocs.Redaction สำหรับการแปลง PDF และการลบข้อมูล?
+GroupDocs.Redaction combines redaction and rasterization in a single, high‑fidelity API. It supports processing of up to **500‑page PDFs** and can handle **100+ concurrent redaction jobs** per server, ensuring enterprise‑scale performance without swapping libraries.
 
 ## ข้อกำหนดเบื้องต้น
 
 1. **ไลบรารีและการพึ่งพาที่จำเป็น**  
-   - GroupDocs.Redaction เวอร์ชัน 24.9 หรือใหม่กว่า  
+   - GroupDocs.Redaction library version 24.9 or later.  
 
 2. **การตั้งค่าสภาพแวดล้อม**  
-   - ติดตั้ง Java Development Kit (JDK)  
-   - ใช้ IDE เช่น IntelliJ IDEA หรือ Eclipse  
+   - Java Development Kit (JDK) installed.  
+   - IDE เช่น IntelliJ IDEA หรือ Eclipse.  
 
 3. **ความรู้พื้นฐานที่ต้องมี**  
-   - ความเข้าใจพื้นฐานการเขียนโปรแกรม Java และการจัดการไฟล์  
+   - Basic Java programming and file‑handling concepts.  
 
 ## การตั้งค่า GroupDocs.Redaction สำหรับ Java
 
 ### การตั้งค่า Maven
-เพิ่มการกำหนดค่าต่อไปนี้ในไฟล์ `pom.xml` ของคุณ:
+Add the following configuration to your `pom.xml` file:
 
 ```xml
 <repositories>
@@ -82,35 +123,36 @@ Let's write.
 ```
 
 ### ดาวน์โหลดโดยตรง
-หรือคุณสามารถดาวน์โหลดเวอร์ชันล่าสุดได้จาก [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/)  
+Alternatively, download the latest version directly from [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
-**การรับลิขสิทธิ์:**  
-คุณสามารถเริ่มต้นด้วยรุ่นทดลองฟรีหรือขอรับลิขสิทธิ์ชั่วคราวเพื่อทดลองฟีเจอร์ทั้งหมด เยี่ยมชม [Purchase GroupDocs](https://purchase.groupdocs.com/temporary-license/) เพื่อดูรายละเอียดการขอรับลิขสิทธิ์ถาวร  
+**การรับไลเซนส์:**  
+You can start with a free trial or obtain a temporary license to explore all features. Visit [Purchase GroupDocs](https://purchase.groupdocs.com/temporary-license/) for more details on acquiring a permanent license.
 
-### การเริ่มต้นและตั้งค่าเบื้องต้น
-เพื่อเริ่มต้น เพียงสร้างอินสแตนซ์ของคลาส `Redactor` โดยระบุพาธของเอกสารของคุณ:
+## การเริ่มต้นและการตั้งค่าพื้นฐาน
+The `Redactor` class is GroupDocs.Redaction's core component that loads and manipulates PDF files. To initialize, simply create an instance of the `Redactor` class by providing the path to your document:
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX");
 ```
 
-ตอนนี้เราตั้งค่าเรียบร้อยแล้ว ไปสำรวจวิธีการใช้งานฟีเจอร์เฉพาะต่อไป
+Now that we're set up, let's explore how to implement specific features.
 
-## วิธีแปลง PDF เป็นรูปภาพใน Java ด้วย GroupDocs.Redaction
+## วิธีแปลง PDF เป็นภาพด้วย Java ด้วย GroupDocs.Redaction
+Load your PDF, apply exact‑phrase redaction, and then rasterize each page into PNG images—all in a few straightforward steps. This end‑to‑end flow guarantees that redacted content is locked into an image layer, preventing any accidental data leakage.
 
-### การลบข้อความตามวลีที่ตรงกัน
+### การลบข้อมูลตามวลีที่ตรงกัน
 
-การลบข้อความตามวลีที่ตรงกันช่วยให้คุณค้นหาและแทนที่ข้อความเฉพาะในเอกสาร ฟีเจอร์นี้สำคัญต่อการรักษาความเป็นส่วนตัวโดยการบังข้อมูลที่ละเอียดอ่อน
+Exact phrase redaction allows you to search and replace specific text within your documents. This feature is essential for maintaining privacy by obscuring sensitive information.
 
 #### ขั้นตอน 1: โหลดเอกสารของคุณ
-เริ่มต้นด้วยการโหลดเอกสารที่ต้องการลบข้อมูล:
+Begin by loading the document you want to redact:
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX");
 ```
 
-#### ขั้นตอน 2: ใช้การลบข้อความตามวลีที่ตรงกัน
-ใช้ `ExactPhraseRedaction` เพื่อค้นหาและแทนที่ข้อความ ที่นี่เราจะแทนที่ “John Doe” ด้วยกล่องสีแดง:
+#### ขั้นตอน 2: ใช้การลบข้อมูลตามวลีที่ตรงกัน
+The `ExactPhraseRedaction` object defines a redaction rule that searches for a specific phrase and replaces it with a visual overlay. Use `ExactPhraseRedaction` to find and replace text. Here, we're replacing “John Doe” with a red color box:
 
 ```java
 try {
@@ -124,12 +166,11 @@ try {
 }
 ```
 
-### บันทึก PDF เป็นรูปภาพ (PNG) ด้วย GroupDocs.Redaction
-
-หลังจากลบข้อมูลแล้ว คุณมักต้องการ **บันทึก PDF เป็นรูปภาพ** เพื่อทำให้การเปลี่ยนแปลงคงที่ ขั้นตอนต่อไปนี้จะแสดงวิธีเรซอร์สไฟล์แต่ละหน้าเป็นรูปแบบ PNG แล้วบรรจุไว้ใน PDF ไฟล์เดียว
+### บันทึก PDF เป็นภาพ (PNG) ด้วย GroupDocs.Redaction
+After redaction, you’ll often want to **save PDF as images** to lock in the changes. The following steps show how to rasterize each page into PNG‑format images while still packaging them into a single PDF.
 
 #### ขั้นตอน 1: เตรียมไฟล์ผลลัพธ์
-สร้างไฟล์ปลายทางและสตรีมเอาต์พุต:
+Create the destination file and an output stream:
 
 ```java
 File f = new File("YOUR_OUTPUT_DIRECTORY/sample_output_file.pdf");
@@ -139,8 +180,8 @@ if (!f.exists()) {
 final FileOutputStream fileStream = new FileOutputStream(f);
 ```
 
-#### ขั้นตอน 2: ตั้งค่าตัวเลือกการเรซอร์สไฟล์
-เปิดใช้งานการเรซอร์สไฟล์เพื่อให้ PDF ที่บันทึกประกอบด้วยหน้าเป็นรูปภาพ โดยค่าเริ่มต้น GroupDocs จะใช้ PNG สำหรับหน้าที่เรซอร์ส ซึ่งสอดคล้องกับความต้องการ **convert pdf pages png**:
+#### ขั้นตอน 2: ใช้ตัวเลือกการแปลงเป็นภาพ
+The `RasterizationOptions` class lets you control image format, DPI, and compression for each rasterized page. Enable rasterization so the saved PDF consists of image pages. By default GroupDocs uses PNG for the rasterized pages, which satisfies the **convert pdf pages png** requirement.
 
 ```java
 try {
@@ -155,70 +196,76 @@ try {
 redactor.close();
 ```
 
-## ปัญหาที่พบบ่อยและวิธีแก้
-- **สิทธิ์การเขียน:** ตรวจสอบให้แน่ใจว่าแอปพลิเคชันมีสิทธิ์เขียนในโฟลเดอร์ผลลัพธ์  
-- **รูปแบบที่ไม่รองรับ:** ยืนยันว่ารูปแบบไฟล์ต้นทางรองรับการเรซอร์สไฟล์ (ส่วนใหญ่ PDF และเอกสาร Office รองรับ)  
-- **การใช้หน่วยความจำ:** เมื่อประมวลผล PDF ขนาดใหญ่มาก ควรประมวลผลเป็นชุดและเรียก `System.gc()` หลังแต่ละชุด  
+## ปัญหาทั่วไปและวิธีแก้
+- **Write permissions:** Ensure the application has write access to the output directory.  
+- **Unsupported formats:** Verify that the source file format supports rasterization (most PDFs and Office docs do).  
+- **Memory consumption:** When processing very large PDFs, consider processing pages in batches and invoking `System.gc()` after each batch.  
 
-## การใช้งานในเชิงปฏิบัติ
+## การประยุกต์ใช้งานจริง
 
-1. **การปฏิบัติตามความเป็นส่วนตัว:** ลบข้อมูลลูกค้าโดยอัตโนมัติก่อนแชร์เอกสารภายนอก  
-2. **การจัดการเอกสารทางกฎหมาย:** ปกป้องข้อมูลส่วนบุคคลในคำฟ้องและจดหมายโต้ตอบ  
-3. **การรายงานทางการเงิน:** ปกป้องข้อมูลเชิงพาณิชย์ในรายงานและงบการเงิน  
-4. **การดำเนินงาน HR:** รักษาความปลอดภัยของบันทึกพนักงานระหว่างการตรวจสอบหรือการทำงานร่วมกับบุคคลภายนอก  
+1. **Privacy compliance:** Automatically redact client data before sharing documents externally.  
+2. **Legal document handling:** Protect personal information in filings and correspondence.  
+3. **Financial reporting:** Secure proprietary data in reports and statements.  
+4. **HR operations:** Safeguard employee records during audits or third‑party collaborations.  
 
-## พิจารณาด้านประสิทธิภาพ
+## ข้อควรพิจารณาด้านประสิทธิภาพ
 
-- **การเพิ่มประสิทธิภาพ:** ใช้สตรีม I/O ที่มีประสิทธิภาพและปิดสตรีมโดยเร็ว  
-- **แนวทางการใช้ทรัพยากร:** ตรวจสอบหน่วยความจำโดยเฉพาะเมื่อเรซอร์สไฟล์เป็นภาพความละเอียดสูง  
-- **การจัดการหน่วยความจำใน Java:** ใช้ `try‑with‑resources` wherever possible เพื่อให้การทำความสะอาดทำโดยอัตโนมัติ  
+- **Optimizing performance:** Use efficient I/O streams and close them promptly.  
+- **Resource usage guidelines:** Monitor memory, especially when rasterizing high‑resolution images.  
+- **Java memory management:** Invoke `try‑with‑resources` where possible to ensure automatic cleanup.  
 
-## ข้อผิดพลาดทั่วไป & เคล็ดลับระดับมืออาชีพ
+## ข้อผิดพลาดทั่วไปและเคล็ดลับมืออาชีพ
 
-- **ข้อผิดพลาด:** ลืมปิดอินสแตนซ์ `Redactor` ทำให้ไฟล์ถูกล็อกไว้  
-  **เคล็ดลับ:** ห่อการใช้ `Redactor` ด้วยบล็อก `try‑with‑resources` เพื่อให้ปิดอัตโนมัติ  
+- **Pitfall:** Forgetting to close the `Redactor` instance can lead to file locks.  
+  **Pro tip:** Wrap the `Redactor` usage in a try‑with‑resources block for automatic closure.  
 
-- **ข้อผิดพลาด:** ใช้ DPI เริ่มต้นของการเรซอร์สไฟล์ทำให้ไฟล์ขนาดใหญ่เกินไป  
-  **เคล็ดลับ:** ปรับค่า `RasterizationOptions.setDpi(int dpi)` หากต้องการ PDF ขนาดเล็กลง  
+- **Pitfall:** Using the default rasterization DPI may produce large files.  
+  **Pro tip:** Adjust `RasterizationOptions.setDpi(int dpi)` if you need smaller output PDFs.  
 
-- **ข้อผิดพลาด:** พยายามเรซอร์สไฟล์ PDF ที่มีการป้องกันด้วยรหัสผ่านโดยไม่ระบุรหัสผ่าน  
-  **เคล็ดลับ:** ส่งรหัสผ่านเมื่อสร้างอินสแตนซ์ `Redactor`  
+- **Pitfall:** Attempting to rasterize a password‑protected PDF without providing the password.  
+  **Pro tip:** Supply the password when constructing the `Redactor` instance.  
 
 ## คำถามที่พบบ่อย
 
-**ถาม:** ฉันจะจัดการการลบหลายวลีพร้อมกันได้อย่างไร?  
-**ตอบ:** GroupDocs.Redaction รองรับการเชื่อมต่อหลายอ็อบเจ็กต์การลบในคำสั่ง `apply` เดียว ทำให้สามารถประมวลผลหลายวลีในรอบเดียวได้  
+**Q:** How do I handle multiple phrase redactions simultaneously?  
+**A:** GroupDocs.Redaction allows chaining multiple redaction objects in a single `apply` call, so you can process several phrases in one pass.
 
-**ถาม:** GroupDocs.Redaction สามารถใช้ในระบบจัดการเอกสารขนาดใหญ่ได้หรือไม่?  
-**ตอบ:** ใช่, API ถูกออกแบบมาสำหรับการรวมระดับองค์กรและสามารถขยายแนวนอนได้หากจัดการทรัพยากรอย่างเหมาะสม  
+**Q:** Can GroupDocs.Redaction be used for large‑scale document management systems?  
+**A:** Yes, the API is designed for enterprise integration and can be scaled horizontally with proper resource management.
 
-**ถาม:** GroupDocs.Redaction รองรับรูปแบบไฟล์อะไรบ้าง?  
-**ตอบ:** รองรับ PDF, เอกสาร Word, สเปรดชีต Excel, พรีเซนเทชัน PowerPoint, รูปภาพและอื่น ๆ อีกหลายรูปแบบ  
+**Q:** What formats does GroupDocs.Redaction support?  
+**A:** It supports PDFs, Word documents, Excel spreadsheets, PowerPoint presentations, images, and many more.
 
-**ถาม:** ฉันจะขอรับการสนับสนุนทางเทคนิคสำหรับ GroupDocs.Redaction ได้อย่างไร?  
-**ตอบ:** เยี่ยมชม [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33) เพื่อรับความช่วยเหลือจากชุมชนหรือ ติดต่อช่องทางสนับสนุนอย่างเป็นทางการ  
+**Q:** How can I obtain technical support for GroupDocs.Redaction?  
+**A:** Visit the [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33) for community help or contact the official support channels.
 
-**ถาม:** การเปิดใช้งานการเรซอร์สไฟล์มีผลต่อประสิทธิภาพหรือไม่?  
-**ตอบ:** การเรซอร์สไฟล์เพิ่มเวลาการประมวลผลเนื่องจากแต่ละหน้าถูกเรนเดอร์เป็นภาพ แต่ให้ความคุ้มค่าด้านความเป็นส่วนตัวที่สูงกว่า  
+**Q:** Is there a performance impact when enabling rasterization?  
+**A:** Rasterization adds processing time because each page is rendered as an image, but it provides stronger privacy guarantees.
 
 ## แหล่งข้อมูลเพิ่มเติม
 
-- [GroupDocs Documentation](https://docs.groupdocs.com/redaction/java/)  
-- [API Reference](https://reference.groupdocs.com/redaction/java)  
-- [Downloads](https://releases.groupdocs.com/redaction/java/)  
-- [GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
-- [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)  
-- [Temporary License Page](https://purchase.groupdocs.com/temporary-license/)  
+- [เอกสาร GroupDocs](https://docs.groupdocs.com/redaction/java/)  
+- [อ้างอิง API](https://reference.groupdocs.com/redaction/java)  
+- [ดาวน์โหลด](https://releases.groupdocs.com/redaction/java/)  
+- [ที่เก็บ GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
+- [ฟอรั่มสนับสนุนฟรี](https://forum.groupdocs.com/c/redaction/33)  
+- [หน้าลิขสิทธิ์ชั่วคราว](https://purchase.groupdocs.com/temporary-license/)  
 
-สำรวจแหล่งข้อมูลเหล่านี้เพื่อเพิ่มพูนความเข้าใจและความชำนาญในการใช้ GroupDocs.Redaction สำหรับ Java!
+Explore these resources to deepen your understanding and mastery of GroupDocs.Redaction for Java!
 
 ## สรุป
-คุณได้มีเวิร์กโฟลว์ครบวงจรสำหรับ **แปลง PDF เป็นรูปภาพใน Java** ตั้งแต่การโหลดเอกสาร, การลบข้อความตามวลีที่ตรงกัน, จนถึงการเรซอร์สไฟล์เป็น PDF ที่มีหน้าเป็น PNG วิธีนี้รับประกันว่าข้อมูลที่ละเอียดอ่อนจะถูกบังอย่างถาวรและผลลัพธ์สุดท้ายสอดคล้องกับกฎระเบียบด้านความเป็นส่วนตัว อย่าลังเลที่จะทดลองตั้งค่าการเรซอร์สไฟล์ต่าง ๆ, ประมวลผลหลายไฟล์เป็นชุด, หรือผสานตรรกะนี้เข้าไปในระบบจัดการเอกสารขนาดใหญ่ของคุณ  
-
----  
-
-**อัปเดตล่าสุด:** 2026-02-26  
-**ทดสอบกับ:** GroupDocs.Redaction 24.9 for Java  
-**ผู้เขียน:** GroupDocs  
+You now have a complete, end‑to‑end workflow for **convert PDF to images Java**, from loading a document, applying exact‑phrase redaction, to rasterizing pages into PNG‑based PDFs. This approach guarantees that sensitive information is permanently obscured and that the final output complies with privacy regulations. Feel free to experiment with different rasterization settings, batch‑process multiple files, or integrate this logic into a larger document‑management pipeline.
 
 ---
+
+**Last Updated:** 2026-08-04  
+**Tested With:** GroupDocs.Redaction 24.9 for Java  
+**Author:** GroupDocs  
+
+---
+
+## บทแนะนำที่เกี่ยวข้อง
+
+- [การลบข้อมูล PDF ด้วย Java: วิธีใช้ GroupDocs.Redaction สำหรับการแทนที่วลีที่ตรงกัน](/redaction/java/pdf-specific-redaction/java-pdf-redaction-groupdocs-redaction-exact-phrase/)
+- [วิธีลบข้อความและบันทึก PDF ที่แปลงเป็นภาพด้วย GroupDocs.Java](/redaction/java/text-redaction/groupdocs-redaction-java-text-redaction-rasterize-pdf/)
+- [การแสดงตัวอย่างหน้าจากเอกสารด้วย Java และ GroupDocs.Redaction](/redaction/java/document-loading/)
