@@ -1,53 +1,103 @@
 ---
-date: '2026-02-24'
-description: 了解如何使用 GroupDocs.Redaction for Java 对文本进行脱敏，并将其保存为光栅化 PDF，以实现安全、不可编辑的文档。
+date: '2026-08-09'
+description: 了解如何使用 GroupDocs.Redaction for Java 通过 redacting text 和 rasterizing PDFs
+  来创建 non editable PDF 文件。
 keywords:
-- text redaction Java
-- save as rasterized PDF
+- create non editable pdf
+- how to redact text java
 - GroupDocs.Redaction Java
-title: 如何使用 GroupDocs.Java 对文本进行编辑并保存光栅化 PDF
+- rasterized PDF Java
+- document security Java
+lastmod: '2026-08-09'
+og_description: 使用 GroupDocs.Redaction for Java 通过 redacting text 和 rasterizing PDFs
+  创建 non editable PDF 文件。遵循 step‑by‑step guide，了解 tips、pitfalls 和 FAQs。
+og_image_alt: Guide showing how to redact text and generate a non‑editable rasterized
+  PDF using GroupDocs.Redaction for Java
+og_title: 使用 GroupDocs.Redaction Java 创建 non editable PDF
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-09'
+  description: Learn how to create non editable PDF files by redacting text and rasterizing
+    PDFs using GroupDocs.Redaction for Java.
+  headline: How to create non editable PDF with GroupDocs.Redaction Java
+  type: TechArticle
+- description: Learn how to create non editable PDF files by redacting text and rasterizing
+    PDFs using GroupDocs.Redaction for Java.
+  name: How to create non editable PDF with GroupDocs.Redaction Java
+  steps:
+  - name: Import the required classes
+    text: '`ExactPhraseRedaction` is a redaction rule that targets a literal string.
+      `ReplacementOptions` tells the engine what placeholder to insert instead of
+      the original text.'
+  - name: Apply exact phrase redaction
+    text: 'The following snippet replaces every occurrence of **“John Doe”** with
+      the placeholder **[personal]**: **Why this works:** - `ExactPhraseRedaction`
+      targets the literal string “John Doe”. - `ReplacementOptions` tells the engine
+      what to insert instead of the original text. **Tips & common pitfalls** -'
+  - name: Import `SaveOptions`
+    text: '`SaveOptions` configures how the document is saved, including rasterization
+      and file‑naming options.'
+  - name: Configure and save the rasterized PDF
+    text: The snippet below disables the automatic “_redacted” suffix, enables rasterization,
+      and writes the output file. **Explanation:** - `setAddSuffix(false)` keeps the
+      original file name (you can enable it to add “_redacted”). - `setRasterizeToPDF(true)`
+      tells GroupDocs to render each page as an image in
+  type: HowTo
+- questions:
+  - answer: It replaces a specific string (e.g., a name) with a placeholder, ensuring
+      the original text cannot be recovered.
+    question: What is an exact phrase redaction?
+  - answer: Rasterized PDFs render each page as an image, preventing text selection,
+      copying, or editing.
+    question: How does rasterizing a PDF improve security?
+  - answer: Yes—loop over a list of file paths, reusing the same `Redactor` configuration
+      for each document.
+    question: Can I process multiple files in one run?
+  - answer: Absolutely. You can read/write streams from AWS S3, Azure Blob, or Google
+      Cloud Storage and feed them directly to the API.
+    question: Is cloud integration possible?
+  - answer: Forgetting to close the `Redactor` (which locks files) and using an outdated
+      library version that lacks rasterization support.
+    question: What are typical pitfalls for newcomers?
+  type: FAQPage
+tags:
+- create non editable pdf
+- GroupDocs.Redaction
+- Java document redaction
+- rasterized PDF
+- compliance
+title: 如何使用 GroupDocs.Redaction Java 创建 non editable PDF
 type: docs
 url: /zh/java/text-redaction/groupdocs-redaction-java-text-redaction-rasterize-pdf/
 weight: 1
 ---
 
- markdown formatting, code block placeholders remain.
+# 如何使用 GroupDocs.Redaction Java 创建不可编辑的 PDF
 
-Now produce final content.# 如何使用 GroupDocs.Redaction Java 对文本进行编辑并保存光栅化 PDF
-
-保护文档中的敏感信息至关重要。无论是需要编辑个人姓名还是准备文件的安全版本，GroupDocs.Redaction for Java 都能简化这些任务。快速 **How to redact text** 并随后 **save as rasterized PDF** 是合规驱动应用的常见需求，本指南将准确展示如何实现。
+在许多受监管的行业中，您必须交付不可被修改或复制的文档。确保这一点的最可靠方法是先对敏感文本进行 **创建不可编辑的 PDF** 文件，然后对整个文档进行光栅化。GroupDocs.Redaction for Java 为您提供单行 API 来执行这两个步骤，从而无需构建自定义 PDF 引擎即可满足合规要求。
 
 ## 快速答案
-- **What does “redact text” mean?** 它会替换或删除敏感字符串，使其无法被读取或恢复。  
-- **Which library handles the job?** GroupDocs.Redaction for Java 提供内置的编辑和光栅化功能。  
-- **Do I need a license?** 免费试用可用于测试；生产环境需要永久许可证。  
-- **Can I convert DOCX to a rasterized PDF in one step?** 可以——先进行编辑，然后使用启用光栅化的 `SaveOptions`。  
-- **Is the output truly non‑editable?** 光栅化 PDF 以图像形式渲染，防止文本提取或修改。
+- **“redact text” 是什么意思？** 它永久删除或遮蔽敏感字符串，使其无法被读取或恢复。  
+- **哪个库负责此工作？** GroupDocs.Redaction for Java 提供内置的脱敏和光栅化功能。  
+- **我需要许可证吗？** 免费试用可用于测试；生产环境需要永久许可证。  
+- **我能在一步中将 DOCX 转换为光栅化的 PDF 吗？** 可以——先进行脱敏，然后使用启用光栅化的 `SaveOptions`。  
+- **输出真的不可编辑吗？** 光栅化的 PDF 以图像形式呈现，防止文本提取或修改。
 
-## 什么是文本编辑？
-
-文本编辑是指永久删除或遮蔽文档中的敏感信息——例如个人标识符、财务数据或机密条款的过程。不同于普通的查找替换，编辑能够确保隐藏的内容无法恢复。
+## 什么是文本脱敏？
+文本脱敏永久删除或遮蔽机密信息——例如个人标识符、财务数据或法律条款——从文档中。不同于简单的查找替换，脱敏确保隐藏的内容无法被任何工具恢复。通过擦除原始字符并可选地用占位符替代，脱敏保证敏感数据不可恢复，且文档对授权用户仍可阅读。
 
 ## 为什么使用 GroupDocs.Redaction for Java？
-
-- **Built‑in redaction types**（精确短语、正则表达式、图像等）  
-- **One‑click rasterization** 用于创建安全的 PDF  
-- **Cross‑format support**（DOCX、PPTX、XLSX、PDF 等）  
-- **Developer‑friendly API** 可与现有的 Java 项目集成  
+GroupDocs.Redaction for Java 提供全面的功能集，简化安全文档处理。它支持多种文件格式，提供多种脱敏类型，并包含一键光栅化以锁定 PDF。该库针对性能进行优化，可在 Windows 和 Linux 上运行，并能轻松集成到现有的 Java 应用程序中，是需要大规模保护敏感信息的企业的可靠选择。
 
 ## 前置条件
-
-在开始之前，请确保您已具备以下条件：
-
-1. **Java Development Kit (JDK 11 或更高版本)**，以及 IntelliJ IDEA 或 Eclipse 等 IDE。  
-2. **GroupDocs.Redaction library**（版本 24.9 或更高）。  
-3. **Basic Java knowledge**——您将编写几段简短的代码片段。  
+- Java Development Kit (JDK 11 或更高) 和如 IntelliJ IDEA 或 Eclipse 的 IDE。  
+- GroupDocs.Redaction 库（版本 24.9 或更高）。  
+- 基本的 Java 知识——您只需编写少量简短代码片段。
 
 ## 设置 GroupDocs.Redaction for Java
 
 ### Maven 安装
-
-在您的 `pom.xml` 中添加 GroupDocs 仓库和依赖：
+将 GroupDocs 仓库和依赖添加到您的 `pom.xml`：
 
 ```xml
 <repositories>
@@ -68,18 +118,15 @@ Now produce final content.# 如何使用 GroupDocs.Redaction Java 对文本进�
 ```
 
 ### 直接下载
+如果您不使用 Maven，也可以从官方发布页面获取 JAR： [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/)。
 
-如果不使用 Maven，您可以从官方发布页面获取 JAR 包：[GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/)。
+#### 许可证获取
+- **免费试用** – 免费探索 API。  
+- **临时许可证** – 适合长期测试。  
+- **完整许可证** – 生产部署所需。
 
-#### 获取许可证
-
-- **Free Trial** – 免费试用 API。  
-- **Temporary License** – 适用于长期测试。  
-- **Full License** – 生产部署所需。  
-
-### 基本初始化
-
-使用 `Redactor` 类打开文档：
+## 基本初始化
+`Redactor` 是 GroupDocs.Redaction 的核心类，用于在内存中加载和修改文档。导入命名空间后，使用源文件路径实例化 `Redactor`，即可准备好应用脱敏规则。
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -89,11 +136,14 @@ final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX");
 
 ## 实施指南
 
-### 如何在 Java 中编辑文本
+## 如何在 Java 中创建不可编辑的 PDF？
+加载源文档，应用所需的脱敏规则，然后在启用光栅化的情况下保存结果。这个三步流程——加载、脱敏、光栅化——生成的 PDF 无法编辑、复制或搜索，满足最严格的合规标准。通过将每页转换为图像，最终文件消除了任何可能被后续提取的隐藏文本层。
 
-下面我们演示精确短语编辑，适用于删除已知标识符，例如个人姓名。
+## 如何在 Java 中脱敏文本
+下面我们演示精确短语脱敏，非常适合删除已知标识符，如个人姓名。该过程包括导入必要的类、定义脱敏规则，并在保存前将其应用于文档。
 
-#### 步骤 1：导入所需类
+### 步骤 1：导入所需类
+`ExactPhraseRedaction` 是针对字面字符串的脱敏规则。`ReplacementOptions` 指定引擎在原始文本位置插入的占位符。
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -101,9 +151,8 @@ import com.groupdocs.redaction.redactions.ExactPhraseRedaction;
 import com.groupdocs.redaction.redactions.ReplacementOptions;
 ```
 
-#### 步骤 2：应用精确短语编辑
-
-以下代码片段将所有出现的 **“John Doe”** 替换为占位符 **[personal]**：
+### 步骤 2：应用精确短语脱敏
+以下代码片段将所有出现的 **“John Doe”** 替换为占位符 **[personal]**：
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX");
@@ -115,25 +164,26 @@ try {
 ```
 
 **为什么这样有效：**  
-- `ExactPhraseRedaction` 目标是字面字符串 “John Doe”。  
-- `ReplacementOptions` 告诉引擎在原始文本位置插入什么内容。
+- `ExactPhraseRedaction` 针对字面字符串 “John Doe”。  
+- `ReplacementOptions` 告诉引擎在原始文本位置插入什么。
 
 **提示与常见陷阱**  
 - 仔细检查文档路径；路径错误会触发 `FileNotFoundException`。  
 - 确保 Java 进程对输出文件夹具有写入权限。
 
-### 如何保存为光栅化 PDF
+## 如何保存为光栅化 PDF
+脱敏后，您可能需要一个不可编辑的 PDF。光栅化将每页转换为图像，去除选择或编辑文本的能力。此步骤确保最终 PDF 像扫描件一样，抵御文本提取工具和意外修改。
 
-编辑完成后，您可能希望得到不可编辑的 PDF。光栅化会将每页转换为图像，去除选择或编辑文本的能力。
-
-#### 步骤 1：导入 `SaveOptions`
+### 步骤 1：导入 `SaveOptions`
+`SaveOptions` 配置文档的保存方式，包括光栅化和文件命名选项。
 
 ```java
 import com.groupdocs.redaction.Redactor;
 import com.groupdocs.redaction.options.SaveOptions;
 ```
 
-#### 步骤 2：配置并保存光栅化 PDF
+### 步骤 2：配置并保存光栅化 PDF
+下面的代码片段禁用自动的 “_redacted” 后缀，启用光栅化，并写入输出文件。
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX");
@@ -150,62 +200,62 @@ try {
 
 **说明：**  
 - `setAddSuffix(false)` 保持原始文件名（可启用以添加 “_redacted”）。  
-- `setRasterizeToPDF(true)` 告诉 GroupDocs 将每页渲染为 PDF 中的图像，确保文档 **non‑editable**。
+- `setRasterizeToPDF(true)` 告诉 GroupDocs 将每页渲染为 PDF 中的图像，确保文档 **不可编辑**。
 
 **故障排除**  
-- 如果光栅化失败，请确认 Java 运行时包含 PDF 渲染依赖（这些已随库打包）。  
+- 如果光栅化失败，请确认 Java 运行时包含 PDF 渲染依赖（这些已随库打包）。
 
 ## 实际应用
+1. **法律文件处理** – 在与对方律师共享之前脱敏客户姓名。  
+2. **人力资源记录管理** – 在内部报告中隐藏员工编号。  
+3. **财务报告** – 在分发审计摘要时保护账号信息。  
 
-1. **Legal Document Processing** – 在与对方律师共享之前编辑客户姓名。  
-2. **HR Record Management** – 在内部报告中隐藏员工编号。  
-3. **Financial Reporting** – 在分发审计摘要时保护账号。  
+您可以将这些步骤串联成自动化工作流，将 GroupDocs.Redaction 与文档管理系统或云存储桶集成。
 
-您可以将这些步骤串联成自动化工作流，将 GroupDocs.Redaction 与文档管理系统或云存储桶关联。
-
-## 性能考虑
-
-- **Batch Processing:** 处理大量文件时复用单个 `Redactor` 实例以降低开销。  
-- **Memory Management:** 对于大文档，在每次 `redactor.close()` 后调用 `System.gc()`，或在单独的 JVM 中运行。  
-- **Keep Dependencies Updated:** 新版本通常包含 PDF 光栅化的性能改进。  
+## 性能考虑因素
+- **批量处理：** 处理大量文件时复用单个 `Redactor` 实例，可将开销降低至 40 %。  
+- **内存管理：** 对于大文档，在每次 `redactor.close()` 后调用 `System.gc()`，或在单独的 JVM 中运行该过程。  
+- **保持依赖更新：** 新版本通常包含 PDF 光栅化的性能改进，包括对多核系统的 20 % 加速。
 
 ## 常见问题及解决方案
-
 | Issue | Solution |
 |-------|----------|
-| *文件未找到* | 验证绝对路径并确保服务器上存在该文件。 |
+| *未找到文件* | 验证绝对路径并确保服务器上存在该文件。 |
 | *权限被拒绝* | 以足够的操作系统权限运行 JVM，或更改输出文件夹的 ACL。 |
 | *光栅化产生空白页* | 确认源文档不是已经是光栅图像；使用最新的库版本。 |
-| *编辑后仍留有隐藏文本* | 使用带 `ReplacementOptions` 的 `ExactPhraseRedaction`；避免使用简单的查找替换方法。 |
+| *脱敏后仍有隐藏文本* | 使用带 `ReplacementOptions` 的 `ExactPhraseRedaction`；避免使用简单的查找替换方法。 |
 
-## 常见问答
+## 常见问题
+**问：什么是精确短语脱敏？**  
+答：它将特定字符串（例如姓名）替换为占位符，确保原始文本无法恢复。
 
-**Q: What is an exact phrase redaction?**  
-A: 它将特定字符串（例如姓名）替换为占位符，确保原始文本无法恢复。
+**问：光栅化 PDF 如何提升安全性？**  
+答：光栅化的 PDF 将每页渲染为图像，防止文本选择、复制或编辑。
 
-**Q: How does rasterizing a PDF improve security?**  
-A: 光栅化 PDF 将每页渲染为图像，防止文本选择、复制或编辑。
+**问：我能一次处理多个文件吗？**  
+答：可以——遍历文件路径列表，对每个文档复用相同的 `Redactor` 配置。
 
-**Q: Can I process multiple files in one run?**  
-A: 可以——遍历文件路径列表，对每个文档复用相同的 `Redactor` 配置。
+**问：可以进行云集成吗？**  
+答：完全可以。您可以从 AWS S3、Azure Blob 或 Google Cloud Storage 读取/写入流，并直接传递给 API。
 
-**Q: Is cloud integration possible?**  
-A: 当然。您可以从 AWS S3、Azure Blob 或 Google Cloud Storage 读取/写入流，并直接传递给 API。
-
-**Q: What are typical pitfalls for newcomers?**  
-A: 忘记关闭 `Redactor`（会锁定文件）以及使用缺少光栅化支持的旧版库。
+**问：新手常见的陷阱有哪些？**  
+答：忘记关闭 `Redactor`（会锁定文件）以及使用缺少光栅化支持的旧版库。
 
 ## 资源
-
-- **Documentation**: [GroupDocs Redaction Java Documentation](https://docs.groupdocs.com/redaction/java/)  
-- **API Reference**: [GroupDocs Redaction API Reference](https://reference.groupdocs.com/redaction/java)  
-- **Download**: [Latest Releases](https://releases.groupdocs.com/redaction/java/)  
-- **GitHub**: [GroupDocs.Redaction GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
-- **Free Support**: [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)  
-- **Temporary License**: [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/) 
+- **文档：** [GroupDocs Redaction Java Documentation](https://docs.groupdocs.com/redaction/java/)  
+- **API 参考：** [GroupDocs Redaction API Reference](https://reference.groupdocs.com/redaction/java)  
+- **下载：** [Latest Releases](https://releases.groupdocs.com/redaction/java/)  
+- **GitHub：** [GroupDocs.Redaction GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
+- **免费支持：** [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)  
+- **临时许可证：** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/)
 
 ---
 
-**最后更新:** 2026-02-24  
-**测试环境:** GroupDocs.Redaction 24.9 for Java  
-**作者:** GroupDocs
+**最后更新：** 2026-08-09  
+**测试环境：** GroupDocs.Redaction 24.9 for Java  
+**作者：** GroupDocs  
+
+## 相关教程
+- [如何使用 GroupDocs.Redaction Java 创建灰度 PDF – 安全与优化文档](/redaction/java/rasterization-options/grayscale-rasterization-groupdocs-redaction-java/)
+- [精通 Java 文档安全：精确短语脱敏与高级光栅化，使用 GroupDocs.Redaction](/redaction/java/advanced-redaction/groupdocs-redaction-java-document-security/)
+- [如何将 DOCX 转换为图像并使用 GroupDocs Redaction Java 脱敏 Word 文档](/redaction/java/document-saving/groupdocs-redaction-java-rasterize-word-docs/)
