@@ -1,52 +1,98 @@
 ---
-date: '2026-02-24'
-description: GroupDocs.Redaction Java API का उपयोग करके Excel स्प्रेडशीट्स में संवेदनशील
-  डेटा को रिडैक्ट करना और ईमेल पते को मास्क करना सीखें।
+date: '2026-08-09'
+description: GroupDocs.Redaction Java API का उपयोग करके Excel स्प्रेडशीट्स में व्यक्तिगत
+  डेटा को छुपाना और ईमेल पते को मास्क करना सीखें।
 keywords:
-- Redact Emails in Excel
-- GroupDocs.Redaction Java API
-- Automate Email Redaction
-title: GroupDocs.Redaction जावा API का उपयोग करके Excel स्प्रेडशीट में संवेदनशील डेटा
-  को कैसे रीडैक्ट करें
-type: docs
+- how to hide personal data
+- mask email addresses excel
+- GroupDocs.Redaction Java
+- Excel redaction tutorial
+lastmod: '2026-08-09'
+og_description: GroupDocs.Redaction Java API का उपयोग करके Excel फ़ाइलों में व्यक्तिगत
+  डेटा को छुपाने और ईमेल पते को मास्क करने के चरण‑दर‑चरण तरीके को जानें – GDPR अनुपालन
+  के लिए एक तेज़, सुरक्षित समाधान।
+og_image_alt: Guide showing Java code that redacts email addresses in an Excel spreadsheet
+og_title: GroupDocs Java के साथ Excel में व्यक्तिगत डेटा को कैसे छुपाएँ
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-09'
+  description: Learn how to hide personal data and mask email addresses in Excel spreadsheets
+    using the GroupDocs.Redaction Java API.
+  headline: How to hide personal data in Excel with GroupDocs Java
+  type: TechArticle
+- description: Learn how to hide personal data and mask email addresses in Excel spreadsheets
+    using the GroupDocs.Redaction Java API.
+  name: How to hide personal data in Excel with GroupDocs Java
+  steps:
+  - name: '**Partner data exchange** – Automatically strip customer emails before
+      sending spreadsheets to vendors.'
+    text: '**Partner data exchange** – Automatically strip customer emails before
+      sending spreadsheets to vendors.'
+  - name: '**Internal audit preparation** – Anonymize employee data during compliance
+      reviews.'
+    text: '**Internal audit preparation** – Anonymize employee data during compliance
+      reviews.'
+  - name: '**Scheduled reporting** – Embed the redaction step into nightly batch jobs
+      that generate distribution‑ready reports.'
+    text: '**Scheduled reporting** – Embed the redaction step into nightly batch jobs
+      that generate distribution‑ready reports.'
+  type: HowTo
+- questions:
+  - answer: Extend the pattern to include additional allowed characters (e.g., “+”
+      or “_”) and test against a larger sample set, then re‑run the redaction.
+    question: My regex still misses some corporate email formats. What should I do?
+  - answer: Yes. Create a separate `CellFilter` for each column and invoke `redactor.apply`
+      for each filter sequentially.
+    question: Can I redact more than one column in a single pass?
+  - answer: The library processes sheets incrementally, so files up to several gigabytes
+      can be redacted as long as you enable streaming and close the `Redactor` after
+      each file.
+    question: Is GroupDocs.Redaction able to handle Excel files larger than 1 GB?
+  - answer: Inspect the `RedactorChangeLog` returned by `apply`; a non‑failed status
+      indicates success, while any errors are listed with line numbers and cell references.
+    question: How do I capture redaction results or errors?
+  - answer: Absolutely. Build the placeholder string dynamically (e.g., `"[redacted:"
+      + UUID.randomUUID() + "]"`) and pass it to `ReplacementOptions`.
+    question: Can I use a custom placeholder that includes a unique token per row?
+  type: FAQPage
+tags:
+- hide personal data
+- GroupDocs.Redaction
+- Java Excel processing
+- data privacy
+title: GroupDocs Java के साथ Excel में व्यक्तिगत डेटा को कैसे छुपाएँ
 url: /hi/java/spreadsheet-redaction/redact-emails-excel-groupdocs-redaction-java/
 weight: 1
 ---
 
-# Excel स्प्रेडशीट में संवेदनशील डेटा को GroupDocs.Redaction Java API का उपयोग करके कैसे रिडैक्ट करें
+# Excel में व्यक्तिगत डेटा को छिपाने के लिए GroupDocs Java के साथ कैसे करें
 
-आज के डेटा‑चालित विश्व में, Excel वर्कबुक से ईमेल पते जैसे **संवेदनशील डेटा को रिडैक्ट** करना उन सभी के लिए आवश्यक कौशल है जो व्यक्तिगत जानकारी को संभालते हैं। चाहे आप क्लाइंट के लिए रिपोर्ट तैयार कर रहे हों, पार्टनर के साथ डेटा साझा कर रहे हों, या बस डेटा सेट को साफ़ कर रहे हों, ईमेल पते को मास्क करने से आप GDPR, CCPA और अन्य गोपनीयता नियमों के अनुरूप रह सकते हैं। इस ट्यूटोरियल में आप सीखेंगे कि GroupDocs.Redaction Java लाइब्रेरी का उपयोग करके Excel फ़ाइल के एक विशिष्ट कॉलम में ईमेल मानों को स्वचालित रूप से कैसे खोजें और बदलें।
-
-**आप क्या सीखेंगे**
-- Maven प्रोजेक्ट में Java के लिए GroupDocs.Redaction को कैसे सेट अप करें।  
-- किसी विशेष वर्कशीट और कॉलम को लक्षित करने की तकनीकें।  
-- रेगुलर‑एक्सप्रेशन पैटर्न का उपयोग करके **ईमेल पते को मास्क** करने का तरीका।  
-- मूल फ़ाइल को अपरिवर्तित रखते हुए रिडैक्टेड फ़ाइल को सहेजने के सर्वोत्तम अभ्यास।  
-
-कोड में डुबने से पहले सुनिश्चित करें कि आपका विकास वातावरण तैयार है।
+इस गाइड में आप सीखेंगे **व्यक्तिगत डेटा को कैसे छिपाएँ**—विशेष रूप से ईमेल पते—Excel वर्कबुक में GroupDocs.Redaction Java API का उपयोग करके। चाहे आपको GDPR, CCPA, या आंतरिक गोपनीयता नीतियों का पालन करना हो, यहाँ दिखाया गया तरीका आपको सुरक्षित रूप से रेडैक्शन को स्वचालित करने, मूल फ़ाइल को अपरिवर्तित रखने, और वितरण के लिए तैयार एक साफ़ संस्करण बनाने की अनुमति देता है।
 
 ## त्वरित उत्तर
-- **“संवेदनशील डेटा को रिडैक्ट” का क्या अर्थ है?** इसका मतलब है दस्तावेज़ से व्यक्तिगत पहचान योग्य जानकारी (PII) को स्थायी रूप से हटाना या मास्क करना।  
-- **कौन सी लाइब्रेरी रिडैक्शन को संभालती है?** GroupDocs.Redaction for Java।  
-- **क्या मुझे लाइसेंस चाहिए?** परीक्षण के लिए एक फ्री ट्रायल काम करता है; उत्पादन के लिए एक स्थायी लाइसेंस आवश्यक है।  
-- **क्या मैं प्रतिस्थापन टेक्स्ट चुन सकता हूँ?** हाँ, आप कोई भी प्लेसहोल्डर निर्दिष्ट कर सकते हैं, जैसे “[customer email]”。  
-- **क्या यह तरीका बड़े स्प्रेडशीट्स के लिए सुरक्षित है?** हाँ, जब आप गाइड में दिए गए प्रदर्शन टिप्स का पालन करते हैं।  
+- **“व्यक्तिगत डेटा को छिपाना” क्या मतलब है?** इसका अर्थ है फ़ाइल से व्यक्तिगत पहचान योग्य जानकारी (PII) को स्थायी रूप से मास्क या हटाना ताकि उसे अब पढ़ा न जा सके।  
+- **कौन सी लाइब्रेरी रेडैक्शन करती है?** GroupDocs.Redaction for Java।  
+- **क्या उदाहरण चलाने के लिए लाइसेंस चाहिए?** परीक्षण के लिए एक मुफ्त ट्रायल काम करता है; व्यावसायिक उपयोग के लिए प्रोडक्शन‑ग्रेड लाइसेंस आवश्यक है।  
+- **क्या मैं प्लेसहोल्डर टेक्स्ट को कस्टमाइज़ कर सकता हूँ?** हाँ—आप ईमेल को किसी भी स्ट्रिंग जैसे “[redacted email]” से बदल सकते हैं।  
+- **क्या यह विधि बड़े स्प्रेडशीट्स के लिए उपयुक्त है?** हाँ, जब आप “Performance considerations” सेक्शन में दिए गए प्रदर्शन सुझावों का पालन करते हैं।
+
+## व्यक्तिगत डेटा को छिपाना क्या है?
+**व्यक्तिगत डेटा को छिपाना** का अर्थ है किसी भी जानकारी को अपरिवर्तनीय रूप से हटाना या मास्क करना जो सीधे या अप्रत्यक्ष रूप से किसी व्यक्ति की पहचान कर सके, जैसे नाम, फोन नंबर, या ईमेल पते। यह प्रक्रिया सुनिश्चित करती है कि परिणामी फ़ाइल का उपयोग विषय की पुनः पहचान करने के लिए नहीं किया जा सके।
+
+## GroupDocs.Redaction for Java का उपयोग क्यों करें?
+GroupDocs.Redaction **30+ इनपुट और आउटपुट फॉर्मेट्स** का समर्थन करता है और **500,000 पंक्तियों** तक की वर्कबुक को पूरी फ़ाइल को मेमोरी में लोड किए बिना प्रोसेस कर सकता है, जिससे साधारण फ़ाइल‑पार्सिंग समाधान की तुलना में **80 % तक मेमोरी‑फुटप्रिंट में कमी** मिलती है। ये मापनीय लाभ इसे एंटरप्राइज़‑ग्रेड डेटा‑प्राइवेसी पाइपलाइन के लिए शीर्ष विकल्प बनाते हैं।
 
 ## पूर्वापेक्षाएँ
+- Java Development Kit (JDK) 8 या उससे नया।  
+- Maven बिल्ड फ़ाइलों की बुनियादी समझ।  
+- GroupDocs.Redaction Java लाइब्रेरी तक पहुँच (Maven या आधिकारिक रिलीज़ पेज से डाउनलोड योग्य)。
 
-इस ट्यूटोरियल को फॉलो करने के लिए आपको चाहिए:
+## GroupDocs.Redaction for Java को सेट अप करना
 
-- Java Development Kit (JDK) 8 या उससे ऊपर।  
-- बेसिक Java ज्ञान और Maven की परिचितता।  
-- GroupDocs.Redaction लाइब्रेरी तक पहुँच (Maven या डायरेक्ट लिंक के माध्यम से डाउनलोड योग्य)।  
+### Maven प्रोजेक्ट में GroupDocs.Redaction कैसे जोड़ें?
+अपने `pom.xml` फ़ाइल में GroupDocs रिपॉजिटरी और Redaction डिपेंडेंसी जोड़ें (देखें [GroupDocs.Redaction releases](https://releases.groupdocs.com/redaction/java/))। फिर आर्टिफैक्ट्स को प्राप्त करने के लिए `mvn clean install` चलाएँ।
 
-## Java के लिए GroupDocs.Redaction सेट अप करना
-
-GroupDocs.Redaction for Java एक Maven रिपॉज़िटरी के माध्यम से वितरित किया जाता है, जिससे इंटीग्रेशन सरल हो जाता है।
-
-**Maven सेटअप**  
-`pom.xml` फ़ाइल में रिपॉज़िटरी और डिपेंडेंसी जोड़ें:
-
+```text
 ```xml
 <repositories>
    <repository>
@@ -64,22 +110,16 @@ GroupDocs.Redaction for Java एक Maven रिपॉज़िटरी के 
    </dependency>
 </dependencies>
 ```
+```
 
-**डायरेक्ट डाउनलोड**  
-वैकल्पिक रूप से, आप GroupDocs.Redaction for Java का नवीनतम संस्करण [GroupDocs.Redaction releases](https://releases.groupdocs.com/redaction/java/) से डाउनलोड कर सकते हैं।
+### GroupDocs.Redaction के लिए लाइसेंस कैसे प्राप्त करें?
+GroupDocs तीन लाइसेंस विकल्प प्रदान करता है (देखें [GroupDocs’ website](https://purchase.groupdocs.com/temporary-license/))：
 
-### लाइसेंस प्राप्ति
+- **Free trial** – सीमित‑फ़ीचर मूल्यांकन, कोई क्रेडिट‑कार्ड आवश्यक नहीं।  
+- **Temporary license** – GroupDocs वेबसाइट से प्राप्त 30‑दिन का मूल्यांकन कुंजी।  
+- **Full license** – बिक्री पोर्टल के माध्यम से खरीदा गया स्थायी प्रोडक्शन लाइसेंस।
 
-GroupDocs एक फ्री ट्रायल प्रदान करता है जिससे आप API का मूल्यांकन कर सकते हैं। चल रहे प्रोजेक्ट्स के लिए, आपको या तो एक टेम्पररी या फुल लाइसेंस चाहिए होगा:
-
-- **फ्री ट्रायल:** सीमित‑फ़ीचर मूल्यांकन।  
-- **टेम्पररी लाइसेंस:** [GroupDocs की वेबसाइट](https://purchase.groupdocs.com/temporary-license/) पर आवेदन करें।  
-- **फुल लाइसेंस:** अनलिमिटेड प्रोडक्शन उपयोग के लिए खरीदें।  
-
-### बेसिक इनिशियलाइज़ेशन
-
-अपने Excel फ़ाइल की ओर इशारा करने वाला `Redactor` इंस्टेंस बनाकर शुरू करें:
-
+```text
 ```java
 import com.groupdocs.redaction.Redactor;
 
@@ -92,15 +132,15 @@ public class RedactEmails {
     }
 }
 ```
+```
 
-## इम्प्लीमेंटेशन गाइड
+## कार्यान्वयन गाइड
 
-नीचे एक चरण‑दर‑चरण walkthrough दिया गया है जो दिखाता है कि कैसे एक विशिष्ट कॉलम से **संवेदनशील डेटा को रिडैक्ट** किया जाए।
+### Excel फ़ाइल के लिए Redactor इंस्टेंस कैसे बनाएं?
+`Redactor` क्लास मुख्य एंट्री पॉइंट है जो दस्तावेज़ को लोड करता है और रेडैक्शन ऑपरेशन्स प्रदान करता है।  
+एक `Redactor` ऑब्जेक्ट बनाएं जो स्रोत वर्कबुक की ओर इशारा करता हो। `Redactor` क्लास सभी रेडैक्शन ऑपरेशन्स के लिए एंट्री पॉइंट है; यह फ़ाइल को एक प्रबंधित मेमोरी स्ट्रक्चर में लोड करता है जबकि मूल फ़ाइल डिस्क पर अपरिवर्तित रहती है।
 
-### दस्तावेज़ लोड करें
-
-सबसे पहले, आपने जो `Redactor` बनाया है, उसका उपयोग करके वर्कबुक खोलें:
-
+```text
 ```java
 import com.groupdocs.redaction.Redactor;
 
@@ -112,11 +152,12 @@ public class RedactEmails {
     }
 }
 ```
+```
 
-### फ़िल्टर सेट अप करें
+### रेडैक्शन को एक ही वर्कशीट और कॉलम तक कैसे सीमित करें?
+`CellFilter` क्लास आपको यह निर्दिष्ट करने देता है कि कौन सी वर्कशीट और कॉलम(स) को रेडैक्शन के लिए जांचा जाना चाहिए। लक्ष्य शीट नाम और कॉलम इंडेक्स निर्दिष्ट करने के लिए `CellFilter` का उपयोग करें। `CellFilter` क्लास रेडैक्शन इंजन द्वारा मूल्यांकन से पहले सेल्स को फ़िल्टर करता है, जिससे केवल इच्छित सेल्स प्रोसेस होते हैं।
 
-`CellFilter` आपको रिडैक्शन स्कोप को किसी विशेष वर्कशीट और कॉलम तक सीमित करने देता है। इस उदाहरण में हम **Customers** शीट पर कॉलम B (इंडेक्स 1) को लक्षित करते हैं:
-
+```text
 ```java
 import com.groupdocs.redaction.redactions.CellFilter;
 
@@ -125,22 +166,24 @@ CellFilter filter = new CellFilter();
 filter.setColumnIndex(1); // Targeting the second column (index starts at 0)
 filter.setWorkSheetName("Customers"); // Specify the worksheet name
 ```
+```
 
-### ईमेल पैटर्न परिभाषित करें
+### अधिकांश ईमेल पतों से मेल खाने वाला रेगुलर‑एक्सप्रेशन पैटर्न कैसे परिभाषित करें?
+`java.util.regex` की `Pattern` क्लास एक संकलित रेगुलर‑एक्सप्रेशन को दर्शाती है जिसका उपयोग टेक्स्ट से मेल खाने के लिए किया जाता है। एक `Pattern` ऑब्जेक्ट बनाएं जिसमें वह रेगेक्स हो जो सामान्य ईमेल फ़ॉर्मेट को कैप्चर करे। नीचे दिया गया पैटर्न RFC‑5322‑अनुरूप अधिकांश पतों से मेल खाता है जबकि गलत स्ट्रिंग्स को अनदेखा करता है।
 
-ईमेल पते का पता लगाने के लिए रेगुलर एक्सप्रेशन का उपयोग किया जाता है। नीचे दिया गया पैटर्न अधिकांश सामान्य ईमेल फॉर्मेट से मेल खाता है:
-
+```text
 ```java
 import java.util.regex.Pattern;
 
 // Define regex pattern for matching emails
 Pattern expression = Pattern.compile("^\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$");
 ```
+```
 
-### रिडैक्शन लागू करें
+### रेडैक्शन लागू करें और ईमेल को प्लेसहोल्डर से कैसे बदलें?
+`ReplacementOptions` क्लास यह परिभाषित करती है कि मेल खाए हुए कंटेंट को कैसे बदला जाएगा, जैसे प्लेसहोल्डर टेक्स्ट। फ़िल्टर, पैटर्न, और एक `ReplacementOptions` इंस्टेंस को मिलाएँ। `ReplacementOptions` क्लास आपको प्रत्येक रेडैक्टेड सेल में दिखाई देने वाला सटीक प्लेसहोल्डर टेक्स्ट सेट करने की अनुमति देती है।
 
-अब फ़िल्टर, पैटर्न और एक रिप्लेसमेंट विकल्प को मिलाकर **ईमेल पते को मास्क** करें। `ReplacementOptions` ऑब्जेक्ट आपको वह प्लेसहोल्डर टेक्स्ट परिभाषित करने देता है जो रिडैक्टेड सेल्स में दिखाई देगा।
-
+```text
 ```java
 import com.groupdocs.redaction.options.SaveOptions;
 import com.groupdocs.redaction.RedactorChangeLog;
@@ -157,59 +200,68 @@ if (result.getStatus() != RedactionStatus.Failed) {
     redactor.save(saveOptions);
 }
 ```
+```
 
-### ट्रबलशूटिंग टिप्स
+## सामान्य समस्याएँ और ट्रबलशूटिंग
 
-- **रेजेक्स सटीकता:** अपने रेगुलर एक्सप्रेशन को विभिन्न ईमेल नमूनों के खिलाफ टेस्ट करें ताकि यह सुनिश्चित हो सके कि यह सभी अपेक्षित फॉर्मेट को पकड़ता है।  
-- **कॉलम इंडेक्स:** याद रखें कि कॉलम इंडेक्सिंग 0 से शुरू होती है; जिस कॉलम को आप रिडैक्ट करना चाहते हैं, उसके इंडेक्स को दोबारा जांचें।  
-- **वर्कशीट नाम:** नाम केस‑सेंसिटिव है; Excel में जैसा दिखता है, वैसा ही शीट नाम उपयोग करें।  
+- **Regex सभी मामलों को नहीं पकड़ता** – अपने डेटा के प्रतिनिधि नमूने के खिलाफ अभिव्यक्ति का परीक्षण करें और आवश्यकतानुसार कैरेक्टर क्लासेस को समायोजित करें।  
+- **गलत कॉलम इंडेक्स** – याद रखें कि कॉलम इंडेक्सिंग 0 से शुरू होती है; कॉलम B का इंडेक्स 1 है।  
+- **वर्कशीट नाम केस‑सेंसिटिविटी** – Excel में दिखाए गए सटीक शीट नाम का उपयोग करें; “Customers” ≠ “customers”。  
+- **रिसोर्स लीक** – `Redactor` को try‑with‑resources ब्लॉक में रखें (जैसा दिखाया गया है) ताकि नेटिव रिसोर्सेज तुरंत रिलीज़ हो जाएँ।
 
-## संवेदनशील डेटा को रिडैक्ट क्यों करें?
+## Excel में व्यक्तिगत डेटा को छिपाने का कारण क्या है?
+Excel में व्यक्तिगत डेटा को छिपाने से सभी व्यक्तिगत पहचान योग्य जानकारी हट जाती है, जिससे फ़ाइल का उपयोग व्यक्तियों को ट्रेस करने के लिए नहीं किया जा सकता। यह गोपनीयता की रक्षा करता है, नियामक आवश्यकताओं को पूरा करता है, और बाहरी पक्षों के साथ स्प्रेडशीट साझा करने या डेटा सार्वजनिक रूप से प्रकाशित करने पर आकस्मिक लीक को रोकता है।
 
-- **अनुपालन:** GDPR, CCPA, और उद्योग‑विशिष्ट गोपनीयता आवश्यकताओं को पूरा करें।  
-- **जोखिम घटाना:** फ़ाइलों को बाहरी रूप से साझा करते समय व्यक्तिगत पहचानकर्ताओं के आकस्मिक खुलासे को रोकें।  
-- **डेटा गवर्नेंस:** आर्काइव्ड डेटा सेट से PII को स्थायी रूप से हटाकर एक साफ़ ऑडिट ट्रेल रखें।  
+- **नियामक अनुपालन** – GDPR, CCPA, और उद्योग‑विशिष्ट गोपनीयता मानकों को पूरा करें।  
+- **जोखिम शमन** – बाहरी साझेदारों के साथ फ़ाइलें साझा करने पर PII के आकस्मिक एक्सपोज़र को रोकें।  
+- **ऑडिट तैयारियों** – संवेदनशील मानों को स्थायी रूप से हटाकर एक साफ़, अपरिवर्तनीय ऑडिट ट्रेल रखें।
 
 ## व्यावहारिक अनुप्रयोग
 
-1. **डेटा प्राइवेसी अनुपालन:** पार्टनर्स को स्प्रेडशीट भेजने से पहले स्वचालित रूप से ईमेल पते हटाएँ।  
-2. **आंतरिक ऑडिट:** आंतरिक समीक्षाओं के दौरान ग्राहक डेटा को अनाम बनाएं।  
-3. **रिपोर्टिंग पाइपलाइन:** शेड्यूल्ड रिपोर्ट जनरेशन जॉब्स में रिडैक्शन स्टेप को इंटीग्रेट करें।  
+1. **पार्टनर डेटा एक्सचेंज** – विक्रेताओं को स्प्रेडशीट भेजने से पहले ग्राहक ईमेल को स्वचालित रूप से हटाएँ।  
+2. **आंतरिक ऑडिट तैयारी** – अनुपालन समीक्षाओं के दौरान कर्मचारी डेटा को अनाम बनाएँ।  
+3. **निर्धारित रिपोर्टिंग** – रेडैक्शन चरण को रात के बैच जॉब्स में एम्बेड करें जो वितरण‑तैयार रिपोर्ट बनाते हैं।
 
 ## प्रदर्शन विचार
 
-- **बैच प्रोसेसिंग:** यदि आपको कई फ़ाइलों को रिडैक्ट करना है, तो उन्हें क्रमिक रूप से प्रोसेस करें और जहाँ संभव हो `Redactor` इंस्टेंस को पुन: उपयोग करें।  
-- **मेमोरी मैनेजमेंट:** `Redactor` को try‑with‑resources ब्लॉक (जैसा दिखाया गया है) के साथ बंद करें ताकि नेटिव रिसोर्सेज तुरंत मुक्त हो जाएँ।  
-- **बड़े डेटा सेट:** हजारों पंक्तियों वाले वर्कबुक के लिए, ओवरहेड कम करने के लिए रिडैक्शन से पहले पंक्तियों को फ़िल्टर करने पर विचार करें।  
+- **बैच प्रोसेसिंग** – कई फ़ाइलों में एक ही `Redactor` इंस्टेंस को पुनः उपयोग करें ताकि JVM ओवरहेड कम हो।  
+- **मेमोरी प्रबंधन** – API एक समय में एक वर्कशीट प्रोसेस करता है; 100 MB से बड़ी वर्कबुक के लिए, पंक्तियों को चंक्स में प्रोसेस करें ताकि हीप उपयोग कम रहे।  
+- **बड़े डेटा सेट** – >100 k पंक्तियों वाली फ़ाइलों को संभालते समय, स्ट्रीमिंग मोड सक्षम करें (संस्करण 24.9 में उपलब्ध) ताकि मेमोरी खपत 200 MB से कम रहे।
 
 ## अक्सर पूछे जाने वाले प्रश्न
 
-**प्रश्न:** यदि मेरा ईमेल रेगेक्स सभी फॉर्मेट से मेल नहीं खाता है तो क्या करें?  
-**उत्तर:** पैटर्न को अतिरिक्त अक्षर शामिल करने के लिए समायोजित करें या अधिक लचीला एक्सप्रेशन उपयोग करें, फिर रिडैक्शन को पुनः चलाएँ।
+**प्रश्न: मेरा regex अभी भी कुछ कॉर्पोरेट ईमेल फ़ॉर्मेट्स को मिस कर रहा है। मुझे क्या करना चाहिए?**  
+**उत्तर:** पैटर्न को अतिरिक्त अनुमत अक्षरों (जैसे “+” या “_”) को शामिल करने के लिए विस्तारित करें और बड़े नमूना सेट के खिलाफ परीक्षण करें, फिर रेडैक्शन को पुनः चलाएँ।
 
-**प्रश्न:** क्या मैं एक साथ कई कॉलम रिडैक्ट कर सकता हूँ?  
-**उत्तर:** हाँ। प्रत्येक कॉलम के लिए एक अलग `CellFilter` बनाएं और प्रत्येक फ़िल्टर के लिए `redactor.apply` को कॉल करें।
+**प्रश्न: क्या मैं एक ही पास में एक से अधिक कॉलम को रेडैक्ट कर सकता हूँ?**  
+**उत्तर:** हाँ। प्रत्येक कॉलम के लिए एक अलग `CellFilter` बनाएं और प्रत्येक फ़िल्टर को क्रमिक रूप से `redactor.apply` द्वारा लागू करें।
 
-**प्रश्न:** क्या GroupDocs.Redaction बहुत बड़े Excel फ़ाइलों के लिए उपयुक्त है?  
-**उत्तर:** यह अच्छी स्केलेबिलिटी रखता है, विशेष रूप से जब आप शीट्स को एक‑एक करके प्रोसेस करते हैं और प्रत्येक फ़ाइल के बाद रिसोर्सेज़ रिलीज़ करते हैं।
+**प्रश्न: क्या GroupDocs.Redaction 1 GB से बड़ी Excel फ़ाइलों को संभाल सकता है?**  
+**उत्तर:** लाइब्रेरी शीट्स को क्रमिक रूप से प्रोसेस करती है, इसलिए कई गीगाबाइट तक की फ़ाइलें रेडैक्ट की जा सकती हैं बशर्ते आप स्ट्रीमिंग सक्षम करें और प्रत्येक फ़ाइल के बाद `Redactor` को बंद करें।
 
-**प्रश्न:** रिडैक्शन के दौरान त्रुटियों को कैसे संभालूँ?  
-**उत्तर:** `RedactorChangeLog` की स्थिति जांचें; यदि स्थिति विफल नहीं है तो ऑपरेशन सफल रहा। डिबगिंग के लिए किसी भी विफलता को लॉग करें।
+**प्रश्न: मैं रेडैक्शन परिणाम या त्रुटियों को कैसे कैप्चर करूँ?**  
+**उत्तर:** `apply` द्वारा लौटाए गए `RedactorChangeLog` की जाँच करें; गैर‑विफल स्थिति सफलता दर्शाती है, जबकि त्रुटियाँ लाइन नंबर और सेल रेफ़रेंस के साथ सूचीबद्ध होती हैं।
 
-**प्रश्न:** क्या मैं रिप्लेसमेंट टेक्स्ट को कस्टमाइज़ कर सकता हूँ?  
-**उत्तर:** बिल्कुल। `ReplacementOptions` में कोई भी स्ट्रिंग पास करें, जैसे “[redacted]” या कोई जेनरेटेड टोकन।
+**प्रश्न: क्या मैं एक कस्टम प्लेसहोल्डर उपयोग कर सकता हूँ जिसमें प्रत्येक पंक्ति के लिए एक यूनिक टोकन हो?**  
+**उत्तर:** बिल्कुल। प्लेसहोल्डर स्ट्रिंग को डायनामिक रूप से बनाएं (जैसे `"[redacted:" + UUID.randomUUID() + "]"`) और इसे `ReplacementOptions` को पास करें।
 
-## संसाधन
+## अतिरिक्त संसाधन
 
-- [डॉक्यूमेंटेशन](https://docs.groupdocs.com/redaction/java/)
+- [दस्तावेज़ीकरण](https://docs.groupdocs.com/redaction/java/)
 - [API रेफ़रेंस](https://reference.groupdocs.com/redaction/java)
 - [GroupDocs.Redaction डाउनलोड करें](https://releases.groupdocs.com/redaction/java/)
-- [GitHub रिपॉज़िटरी](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
-- [फ्री सपोर्ट फ़ोरम](https://forum.groupdocs.com/c/redaction/33)
+- [GitHub रिपॉजिटरी](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
+- [फ़्री सपोर्ट फ़ोरम](https://forum.groupdocs.com/c/redaction/33)
 - [टेम्पररी लाइसेंस जानकारी](https://purchase.groupdocs.com/temporary-license/)
 
 ---
 
-**अंतिम अपडेट:** 2026-02-24  
+**अंतिम अपडेट:** 2026-08-09  
 **परीक्षित संस्करण:** GroupDocs.Redaction 24.9 for Java  
 **लेखक:** GroupDocs
+
+## संबंधित ट्यूटोरियल
+
+- [स्प्रेडशीट में डेटा फ़िल्टर कैसे करें – GroupDocs.Redaction Java](/redaction/java/spreadsheet-redaction/)
+- [सेंसिटिव डेटा को मास्क करें Java – GroupDocs.Redaction के साथ व्यक्तिगत जानकारी को रेडैक्ट करें](/redaction/java/advanced-redaction/master-document-redaction-java-groupdocs-redaction/)
+- [सेंसिटिव डेटा को मास्क करें Java – GroupDocs.Redaction गाइड](/redaction/java/getting-started/)

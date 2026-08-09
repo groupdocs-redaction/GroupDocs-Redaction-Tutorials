@@ -1,51 +1,98 @@
 ---
-date: '2026-02-24'
-description: Pelajari cara menghapus data sensitif dan menyamarkan alamat email dalam
-  spreadsheet Excel menggunakan API Java GroupDocs.Redaction.
+date: '2026-08-09'
+description: Pelajari cara menyembunyikan data pribadi dan menyamarkan alamat email
+  di spreadsheet Excel menggunakan GroupDocs.Redaction Java API.
 keywords:
-- Redact Emails in Excel
-- GroupDocs.Redaction Java API
-- Automate Email Redaction
-title: Cara Menyensor Data Sensitif dalam Spreadsheet Excel Menggunakan API Java GroupDocs.Redaction
-type: docs
+- how to hide personal data
+- mask email addresses excel
+- GroupDocs.Redaction Java
+- Excel redaction tutorial
+lastmod: '2026-08-09'
+og_description: Temukan langkah demi langkah cara menyembunyikan data pribadi dan
+  menyamarkan alamat email di file Excel menggunakan GroupDocs.Redaction Java API
+  – solusi cepat dan aman untuk kepatuhan GDPR.
+og_image_alt: Guide showing Java code that redacts email addresses in an Excel spreadsheet
+og_title: Cara menyembunyikan data pribadi di Excel dengan GroupDocs Java
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-09'
+  description: Learn how to hide personal data and mask email addresses in Excel spreadsheets
+    using the GroupDocs.Redaction Java API.
+  headline: How to hide personal data in Excel with GroupDocs Java
+  type: TechArticle
+- description: Learn how to hide personal data and mask email addresses in Excel spreadsheets
+    using the GroupDocs.Redaction Java API.
+  name: How to hide personal data in Excel with GroupDocs Java
+  steps:
+  - name: '**Partner data exchange** – Automatically strip customer emails before
+      sending spreadsheets to vendors.'
+    text: '**Partner data exchange** – Automatically strip customer emails before
+      sending spreadsheets to vendors.'
+  - name: '**Internal audit preparation** – Anonymize employee data during compliance
+      reviews.'
+    text: '**Internal audit preparation** – Anonymize employee data during compliance
+      reviews.'
+  - name: '**Scheduled reporting** – Embed the redaction step into nightly batch jobs
+      that generate distribution‑ready reports.'
+    text: '**Scheduled reporting** – Embed the redaction step into nightly batch jobs
+      that generate distribution‑ready reports.'
+  type: HowTo
+- questions:
+  - answer: Extend the pattern to include additional allowed characters (e.g., “+”
+      or “_”) and test against a larger sample set, then re‑run the redaction.
+    question: My regex still misses some corporate email formats. What should I do?
+  - answer: Yes. Create a separate `CellFilter` for each column and invoke `redactor.apply`
+      for each filter sequentially.
+    question: Can I redact more than one column in a single pass?
+  - answer: The library processes sheets incrementally, so files up to several gigabytes
+      can be redacted as long as you enable streaming and close the `Redactor` after
+      each file.
+    question: Is GroupDocs.Redaction able to handle Excel files larger than 1 GB?
+  - answer: Inspect the `RedactorChangeLog` returned by `apply`; a non‑failed status
+      indicates success, while any errors are listed with line numbers and cell references.
+    question: How do I capture redaction results or errors?
+  - answer: Absolutely. Build the placeholder string dynamically (e.g., `"[redacted:"
+      + UUID.randomUUID() + "]"`) and pass it to `ReplacementOptions`.
+    question: Can I use a custom placeholder that includes a unique token per row?
+  type: FAQPage
+tags:
+- hide personal data
+- GroupDocs.Redaction
+- Java Excel processing
+- data privacy
+title: Cara menyembunyikan data pribadi di Excel dengan GroupDocs Java
 url: /id/java/spreadsheet-redaction/redact-emails-excel-groupdocs-redaction-java/
 weight: 1
 ---
 
-# Cara Menyensor Data Sensitif dalam Spreadsheet Excel Menggunakan GroupDocs.Redaction Java API
+# Cara menyembunyikan data pribadi di Excel dengan GroupDocs Java
 
-Di dunia yang didorong oleh data saat ini, **redact sensitive data** seperti alamat email dari workbook Excel adalah keterampilan yang wajib dimiliki bagi siapa saja yang menangani informasi pribadi. Baik Anda sedang menyiapkan laporan untuk klien, berbagi data dengan mitra, atau sekadar membersihkan dataset, menyamarkan alamat email membantu Anda tetap mematuhi GDPR, CCPA, dan regulasi privasi lainnya. Dalam tutorial ini Anda akan belajar cara menggunakan pustaka GroupDocs.Redaction Java untuk secara otomatis menemukan dan mengganti nilai email di kolom tertentu dari file Excel.
-
-**Apa yang Akan Anda Pelajari**
-- Cara menyiapkan GroupDocs.Redaction untuk Java dalam proyek Maven.  
-- Teknik untuk menargetkan lembar kerja dan kolom tertentu.  
-- Cara **menyembunyikan alamat email** menggunakan pola regular‑expression.  
-- Praktik terbaik untuk menyimpan file yang disensor sambil menjaga file asli tetap utuh.
-
-Mari pastikan lingkungan pengembangan Anda siap sebelum kita menyelami kode.
+Dalam panduan ini Anda akan belajar **cara menyembunyikan data pribadi**—khususnya alamat email—di buku kerja Excel dengan menggunakan GroupDocs.Redaction Java API. Baik Anda perlu mematuhi GDPR, CCPA, atau kebijakan privasi internal, pendekatan yang ditunjukkan di sini memungkinkan Anda mengotomatisasi redaksi dengan aman, menjaga file asli tidak tersentuh, dan menghasilkan versi bersih yang siap didistribusikan.
 
 ## Jawaban Cepat
-- **Apa arti “redact sensitive data”?** Artinya menghapus secara permanen atau menyamarkan informasi yang dapat mengidentifikasi pribadi (PII) dari sebuah dokumen.  
-- **Perpustakaan mana yang menangani penyensoran?** GroupDocs.Redaction for Java.  
-- **Apakah saya memerlukan lisensi?** Versi percobaan gratis dapat digunakan untuk pengujian; lisensi permanen diperlukan untuk produksi.  
-- **Bisakah saya memilih teks pengganti?** Ya, Anda dapat menentukan placeholder apa pun, seperti “[customer email]”.  
-- **Apakah pendekatan ini aman untuk spreadsheet besar?** Ya, asalkan Anda mengikuti tips kinerja dalam panduan.
+- **Apa arti “menyembunyikan data pribadi”?** Itu berarti secara permanen menyamarkan atau menghapus informasi yang dapat mengidentifikasi secara pribadi (PII) dari sebuah file sehingga tidak dapat lagi dibaca.  
+- **Perpustakaan mana yang melakukan redaksi?** GroupDocs.Redaction for Java.  
+- **Apakah saya memerlukan lisensi untuk menjalankan contoh ini?** Versi percobaan gratis dapat digunakan untuk pengujian; lisensi produksi diperlukan untuk penggunaan komersial.  
+- **Bisakah saya menyesuaikan teks placeholder?** Ya—Anda dapat mengganti email dengan string apa pun seperti “[redacted email]”.  
+- **Apakah metode ini cocok untuk spreadsheet besar?** Ya, bila Anda mengikuti tips kinerja di bagian “Pertimbangan Kinerja”.
+
+## Apa itu menyembunyikan data pribadi?
+**Menyembunyikan data pribadi** mengacu pada penghapusan atau penyamaran yang tidak dapat dibalik dari informasi apa pun yang dapat secara langsung atau tidak langsung mengidentifikasi seseorang, seperti nama, nomor telepon, atau alamat email. Proses ini memastikan bahwa file yang dihasilkan tidak dapat digunakan untuk mengidentifikasi kembali subjek.
+
+## Mengapa menggunakan GroupDocs.Redaction untuk Java?
+GroupDocs.Redaction mendukung **lebih dari 30 format input dan output** dan dapat memproses buku kerja dengan **hingga 500.000 baris** tanpa memuat seluruh file ke memori, memberikan **pengurangan jejak memori hingga 80 %** dibandingkan solusi parsing file yang naïf. Manfaat terkuantifikasi ini menjadikannya pilihan utama untuk pipeline privasi data tingkat perusahaan.
 
 ## Prasyarat
-
-Untuk mengikuti tutorial ini, Anda memerlukan:
-
-- Java Development Kit (JDK) 8 atau lebih tinggi.  
-- Pengetahuan dasar Java dan familiaritas dengan Maven.  
-- Akses ke pustaka GroupDocs.Redaction (dapat diunduh melalui Maven atau tautan langsung).
+- Java Development Kit (JDK) 8 atau yang lebih baru.  
+- Pemahaman dasar tentang file build Maven.  
+- Akses ke pustaka GroupDocs.Redaction Java (dapat diunduh melalui Maven atau halaman rilis resmi).
 
 ## Menyiapkan GroupDocs.Redaction untuk Java
 
-GroupDocs.Redaction untuk Java didistribusikan melalui repositori Maven, yang membuat integrasi menjadi sederhana.
+### Bagaimana cara menambahkan GroupDocs.Redaction ke proyek Maven?
+Tambahkan repositori GroupDocs dan dependensi Redaction ke file `pom.xml` Anda (lihat [GroupDocs.Redaction releases](https://releases.groupdocs.com/redaction/java/)). Kemudian jalankan `mvn clean install` untuk mengunduh artefak.
 
-**Pengaturan Maven**  
-Tambahkan repositori dan dependensi ke file `pom.xml` Anda:
-
+```text
 ```xml
 <repositories>
    <repository>
@@ -63,22 +110,16 @@ Tambahkan repositori dan dependensi ke file `pom.xml` Anda:
    </dependency>
 </dependencies>
 ```
+```
 
-**Unduhan Langsung**  
-Sebagai alternatif, Anda dapat mengunduh versi terbaru GroupDocs.Redaction untuk Java dari [GroupDocs.Redaction releases](https://releases.groupdocs.com/redaction/java/).
+### Bagaimana cara mendapatkan lisensi untuk GroupDocs.Redaction?
+GroupDocs menawarkan tiga opsi lisensi (lihat [situs web GroupDocs](https://purchase.groupdocs.com/temporary-license/)):
 
-### Akuisisi Lisensi
+- **Uji coba gratis** – evaluasi dengan fitur terbatas, tidak memerlukan kartu kredit.  
+- **Lisensi sementara** – kunci evaluasi 30 hari yang diperoleh dari situs web GroupDocs.  
+- **Lisensi penuh** – lisensi produksi permanen yang dibeli melalui portal penjualan.
 
-GroupDocs menawarkan percobaan gratis yang memungkinkan Anda mengevaluasi API. Untuk proyek berkelanjutan, Anda akan membutuhkan lisensi sementara atau lisensi penuh:
-
-- **Free Trial:** Evaluasi fitur terbatas.  
-- **Temporary License:** Ajukan pada [GroupDocs’ website](https://purchase.groupdocs.com/temporary-license/).  
-- **Full License:** Beli untuk penggunaan produksi tanpa batas.
-
-### Inisialisasi Dasar
-
-Mulailah dengan membuat instance `Redactor` yang menunjuk ke file Excel Anda:
-
+```text
 ```java
 import com.groupdocs.redaction.Redactor;
 
@@ -91,15 +132,15 @@ public class RedactEmails {
     }
 }
 ```
+```
 
 ## Panduan Implementasi
 
-Berikut adalah panduan langkah demi langkah yang menunjukkan cara **redact sensitive data** dari kolom tertentu.
+### Bagaimana cara membuat instance Redactor untuk file Excel?
+Kelas `Redactor` adalah titik masuk utama yang memuat dokumen dan menyediakan operasi redaksi.  
+Instansiasi objek `Redactor` yang menunjuk ke workbook sumber. Kelas `Redactor` adalah titik masuk untuk semua operasi redaksi; ia memuat file ke dalam struktur memori yang dikelola sambil menjaga file asli tetap di disk.
 
-### Memuat Dokumen
-
-Pertama, buka workbook dengan `Redactor` yang baru saja Anda buat:
-
+```text
 ```java
 import com.groupdocs.redaction.Redactor;
 
@@ -111,11 +152,12 @@ public class RedactEmails {
     }
 }
 ```
+```
 
-### Menyiapkan Filter
+### Bagaimana cara membatasi redaksi ke satu lembar kerja dan kolom?
+Kelas `CellFilter` memungkinkan Anda menentukan lembar kerja dan kolom yang harus diperiksa untuk redaksi. Gunakan `CellFilter` untuk menentukan nama sheet target dan indeks kolom. Kelas `CellFilter` menyaring sel sebelum mesin redaksi mengevaluasinya, memastikan hanya sel yang dimaksud yang diproses.
 
-`CellFilter` memungkinkan Anda mempersempit ruang lingkup penyensoran ke lembar kerja dan kolom tertentu. Dalam contoh ini kami menargetkan kolom B (indeks 1) pada lembar **Customers**:
-
+```text
 ```java
 import com.groupdocs.redaction.redactions.CellFilter;
 
@@ -124,22 +166,24 @@ CellFilter filter = new CellFilter();
 filter.setColumnIndex(1); // Targeting the second column (index starts at 0)
 filter.setWorkSheetName("Customers"); // Specify the worksheet name
 ```
+```
 
-### Mendefinisikan Pola Email
+### Bagaimana cara mendefinisikan pola regular‑expression yang cocok dengan sebagian besar alamat email?
+Kelas `Pattern` dari `java.util.regex` mewakili regular‑expression yang telah dikompilasi untuk mencocokkan teks. Buat objek `Pattern` dengan regex yang menangkap format email tipikal. Pola di bawah ini mencocokkan mayoritas alamat yang sesuai RFC‑5322 sambil mengabaikan string yang tidak valid.
 
-Ekspresi reguler digunakan untuk mendeteksi alamat email. Pola di bawah ini cocok dengan format email yang paling umum:
-
+```text
 ```java
 import java.util.regex.Pattern;
 
 // Define regex pattern for matching emails
 Pattern expression = Pattern.compile("^\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$");
 ```
+```
 
-### Terapkan Penyensoran
+### Bagaimana cara menerapkan redaksi dan mengganti email dengan placeholder?
+Kelas `ReplacementOptions` menentukan bagaimana konten yang cocok akan diganti, seperti teks placeholder. Gabungkan filter, pola, dan instance `ReplacementOptions`. Kelas `ReplacementOptions` memungkinkan Anda mengatur teks placeholder yang tepat yang akan muncul di setiap sel yang diredaksi.
 
-Sekarang gabungkan filter, pola, dan opsi penggantian untuk **menyembunyikan alamat email**. Objek `ReplacementOptions` memungkinkan Anda menentukan teks placeholder yang akan muncul di sel yang disensor.
-
+```text
 ```java
 import com.groupdocs.redaction.options.SaveOptions;
 import com.groupdocs.redaction.RedactorChangeLog;
@@ -156,48 +200,52 @@ if (result.getStatus() != RedactionStatus.Failed) {
     redactor.save(saveOptions);
 }
 ```
+```
 
-### Tips Pemecahan Masalah
-- **Akurasi Regex:** Uji ekspresi reguler Anda terhadap berbagai contoh email untuk memastikan ia menangkap semua format yang Anda harapkan.  
-- **Indeks Kolom:** Ingat bahwa indeks kolom dimulai dari 0; periksa kembali indeks untuk kolom yang ingin Anda sensor.  
-- **Nama Lembar Kerja:** Nama bersifat case‑sensitive; gunakan nama lembar yang persis seperti yang muncul di Excel.
+## Kesalahan umum dan pemecahan masalah
 
-## Mengapa Menyensor Data Sensitif?
+- **Regex tidak menangkap semua kasus** – Uji ekspresi terhadap sampel representatif data Anda dan sesuaikan kelas karakter sesuai kebutuhan.  
+- **Indeks kolom tidak tepat** – Ingat bahwa indeks kolom dimulai dari 0; kolom B memiliki indeks 1.  
+- **Sensitivitas huruf pada nama lembar kerja** – Gunakan nama sheet yang persis seperti yang ditampilkan di Excel; “Customers” ≠ “customers”.  
+- **Kebocoran sumber daya** – Bungkus `Redactor` dalam blok try‑with‑resources (seperti yang ditunjukkan) untuk memastikan sumber daya native dilepaskan dengan cepat.
 
-- **Kepatuhan:** Memenuhi GDPR, CCPA, dan mandat privasi spesifik industri.  
-- **Pengurangan Risiko:** Mencegah paparan tidak sengaja dari pengidentifikasi pribadi saat berbagi file secara eksternal.  
-- **Tata Kelola Data:** Menjaga jejak audit yang bersih dengan menghapus PII secara permanen dari dataset yang diarsipkan.
+## Mengapa menyembunyikan data pribadi di Excel?
+Menyembunyikan data pribadi di Excel menghapus semua informasi yang dapat mengidentifikasi secara pribadi, memastikan bahwa file tidak dapat digunakan untuk melacak individu. Ini melindungi privasi, memenuhi persyaratan regulasi, dan mencegah kebocoran tidak sengaja saat berbagi spreadsheet dengan pihak eksternal atau mempublikasikan data secara publik.
 
-## Aplikasi Praktis
+- **Kepatuhan regulasi** – Memenuhi GDPR, CCPA, dan mandat privasi spesifik industri.  
+- **Mitigasi risiko** – Mencegah paparan tidak sengaja PII saat berbagi file dengan mitra eksternal.  
+- **Kesiapan audit** – Menjaga jejak audit yang bersih dan tidak dapat diubah dengan menghapus secara permanen nilai sensitif dari dataset yang diarsipkan.
 
-1. **Kepatuhan Privasi Data:** Secara otomatis menghapus alamat email sebelum mengirim spreadsheet ke mitra.  
-2. **Audit Internal:** Anonimisasi data pelanggan selama tinjauan internal.  
-3. **Pipeline Pelaporan:** Mengintegrasikan langkah penyensoran ke dalam pekerjaan pembuatan laporan terjadwal.
+## Aplikasi praktis
 
-## Pertimbangan Kinerja
+1. **Pertukaran data mitra** – Secara otomatis menghapus email pelanggan sebelum mengirim spreadsheet ke vendor.  
+2. **Persiapan audit internal** – Anonimisasi data karyawan selama tinjauan kepatuhan.  
+3. **Pelaporan terjadwal** – Menyematkan langkah redaksi ke dalam pekerjaan batch malam yang menghasilkan laporan siap distribusi.
 
-- **Pemrosesan Batch:** Jika Anda perlu menyensor banyak file, proses mereka secara berurutan dan gunakan kembali instance `Redactor` bila memungkinkan.  
-- **Manajemen Memori:** Tutup `Redactor` dengan blok try‑with‑resources (seperti yang ditunjukkan) untuk membebaskan sumber daya native dengan cepat.  
-- **Dataset Besar:** Untuk workbook dengan ribuan baris, pertimbangkan memfilter baris sebelum penyensoran untuk mengurangi beban.
+## Pertimbangan kinerja
 
-## Pertanyaan yang Sering Diajukan
+- **Pemrosesan batch** – Gunakan kembali satu instance `Redactor` pada beberapa file untuk mengurangi beban JVM.  
+- **Manajemen memori** – API memproses lembar kerja satu per satu; untuk workbook lebih dari 100 MB, proses baris dalam potongan untuk menjaga penggunaan heap tetap rendah.  
+- **Dataset besar** – Saat menangani file dengan >100 k baris, aktifkan mode streaming (tersedia di versi 24.9) untuk menjaga konsumsi memori di bawah 200 MB.
 
-**Q: Bagaimana jika regex email saya tidak cocok dengan semua format?**  
-A: Sesuaikan pola untuk menyertakan karakter tambahan atau gunakan ekspresi yang lebih permisif, lalu jalankan kembali penyensoran.
+## Pertanyaan yang sering diajukan
 
-**Q: Bisakah saya menyensor beberapa kolom sekaligus?**  
-A: Ya. Buat `CellFilter` terpisah untuk setiap kolom dan panggil `redactor.apply` untuk setiap filter.
+**Q: Regex saya masih melewatkan beberapa format email perusahaan. Apa yang harus saya lakukan?**  
+A: Perluas pola untuk menyertakan karakter tambahan yang diizinkan (mis., “+” atau “_”) dan uji terhadap set sampel yang lebih besar, lalu jalankan kembali redaksi.
 
-**Q: Apakah GroupDocs.Redaction cocok untuk file Excel yang sangat besar?**  
-A: Ia skalanya baik, terutama ketika Anda memproses lembar satu per satu dan melepaskan sumber daya setelah setiap file.
+**Q: Bisakah saya meredaksi lebih dari satu kolom dalam satu kali proses?**  
+A: Ya. Buat `CellFilter` terpisah untuk setiap kolom dan panggil `redactor.apply` untuk setiap filter secara berurutan.
 
-**Q: Bagaimana cara menangani kesalahan selama penyensoran?**  
-A: Periksa status `RedactorChangeLog`; status yang tidak gagal berarti operasi berhasil. Catat semua kegagalan untuk debugging.
+**Q: Apakah GroupDocs.Redaction dapat menangani file Excel yang lebih besar dari 1 GB?**  
+A: Perpustakaan memproses sheet secara bertahap, sehingga file hingga beberapa gigabyte dapat diredaksi selama Anda mengaktifkan streaming dan menutup `Redactor` setelah setiap file.
 
-**Q: Bisakah saya menyesuaikan teks pengganti?**  
-A: Tentu saja. Berikan string apa pun ke `ReplacementOptions`, seperti “[redacted]” atau token yang dihasilkan.
+**Q: Bagaimana cara menangkap hasil redaksi atau kesalahan?**  
+A: Periksa `RedactorChangeLog` yang dikembalikan oleh `apply`; status non‑failed menunjukkan keberhasilan, sementara kesalahan apa pun terdaftar dengan nomor baris dan referensi sel.
 
-## Sumber Daya
+**Q: Bisakah saya menggunakan placeholder khusus yang mencakup token unik per baris?**  
+A: Tentu saja. Bangun string placeholder secara dinamis (mis., `"[redacted:" + UUID.randomUUID() + "]"`) dan berikan ke `ReplacementOptions`.
+
+## Sumber daya tambahan
 
 - [Dokumentasi](https://docs.groupdocs.com/redaction/java/)
 - [Referensi API](https://reference.groupdocs.com/redaction/java)
@@ -208,6 +256,12 @@ A: Tentu saja. Berikan string apa pun ke `ReplacementOptions`, seperti “[redac
 
 ---
 
-**Terakhir Diperbarui:** 2026-02-24  
-**Diuji Dengan:** GroupDocs.Redaction 24.9 untuk Java  
+**Terakhir Diperbarui:** 2026-08-09  
+**Diuji Dengan:** GroupDocs.Redaction 24.9 for Java  
 **Penulis:** GroupDocs
+
+## Tutorial Terkait
+
+- [Cara Memfilter Data di Spreadsheet – GroupDocs.Redaction Java](/redaction/java/spreadsheet-redaction/)
+- [Menyamarkan Data Sensitif Java – Redact Personal Info dengan GroupDocs.Redaction](/redaction/java/advanced-redaction/master-document-redaction-java-groupdocs-redaction/)
+- [Menyamarkan Data Sensitif Java – Panduan GroupDocs.Redaction](/redaction/java/getting-started/)

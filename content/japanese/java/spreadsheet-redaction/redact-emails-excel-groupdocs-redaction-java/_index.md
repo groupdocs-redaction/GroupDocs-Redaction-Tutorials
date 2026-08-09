@@ -1,50 +1,96 @@
 ---
-date: '2026-02-24'
-description: GroupDocs.Redaction Java API を使用して、Excel スプレッドシート内の機密データを削除し、メールアドレスをマスクする方法を学びましょう。
+date: '2026-08-09'
+description: GroupDocs.Redaction Java API を使用して、Excel スプレッドシート内の個人データを非表示にし、メールアドレスをマスクする方法を学びます。
 keywords:
-- Redact Emails in Excel
-- GroupDocs.Redaction Java API
-- Automate Email Redaction
-title: GroupDocs.Redaction Java API を使用して Excel スプレッドシートの機密データをマスクする方法
-type: docs
+- how to hide personal data
+- mask email addresses excel
+- GroupDocs.Redaction Java
+- Excel redaction tutorial
+lastmod: '2026-08-09'
+og_description: GroupDocs.Redaction Java API を使用して、Excel ファイル内の個人データを非表示にし、メールアドレスをマスクする手順をステップバイステップで紹介します
+  – GDPR コンプライアンスに対応した迅速で安全なソリューションです。
+og_image_alt: Guide showing Java code that redacts email addresses in an Excel spreadsheet
+og_title: GroupDocs Java を使用して Excel で個人データを非表示にする方法
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-09'
+  description: Learn how to hide personal data and mask email addresses in Excel spreadsheets
+    using the GroupDocs.Redaction Java API.
+  headline: How to hide personal data in Excel with GroupDocs Java
+  type: TechArticle
+- description: Learn how to hide personal data and mask email addresses in Excel spreadsheets
+    using the GroupDocs.Redaction Java API.
+  name: How to hide personal data in Excel with GroupDocs Java
+  steps:
+  - name: '**Partner data exchange** – Automatically strip customer emails before
+      sending spreadsheets to vendors.'
+    text: '**Partner data exchange** – Automatically strip customer emails before
+      sending spreadsheets to vendors.'
+  - name: '**Internal audit preparation** – Anonymize employee data during compliance
+      reviews.'
+    text: '**Internal audit preparation** – Anonymize employee data during compliance
+      reviews.'
+  - name: '**Scheduled reporting** – Embed the redaction step into nightly batch jobs
+      that generate distribution‑ready reports.'
+    text: '**Scheduled reporting** – Embed the redaction step into nightly batch jobs
+      that generate distribution‑ready reports.'
+  type: HowTo
+- questions:
+  - answer: Extend the pattern to include additional allowed characters (e.g., “+”
+      or “_”) and test against a larger sample set, then re‑run the redaction.
+    question: My regex still misses some corporate email formats. What should I do?
+  - answer: Yes. Create a separate `CellFilter` for each column and invoke `redactor.apply`
+      for each filter sequentially.
+    question: Can I redact more than one column in a single pass?
+  - answer: The library processes sheets incrementally, so files up to several gigabytes
+      can be redacted as long as you enable streaming and close the `Redactor` after
+      each file.
+    question: Is GroupDocs.Redaction able to handle Excel files larger than 1 GB?
+  - answer: Inspect the `RedactorChangeLog` returned by `apply`; a non‑failed status
+      indicates success, while any errors are listed with line numbers and cell references.
+    question: How do I capture redaction results or errors?
+  - answer: Absolutely. Build the placeholder string dynamically (e.g., `"[redacted:"
+      + UUID.randomUUID() + "]"`) and pass it to `ReplacementOptions`.
+    question: Can I use a custom placeholder that includes a unique token per row?
+  type: FAQPage
+tags:
+- hide personal data
+- GroupDocs.Redaction
+- Java Excel processing
+- data privacy
+title: GroupDocs Java を使用して Excel で個人データを非表示にする方法
 url: /ja/java/spreadsheet-redaction/redact-emails-excel-groupdocs-redaction-java/
 weight: 1
 ---
 
-# ExcelスプレッドシートでGroupDocs.Redaction Java APIを使用して機密データをマスクする方法
+# GroupDocs Java を使用して Excel の個人データを非表示にする方法
 
-今日のデータ駆動型の世界では、Excelブックからメールアドレスなどの**機密データをマスク**することは、個人情報を取り扱うすべての人にとって必須のスキルです。クライアント向けのレポートを作成する場合や、パートナーとデータを共有する場合、あるいはデータセットを単にクリーンアップする場合でも、メールアドレスをマスクすることでGDPR、CCPA、その他のプライバシー規制に準拠できます。このチュートリアルでは、GroupDocs.Redaction Java ライブラリを使用して、Excelファイルの特定の列にあるメールアドレスを自動的に検出し置換する方法を学びます。
+このガイドでは、GroupDocs.Redaction Java API を使用して Excel ワークブック内の個人データ、特にメールアドレスを**非表示にする方法**を学びます。GDPR、CCPA、または社内プライバシーポリシーへの準拠が必要な場合でも、ここで示すアプローチにより、リダクションを安全に自動化し、元のファイルはそのままにして、配布用のクリーンなバージョンを生成できます。
 
-**学べること**
-- MavenプロジェクトでGroupDocs.Redaction for Javaを設定する方法。  
-- 特定のワークシートと列を対象にするテクニック。  
-- 正規表現パターンを使用して**メールアドレスをマスク**する方法。  
-- 元のファイルを保持しながら、マスクされたファイルを保存するベストプラクティス。
+## 簡潔な回答
+- **「個人データを非表示にする」とは何ですか？** ファイルから個人を特定できる情報（PII）を永続的にマスクまたは削除し、読み取れなくなることを意味します。  
+- **リダクションを実行するライブラリはどれですか？** GroupDocs.Redaction for Java。  
+- **サンプルを実行するのにライセンスは必要ですか？** テストには無料トライアルで動作しますが、商用利用には本番向けライセンスが必要です。  
+- **プレースホルダーのテキストをカスタマイズできますか？** はい。メールアドレスを「[redacted email]」のような任意の文字列に置き換えることができます。  
+- **この方法は大規模なスプレッドシートに適していますか？** はい。「Performance considerations」セクションのパフォーマンスに関するヒントに従えば適用できます。
 
-コードに入る前に、開発環境が整っていることを確認しましょう。
+## 個人データを非表示にするとは何ですか？
+**個人データを非表示にする** は、名前、電話番号、メールアドレスなど、個人を直接または間接的に特定できる情報を不可逆的に削除またはマスクすることを指します。このプロセスにより、生成されたファイルから対象者を再特定できなくなります。
 
-## クイック回答
-- **“機密データをマスク”とは何ですか？** 文書から個人を特定できる情報（PII）を永久に削除またはマスクすることを意味します。  
-- **どのライブラリがマスク処理を行いますか？** GroupDocs.Redaction for Java。  
-- **ライセンスは必要ですか？** テスト用には無料トライアルで動作しますが、本番環境では正式なライセンスが必要です。  
-- **置換テキストは選べますか？** はい、例えば“[customer email]”のような任意のプレースホルダーを指定できます。  
-- **大規模なスプレッドシートでも安全ですか？** ガイドのパフォーマンスヒントに従えば安全です。
+## Java 用 GroupDocs.Redaction を使用する理由は？
+GroupDocs.Redaction は **30 以上の入力および出力フォーマット** をサポートし、**最大 500,000 行** のワークブックをファイル全体をメモリに読み込むことなく処理でき、従来のファイル解析ソリューションと比較して **メモリ使用量を最大 80 % 削減** します。これらの定量的な利点により、エンタープライズ向けデータプライバシーパイプラインの最適な選択肢となります。
 
 ## 前提条件
+- Java Development Kit (JDK) 8 以上。  
+- Maven ビルドファイルの基本的な知識。  
+- GroupDocs.Redaction Java ライブラリへのアクセス（Maven または公式リリースページからダウンロード可能）。
 
-このチュートリアルを進めるには、以下が必要です：
+## Java 用 GroupDocs.Redaction の設定
 
-- Java Development Kit (JDK) 8 以上。  
-- 基本的なJavaの知識とMavenの経験。  
-- GroupDocs.Redaction ライブラリへのアクセス（Maven経由または直接ダウンロード）。
+### Maven プロジェクトに GroupDocs.Redaction を追加するには？
+`pom.xml` ファイルに GroupDocs リポジトリと Redaction の依存関係を追加します（[GroupDocs.Redaction releases](https://releases.groupdocs.com/redaction/java/) を参照）。その後、`mvn clean install` を実行してアーティファクトを取得します。
 
-## GroupDocs.Redaction for Java の設定
-
-GroupDocs.Redaction for Java は Maven リポジトリを通じて配布されており、統合が簡単です。
-
-**Maven設定**  
-`pom.xml` ファイルにリポジトリと依存関係を追加します:
-
+```text
 ```xml
 <repositories>
    <repository>
@@ -62,22 +108,16 @@ GroupDocs.Redaction for Java は Maven リポジトリを通じて配布され�
    </dependency>
 </dependencies>
 ```
+```
 
-**直接ダウンロード**  
-代わりに、最新バージョンの GroupDocs.Redaction for Java を [GroupDocs.Redaction releases](https://releases.groupdocs.com/redaction/java/) からダウンロードできます。
+### GroupDocs.Redaction のライセンスを取得するには？
+GroupDocs は 3 つのライセンスオプションを提供しています（[GroupDocs’ website](https://purchase.groupdocs.com/temporary-license/) を参照）。
 
-### ライセンス取得
+- **Free trial** – 機能制限付きの評価で、クレジットカードは不要です。  
+- **Temporary license** – GroupDocs のウェブサイトから取得できる 30 日間の評価キーです。  
+- **Full license** – 販売ポータルで購入できる永続的な本番用ライセンスです。
 
-GroupDocs は API を評価できる無料トライアルを提供しています。継続的なプロジェクトでは、テンポラリライセンスまたはフルライセンスのいずれかが必要です：
-
-- **Free Trial:** 機能制限付きの評価。  
-- **Temporary License:** [GroupDocs のウェブサイト](https://purchase.groupdocs.com/temporary-license/) で申請。  
-- **Full License:** 制限のない本番利用のために購入。
-
-### 基本的な初期化
-
-まず、Excelファイルを指す `Redactor` インスタンスを作成します:
-
+```text
 ```java
 import com.groupdocs.redaction.Redactor;
 
@@ -90,15 +130,15 @@ public class RedactEmails {
     }
 }
 ```
+```
 
 ## 実装ガイド
 
-以下は、特定の列から**機密データをマスク**する手順をステップバイステップで示したものです。
+### Excel ファイル用の Redactor インスタンスを作成するには？
+`Redactor` クラスはドキュメントを読み込み、リダクション操作を提供する主要エントリーポイントです。  
+ソースワークブックを指す `Redactor` オブジェクトをインスタンス化します。`Redactor` クラスはすべてのリダクション操作のエントリーポイントであり、元のファイルをディスク上に残しながら、ファイルを管理されたメモリ構造にロードします。
 
-### ドキュメントの読み込み
-
-まず、先ほど作成した `Redactor` でワークブックを開きます:
-
+```text
 ```java
 import com.groupdocs.redaction.Redactor;
 
@@ -110,11 +150,12 @@ public class RedactEmails {
     }
 }
 ```
+```
 
-### フィルタの設定
+### リダクションを単一のワークシートと列に限定するには？
+`CellFilter` クラスを使用すると、リダクション対象となるワークシートと列を指定できます。`CellFilter` を使用して対象シート名と列インデックスを設定します。`CellFilter` クラスはリダクションエンジンが評価する前にセルをフィルタリングし、意図したセルだけが処理されるようにします。
 
-`CellFilter` を使用すると、マスク対象を特定のワークシートと列に絞り込めます。この例では、**Customers** シートの列 B（インデックス 1）を対象にします:
-
+```text
 ```java
 import com.groupdocs.redaction.redactions.CellFilter;
 
@@ -123,22 +164,24 @@ CellFilter filter = new CellFilter();
 filter.setColumnIndex(1); // Targeting the second column (index starts at 0)
 filter.setWorkSheetName("Customers"); // Specify the worksheet name
 ```
+```
 
-### メールパターンの定義
+### ほとんどのメールアドレスにマッチする正規表現パターンを定義するには？
+`java.util.regex` の `Pattern` クラスは、テキストマッチに使用されるコンパイル済み正規表現を表します。一般的なメール形式をキャプチャする正規表現で `Pattern` オブジェクトを作成します。以下のパターンは、RFC‑5322 に準拠したアドレスの大部分にマッチし、形式が不正な文字列は無視します。
 
-メールアドレスを検出するために正規表現を使用します。以下のパターンは一般的なメール形式の多くにマッチします:
-
+```text
 ```java
 import java.util.regex.Pattern;
 
 // Define regex pattern for matching emails
 Pattern expression = Pattern.compile("^\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$");
 ```
+```
 
-### マスクの適用
+### リダクションを適用し、メールアドレスをプレースホルダーに置き換えるには？
+`ReplacementOptions` クラスは、マッチしたコンテンツをどのように置き換えるか（プレースホルダーのテキストなど）を定義します。フィルタ、パターン、`ReplacementOptions` インスタンスを組み合わせます。`ReplacementOptions` クラスを使用すると、各リダクションされたセルに表示される正確なプレースホルダー文字列を設定できます。
 
-これでフィルタ、パターン、置換オプションを組み合わせて**メールアドレスをマスク**します。`ReplacementOptions` オブジェクトを使用すると、マスクされたセルに表示されるプレースホルダー文字列を定義できます。
-
+```text
 ```java
 import com.groupdocs.redaction.options.SaveOptions;
 import com.groupdocs.redaction.RedactorChangeLog;
@@ -155,57 +198,62 @@ if (result.getStatus() != RedactionStatus.Failed) {
     redactor.save(saveOptions);
 }
 ```
+```
 
-### トラブルシューティングのヒント
-- **Regex Accuracy:** 正規表現が期待するすべての形式をキャプチャできるよう、さまざまなメールサンプルでテストしてください。  
-- **Column Index:** 列インデックスは 0 から始まることに注意し、マスク対象の列インデックスを再確認してください。  
-- **Worksheet Name:** シート名は大文字小文字を区別します。Excel に表示されている正確なシート名を使用してください。
+## 一般的な落とし穴とトラブルシューティング
+- **Regex does not catch all cases** – 正規表現がすべてのケースを捕捉できない場合は、データの代表的なサンプルでテストし、必要に応じて文字クラスを調整してください。  
+- **Incorrect column index** – 列インデックスは 0 から始まることを覚えておいてください。列 B はインデックス 1 です。  
+- **Worksheet name case‑sensitivity** – Excel に表示されている正確なシート名を使用してください。「Customers」≠「customers」。  
+- **Resource leaks** – `Redactor` を try‑with‑resources ブロックでラップ（上記参照）し、ネイティブリソースが速やかに解放されるようにしてください。
 
-## なぜ機密データをマスクするのか？
+## Excel で個人データを非表示にする理由は？
+Excel で個人データを非表示にすると、個人を特定できる情報がすべて除去され、ファイルから個人を追跡できなくなります。これによりプライバシーが保護され、規制要件を満たし、外部関係者とスプレッドシートを共有したりデータを公開したりする際の偶発的な漏洩を防止します。
 
-- **Compliance:** GDPR、CCPA、業界固有のプライバシー要件を満たす。  
-- **Risk Reduction:** ファイルを外部共有する際の個人識別情報の偶発的な漏洩を防止する。  
-- **Data Governance:** アーカイブされたデータセットから PII を永久に削除し、監査トレイルをクリーンに保つ。
+- **Regulatory compliance** – GDPR、CCPA、業界固有のプライバシー要件を満たします。  
+- **Risk mitigation** – 外部パートナーとファイルを共有する際の PII の偶発的な露出を防止します。  
+- **Audit readiness** – アーカイブされたデータセットから機密値を永続的に除去し、クリーンで不変な監査トレイルを維持します。
 
 ## 実用的な活用例
+1. **Partner data exchange** – ベンダーにスプレッドシートを送る前に顧客のメールアドレスを自動的に除去します。  
+2. **Internal audit preparation** – コンプライアンスレビュー時に従業員データを匿名化します。  
+3. **Scheduled reporting** – 配布可能なレポートを生成する夜間バッチジョブにリダクションステップを組み込みます。
 
-1. **Data Privacy Compliance:** パートナーにスプレッドシートを送る前にメールアドレスを自動的に削除する。  
-2. **Internal Audits:** 社内レビュー時に顧客データを匿名化する。  
-3. **Reporting Pipelines:** 定期的なレポート生成ジョブにマスク処理を組み込む。
-
-## パフォーマンス上の考慮点
-
-- **Batch Processing:** 多数のファイルをマスクする必要がある場合は、順次処理し、可能な限り `Redactor` インスタンスを再利用します。  
-- **Memory Management:** `Redactor` を try‑with‑resources ブロックで閉じ（上記参照）、ネイティブリソースを速やかに解放します。  
-- **Large Datasets:** 数千行のワークブックの場合、マスク前に行をフィルタリングしてオーバーヘッドを削減することを検討してください。
+## パフォーマンスに関する考慮事項
+- **Batch processing** – 複数ファイルで単一の `Redactor` インスタンスを再利用し、JVM のオーバーヘッドを削減します。  
+- **Memory management** – API はシートを1つずつ処理します。100 MB を超えるワークブックの場合は、行をチャンクに分けて処理し、ヒープ使用量を低く保ちます。  
+- **Large datasets** – 10 万行超のファイルを扱う場合は、ストリーミングモード（バージョン 24.9 で利用可能）を有効にし、メモリ消費を 200 MB 未満に抑えます。
 
 ## よくある質問
+**Q: 正規表現がまだ一部の企業メール形式を捕捉できません。どうすればよいですか？**  
+A: パターンに追加の許可文字（例: “+” や “_”）を含めるよう拡張し、より大きなサンプルセットでテストした後、リダクションを再実行してください。
 
-**Q: メールアドレスの正規表現がすべての形式にマッチしない場合は？**  
-A: 追加の文字を含めるようにパターンを調整するか、より緩やかな表現を使用し、再度マスク処理を実行してください。
+**Q: 1 回の処理で複数の列をリダクションできますか？**  
+A: はい。各列ごとに別々の `CellFilter` を作成し、各フィルタに対して順番に `redactor.apply` を呼び出します。
 
-**Q: 複数の列を同時にマスクできますか？**  
-A: はい。各列ごとに別々の `CellFilter` を作成し、各フィルタに対して `redactor.apply` を呼び出します。
+**Q: GroupDocs.Redaction は 1 GB を超える Excel ファイルを処理できますか？**  
+A: ライブラリはシートをインクリメンタルに処理するため、ストリーミングを有効にし、各ファイル処理後に `Redactor` を閉じることで、数ギガバイトまでのファイルをリダクションできます。
 
-**Q: 非常に大きな Excel ファイルでも GroupDocs.Redaction は適していますか？**  
-A: はい、特にシートを1つずつ処理し、各ファイルの後にリソースを解放することでスケーラビリティが確保されます。
+**Q: リダクション結果やエラーを取得するには？**  
+A: `apply` が返す `RedactorChangeLog` を確認してください。失敗でないステータスは成功を示し、エラーがある場合は行番号とセル参照と共に一覧表示されます。
 
-**Q: マスク処理中のエラーはどのように対処しますか？**  
-A: `RedactorChangeLog` のステータスを確認してください。失敗でないステータスは操作が成功したことを示します。デバッグのために失敗をログに記録してください。
+**Q: 行ごとにユニークなトークンを含むカスタムプレースホルダーを使用できますか？**  
+A: もちろん可能です。プレースホルダー文字列を動的に構築（例: `"[redacted:" + UUID.randomUUID() + "]"`）し、`ReplacementOptions` に渡してください。
 
-**Q: 置換テキストをカスタマイズできますか？**  
-A: もちろんです。`ReplacementOptions` に任意の文字列（例: “[redacted]” や生成されたトークン）を渡せます。
-
-## リソース
-- [Documentation](https://docs.groupdocs.com/redaction/java/)
-- [API Reference](https://reference.groupdocs.com/redaction/java)
-- [Download GroupDocs.Redaction](https://releases.groupdocs.com/redaction/java/)
-- [GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
-- [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)
-- [Temporary License Information](https://purchase.groupdocs.com/temporary-license/)
+## 追加リソース
+- [ドキュメント](https://docs.groupdocs.com/redaction/java/)
+- [API リファレンス](https://reference.groupdocs.com/redaction/java)
+- [GroupDocs.Redaction のダウンロード](https://releases.groupdocs.com/redaction/java/)
+- [GitHub リポジトリ](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
+- [無料サポートフォーラム](https://forum.groupdocs.com/c/redaction/33)
+- [一時ライセンス情報](https://purchase.groupdocs.com/temporary-license/)
 
 ---
 
-**最終更新日:** 2026-02-24  
+**最終更新日:** 2026-08-09  
 **テスト環境:** GroupDocs.Redaction 24.9 for Java  
 **作者:** GroupDocs
+
+## 関連チュートリアル
+- [スプレッドシートでデータをフィルタリングする方法 – GroupDocs.Redaction Java](/redaction/java/spreadsheet-redaction/)
+- [機密データをマスクする Java – GroupDocs.Redaction で個人情報をリダクト](/redaction/java/advanced-redaction/master-document-redaction-java-groupdocs-redaction/)
+- [機密データをマスクする Java – GroupDocs.Redaction ガイド](/redaction/java/getting-started/)

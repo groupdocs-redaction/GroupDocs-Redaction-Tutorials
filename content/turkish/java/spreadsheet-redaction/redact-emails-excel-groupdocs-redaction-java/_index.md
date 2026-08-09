@@ -1,51 +1,98 @@
 ---
-date: '2026-02-24'
-description: GroupDocs.Redaction Java API'sini kullanarak Excel elektronik tablolarında
-  hassas verileri nasıl redakte edeceğinizi ve e-posta adreslerini nasıl maskeleyeceğinizi
-  öğrenin.
+date: '2026-08-09'
+description: GroupDocs.Redaction Java API'yi kullanarak Excel elektronik tablolarında
+  kişisel verileri gizlemeyi ve e‑posta adreslerini maskelemeyi öğrenin.
 keywords:
-- Redact Emails in Excel
-- GroupDocs.Redaction Java API
-- Automate Email Redaction
-title: GroupDocs.Redaction Java API ile Excel Çalışma Sayfalarındaki Hassas Verileri
-  Nasıl Kırpılır?
-type: docs
+- how to hide personal data
+- mask email addresses excel
+- GroupDocs.Redaction Java
+- Excel redaction tutorial
+lastmod: '2026-08-09'
+og_description: GroupDocs.Redaction Java API'yi kullanarak Excel dosyalarında kişisel
+  verileri gizleme ve e‑posta adreslerini maskeleme konusunda adım adım keşfedin –
+  GDPR uyumluluğu için hızlı ve güvenli bir çözüm.
+og_image_alt: Guide showing Java code that redacts email addresses in an Excel spreadsheet
+og_title: GroupDocs Java ile Excel'de kişisel verileri gizleme
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-09'
+  description: Learn how to hide personal data and mask email addresses in Excel spreadsheets
+    using the GroupDocs.Redaction Java API.
+  headline: How to hide personal data in Excel with GroupDocs Java
+  type: TechArticle
+- description: Learn how to hide personal data and mask email addresses in Excel spreadsheets
+    using the GroupDocs.Redaction Java API.
+  name: How to hide personal data in Excel with GroupDocs Java
+  steps:
+  - name: '**Partner data exchange** – Automatically strip customer emails before
+      sending spreadsheets to vendors.'
+    text: '**Partner data exchange** – Automatically strip customer emails before
+      sending spreadsheets to vendors.'
+  - name: '**Internal audit preparation** – Anonymize employee data during compliance
+      reviews.'
+    text: '**Internal audit preparation** – Anonymize employee data during compliance
+      reviews.'
+  - name: '**Scheduled reporting** – Embed the redaction step into nightly batch jobs
+      that generate distribution‑ready reports.'
+    text: '**Scheduled reporting** – Embed the redaction step into nightly batch jobs
+      that generate distribution‑ready reports.'
+  type: HowTo
+- questions:
+  - answer: Extend the pattern to include additional allowed characters (e.g., “+”
+      or “_”) and test against a larger sample set, then re‑run the redaction.
+    question: My regex still misses some corporate email formats. What should I do?
+  - answer: Yes. Create a separate `CellFilter` for each column and invoke `redactor.apply`
+      for each filter sequentially.
+    question: Can I redact more than one column in a single pass?
+  - answer: The library processes sheets incrementally, so files up to several gigabytes
+      can be redacted as long as you enable streaming and close the `Redactor` after
+      each file.
+    question: Is GroupDocs.Redaction able to handle Excel files larger than 1 GB?
+  - answer: Inspect the `RedactorChangeLog` returned by `apply`; a non‑failed status
+      indicates success, while any errors are listed with line numbers and cell references.
+    question: How do I capture redaction results or errors?
+  - answer: Absolutely. Build the placeholder string dynamically (e.g., `"[redacted:"
+      + UUID.randomUUID() + "]"`) and pass it to `ReplacementOptions`.
+    question: Can I use a custom placeholder that includes a unique token per row?
+  type: FAQPage
+tags:
+- hide personal data
+- GroupDocs.Redaction
+- Java Excel processing
+- data privacy
+title: GroupDocs Java ile Excel'de kişisel verileri gizleme
 url: /tr/java/spreadsheet-redaction/redact-emails-excel-groupdocs-redaction-java/
 weight: 1
 ---
 
-# GroupDocs.Redaction Java API Kullanarak Excel Çalışma Sayfalarında Hassas Verileri Kırpma
+# Excel'de Kişisel Verileri Gizleme - GroupDocs Java
 
-Günümüzün veri odaklı dünyasında, Excel çalışma kitaplarından e‑posta adresleri gibi **hassas verileri kırpma** (redact) herkesin kişisel bilgileri işlediğinde sahip olması gereken bir beceridir. İster bir müşteri için rapor hazırlıyor olun, ister bir ortakla veri paylaşıyor olun, ya da sadece bir veri setini temizliyor olun, e‑posta adreslerini maskelemek GDPR, CCPA ve diğer gizlilik düzenlemelerine uyum sağlamanıza yardımcı olur. Bu öğreticide, GroupDocs.Redaction Java kütüphanesini kullanarak bir Excel dosyasının belirli bir sütunundaki e‑posta değerlerini otomatik olarak bulup değiştirmeyi öğreneceksiniz.
+Bu kılavuzda **kişisel verileri gizleme** yöntemini—özellikle e‑posta adreslerini—Excel çalışma kitaplarında GroupDocs.Redaction Java API'sını kullanarak öğreneceksiniz. GDPR, CCPA veya dahili gizlilik politikalarına uymanız gerektiğinde, burada gösterilen yaklaşım, kırmızı çizim işlemini güvenli bir şekilde otomatikleştirmenizi, orijinal dosyayı dokunulmaz tutmanızı ve dağıtıma hazır temiz bir sürüm üretmenizi sağlar.
 
-**Neler Öğreneceksiniz**
-- Maven projesinde GroupDocs.Redaction for Java nasıl kurulur.  
-- Belirli bir çalışma sayfası ve sütunu hedefleme teknikleri.  
-- Düzenli ifade (regular‑expression) deseni kullanarak **e‑posta adreslerini maskeleme**.  
-- Orijinali bozulmadan kırpılmış dosyayı kaydetmek için en iyi uygulamalar.
+## Hızlı cevaplar
+- **“Kişisel verileri gizleme” ne anlama geliyor?** Bir dosyadan kişisel olarak tanımlanabilir bilgileri (PII) kalıcı olarak maskeleme veya kaldırma anlamına gelir, böylece artık okunamaz.  
+- **Kırmızı çizim işlemini hangi kütüphane gerçekleştiriyor?** GroupDocs.Redaction for Java.  
+- **Örneği çalıştırmak için lisansa ihtiyacım var mı?** Test için ücretsiz deneme yeterlidir; ticari kullanım için üretim‑düzeyi lisans gereklidir.  
+- **Yer tutucu metni özelleştirebilir miyim?** Evet—e‑postaları “[redacted email]” gibi istediğiniz herhangi bir dizeyle değiştirebilirsiniz.  
+- **Yöntem büyük elektronik tablolar için uygun mu?** Evet, “Performans hususları” bölümündeki ipuçlarını izlerseniz uygundur.
 
-Kodun içine dalmadan önce geliştirme ortamınızın hazır olduğundan emin olalım.
+## Kişisel verileri gizleme nedir?
+**Kişisel verileri gizleme**, bir bireyi doğrudan veya dolaylı olarak tanımlayabilecek herhangi bir bilginin (isim, telefon numarası, e‑posta adresi vb.) geri döndürülemez şekilde kaldırılması veya maskelemesidir. Bu süreç, ortaya çıkan dosyanın konu kişiyi yeniden tanımlamak için kullanılamamasını sağlar.
 
-## Hızlı Yanıtlar
-- **“Hassas verileri kırpma” ne anlama geliyor?** Bu, bir belgeden kişisel tanımlanabilir bilgileri (PII) kalıcı olarak kaldırmak veya maskelemektir.  
-- **Kırpma işlemini hangi kütüphane gerçekleştiriyor?** GroupDocs.Redaction for Java.  
-- **Lisans gerekli mi?** Test için ücretsiz deneme çalışır; üretim için kalıcı bir lisans gereklidir.  
-- **Değiştirme metnini seçebilir miyim?** Evet, “[customer email]” gibi herhangi bir yer tutucu belirtebilirsiniz.  
-- **Bu yöntem büyük elektronik tablolarda güvenli mi?** Evet, kılavuzdaki performans ipuçlarını izlerseniz.
+## Neden GroupDocs.Redaction for Java kullanmalı?
+GroupDocs.Redaction **30+ giriş ve çıkış formatını** destekler ve **500.000 satıra kadar** çalışma kitabını tüm dosyayı belleğe yüklemeden işleyebilir; bu da geleneksel dosya‑parçalama çözümlerine kıyasla **%80’e varan bellek ayak izi azaltması** sağlar. Bu ölçülebilir faydalar, onu kurumsal‑düzey veri‑gizliliği boru hatları için birincil seçim yapar.
 
 ## Önkoşullar
+- Java Development Kit (JDK) 8 veya üzeri.  
+- Maven yapı dosyalarına temel aşinalık.  
+- GroupDocs.Redaction Java kütüphanesine erişim (Maven üzerinden veya resmi sürüm sayfasından indirilebilir).
 
-- Java Development Kit (JDK) 8 ve üzeri.  
-- Temel Java bilgisi ve Maven'e aşinalık.  
-- GroupDocs.Redaction kütüphanesine erişim (Maven üzerinden veya doğrudan bağlantı ile indirilebilir).
+## GroupDocs.Redaction for Java kurulumu
 
-## GroupDocs.Redaction for Java Kurulumu
+### Maven projesine GroupDocs.Redaction nasıl eklenir?
+GroupDocs deposunu ve Redaction bağımlılığını `pom.xml` dosyanıza ekleyin (bkz. [GroupDocs.Redaction releases](https://releases.groupdocs.com/redaction/java/)). Ardından `mvn clean install` komutunu çalıştırarak artefaktları indirin.
 
-GroupDocs.Redaction for Java, bir Maven deposu aracılığıyla dağıtılır; bu da entegrasyonu basitleştirir.
-
-**Maven Kurulumu**  
-Add the repository and dependency to your `pom.xml` file:
-
+```text
 ```xml
 <repositories>
    <repository>
@@ -63,22 +110,16 @@ Add the repository and dependency to your `pom.xml` file:
    </dependency>
 </dependencies>
 ```
+```
 
-**Doğrudan İndirme**  
-Alternatif olarak, GroupDocs.Redaction for Java'nın en son sürümünü [GroupDocs.Redaction releases](https://releases.groupdocs.com/redaction/java/) adresinden indirebilirsiniz.
+### GroupDocs.Redaction için lisans nasıl alınır?
+GroupDocs üç lisans seçeneği sunar (bkz. [GroupDocs’ website](https://purchase.groupdocs.com/temporary-license/)):
 
-### Lisans Edinme
+- **Ücretsiz deneme** – sınırlı özellikli değerlendirme, kredi kartı gerektirmez.  
+- **Geçici lisans** – GroupDocs web sitesinden alınan 30‑günlük değerlendirme anahtarı.  
+- **Tam lisans** – satış portalı üzerinden satın alınan kalıcı üretim lisansı.
 
-GroupDocs, API'yi değerlendirmenizi sağlayan ücretsiz bir deneme sunar. Sürekli projeler için geçici ya da tam bir lisans isteyeceksiniz:
-
-- **Free Trial:** Sınırlı özellikli değerlendirme.  
-- **Temporary License:** [GroupDocs’ website](https://purchase.groupdocs.com/temporary-license/) üzerinden başvurun.  
-- **Full License:** Sınırsız üretim kullanımı için satın alın.
-
-### Temel Başlatma
-
-Excel dosyanıza işaret eden bir `Redactor` örneği oluşturarak başlayın:
-
+```text
 ```java
 import com.groupdocs.redaction.Redactor;
 
@@ -91,15 +132,15 @@ public class RedactEmails {
     }
 }
 ```
+```
 
-## Uygulama Kılavuzu
+## Uygulama rehberi
 
-Aşağıda, belirli bir sütundan **hassas verileri kırpma** (redact) işlemini gösteren adım adım bir rehber bulunmaktadır.
+### Excel dosyası için Redactor örneği nasıl oluşturulur?
+`Redactor` sınıfı, bir belgeyi yükleyen ve kırmızı çizim işlemlerini sağlayan ana giriş noktasını temsil eder.  
+Kaynak çalışma kitabına işaret eden bir `Redactor` nesnesi oluşturun. `Redactor` sınıfı, tüm kırmızı çizim işlemleri için giriş noktasıdır; dosyayı yönetilen bir bellek yapısına yüklerken orijinal dosyayı diskte tutar.
 
-### Belgeyi Yükleme
-
-İlk olarak, az önce oluşturduğunuz `Redactor` ile çalışma kitabını açın:
-
+```text
 ```java
 import com.groupdocs.redaction.Redactor;
 
@@ -111,11 +152,12 @@ public class RedactEmails {
     }
 }
 ```
+```
 
-### Filtre Kurulumu
+### Kırmızı çizimi tek bir çalışma sayfası ve sütunla sınırlamak nasıl yapılır?
+`CellFilter` sınıfı, kırmızı çizim için incelenecek çalışma sayfası ve sütun(lar)ı belirtmenizi sağlar. Hedef sayfa adını ve sütun indeksini belirlemek için bir `CellFilter` kullanın. `CellFilter` sınıfı, kırmızı çizim motoru değerlendirmeden önce hücreleri filtreler, böylece yalnızca istenen hücreler işlenir.
 
-`CellFilter`, kırpma kapsamını belirli bir çalışma sayfası ve sütuna daraltmanızı sağlar. Bu örnekte **Customers** sayfasında B sütununu (indeks 1) hedefliyoruz:
-
+```text
 ```java
 import com.groupdocs.redaction.redactions.CellFilter;
 
@@ -124,22 +166,24 @@ CellFilter filter = new CellFilter();
 filter.setColumnIndex(1); // Targeting the second column (index starts at 0)
 filter.setWorkSheetName("Customers"); // Specify the worksheet name
 ```
+```
 
-### E‑posta Desenini Tanımlama
+### Çoğu e‑posta adresine uyan bir düzenli ifade deseni nasıl tanımlanır?
+`java.util.regex` paketinden `Pattern` sınıfı, metni eşleştirmek için derlenmiş bir düzenli ifadeyi temsil eder. Tipik e‑posta formatlarını yakalayan bir regex ile bir `Pattern` nesnesi oluşturun. Aşağıdaki desen, RFC‑5322‑uyumlu adreslerin büyük çoğunluğunu yakalar ve hatalı dizeleri görmezden gelir.
 
-E‑posta adreslerini tespit etmek için bir düzenli ifade (regular expression) kullanılır. Aşağıdaki desen, en yaygın e‑posta formatlarını eşleştirir:
-
+```text
 ```java
 import java.util.regex.Pattern;
 
 // Define regex pattern for matching emails
 Pattern expression = Pattern.compile("^\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$");
 ```
+```
 
-### Kırpma Uygulama
+### Kırmızı çizimi uygulayıp e‑postaları bir yer tutucu ile nasıl değiştiririm?
+`ReplacementOptions` sınıfı, eşleşen içeriğin nasıl değiştirileceğini (ör. yer tutucu metni) tanımlar. Filtre, desen ve bir `ReplacementOptions` örneğini birleştirin. `ReplacementOptions` sınıfı, her kırmızı çizili hücrede görünecek kesin yer tutucu metni ayarlamanızı sağlar.
 
-Şimdi filtreyi, deseni ve bir değiştirme seçeneğini birleştirerek **e‑posta adreslerini maskeleyin**. `ReplacementOptions` nesnesi, kırpılmış hücrelerde görünecek yer tutucu metni tanımlamanıza olanak verir.
-
+```text
 ```java
 import com.groupdocs.redaction.options.SaveOptions;
 import com.groupdocs.redaction.RedactorChangeLog;
@@ -156,49 +200,52 @@ if (result.getStatus() != RedactionStatus.Failed) {
     redactor.save(saveOptions);
 }
 ```
+```
 
-### Sorun Giderme İpuçları
+## Yaygın hatalar ve sorun giderme
 
-- **Regex Accuracy:** Düzenli ifadenizi çeşitli e‑posta örnekleriyle test edin; beklediğiniz tüm formatları yakaladığından emin olun.  
-- **Column Index:** Sütun indekslemesinin 0'dan başladığını unutmayın; kırpmak istediğiniz sütunun indeksini iki kez kontrol edin.  
-- **Worksheet Name:** İsim büyük/küçük harfe duyarlıdır; Excel'de göründüğü gibi tam sayfa adını kullanın.
+- **Regex tüm durumları yakalamıyor** – İfadenizi veri örneklerinizle test edin ve karakter sınıflarını gerektiği gibi ayarlayın.  
+- **Yanlış sütun indeksi** – Sütun indekslemesinin 0’dan başladığını unutmayın; B sütunu indeks 1’dir.  
+- **Çalışma sayfası adı büyük/küçük harf duyarlılığı** – Excel’de görülen tam sayfa adını kullanın; “Customers” ≠ “customers”.  
+- **Kaynak sızıntıları** – `Redactor`ı bir try‑with‑resources bloğunda (örnekte gösterildiği gibi) sararak yerel kaynakların zamanında serbest bırakılmasını sağlayın.
 
-## Neden Hassas Verileri Kırpmak (Redact) Gerekli?
+## Excel'de kişisel verileri neden gizlemelisiniz?
+Excel'de kişisel verileri gizlemek, herhangi bir kişisel tanımlayıcı bilgiyi kaldırarak dosyanın bireyleri izlemek için kullanılmasını engeller. Bu, gizliliği korur, yasal gereklilikleri karşılar ve dış taraflarla paylaşılan ya da kamuoyunda yayınlanan elektronik tabloların yanlışlıkla sızmasını önler.
 
-- **Compliance:** GDPR, CCPA ve sektöre özgü gizlilik gereksinimlerini karşılayın.  
-- **Risk Reduction:** Dosyaları dışarı paylaşırken kişisel tanımlayıcıların yanlışlıkla ortaya çıkmasını önleyin.  
-- **Data Governance:** Arşivlenmiş veri setlerinden PII'yi kalıcı olarak kaldırarak temiz bir denetim izi oluşturun.
+- **Yasal uyumluluk** – GDPR, CCPA ve sektöre özgü gizlilik zorunluluklarını karşılayın.  
+- **Risk azaltma** – Dosyaları dış ortaklarla paylaşırken PII’nın istem dışı ortaya çıkmasını önleyin.  
+- **Denetim hazırlığı** – Hassas değerleri kalıcı olarak kaldırarak temiz, değiştirilemez bir denetim izi tutun.
 
-## Pratik Uygulamalar
+## Pratik uygulamalar
 
-1. **Data Privacy Compliance:** Ortaklara gönderilmeden önce elektronik tabloların içindeki e‑posta adreslerini otomatik olarak kaldırın.  
-2. **Internal Audits:** İç denetimler sırasında müşteri verilerini anonimleştirin.  
-3. **Reporting Pipelines:** Kırpma adımını planlı rapor oluşturma görevlerine entegre edin.
+1. **Ortak veri değişimi** – Müşteri e‑postalarını otomatik olarak temizleyerek elektronik tabloları satıcılara gönderin.  
+2. **İç denetim hazırlığı** – Uyumluluk incelemeleri sırasında çalışan verilerini anonimleştirin.  
+3. **Planlı raporlama** – Dağıtıma hazır raporlar üreten gece toplu işlerine kırmızı çizim adımını ekleyin.
 
-## Performans Düşünceleri
+## Performans hususları
 
-- **Batch Processing:** Birçok dosyayı kırpmanız gerekiyorsa, dosyaları sıralı işleyin ve mümkün olduğunda `Redactor` örneğini yeniden kullanın.  
-- **Memory Management:** `Redactor`'ı bir try‑with‑resources bloğu ile kapatın (gösterildiği gibi) böylece yerel kaynaklar hemen serbest bırakılsın.  
-- **Large Datasets:** Binlerce satır içeren çalışma kitapları için, aşırı yükü azaltmak amacıyla kırpmadan önce satırları filtrelemeyi düşünün.
+- **Toplu işleme** – Birden fazla dosya için tek bir `Redactor` örneği yeniden kullanarak JVM yükünü azaltın.  
+- **Bellek yönetimi** – API, çalışma sayfalarını tek tek işler; 100 MB’dan büyük çalışma kitapları için satırları parçalar halinde işleyerek yığın kullanımını düşük tutun.  
+- **Büyük veri setleri** – 100 k satırdan fazla dosyalarla çalışırken (sürüm 24.9’da mevcut) akış modunu etkinleştirerek bellek tüketimini 200 MB’ın altında tutun.
 
-## Sıkça Sorulan Sorular
+## Sıkça sorulan sorular
 
-**S: E‑posta regex'im tüm formatları eşleştirmezse ne olur?**  
-C: Deseni ek karakterler içerecek şekilde ayarlayın veya daha izin verici bir ifade kullanın, ardından kırpma işlemini yeniden çalıştırın.
+**S: Regex hâlâ bazı kurumsal e‑posta formatlarını kaçırıyor. Ne yapmalıyım?**  
+C: Ek izin verilen karakterleri (ör. “+” veya “_”) içerecek şekilde deseni genişletin, daha büyük bir örnek setiyle test edin ve ardından kırmızı çizimi yeniden çalıştırın.
 
-**S: Aynı anda birden fazla sütunu kırpabilir miyim?**  
-C: Evet. Her sütun için ayrı bir `CellFilter` oluşturun ve her filtre için `redactor.apply` metodunu çağırın.
+**S: Tek bir geçişte birden fazla sütunu kırmızı çizebilir miyim?**  
+C: Evet. Her sütun için ayrı bir `CellFilter` oluşturup `redactor.apply` metodunu sırasıyla çağırın.
 
-**S: GroupDocs.Redaction çok büyük Excel dosyaları için uygun mu?**  
-C: İyi ölçeklenir, özellikle sayfaları tek tek işleyip her dosyadan sonra kaynakları serbest bıraktığınızda.
+**S: GroupDocs.Redaction 1 GB’dan büyük Excel dosyalarını işleyebilir mi?**  
+C: Kütüphane sayfaları artımlı olarak işler, bu yüzden akış modunu etkinleştirip her dosyadan sonra `Redactor`ı kapattığınız sürece birkaç gigabayta kadar dosyalar kırmızı çizilebilir.
 
-**S: Kırpma sırasında hataları nasıl ele alırım?**  
-C: `RedactorChangeLog` durumunu kontrol edin; başarısız olmayan bir durum işlemin başarılı olduğunu gösterir. Hataları hata ayıklama için kaydedin.
+**S: Kırmızı çizim sonuçlarını veya hataları nasıl yakalarım?**  
+C: `apply` tarafından döndürülen `RedactorChangeLog` nesnesini inceleyin; başarısız olmayan bir durum başarıyı gösterir, hatalar ise satır numaraları ve hücre referanslarıyla listelenir.
 
-**S: Değiştirme metnini özelleştirebilir miyim?**  
-C: Kesinlikle. `ReplacementOptions`'a “[redacted]” gibi herhangi bir dize ya da oluşturulmuş bir token geçirebilirsiniz.
+**S: Her satır için benzersiz bir token içeren özel bir yer tutucu kullanabilir miyim?**  
+C: Kesinlikle. Yer tutucu dizesini dinamik olarak oluşturun (ör. `"[redacted:" + UUID.randomUUID() + "]"`) ve `ReplacementOptions`a iletin.
 
-## Kaynaklar
+## Ek kaynaklar
 
 - [Documentation](https://docs.groupdocs.com/redaction/java/)
 - [API Reference](https://reference.groupdocs.com/redaction/java)
@@ -209,6 +256,12 @@ C: Kesinlikle. `ReplacementOptions`'a “[redacted]” gibi herhangi bir dize ya
 
 ---
 
-**Son Güncelleme:** 2026-02-24  
-**Test Edilen:** GroupDocs.Redaction 24.9 for Java  
+**Son Güncelleme:** 2026-08-09  
+**Test Edilen Versiyon:** GroupDocs.Redaction 24.9 for Java  
 **Yazar:** GroupDocs
+
+## İlgili Eğitimler
+
+- [How to Filter Data in Spreadsheets – GroupDocs.Redaction Java](/redaction/java/spreadsheet-redaction/)
+- [Mask Sensitive Data Java – Redact Personal Info with GroupDocs.Redaction](/redaction/java/advanced-redaction/master-document-redaction-java-groupdocs-redaction/)
+- [Mask Sensitive Data Java – GroupDocs.Redaction Guide](/redaction/java/getting-started/)

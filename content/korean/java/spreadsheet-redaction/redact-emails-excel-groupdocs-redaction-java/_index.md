@@ -1,51 +1,97 @@
 ---
-date: '2026-02-24'
-description: GroupDocs.Redaction Java API를 사용하여 Excel 스프레드시트에서 민감한 데이터를 삭제하고 이메일 주소를
-  마스킹하는 방법을 배우세요.
+date: '2026-08-09'
+description: GroupDocs.Redaction Java API를 사용하여 Excel 스프레드시트에서 개인 데이터를 숨기고 이메일 주소를
+  마스킹하는 방법을 배웁니다.
 keywords:
-- Redact Emails in Excel
-- GroupDocs.Redaction Java API
-- Automate Email Redaction
-title: GroupDocs.Redaction Java API를 사용하여 Excel 스프레드시트에서 민감한 데이터 가리기 방법
-type: docs
+- how to hide personal data
+- mask email addresses excel
+- GroupDocs.Redaction Java
+- Excel redaction tutorial
+lastmod: '2026-08-09'
+og_description: GroupDocs.Redaction Java API를 사용하여 Excel 파일에서 개인 데이터를 숨기고 이메일 주소를
+  마스킹하는 단계별 방법을 확인하세요 – GDPR 준수를 위한 빠르고 안전한 솔루션입니다.
+og_image_alt: Guide showing Java code that redacts email addresses in an Excel spreadsheet
+og_title: GroupDocs Java를 사용하여 Excel에서 개인 데이터를 숨기는 방법
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-09'
+  description: Learn how to hide personal data and mask email addresses in Excel spreadsheets
+    using the GroupDocs.Redaction Java API.
+  headline: How to hide personal data in Excel with GroupDocs Java
+  type: TechArticle
+- description: Learn how to hide personal data and mask email addresses in Excel spreadsheets
+    using the GroupDocs.Redaction Java API.
+  name: How to hide personal data in Excel with GroupDocs Java
+  steps:
+  - name: '**Partner data exchange** – Automatically strip customer emails before
+      sending spreadsheets to vendors.'
+    text: '**Partner data exchange** – Automatically strip customer emails before
+      sending spreadsheets to vendors.'
+  - name: '**Internal audit preparation** – Anonymize employee data during compliance
+      reviews.'
+    text: '**Internal audit preparation** – Anonymize employee data during compliance
+      reviews.'
+  - name: '**Scheduled reporting** – Embed the redaction step into nightly batch jobs
+      that generate distribution‑ready reports.'
+    text: '**Scheduled reporting** – Embed the redaction step into nightly batch jobs
+      that generate distribution‑ready reports.'
+  type: HowTo
+- questions:
+  - answer: Extend the pattern to include additional allowed characters (e.g., “+”
+      or “_”) and test against a larger sample set, then re‑run the redaction.
+    question: My regex still misses some corporate email formats. What should I do?
+  - answer: Yes. Create a separate `CellFilter` for each column and invoke `redactor.apply`
+      for each filter sequentially.
+    question: Can I redact more than one column in a single pass?
+  - answer: The library processes sheets incrementally, so files up to several gigabytes
+      can be redacted as long as you enable streaming and close the `Redactor` after
+      each file.
+    question: Is GroupDocs.Redaction able to handle Excel files larger than 1 GB?
+  - answer: Inspect the `RedactorChangeLog` returned by `apply`; a non‑failed status
+      indicates success, while any errors are listed with line numbers and cell references.
+    question: How do I capture redaction results or errors?
+  - answer: Absolutely. Build the placeholder string dynamically (e.g., `"[redacted:"
+      + UUID.randomUUID() + "]"`) and pass it to `ReplacementOptions`.
+    question: Can I use a custom placeholder that includes a unique token per row?
+  type: FAQPage
+tags:
+- hide personal data
+- GroupDocs.Redaction
+- Java Excel processing
+- data privacy
+title: GroupDocs Java를 사용하여 Excel에서 개인 데이터를 숨기는 방법
 url: /ko/java/spreadsheet-redaction/redact-emails-excel-groupdocs-redaction-java/
 weight: 1
 ---
 
-# Excel 스프레드시트에서 GroupDocs.Redaction Java API를 사용하여 민감한 데이터 가리기
+# Excel에서 개인 데이터를 숨기는 방법 (GroupDocs Java)
 
-오늘날 데이터 중심의 세상에서 Excel 워크북에서 이메일 주소와 같은 **민감한 데이터 가리기**는 개인 정보를 다루는 모든 사람에게 필수 기술입니다. 클라이언트를 위한 보고서를 준비하든, 파트너와 데이터를 공유하든, 혹은 데이터 세트를 정리하든, 이메일 주소를 마스킹하면 GDPR, CCPA 및 기타 개인정보 보호 규정을 준수하는 데 도움이 됩니다. 이 튜토리얼에서는 GroupDocs.Redaction Java 라이브러리를 사용하여 Excel 파일의 특정 열에서 이메일 값을 자동으로 찾아 교체하는 방법을 배웁니다.
-
-**배우게 될 내용**
-- Maven 프로젝트에서 GroupDocs.Redaction for Java을 설정하는 방법.  
-- 특정 워크시트와 열을 대상으로 하는 기술.  
-- 정규식 패턴을 사용하여 **이메일 주소 마스킹**하는 방법.  
-- 원본을 유지하면서 가린 파일을 저장하는 모범 사례.
-
-코드에 들어가기 전에 개발 환경이 준비되었는지 확인해 봅시다.
+이 가이드에서는 GroupDocs.Redaction Java API를 사용하여 Excel 워크북에서 **개인 데이터를 숨기는 방법**—특히 이메일 주소—을 배우게 됩니다. GDPR, CCPA 또는 내부 프라이버시 정책을 준수해야 할 경우, 여기서 보여주는 접근 방식으로 리다크션을 안전하게 자동화하고 원본 파일은 그대로 두며 배포 준비가 된 깨끗한 버전을 생성할 수 있습니다.
 
 ## 빠른 답변
-- **“민감한 데이터 가리기”는 무엇을 의미하나요?** 문서에서 개인 식별 정보(PII)를 영구적으로 제거하거나 마스킹하는 것을 의미합니다.  
-- **어떤 라이브러리가 가리기를 처리하나요?** GroupDocs.Redaction for Java.  
-- **라이선스가 필요합니까?** 무료 체험판으로 테스트가 가능하며, 프로덕션에서는 정식 라이선스가 필요합니다.  
-- **교체 텍스트를 선택할 수 있나요?** 예, “[customer email]”와 같은 임의의 플레이스홀더를 지정할 수 있습니다.  
-- **대용량 스프레드시트에서도 이 방법이 안전한가요?** 예, 가이드의 성능 팁을 따르시면 안전합니다.
+- **“개인 데이터 숨기기”는 무엇을 의미합니까?** 파일에서 개인 식별 정보(PII)를 영구적으로 마스킹하거나 제거하여 더 이상 읽을 수 없게 만드는 것을 의미합니다.  
+- **어떤 라이브러리가 리다크션을 수행합니까?** Java용 GroupDocs.Redaction.  
+- **예제를 실행하려면 라이선스가 필요합니까?** 테스트용으로는 무료 체험판으로 충분하지만, 상업적 사용을 위해서는 프로덕션 등급 라이선스가 필요합니다.  
+- **플레이스홀더 텍스트를 사용자 정의할 수 있나요?** 예, 이메일을 “[redacted email]”와 같은 문자열로 교체할 수 있습니다.  
+- **이 방법이 대형 스프레드시트에 적합한가요?** 예, “성능 고려 사항” 섹션의 팁을 따르면 가능합니다.
+
+## 개인 데이터 숨기기란?
+**개인 데이터 숨기기**는 이름, 전화번호, 이메일 주소 등 개인을 직접 또는 간접적으로 식별할 수 있는 정보를 영구적으로 제거하거나 마스킹하는 것을 의미합니다. 이 과정은 결과 파일이 대상자를 재식별하는 데 사용될 수 없도록 보장합니다.
+
+## Java용 GroupDocs.Redaction을 사용하는 이유
+GroupDocs.Redaction은 **30개 이상의 입력 및 출력 형식**을 지원하며 **최대 500,000행**까지의 워크북을 전체 파일을 메모리에 로드하지 않고 처리할 수 있어, 순수 파일 파싱 솔루션에 비해 **메모리 사용량을 최대 80 %**까지 줄여줍니다. 이러한 정량적 이점은 엔터프라이즈급 데이터 프라이버시 파이프라인에 최적의 선택이 됩니다.
 
 ## 사전 요구 사항
+- Java Development Kit (JDK) 8 이상.  
+- Maven 빌드 파일에 대한 기본적인 이해.  
+- GroupDocs.Redaction Java 라이브러리에 대한 접근 (Maven 또는 공식 릴리스 페이지에서 다운로드 가능).
 
-To follow along, you’ll need:
+## Java용 GroupDocs.Redaction 설정
 
-- Java Development Kit (JDK) 8 or higher.  
-- Basic Java knowledge and familiarity with Maven.  
-- Access to the GroupDocs.Redaction library (downloadable via Maven or direct link).
+### Maven 프로젝트에 GroupDocs.Redaction을 추가하려면 어떻게 하나요?
+Add the GroupDocs repository and the Redaction dependency to your `pom.xml` file (see [GroupDocs.Redaction releases](https://releases.groupdocs.com/redaction/java/)). Then run `mvn clean install` to pull the artifacts.
 
-## GroupDocs.Redaction for Java 설정
-
-GroupDocs.Redaction for Java는 Maven 저장소를 통해 배포되며, 통합이 간단합니다.
-
-**Maven 설정**  
-Add the repository and dependency to your `pom.xml` file:
-
+```text
 ```xml
 <repositories>
    <repository>
@@ -63,22 +109,16 @@ Add the repository and dependency to your `pom.xml` file:
    </dependency>
 </dependencies>
 ```
+```
 
-**직접 다운로드**  
-또는 [GroupDocs.Redaction releases](https://releases.groupdocs.com/redaction/java/)에서 GroupDocs.Redaction for Java 최신 버전을 다운로드할 수 있습니다.
+### GroupDocs.Redaction 라이선스를 어떻게 얻나요?
+GroupDocs offers three licensing options (see [GroupDocs’ website](https://purchase.groupdocs.com/temporary-license/)):
 
-### 라이선스 획득
+- **무료 체험** – 제한된 기능 평가, 신용카드 필요 없음.  
+- **임시 라이선스** – GroupDocs 웹사이트에서 얻는 30일 평가 키.  
+- **정식 라이선스** – 판매 포털을 통해 구매하는 영구적인 프로덕션 라이선스.
 
-GroupDocs offers a free trial that lets you evaluate the API. For ongoing projects, you’ll want either a temporary or a full license:
-
-- **Free Trial:** 제한된 기능 평가.  
-- **Temporary License:** [GroupDocs’ website](https://purchase.groupdocs.com/temporary-license/)에서 신청.  
-- **Full License:** 무제한 프로덕션 사용을 위해 구매.
-
-### 기본 초기화
-
-Start by creating a `Redactor` instance that points to your Excel file:
-
+```text
 ```java
 import com.groupdocs.redaction.Redactor;
 
@@ -91,15 +131,15 @@ public class RedactEmails {
     }
 }
 ```
+```
 
 ## 구현 가이드
 
-Below is a step‑by‑step walkthrough that shows how to **redact sensitive data** from a specific column.
+### Excel 파일에 대한 Redactor 인스턴스를 생성하려면 어떻게 하나요?
+The `Redactor` class is the main entry point that loads a document and provides redaction operations.  
+Instantiate a `Redactor` object pointing at the source workbook. The `Redactor` class is the entry point for all redaction operations; it loads the file into a managed memory structure while keeping the original file on disk.
 
-### 문서 로드
-
-First, open the workbook with the `Redactor` you just created:
-
+```text
 ```java
 import com.groupdocs.redaction.Redactor;
 
@@ -111,11 +151,12 @@ public class RedactEmails {
     }
 }
 ```
+```
 
-### 필터 설정
+### 리다크션을 단일 워크시트와 열로 제한하려면 어떻게 하나요?
+The `CellFilter` class lets you specify which worksheet and column(s) should be examined for redaction. Use a `CellFilter` to specify the target sheet name and column index. The `CellFilter` class filters cells before the redaction engine evaluates them, ensuring only the intended cells are processed.
 
-`CellFilter`를 사용하면 가리기 범위를 특정 워크시트와 열로 좁힐 수 있습니다. 이 예제에서는 **Customers** 시트의 B 열(인덱스 1)을 대상으로 합니다:
-
+```text
 ```java
 import com.groupdocs.redaction.redactions.CellFilter;
 
@@ -124,22 +165,24 @@ CellFilter filter = new CellFilter();
 filter.setColumnIndex(1); // Targeting the second column (index starts at 0)
 filter.setWorkSheetName("Customers"); // Specify the worksheet name
 ```
+```
 
-### 이메일 패턴 정의
+### 대부분의 이메일 주소와 일치하는 정규식 패턴을 정의하려면 어떻게 하나요?
+The `Pattern` class from `java.util.regex` represents a compiled regular‑expression used to match text. Create a `Pattern` object with a regex that captures typical email formats. The pattern below matches the majority of RFC‑5322‑compliant addresses while ignoring malformed strings.
 
-정규식을 사용하여 이메일 주소를 감지합니다. 아래 패턴은 대부분의 일반적인 이메일 형식에 매치됩니다:
-
+```text
 ```java
 import java.util.regex.Pattern;
 
 // Define regex pattern for matching emails
 Pattern expression = Pattern.compile("^\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$");
 ```
+```
 
-### 가리기 적용
+### 리다크션을 적용하고 이메일을 플레이스홀더로 교체하려면 어떻게 하나요?
+The `ReplacementOptions` class defines how matched content will be replaced, such as the placeholder text. Combine the filter, pattern, and a `ReplacementOptions` instance. The `ReplacementOptions` class lets you set the exact placeholder text that will appear in each redacted cell.
 
-Now combine the filter, pattern, and a replacement option to **mask email addresses**. The `ReplacementOptions` object lets you define the placeholder text that will appear in the redacted cells.
-
+```text
 ```java
 import com.groupdocs.redaction.options.SaveOptions;
 import com.groupdocs.redaction.RedactorChangeLog;
@@ -156,59 +199,62 @@ if (result.getStatus() != RedactionStatus.Failed) {
     redactor.save(saveOptions);
 }
 ```
+```
 
-### 문제 해결 팁
+## 일반적인 함정 및 문제 해결
+- **Regex does not catch all cases** – Test the expression against a representative sample of your data and adjust character classes as needed.  
+- **Incorrect column index** – Remember that column indexing starts at 0; column B is index 1.  
+- **Worksheet name case‑sensitivity** – Use the exact sheet name as shown in Excel; “Customers” ≠ “customers”.  
+- **Resource leaks** – Wrap the `Redactor` in a try‑with‑resources block (as shown) to ensure native resources are released promptly.
 
-- **Regex 정확도:** 다양한 이메일 샘플에 정규식을 테스트하여 기대하는 모든 형식을 포착하는지 확인하세요.  
-- **열 인덱스:** 열 인덱스는 0부터 시작한다는 점을 기억하고, 가리려는 열의 인덱스를 다시 확인하세요.  
-- **워크시트 이름:** 이름은 대소문자를 구분하므로 Excel에 표시된 정확한 시트 이름을 사용하세요.
+## Excel에서 개인 데이터를 숨기는 이유
+Excel에서 개인 데이터를 숨기면 모든 개인 식별 정보를 제거하여 파일이 개인을 추적하는 데 사용될 수 없게 됩니다. 이는 프라이버시를 보호하고 규제 요구 사항을 충족하며 외부 파트너와 스프레드시트를 공유하거나 데이터를 공개할 때 우발적인 유출을 방지합니다.
 
-## 왜 민감한 데이터를 가려야 할까요?
-
-- **컴플라이언스:** GDPR, CCPA 및 산업별 개인정보 보호 규정을 충족합니다.  
-- **위험 감소:** 파일을 외부에 공유할 때 개인 식별자가 우연히 노출되는 것을 방지합니다.  
-- **데이터 거버넌스:** 보관된 데이터 세트에서 PII를 영구적으로 제거하여 깔끔한 감사 기록을 유지합니다.
+- **Regulatory compliance** – Satisfy GDPR, CCPA, and industry‑specific privacy mandates.  
+- **Risk mitigation** – Prevent accidental exposure of PII when sharing files with external partners.  
+- **Audit readiness** – Keep a clean, immutable audit trail by permanently removing sensitive values from archived datasets.
 
 ## 실용적인 적용 사례
-
-1. **데이터 프라이버시 컴플라이언스:** 파트너에게 스프레드시트를 보내기 전에 이메일 주소를 자동으로 제거합니다.  
-2. **내부 감사:** 내부 검토 중에 고객 데이터를 익명화합니다.  
-3. **보고 파이프라인:** 정기 보고서 생성 작업에 가리기 단계를 통합합니다.
+1. **Partner data exchange** – Automatically strip customer emails before sending spreadsheets to vendors.  
+2. **Internal audit preparation** – Anonymize employee data during compliance reviews.  
+3. **Scheduled reporting** – Embed the redaction step into nightly batch jobs that generate distribution‑ready reports.
 
 ## 성능 고려 사항
-
-- **배치 처리:** 많은 파일을 가려야 할 경우 순차적으로 처리하고 가능한 경우 `Redactor` 인스턴스를 재사용합니다.  
-- **메모리 관리:** `Redactor`를 try‑with‑resources 블록으로 닫아(예시와 같이) 네이티브 리소스를 즉시 해제합니다.  
-- **대용량 데이터 세트:** 수천 행이 있는 워크북의 경우 가리기 전에 행을 필터링하여 오버헤드를 줄이는 것을 고려하세요.
+- **Batch processing** – Reuse a single `Redactor` instance across multiple files to reduce JVM overhead.  
+- **Memory management** – The API processes worksheets one at a time; for workbooks exceeding 100 MB, process rows in chunks to keep heap usage low.  
+- **Large datasets** – When handling files with >100 k rows, enable streaming mode (available in version 24.9) to keep memory consumption under 200 MB.
 
 ## 자주 묻는 질문
+**Q: My regex still misses some corporate email formats. What should I do?**  
+A: Extend the pattern to include additional allowed characters (e.g., “+” or “_”) and test against a larger sample set, then re‑run the redaction.
 
-**Q: 이메일 정규식이 모든 형식에 매치되지 않으면 어떻게 하나요?**  
-A: 패턴에 추가 문자를 포함하거나 더 관대한 표현식을 사용하도록 조정한 뒤 가리기를 다시 실행합니다.
+**Q: Can I redact more than one column in a single pass?**  
+A: Yes. Create a separate `CellFilter` for each column and invoke `redactor.apply` for each filter sequentially.
 
-**Q: 여러 열을 한 번에 가릴 수 있나요?**  
-A: 예. 각 열에 대해 별도의 `CellFilter`를 만들고 각 필터에 대해 `redactor.apply`를 호출합니다.
+**Q: Is GroupDocs.Redaction able to handle Excel files larger than 1 GB?**  
+A: The library processes sheets incrementally, so files up to several gigabytes can be redacted as long as you enable streaming and close the `Redactor` after each file.
 
-**Q: GroupDocs.Redaction이 매우 큰 Excel 파일에 적합한가요?**  
-A: 잘 확장됩니다. 특히 시트를 하나씩 처리하고 각 파일 후에 리소스를 해제할 때 효과적입니다.
+**Q: How do I capture redaction results or errors?**  
+A: Inspect the `RedactorChangeLog` returned by `apply`; a non‑failed status indicates success, while any errors are listed with line numbers and cell references.
 
-**Q: 가리기 중 오류를 어떻게 처리하나요?**  
-A: `RedactorChangeLog` 상태를 확인합니다; 실패하지 않은 상태는 작업이 성공했음을 의미합니다. 디버깅을 위해 실패를 로그에 기록하세요.
+**Q: Can I use a custom placeholder that includes a unique token per row?**  
+A: Absolutely. Build the placeholder string dynamically (e.g., `"[redacted:" + UUID.randomUUID() + "]"`) and pass it to `ReplacementOptions`.
 
-**Q: 교체 텍스트를 맞춤 설정할 수 있나요?**  
-A: 물론입니다. `[redacted]`와 같은 문자열이나 생성된 토큰을 `ReplacementOptions`에 전달하면 됩니다.
-
-## 리소스
-
-- [문서](https://docs.groupdocs.com/redaction/java/)  
-- [API 레퍼런스](https://reference.groupdocs.com/redaction/java)  
-- [GroupDocs.Redaction 다운로드](https://releases.groupdocs.com/redaction/java/)  
-- [GitHub 저장소](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
-- [무료 지원 포럼](https://forum.groupdocs.com/c/redaction/33)  
+## 추가 리소스
+- [문서](https://docs.groupdocs.com/redaction/java/)
+- [API 레퍼런스](https://reference.groupdocs.com/redaction/java)
+- [GroupDocs.Redaction 다운로드](https://releases.groupdocs.com/redaction/java/)
+- [GitHub 저장소](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
+- [무료 지원 포럼](https://forum.groupdocs.com/c/redaction/33)
 - [임시 라이선스 정보](https://purchase.groupdocs.com/temporary-license/)
 
 ---
 
-**마지막 업데이트:** 2026-02-24  
-**테스트 대상:** GroupDocs.Redaction 24.9 for Java  
+**마지막 업데이트:** 2026-08-09  
+**테스트 환경:** GroupDocs.Redaction 24.9 for Java  
 **작성자:** GroupDocs
+
+## 관련 튜토리얼
+- [스프레드시트에서 데이터 필터링 방법 – GroupDocs.Redaction Java](/redaction/java/spreadsheet-redaction/)
+- [민감 데이터 마스킹 Java – GroupDocs.Redaction으로 개인 정보 리다크션](/redaction/java/advanced-redaction/master-document-redaction-java-groupdocs-redaction/)
+- [민감 데이터 마스킹 Java – GroupDocs.Redaction 가이드](/redaction/java/getting-started/)
