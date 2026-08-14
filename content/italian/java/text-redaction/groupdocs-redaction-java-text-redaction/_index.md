@@ -1,52 +1,99 @@
 ---
-date: '2026-02-26'
-description: Scopri come redigere il testo nei documenti Java usando GroupDocs.Redaction,
-  incluso come mascherare le informazioni personali e sostituire il testo sensibile.
+date: '2026-08-14'
+description: Come redigere il testo nei documenti Java usando GroupDocs.Redaction
+  – mascherare le informazioni personali e sostituire il testo sensibile in modo efficiente.
 keywords:
+- how to redact text
+- GroupDocs Redaction Java
+- text redaction Java
+- mask personal information
+lastmod: '2026-08-14'
+og_description: Come redigere il testo con GroupDocs.Redaction per Java consente di
+  mascherare permanentemente i dati personali e sostituire le stringhe sensibili su
+  PDF, DOCX e altri formati, garantendo la conformità a GDPR e HIPAA.
+og_image_alt: 'Guide: redact text in Java using GroupDocs.Redaction library'
+og_title: Come redigere il testo con GroupDocs.Redaction per Java
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-14'
+  description: How to redact text in Java documents using GroupDocs.Redaction – mask
+    personal information and replace sensitive text efficiently.
+  headline: How to redact text with GroupDocs.Redaction for Java
+  type: TechArticle
+- description: How to redact text in Java documents using GroupDocs.Redaction – mask
+    personal information and replace sensitive text efficiently.
+  name: How to redact text with GroupDocs.Redaction for Java
+  steps:
+  - name: initialize the redactor
+    text: '`Redactor` is the core class that loads a document, applies redaction rules,
+      and writes the output.'
+  - name: apply exact‑phrase redaction
+    text: '`ExactPhraseRedaction` searches for an exact string match, while `ReplacementOptions`
+      defines how the matched text should be replaced. - **Parameters:** - `"John
+      Doe"` – the exact text to be redacted. - `ReplacementOptions("[personal]")`
+      – the string that will replace the original content, effective'
+  - name: save the redacted document
+    text: '`Redactor.save` writes the modified document to a new file or overwrites
+      the original, preserving the original format.'
+  - name: clean up resources
+    text: Always call `Redactor.close()` to release native resources and avoid memory
+      leaks.
+  type: HowTo
+- questions:
+  - answer: Yes, the library supports PDF, DOCX, XLSX, PPTX, and many other formats.
+    question: Can I redact text from PDFs using GroupDocs.Redaction?
+  - answer: No. Redactions permanently remove the original content, so keep a backup
+      of the source file.
+    question: Is a redaction reversible?
+  - answer: Process them in chunks, use batch mode, and monitor memory usage with
+      profiling tools.
+    question: How do I handle very large documents efficiently?
+  - answer: Besides DOCX and PDF, you can redact TXT, RTF, XLSX, PPTX, and more.
+    question: What other text formats are supported?
+  - answer: Absolutely. The API can be called from web services, background jobs,
+      or CI/CD pipelines.
+    question: Can I integrate GroupDocs.Redaction into existing workflows?
+  type: FAQPage
+tags:
 - text redaction
-- GroupDocs Redaction for Java
-- sensitive information redaction
-title: Come censurare il testo con GroupDocs.Redaction per Java
+- GroupDocs.Redaction
+- Java document processing
+- privacy compliance
+- redaction API
+title: Come redigere il testo con GroupDocs.Redaction per Java
 type: docs
 url: /it/java/text-redaction/groupdocs-redaction-java-text-redaction/
 weight: 1
 ---
 
-. Keep them.
+# Come redigere testo con GroupDocs.Redaction per Java
 
-Also ensure no translation of URLs.
+In questo tutorial imparerai **come redigere testo** nei documenti basati su Java usando GroupDocs.Redaction. Vedrai come mascherare le informazioni personali, sostituire le stringhe sensibili con segnaposto sicuri e elaborare più file in modo compatibile con il batch. Alla fine avrai una soluzione pronta per la produzione che protegge la privacy, soddisfa i requisiti GDPR/HIPAA e si integra senza problemi nelle applicazioni Java esistenti.
 
-Now produce final answer.# Come Redigere Testo nei Documenti con GroupDocs.Redaction per Java
-
-In questa guida scoprirai **come redigere testo** nei documenti basati su Java con l'aiuto di GroupDocs.Redaction. Che tu debba **mascherare informazioni personali** o **sostituire testo sensibile** con segnaposti, i passaggi seguenti ti guideranno attraverso una soluzione completa, pronta per la produzione. Alla fine del tutorial sarai in grado di proteggere la privacy, rimanere conforme e automatizzare la redazione su molti formati di file.
-
-## Risposte Rapide
-- **Quale libreria è usata?** GroupDocs.Redaction for Java  
-- **Posso mascherare informazioni personali?** Sì – usa la redazione a frase esatta con opzioni di sostituzione.  
-- **È supportata l'elaborazione batch?** Assolutamente, puoi iterare su più file con la stessa istanza di Redactor.  
-- **Ho bisogno di una licenza?** Una prova gratuita è sufficiente per la valutazione; è necessaria una licenza commerciale per la produzione.  
+## Risposte rapide
+- **Quale libreria è usata?** GroupDocs.Redaction per Java.  
+- **Posso mascherare le informazioni personali?** Sì – usa la redazione a frase esatta con opzioni di sostituzione.  
+- **È supportata l'elaborazione batch?** Assolutamente, è possibile iterare su più file con la stessa istanza di Redactor.  
+- **È necessaria una licenza?** Una prova gratuita funziona per la valutazione; è richiesta una licenza commerciale per la produzione.  
 - **Quale versione di Java è richiesta?** JDK 8 o superiore.
 
-## Cos'è la “redazione del testo”?
-La redazione è il processo di rimozione o oscuramento permanente dei dati riservati da un documento. Con GroupDocs.Redaction è possibile individuare programmaticamente stringhe specifiche, sostituirle con segnaposti sicuri e salvare il file sanificato—tutto senza intervento manuale.
+## Che cos'è “come redigere testo”?
+La redazione rimuove o oscura permanentemente i dati riservati da un documento. Con GroupDocs.Redaction è possibile individuare stringhe specifiche, sostituirle con segnaposto sicuri e salvare il file sanificato—tutto senza modifiche manuali.
 
 ## Perché usare GroupDocs.Redaction per Java?
-- **Ampio supporto di formati:** DOCX, PDF, XLSX, PPTX e altri.  
-- **Alte prestazioni:** Ottimizzato per file di grandi dimensioni e operazioni batch.  
-- **Callback estensibili:** Collegati agli eventi di redazione per logging o gestione personalizzata.  
-- **Pronto per la conformità:** Soddisfa GDPR, HIPAA e altre normative sulla privacy.
+GroupDocs.Redaction per Java supporta **oltre 50 formati di input e output** (inclusi PDF, DOCX, XLSX, PPTX, TXT, RTF) e può elaborare file di centinaia di pagine senza caricare l'intero documento in memoria, offrendo operazioni batch ad alta velocità su hardware server standard.
 
 ## Prerequisiti
-- **Java Development Kit (JDK):** Versione 8 o successiva.  
+- **Java Development Kit (JDK):** Version 8 o successiva.  
 - **IDE:** IntelliJ IDEA, Eclipse o qualsiasi editor compatibile con Java.  
 - **Maven:** Per la gestione delle dipendenze.  
-- **Conoscenza base di Java:** Familiarità con classi, metodi e gestione delle eccezioni.
+- **Conoscenza di base di Java:** Familiarità con classi, metodi e gestione delle eccezioni.
 
 ## Configurare GroupDocs.Redaction per Java
 Per iniziare, aggiungi la libreria al tuo progetto Maven.
 
-### Maven Setup
-Aggiungi il repository e la dipendenza al tuo file `pom.xml`:
+### Configurazione Maven
+Add the repository and dependency to your `pom.xml` file:
 
 ```xml
 <repositories>
@@ -66,17 +113,17 @@ Aggiungi il repository e la dipendenza al tuo file `pom.xml`:
 </dependencies>
 ```
 
-### Direct Download
-Se preferisci, scarica l'ultimo JAR da [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+### Download diretto
+Se preferisci, scarica l'ultimo JAR da [GroupDocs Redaction Java Releases](https://releases.groupdocs.com/redaction/java/).
 
-### Acquisizione della Licenza
+### Acquisizione licenza
 Puoi iniziare con una **Free Trial**, richiedere una **Temporary License** per test estesi, o acquistare una **Commercial License** per l'uso in produzione.
 
-## Come Redigere Testo nei Documenti con GroupDocs.Redaction
-Le sezioni seguenti ti guidano attraverso i passaggi esatti necessari per **mascherare informazioni personali** e **sostituire testo sensibile**.
+## Come redigere testo nei documenti con GroupDocs.Redaction
+Le sezioni seguenti ti guidano attraverso i passaggi esatti necessari per **mascherare le informazioni personali** e **sostituire il testo sensibile**.
 
-### Passo 1: Inizializzare il Redactor
-Crea un'istanza di `Redactor` che punti al documento da elaborare.
+### Passo 1: inizializzare il redattore
+`Redactor` è la classe principale che carica un documento, applica le regole di redazione e scrive l'output.  
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -87,25 +134,25 @@ import com.groupdocs.redaction.redactions.ReplacementOptions;
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/sample.docx", new LoadOptions());
 ```
 
-### Passo 2: Applicare la Redazione a Frase Esatta
-Usa `ExactPhraseRedaction` per individuare una frase come “John Doe” e sostituirla con un segnaposto sicuro.
+### Passo 2: applicare la redazione a frase esatta
+`ExactPhraseRedaction` cerca una corrispondenza esatta di stringa, mentre `ReplacementOptions` definisce come il testo corrispondente deve essere sostituito.
 
 ```java
 redactor.apply(new ExactPhraseRedaction("John Doe", new ReplacementOptions("[personal]"));
 ```
 - **Parametri:**  
   - `"John Doe"` – il testo esatto da redigere.  
-  - `ReplacementOptions("[personal]")` – la stringa che sostituirà il contenuto originale, mascherando efficacemente **informazioni personali**.
+  - `ReplacementOptions("[personal]")` – la stringa che sostituirà il contenuto originale, mascherando efficacemente le **informazioni personali**.
 
-### Passo 3: Salvare il Documento Redatto
-Salva le modifiche in un nuovo file o sovrascrivi l'originale.
+### Passo 3: salvare il documento redatto
+`Redactor.save` scrive il documento modificato in un nuovo file o sovrascrive l'originale, preservando il formato originale.
 
 ```java
 redactor.save();
 ```
 
-### Passo 4: Pulire le Risorse
-Chiudi sempre il `Redactor` per liberare le risorse native.
+### Passo 4: pulire le risorse
+Chiama sempre `Redactor.close()` per rilasciare le risorse native ed evitare perdite di memoria.
 
 ```java
 finally {
@@ -113,11 +160,11 @@ finally {
 }
 ```
 
-## Come Mascherare Informazioni Personali con un Callback Personalizzato
-A volte è necessario più controllo su cosa accade quando avviene una redazione (es. logging, sostituzione condizionale).
+## Come mascherare le informazioni personali con un callback personalizzato
+Un callback personalizzato ti consente di reagire a ciascun evento di redazione—utile per il logging, sostituzioni condizionali o tracciamenti di audit.
 
-### Creare una Classe Callback
-Implementa `IRedactionCallback` per ricevere gli eventi di redazione.
+### Creare una classe di callback
+`IRedactionCallback` definisce i metodi che vengono invocati prima e dopo ogni operazione di redazione.
 
 ```java
 class RedactionDump implements IRedactionCallback {
@@ -128,25 +175,26 @@ class RedactionDump implements IRedactionCallback {
 }
 ```
 
-### Usare il Callback Quando Si Istanzia Redactor
-Passa il callback tramite `RedactorSettings`.
+### Utilizzare il callback durante l'istanziazione di Redactor
+Passa la tua implementazione del callback tramite `RedactorSettings` affinché il motore sappia di invocarlo durante l'elaborazione.
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/sample.docx", new LoadOptions(), new RedactorSettings(new RedactionDump()));
 ```
 
-## Applicazioni Pratiche
-- **Contratti legali:** Nascondi automaticamente i nomi dei clienti, SSN o clausole riservate.  
-- **Cartelle mediche:** **Mascherare informazioni personali** come gli identificatori dei pazienti prima di condividerle con terze parti.  
-- **Comunicazioni aziendali:** **Sostituire testo sensibile** come codici di progetto interni prima della distribuzione esterna.
+## Applicazioni pratiche
+- **Contratti legali:** Nascondi automaticamente i nomi dei clienti, i SSN o le clausole riservate prima di condividere le bozze.  
+- **Cartelle cliniche:** **Mascherare le informazioni personali** come gli identificatori dei pazienti quando si esportano i record a partner di ricerca.  
+- **Comunicazioni aziendali:** **Sostituire il testo sensibile** come i codici di progetto interni prima della distribuzione esterna, garantendo l'assenza di perdite accidentali.
 
-## Considerazioni sulle Prestazioni
-Quando si elaborano file grandi o numerosi, tieni presenti questi consigli:
-- **Elaborazione batch:** Itera su una collezione di file per ridurre il sovraccarico di avvio.  
+## Considerazioni sulle prestazioni
+Durante l'elaborazione di file grandi o numerosi, tieni presente questi consigli:
+
+- **Elaborazione batch:** Itera su una collezione di file per ridurre l'overhead di avvio.  
 - **Gestione della memoria:** Rilascia il `Redactor` dopo ogni file; evita di tenere molti documenti in memoria contemporaneamente.  
-- **Profilazione:** Usa profiler Java (es. VisualVM) per individuare colli di bottiglia in I/O o nella logica di redazione.
+- **Profilazione:** Usa profiler Java (ad esempio VisualVM) per individuare colli di bottiglia in I/O o nella logica di redazione.
 
-## Domande Frequenti
+## Domande frequenti
 **Q: Posso redigere testo da PDF usando GroupDocs.Redaction?**  
 A: Sì, la libreria supporta PDF, DOCX, XLSX, PPTX e molti altri formati.
 
@@ -162,16 +210,21 @@ A: Oltre a DOCX e PDF, è possibile redigere TXT, RTF, XLSX, PPTX e altri.
 **Q: Posso integrare GroupDocs.Redaction nei flussi di lavoro esistenti?**  
 A: Assolutamente. L'API può essere chiamata da servizi web, job in background o pipeline CI/CD.
 
-## Resources
-- **Documentazione:** [GroupDocs Redaction Java Docs](https://docs.groupdocs.com/redaction/java/)  
-- **Riferimento API:** [GroupDocs API Reference for Java](https://reference.groupdocs.com/redaction/java)  
-- **Download:** [GroupDocs.Redaction Downloads](https://releases.groupdocs.com/redaction/java/)  
-- **Repository GitHub:** [GroupDocs Redaction GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
-- **Forum di Supporto Gratuito:** [GroupDocs Free Support](https://forum.groupdocs.com/c/redaction/33)  
-- **Applicazione Licenza Temporanea:** [Apply for a Temporary License](https://purchase.groupdocs.com/temporary-license/)
+## Risorse
+- **Documentazione:** [Documentazione GroupDocs Redaction Java](https://docs.groupdocs.com/redaction/java/)  
+- **Riferimento API:** [Riferimento API GroupDocs per Java](https://reference.groupdocs.com/redaction/java)  
+- **Download:** [Download GroupDocs.Redaction](https://releases.groupdocs.com/redaction/java/)  
+- **Repository GitHub:** [Repository GitHub GroupDocs Redaction](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
+- **Forum di supporto gratuito GroupDocs:** [Forum di supporto gratuito GroupDocs](https://forum.groupdocs.com/c/redaction/33)  
+- **Richiedi una licenza temporanea:** [Richiedi una licenza temporanea](https://purchase.groupdocs.com/temporary-license/)
 
 ---
 
-**Ultimo Aggiornamento:** 2026-02-26  
-**Testato Con:** GroupDocs.Redaction 24.9 for Java  
+**Ultimo aggiornamento:** 2026-08-14  
+**Testato con:** GroupDocs.Redaction 24.9 per Java  
 **Autore:** GroupDocs
+
+## Tutorial correlati
+- [Mascherare dati sensibili Java – Guida GroupDocs.Redaction](/redaction/java/getting-started/)
+- [Mascherare dati sensibili Java – Redigere informazioni personali con GroupDocs.Redaction](/redaction/java/advanced-redaction/master-document-redaction-java-groupdocs-redaction/)
+- [Modificare documenti protetti da password Java - Redigere documenti usando GroupDocs.Redaction](/redaction/java/document-loading/groupdocs-redaction-java-password-documents/)

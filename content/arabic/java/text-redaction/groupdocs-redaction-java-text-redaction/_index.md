@@ -1,47 +1,96 @@
 ---
-date: '2026-02-26'
-description: تعلم كيفية إخفاء النص في مستندات Java باستخدام GroupDocs.Redaction، بما
-  في ذلك كيفية تمويه المعلومات الشخصية واستبدال النص الحساس.
+date: '2026-08-14'
+description: كيفية إخفاء النص في مستندات Java باستخدام GroupDocs.Redaction – إخفاء
+  المعلومات الشخصية واستبدال النص الحساس بكفاءة.
 keywords:
+- how to redact text
+- GroupDocs Redaction Java
+- text redaction Java
+- mask personal information
+lastmod: '2026-08-14'
+og_description: تتيح لك طريقة إخفاء النص باستخدام GroupDocs.Redaction لـ Java إخفاء
+  البيانات الشخصية بشكل دائم واستبدال السلاسل الحساسة عبر PDFs و DOCX وغيرها، مما
+  يضمن الامتثال لـ GDPR و HIPAA.
+og_image_alt: 'Guide: redact text in Java using GroupDocs.Redaction library'
+og_title: كيفية إخفاء النص باستخدام GroupDocs.Redaction لـ Java
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-14'
+  description: How to redact text in Java documents using GroupDocs.Redaction – mask
+    personal information and replace sensitive text efficiently.
+  headline: How to redact text with GroupDocs.Redaction for Java
+  type: TechArticle
+- description: How to redact text in Java documents using GroupDocs.Redaction – mask
+    personal information and replace sensitive text efficiently.
+  name: How to redact text with GroupDocs.Redaction for Java
+  steps:
+  - name: initialize the redactor
+    text: '`Redactor` is the core class that loads a document, applies redaction rules,
+      and writes the output.'
+  - name: apply exact‑phrase redaction
+    text: '`ExactPhraseRedaction` searches for an exact string match, while `ReplacementOptions`
+      defines how the matched text should be replaced. - **Parameters:** - `"John
+      Doe"` – the exact text to be redacted. - `ReplacementOptions("[personal]")`
+      – the string that will replace the original content, effective'
+  - name: save the redacted document
+    text: '`Redactor.save` writes the modified document to a new file or overwrites
+      the original, preserving the original format.'
+  - name: clean up resources
+    text: Always call `Redactor.close()` to release native resources and avoid memory
+      leaks.
+  type: HowTo
+- questions:
+  - answer: Yes, the library supports PDF, DOCX, XLSX, PPTX, and many other formats.
+    question: Can I redact text from PDFs using GroupDocs.Redaction?
+  - answer: No. Redactions permanently remove the original content, so keep a backup
+      of the source file.
+    question: Is a redaction reversible?
+  - answer: Process them in chunks, use batch mode, and monitor memory usage with
+      profiling tools.
+    question: How do I handle very large documents efficiently?
+  - answer: Besides DOCX and PDF, you can redact TXT, RTF, XLSX, PPTX, and more.
+    question: What other text formats are supported?
+  - answer: Absolutely. The API can be called from web services, background jobs,
+      or CI/CD pipelines.
+    question: Can I integrate GroupDocs.Redaction into existing workflows?
+  type: FAQPage
+tags:
 - text redaction
-- GroupDocs Redaction for Java
-- sensitive information redaction
-title: كيفية إخفاء النص باستخدام GroupDocs.Redaction للـ Java
+- GroupDocs.Redaction
+- Java document processing
+- privacy compliance
+- redaction API
+title: كيفية إخفاء النص باستخدام GroupDocs.Redaction لـ Java
 type: docs
 url: /ar/java/text-redaction/groupdocs-redaction-java-text-redaction/
 weight: 1
 ---
 
- surrounding text.
+# كيفية حذف النص باستخدام GroupDocs.Redaction للـ Java
 
-Let's produce final output.# كيفية إخفاء النص في المستندات باستخدام GroupDocs.Redaction للغة Java
-
-في هذا الدليل ستكتشف **كيفية إخفاء النص** في المستندات القائمة على Java بمساعدة GroupDocs.Redaction. سواء كنت بحاجة إلى **إخفاء المعلومات الشخصية** أو **استبدال النص الحساس** بعناصر نائبة، فإن الخطوات أدناه ستقودك عبر حل كامل وجاهز للإنتاج. بنهاية البرنامج التعليمي ستكون قادرًا على حماية الخصوصية، الالتزام بالمعايير، وأتمتة الإخفاء عبر العديد من صيغ الملفات.
+في هذا البرنامج التعليمي ستتعلم **كيفية حذف النص** في المستندات المعتمدة على Java باستخدام GroupDocs.Redaction. سترى كيفية إخفاء المعلومات الشخصية، واستبدال السلاسل الحساسة ببدائل آمنة، ومعالجة ملفات متعددة بطريقة صديقة للدفعات. في النهاية ستحصل على حل جاهز للإنتاج يحمي الخصوصية، ويلبي متطلبات GDPR/HIPAA، ويتكامل بسلاسة مع تطبيقات Java الحالية.
 
 ## إجابات سريعة
-- **ما المكتبة المستخدمة؟** GroupDocs.Redaction للغة Java  
-- **هل يمكنني إخفاء المعلومات الشخصية؟** نعم – استخدم إخفاء العبارة الدقيقة مع خيارات الاستبدال.  
-- **هل يدعم المعالجة الدفعية؟** بالتأكيد، يمكنك التكرار عبر ملفات متعددة باستخدام نفس كائن Redactor.  
-- **هل أحتاج إلى ترخيص؟** نسخة تجريبية مجانية تكفي للتقييم؛ الترخيص التجاري مطلوب للإنتاج.  
+- **ما المكتبة المستخدمة؟** GroupDocs.Redaction for Java.  
+- **هل يمكنني إخفاء المعلومات الشخصية؟** نعم – استخدم حذف العبارة الدقيقة مع خيارات الاستبدال.  
+- **هل يتم دعم المعالجة الدفعية؟** بالتأكيد، يمكنك التكرار عبر ملفات متعددة باستخدام نفس كائن Redactor.  
+- **هل أحتاج إلى ترخيص؟** تجربة مجانية تعمل للتقييم؛ يلزم ترخيص تجاري للإنتاج.  
 - **ما نسخة Java المطلوبة؟** JDK 8 أو أعلى.
 
-## ما هو “كيفية إخفاء النص”؟
-الإخفاء هو عملية إزالة أو إخفاء البيانات السرية من المستند بشكل دائم. باستخدام GroupDocs.Redaction يمكنك تحديد سلاسل نصية معينة برمجيًا، استبدالها بعناصر نائبة آمنة، وحفظ الملف المنقّح—كل ذلك دون تعديل يدوي.
+## ما هو “كيفية حذف النص”؟
+الحذف الدائم يزيل أو يغطي البيانات السرية من المستند بشكل دائم. باستخدام GroupDocs.Redaction يمكنك تحديد سلاسل معينة، واستبدالها ببدائل آمنة، وحفظ الملف المنقّى — كل ذلك دون تحرير يدوي.
 
-## لماذا نستخدم GroupDocs.Redaction للغة Java؟
-- **دعم صيغ واسع:** DOCX، PDF، XLSX، PPTX، وأكثر.  
-- **أداء عالي:** مُحسّن للملفات الكبيرة والعمليات الدفعية.  
-- **استدعاءات قابلة للتمديد:** ربط أحداث الإخفاء للتسجيل أو المعالجة المخصصة.  
-- **جاهز للامتثال:** يلتزم بـ GDPR، HIPAA، وغيرها من لوائح الخصوصية.
+## لماذا تستخدم GroupDocs.Redaction للـ Java؟
+GroupDocs.Redaction للـ Java يدعم **أكثر من 50 تنسيقًا للإدخال والإخراج** (بما في ذلك PDF، DOCX، XLSX، PPTX، TXT، RTF) ويمكنه معالجة ملفات مئات الصفحات دون تحميل المستند بالكامل في الذاكرة، مما يوفر عمليات دفعية عالية الإنتاجية على أجهزة الخادم القياسية.
 
 ## المتطلبات المسبقة
-- **مجموعة تطوير Java (JDK):** الإصدار 8 أو أحدث.  
-- **بيئة تطوير متكاملة (IDE):** IntelliJ IDEA، Eclipse، أو أي محرر يدعم Java.  
+- **Java Development Kit (JDK):** الإصدار 8 أو أحدث.  
+- **IDE:** IntelliJ IDEA، Eclipse، أو أي محرر متوافق مع Java.  
 - **Maven:** لإدارة التبعيات.  
-- **معرفة أساسية بـ Java:** الإلمام بالفئات، الطرق، ومعالجة الاستثناءات.
+- **معرفة أساسية بـ Java:** الإلمام بالفئات، والطرق، ومعالجة الاستثناءات.
 
-## إعداد GroupDocs.Redaction للغة Java
-لبدء العمل، أضف المكتبة إلى مشروع Maven الخاص بك.
+## إعداد GroupDocs.Redaction للـ Java
+لبدء، أضف المكتبة إلى مشروع Maven الخاص بك.
 
 ### إعداد Maven
 أضف المستودع والتبعيات إلى ملف `pom.xml` الخاص بك:
@@ -64,17 +113,18 @@ Let's produce final output.# كيفية إخفاء النص في المستند�
 </dependencies>
 ```
 
-### التحميل المباشر
-إذا كنت تفضل ذلك، احصل على أحدث ملف JAR من [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+### تحميل مباشر
+إذا كنت تفضل، احصل على أحدث JAR من [GroupDocs Redaction Java Docs](https://releases.groupdocs.com/redaction/java/).
 
 ### الحصول على الترخيص
-يمكنك البدء بـ **Free Trial**، طلب **Temporary License** للاختبار الموسع، أو شراء **Commercial License** للاستخدام الإنتاجي.
+يمكنك البدء بـ **Free Trial**، طلب **Temporary License** للاختبار الموسع، أو شراء **Commercial License** للاستخدام في الإنتاج.
 
-## كيفية إخفاء النص في المستندات باستخدام GroupDocs.Redaction
-الأقسام التالية ترشدك عبر الخطوات الدقيقة اللازمة لـ **إخفاء المعلومات الشخصية** و**استبدال النص الحساس**.
+## كيفية حذف النص في المستندات باستخدام GroupDocs.Redaction
 
-### الخطوة 1: تهيئة Redactor
-أنشئ كائن `Redactor` يشير إلى المستند الذي تريد معالجته.
+الأقسام التالية ترشدك عبر الخطوات الدقيقة اللازمة **لإخفاء المعلومات الشخصية** و**استبدال النص الحسّاس**.
+
+### الخطوة 1: تهيئة الـ Redactor
+`Redactor` هو الفئة الأساسية التي تقوم بتحميل المستند، وتطبيق قواعد الحذف، وكتابة الناتج.
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -85,25 +135,25 @@ import com.groupdocs.redaction.redactions.ReplacementOptions;
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/sample.docx", new LoadOptions());
 ```
 
-### الخطوة 2: تطبيق إخفاء العبارة الدقيقة
-استخدم `ExactPhraseRedaction` لتحديد عبارة مثل “John Doe” واستبدالها بعنصر نائب آمن.
+### الخطوة 2: تطبيق حذف العبارة الدقيقة
+`ExactPhraseRedaction` يبحث عن تطابق نصي دقيق، بينما `ReplacementOptions` يحدد كيفية استبدال النص المطابق.
 
 ```java
 redactor.apply(new ExactPhraseRedaction("John Doe", new ReplacementOptions("[personal]"));
 ```
 - **المعلمات:**  
-  - `"John Doe"` – النص الدقيق الذي سيُخفى.  
-  - `ReplacementOptions("[personal]")` – السلسلة التي ستحل محل المحتوى الأصلي، مما يؤدي إلى **إخفاء المعلومات الشخصية**.
+  - `"John Doe"` – النص الدقيق الذي سيتم حذفه.  
+  - `ReplacementOptions("[personal]")` – السلسلة التي ستحل محل المحتوى الأصلي، مما يؤدي فعليًا إلى **إخفاء المعلومات الشخصية**.
 
-### الخطوة 3: حفظ المستند المُخفى
-احفظ التغييرات في ملف جديد أو استبدل الملف الأصلي.
+### الخطوة 3: حفظ المستند المحذوف
+`Redactor.save` يكتب المستند المعدل إلى ملف جديد أو يستبدل الأصلي، مع الحفاظ على التنسيق الأصلي.
 
 ```java
 redactor.save();
 ```
 
 ### الخطوة 4: تنظيف الموارد
-دائمًا أغلق كائن `Redactor` لتحرير الموارد الأصلية.
+دائمًا استدعِ `Redactor.close()` لتحرير الموارد الأصلية وتجنب تسرب الذاكرة.
 
 ```java
 finally {
@@ -112,10 +162,10 @@ finally {
 ```
 
 ## كيفية إخفاء المعلومات الشخصية باستخدام رد نداء مخصص
-أحيانًا تحتاج إلى مزيد من التحكم فيما يحدث عند حدوث إخفاء (مثل التسجيل أو الاستبدال الشرطي).
+يتيح لك رد النداء المخصص الاستجابة لكل حدث حذف — مفيد للتسجيل، والاستبدالات الشرطية، أو سجلات التدقيق.
 
-### إنشاء فئة رد النداء
-نفّذ `IRedactionCallback` لتلقي أحداث الإخفاء.
+### إنشاء فئة رد نداء
+`IRedactionCallback` يحدد الطرق التي تُستدعى قبل وبعد كل عملية حذف.
 
 ```java
 class RedactionDump implements IRedactionCallback {
@@ -127,50 +177,55 @@ class RedactionDump implements IRedactionCallback {
 ```
 
 ### استخدام رد النداء عند إنشاء Redactor
-مرّر رد النداء عبر `RedactorSettings`.
+مرّر تنفيذ رد النداء الخاص بك عبر `RedactorSettings` حتى يعرف المحرك استدعائه أثناء المعالجة.
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/sample.docx", new LoadOptions(), new RedactorSettings(new RedactionDump()));
 ```
 
-## تطبيقات عملية
-- **العقود القانونية:** إخفاء تلقائي لأسماء العملاء، أرقام الضمان الاجتماعي، أو البنود السرية.  
-- **السجلات الطبية:** **إخفاء المعلومات الشخصية** مثل معرفات المرضى قبل مشاركتها مع أطراف ثالثة.  
-- **الاتصالات المؤسسية:** **استبدال النص الحساس** مثل رموز المشاريع الداخلية قبل التوزيع الخارجي.
+## التطبيقات العملية
+- **العقود القانونية:** إخفاء أسماء العملاء، أرقام الضمان الاجتماعي، أو البنود السرية تلقائيًا قبل مشاركة المسودات.  
+- **السجلات الطبية:** **إخفاء المعلومات الشخصية** مثل معرفات المرضى عند تصدير السجلات إلى شركاء البحث.  
+- **الاتصالات المؤسسية:** **استبدال النص الحسّاس** مثل رموز المشاريع الداخلية قبل التوزيع الخارجي، لضمان عدم حدوث تسريبات غير مقصودة.
 
 ## اعتبارات الأداء
-عند معالجة ملفات كبيرة أو متعددة، ضع في اعتبارك النصائح التالية:
-
-- **المعالجة الدفعية:** كرّر عبر مجموعة من الملفات لتقليل تكلفة بدء التشغيل.  
-- **إدارة الذاكرة:** حرّر كائن `Redactor` بعد كل ملف؛ تجنّب الاحتفاظ بالعديد من المستندات في الذاكرة في آن واحد.  
-- **التحليل Profiling:** استخدم أدوات تحليل Java (مثل VisualVM) لتحديد عنق الزجاجة في عمليات الإدخال/الإخراج أو منطق الإخفاء.
+عند معالجة ملفات كبيرة أو عديدة، احرص على مراعاة النصائح التالية:
+- **المعالجة الدفعية:** التكرار عبر مجموعة من الملفات لتقليل عبء بدء التشغيل.  
+- **إدارة الذاكرة:** تحرير `Redactor` بعد كل ملف؛ تجنّب الاحتفاظ بالعديد من المستندات في الذاكرة في آن واحد.  
+- **التحليل (Profiling):** استخدم أدوات تحليل Java (مثل VisualVM) لتحديد نقاط الاختناق في عمليات الإدخال/الإخراج أو منطق الحذف.
 
 ## الأسئلة المتكررة
-**س: هل يمكنني إخفاء النص من ملفات PDF باستخدام GroupDocs.Redaction؟**  
+**س: هل يمكنني حذف النص من ملفات PDF باستخدام GroupDocs.Redaction؟**  
 ج: نعم، المكتبة تدعم PDF، DOCX، XLSX، PPTX، والعديد من الصيغ الأخرى.
 
-**س: هل الإخفاء قابل للعكس؟**  
-ج: لا. الإخفاءات تحذف المحتوى الأصلي بشكل دائم، لذا احتفظ بنسخة احتياطية من الملف المصدر.
+**س: هل يمكن عكس عملية الحذف؟**  
+ج: لا. عمليات الحذف تزيل المحتوى الأصلي بشكل دائم، لذا احتفظ بنسخة احتياطية من الملف الأصلي.
 
-**س: كيف أتعامل مع المستندات الكبيرة جدًا بكفاءة؟**  
+**س: كيف يمكنني التعامل مع المستندات الكبيرة جدًا بكفاءة؟**  
 ج: عالجها على أجزاء، استخدم الوضع الدفعي، وراقب استهلاك الذاكرة باستخدام أدوات التحليل.
 
-**س: ما الصيغ النصية الأخرى المدعومة؟**  
-ج: بالإضافة إلى DOCX وPDF، يمكنك إخفاء TXT، RTF، XLSX، PPTX، وأكثر.
+**س: ما هي صيغ النص الأخرى المدعومة؟**  
+ج: بالإضافة إلى DOCX و PDF، يمكنك حذف TXT، RTF، XLSX، PPTX، وأكثر.
 
 **س: هل يمكنني دمج GroupDocs.Redaction في سير العمل الحالي؟**  
-ج: بالتأكيد. يمكن استدعاء الـ API من خدمات الويب، وظائف الخلفية، أو خطوط أنابيب CI/CD.
+ج: بالتأكيد. يمكن استدعاء الـ API من خدمات الويب، أو الوظائف الخلفية، أو خطوط أنابيب CI/CD.
 
-## موارد
-- **الوثائق:** [GroupDocs Redaction Java Docs](https://docs.groupdocs.com/redaction/java/)  
-- **مرجع الـ API:** [GroupDocs API Reference for Java](https://reference.groupdocs.com/redaction/java)  
-- **التحميل:** [GroupDocs.Redaction Downloads](https://releases.groupdocs.com/redaction/java/)  
-- **مستودع GitHub:** [GroupDocs Redaction GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
-- **منتدى الدعم المجاني:** [GroupDocs Free Support](https://forum.groupdocs.com/c/redaction/33)  
-- **طلب ترخيص مؤقت:** [Apply for a Temporary License](https://purchase.groupdocs.com/temporary-license/)
+## الموارد
+- **التوثيق:** [وثائق GroupDocs Redaction Java](https://docs.groupdocs.com/redaction/java/)  
+- **مرجع API:** [مرجع GroupDocs API للـ Java](https://reference.groupdocs.com/redaction/java)  
+- **تحميل:** [تنزيلات GroupDocs.Redaction](https://releases.groupdocs.com/redaction/java/)  
+- **مستودع GitHub:** [GroupDocs Redaction على GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
+- **منتدى الدعم المجاني:** [الدعم المجاني من GroupDocs](https://forum.groupdocs.com/c/redaction/33)  
+- **طلب ترخيص مؤقت:** [التقدم بطلب للحصول على ترخيص مؤقت](https://purchase.groupdocs.com/temporary-license/)
 
 ---
 
-**آخر تحديث:** 2026-02-26  
-**تم الاختبار مع:** GroupDocs.Redaction 24.9 للغة Java  
+**آخر تحديث:** 2026-08-14  
+**تم الاختبار مع:** GroupDocs.Redaction 24.9 for Java  
 **المؤلف:** GroupDocs
+
+## الدروس ذات الصلة
+
+- [إخفاء البيانات الحساسة Java – دليل GroupDocs.Redaction](/redaction/java/getting-started/)
+- [إخفاء البيانات الحساسة Java – حذف المعلومات الشخصية باستخدام GroupDocs.Redaction](/redaction/java/advanced-redaction/master-document-redaction-java-groupdocs-redaction/)
+- [تحرير المستندات المحمية بكلمة مرور Java - حذف المستندات باستخدام GroupDocs.Redaction](/redaction/java/document-loading/groupdocs-redaction-java-password-documents/)
