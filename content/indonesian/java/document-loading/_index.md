@@ -100,20 +100,3 @@ A: Tentu saja. Gunakan metode `getPage(int pageNumber)` untuk merender halaman s
 
 **T: Bagaimana GroupDocs.Redaction menangani dokumen besar?**  
 A: Perpustakaan men‑stream halaman ke memori, sehingga Anda dapat mempratinjau bahkan file dengan ratusan halaman tanpa memuat seluruh dokumen sekaligus.
-
-## KATA KUNCI TARGET:
-
-**Primary Keyword (HIGHEST PRIORITY):**  
-preview document pages java
-
-**Secondary Keywords (SUPPORTING):**  
-load documents java, redact password protected java, load document local java
-
-**Strategi Integrasi Kata Kunci:**  
-1. Primary keyword: Use 3‑5 times (title, meta, first paragraph, H2 heading, body).  
-2. Secondary keywords: Use 1‑2 times each (headings, body text).  
-3. All keywords must be integrated naturally – prioritize readability over keyword count.
-
-**Terakhir Diperbarui:** 2026-02-21  
-**Diuji Dengan:** GroupDocs.Redaction untuk Java rilis terbaru  
-**Penulis:** GroupDocs

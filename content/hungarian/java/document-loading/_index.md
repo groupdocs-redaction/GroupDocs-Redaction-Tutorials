@@ -106,20 +106,3 @@ A: Természetesen. Használja a `getPage(int pageNumber)` metódust, hogy igény
 
 **Q: Hogyan kezeli a GroupDocs.Redaction a nagy dokumentumokat?**  
 A: A könyvtár az oldalakat memóriába streameli, így több száz oldalas fájlokat is előnézhet anélkül, hogy egyszerre betöltené az egész dokumentumot.
-
-## CÉL KULCSSZAVAK:
-
-**Primary Keyword (HIGHEST PRIORITY):**  
-preview document pages java
-
-**Secondary Keywords (SUPPORTING):**  
-load documents java, redact password protected java, load document local java
-
-**Kulcsszó integrációs stratégia:**  
-1. Elsődleges kulcsszó: Használja 3‑5 alkalommal (cím, meta, első bekezdés, H2 fejléc, szöveg).  
-2. Másodlagos kulcsszavak: Használja 1‑2 alkalommal mindegyiket (fejlécek, szöveg).  
-3. Minden kulcsszót természetesen integráljon – a olvashatóság legyen fontosabb a kulcsszámnál.
-
-**Last Updated:** 2026-02-21  
-**Tested With:** GroupDocs.Redaction for Java latest release  
-**Author:** GroupDocs

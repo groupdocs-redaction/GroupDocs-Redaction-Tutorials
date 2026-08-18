@@ -99,20 +99,3 @@ A: 물론입니다. `getPage(int pageNumber)` 메서드를 사용해 필요할 �
 
 **Q: GroupDocs.Redaction은 대용량 문서를 어떻게 처리하나요?**  
 A: 라이브러리가 페이지를 메모리로 스트리밍하므로 전체 문서를 한 번에 로드하지 않고도 수백 페이지 파일을 미리볼 수 있습니다.
-
-## 목표 키워드:
-
-**Primary Keyword (HIGHEST PRIORITY):**  
-preview document pages java
-
-**Secondary Keywords (SUPPORTING):**  
-load documents java, redact password protected java, load document local java
-
-**키워드 통합 전략:**  
-1. Primary keyword: Use 3‑5 times (title, meta, first paragraph, H2 heading, body).  
-2. Secondary keywords: Use 1‑2 times each (headings, body text).  
-3. All keywords must be integrated naturally – prioritize readability over keyword count.
-
-**마지막 업데이트:** 2026-02-21  
-**테스트 환경:** GroupDocs.Redaction for Java 최신 릴리스  
-**작성자:** GroupDocs

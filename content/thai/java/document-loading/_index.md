@@ -99,20 +99,6 @@ A: ทำได้แน่นอน ใช้เมธอด `getPage(int pageN
 
 **Q: GroupDocs.Redaction จัดการกับเอกสารขนาดใหญ่อย่างไร?**  
 A: ไลบรารีสตรีมหน้าต่าง ๆ ไปยังหน่วยความจำ ทำให้คุณสามารถแสดงตัวอย่างไฟล์หลายร้อยหน้าได้โดยไม่ต้องโหลดเอกสารทั้งหมดในครั้งเดียว
-
-## คำหลักเป้าหมาย:
-
-**Primary Keyword (HIGHEST PRIORITY):**  
-preview document pages java
-
-**Secondary Keywords (SUPPORTING):**  
-load documents java, redact password protected java, load document local java
-
-**Keyword Integration Strategy:**  
-1. คำหลักหลัก: ใช้ 3‑5 ครั้ง (ในหัวเรื่อง, เมตา, ย่อหน้าแรก, หัวข้อ H2, เนื้อหา)  
-2. คำหลักรอง: ใช้ 1‑2 ครั้งต่อคำ (ในหัวข้อ, เนื้อหา)  
-3. คำหลักทั้งหมดต้องถูกรวมอย่างเป็นธรรมชาติ – ให้ความสำคัญกับการอ่านได้ง่ายเหนือจำนวนคำหลัก
-
 ---
 
 **Last Updated:** 2026-02-21  

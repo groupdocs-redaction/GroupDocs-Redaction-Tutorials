@@ -100,20 +100,6 @@ A: Absolut. Använd metoden `getPage(int pageNumber)` för att rendera specifika
 
 **Q: Hur hanterar GroupDocs.Redaction stora dokument?**  
 A: Biblioteket strömmar sidor till minnet, så du kan förhandsgranska även filer med flera hundra sidor utan att ladda hela dokumentet på en gång.
-
-## MÅLNYCKELORD:
-
-**Primary Keyword (HIGHEST PRIORITY):**  
-preview document pages java
-
-**Secondary Keywords (SUPPORTING):**  
-load documents java, redact password protected java, load document local java
-
-**Strategi för nyckelordsintegration:**  
-1. Primärt nyckelord: Använd 3‑5 gånger (titel, meta, första stycket, H2‑rubrik, brödtext).  
-2. Sekundära nyckelord: Använd 1‑2 gånger vardera (rubriker, brödtext).  
-3. Alla nyckelord måste integreras naturligt – prioritera läsbarhet framför nyckelordsantal.
-
 ---
 
 **Senast uppdaterad:** 2026-02-21  

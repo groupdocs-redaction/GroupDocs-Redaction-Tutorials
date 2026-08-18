@@ -102,20 +102,6 @@ A: もちろんです。`getPage(int pageNumber)` メソッドを使用して、
 
 **Q: GroupDocs.Redaction は大容量ドキュメントをどのように処理しますか？**  
 A: ライブラリはページ単位でストリーミングしメモリにロードするため、数百ページに及ぶドキュメントでも全体を一度に読み込むことなくプレビューできます。
-
-## TARGET KEYWORDS:
-
-**Primary Keyword (HIGHEST PRIORITY):**  
-preview document pages java
-
-**Secondary Keywords (SUPPORTING):**  
-load documents java, redact password protected java, load document local java
-
-**Keyword Integration Strategy:**  
-1. Primary keyword: Use 3‑5 times (title, meta, first paragraph, H2 heading, body).  
-2. Secondary keywords: Use 1‑2 times each (headings, body text).  
-3. All keywords must be integrated naturally – prioritize readability over keyword count.
-
 ---
 
 **Last Updated:** 2026-02-21  

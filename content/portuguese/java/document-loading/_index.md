@@ -116,20 +116,3 @@ A: Absolutamente. Use o método `getPage(int pageNumber)` para renderizar págin
 
 **Q: Como o GroupDocs.Redaction lida com documentos grandes?**  
 A: A biblioteca transmite páginas para a memória, permitindo visualizar até arquivos com centenas de páginas sem carregar todo o documento de uma vez.
-
-## PALAVRAS‑CHAVE‑ALVO:
-
-**Primary Keyword (HIGHEST PRIORITY):**  
-preview document pages java
-
-**Secondary Keywords (SUPPORTING):**  
-load documents java, redact password protected java, load document local java
-
-**Estratégia de Integração de Palavras‑Chave:**  
-1. Palavra‑chave principal: Use 3‑5 vezes (título, meta, primeiro parágrafo, cabeçalho H2, corpo).  
-2. Palavras‑chave secundárias: Use 1‑2 vezes cada (cabeçalhos, texto do corpo).  
-3. Todas as palavras‑chave devem ser integradas naturalmente – priorize a legibilidade sobre a contagem de palavras‑chave.
-
-**Última atualização:** 2026-02-21  
-**Testado com:** GroupDocs.Redaction para Java última versão  
-**Autor:** GroupDocs
