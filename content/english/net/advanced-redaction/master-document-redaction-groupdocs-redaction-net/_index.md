@@ -1,5 +1,5 @@
 ---
-title: "How to Secure Sensitive Documents in .NET with GroupDocs.Redaction"
+title: "Redact Sensitive Documents in .NET with GroupDocs.Redaction"
 description: "Learn how to secure sensitive documents with GroupDocs.Redaction for .NET. This guide covers setup, redaction techniques, and best practices."
 date: "2026-04-07"
 weight: 1

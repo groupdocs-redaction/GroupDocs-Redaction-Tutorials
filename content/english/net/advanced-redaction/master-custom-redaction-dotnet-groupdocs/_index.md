@@ -1,5 +1,5 @@
 ---
-title: "Learn to Redact PDF Files in .NET with GroupDocs.Redaction"
+title: "Implement PDF Redaction in .NET with GroupDocs.Redaction"
 description: "Implement PDF redaction in .NET using GroupDocs.Redaction to remove sensitive text and securely save redacted PDFs."
 date: "2026-04-07"
 weight: 1
@@ -66,7 +66,7 @@ Custom redaction gives you fine‑grained control, perfect for scenarios like **
 
 #### Step 1: define source and destination paths
 ```csharp
-string sourceFile = "YOUR_DOCUMENT_DIRECTORY/LOREMIPSUM_PDF.pdf";
+string sourceFile = "C:/Docs/sample.pdf";
 ```
 
 #### Step 2: build a regular expression and replacement options
@@ -112,7 +112,7 @@ public class TextRedactor : ICustomRedactionHandler
         
         try
         {
-            Regex regex = new Regex(@"Lorem ipsum");
+            Regex regex = new Regex(@"Sample");
             if (regex.IsMatch(context.Text))
             {
                 string redactedText = regex.Replace(context.Text, "[redacted‑custom]");
