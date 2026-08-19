@@ -1,5 +1,5 @@
 ---
-title: "Setup GroupDocs Redaction Java: Exact Phrase Redaction"
+title: "Implement Exact Phrase Redaction and Advanced Rasterization in Java"
 description: "Learn how to setup GroupDocs Redaction Java, then secure documents with exact phrase redaction and advanced rasterization options."
 date: "2026-04-10"
 weight: 1
@@ -36,7 +36,7 @@ Setting up GroupDocs Redaction in a Java project means adding the library to you
 - Maven 3 or a compatible IDE (IntelliJ IDEA, Eclipse, etc.)  
 - Basic familiarity with Java syntax and Maven dependency management  
 
-## Setting Up GroupDocs.Redaction for Java
+## Setting up GroupDocs.Redaction for java
 
 ### Maven Setup
 
@@ -68,7 +68,7 @@ If you prefer a manual approach, grab the latest JAR from the official site: [Gr
 
 GroupDocs offers a free trial for evaluation. For production workloads, obtain a temporary or full‑scale license from the GroupDocs portal.
 
-### Basic Initialization and Setup
+### Basic initialization and setup
 
 Once the library is on your classpath, create a `Redactor` instance pointing at the document you want to protect:
 
@@ -86,7 +86,7 @@ public class Main {
 
 ## Implementation Guide
 
-### Exact Phrase Redaction
+### Exact phrase redaction
 
 This feature lets you replace a specific string with a placeholder, a mask, or any custom text you define.
 
@@ -117,7 +117,7 @@ try {
 - Verify the file path; a wrong path triggers `FileNotFoundException`.  
 - Remember Java strings are case‑sensitive; use `String.equalsIgnoreCase` logic if you need case‑insensitive matching.
 
-### Advanced Rasterization Options for Secure Document Saving
+### Advanced rasterization options for secure document saving
 
 Rasterization converts each page into an image, allowing you to add visual security measures such as grayscale, noise, or borders.
 
@@ -174,7 +174,7 @@ try {
 
 By mastering **setup GroupDocs Redaction Java**, you now have a powerful toolkit for exact phrase redaction and advanced rasterization. These capabilities let you protect confidential information while keeping document usability intact. Next, explore other redaction types (image, barcode, regex) or integrate the library into a larger document‑management workflow.
 
-## Frequently Asked Questions
+## Frequently asked questions
 
 **Q: How do I customize the replacement text in exact phrase redaction?**  
 A: Pass any string you like to `ReplacementOptions`; it will replace the matched phrase verbatim.

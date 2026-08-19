@@ -1,5 +1,5 @@
 ---
-title: "Custom Redaction Handler Java for GroupDocs.Redaction"
+title: "Implement a Custom Redaction Handler in Java for GroupDocs.Redaction"
 description: "Learn how to implement a custom redaction handler Java for GroupDocs.Redaction, apply redaction policies, callbacks, and AI‑assisted redaction in your Java applications."
 date: 2026-04-10
 weight: 9
@@ -11,7 +11,7 @@ keywords:
 - redaction policies java
 ---
 
-# Custom Redaction Handler Java for GroupDocs.Redaction
+# Implement a Custom Redaction Handler in Java for GroupDocs.Redaction
 
 In this guide you’ll discover **how to create a custom redaction handler Java** that plugs directly into GroupDocs.Redaction. We’ll walk through the why, when, and how of extending the built‑in redaction engine so you can meet complex compliance requirements, integrate with external data sources, and add AI‑driven decision logic. Whether you’re building a secure document portal, an automated compliance pipeline, or a custom audit‑trail solution, mastering a custom redaction handler gives you total control over what gets redacted and how.
 
@@ -49,6 +49,26 @@ Add the GroupDocs.Redaction artifact to your project. This step is unchanged fro
 Implement the `RedactionHandler` interface (or extend `BaseRedactionHandler`). Inside the `handle` method, you can inspect the `RedactionInfo` object, call external services, or apply AI models.  
 *Keep the original code unchanged; the example below is provided for context only.*
 
+```java
+package com.example.redaction;
+
+import com.groupdocs.redaction.redaction.RedactionHandler;
+import com.groupdocs.redaction.redaction.RedactionInfo;
+import com.groupdocs.redaction.redaction.RedactionResult;
+
+public class CustomRedactionHandler implements RedactionHandler {
+    @Override
+    public RedactionResult handle(RedactionInfo info) {
+        // Example: block redaction of any term containing "CONFIDENTIAL"
+        if (info.getText().contains("CONFIDENTIAL")) {
+            return RedactionResult.reject("Proprietary term detected");
+        }
+        // Otherwise, approve the redaction
+        return RedactionResult.approve();
+    }
+}
+```
+
 ### Step 3: Register the handler with the Redaction engine
 When you instantiate the `RedactionEngine`, pass your handler instance via the `RedactionOptions` object. This tells GroupDocs.Redaction to invoke your logic during processing.
 
@@ -58,29 +78,29 @@ Create a `RedactionPolicy` that references the custom handler, then call `engine
 ### Step 5: Test and verify
 Run unit tests that feed documents containing both standard and custom-sensitive data. Verify that the output matches expectations and that the handler logs appropriate details (use the advanced logging tutorial linked below for deeper insight).
 
-## Common Issues and Solutions
+## Common issues and solutions
 - **Handler not invoked:** Ensure the handler is correctly attached to `RedactionOptions` and that the policy references it.  
 - **Performance bottleneck:** If your external service call is slow, consider caching results or batching requests.  
 - **AI model integration errors:** Verify that the model’s input format matches the text extracted by GroupDocs.Redaction.  
 
 ## Available Tutorials
 
-### [Implement Advanced Logging in Java with GroupDocs Redaction&#58; A Comprehensive Guide](./advanced-logging-groupdocs-redaction-java/)
+### [Implement advanced logging in Java with GroupDocs Redaction: a comprehensive guide]({{< relref "advanced-logging-groupdocs-redaction-java/_index.md" >}})
 Master advanced logging techniques using GroupDocs Redaction for Java. Learn to implement custom loggers, monitor document redactions effectively, and optimize your debugging process.
 
-### [Java Redaction Guide&#58; Secure Document Processing with GroupDocs](./java-redaction-groupdocs-guide/)
+### [Java redaction guide: secure document processing with GroupDocs]({{< relref "java-redaction-groupdocs-guide/_index.md" >}})
 Master secure document redaction in Java using GroupDocs.Redaction. Learn setup, policy application, and processing techniques for sensitive data management.
 
-### [Master Document Redaction in Java Using GroupDocs.Redaction&#58; A Comprehensive Guide for Privacy Compliance](./master-document-redaction-java-groupdocs-redaction/)
+### [Master document redaction in Java using GroupDocs.Redaction: a comprehensive guide for privacy compliance]({{< relref "master-document-redaction-java-groupdocs-redaction/_index.md" >}})
 Learn to redact sensitive information from documents using GroupDocs.Redaction for Java. Protect data and comply with privacy laws effortlessly.
 
-### [Master Document Redaction in Java with GroupDocs.Redaction&#58; A Comprehensive Guide](./master-document-redaction-groupdocs-redaction-java/)
+### [Master document redaction in Java with GroupDocs.Redaction: a comprehensive guide]({{< relref "master-document-redaction-groupdocs-redaction-java/_index.md" >}})
 Learn how to redact sensitive information from documents using GroupDocs.Redaction for Java. Enhance document security and privacy effectively.
 
-### [Master Redaction Techniques with GroupDocs.Redaction for Java&#58; A Step‑By‑Step Guide](./master-redaction-groupdocs-java-guide/)
+### [Master Redaction Techniques with GroupDocs.Redaction for Java: A Step‑By‑Step Guide]({{< relref "master-redaction-groupdocs-java-guide/_index.md" >}})
 Learn to redact sensitive data in documents using GroupDocs.Redaction for Java. This guide covers configuration, policy management, and practical applications.
 
-### [Mastering Document Security in Java&#58; Exact Phrase Redaction and Advanced Rasterization with GroupDocs.Redaction](./groupdocs-redaction-java-document-security/)
+### [Mastering Document Security in Java: Exact Phrase Redaction and Advanced Rasterization with GroupDocs.Redaction]({{< relref "groupdocs-redaction-java-document-security/_index.md" >}})
 Learn how to secure sensitive information in documents using GroupDocs.Redaction for Java. Implement exact phrase redaction and advanced rasterization options seamlessly.
 
 ## Additional Resources
