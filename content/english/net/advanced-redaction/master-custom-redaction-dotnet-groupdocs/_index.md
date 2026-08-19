@@ -1,6 +1,6 @@
 ---
-title: "How to Redact PDF in .NET with GroupDocs.Redaction"
-description: "Learn how to redact PDF files in .NET using GroupDocs.Redaction, remove text PDF, and save redacted PDF securely."
+title: "Learn to Redact PDF Files in .NET with GroupDocs.Redaction"
+description: "Implement PDF redaction in .NET using GroupDocs.Redaction to remove sensitive text and securely save redacted PDFs."
 date: "2026-04-07"
 weight: 1
 url: "/net/advanced-redaction/master-custom-redaction-dotnet-groupdocs/"
@@ -52,7 +52,7 @@ Install-Package GroupDocs.Redaction
 **NuGet Package Manager UI**  
 Search for “GroupDocs.Redaction” and install the latest version.
 
-### License Acquisition Steps
+### License acquisition steps
 - **Free Trial**: Access a temporary license to explore full features.  
 - **Purchase**: For long‑term usage, purchase a subscription from [GroupDocs](https://purchase.groupdocs.com/).
 
@@ -64,12 +64,12 @@ Custom redaction gives you fine‑grained control, perfect for scenarios like **
 
 ### Step‑by‑Step Implementation
 
-#### Step 1: Define Source and Destination Paths
+#### Step 1: define source and destination paths
 ```csharp
 string sourceFile = "YOUR_DOCUMENT_DIRECTORY/LOREMIPSUM_PDF.pdf";
 ```
 
-#### Step 2: Build a Regular Expression and Replacement Options  
+#### Step 2: build a regular expression and replacement options
 Here we use a simple `.*` pattern to illustrate the flow; replace it with a more precise regex for real use cases (e.g., SSN, credit‑card numbers).
 
 ```csharp
@@ -78,7 +78,7 @@ ReplacementOptions optionsText = new ReplacementOptions("[replaced]");
 optionsText.CustomRedaction = new TextRedactor();
 ```
 
-#### Step 3: Create the Redaction and Apply It  
+#### Step 3: create the redaction and apply it
 The `PageAreaRedaction` object ties the regex to the custom handler.
 
 ```csharp
@@ -100,7 +100,7 @@ using (Redactor redactor = new Redactor(sourceFile))
 }
 ```
 
-#### Step 4: Implement a Custom Redaction Handler  
+#### Step 4: implement a custom redaction handler
 The handler lets you rewrite matched text exactly the way you need it.
 
 ```csharp
@@ -130,7 +130,7 @@ public class TextRedactor : ICustomRedactionHandler
 }
 ```
 
-### Why Use a Custom Handler?
+### Why use a custom handler?
 - **Precision** – Target only the exact phrases you need.  
 - **Flexibility** – Replace text with custom strings, masks, or even images.  
 - **Compliance** – Ensure that removed data cannot be recovered, meeting legal standards.
@@ -140,7 +140,7 @@ public class TextRedactor : ICustomRedactionHandler
 - Verify that the application has read/write permissions for the source and output folders.  
 - Use the `RedactorChangeLog` to inspect which pages were modified.
 
-## Practical Use Cases
+## Practical use cases
 
 | Scenario | How Redaction Helps |
 |----------|---------------------|
@@ -165,7 +165,7 @@ You now have a complete, production‑ready workflow for **how to redact PDF** f
 - Experiment with more complex regex patterns (e.g., credit‑card numbers, email addresses).  
 - Integrate the redaction service into your existing document‑management pipeline.
 
-## Frequently Asked Questions
+## Frequently asked questions
 
 **Q: Can I redact password‑protected PDFs?**  
 A: Yes. Open the document with the appropriate password before creating the `Redactor` instance.

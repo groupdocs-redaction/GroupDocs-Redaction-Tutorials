@@ -1,5 +1,5 @@
 ---
-title: "Secure Sensitive Documents in .NET Using GroupDocs.Redaction"
+title: "How to Secure Sensitive Documents in .NET with GroupDocs.Redaction"
 description: "Learn how to secure sensitive documents with GroupDocs.Redaction for .NET. This guide covers setup, redaction techniques, and best practices."
 date: "2026-04-07"
 weight: 1
@@ -70,7 +70,7 @@ With this setup, you're ready to leverage the full suite of document redaction f
 
 ## How to Secure Sensitive Documents with GroupDocs.Redaction
 
-### Step 1: Open the Document for Redaction  
+### Step 1: open the document for redaction
 Opening the file creates a `Redactor` instance that prepares the document for modifications.
 
 ```csharp
@@ -82,7 +82,7 @@ using (Redactor redactor = new Redactor(sourceFile))
 }
 ```
 
-### Step 2: Apply Exact Phrase Redaction  
+### Step 2: apply exact phrase redaction
 Replace occurrences of a confidential phrase (e.g., “John Doe”) with a black rectangle, effectively **remove personal data pdf**‑style redaction.
 
 ```csharp
@@ -95,16 +95,16 @@ if (result.Status != RedactionStatus.Failed)
 }
 ```
 
-### Step 3: Redact Text in Word Documents  
+### Step 3: redact text in word documents
 If you need to **redact text word** documents, the same `ExactPhraseRedaction` works for DOCX files. Just point the `Redactor` to a `.docx` file and apply the same logic.
 
-### Step 4: Redact Images Inside Documents  
+### Step 4: redact images inside documents
 To **redact images documents**, use the `ImageRedaction` class (not shown here to keep the original code count). The API lets you specify bounding boxes or replace images with a placeholder color.
 
-### Step 5: Save and Verify  
+### Step 5: save and verify
 After applying all desired redactions, always save the file and optionally run a verification pass to ensure no sensitive data remains.
 
-## Document Redaction Best Practices
+## Document redaction best practices
 - **Plan your redaction patterns** before coding – know which phrases, regexes, or image types need masking.  
 - **Test on a copy** of the document first; redactions are irreversible.  
 - **Use async processing** for large files to avoid UI freezes.  
@@ -129,7 +129,7 @@ You can embed GroupDocs.Redaction into existing document management systems, aut
 - Leverage asynchronous methods (`await redactor.SaveAsync(...)`) when processing many files.  
 - Monitor CPU and RAM usage with profiling tools during large‑scale operations.
 
-## Frequently Asked Questions
+## Frequently asked questions
 
 **Q: What file formats does GroupDocs.Redaction support?**  
 A: It supports a wide range, including PDF, DOCX, PPTX, and more.
