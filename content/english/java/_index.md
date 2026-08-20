@@ -20,52 +20,52 @@ In today's data‑driven world, **pdf redaction java** is a critical capability 
 
 Below is the complete list of hands‑on guides. Each link opens a dedicated tutorial that walks you through the setup, code, and best practices for a specific redaction task.
 
-### [Getting Started]({{< relref "getting-started/_index.md" >}})
+### [Getting Started](/redaction/java/getting-started/)
 Step‑by‑step tutorials for GroupDocs.Redaction installation, licensing, setup, and creating your first document redactions in Java applications.
 
-### [Document Loading]({{< relref "document-loading/_index.md" >}})
+### [Document Loading](/redaction/java/document-loading/)
 Learn how to load documents from various sources including local disk, streams, and password‑protected files using GroupDocs.Redaction for Java.
 
-### [Document Saving]({{< relref "document-saving/_index.md" >}})
+### [Document Saving](/redaction/java/document-saving/)
 Complete tutorials for saving redacted documents in original format, as rasterized PDF, or to streams using GroupDocs.Redaction for Java.
 
-### [Text Redaction]({{< relref "text-redaction/_index.md" >}})
+### [Text Redaction](/redaction/java/text-redaction/)
 Step‑by‑step tutorials for implementing text‑based redactions using exact phrases, regular expressions, and case sensitivity options in GroupDocs.Redaction for Java.
 
-### [Metadata Redaction]({{< relref "metadata-redaction/_index.md" >}})
+### [Metadata Redaction](/redaction/java/metadata-redaction/)
 Learn to clean and redact document metadata including properties, comments, and hidden information with these GroupDocs.Redaction Java tutorials.
 
-### [Image Redaction]({{< relref "image-redaction/_index.md" >}})
+### [Image Redaction](/redaction/java/image-redaction/)
 Complete tutorials for redacting areas of images, removing embedded images, and cleaning image metadata using GroupDocs.Redaction for Java.
 
-### [Annotation Redaction]({{< relref "annotation-redaction/_index.md" >}})
+### [Annotation Redaction](/redaction/java/annotation-redaction/)
 Step‑by‑step tutorials for managing and redacting document annotations, comments, and review markup in GroupDocs.Redaction for Java.
 
-### [Page Redaction]({{< relref "page-redaction/_index.md" >}})
+### [Page Redaction](/redaction/java/page-redaction/)
 Learn to remove pages, page ranges, and work with specific page content using GroupDocs.Redaction for Java.
 
-### [Advanced Redaction]({{< relref "advanced-redaction/_index.md" >}})
+### [Advanced Redaction](/redaction/java/advanced-redaction/)
 Complete tutorials for implementing custom redaction handlers, redaction policies, callbacks, and AI‑assisted redaction in GroupDocs.Redaction for Java.
 
-### [OCR Integration]({{< relref "ocr-integration/_index.md" >}})
+### [OCR Integration](/redaction/java/ocr-integration/)
 Step‑by‑step tutorials for using OCR technologies to redact text in images and scanned documents with GroupDocs.Redaction for Java.
 
-### [PDF‑Specific Redaction]({{< relref "pdf-specific-redaction/_index.md" >}})
+### [PDF‑Specific Redaction](/redaction/java/pdf-specific-redaction/)
 Learn advanced PDF document redaction techniques, filters, and specialized handling with GroupDocs.Redaction for Java.
 
-### [Spreadsheet Redaction]({{< relref "spreadsheet-redaction/_index.md" >}})
+### [Spreadsheet Redaction](/redaction/java/spreadsheet-redaction/)
 Complete tutorials for column and cell‑specific redaction for Excel and other spreadsheet formats using GroupDocs.Redaction for Java.
 
-### [Rasterization Options]({{< relref "rasterization-options/_index.md" >}})
+### [Rasterization Options](/redaction/java/rasterization-options/)
 Step‑by‑step tutorials for configuring advanced options for rasterized PDF output including noise, tilt, grayscale, and borders in GroupDocs.Redaction for Java.
 
-### [Format Handling]({{< relref "format-handling/_index.md" >}})
+### [Format Handling](/redaction/java/format-handling/)
 Learn to work with different file formats, create custom format handlers, and extend format support using GroupDocs.Redaction for Java.
 
-### [Document Information]({{< relref "document-information/_index.md" >}})
+### [Document Information](/redaction/java/document-information/)
 Complete tutorials for retrieving document information, supported formats, and generating page previews with GroupDocs.Redaction for Java.
 
-### [Licensing & configuration]({{< relref "licensing-configuration/_index.md" >}})
+### [Licensing & configuration](/redaction/java/licensing-configuration/)
 Step‑by‑step tutorials for setting up licenses, configuring GroupDocs.Redaction, and implementing metered licensing in Java applications.
 
 ## How to redact text java with GroupDocs.Redaction

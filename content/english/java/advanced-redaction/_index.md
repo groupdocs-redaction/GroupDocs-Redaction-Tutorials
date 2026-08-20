@@ -85,22 +85,22 @@ Run unit tests that feed documents containing both standard and custom-sensitive
 
 ## Available Tutorials
 
-### [Implement advanced logging in Java with GroupDocs Redaction: a comprehensive guide]({{< relref "advanced-logging-groupdocs-redaction-java/_index.md" >}})
+### [Implement advanced logging in Java with GroupDocs Redaction: a comprehensive guide](/redaction/java/advanced-redaction/advanced-logging-groupdocs-redaction-java/)
 Master advanced logging techniques using GroupDocs Redaction for Java. Learn to implement custom loggers, monitor document redactions effectively, and optimize your debugging process.
 
-### [Java redaction guide: secure document processing with GroupDocs]({{< relref "java-redaction-groupdocs-guide/_index.md" >}})
+### [Java redaction guide: secure document processing with GroupDocs](/redaction/java/advanced-redaction/java-redaction-groupdocs-guide/)
 Master secure document redaction in Java using GroupDocs.Redaction. Learn setup, policy application, and processing techniques for sensitive data management.
 
-### [Master document redaction in Java using GroupDocs.Redaction: a comprehensive guide for privacy compliance]({{< relref "master-document-redaction-java-groupdocs-redaction/_index.md" >}})
+### [Master document redaction in Java using GroupDocs.Redaction: a comprehensive guide for privacy compliance](/redaction/java/advanced-redaction/master-document-redaction-java-groupdocs-redaction/)
 Learn to redact sensitive information from documents using GroupDocs.Redaction for Java. Protect data and comply with privacy laws effortlessly.
 
-### [Master document redaction in Java with GroupDocs.Redaction: a comprehensive guide]({{< relref "master-document-redaction-groupdocs-redaction-java/_index.md" >}})
+### [Master document redaction in Java with GroupDocs.Redaction: a comprehensive guide](/redaction/java/advanced-redaction/master-document-redaction-groupdocs-redaction-java/)
 Learn how to redact sensitive information from documents using GroupDocs.Redaction for Java. Enhance document security and privacy effectively.
 
-### [Master Redaction Techniques with GroupDocs.Redaction for Java: A Step‑By‑Step Guide]({{< relref "master-redaction-groupdocs-java-guide/_index.md" >}})
+### [Master Redaction Techniques with GroupDocs.Redaction for Java: A Step‑By‑Step Guide](/redaction/java/advanced-redaction/master-redaction-groupdocs-java-guide/)
 Learn to redact sensitive data in documents using GroupDocs.Redaction for Java. This guide covers configuration, policy management, and practical applications.
 
-### [Mastering Document Security in Java: Exact Phrase Redaction and Advanced Rasterization with GroupDocs.Redaction]({{< relref "groupdocs-redaction-java-document-security/_index.md" >}})
+### [Mastering Document Security in Java: Exact Phrase Redaction and Advanced Rasterization with GroupDocs.Redaction](/redaction/java/advanced-redaction/groupdocs-redaction-java-document-security/)
 Learn how to secure sensitive information in documents using GroupDocs.Redaction for Java. Implement exact phrase redaction and advanced rasterization options seamlessly.
 
 ## Additional Resources
