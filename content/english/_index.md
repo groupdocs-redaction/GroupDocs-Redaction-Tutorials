@@ -127,9 +127,9 @@ GroupDocs.Redaction works without requiring external software installations like
 
 Whether you’re developing with .NET or Java, GroupDocs.Redaction provides the tools you need to implement secure document redaction capabilities efficiently. Browse our comprehensive tutorials to start implementing powerful redaction features in your applications.
 
-- [Download free trial]({{< relref "https://releases.groupdocs.com/redaction/" >}})
-- [API Documentation]({{< relref "https://reference.groupdocs.com/redaction/" >}})
-- [Get temporary license]({{< relref "https://purchase.groupdocs.com/temporary-license/" >}})
-- [Visit our forum]({{< relref "https://forum.groupdocs.com/c/redaction/33/" >}})
+- [Download free trial](https://releases.groupdocs.com/redaction/)
+- [API Documentation](https://reference.groupdocs.com/redaction/)
+- [Get temporary license](https://purchase.groupdocs.com/temporary-license/)
+- [Visit our forum](https://forum.groupdocs.com/c/redaction/33/)
 
 ---
