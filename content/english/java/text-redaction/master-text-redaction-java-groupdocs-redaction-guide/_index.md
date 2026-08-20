@@ -1,34 +1,96 @@
 ---
-title: "How to Redact Text in Java with GroupDocs.Redaction: A Complete Guide"
-description: "Discover how to redact text using regex in Java with GroupDocs.Redaction. This step‑by‑step tutorial shows you how to apply regex, configure save options, and protect sensitive data."
-date: "2026-03-01"
-weight: 1
-url: "/java/text-redaction/master-text-redaction-java-groupdocs-redaction-guide/"
+date: '2026-08-20'
+description: Discover how to redact text using regex in Java with GroupDocs.Redaction.
+  This step‑by‑step tutorial shows you how to apply regex, configure save options,
+  and protect sensitive data.
+images:
+- /java/text-redaction/master-text-redaction-java-groupdocs-redaction-guide/og-image.png
 keywords:
-- text redaction in Java
-- regex text redaction
+- how to redact text
+- mask credit card numbers
+- remove social security numbers
+- redact pdf java
+lastmod: '2026-08-20'
+og_description: Learn how to redact text in Java using GroupDocs.Redaction. This guide
+  explains regex redaction, save‑option configuration, and performance tips for protecting
+  sensitive data.
+og_image_alt: Guide showing Java code to redact text using GroupDocs.Redaction
+og_title: How to redact text in Java with GroupDocs.Redaction
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-20'
+  description: Discover how to redact text using regex in Java with GroupDocs.Redaction.
+    This step‑by‑step tutorial shows you how to apply regex, configure save options,
+    and protect sensitive data.
+  headline: 'How to redact text in Java with GroupDocs.Redaction: A complete guide'
+  type: TechArticle
+- description: Discover how to redact text using regex in Java with GroupDocs.Redaction.
+    This step‑by‑step tutorial shows you how to apply regex, configure save options,
+    and protect sensitive data.
+  name: 'How to redact text in Java with GroupDocs.Redaction: A complete guide'
+  steps:
+  - name: import required classes
+    text: 'The following imports give you access to the redaction API:'
+  - name: initialize redactor and apply regex pattern
+    text: '`RegexRedaction` represents a redaction rule based on a regular‑expression
+      pattern. The pattern you provide determines which text fragments are replaced.
+      - **Regex explanation**: The pattern `\b\d{3}-\d{2}-\d{4}\b` matches U.S. Social
+      Security numbers (three digits, a dash, two digits, a dash, four '
+  - name: configure save options
+    text: '`SaveOptions` controls how the redacted file is written. Adding a suffix
+      makes it clear which files have been processed, while preserving the original
+      format avoids unwanted conversion. - **Save options**: `setAddSuffix(true)`
+      automatically appends “_redacted” to the output filename, preventing acci'
+  - name: customize additional save settings
+    text: 'You can further tailor the output—such as preserving metadata or flattening
+      annotations—by adjusting the `SaveOptions` object. - **Key configuration**:
+      Setting `setPreserveMetadata(true)` retains original document properties, which
+      is often required for compliance audits.'
+  type: HowTo
+- questions:
+  - answer: It automatically appends a suffix (e.g., `_redacted`) to the output filename,
+      making it obvious which files have been processed.
+    question: What is the purpose of `setAddSuffix(true)` in SaveOptions?
+  - answer: Absolutely. Any valid Java regular expression can be supplied to `RegexRedaction`
+      to target emails, phone numbers, custom IDs, etc.
+    question: Can I use regex patterns other than numbers for text redaction?
+  - answer: Wrap the redaction logic in a try‑catch block, log the exception, and
+      always close the `Redactor` in a finally clause to release resources.
+    question: How should I handle errors during redaction?
+  - answer: Yes. GroupDocs.Redaction works with PDF, DOCX, PPTX, and many other formats.
+    question: Is PDF redaction supported?
+  - answer: Use batch processing, keep regex patterns simple, and monitor memory usage
+      with profiling tools.
+    question: What are best practices for large‑scale redaction projects?
+  type: FAQPage
+tags:
+- text redaction
 - GroupDocs.Redaction
+- Java document processing
+- regex redaction
+- PDF redaction
+title: 'How to redact text in Java with GroupDocs.Redaction: A complete guide'
 type: docs
+url: /java/text-redaction/master-text-redaction-java-groupdocs-redaction-guide/
+weight: 1
 ---
 
-# How to Redact Text in Java with GroupDocs.Redaction: A Complete Guide
+# How to redact text in Java with GroupDocs.Redaction: A complete guide
 
-In today’s fast‑moving digital world, **how to redact text** in documents is a question many developers face. Whether you’re protecting personal data, complying with regulations, or simply cleaning up drafts, this guide walks you through using GroupDocs.Redaction for Java to **how to apply regex**‑based redaction quickly and safely.
+In today’s fast‑moving digital world, **how to redact text** in documents is a question many developers face. Whether you’re protecting personal data, complying with regulations, or simply cleaning up drafts, this guide walks you through using GroupDocs.Redaction for Java to **apply regex‑based redaction quickly and safely**. You’ll learn why redaction matters, how to configure the library, and best‑practice tips for high‑performance processing.
 
-We'll cover everything from setting up the library, writing the regex pattern, configuring save options, to real‑world use cases that illustrate why redaction matters.
-
-## Quick Answers
-- **What is the primary purpose of GroupDocs.Redaction?** It provides a reliable API to locate and mask sensitive text in many document formats.  
+## Quick answers
+- **What is the primary purpose of GroupDocs.Redaction?** It provides a reliable API to locate and mask sensitive text in more than 50 document formats.  
 - **How do I apply regex for redaction?** Create a `RegexRedaction` object with your pattern and pass it to the `Redactor.apply()` method.  
 - **Do I need a license?** A free trial works for development; a paid license unlocks full features for production.  
-- **Can I redact PDFs as well as DOCX files?** Yes—GroupDocs.Redaction supports PDF, DOCX, PPTX, and more.  
-- **What’s the best way to improve performance?** Close `Redactor` instances promptly and keep regex patterns as simple as possible.
+- **Can I redact PDFs as well as DOCX files?** Yes—GroupDocs.Redaction supports PDF, DOCX, PPTX, and many other formats.  
+- **What’s the best way to improve performance?** Close `Redactor` instances promptly, keep regex patterns simple, and process files in batches.
 
 ## What is text redaction and why does it matter?
-Text redaction is the process of permanently removing or obscuring sensitive information from a document. It ensures that confidential data—like social security numbers, medical records, or financial details—cannot be recovered or viewed by unauthorized parties.
+Text redaction permanently removes or obscures sensitive information from a document, ensuring that confidential data—such as social security numbers, credit‑card details, or medical records—cannot be recovered or viewed by unauthorized parties. It works by overwriting the original characters or replacing them with a mask, so the hidden content cannot be extracted by copy‑paste or OCR tools. This ensures compliance with privacy regulations and protects individuals from identity theft or data breaches.
 
 ## Why use regex for text redaction?
-Regular expressions let you define flexible patterns that match a wide range of data formats (e.g., phone numbers, credit‑card numbers). Using regex with GroupDocs.Redaction gives you precise control over what gets hidden, while keeping the implementation concise.
+Regular expressions let you define flexible patterns that match a wide range of data formats (e.g., phone numbers, credit‑card numbers). Using regex with GroupDocs.Redaction gives you precise control over what gets hidden, while keeping the implementation concise and maintainable.
 
 ## Prerequisites
 Before we dive in, make sure you have:
@@ -37,10 +99,10 @@ Before we dive in, make sure you have:
 - Basic familiarity with Java syntax and regular expressions.  
 - An IDE such as **IntelliJ IDEA** or **Eclipse** to run and debug the code.  
 
-## Setting Up GroupDocs.Redaction for Java
+## Setting up GroupDocs.Redaction for Java
 First, add the library to your project.
 
-### Maven Setup
+### Maven setup
 If you use Maven, insert the following into your `pom.xml`:
 
 ```xml
@@ -61,10 +123,12 @@ If you use Maven, insert the following into your `pom.xml`:
 </dependencies>
 ```
 
-### Direct Download
+### Direct download
 Alternatively, download the latest JAR from [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
-### Basic Initialization
+### Basic initialization
+`Redactor` is the core class that opens a document, applies redaction rules, and writes the output.
+
 Once the library is available, you can start redacting documents:
 
 ```java
@@ -82,12 +146,13 @@ public class RedactionExample {
 ```
 
 ## How to redact text using regex in Java?
-Below is a step‑by‑step walkthrough that shows **how to redact text** with a regular expression pattern.
+The process involves loading the source file into a `Redactor` instance, creating a `RegexRedaction` rule that defines the pattern to match, applying the rule with `redactor.apply()`, and finally saving the modified document using `SaveOptions`. By following these steps you can reliably locate and mask any sensitive strings across supported formats.
 
-### Feature 1: Regular Expression Text Redaction
-**Overview**: This feature demonstrates the core `RegexRedaction` workflow.
+The `Redactor` class is the core component that opens a document, applies redaction rules, and writes the output file. It manages resources internally, so you must close it after processing to free memory.
 
-#### Step 3.1: Import Required Classes
+### Step 1: import required classes
+The following imports give you access to the redaction API:
+
 ```java
 import com.groupdocs.redaction.Redactor;
 import com.groupdocs.redaction.options.SaveOptions;
@@ -95,7 +160,9 @@ import com.groupdocs.redaction.redactions.RegexRedaction;
 import com.groupdocs.redaction.redactions.ReplacementOptions;
 ```
 
-#### Step 3.2: Initialize Redactor and Apply Regex Pattern
+### Step 2: initialize redactor and apply regex pattern
+`RegexRedaction` represents a redaction rule based on a regular‑expression pattern. The pattern you provide determines which text fragments are replaced.
+
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX");
 try {
@@ -106,9 +173,11 @@ try {
         new ReplacementOptions(java.awt.Color.BLUE)));
 ```
 
-- **Regex Explanation**: The pattern matches numeric sequences that follow a specific format (e.g., dates or ID numbers). The `ReplacementOptions` use a blue overlay to indicate the redacted area.
+- **Regex explanation**: The pattern `\b\d{3}-\d{2}-\d{4}\b` matches U.S. Social Security numbers (three digits, a dash, two digits, a dash, four digits). `ReplacementOptions` lets you choose a solid black overlay or a custom text mask.
 
-#### Step 3.3: Configure Save Options
+### Step 3: configure save options
+`SaveOptions` controls how the redacted file is written. Adding a suffix makes it clear which files have been processed, while preserving the original format avoids unwanted conversion.
+
 ```java
     // Configure save options
     SaveOptions saveOptions = new SaveOptions();
@@ -122,16 +191,11 @@ try {
 }
 ```
 
-- **Save Options**: Adding a suffix makes it clear which files have been processed, while keeping the original format avoids unwanted conversion.
+- **Save options**: `setAddSuffix(true)` automatically appends “_redacted” to the output filename, preventing accidental overwrites.
 
-#### Troubleshooting Tips
-- Verify that the regex accurately captures the data you intend to hide.  
-- Double‑check file paths and ensure the application has read/write permissions.  
+### Step 4: customize additional save settings
+You can further tailor the output—such as preserving metadata or flattening annotations—by adjusting the `SaveOptions` object.
 
-### Feature 2: Saving Options Configuration
-**Overview**: Fine‑tune the output file after redaction.
-
-#### Step 3.4: Customize Save Settings
 ```java
 import com.groupdocs.redaction.options.SaveOptions;
 
@@ -140,28 +204,28 @@ saveOptions.setAddSuffix(true);  // Indicates processing by adding a suffix
 saveOptions.setRasterizeToPDF(false);  // Keeps original format intact
 ```
 
-- **Key Configuration**: This snippet helps you manage output filenames and retain the original document structure.
+- **Key configuration**: Setting `setPreserveMetadata(true)` retains original document properties, which is often required for compliance audits.
 
-## Practical Applications
+## Practical applications
 Real‑world scenarios where **how to redact text** is essential:
 
-1. **Legal Documents** – Hide client identifiers before sharing drafts with external counsel.  
-2. **Medical Records** – Mask patient names, IDs, or health numbers to stay HIPAA‑compliant.  
-3. **Financial Reports** – Remove confidential account numbers when distributing quarterly summaries.  
+1. **Legal documents** – Hide client identifiers before sharing drafts with external counsel.  
+2. **Medical records** – Mask patient names, IDs, or health numbers to stay HIPAA‑compliant.  
+3. **Financial reports** – Remove confidential account numbers when distributing quarterly summaries.  
 
-## Performance Considerations
-- **Memory Management**: Always close `Redactor` instances (`redactor.close()`) to free resources.  
-- **Efficient Regex**: Simpler patterns run faster; avoid overly complex expressions when possible.  
-- **Batch Processing**: For large document sets, process files in batches to keep memory usage predictable.
+## Performance considerations
+- **Memory management**: Always call `redactor.close()` to release file handles and native resources.  
+- **Efficient regex**: Simpler patterns run faster; avoid excessive back‑tracking by using atomic groups when possible.  
+- **Batch processing**: For large document sets, process files in batches of 20–50 to keep heap usage predictable.
 
-## Common Issues and Solutions
+## Common issues and solutions
 | Issue | Solution |
 |-------|----------|
 | **Regex matches too much** | Test your pattern with an online regex tester and narrow the character classes. |
 | **Output file name conflict** | Use `setAddSuffix(true)` or provide a custom output path via `saveOptions.setOutputPath()`. |
 | **Memory leak on large PDFs** | Process PDFs page‑by‑page or increase JVM heap size (`-Xmx2g`). |
 
-## Frequently Asked Questions
+## Frequently asked questions
 
 **Q: What is the purpose of `setAddSuffix(true)` in SaveOptions?**  
 A: It automatically appends a suffix (e.g., `_redacted`) to the output filename, making it obvious which files have been processed.
@@ -178,16 +242,18 @@ A: Yes. GroupDocs.Redaction works with PDF, DOCX, PPTX, and many other formats.
 **Q: What are best practices for large‑scale redaction projects?**  
 A: Use batch processing, keep regex patterns simple, and monitor memory usage with profiling tools.
 
-## Resources
-For deeper dives and official guidance:
-
+## Additional resources
 - **Documentation**: [GroupDocs Redaction Documentation](https://docs.groupdocs.com/redaction/java/)  
-- **API Reference**: [GroupDocs API Reference](https://apireference.groupdocs.com/redaction/java)
+- **API reference**: [GroupDocs API Reference](https://apireference.groupdocs.com/redaction/java)
 
 ---
 
-**Last Updated:** 2026-03-01  
+**Last Updated:** 2026-08-20  
 **Tested With:** GroupDocs.Redaction 24.9 for Java  
 **Author:** GroupDocs
 
----
+## Related Tutorials
+
+- [Mask Sensitive Data Java – GroupDocs.Redaction Guide](/redaction/java/getting-started/)
+- [Mask Sensitive Data Java – Redact Personal Info with GroupDocs.Redaction](/redaction/java/advanced-redaction/master-document-redaction-java-groupdocs-redaction/)
+- [How to Redact PDF with Aspose OCR and Java - Implementing Regex Patterns using GroupDocs.Redaction](/redaction/java/ocr-integration/aspose-ocr-java-pdf-redaction/)

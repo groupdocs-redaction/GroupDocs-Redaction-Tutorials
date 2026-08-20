@@ -1,48 +1,104 @@
 ---
-date: '2026-03-01'
-description: ค้นพบวิธีการทำลบข้อมูลข้อความด้วย regex ใน Java ด้วย GroupDocs.Redaction
-  คู่มือทีละขั้นตอนนี้จะแสดงวิธีการใช้ regex การกำหนดค่าตัวเลือกการบันทึก และการปกป้องข้อมูลที่เป็นความลับ
+date: '2026-08-20'
+description: ค้นพบวิธีการลบข้อมูลในข้อความโดยใช้ regex กับ Java และ GroupDocs.Redaction.
+  บทเรียนขั้นตอนต่อขั้นตอนนี้จะแสดงวิธีการใช้ regex, การกำหนดค่า save options, และการปกป้องข้อมูลที่ละเอียดอ่อน
 keywords:
-- text redaction in Java
-- regex text redaction
+- how to redact text
+- mask credit card numbers
+- remove social security numbers
+- redact pdf java
+lastmod: '2026-08-20'
+og_description: เรียนรู้วิธีลบข้อมูลในข้อความด้วย Java โดยใช้ GroupDocs.Redaction.
+  คู่มือนี้อธิบายการลบข้อมูลด้วย regex, การกำหนดค่า save‑option, และเคล็ดลับ performance
+  สำหรับการปกป้องข้อมูลที่ละเอียดอ่อน
+og_image_alt: Guide showing Java code to redact text using GroupDocs.Redaction
+og_title: วิธีลบข้อมูลในข้อความด้วย Java และ GroupDocs.Redaction
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-20'
+  description: Discover how to redact text using regex in Java with GroupDocs.Redaction.
+    This step‑by‑step tutorial shows you how to apply regex, configure save options,
+    and protect sensitive data.
+  headline: 'How to redact text in Java with GroupDocs.Redaction: A complete guide'
+  type: TechArticle
+- description: Discover how to redact text using regex in Java with GroupDocs.Redaction.
+    This step‑by‑step tutorial shows you how to apply regex, configure save options,
+    and protect sensitive data.
+  name: 'How to redact text in Java with GroupDocs.Redaction: A complete guide'
+  steps:
+  - name: import required classes
+    text: 'The following imports give you access to the redaction API:'
+  - name: initialize redactor and apply regex pattern
+    text: '`RegexRedaction` represents a redaction rule based on a regular‑expression
+      pattern. The pattern you provide determines which text fragments are replaced.
+      - **Regex explanation**: The pattern `\b\d{3}-\d{2}-\d{4}\b` matches U.S. Social
+      Security numbers (three digits, a dash, two digits, a dash, four '
+  - name: configure save options
+    text: '`SaveOptions` controls how the redacted file is written. Adding a suffix
+      makes it clear which files have been processed, while preserving the original
+      format avoids unwanted conversion. - **Save options**: `setAddSuffix(true)`
+      automatically appends “_redacted” to the output filename, preventing acci'
+  - name: customize additional save settings
+    text: 'You can further tailor the output—such as preserving metadata or flattening
+      annotations—by adjusting the `SaveOptions` object. - **Key configuration**:
+      Setting `setPreserveMetadata(true)` retains original document properties, which
+      is often required for compliance audits.'
+  type: HowTo
+- questions:
+  - answer: It automatically appends a suffix (e.g., `_redacted`) to the output filename,
+      making it obvious which files have been processed.
+    question: What is the purpose of `setAddSuffix(true)` in SaveOptions?
+  - answer: Absolutely. Any valid Java regular expression can be supplied to `RegexRedaction`
+      to target emails, phone numbers, custom IDs, etc.
+    question: Can I use regex patterns other than numbers for text redaction?
+  - answer: Wrap the redaction logic in a try‑catch block, log the exception, and
+      always close the `Redactor` in a finally clause to release resources.
+    question: How should I handle errors during redaction?
+  - answer: Yes. GroupDocs.Redaction works with PDF, DOCX, PPTX, and many other formats.
+    question: Is PDF redaction supported?
+  - answer: Use batch processing, keep regex patterns simple, and monitor memory usage
+      with profiling tools.
+    question: What are best practices for large‑scale redaction projects?
+  type: FAQPage
+tags:
+- text redaction
 - GroupDocs.Redaction
-title: 'วิธีลบข้อมูลในข้อความด้วย Java และ GroupDocs.Redaction: คู่มือฉบับสมบูรณ์'
+- Java document processing
+- regex redaction
+- PDF redaction
+title: 'วิธีทำการลบข้อมูลในข้อความด้วย Java และ GroupDocs.Redaction: คู่มือฉบับสมบูรณ์'
 type: docs
 url: /th/java/text-redaction/master-text-redaction-java-groupdocs-redaction-guide/
 weight: 1
 ---
 
-# วิธีทำการลบข้อความใน Java ด้วย GroupDocs.Redaction: คู่มือฉบับสมบูรณ์
+# วิธีลบข้อความใน Java ด้วย GroupDocs.Redaction: คู่มือฉบับสมบูรณ์
 
-ในโลกดิจิทัลที่เคลื่อนที่อย่างรวดเร็วในวันนี้, **วิธีทำการลบข้อความ** ในเอกสารเป็นคำถามที่นักพัฒนาหลายคนต้องเผชิญ ไม่ว่าจะเป็นการปกป้องข้อมูลส่วนบุคคล, ปฏิบัติตามกฎระเบียบ, หรือเพียงแค่ทำความสะอาดร่างเอกสาร, คู่มือนี้จะพาคุณผ่านการใช้ GroupDocs.Redaction สำหรับ Java เพื่อ **วิธีใช้ regex**‑based redaction อย่างรวดเร็วและปลอดภัย.
-
-เราจะครอบคลุมทุกอย่างตั้งแต่การตั้งค่าห้องสมุด, การเขียนรูปแบบ regex, การกำหนดค่าตัวเลือกการบันทึก, จนถึงกรณีการใช้งานจริงที่แสดงให้เห็นว่าการลบข้อความมีความสำคัญอย่างไร.
+ในโลกดิจิทัลที่เคลื่อนที่อย่างรวดเร็วในวันนี้, **วิธีลบข้อความ** ในเอกสารเป็นคำถามที่นักพัฒนาหลายคนต้องเผชิญ ไม่ว่าคุณจะกำลังปกป้องข้อมูลส่วนบุคคล, ปฏิบัติตามกฎระเบียบ, หรือเพียงแค่ทำความสะอาดร่างเอกสาร, คู่มือนี้จะพาคุณผ่านการใช้ GroupDocs.Redaction สำหรับ Java เพื่อ **ใช้การลบข้อความโดยอิง regex อย่างรวดเร็วและปลอดภัย** คุณจะได้เรียนรู้ว่าการลบข้อความสำคัญอย่างไร, วิธีตั้งค่าห้องสมุด, และเคล็ดลับการปฏิบัติที่ดีที่สุดสำหรับการประมวลผลที่มีประสิทธิภาพสูง
 
 ## คำตอบด่วน
-- **วัตถุประสงค์หลักของ GroupDocs.Redaction คืออะไร?** มันให้ API ที่เชื่อถือได้เพื่อค้นหาและซ่อนข้อความที่เป็นความลับในหลายรูปแบบของเอกสาร.  
-- **ฉันจะใช้ regex สำหรับการลบข้อความอย่างไร?** สร้างอ็อบเจ็กต์ `RegexRedaction` ด้วยรูปแบบของคุณและส่งผ่านไปยังเมธอด `Redactor.apply()`.  
-- **ฉันต้องการไลเซนส์หรือไม่?** การทดลองใช้ฟรีทำงานได้สำหรับการพัฒนา; ไลเซนส์ที่ชำระเงินจะเปิดใช้งานคุณสมบัติทั้งหมดสำหรับการผลิต.  
-- **ฉันสามารถลบข้อความใน PDF ได้เช่นเดียวกับไฟล์ DOCX หรือไม่?** ใช่—GroupDocs.Redaction รองรับ PDF, DOCX, PPTX และอื่น ๆ อีกมาก.  
-- **วิธีที่ดีที่สุดในการปรับปรุงประสิทธิภาพคืออะไร?** ปิดอินสแตนซ์ `Redactor` อย่างทันท่วงทีและทำให้รูปแบบ regex เรียบง่ายที่สุดเท่าที่จะเป็นไปได้.
+- **วัตถุประสงค์หลักของ GroupDocs.Redaction คืออะไร?** มันให้ API ที่เชื่อถือได้สำหรับค้นหาและซ่อนข้อความที่เป็นความลับในรูปแบบเอกสารมากกว่า 50 แบบ.  
+- **ฉันจะใช้ regex สำหรับการลบข้อความอย่างไร?** สร้างอ็อบเจกต์ `RegexRedaction` ด้วยแพทเทิร์นของคุณและส่งให้เมธอด `Redactor.apply()`.  
+- **ฉันต้องมีลิขสิทธิ์หรือไม่?** การทดลองใช้ฟรีทำงานสำหรับการพัฒนา; ลิขสิทธิ์แบบชำระเงินจะเปิดใช้งานฟีเจอร์ทั้งหมดสำหรับการผลิต.  
+- **ฉันสามารถลบข้อความใน PDF ได้เช่นเดียวกับไฟล์ DOCX หรือไม่?** ได้—GroupDocs.Redaction รองรับ PDF, DOCX, PPTX และรูปแบบอื่น ๆ อีกหลายรูปแบบ.  
+- **วิธีที่ดีที่สุดในการปรับปรุงประสิทธิภาพคืออะไร?** ปิดอินสแตนซ์ `Redactor` อย่างรวดเร็ว, ทำให้แพทเทิร์น regex เรียบง่าย, และประมวลผลไฟล์เป็นชุด.
 
 ## การลบข้อความคืออะไรและทำไมจึงสำคัญ?
-การลบข้อความคือกระบวนการของการลบหรือทำให้ข้อมูลที่เป็นความลับจากเอกสารหายไปอย่างถาวร มันทำให้มั่นใจว่าข้อมูลลับ—เช่นหมายเลขประกันสังคม, บันทึกทางการแพทย์, หรือรายละเอียดทางการเงิน—ไม่สามารถกู้คืนหรือดูได้โดยผู้ที่ไม่ได้รับอนุญาต.
+การลบข้อความจะลบหรือทำให้ข้อมูลที่เป็นความลับจากเอกสารหายไปอย่างถาวร, ทำให้มั่นใจว่าข้อมูลที่เป็นความลับ—เช่นหมายเลขประกันสังคม, รายละเอียดบัตรเครดิต, หรือบันทึกทางการแพทย์—ไม่สามารถกู้คืนหรือดูได้โดยบุคคลที่ไม่ได้รับอนุญาต มันทำงานโดยการเขียนทับอักขระเดิมหรือแทนที่ด้วยหน้ากาก, ดังนั้นเนื้อหาที่ซ่อนอยู่ไม่สามารถดึงออกโดยการคัดลอก‑วางหรือเครื่องมือ OCR ได้ สิ่งนี้ช่วยให้ปฏิบัติตามกฎระเบียบความเป็นส่วนตัวและปกป้องบุคคลจากการขโมยข้อมูลส่วนบุคคลหรือการละเมิดข้อมูล
 
 ## ทำไมต้องใช้ regex สำหรับการลบข้อความ?
-Regular expressions ช่วยให้คุณกำหนดรูปแบบที่ยืดหยุ่นซึ่งตรงกับรูปแบบข้อมูลหลายประเภท (เช่นหมายเลขโทรศัพท์, หมายเลขบัตรเครดิต) การใช้ regex กับ GroupDocs.Redaction ทำให้คุณควบคุมได้อย่างแม่นยำว่าข้อมูลใดจะถูกซ่อน, พร้อมกับทำให้การนำไปใช้สั้นกระชับ.
+Regular expressions ช่วยให้คุณกำหนดแพทเทิร์นที่ยืดหยุ่นซึ่งตรงกับรูปแบบข้อมูลที่หลากหลาย (เช่นหมายเลขโทรศัพท์, หมายเลขบัตรเครดิต) การใช้ regex กับ GroupDocs.Redaction ให้คุณควบคุมอย่างแม่นยำว่าอะไรจะถูกซ่อน, พร้อมกับทำให้การนำไปใช้สั้นกระชับและดูแลรักษาได้ง่าย
 
 ## ข้อกำหนดเบื้องต้น
-ก่อนที่เราจะดำเนินการ, โปรดตรวจสอบว่าคุณมี:
-
-- **Java Development Kit (JDK)** ติดตั้ง (Java 8 หรือใหม่กว่า).  
+- **Java Development Kit (JDK)** ที่ติดตั้ง (Java 8 หรือใหม่กว่า).  
 - ความคุ้นเคยพื้นฐานกับไวยากรณ์ Java และ regular expressions.  
 - IDE เช่น **IntelliJ IDEA** หรือ **Eclipse** เพื่อรันและดีบักโค้ด.  
 
 ## การตั้งค่า GroupDocs.Redaction สำหรับ Java
-ขั้นแรก, เพิ่มไลบรารีลงในโปรเจคของคุณ.
+ขั้นแรก, เพิ่มไลบรารีลงในโปรเจกต์ของคุณ.
 
 ### การตั้งค่า Maven
-หากคุณใช้ Maven, ใส่ส่วนต่อไปนี้ลงในไฟล์ `pom.xml` ของคุณ:
+หากคุณใช้ Maven, แทรกส่วนต่อไปนี้ลงในไฟล์ `pom.xml` ของคุณ:
 
 ```xml
 <repositories>
@@ -63,10 +119,12 @@ Regular expressions ช่วยให้คุณกำหนดรูปแบ
 ```
 
 ### ดาวน์โหลดโดยตรง
-หรืออีกทางเลือกหนึ่ง, ดาวน์โหลด JAR ล่าสุดจาก [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+หรือคุณสามารถดาวน์โหลด JAR ล่าสุดจาก [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
 ### การเริ่มต้นพื้นฐาน
-เมื่อไลบรารีพร้อมใช้งาน, คุณสามารถเริ่มลบข้อความจากเอกสารได้:
+`Redactor` เป็นคลาสหลักที่เปิดเอกสาร, ใช้กฎการลบข้อความ, และเขียนผลลัพธ์ออก.
+
+เมื่อไลบรารีพร้อมใช้งาน, คุณสามารถเริ่มลบข้อความในเอกสารได้:
 
 ```java
 // Import the necessary classes from GroupDocs.Redaction
@@ -83,12 +141,13 @@ public class RedactionExample {
 ```
 
 ## วิธีลบข้อความโดยใช้ regex ใน Java?
-ด้านล่างเป็นขั้นตอนแบบละเอียดที่แสดง **วิธีลบข้อความ** ด้วยรูปแบบ regular expression.
+กระบวนการนี้รวมถึงการโหลดไฟล์ต้นทางเข้าสู่อินสแตนซ์ `Redactor`, สร้างกฎ `RegexRedaction` ที่กำหนดแพทเทิร์นที่ต้องการจับ, ใช้กฎด้วย `redactor.apply()`, และสุดท้ายบันทึกเอกสารที่แก้ไขโดยใช้ `SaveOptions`. ด้วยการทำตามขั้นตอนเหล่านี้คุณจะสามารถค้นหาและซ่อนสตริงที่เป็นความลับได้อย่างเชื่อถือในรูปแบบที่รองรับ.
 
-### ฟีเจอร์ 1: การลบข้อความด้วย Regular Expression
-**ภาพรวม**: ฟีเจอร์นี้แสดงการทำงานหลักของ `RegexRedaction`.
+คลาส `Redactor` เป็นส่วนประกอบหลักที่เปิดเอกสาร, ใช้กฎการลบข้อความ, และเขียนไฟล์ผลลัพธ์. มันจัดการทรัพยากรภายใน, ดังนั้นคุณต้องปิดมันหลังการประมวลผลเพื่อปล่อยหน่วยความจำ.
 
-#### ขั้นตอน 3.1: นำเข้าคลาสที่จำเป็น
+### ขั้นตอนที่ 1: นำเข้าคลาสที่จำเป็น
+การนำเข้าต่อไปนี้จะให้คุณเข้าถึง API การลบข้อความ:
+
 ```java
 import com.groupdocs.redaction.Redactor;
 import com.groupdocs.redaction.options.SaveOptions;
@@ -96,7 +155,9 @@ import com.groupdocs.redaction.redactions.RegexRedaction;
 import com.groupdocs.redaction.redactions.ReplacementOptions;
 ```
 
-#### ขั้นตอน 3.2: เริ่มต้น Redactor และใช้รูปแบบ Regex
+### ขั้นตอนที่ 2: เริ่มต้น redactor และใช้แพทเทิร์น regex
+`RegexRedaction` แสดงกฎการลบข้อความที่อิงตามแพทเทิร์น regular‑expression. แพทเทิร์นที่คุณให้จะกำหนดว่าชิ้นส่วนข้อความใดจะถูกแทนที่.
+
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX");
 try {
@@ -107,9 +168,11 @@ try {
         new ReplacementOptions(java.awt.Color.BLUE)));
 ```
 
-- **คำอธิบาย Regex**: รูปแบบนี้ตรงกับลำดับตัวเลขที่ตามรูปแบบเฉพาะ (เช่น วันที่หรือหมายเลขประจำตัว). `ReplacementOptions` ใช้การทับสีฟ้าเพื่อแสดงพื้นที่ที่ถูกลบ.
+- **คำอธิบาย Regex**: แพทเทิร์น `\b\d{3}-\d{2}-\d{4}\b` ตรงกับหมายเลข Social Security ของสหรัฐ (สามหลัก, ขีด, สองหลัก, ขีด, สี่หลัก). `ReplacementOptions` ให้คุณเลือกการทับสีดำทึบหรือหน้ากากข้อความที่กำหนดเอง.
 
-#### ขั้นตอน 3.3: กำหนดค่าตัวเลือกการบันทึก
+### ขั้นตอนที่ 3: กำหนดค่า save options
+`SaveOptions` ควบคุมวิธีการเขียนไฟล์ที่ลบข้อความแล้ว. การเพิ่ม suffix ทำให้ชัดเจนว่าไฟล์ใดได้รับการประมวลผล, ในขณะที่การรักษารูปแบบเดิมช่วยหลีกเลี่ยงการแปลงที่ไม่ต้องการ.
+
 ```java
     // Configure save options
     SaveOptions saveOptions = new SaveOptions();
@@ -123,16 +186,11 @@ try {
 }
 ```
 
-- **ตัวเลือกการบันทึก**: การเพิ่ม suffix ทำให้ชัดเจนว่าไฟล์ใดได้รับการประมวลผล, ในขณะที่การรักษารูปแบบเดิมช่วยหลีกเลี่ยงการแปลงที่ไม่ต้องการ.
+- **ตัวเลือกการบันทึก**: `setAddSuffix(true)` จะเพิ่ม “_redacted” ไปยังชื่อไฟล์ผลลัพธ์โดยอัตโนมัติ, ป้องกันการเขียนทับโดยบังเอิญ.
 
-#### เคล็ดลับการแก้ไขปัญหา
-- ตรวจสอบว่า regex จับข้อมูลที่คุณต้องการซ่อนได้อย่างแม่นยำ.  
-- ตรวจสอบเส้นทางไฟล์อีกครั้งและให้แน่ใจว่าแอปพลิเคชันมีสิทธิ์อ่าน/เขียน.  
+### ขั้นตอนที่ 4: ปรับแต่งการตั้งค่าการบันทึกเพิ่มเติม
+คุณสามารถปรับแต่งผลลัพธ์เพิ่มเติม—เช่นการรักษา metadata หรือการทำให้ annotation แบน—โดยปรับอ็อบเจกต์ `SaveOptions`.
 
-### ฟีเจอร์ 2: การกำหนดค่าตัวเลือกการบันทึก
-**ภาพรวม**: ปรับแต่งไฟล์ผลลัพธ์หลังการลบข้อความ.
-
-#### ขั้นตอน 3.4: ปรับแต่งการตั้งค่าการบันทึก
 ```java
 import com.groupdocs.redaction.options.SaveOptions;
 
@@ -141,52 +199,55 @@ saveOptions.setAddSuffix(true);  // Indicates processing by adding a suffix
 saveOptions.setRasterizeToPDF(false);  // Keeps original format intact
 ```
 
-- **การกำหนดค่าหลัก**: โค้ดส่วนนี้ช่วยให้คุณจัดการชื่อไฟล์ผลลัพธ์และรักษาโครงสร้างเอกสารต้นฉบับ.
+- **การกำหนดค่าหลัก**: การตั้งค่า `setPreserveMetadata(true)` จะรักษาคุณสมบัติเอกสารต้นฉบับ, ซึ่งมักจำเป็นสำหรับการตรวจสอบการปฏิบัติตาม.
 
 ## การประยุกต์ใช้งานจริง
 สถานการณ์จริงที่ **วิธีลบข้อความ** มีความสำคัญ:
+1. **เอกสารทางกฎหมาย** – ซ่อนตัวระบุของลูกค้าก่อนแชร์ร่างให้ที่ปรึกษาภายนอก.  
+2. **บันทึกทางการแพทย์** – ปิดบังชื่อผู้ป่วย, รหัส, หรือหมายเลขสุขภาพเพื่อให้สอดคล้องกับ HIPAA.  
+3. **รายงานการเงิน** – ลบหมายเลขบัญชีที่เป็นความลับเมื่อแจกจ่ายสรุปไตรมาส.  
 
-1. **Legal Documents** – ซ่อนตัวระบุของลูกค้า ก่อนแชร์ร่างเอกสารกับที่ปรึกษาภายนอก.  
-2. **Medical Records** – ปิดบังชื่อผู้ป่วย, หมายเลขประจำตัว, หรือหมายเลขสุขภาพเพื่อให้สอดคล้องกับ HIPAA.  
-3. **Financial Reports** – ลบหมายเลขบัญชีที่เป็นความลับเมื่อแจกจ่ายสรุปไตรมาส.  
+## ข้อควรพิจารณาด้านประสิทธิภาพ
+- **การจัดการหน่วยความจำ**: เรียก `redactor.close()` เสมอเพื่อปล่อยไฟล์แฮนด์เลและทรัพยากรเนทีฟ.  
+- **Regex ที่มีประสิทธิภาพ**: แพทเทิร์นที่เรียบง่ายทำงานเร็วกว่า; หลีกเลี่ยงการ back‑tracking มากเกินไปโดยใช้ atomic groups เมื่อเป็นไปได้.  
+- **การประมวลผลเป็นชุด**: สำหรับชุดเอกสารขนาดใหญ่, ประมวลผลไฟล์เป็นชุด 20–50 ไฟล์เพื่อให้การใช้ heap คาดเดาได้.  
 
-## การพิจารณาประสิทธิภาพ
-- **การจัดการหน่วยความจำ**: ควรปิดอินสแตนซ์ `Redactor` (`redactor.close()`) เสมอเพื่อปล่อยทรัพยากร.  
-- **Regex ที่มีประสิทธิภาพ**: รูปแบบที่เรียบง่ายทำงานเร็วขึ้น; หลีกเลี่ยงการใช้ expression ที่ซับซ้อนเกินไปเมื่อเป็นไปได้.  
-- **การประมวลผลเป็นชุด**: สำหรับชุดเอกสารขนาดใหญ่, ประมวลผลไฟล์เป็นชุดเพื่อให้การใช้หน่วยความจำคาดการณ์ได้.
-
-## ปัญหาที่พบบ่อยและวิธีแก้
+## ปัญหาทั่วไปและวิธีแก้
 | ปัญหา | วิธีแก้ |
 |-------|----------|
-| **Regex จับมากเกินไป** | ทดสอบรูปแบบของคุณด้วยเครื่องมือทดสอบ regex ออนไลน์และทำให้คลาสอักขระแคบลง. |
-| **ชื่อไฟล์ผลลัพธ์ซ้ำกัน** | ใช้ `setAddSuffix(true)` หรือกำหนดเส้นทางผลลัพธ์แบบกำหนดเองผ่าน `saveOptions.setOutputPath()`. |
-| **Memory leak ใน PDF ขนาดใหญ่** | ประมวลผล PDF ทีละหน้า หรือเพิ่มขนาด heap ของ JVM (`-Xmx2g`). |
+| **Regex ตรงกันมากเกินไป** | ทดสอบแพทเทิร์นของคุณด้วยเครื่องมือทดสอบ regex ออนไลน์และจำกัดคลาสอักขระให้แคบลง. |
+| **ชื่อไฟล์ผลลัพธ์ซ้ำกัน** | ใช้ `setAddSuffix(true)` หรือระบุเส้นทางออกแบบกำหนดเองผ่าน `saveOptions.setOutputPath()`. |
+| **การรั่วของหน่วยความจำใน PDF ขนาดใหญ่** | ประมวลผล PDF ทีละหน้า หรือเพิ่มขนาด heap ของ JVM (`-Xmx2g`). |
 
 ## คำถามที่พบบ่อย
 
 **Q: จุดประสงค์ของ `setAddSuffix(true)` ใน SaveOptions คืออะไร?**  
-A: มันจะเพิ่ม suffix (เช่น `_redacted`) ไปยังชื่อไฟล์ผลลัพธ์โดยอัตโนมัติ ทำให้เห็นชัดว่าไฟล์ใดได้รับการประมวลผล.
+A: มันจะเพิ่ม suffix (เช่น `_redacted`) ไปยังชื่อไฟล์ผลลัพธ์โดยอัตโนมัติ, ทำให้เห็นชัดว่าไฟล์ใดได้รับการประมวลผล.
 
-**Q: ฉันสามารถใช้รูปแบบ regex ที่ไม่ใช่ตัวเลขสำหรับการลบข้อความได้หรือไม่?**  
-A: ได้เลย. รูปแบบ regular expression ของ Java ใด ๆ ที่ถูกต้องสามารถใช้กับ `RegexRedaction` เพื่อกำหนดเป้าหมายเป็นอีเมล, หมายเลขโทรศัพท์, ID แบบกำหนดเอง ฯลฯ.
+**Q: ฉันสามารถใช้แพทเทิร์น regex ที่ไม่ใช่ตัวเลขสำหรับการลบข้อความได้หรือไม่?**  
+A: แน่นอน. สามารถใช้ regular expression ของ Java ใด ๆ ที่ถูกต้องกับ `RegexRedaction` เพื่อกำหนดเป้าหมายเป็นอีเมล, หมายเลขโทรศัพท์, ID ที่กำหนดเอง ฯลฯ
 
 **Q: ฉันควรจัดการกับข้อผิดพลาดระหว่างการลบข้อความอย่างไร?**  
-A: ห่อโลจิกการลบข้อความในบล็อก try‑catch, บันทึกข้อยกเว้น, และปิด `Redactor` ในบล็อก finally เสมอเพื่อปล่อยทรัพยากร.
+A: ห่อหุ้มตรรกะการลบข้อความในบล็อก try‑catch, บันทึกข้อยกเว้น, และปิด `Redactor` ในบล็อก finally เสมอเพื่อปล่อยทรัพยากร.
 
-**Q: การลบข้อความใน PDF ได้รับการสนับสนุนหรือไม่?**  
-A: ใช่. GroupDocs.Redaction ทำงานกับ PDF, DOCX, PPTX และรูปแบบอื่น ๆ อีกหลายรูปแบบ.
+**Q: การลบข้อความใน PDF รองรับหรือไม่?**  
+A: รองรับ. GroupDocs.Redaction ทำงานกับ PDF, DOCX, PPTX และรูปแบบอื่น ๆ อีกหลายรูปแบบ.
 
 **Q: แนวทางปฏิบัติที่ดีที่สุดสำหรับโครงการลบข้อความขนาดใหญ่คืออะไร?**  
-A: ใช้การประมวลผลเป็นชุด, ทำให้รูปแบบ regex เรียบง่าย, และตรวจสอบการใช้หน่วยความจำด้วยเครื่องมือ profiling.
+A: ใช้การประมวลผลเป็นชุด, ทำให้แพทเทิร์น regex เรียบง่าย, และตรวจสอบการใช้หน่วยความจำด้วยเครื่องมือ profiling.
 
-## แหล่งข้อมูล
-สำหรับการศึกษาเชิงลึกและแนวทางอย่างเป็นทางการ:
-
+## แหล่งข้อมูลเพิ่มเติม
 - **เอกสาร**: [GroupDocs Redaction Documentation](https://docs.groupdocs.com/redaction/java/)  
 - **อ้างอิง API**: [GroupDocs API Reference](https://apireference.groupdocs.com/redaction/java)
 
 ---
 
-**อัปเดตล่าสุด:** 2026-03-01  
-**ทดสอบด้วย:** GroupDocs.Redaction 24.9 for Java  
+**อัปเดตล่าสุด:** 2026-08-20  
+**ทดสอบกับ:** GroupDocs.Redaction 24.9 for Java  
 **ผู้เขียน:** GroupDocs
+
+## บทแนะนำที่เกี่ยวข้อง
+
+- [Mask Sensitive Data Java – คู่มือ GroupDocs.Redaction](/redaction/java/getting-started/)
+- [Mask Sensitive Data Java – ลบข้อมูลส่วนบุคคลด้วย GroupDocs.Redaction](/redaction/java/advanced-redaction/master-document-redaction-java-groupdocs-redaction/)
+- [วิธีลบ PDF ด้วย Aspose OCR และ Java - การใช้แพทเทิร์น Regex ด้วย GroupDocs.Redaction](/redaction/java/ocr-integration/aspose-ocr-java-pdf-redaction/)

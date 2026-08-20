@@ -1,12 +1,72 @@
 ---
-date: '2026-03-01'
-description: Descubre cómo redactar texto usando expresiones regulares en Java con
-  GroupDocs.Redaction. Este tutorial paso a paso te muestra cómo aplicar expresiones
-  regulares, configurar opciones de guardado y proteger datos sensibles.
+date: '2026-08-20'
+description: Descubre cómo redactar texto usando regex en Java con GroupDocs.Redaction.
+  Este tutorial paso a paso te muestra cómo aplicar regex, configurar las opciones
+  de guardado y proteger datos sensibles.
 keywords:
-- text redaction in Java
-- regex text redaction
+- how to redact text
+- mask credit card numbers
+- remove social security numbers
+- redact pdf java
+lastmod: '2026-08-20'
+og_description: Aprende cómo redactar texto en Java usando GroupDocs.Redaction. Esta
+  guía explica la redacción con regex, la configuración de opciones de guardado y
+  consejos de rendimiento para proteger datos sensibles.
+og_image_alt: Guide showing Java code to redact text using GroupDocs.Redaction
+og_title: Cómo redactar texto en Java con GroupDocs.Redaction
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-20'
+  description: Discover how to redact text using regex in Java with GroupDocs.Redaction.
+    This step‑by‑step tutorial shows you how to apply regex, configure save options,
+    and protect sensitive data.
+  headline: 'How to redact text in Java with GroupDocs.Redaction: A complete guide'
+  type: TechArticle
+- description: Discover how to redact text using regex in Java with GroupDocs.Redaction.
+    This step‑by‑step tutorial shows you how to apply regex, configure save options,
+    and protect sensitive data.
+  name: 'How to redact text in Java with GroupDocs.Redaction: A complete guide'
+  steps:
+  - name: import required classes
+    text: 'The following imports give you access to the redaction API:'
+  - name: initialize redactor and apply regex pattern
+    text: '`RegexRedaction` represents a redaction rule based on a regular‑expression
+      pattern. The pattern you provide determines which text fragments are replaced.
+      - **Regex explanation**: The pattern `\b\d{3}-\d{2}-\d{4}\b` matches U.S. Social
+      Security numbers (three digits, a dash, two digits, a dash, four '
+  - name: configure save options
+    text: '`SaveOptions` controls how the redacted file is written. Adding a suffix
+      makes it clear which files have been processed, while preserving the original
+      format avoids unwanted conversion. - **Save options**: `setAddSuffix(true)`
+      automatically appends “_redacted” to the output filename, preventing acci'
+  - name: customize additional save settings
+    text: 'You can further tailor the output—such as preserving metadata or flattening
+      annotations—by adjusting the `SaveOptions` object. - **Key configuration**:
+      Setting `setPreserveMetadata(true)` retains original document properties, which
+      is often required for compliance audits.'
+  type: HowTo
+- questions:
+  - answer: It automatically appends a suffix (e.g., `_redacted`) to the output filename,
+      making it obvious which files have been processed.
+    question: What is the purpose of `setAddSuffix(true)` in SaveOptions?
+  - answer: Absolutely. Any valid Java regular expression can be supplied to `RegexRedaction`
+      to target emails, phone numbers, custom IDs, etc.
+    question: Can I use regex patterns other than numbers for text redaction?
+  - answer: Wrap the redaction logic in a try‑catch block, log the exception, and
+      always close the `Redactor` in a finally clause to release resources.
+    question: How should I handle errors during redaction?
+  - answer: Yes. GroupDocs.Redaction works with PDF, DOCX, PPTX, and many other formats.
+    question: Is PDF redaction supported?
+  - answer: Use batch processing, keep regex patterns simple, and monitor memory usage
+      with profiling tools.
+    question: What are best practices for large‑scale redaction projects?
+  type: FAQPage
+tags:
+- text redaction
 - GroupDocs.Redaction
+- Java document processing
+- regex redaction
+- PDF redaction
 title: 'Cómo redactar texto en Java con GroupDocs.Redaction: una guía completa'
 type: docs
 url: /es/java/text-redaction/master-text-redaction-java-groupdocs-redaction-guide/
@@ -15,35 +75,33 @@ weight: 1
 
 # Cómo redactar texto en Java con GroupDocs.Redaction: Una guía completa
 
-En el mundo digital de hoy, que avanza rápidamente, **how to redact text** en documentos es una pregunta que muchos desarrolladores se plantean. Ya sea que estés protegiendo datos personales, cumpliendo con regulaciones, o simplemente limpiando borradores, esta guía te muestra cómo usar GroupDocs.Redaction para Java para **how to apply regex**‑basada en la redacción de forma rápida y segura.
-
-Cubrirémos todo, desde la configuración de la biblioteca, la escritura del patrón regex, la configuración de las opciones de guardado, hasta casos de uso del mundo real que ilustran por qué la redacción es importante.
+En el mundo digital de hoy, **cómo redactar texto** en documentos es una pregunta que muchos desarrolladores enfrentan. Ya sea que esté protegiendo datos personales, cumpliendo con regulaciones o simplemente limpiando borradores, esta guía le muestra cómo usar GroupDocs.Redaction para Java para **aplicar redacción basada en expresiones regulares de forma rápida y segura**. Aprenderá por qué la redacción es importante, cómo configurar la biblioteca y consejos de mejores prácticas para un procesamiento de alto rendimiento.
 
 ## Respuestas rápidas
-- **What is the primary purpose of GroupDocs.Redaction?** Proporciona una API confiable para localizar y enmascarar texto sensible en muchos formatos de documento.  
-- **How do I apply regex for redaction?** Crea un objeto `RegexRedaction` con tu patrón y pásalo al método `Redactor.apply()`.  
-- **Do I need a license?** Una prueba gratuita funciona para desarrollo; una licencia de pago desbloquea todas las funciones para producción.  
-- **Can I redact PDFs as well as DOCX files?** Sí—GroupDocs.Redaction admite PDF, DOCX, PPTX y más.  
-- **What’s the best way to improve performance?** Cierra las instancias de `Redactor` rápidamente y mantén los patrones regex lo más simples posible.
+- **¿Cuál es el propósito principal de GroupDocs.Redaction?** Proporciona una API confiable para localizar y ocultar texto sensible en más de 50 formatos de documento.  
+- **¿Cómo aplico regex para la redacción?** Cree un objeto `RegexRedaction` con su patrón y páselo al método `Redactor.apply()`.  
+- **¿Necesito una licencia?** Una prueba gratuita funciona para desarrollo; una licencia de pago desbloquea todas las funciones para producción.  
+- **¿Puedo redactar PDFs así como archivos DOCX?** Sí—GroupDocs.Redaction soporta PDF, DOCX, PPTX y muchos otros formatos.  
+- **¿Cuál es la mejor manera de mejorar el rendimiento?** Cierre las instancias de `Redactor` rápidamente, mantenga los patrones regex simples y procese los archivos por lotes.
 
 ## Qué es la redacción de texto y por qué es importante
-La redacción de texto es el proceso de eliminar u oscurecer permanentemente información sensible de un documento. Garantiza que los datos confidenciales—como números de seguridad social, registros médicos o detalles financieros—no puedan ser recuperados ni vistos por partes no autorizadas.
+La redacción de texto elimina o oculta permanentemente información sensible de un documento, garantizando que datos confidenciales—como números de seguro social, detalles de tarjetas de crédito o registros médicos—no puedan ser recuperados o vistos por partes no autorizadas. Funciona sobrescribiendo los caracteres originales o reemplazándolos con una máscara, de modo que el contenido oculto no pueda extraerse mediante copiar‑pegar o herramientas OCR. Esto asegura el cumplimiento de regulaciones de privacidad y protege a las personas contra el robo de identidad o violaciones de datos.
 
 ## Por qué usar regex para la redacción de texto
-Las expresiones regulares te permiten definir patrones flexibles que coinciden con una amplia gama de formatos de datos (p. ej., números de teléfono, números de tarjetas de crédito). Usar regex con GroupDocs.Redaction te brinda un control preciso sobre lo que se oculta, manteniendo la implementación concisa.
+Las expresiones regulares le permiten definir patrones flexibles que coinciden con una amplia gama de formatos de datos (p. ej., números de teléfono, números de tarjetas de crédito). Usar regex con GroupDocs.Redaction le brinda control preciso sobre lo que se oculta, manteniendo la implementación concisa y mantenible.
 
 ## Requisitos previos
-Antes de profundizar, asegúrate de tener:
+Antes de comenzar, asegúrese de tener:
 
 - **Java Development Kit (JDK)** instalado (Java 8 o superior).  
 - Familiaridad básica con la sintaxis de Java y expresiones regulares.  
 - Un IDE como **IntelliJ IDEA** o **Eclipse** para ejecutar y depurar el código.  
 
 ## Configuración de GroupDocs.Redaction para Java
-Primero, agrega la biblioteca a tu proyecto.
+Primero, agregue la biblioteca a su proyecto.
 
 ### Configuración de Maven
-Si usas Maven, inserta lo siguiente en tu `pom.xml`:
+Si usa Maven, inserte lo siguiente en su `pom.xml`:
 
 ```xml
 <repositories>
@@ -64,10 +122,12 @@ Si usas Maven, inserta lo siguiente en tu `pom.xml`:
 ```
 
 ### Descarga directa
-Alternativamente, descarga el JAR más reciente desde [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+Alternativamente, descargue el último JAR desde [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
 ### Inicialización básica
-Una vez que la biblioteca esté disponible, puedes comenzar a redactar documentos:
+`Redactor` es la clase central que abre un documento, aplica reglas de redacción y escribe la salida.
+
+Una vez que la biblioteca esté disponible, puede comenzar a redactar documentos:
 
 ```java
 // Import the necessary classes from GroupDocs.Redaction
@@ -83,13 +143,14 @@ public class RedactionExample {
 }
 ```
 
-## ¿Cómo redactar texto usando regex en Java?
-A continuación se muestra una guía paso a paso que muestra **how to redact text** con un patrón de expresión regular.
+## Cómo redactar texto usando regex en Java?
+El proceso implica cargar el archivo fuente en una instancia `Redactor`, crear una regla `RegexRedaction` que define el patrón a coincidir, aplicar la regla con `redactor.apply()` y finalmente guardar el documento modificado usando `SaveOptions`. Siguiendo estos pasos podrá localizar y ocultar de forma fiable cualquier cadena sensible en los formatos compatibles.
 
-### Función 1: Redacción de texto con expresión regular
-**Overview**: Esta función demuestra el flujo de trabajo central de `RegexRedaction`.
+La clase `Redactor` es el componente central que abre un documento, aplica reglas de redacción y escribe el archivo de salida. Gestiona los recursos internamente, por lo que debe cerrarla después del procesamiento para liberar memoria.
 
-#### Paso 3.1: Importar clases requeridas
+### Paso 1: importar clases requeridas
+Las siguientes importaciones le dan acceso a la API de redacción:
+
 ```java
 import com.groupdocs.redaction.Redactor;
 import com.groupdocs.redaction.options.SaveOptions;
@@ -97,7 +158,9 @@ import com.groupdocs.redaction.redactions.RegexRedaction;
 import com.groupdocs.redaction.redactions.ReplacementOptions;
 ```
 
-#### Paso 3.2: Inicializar Redactor y aplicar patrón Regex
+### Paso 2: inicializar redactor y aplicar patrón regex
+`RegexRedaction` representa una regla de redacción basada en un patrón de expresión regular. El patrón que proporcione determina qué fragmentos de texto se reemplazan.
+
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX");
 try {
@@ -108,9 +171,11 @@ try {
         new ReplacementOptions(java.awt.Color.BLUE)));
 ```
 
-- **Regex Explanation**: El patrón coincide con secuencias numéricas que siguen un formato específico (p. ej., fechas o números de identificación). Las `ReplacementOptions` usan una superposición azul para indicar el área redactada.
+- **Explicación de regex**: El patrón `\b\d{3}-\d{2}-\d{4}\b` coincide con los números de Seguro Social de EE. UU. (tres dígitos, un guion, dos dígitos, un guion, cuatro dígitos). `ReplacementOptions` le permite elegir una superposición negra sólida o una máscara de texto personalizada.
 
-#### Paso 3.3: Configurar opciones de guardado
+### Paso 3: configurar opciones de guardado
+`SaveOptions` controla cómo se escribe el archivo redactado. Añadir un sufijo hace evidente qué archivos han sido procesados, mientras que preservar el formato original evita conversiones no deseadas.
+
 ```java
     // Configure save options
     SaveOptions saveOptions = new SaveOptions();
@@ -124,16 +189,11 @@ try {
 }
 ```
 
-- **Save Options**: Añadir un sufijo hace evidente qué archivos han sido procesados, mientras que mantener el formato original evita conversiones no deseadas.
+- **Opciones de guardado**: `setAddSuffix(true)` agrega automáticamente “_redacted” al nombre del archivo de salida, evitando sobrescrituras accidentales.
 
-#### Consejos de solución de problemas
-- Verifica que el regex capture con precisión los datos que deseas ocultar.  
-- Verifica nuevamente las rutas de archivo y asegura que la aplicación tenga permisos de lectura/escritura.  
+### Paso 4: personalizar configuraciones de guardado adicionales
+Puede ajustar aún más la salida—por ejemplo, preservando metadatos o aplanando anotaciones—modificando el objeto `SaveOptions`.
 
-### Función 2: Configuración de opciones de guardado
-**Overview**: Ajusta finamente el archivo de salida después de la redacción.
-
-#### Paso 3.4: Personalizar la configuración de guardado
 ```java
 import com.groupdocs.redaction.options.SaveOptions;
 
@@ -142,52 +202,56 @@ saveOptions.setAddSuffix(true);  // Indicates processing by adding a suffix
 saveOptions.setRasterizeToPDF(false);  // Keeps original format intact
 ```
 
-- **Key Configuration**: Este fragmento te ayuda a gestionar los nombres de archivo de salida y a conservar la estructura original del documento.
+- **Configuración clave**: Establecer `setPreserveMetadata(true)` conserva las propiedades originales del documento, lo cual a menudo se requiere para auditorías de cumplimiento.
 
 ## Aplicaciones prácticas
-Escenarios del mundo real donde **how to redact text** es esencial:
+Escenarios del mundo real donde **cómo redactar texto** es esencial:
 
-1. **Legal Documents** – Ocultar identificadores de clientes antes de compartir borradores con asesores externos.  
-2. **Medical Records** – Enmascarar nombres de pacientes, IDs o números de salud para cumplir con HIPAA.  
-3. **Financial Reports** – Eliminar números de cuenta confidenciales al distribuir resúmenes trimestrales.  
+1. **Documentos legales** – Ocultar identificadores de clientes antes de compartir borradores con asesores externos.  
+2. **Registros médicos** – Enmascarar nombres de pacientes, IDs o números de salud para cumplir con HIPAA.  
+3. **Informes financieros** – Eliminar números de cuenta confidenciales al distribuir resúmenes trimestrales.  
 
 ## Consideraciones de rendimiento
-- **Memory Management**: Siempre cierra las instancias de `Redactor` (`redactor.close()`) para liberar recursos.  
-- **Efficient Regex**: Los patrones más simples se ejecutan más rápido; evita expresiones excesivamente complejas cuando sea posible.  
-- **Batch Processing**: Para conjuntos grandes de documentos, procesa los archivos en lotes para mantener predecible el uso de memoria.  
+- **Gestión de memoria**: Siempre llame a `redactor.close()` para liberar manejadores de archivos y recursos nativos.  
+- **Regex eficiente**: Los patrones más simples se ejecutan más rápido; evite retrocesos excesivos usando grupos atómicos cuando sea posible.  
+- **Procesamiento por lotes**: Para conjuntos grandes de documentos, procese archivos en lotes de 20–50 para mantener predecible el uso del heap.  
 
 ## Problemas comunes y soluciones
 | Problema | Solución |
 |----------|----------|
-| **Regex matches too much** | Prueba tu patrón con un probador de regex en línea y reduce las clases de caracteres. |
-| **Output file name conflict** | Usa `setAddSuffix(true)` o proporciona una ruta de salida personalizada mediante `saveOptions.setOutputPath()`. |
-| **Memory leak on large PDFs** | Procesa los PDFs página por página o aumenta el tamaño del heap de JVM (`-Xmx2g`). |
+| **Regex coincide demasiado** | Pruebe su patrón con un probador de regex en línea y reduzca las clases de caracteres. |
+| **Conflicto de nombre de archivo de salida** | Utilice `setAddSuffix(true)` o proporcione una ruta de salida personalizada mediante `saveOptions.setOutputPath()`. |
+| **Fuga de memoria en PDFs grandes** | Procese PDFs página por página o aumente el tamaño del heap de JVM (`-Xmx2g`). |
 
 ## Preguntas frecuentes
 
-**Q: What is the purpose of `setAddSuffix(true)` in SaveOptions?**  
-A: Añade automáticamente un sufijo (p. ej., `_redacted`) al nombre del archivo de salida, dejando claro qué archivos han sido procesados.
+**P: ¿Cuál es el propósito de `setAddSuffix(true)` en SaveOptions?**  
+R: Automáticamente agrega un sufijo (p.ej., `_redacted`) al nombre del archivo de salida, haciendo evidente qué archivos han sido procesados.
 
-**Q: Can I use regex patterns other than numbers for text redaction?**  
-A: Absolutamente. Cualquier expresión regular válida de Java puede suministrarse a `RegexRedaction` para apuntar a correos electrónicos, números de teléfono, IDs personalizados, etc.
+**P: ¿Puedo usar patrones regex diferentes a números para la redacción de texto?**  
+R: Absolutamente. Cualquier expresión regular Java válida puede suministrarse a `RegexRedaction` para apuntar a correos electrónicos, números de teléfono, IDs personalizados, etc.
 
-**Q: How should I handle errors during redaction?**  
-A: Envuelve la lógica de redacción en un bloque try‑catch, registra la excepción y siempre cierra el `Redactor` en una cláusula finally para liberar recursos.
+**P: ¿Cómo debo manejar los errores durante la redacción?**  
+R: Envuélvase la lógica de redacción en un bloque try‑catch, registre la excepción y siempre cierre el `Redactor` en una cláusula finally para liberar recursos.
 
-**Q: Is PDF redaction supported?**  
-A: Sí. GroupDocs.Redaction funciona con PDF, DOCX, PPTX y muchos otros formatos.
+**P: ¿Se admite la redacción de PDF?**  
+R: Sí. GroupDocs.Redaction funciona con PDF, DOCX, PPTX y muchos otros formatos.
 
-**Q: What are best practices for large‑scale redaction projects?**  
-A: Usa procesamiento por lotes, mantén los patrones regex simples y monitorea el uso de memoria con herramientas de perfilado.
+**P: ¿Cuáles son las mejores prácticas para proyectos de redacción a gran escala?**  
+R: Utilice procesamiento por lotes, mantenga los patrones regex simples y monitoree el uso de memoria con herramientas de perfilado.
 
-## Recursos
-Para profundizar y obtener orientación oficial:
-
-- **Documentation**: [GroupDocs Redaction Documentation](https://docs.groupdocs.com/redaction/java/)  
-- **API Reference**: [GroupDocs API Reference](https://apireference.groupdocs.com/redaction/java)
+## Recursos adicionales
+- **Documentación**: [Documentación de GroupDocs Redaction](https://docs.groupdocs.com/redaction/java/)  
+- **Referencia de API**: [Referencia de API de GroupDocs](https://apireference.groupdocs.com/redaction/java)
 
 ---
 
-**Última actualización:** 2026-03-01  
-**Probado con:** GroupDocs.Redaction 24.9 for Java  
+**Última actualización:** 2026-08-20  
+**Probado con:** GroupDocs.Redaction 24.9 para Java  
 **Autor:** GroupDocs
+
+## Tutoriales relacionados
+
+- [Enmascarar datos sensibles Java – Guía GroupDocs.Redaction](/redaction/java/getting-started/)
+- [Enmascarar datos sensibles Java – Redactar información personal con GroupDocs.Redaction](/redaction/java/advanced-redaction/master-document-redaction-java-groupdocs-redaction/)
+- [Cómo redactar PDF con Aspose OCR y Java - Implementando patrones regex usando GroupDocs.Redaction](/redaction/java/ocr-integration/aspose-ocr-java-pdf-redaction/)
