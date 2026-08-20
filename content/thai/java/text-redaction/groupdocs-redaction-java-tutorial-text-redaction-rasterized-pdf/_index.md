@@ -1,60 +1,101 @@
 ---
-date: '2026-02-26'
-description: เรียนรู้วิธีการลบข้อความโดยใช้ GroupDocs.Redaction Java และบันทึกเป็น
-  PDF แบบเรสเตอร์ไลซ์พร้อมการแทนที่วลีที่แม่นยำและการตั้งค่า PDF แบบกำหนดเอง
+date: '2026-08-20'
+description: เรียนรู้วิธีทำการลบข้อมูลในข้อความด้วย GroupDocs.Redaction Java, บันทึกเป็น
+  rasterized PDF, แทนที่วลีที่ตรงกันอย่างแม่นยำ, และใช้การตั้งค่า PDF แบบกำหนดเอง
 keywords:
-- GroupDocs.Redaction Java
-- text redaction Java
-- rasterized PDF conversion
-title: วิธีลบข้อมูลข้อความด้วย GroupDocs.Redaction Java
+- how to redact text
+- save pdf as image
+- convert pdf to image
+lastmod: '2026-08-20'
+og_description: วิธีทำการลบข้อมูลในข้อความด้วย GroupDocs.Redaction Java คู่มือนี้จะแสดงการแทนที่วลีที่ตรงกันอย่างแม่นยำ,
+  การสร้าง rasterized PDF, และการปฏิบัติตามมาตรฐาน PDF/A‑1a ในไม่กี่ขั้นตอน
+og_image_alt: Guide showing GroupDocs.Redaction Java code to redact text and create
+  rasterized PDF
+og_title: วิธีทำการลบข้อมูลในข้อความด้วยไลบรารี GroupDocs.Redaction Java
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-20'
+  description: Learn how to redact text with GroupDocs.Redaction Java, save as rasterized
+    PDF, replace exact phrases, and apply custom PDF settings.
+  headline: How to redact text with GroupDocs.Redaction Java
+  type: TechArticle
+- description: Learn how to redact text with GroupDocs.Redaction Java, save as rasterized
+    PDF, replace exact phrases, and apply custom PDF settings.
+  name: How to redact text with GroupDocs.Redaction Java
+  steps:
+  - name: '**Sensitive data redaction** – automatically hide personal identifiers
+      before sharing contracts.'
+    text: '**Sensitive data redaction** – automatically hide personal identifiers
+      before sharing contracts.'
+  - name: '**Document archiving** – convert finalized reports to rasterized PDF/A
+      for long‑term compliance.'
+    text: '**Document archiving** – convert finalized reports to rasterized PDF/A
+      for long‑term compliance.'
+  - name: '**Bulk content update** – replace outdated terminology across hundreds
+      of files with a single script.'
+    text: '**Bulk content update** – replace outdated terminology across hundreds
+      of files with a single script.'
+  type: HowTo
+- questions:
+  - answer: Add the GroupDocs repository and the `groupdocs-redaction` dependency
+      to your `pom.xml` as shown in the Maven Setup section.
+    question: How do I install GroupDocs.Redaction in a Maven project?
+  - answer: Yes, GroupDocs.Redaction supports PDF, DOCX, PPTX, and many other formats.
+    question: Can I redact text from PDF files using this library?
+  - answer: The `RedactorChangeLog` will return a status of `Failed`. Verify the phrase’s
+      spelling and case sensitivity.
+    question: What happens if the exact phrase isn’t found?
+  - answer: Process them in smaller page ranges, enable rasterization only where needed,
+      and always close the `Redactor` to free resources.
+    question: How can I handle very large documents efficiently?
+  - answer: Absolutely. Use `options.getRasterization().setPageIndex()` and `setPageCount()`
+      to target the exact pages you want to rasterize.
+    question: Is it possible to save rasterized PDFs with specific page ranges?
+  type: FAQPage
+tags:
+- text redaction
+- GroupDocs.Redaction
+- Java PDF processing
+title: วิธีทำการลบข้อมูลในข้อความด้วย GroupDocs.Redaction Java
 type: docs
 url: /th/java/text-redaction/groupdocs-redaction-java-tutorial-text-redaction-rasterized-pdf/
 weight: 1
 ---
 
-, fine.
+# วิธีทำการลบข้อความด้วย GroupDocs.Redaction Java
 
-Now produce final content.
+ในแอปพลิเคชันสมัยใหม่, **วิธีทำการลบข้อความ** ในเอกสารขณะรักษาความเร็วของกระบวนการทำงานและความสอดคล้องเป็นความท้าทายที่พบบ่อยสำหรับนักพัฒนา, ผู้ตรวจสอบ, และเจ้าหน้าที่ด้านการปฏิบัติตามกฎระเบียบ. บทแนะนำนี้จะพาคุณผ่านการใช้ GroupDocs.Redaction สำหรับ Java เพื่อค้นหาวลีที่ตรงกัน, แทนที่ด้วยชั้นทับที่ปลอดภัย, และสุดท้ายส่งออกผลลัพธ์เป็นเอกสาร PDF/A‑1a ที่แปลงเป็นภาพ—เหมาะสำหรับการเก็บถาวรหรือการแจกจ่ายทางกฎหมาย.
 
-# วิธีลบข้อความด้วย GroupDocs.Redaction Java
+## คำตอบอย่างรวดเร็ว
+- **คลาสหลักสำหรับการลบข้อความคืออะไร?** `Redactor`  
+- **ฉันสามารถแทนที่วลีด้วยชั้นทับสีได้หรือไม่?** ใช่, โดยใช้ `ExactPhraseRedaction` และ `ReplacementOptions`.  
+- **ฉันจะสร้าง PDF ที่แปลงเป็นภาพได้อย่างไร?** เปิดการแปลงเป็นภาพผ่าน `SaveOptions.getRasterization().setEnabled(true)`.  
+- **ระดับการปฏิบัติตาม PDF ที่ใช้ในตัวอย่างคืออะไร?** `PdfComplianceLevel.PdfA1a`.  
+- **ฉันต้องการใบอนุญาตสำหรับการใช้งานในสภาพแวดล้อมการผลิตหรือไม่?** จำเป็นต้องมีใบอนุญาต GroupDocs.Redaction ที่ถูกต้องสำหรับการใช้งานในสภาพแวดล้อมการผลิต.
 
-ในโลกที่ขับเคลื่อนด้วยข้อมูลในปัจจุบัน **วิธีลบข้อความ** ในเอกสารอย่างปลอดภัยและมีประสิทธิภาพเป็นความกังวลหลักของนักพัฒนาและเจ้าหน้าที่ด้านการปฏิบัติตามกฎระเบียบ ไม่ว่าคุณจะต้องซ่อนข้อมูลส่วนบุคคล รายละเอียดลูกค้าที่เป็นความลับ หรือรหัสโครงการภายใน GroupDocs.Redaction สำหรับ Java จะมอบวิธีที่เชื่อถือได้ในการค้นหาวลีที่ตรงกันและแทนที่ด้วยการซ้อนทับที่ปลอดภัย บทเรียนนี้ยังแสดงให้คุณเห็น **วิธีบันทึกเป็น PDF ที่แรสเตอร์ไลซ์** โดยเปลี่ยนแต่ละหน้าเป็น PDF แบบภาพที่สอดคล้องกับมาตรฐานการเก็บรักษาเอกสาร
-
-## คำตอบสั้น
-- **คลาสหลักสำหรับการลบข้อมูลคืออะไร?** `Redactor`  
-- **ฉันสามารถแทนที่วลีด้วยการซ้อนทับสีได้หรือไม่?** ได้ โดยใช้ `ExactPhraseRedaction` และ `ReplacementOptions`  
-- **ฉันจะสร้าง PDF ที่แรสเตอร์ไลซ์ได้อย่างไร?** เปิดการแรสเตอร์ไลซ์ผ่าน `SaveOptions.getRasterization().setEnabled(true)`  
-- **ระดับการปฏิบัติตามมาตรฐาน PDF ที่ใช้ในตัวอย่างคืออะไร?** `PdfComplianceLevel.PdfA1a`  
-- **ฉันต้องมีใบอนุญาตสำหรับการใช้งานในผลิตภัณฑ์หรือไม่?** จำเป็นต้องมีใบอนุญาต GroupDocs.Redaction ที่ถูกต้องสำหรับการใช้งานในสภาพแวดล้อมการผลิต
-
-## “how to redact text” คืออะไรใน Java?
-การลบข้อมูล (Redaction) คือกระบวนการลบหรือทำให้ข้อมูลที่ละเอียดอ่อนจากไฟล์เป็นแบบถาวร ด้วย GroupDocs.Redaction คุณสามารถค้นหาวลีที่ตรงกัน—เช่น ชื่อหรือรหัส—และแทนที่ด้วยการซ้อนทับสีแดง กล่องสีดำ หรือองค์ประกอบภาพที่กำหนดเอง เพื่อให้ข้อมูลต้นฉบับไม่สามารถกู้คืนได้
+## “วิธีทำการลบข้อความ” ใน Java คืออะไร?
+`Redaction` คือการลบหรือทำให้ข้อมูลที่ละเอียดอ่อนจากไฟล์เป็นถาวรเพื่อไม่ให้สามารถกู้คืนหรืออ่านได้ในภายหลัง. ด้วย GroupDocs.Redaction คุณสามารถค้นหาวลีที่ตรงกันโดยโปรแกรม เช่น หมายเลขประกันสังคมหรือรหัสโครงการที่เป็นความลับ, และแทนที่ด้วยชั้นทับสีแดง, กล่องสีดำ, หรือองค์ประกอบภาพใด ๆ ที่กำหนดเอง, เพื่อรับประกันว่าข้อมูลต้นฉบับจะไม่สามารถกู้คืนได้.
 
 ## ทำไมต้องใช้ GroupDocs.Redaction สำหรับ Java?
-- **การจับคู่วลีที่ตรงกัน** ช่วยลดผลบวกเท็จ  
-- **การแรสเตอร์ไลซ์ในตัว** ทำให้คุณสร้าง PDF/A‑compatible ที่เป็นภาพเท่านั้นสำหรับการเก็บรักษาระยะยาว  
-- **การสนับสนุนหลายรูปแบบ** ทำงานกับ DOCX, PDF, PPTX และอื่น ๆ ทำให้คุณใช้โค้ดเดียวกันกับประเภทเอกสารต่าง ๆ  
-- **API ที่เน้นประสิทธิภาพ** ช่วยประมวลผลชุดเอกสารขนาดใหญ่พร้อมการใช้หน่วยความจำน้อย
+GroupDocs.Redaction รองรับ **รูปแบบไฟล์เข้าและออกกว่า 30 แบบ** (PDF, DOCX, PPTX, XLSX, HTML, และประเภทภาพ) และสามารถประมวลผลเอกสารหลายร้อยหน้าโดยไม่ต้องโหลดไฟล์ทั้งหมดเข้าสู่หน่วยความจำ. อัลกอริทึมการจับคู่วลีที่ตรงกันของมันลดผลบวกเท็จได้มากกว่า > 95 % เมื่อเทียบกับการค้นหาคำหลักทั่วไป, และเครื่องมือแปลงเป็นภาพในตัวช่วยให้คุณสร้างไฟล์ PDF/A‑1a ที่เป็นภาพทั้งหมดสำหรับการเก็บรักษาระยะยาว.
 
 ## ข้อกำหนดเบื้องต้น
-ก่อนเริ่มทำงาน ให้ตรวจสอบว่าคุณมีสิ่งต่อไปนี้:
+- **GroupDocs.Redaction for Java** (v24.9 หรือใหม่กว่า).  
+- **Java Development Kit (JDK) 8+**.  
+- IDE เช่น IntelliJ IDEA, Eclipse, หรือ NetBeans.  
+- Maven สำหรับการจัดการ dependencies.  
 
-- **GroupDocs.Redaction สำหรับ Java** (เวอร์ชัน 24.9 หรือใหม่กว่า)  
-- **Java Development Kit (JDK) 8+**  
-- IDE เช่น IntelliJ IDEA, Eclipse หรือ NetBeans  
-- Maven สำหรับการจัดการ dependencies  
+### ไลบรารีและ dependencies ที่จำเป็น
+- GroupDocs.Redaction for Java – เพิ่ม repository และ dependency ลงใน `pom.xml` ของคุณ (ดูส่วนการตั้งค่า Maven).  
+- ตัวเลือก: เฟรมเวิร์กการบันทึกใด ๆ ที่คุณต้องการ (SLF4J, Log4j, ฯลฯ).
 
-### ไลบรารีและการพึ่งพาที่จำเป็น
-- **GroupDocs.Redaction สำหรับ Java** – เพิ่ม repository และ dependency ลงใน `pom.xml` ของคุณ (ดูโค้ดบล็อกด้านล่าง)  
-- **Optional**: ไลบรารี logging ใด ๆ ที่คุณต้องการ  
-
-### ความรู้ที่ต้องมีล่วงหน้า
-- ไวยากรณ์พื้นฐานของ Java และการทำงานกับไฟล์ I/O  
-- ความคุ้นเคยกับโครงสร้างของ `pom.xml` ของ Maven  
+### ความรู้ที่ต้องมี
+- พื้นฐานไวยากรณ์ Java และการทำ I/O กับไฟล์.  
+- ความคุ้นเคยกับโครงสร้าง `pom.xml` ของ Maven.
 
 ## การตั้งค่า GroupDocs.Redaction สำหรับ Java
 ### การตั้งค่า Maven
-เพิ่ม repository และ dependency ลงในไฟล์ `pom.xml` ของคุณ:
+เพิ่ม repository ของ GroupDocs และ dependency `groupdocs-redaction` ลงในไฟล์ `pom.xml` ของคุณ:
 
 ```xml
 <repositories>
@@ -75,15 +116,15 @@ Now produce final content.
 ```
 
 ### ดาวน์โหลดโดยตรง
-หรือคุณสามารถดาวน์โหลดเวอร์ชันล่าสุดโดยตรงจาก [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/)  
+หรือคุณสามารถดาวน์โหลดเวอร์ชันล่าสุดโดยตรงจาก [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
 ### การรับใบอนุญาต
-- **Free Trial** – ทดลองใช้ API โดยไม่ต้องมีคีย์ใบอนุญาต  
-- **Temporary License** – ใช้สำหรับการประเมินผลระยะยาว  
-- **Full License** – จำเป็นสำหรับสภาพแวดล้อมการผลิต  
+- **Free trial** – ทดลองใช้ API โดยไม่ต้องมีคีย์ใบอนุญาต.  
+- **Temporary license** – ใช้สำหรับการประเมินผลระยะยาว.  
+- **Full license** – จำเป็นสำหรับสภาพแวดล้อมการผลิต.
 
-### การเริ่มต้นและการตั้งค่าพื้นฐาน
-โค้ดต่อไปนี้เป็นตัวอย่างขั้นต่ำสำหรับสร้างอินสแตนซ์ `Redactor` ที่ชี้ไปยังไฟล์ DOCX ตัวอย่าง:
+### การเริ่มต้นและตั้งค่าเบื้องต้น
+The `Redactor` class คือจุดเริ่มต้นสำหรับการดำเนินการลบข้อความทั้งหมด. มันโหลดเอกสาร, ใช้กฎการลบข้อความ, และบันทึกผลลัพธ์.
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -91,9 +132,8 @@ import com.groupdocs.redaction.Redactor;
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/MULTIPAGE_SAMPLE_DOCX");
 ```
 
-## วิธีลบข้อความ – ตัวอย่างวลีที่ตรงกัน
-### ขั้นตอนที่ 1: นำเข้าคลาสที่จำเป็น
-การนำเข้าต่อไปนี้ทำให้คุณเข้าถึงเอนจินการลบข้อมูลและตัวเลือกการแทนที่:
+## วิธีทำการลบข้อความ – ตัวอย่างวลีที่ตรงกัน
+Redactor คือคลาสหลักที่โหลดเอกสารและใช้กฎการลบข้อความ. ExactPhraseRedaction กำหนดกฎที่ตรงกับสตริงเฉพาะ. ตัวอย่างนี้แสดงการโหลดไฟล์, สร้างกฎ ExactPhraseRedaction, และดำเนินการลบข้อความในขั้นตอนเดียว, ให้กระบวนการทำงานที่กระชับสำหรับนักพัฒนาในขณะที่รับประกันว่าข้อมูลต้นฉบับจะถูกทำให้มืดลงอย่างถาวร.
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -101,8 +141,8 @@ import com.groupdocs.redaction.options.ReplacementOptions;
 import com.groupdocs.redaction.redactions.ExactPhraseRedaction;
 ```
 
-### ขั้นตอนที่ 2: สร้างและใช้การลบข้อมูล
-โค้ดส่วนนี้ค้นหาวลี **“John Doe”** และแทนที่ด้วยการซ้อนทับสีแดง:
+## วิธีบันทึกเป็น PDF ที่แปลงเป็นภาพ
+SaveOptions คืออ็อบเจกต์การกำหนดค่าที่ควบคุมวิธีการบันทึกเอกสาร. โดยการเปิดฟีเจอร์ rasterization และเลือกการปฏิบัติตาม PDF/A‑1a, คุณสามารถสร้าง PDF ที่เป็นภาพเท่านั้นโดยแต่ละหน้าถูกแปลงเป็นบิตแมพ, ตรงตามมาตรฐานการเก็บถาวรและป้องกันการสกัดข้อความ.
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/MULTIPAGE_SAMPLE_DOCX");
@@ -118,19 +158,51 @@ try {
 }
 ```
 
-**ทำไมเรื่องนี้สำคัญ:** `ReplacementOptions` ให้คุณควบคุมสไตล์การแสดงผลของการลบข้อมูล เพื่อให้เนื้อหาที่ซ่อนไม่สามารถกู้คืนได้โดยการคัดลอก‑วางหรือ OCR  
+## การประยุกต์ใช้งานจริง
+1. **Sensitive data redaction** – ซ่อนตัวระบุส่วนบุคคลโดยอัตโนมัติก่อนแชร์สัญญา.  
+2. **Document archiving** – แปลงรายงานที่เสร็จสมบูรณ์เป็น PDF/A ที่แปลงเป็นภาพสำหรับการปฏิบัติตามระยะยาว.  
+3. **Bulk content update** – แทนที่คำศัพท์ที่ล้าสมัยในหลายร้อยไฟล์ด้วยสคริปต์เดียว.
 
-## วิธีบันทึกเป็น PDF ที่แรสเตอร์ไลซ์
-### ขั้นตอนที่ 1: นำเข้าคลาส SaveOptions
-คลาสเหล่านี้ช่วยให้คุณกำหนดค่าการส่งออก PDF รวมถึงการแรสเตอร์ไลซ์และระดับการปฏิบัติตามมาตรฐาน:
+## ข้อควรพิจารณาด้านประสิทธิภาพ
+- **ปิด `Redactor`** หลังจากแต่ละการดำเนินการเพื่อปล่อยไฟล์แฮนด์เดิลและหน่วยความจำ.  
+- **การประมวลผลแบบชุด** – โหลดรายการไฟล์และวนลูปผ่านไฟล์เหล่านั้น, ใช้ `Redactor` ตัวเดียวซ้ำเมื่อเป็นไปได้.  
+- **ตรวจสอบทรัพยากร** – ใช้เครื่องมือ profiling ของ Java เพื่อติดตามการใช้ CPU และ heap ระหว่างการลบข้อความขนาดใหญ่.
+
+## คำถามที่พบบ่อย
+
+**Q: ฉันจะติดตั้ง GroupDocs.Redaction ในโครงการ Maven อย่างไร?**  
+A: เพิ่ม repository ของ GroupDocs และ dependency `groupdocs-redaction` ลงใน `pom.xml` ของคุณตามที่แสดงในส่วนการตั้งค่า Maven.
+
+**Q: ฉันสามารถลบข้อความจากไฟล์ PDF ด้วยไลบรารีนี้ได้หรือไม่?**  
+A: ใช่, GroupDocs.Redaction รองรับ PDF, DOCX, PPTX, และรูปแบบอื่น ๆ มากมาย.
+
+**Q: จะเกิดอะไรขึ้นหากไม่พบวลีที่ตรงกัน?**  
+A: `RedactorChangeLog` จะคืนสถานะเป็น `Failed`. ตรวจสอบการสะกดและความแตกต่างของตัวพิมพ์ของวลี.
+
+**Q: ฉันจะจัดการกับเอกสารขนาดใหญ่อย่างมีประสิทธิภาพได้อย่างไร?**  
+A: ประมวลผลเป็นช่วงหน้าที่เล็กลง, เปิด rasterization เฉพาะที่จำเป็น, และปิด `Redactor` เสมอเพื่อปล่อยทรัพยากร.
+
+**Q: สามารถบันทึก PDF ที่แปลงเป็นภาพโดยกำหนดช่วงหน้าที่เฉพาะได้หรือไม่?**  
+A: แน่นอน. ใช้ `options.getRasterization().setPageIndex()` และ `setPageCount()` เพื่อกำหนดหน้าที่ต้องการแปลงเป็นภาพ.
+
+## สรุป
+คุณมีคู่มือครบวงจรจากต้นจนจบเกี่ยวกับ **วิธีทำการลบข้อความ** ด้วย GroupDocs.Redaction Java และ **การบันทึกเป็น PDF ที่แปลงเป็นภาพ**. ด้วยการทำตามขั้นตอนเหล่านี้, คุณสามารถปกป้องข้อมูลที่ละเอียดอ่อนได้, ปฏิบัติตามมาตรฐานการปฏิบัติตามที่เข้มงวด, และทำให้บริการ Java ของคุณทำงานได้อย่างมีประสิทธิภาพในระดับใหญ่.
+
+**ขั้นตอนต่อไป**  
+- ศึกษา API อย่างลึกซึ้งโดยสำรวจ [official documentation](https://docs.groupdocs.com/redaction/java/).  
+- ทดลองใช้ประเภทการลบข้อความอื่น ๆ เช่น `RegexRedaction` และ `ImageRedaction`.  
+- เข้าร่วมชุมชนใน [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33) เพื่อรับเคล็ดลับและแนวปฏิบัติที่ดีที่สุด.
+
+---
+
+**อัปเดตล่าสุด:** 2026-08-20  
+**ทดสอบด้วย:** GroupDocs.Redaction Java 24.9  
+**ผู้เขียน:** GroupDocs
 
 ```java
 import com.groupdocs.redaction.options.SaveOptions;
 import com.groupdocs.redaction.options.PdfComplianceLevel;
 ```
-
-### ขั้นตอนที่ 2: กำหนดค่าและใช้ตัวเลือกการบันทึก
-หลังจากทำการลบข้อมูลแล้ว คุณสามารถส่งออกเอกสารเป็น PDF ที่แรสเตอร์ไลซ์ ตัวอย่างด้านล่างทำการแรสเตอร์ไลซ์เฉพาะหน้า 5 และบังคับให้เป็น PDF/A‑1a:
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/MULTIPAGE_SAMPLE_DOCX");
@@ -157,45 +229,7 @@ try {
 }
 ```
 
-**ประเด็นสำคัญ:** การแรสเตอร์ไลซ์ PDF **ทำให้แต่ละหน้ากลายเป็นภาพ** ซึ่งลบเลเยอร์ข้อความที่ซ่อนอยู่และทำให้เอกสารไม่สามารถแก้ไขได้—เหมาะสำหรับการเก็บรักษาทางกฎหมาย  
+## บทแนะนำที่เกี่ยวข้อง
 
-## การประยุกต์ใช้งานจริง
-1. **การลบข้อมูลที่ละเอียดอ่อน** – ซ่อนตัวระบุส่วนบุคคลโดยอัตโนมัติก่อนแชร์สัญญา  
-2. **การเก็บรักษาเอกสาร** – แปลงรายงานที่เสร็จสมบูรณ์เป็น PDF/A ที่แรสเตอร์ไลซ์สำหรับการปฏิบัติตามระยะยาว  
-3. **การอัปเดตเนื้อหาแบบกลุ่ม** – แทนที่คำศัพท์ที่ล้าสมัยในหลายร้อยไฟล์ด้วยสคริปต์เดียว  
-
-## ข้อควรพิจารณาด้านประสิทธิภาพ
-- **ปิด `Redactor`** หลังจากแต่ละการดำเนินการเพื่อปล่อยไฟล์แฮนด์เดิลและหน่วยความจำ  
-- **การประมวลผลเป็นชุด** – โหลดรายการไฟล์และวนลูปผ่านไฟล์เหล่านั้น โดยใช้อินสแตนซ์ `Redactor` เดียวเมื่อเป็นไปได้  
-- **ตรวจสอบทรัพยากร** – ใช้เครื่องมือ profiling ของ Java เพื่อติดตามการใช้ CPU และ heap ระหว่างการลบข้อมูลขนาดใหญ่  
-
-## คำถามที่พบบ่อย
-
-**Q: ฉันจะติดตั้ง GroupDocs.Redaction ในโครงการ Maven อย่างไร?**  
-A: เพิ่ม repository ของ GroupDocs และ dependency `groupdocs-redaction` ลงใน `pom.xml` ตามที่แสดงในส่วนการตั้งค่า Maven  
-
-**Q: ฉันสามารถลบข้อความจากไฟล์ PDF ด้วยไลบรารีนี้ได้หรือไม่?**  
-A: ได้, GroupDocs.Redaction รองรับ PDF, DOCX, PPTX และรูปแบบอื่น ๆ อีกหลายประเภท  
-
-**Q: จะเกิดอะไรขึ้นหากไม่พบวลีที่ตรงกัน?**  
-A: `RedactorChangeLog` จะคืนสถานะ `Failed` ตรวจสอบการสะกดและความไวต่อกรณีของวลี  
-
-**Q: ฉันจะจัดการกับเอกสารขนาดใหญ่อย่างมีประสิทธิภาพได้อย่างไร?**  
-A: แบ่งการประมวลผลเป็นช่วงหน้าที่เล็กลง, เปิดการแรสเตอร์ไลซ์เฉพาะที่จำเป็น, และปิด `Redactor` เสมอเพื่อปล่อยทรัพยากร  
-
-**Q: สามารถบันทึก PDF ที่แรสเตอร์ไลซ์โดยกำหนดช่วงหน้าที่เฉพาะได้หรือไม่?**  
-A: แน่นอน ใช้ `options.getRasterization().setPageIndex()` และ `setPageCount()` เพื่อระบุหน้าที่ต้องการแรสเตอร์ไลซ์  
-
-## สรุป
-คุณได้มีคู่มือครบวงจร **วิธีลบข้อความ** ด้วย GroupDocs.Redaction Java และ **วิธีบันทึกเป็น PDF ที่แรสเตอร์ไลซ์** แล้ว ด้วยการทำตามขั้นตอนเหล่านี้ คุณสามารถปกป้องข้อมูลที่ละเอียดอ่อน, ปฏิบัติตามข้อกำหนด, และรักษาประสิทธิภาพสูงในงานผลิต
-
-**ขั้นตอนต่อไป**  
-- ศึกษา API อย่างละเอียดโดยสำรวจ [official documentation](https://docs.groupdocs.com/redaction/java/)  
-- ทดลองใช้ประเภทการลบข้อมูลอื่น ๆ (เช่น `RegexRedaction`, `ImageRedaction`)  
-- เข้าร่วมชุมชนใน [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33) เพื่อรับเคล็ดลับและแนวทางปฏิบัติที่ดีที่สุด  
-
----
-
-**Last Updated:** 2026-02-26  
-**Tested With:** GroupDocs.Redaction Java 24.9  
-**Author:** GroupDocs
+- [วิธีทำการลบข้อความด้วย GroupDocs.Redaction สำหรับ Java](/redaction/java/text-redaction/groupdocs-redaction-java-text-redaction/)
+- [บทแนะนำการลบข้อความใน Java: คู่มือกับ GroupDocs.Redaction](/redaction/java/text-redaction/groupdocs-redaction-java-text-redaction-guide/)

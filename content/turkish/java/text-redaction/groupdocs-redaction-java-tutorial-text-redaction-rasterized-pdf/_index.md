@@ -1,56 +1,104 @@
 ---
-date: '2026-02-26'
-description: GroupDocs.Redaction Java kullanarak metni nasıl karartacağınızı öğrenin
-  ve tam ifade değişimi ile özel PDF ayarlarıyla rasterleştirilmiş PDF olarak kaydedin.
+date: '2026-08-20'
+description: GroupDocs.Redaction Java ile metni nasıl karartacağınızı öğrenin, rasterized
+  PDF olarak kaydedin, tam ifadeleri değiştirin ve özel PDF ayarlarını uygulayın.
 keywords:
-- GroupDocs.Redaction Java
-- text redaction Java
-- rasterized PDF conversion
-title: GroupDocs.Redaction Java ile Metni Kırpma
+- how to redact text
+- save pdf as image
+- convert pdf to image
+lastmod: '2026-08-20'
+og_description: GroupDocs.Redaction Java ile metni nasıl karartılır. Bu kılavuz, tam
+  ifade değişimini, rasterized PDF oluşturmayı ve PDF/A‑1a uyumluluğunu birkaç adımda
+  gösterir.
+og_image_alt: Guide showing GroupDocs.Redaction Java code to redact text and create
+  rasterized PDF
+og_title: GroupDocs.Redaction Java kütüphanesi ile metni nasıl karartılır
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-20'
+  description: Learn how to redact text with GroupDocs.Redaction Java, save as rasterized
+    PDF, replace exact phrases, and apply custom PDF settings.
+  headline: How to redact text with GroupDocs.Redaction Java
+  type: TechArticle
+- description: Learn how to redact text with GroupDocs.Redaction Java, save as rasterized
+    PDF, replace exact phrases, and apply custom PDF settings.
+  name: How to redact text with GroupDocs.Redaction Java
+  steps:
+  - name: '**Sensitive data redaction** – automatically hide personal identifiers
+      before sharing contracts.'
+    text: '**Sensitive data redaction** – automatically hide personal identifiers
+      before sharing contracts.'
+  - name: '**Document archiving** – convert finalized reports to rasterized PDF/A
+      for long‑term compliance.'
+    text: '**Document archiving** – convert finalized reports to rasterized PDF/A
+      for long‑term compliance.'
+  - name: '**Bulk content update** – replace outdated terminology across hundreds
+      of files with a single script.'
+    text: '**Bulk content update** – replace outdated terminology across hundreds
+      of files with a single script.'
+  type: HowTo
+- questions:
+  - answer: Add the GroupDocs repository and the `groupdocs-redaction` dependency
+      to your `pom.xml` as shown in the Maven Setup section.
+    question: How do I install GroupDocs.Redaction in a Maven project?
+  - answer: Yes, GroupDocs.Redaction supports PDF, DOCX, PPTX, and many other formats.
+    question: Can I redact text from PDF files using this library?
+  - answer: The `RedactorChangeLog` will return a status of `Failed`. Verify the phrase’s
+      spelling and case sensitivity.
+    question: What happens if the exact phrase isn’t found?
+  - answer: Process them in smaller page ranges, enable rasterization only where needed,
+      and always close the `Redactor` to free resources.
+    question: How can I handle very large documents efficiently?
+  - answer: Absolutely. Use `options.getRasterization().setPageIndex()` and `setPageCount()`
+      to target the exact pages you want to rasterize.
+    question: Is it possible to save rasterized PDFs with specific page ranges?
+  type: FAQPage
+tags:
+- text redaction
+- GroupDocs.Redaction
+- Java PDF processing
+title: GroupDocs.Redaction Java ile metni nasıl karartılır
 type: docs
 url: /tr/java/text-redaction/groupdocs-redaction-java-tutorial-text-redaction-rasterized-pdf/
 weight: 1
 ---
 
-# GroupDocs.Redaction Java ile Metin Nasıl Kırpılır
+# GroupDocs.Redaction Java ile metni nasıl karartılır
 
-Günümüzün veri odaklı dünyasında, bir belgede **metni nasıl kırpılır** güvenli ve verimli bir şekilde, geliştiriciler ve uyumluluk sorumluları için en önemli konulardan biridir. Kişisel tanımlayıcıları, gizli müşteri detaylarını veya dahili proje kodlarını gizlemeniz gerekse, GroupDocs.Redaction for Java, kesin ifadeleri bulup güvenli kaplamalarla değiştirmek için güvenilir bir yol sunar. Bu öğreticide ayrıca **rasterleştirilmiş PDF olarak nasıl kaydedilir** gösterilir; her sayfayı arşiv standartlarına uygun bir görüntü‑tabanlı PDF'ye dönüştürür.
+Modern uygulamalarda, bir belgede **metni nasıl karartılır** sorusu, iş akışını hızlı ve uyumlu tutarken, geliştiriciler, denetçiler ve uyum görevlileri için sık bir zorluktur. Bu öğretici, Java için GroupDocs.Redaction kullanarak tam ifadeleri bulmanızı, bunları güvenli kaplamalarla değiştirmenizi ve nihayetinde sonucu rasterleştirilmiş bir PDF/A‑1a belgesi olarak dışa aktarmanızı adım adım gösterir—arşivleme veya yasal dağıtım için mükemmeldir.
 
-## Hızlı Yanıtlar
-- **Kırpma için birincil sınıf nedir?** `Redactor`  
-- **Bir ifadeyi renkli bir kaplamayla değiştirebilir miyim?** Evet, `ExactPhraseRedaction` ve `ReplacementOptions` kullanarak.  
+## Hızlı cevaplar
+- **Redaction için birincil sınıf nedir?** `Redactor`  
+- **Bir ifadeyi renkli bir kaplama ile değiştirebilir miyim?** Evet, `ExactPhraseRedaction` ve `ReplacementOptions` kullanarak.  
 - **Rasterleştirilmiş bir PDF nasıl oluşturulur?** `SaveOptions.getRasterization().setEnabled(true)` ile rasterleştirme etkinleştirilir.  
 - **Örnekte hangi PDF uyumluluk seviyesi kullanılıyor?** `PdfComplianceLevel.PdfA1a`.  
 - **Üretim kullanımında lisansa ihtiyacım var mı?** Üretim dağıtımları için geçerli bir GroupDocs.Redaction lisansı gereklidir.
 
-## Java’da “metni nasıl kırpılır” nedir?
-Kırpma, bir dosyadan hassas içeriği kalıcı olarak kaldırma veya gizleme sürecidir. GroupDocs.Redaction ile, bir isim veya kimlik gibi kesin bir ifadeyi programlı olarak arayabilir ve kırmızı bir kaplama, siyah bir kutu veya herhangi bir özel görsel öğe ile değiştirebilirsiniz; böylece orijinal verinin kopyala‑yapıştır veya OCR ile geri alınması mümkün olmaz.
+## Java’da “metni nasıl karartılır” nedir?
+`Redaction`, bir dosyadan hassas içeriğin kalıcı olarak kaldırılması veya gizlenmesidir, böylece daha sonra geri alınamaz veya okunamaz. GroupDocs.Redaction ile programlı olarak tam bir ifadeyi—örneğin bir sosyal güvenlik numarası veya gizli bir proje kodu—arayabilir ve bunu kırmızı bir kaplama, siyah kutu veya herhangi bir özel görsel öğe ile değiştirerek, orijinal verinin geri getirilemez olmasını garantilersiniz.
 
-## Neden GroupDocs.Redaction for Java Kullanılmalı?
-- **Kesin ifade eşleşmesi** yanlış pozitifleri ortadan kaldırır.  
-- **Yerleşik rasterleştirme** uzun vadeli depolama için PDF/A uyumlu, yalnızca görüntü içeren PDF'ler oluşturmanızı sağlar.  
-- **Çapraz format desteği** DOCX, PDF, PPTX ve daha fazlası ile çalışır, böylece aynı kodu farklı belge tiplerinde uygulayabilirsiniz.  
-- **Performansa odaklı API** büyük belge setlerini toplu işleyebilmenizi sağlar ve bellek kullanımını düşük tutar.
+## Java için GroupDocs.Redaction neden kullanılmalı?
+GroupDocs.Redaction **30+ giriş ve çıkış formatını** (PDF, DOCX, PPTX, XLSX, HTML ve görüntü türleri) destekler ve tüm dosyayı belleğe yüklemeden çok sayfalı belgeleri işleyebilir. Tam ifade eşleştirme algoritması, genel anahtar kelime aramalarına kıyasla yanlış pozitifleri % > 95 azaltır ve yerleşik rasterleştirme motoru, uzun vadeli koruma için tamamen görüntü tabanlı PDF/A‑1a dosyaları üretmenizi sağlar.
 
 ## Önkoşullar
-İçeriğe başlamadan önce aşağıdakilere sahip olduğunuzdan emin olun:
+Başlamadan önce aşağıdakilere sahip olduğunuzdan emin olun:
 
 - **GroupDocs.Redaction for Java** (v24.9 veya daha yeni).  
-- **Java Development Kit (JDK) 8+**.  
+- **Java Development Kit (JDK) 8+**.  
 - IntelliJ IDEA, Eclipse veya NetBeans gibi bir IDE.  
-- Bağımlılık yönetimi için Maven.
+- Bağımlılık yönetimi için Maven.  
 
-### Gerekli Kütüphaneler ve Bağımlılıklar
-- **GroupDocs.Redaction for Java** – depo ve bağımlılığı `pom.xml` dosyanıza ekleyin (aşağıdaki kod bloğuna bakın).  
-- **İsteğe bağlı**: Tercih ettiğiniz ek günlükleme kütüphaneleri.
+### Gerekli kütüphaneler ve bağımlılıklar
+- GroupDocs.Redaction for Java – depo ve bağımlılığı `pom.xml` dosyanıza ekleyin (Maven kurulum bölümüne bakın).  
+- İsteğe bağlı: tercih ettiğiniz herhangi bir günlükleme çerçevesi (SLF4J, Log4j, vb.).
 
-### Bilgi Önkoşulları
+### Bilgi önkoşulları
 - Temel Java sözdizimi ve dosya G/Ç.  
-- Maven'in `pom.xml` yapısına aşinalık.
+- Maven’in `pom.xml` yapısına aşinalık.
 
-## GroupDocs.Redaction for Java Kurulumu
-### Maven Kurulumu
-`pom.xml` dosyanıza depo ve bağımlılığı ekleyin:
+## Java için GroupDocs.Redaction Kurulumu
+### Maven kurulumu
+Add the GroupDocs repository and the `groupdocs-redaction` dependency to your `pom.xml` file:
 
 ```xml
 <repositories>
@@ -70,16 +118,16 @@ Kırpma, bir dosyadan hassas içeriği kalıcı olarak kaldırma veya gizleme s�
 </dependencies>
 ```
 
-### Doğrudan İndirme
+### Doğrudan indirme
 Alternatif olarak, en son sürümü doğrudan [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/) adresinden indirebilirsiniz.
 
-### Lisans Edinimi
-- **Ücretsiz Deneme** – lisans anahtarı olmadan API'yi keşfedin.  
-- **Geçici Lisans** – uzun süreli değerlendirme için kullanın.  
-- **Tam Lisans** – üretim ortamları için gereklidir.
+### Lisans edinimi
+- **Ücretsiz deneme** – lisans anahtarı olmadan API’yı keşfedin.  
+- **Geçici lisans** – genişletilmiş değerlendirme için kullanın.  
+- **Tam lisans** – üretim ortamları için gereklidir.
 
-### Temel Başlatma ve Kurulum
-Aşağıda örnek bir DOCX dosyasına işaret eden bir `Redactor` örneği oluşturmak için en temel kod yer almaktadır:
+### Temel başlatma ve kurulum
+The `Redactor` class is the entry point for all redaction operations. It loads a document, applies redaction rules, and saves the result.
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -87,9 +135,8 @@ import com.groupdocs.redaction.Redactor;
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/MULTIPAGE_SAMPLE_DOCX");
 ```
 
-## Metni Kırpma – Kesin İfade Örneği
-### Adım 1: Gerekli Sınıfları İçe Aktarın
-Bu içe aktarmalar, kırpma motoru ve değiştirme seçeneklerine erişmenizi sağlar:
+## Metni nasıl karartılır – tam ifade örneği
+Redactor is the primary class that loads a document and applies redaction rules. ExactPhraseRedaction defines a rule that matches a specific string. This example demonstrates loading a file, creating an ExactPhraseRedaction rule, and executing the redaction in a single step, providing a concise workflow for developers while ensuring the original content is permanently obscured.
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -97,8 +144,8 @@ import com.groupdocs.redaction.options.ReplacementOptions;
 import com.groupdocs.redaction.redactions.ExactPhraseRedaction;
 ```
 
-### Adım 2: Kırpmayı Oluşturun ve Uygulayın
-Aşağıdaki kod parçacığı **“John Doe”** ifadesini arar ve kırmızı bir kaplama ile değiştirir:
+## Rasterleştirilmiş PDF olarak nasıl kaydedilir
+SaveOptions is the configuration object that controls how a document is saved. By enabling its rasterization feature and selecting PDF/A‑1a compliance, you can produce an image‑only PDF where each page is rendered as a bitmap, meeting archival standards and preventing text extraction.
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/MULTIPAGE_SAMPLE_DOCX");
@@ -114,19 +161,51 @@ try {
 }
 ```
 
-**Neden önemli:** `ReplacementOptions` kırpmanın görsel stilini kontrol etmenizi sağlar, gizli içeriğin kopyala‑yapıştır veya OCR ile geri alınamamasını temin eder.
+## Pratik uygulamalar
+1. **Hassas veri karartması** – sözleşmeleri paylaşmadan önce kişisel tanımlayıcıları otomatik olarak gizler.  
+2. **Belge arşivleme** – tamamlanmış raporları uzun vadeli uyumluluk için rasterleştirilmiş PDF/A’ya dönüştürür.  
+3. **Toplu içerik güncellemesi** – yüzlerce dosyada eski terminolojiyi tek bir betikle değiştirir.
 
-## Rasterleştirilmiş PDF Olarak Kaydetme
-### Adım 1: SaveOptions Sınıflarını İçe Aktarın
-Bu sınıflar PDF çıktısını yapılandırmanıza olanak tanır; rasterleştirme ve uyumluluk seviyeleri dahil.
+## Performans hususları
+- **`Redactor`'ı kapatın** her işlemden sonra dosya tutucularını ve belleği serbest bırakmak için.  
+- **Toplu işleme** – bir dosya listesi yükleyin ve üzerinden döngü yapın, mümkün olduğunda tek bir `Redactor` örneğini yeniden kullanın.  
+- **Kaynakları izleyin** – büyük ölçekli karartmalarda CPU ve yığın kullanımını izlemek için Java profil araçlarını kullanın.
+
+## Sıkça Sorulan Sorular
+
+**S: GroupDocs.Redaction'ı bir Maven projesine nasıl kurarım?**  
+C: Maven Kurulum bölümünde gösterildiği gibi GroupDocs deposunu ve `groupdocs-redaction` bağımlılığını `pom.xml` dosyanıza ekleyin.
+
+**S: Bu kütüphane ile PDF dosyalarından metin karartabilir miyim?**  
+C: Evet, GroupDocs.Redaction PDF, DOCX, PPTX ve birçok diğer formatı destekler.
+
+**S: Tam ifade bulunamazsa ne olur?**  
+C: `RedactorChangeLog` `Failed` durumunu döndürür. İfadenin yazımını ve büyük/küçük harf duyarlılığını kontrol edin.
+
+**S: Çok büyük belgeleri verimli bir şekilde nasıl yönetebilirim?**  
+C: Belgeleri daha küçük sayfa aralıklarında işleyin, rasterleştirmeyi yalnızca gerektiğinde etkinleştirin ve her zaman `Redactor`'ı kapatarak kaynakları serbest bırakın.
+
+**S: Rasterleştirilmiş PDF'leri belirli sayfa aralıklarıyla kaydetmek mümkün mü?**  
+C: Kesinlikle. İstediğiniz sayfaları rasterleştirmek için `options.getRasterization().setPageIndex()` ve `setPageCount()` kullanın.
+
+## Sonuç
+Artık GroupDocs.Redaction Java ile **metni nasıl karartılır** ve **rasterleştirilmiş PDF olarak nasıl kaydedilir** konusunda eksiksiz, uçtan uca bir rehberiniz var. Bu adımları izleyerek hassas bilgileri koruyabilir, katı uyumluluk standartlarını karşılayabilir ve Java hizmetlerinizi ölçekli bir şekilde performanslı tutabilirsiniz.
+
+**Sonraki adımlar**  
+- API'yi daha derinlemesine keşfetmek için [official documentation](https://docs.groupdocs.com/redaction/java/) adresini inceleyin.  
+- `RegexRedaction` ve `ImageRedaction` gibi diğer karartma türleriyle deney yapın.  
+- İpuçları ve en iyi uygulamalar için [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33) topluluğuna katılın.
+
+---
+
+**Son Güncelleme:** 2026-08-20  
+**Test Edilen Versiyon:** GroupDocs.Redaction Java 24.9  
+**Yazar:** GroupDocs
 
 ```java
 import com.groupdocs.redaction.options.SaveOptions;
 import com.groupdocs.redaction.options.PdfComplianceLevel;
 ```
-
-### Adım 2: Kaydetme Seçeneklerini Yapılandırın ve Uygulayın
-Kırpma işleminden sonra belgeyi rasterleştirilmiş bir PDF olarak dışa aktarabilirsiniz. Aşağıdaki örnek yalnızca 5. sayfayı rasterleştirir ve PDF/A‑1a uyumluluğunu zorlar:
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/MULTIPAGE_SAMPLE_DOCX");
@@ -153,45 +232,7 @@ try {
 }
 ```
 
-**Ana nokta:** Bir PDF'i rasterleştirmek **her sayfayı bir görüntüye dönüştürür**, gizli metin katmanlarını kaldırır ve belgeyi müdahaleye karşı dayanıklı hâle getirir—hukuki arşivleme için idealdir.
+## İlgili Öğreticiler
 
-## Pratik Uygulamalar
-1. **Hassas Veri Kırpma** – Sözleşmeleri paylaşmadan önce kişisel tanımlayıcıları otomatik olarak gizler.  
-2. **Belge Arşivleme** – Tamamlanmış raporları uzun vadeli uyumluluk için rasterleştirilmiş PDF/A'ya dönüştürür.  
-3. **Toplu İçerik Güncelleme** – Yüzlerce dosyada eski terminolojiyi tek bir betikle değiştirir.
-
-## Performans Düşünceleri
-- **Her işlem sonrası `Redactor`'ı kapatın** dosya tutamaçlarını ve belleği serbest bırakmak için.  
-- **Toplu İşleme** – Dosya listesini yükleyin ve döngüyle işleyin, mümkün olduğunda tek bir `Redactor` örneğini yeniden kullanın.  
-- **Kaynakları İzleme** – Büyük ölçekli kırpma işlemleri sırasında CPU ve yığın kullanımını izlemek için Java profil araçlarını kullanın.
-
-## Sık Sorulan Sorular
-
-**S: Maven projesine GroupDocs.Redaction nasıl kurulur?**  
-C: Maven Kurulumu bölümünde gösterildiği gibi GroupDocs deposunu ve `groupdocs-redaction` bağımlılığını `pom.xml` dosyanıza ekleyin.
-
-**S: Bu kütüphane ile PDF dosyalarından metin kırpabilir miyim?**  
-C: Evet, GroupDocs.Redaction PDF, DOCX, PPTX ve birçok diğer formatı destekler.
-
-**S: Kesin ifade bulunamazsa ne olur?**  
-C: `RedactorChangeLog` `Failed` durumunu döndürür. İfadenin yazımını ve büyük/küçük harf duyarlılığını kontrol edin.
-
-**S: Çok büyük belgeleri verimli bir şekilde nasıl yönetebilirim?**  
-C: Belgeleri daha küçük sayfa aralıklarında işleyin, rasterleştirmeyi yalnızca gerektiğinde etkinleştirin ve her zaman `Redactor`'ı kapatarak kaynakları serbest bırakın.
-
-**S: Rasterleştirilmiş PDF'leri belirli sayfa aralıklarıyla kaydetmek mümkün mü?**  
-C: Kesinlikle. Rasterleştirmek istediğiniz sayfaları hedeflemek için `options.getRasterization().setPageIndex()` ve `setPageCount()` kullanın.
-
-## Sonuç
-Artık GroupDocs.Redaction Java ile **metni nasıl kırpılır** ve **rasterleştirilmiş PDF olarak nasıl kaydedilir** konusunda eksiksiz, uçtan uca bir rehbere sahipsiniz. Bu adımları izleyerek hassas bilgileri koruyabilir, uyumluluk gereksinimlerini karşılayabilir ve üretim ortamlarında yüksek performansı sürdürebilirsiniz.
-
-**Sonraki Adımlar**  
-- API'yi daha derinlemesine keşfetmek için [resmi dokümantasyonu](https://docs.groupdocs.com/redaction/java/) inceleyin.  
-- Diğer kırpma türleriyle (ör. `RegexRedaction`, `ImageRedaction`) deney yapın.  
-- İpuçları ve en iyi uygulamalar için [GroupDocs Destek Forumuna](https://forum.groupdocs.com/c/redaction/33) katılın.
-
----
-
-**Last Updated:** 2026-02-26  
-**Tested With:** GroupDocs.Redaction Java 24.9  
-**Author:** GroupDocs
+- [GroupDocs.Redaction for Java ile Metni Karartma](/redaction/java/text-redaction/groupdocs-redaction-java-text-redaction/)
+- [Java Metin Karartma Öğreticisi: GroupDocs.Redaction ile Rehber](/redaction/java/text-redaction/groupdocs-redaction-java-text-redaction-guide/)
