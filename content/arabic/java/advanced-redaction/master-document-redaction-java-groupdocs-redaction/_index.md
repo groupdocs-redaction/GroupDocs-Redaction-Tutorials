@@ -1,46 +1,78 @@
 ---
-date: '2026-02-16'
-description: تعلم كيفية إخفاء البيانات الحساسة في Java وتحرير البيانات الشخصية في
-  ملفات PDF باستخدام GroupDocs.Redaction، مع ضمان الامتثال للخصوصية وحماية البيانات.
+date: '2026-05-17'
+description: تعلم كيفية تعديل ملفات PDF وإخفاء البيانات الحساسة في Java باستخدام GroupDocs.Redaction،
+  مع ضمان الامتثال للائحة GDPR وحماية البيانات القوية.
 keywords:
-- Java document redaction
-- GroupDocs.Redaction setup
-- Precise document redactions
-title: إخفاء البيانات الحساسة في جافا – حذف المعلومات الشخصية باستخدام GroupDocs.Redaction
+- how to redact pdf
+- mask sensitive data java
+- java redact text
+- redact personal data pdf
+schemas:
+- author: GroupDocs
+  dateModified: '2026-05-17'
+  description: Learn how to redact PDF and mask sensitive data java using GroupDocs.Redaction,
+    ensuring GDPR compliance and robust data protection.
+  headline: How to Redact PDF and Mask Sensitive Data Java with GroupDocs
+  type: TechArticle
+- description: Learn how to redact PDF and mask sensitive data java using GroupDocs.Redaction,
+    ensuring GDPR compliance and robust data protection.
+  name: How to Redact PDF and Mask Sensitive Data Java with GroupDocs
+  steps:
+  - name: Initialize the Redactor
+    text: The Redactor class is the core engine that loads and prepares a document
+      for redaction operations.
+  - name: Define and Apply the Exact‑Phrase Redaction
+    text: ExactPhraseRedaction defines a rule that matches a literal text string,
+      while ReplacementOptions specify how the matched content is visually replaced.
+  - name: Save the Redacted Document with Custom Options
+    text: SaveOptions configures the output parameters such as file format, suffix,
+      and rasterization behavior for the redacted document.
+  type: HowTo
+- questions:
+  - answer: Use a list of `Redaction` objects and call `redactor.applyAll()`. The
+      API processes all patterns in one pass, minimizing file reads.
+    question: How do I handle multiple redactions at once?
+  - answer: Yes, the API is platform‑agnostic and can be invoked from web services,
+      micro‑services, or desktop applications.
+    question: Can I integrate GroupDocs.Redaction with other document management systems?
+  - answer: It supports **30+ formats** including DOCX, PDF, XLSX, PPTX, HTML, and
+      common image types, handling each natively without conversion.
+    question: What file formats does GroupDocs.Redaction support?
+  - answer: Stream input files, reuse a single `Redactor` instance for batch jobs,
+      and always close the instance to release resources promptly.
+    question: How should I manage performance when redacting large documents?
+  - answer: Yes—pass the password to the `Redactor` constructor, and the engine will
+      decrypt, redact, and re‑encrypt the file automatically.
+    question: Does the library work with password‑protected PDFs?
+  type: FAQPage
+title: كيفية تعديل ملفات PDF وإخفاء البيانات الحساسة في Java باستخدام GroupDocs
 type: docs
 url: /ar/java/advanced-redaction/master-document-redaction-java-groupdocs-redaction/
 weight: 1
 ---
 
-# إخفاء البيانات الحساسة في Java – إخفاء المعلومات الشخصية باستخدام GroupDocs.Redaction
-
-في المشهد الرقمي السريع اليوم، **masking sensitive data java** لم يعد اختياريًا—إنه مطلب امتثال. سواء كنت تُعد عقدًا لعميل، أو تشارك سجلًا طبيًا، أو ببساطة تنظف تقريرًا داخليًا، فأنت بحاجة إلى طريقة موثوقة لإخفاء المعرفات الشخصية مع الحفاظ على تنسيق المستند الأصلي. في هذا البرنامج التعليمي سنستعرض كيفية **masking sensitive data java** وأيضًا **redact personal data pdf** باستخدام مكتبة GroupDocs.Redaction القوية للـ Java.
+# كيف يمكن إخفاء محتوى PDF وإزالة البيانات الحساسة Java باستخدام GroupDocs
 
 ## إجابات سريعة
-- **What does “mask sensitive data java” mean?** يعني ذلك تحديد وإخفاء المعلومات الخاصة (الأسماء، المعرفات، إلخ) برمجيًا في سير عمل المستندات القائم على Java.  
-- **Which library handles it?** GroupDocs.Redaction for Java.  
-- **Do I need a license?** نسخة تجريبية مجانية مثالية للاختبار؛ الترخيص الكامل مطلوب للاستخدام في بيئة الإنتاج.  
-- **Can I redact personal data pdf files as well?** بالتأكيد—GroupDocs.Redaction يعمل مع PDF، DOCX، XLSX، PPTX والعديد من الصيغ الأخرى.  
-- **What Java version is required?** JDK 8 أو أعلى.
+- **ماذا يعني “mask sensitive data java”؟** يعني تحديد وإخفاء المعلومات الخاصة (الأسماء، المعرفات، إلخ) برمجيًا في سير عمل المستندات المبنية على Java.  
+- **أي مكتبة تتعامل مع ذلك؟** GroupDocs.Redaction for Java.  
+- **هل أحتاج إلى ترخيص؟** النسخة التجريبية المجانية مثالية للاختبار؛ الترخيص الكامل مطلوب للاستخدام الإنتاجي.  
+- **هل يمكنني إخفاء بيانات شخصية في ملفات PDF أيضًا؟** بالتأكيد—GroupDocs.Redaction يعمل مع PDF، DOCX، XLSX، PPTX والعديد من الصيغ الأخرى.  
+- **ما نسخة Java المطلوبة؟** JDK 8 أو أعلى.
 
-## ما هو إخفاء البيانات الحساسة في Java؟
-إخفاء البيانات الحساسة في Java يعني استخدام الكود لتحديد عبارات أو أنماط معينة داخل مستند واستبدالها بعناصر نائبة (مثل “[personal]”). يضمن هذا العملية عدم إمكانية استعادة المحتوى الأصلي مع الحفاظ على المظهر البصري للمستند.
+## ما هو Mask Sensitive Data Java؟
+إخفاء البيانات الحساسة في Java يعني استخدام الكود لتحديد عبارات أو أنماط معينة داخل المستند واستبدالها ببدائل (مثل “[personal]”). يضمن هذا العملية عدم إمكانية استعادة المحتوى الأصلي مع الحفاظ على الشكل البصري للمستند.
 
-## لماذا استخدام GroupDocs.Redaction للإخفاء؟
-- **دعم كامل للصيغ** – إخفاء ملفات PDF، Word، الجداول، والعروض التقديمية دون الحاجة إلى تحويلها.  
-- **مطابقة العبارة الدقيقة** – استهداف سلاسل محددة مثل “John Doe”.  
-- **خيارات استبدال مخصصة** – اختيار نص، مربعات سوداء، أو تراكب صور.  
-- **جاهزية للامتثال** – تلبية متطلبات GDPR، HIPAA، وغيرها من اللوائح الخصوصية مباشرةً.
+## لماذا نستخدم GroupDocs.Redaction للإخفاء؟
+يوفر GroupDocs.Redaction دعمًا كاملاً للعديد من الصيغ، مما يسمح بإخفاء ملفات PDF، Word، Excel وPowerPoint دون الحاجة إلى تحويل. يقدم مطابقة دقيقة للعبارات مثل “John Doe”، واستبدالات قابلة للتخصيص مثل النص، الصناديق السوداء أو الصور، بالإضافة إلى قوالب توافق مدمجة تلبي متطلبات GDPR، HIPAA وغيرها من اللوائح الخصوصية.
 
 ## المتطلبات المسبقة
-قبل البدء، تأكد من وجود:
-
-- **Java Development Kit (JDK) 8+** مثبت.  
-- **IDE** مثل IntelliJ IDEA أو Eclipse لتسهيل عملية التصحيح.  
+- **مجموعة تطوير Java (JDK) 8+** مثبتة.  
+- **بيئة تطوير متكاملة** مثل IntelliJ IDEA أو Eclipse لتصحيح الأخطاء.  
 - **GroupDocs.Redaction for Java** (الإصدار 24.9 أو أحدث).  
 - معرفة أساسية بمعالجة الملفات في Java.
 
-## إعداد GroupDocs.Redaction للـ Java
+## إعداد GroupDocs.Redaction for Java
 
 ### إعداد Maven
 أضف مستودع GroupDocs والاعتماد إلى ملف `pom.xml` الخاص بك:
@@ -64,20 +96,20 @@ weight: 1
 ```
 
 ### التحميل المباشر
-إذا كنت تفضل الإدارة اليدوية، احصل على أحدث ملف JAR من صفحة الإصدار الرسمية: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+إذا كنت تفضّل الإدارة اليدوية، احصل على أحدث ملف JAR من صفحة الإصدارات الرسمية: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
 ### الحصول على الترخيص
 - **نسخة تجريبية** – مثالية لتقييم الـ API.  
-- **ترخيص مؤقت** – مفيد للاختبار الموسع دون شراء.  
+- **ترخيص مؤقت** – مفيد للاختبار المطول دون شراء.  
 - **ترخيص كامل** – مطلوب للنشر التجاري وإخفاءات غير محدودة.
 
-## كيفية إخفاء البيانات الحساسة في Java باستخدام GroupDocs.Redaction
+## كيفية إخفاء PDF باستخدام GroupDocs.Redaction في Java
 
-أدناه نقسم التنفيذ إلى خطوات واضحة مرقمة. كل خطوة تتضمن شرحًا مختصرًا متبوعًا بكتلة الكود الأصلية (بدون تعديل).
+لإخفاء PDF باستخدام GroupDocs.Redaction، قم أولاً بتحميل المستند إلى كائن Redactor، ثم عرّف قاعدة إخفاء واحدة أو أكثر مثل ExactPhraseRedaction، وأخيرًا احفظ الملف المعدل باستخدام SaveOptions. هذه العملية ذات الخطوات الثلاث تحافظ على التخطيط الأصلي مع إزالة المحتوى الحسّاس بأمان.
 
 ### الخطوة 1: تهيئة Redactor
 
-حمّل المستند الذي تريد معالجته. هذا ينشئ كائن `Redactor` الذي سيتولى جميع عمليات الإخفاء اللاحقة.
+فئة Redactor هي المحرك الأساسي الذي يحمل المستند ويجهزه لعمليات الإخفاء.
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -90,7 +122,7 @@ final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/sample.docx");
 
 ### الخطوة 2: تعريف وتطبيق إخفاء العبارة الدقيقة
 
-حدد العبارة الدقيقة التي ترغب في إخفائها (مثل اسم شخص) والنص البديل الذي سيظهر في المستند النهائي.
+ExactPhraseRedaction يحدد قاعدة تطابق نص حرفي، بينما تحدد ReplacementOptions طريقة استبدال المحتوى المطابق بصريًا.
 
 ```java
 try {
@@ -104,14 +136,9 @@ try {
 }
 ```
 
-**نقاط رئيسية**  
-- `ExactPhraseRedaction` يستهدف السلسلة الحرفية “John Doe”.  
-- `ReplacementOptions("[personal]")` يوجه المحرك لاستبدال العبارة بالعنصر النائب “[personal]”.  
-- احرص دائمًا على إغلاق `Redactor` لتحرير الموارد.
-
 ### الخطوة 3: حفظ المستند المُخفى مع خيارات مخصصة
 
-بعد إخفاء البيانات، ربما ترغب في الحفاظ على صيغة الملف الأصلية وإضافة لاحقة مفيدة (مثل تاريخ) إلى اسم الملف.
+SaveOptions تُكوّن معلمات الإخراج مثل صيغة الملف، اللاحقة، وسلوك التحويل إلى صورة للمستند المُخفى.
 
 ```java
 import com.groupdocs.redaction.options.SaveOptions;
@@ -137,51 +164,56 @@ try {
 }
 ```
 
-**ما تفعله الخيارات**  
-- `setAddSuffix(true)` يضيف تلقائيًا اللاحقة المُولدة إلى اسم الملف الجديد.  
-- `setRasterizeToPDF(false)` يحافظ على الصيغة الأصلية (DOCX، PDF، إلخ) بدلاً من تحويل كل شيء إلى PDF مبني على الصور.
+## كيف يمكن تطبيق إخفاءات متعددة بكفاءة؟
 
-## كيفية إخفاء البيانات الشخصية PDF في Java
+طريقة `applyAll()` تنفّذ جميع قواعد الإخفاء المصفّرة في عملية واحدة. عندما تحتاج إلى تطبيق عدة قواعد إخفاء، أنشئ قائمة من كائنات Redaction—بما في ذلك ExactPhraseRedaction، RegexRedaction أو ImageRedaction—وامرّ بهذه المجموعة إلى `redactor.applyAll()`. هذه المعالجة الدفعية تنفّذ جميع القواعد في مرور واحد، مما يقلل عمليات الإدخال/الإخراج ويحسّن الأداء بشكل ملحوظ على مجموعات المستندات الكبيرة.
 
-نفس الـ API يعمل مع ملفات PDF. ما عليك سوى توجيه مُنشئ `Redactor` إلى ملف `.pdf` واتباع خطوات العبارة الدقيقة المذكورة أعلاه. نظرًا لأن المكتبة تحلل طبقات نص PDF، يمكنك إخفاء المعرفات في العقود، الفواتير، أو أي تقرير مبني على PDF دون فقدان النص القابل للبحث.
-
-## التطبيقات العملية
+## تطبيقات عملية
 
 1. **إدارة المستندات القانونية** – إزالة أسماء العملاء من العقود قبل مشاركتها مع أطراف ثالثة.  
-2. **معالجة بيانات الرعاية الصحية** – إخفاء معرفات المرضى للبقاء متوافقًا مع HIPAA.  
-3. **الخدمات المالية** – إخفاء أرقام الحسابات في البيانات المالية أثناء التدقيق.  
+2. **معالجة بيانات الرعاية الصحية** – إخفاء معرفات المرضى للامتثال لمتطلبات HIPAA.  
+3. **الخدمات المالية** – إخفاء أرقام الحسابات في البيانات المالية للتدقيق.  
 4. **الموارد البشرية** – حماية بيانات الموظفين الشخصية أثناء المراجعات الداخلية.
 
 ## نصائح الأداء للملفات الكبيرة
 
-- **إغلاق كائنات Redactor فورًا** لتحرير الذاكرة.  
-- **معالجة دفعات** لعدة مستندات باستخدام حلقة وإعادة استخدام كائن `Redactor` واحد حيثما أمكن.  
-- **مراقبة استهلاك CPU وRAM** أثناء الأحمال الثقيلة؛ فكر في زيادة حجم heap للـ JVM إذا واجهت `OutOfMemoryError`.
+- **أغلق كائنات Redactor فورًا** لتحرير الذاكرة.  
+- **عالج دفعات** من المستندات باستخدام حلقة وأعد استخدام كائن `Redactor` واحد حيثما أمكن.  
+- **راقب استهلاك المعالج والذاكرة** أثناء الأحمال الثقيلة؛ فكر في زيادة حجم heap للـ JVM إذا واجهت استثناء `OutOfMemoryError`.  
 
 ## المشكلات الشائعة والحلول
 
 | المشكلة | الحل |
 |-------|----------|
-| **Redaction not applied** | تحقق من أن العبارة الدقيقة تتطابق مع حساسية الحالة؛ استخدم `ExactPhraseRedaction` مع خيار `ignoreCase` إذا لزم الأمر. |
-| **PDF output looks blank** | تأكد من ضبط `setRasterizeToPDF(false)`؛ فعملية rasterizing تُزيل النص القابل للبحث. |
-| **License error** | تأكد من وضع ملف الترخيص التجريبي أو الكامل في المسار الصحيح وتزويد المسار عبر `License.setLicense("path/to/license.lic")`. |
+| **لم يتم تطبيق الإخفاء** | تحقق من مطابقة العبارة الدقيقة مع حساسية الحالة؛ استخدم `ExactPhraseRedaction` مع خيار `ignoreCase` إذا لزم الأمر. |
+| **مظهر PDF الناتج فارغ** | تأكد من ضبط `setRasterizeToPDF(false)`؛ التحويل إلى صورة يزيل النص القابل للبحث. |
+| **خطأ في الترخيص** | تأكد من وضع ملف الترخيص التجريبي أو الكامل في المسار الصحيح وتمريره عبر `License.setLicense("path/to/license.lic")`. |
 
 ## الأسئلة المتكررة
 
-**Q1: How do I handle multiple redactions at once?**  
-A1: يمكنك تطبيق قائمة من كائنات `Redaction` باستخدام `redactor.applyAll()`، والذي يعالج عدة أنماط في تمريرة واحدة.
+**س: كيف أتعامل مع إخفاءات متعددة في آن واحد؟**  
+ج: استخدم قائمة من كائنات `Redaction` واستدعِ `redactor.applyAll()`. تقوم الـ API بمعالجة جميع الأنماط في مرور واحد، مما يقلل من عمليات قراءة الملفات.
 
-**Q2: Can I integrate GroupDocs.Redaction with other document management systems?**  
-A2: نعم، الـ API مستقل عن المنصة ويمكن استدعاؤه من خدمات الويب، الميكرو‑خدمات، أو التطبيقات المكتبية.
+**س: هل يمكن دمج GroupDocs.Redaction مع أنظمة إدارة المستندات الأخرى؟**  
+ج: نعم، الـ API مستقل عن المنصة ويمكن استدعاؤه من خدمات الويب، الميكرو‑خدمات، أو التطبيقات المكتبية.
 
-**Q3: What file formats does GroupDocs.Redaction support?**  
-A3: يدعم DOCX، PDF، XLSX، PPTX، والعديد من صيغ الأعمال الشائعة الأخرى.
+**س: ما صيغ الملفات التي يدعمها GroupDocs.Redaction؟**  
+ج: يدعم **أكثر من 30 صيغة** تشمل DOCX، PDF، XLSX، PPTX، HTML، وأنواع الصور الشائعة، مع معالجة كل منها أصلاً دون تحويل.
 
-**Q4: How do I manage performance when redacting large documents?**  
-A5: فكر في استخدام المعالجة الدفعية، تدفق ملفات الإدخال، واحرص دائمًا على إغلاق كائنات `Redactor` لتحرير الموارد في الوقت المناسب.
+**س: كيف أدير الأداء عند إخفاء مستندات كبيرة؟**  
+ج: قم ببث ملفات الإدخال، أعد استخدام كائن `Redactor` واحد للوظائف الدفعية، وتأكد دائمًا من إغلاق الكائن لتحرير الموارد فورًا.
+
+**س: هل تعمل المكتبة مع ملفات PDF محمية بكلمة مرور؟**  
+ج: نعم—مرّر كلمة المرور إلى مُنشئ `Redactor`، وستقوم المحرك بفك التشفير، الإخفاء، وإعادة تشفير الملف تلقائيًا.
 
 ---
 
-**Last Updated:** 2026-02-16  
-**Tested With:** GroupDocs.Redaction 24.9 for Java  
-**Author:** GroupDocs
+**آخر تحديث:** 2026-05-17  
+**تم الاختبار مع:** GroupDocs.Redaction 24.9 for Java  
+**المؤلف:** GroupDocs
+
+## دروس ذات صلة
+
+- [How to Redact Sensitive Data with GroupDocs Redaction Java License from File Path – A Step-by-Step Guide](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)  
+- [How to Implement Text Redaction in Java Using GroupDocs.Redaction for Secure Document Handling](/redaction/java/text-redaction/groupdocs-redaction-java-text-redaction-guide/)  
+- [Master Advanced Rasterization in Java: Custom Borders with GroupDocs.Redaction](/redaction/java/rasterization-options/advanced-rasterization-java-custom-borders-groupdocs-redaction/)
