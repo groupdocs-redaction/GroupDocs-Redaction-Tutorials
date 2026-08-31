@@ -1,64 +1,109 @@
 ---
-date: '2026-03-14'
-description: GroupDocs.Redaction を使用して Java ファイルを安全にレダクションする方法を学びましょう。このガイドでは、ポリシーの読み込み、バッチ処理、レダクションされたドキュメントの保存について説明します。
+date: '2026-08-31'
+description: GroupDocs.Redaction を使用して Java ドキュメント内の機密データをマスクする方法を学びます。ステップバイステップのガイドでは、ポリシー、バッチ処理、元の書式を保持する方法をカバーしています。
 keywords:
-- Java Redaction
-- Secure Document Processing
-- GroupDocs.Redaction for Java
-title: GroupDocs.Redaction を使用して Java ドキュメントをマスクする方法
+- redact sensitive data
+- process multiple files
+- secure document processing
+- save redacted document
+lastmod: '2026-08-31'
+og_description: GroupDocs.Redaction を使用して Java ドキュメント内の機密データをマスクする方法をご紹介します。このガイドでは、ポリシー、バッチ処理、書式の保持について解説します。
+og_image_alt: Guide showing how to redact sensitive data in Java using GroupDocs.Redaction
+og_title: GroupDocs.Redaction を使用して Java で機密データをマスクする
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-31'
+  description: Learn how to redact sensitive data in Java documents using GroupDocs.Redaction.
+    Step‑by‑step guide covers policies, batch processing, and preserving original
+    formatting.
+  headline: Redact sensitive data in Java with GroupDocs.Redaction
+  type: TechArticle
+- description: Learn how to redact sensitive data in Java documents using GroupDocs.Redaction.
+    Step‑by‑step guide covers policies, batch processing, and preserving original
+    formatting.
+  name: Redact sensitive data in Java with GroupDocs.Redaction
+  steps:
+  - name: '**Legal document processing** – redact client identifiers before sharing
+      drafts.'
+    text: '**Legal document processing** – redact client identifiers before sharing
+      drafts.'
+  - name: '**Healthcare data management** – remove patient details to stay HIPAA‑compliant.'
+    text: '**Healthcare data management** – remove patient details to stay HIPAA‑compliant.'
+  - name: '**Financial reporting** – hide account numbers when distributing reports.'
+    text: '**Financial reporting** – hide account numbers when distributing reports.'
+  - name: '**Contract review** – protect proprietary clauses during negotiations.'
+    text: '**Contract review** – protect proprietary clauses during negotiations.'
+  - name: '**Email archiving** – ensure privacy compliance when storing corporate
+      email archives.'
+    text: '**Email archiving** – ensure privacy compliance when storing corporate
+      email archives.'
+  type: HowTo
+- questions:
+  - answer: It means handling, redacting, and storing files so that confidential data
+      is protected throughout the entire workflow.
+    question: What does secure document processing mean?
+  - answer: Yes—by iterating over a folder you can apply the same redaction policy
+      to every document automatically.
+    question: Can I process multiple files in one run?
+  - answer: Create a redaction policy that defines the patterns or objects to hide,
+      then run the `Redactor` with that policy.
+    question: How do I redact sensitive data?
+  - answer: A valid GroupDocs.Redaction license is required for production; a trial
+      license is available for evaluation.
+    question: Do I need a license for production?
+  - answer: Set `RasterizationOptions.setEnabled(false)` to keep the original file
+      format unchanged.
+    question: Can I save the redacted document without rasterization?
+  type: FAQPage
+tags:
+- redact sensitive data
+- GroupDocs.Redaction
+- Java document processing
+- batch redaction
+title: GroupDocs.Redaction を使用して Java で機密データをマスクする
 type: docs
 url: /ja/java/advanced-redaction/java-redaction-groupdocs-guide/
 weight: 1
 ---
 
-境:** GroupDocs.Redaction 24.9 for Java"
+{{< blocks/products/pf/main-wrap-class >}}
+{{< blocks/products/pf/main-container >}}
+{{< blocks/products/pf/tutorial-page-section >}}
 
-"**Author:** GroupDocs" => "**作者:** GroupDocs"
+# JavaでGroupDocs.Redactionを使用して機密データを編集する
 
-Make sure to keep bold formatting.
-
-Now produce final markdown with translations.
-
-Check for any missing elements: code block placeholders remain unchanged. No other shortcodes.
-
-Proceed.# GroupDocs.RedactionでJavaドキュメントを赤字処理する方法
-
-このチュートリアルでは、GroupDocs.Redaction を使用して **Java を赤字処理する方法** を効率的に学びます。法的契約書、医療記録、財務諸表などを扱う場合でも、以下の手順で赤字処理ポリシーの読み込み、バッチでの複数ドキュメントの処理、元のフォーマットを保持したままの結果保存が可能です。
+**GroupDocs.Redaction** は、70 以上のドキュメント形式から機密情報をプログラムで削除し、元のレイアウトを保持する Java ライブラリです。このチュートリアルでは、Java アプリケーションで **機密データを編集** する方法、バッチのファイルに編集ポリシーを適用する方法、そして書式を失わずに結果を保存する方法を学びます。
 
 ## クイック回答
-- **安全なドキュメント処理とは何ですか？** ワークフロー全体で機密データを保護しながら、ドキュメントの取り扱い、赤字処理、保存を行うことを指します。  
-- **1 回の実行で複数のファイルを処理できますか？** はい、サンプルコードはディレクトリを走査し、各ファイルにポリシーを適用します。  
-- **機密データをどのように赤字処理しますか？** 隠すべきパターンやテキストを指定した赤字処理ポリシーを定義し、Redactor で適用します。  
-- **本番環境でライセンスが必要ですか？** 本番利用には有効な GroupDocs.Redaction ライセンスが必要です。評価用のトライアルも利用可能です。  
-- **赤字処理したドキュメントをラスタライズせずに保存できますか？** もちろんです。`RasterizationOptions.setEnabled(false)` を設定すれば元の形式を保持できます。
+- **安全なドキュメント処理とは何ですか？** ファイルを取り扱い、編集し、保存する際に、機密データがワークフロー全体で保護されることを意味します。  
+- **1 回の実行で複数のファイルを処理できますか？** はい。フォルダーを反復処理することで、同じ編集ポリシーをすべてのドキュメントに自動的に適用できます。  
+- **機密データをどのように編集しますか？** 隠すべきパターンやオブジェクトを定義した編集ポリシーを作成し、そのポリシーで `Redactor` を実行します。  
+- **本番環境でライセンスが必要ですか？** 本番環境では有効な GroupDocs.Redaction ライセンスが必要です。評価用のトライアルライセンスも利用可能です。  
+- **ラスタライズせずに編集済みドキュメントを保存できますか？** `RasterizationOptions.setEnabled(false)` を設定して、元のファイル形式を変更せずに保存できます。
 
-## GroupDocs.RedactionでJavaを赤字処理する方法
+## GroupDocs.Redaction を使用して Java ドキュメントの機密データを編集する方法
 
-安全なドキュメント処理とは、さまざまなファイルタイプから機密情報を自動的に識別・除去し、ドキュメントの完全性と使いやすさを維持することです。GroupDocs.Redaction は、Java でこれをプログラム的に実現する手段を提供します。
+ディレクトリ内の各ファイルに対して編集ポリシーを読み込み、実行し、出力を保存します—すべて数ステップで完了します。GroupDocs.Redaction の API を使用すれば、バッチ処理でレイアウトを保持しながら指定したデータを安全に削除でき、ラスタライズ、出力形式、パフォーマンス特性を制御するオプションも提供されます。
 
-### なぜ Java で GroupDocs.Redaction を使用するのか？
+### Java で GroupDocs.Redaction を使用する理由
 
-- **包括的なフォーマットサポート** – PDF、Word、画像など。  
-- **細かいポリシー制御** – 必要な対象だけを指定した赤字処理ポリシーを作成できます。  
-- **スケーラブルなバッチ処理** – 1 回の操作で複数ファイルを処理し、手作業を削減します。  
-- **組み込みのラスタライズオプション** – 追加のセキュリティのためにページをラスタライズするか選択できます。
+GroupDocs.Redaction は **70 以上の入力および出力形式**（PDF、DOCX、PPTX、画像など）をサポートし、正確なテキスト、画像、メタデータを対象とした細かいポリシーを定義できます。ライブラリはバッチを効率的に処理し、ラスタライズを切り替えて元の形式を保持するか、ページを画像に変換してセキュリティを強化できます。
 
-## 前提条件
+### 前提条件
+- **Java Development Kit (JDK) 8 以上** がインストールされていること。  
+- **Maven** などのビルドツールで依存関係を管理できること。  
+- 基本的な Java の知識とファイル I/O に関する理解。
 
-Java 用 GroupDocs.Redaction を実装する前に、以下が揃っていることを確認してください：
+### Java 用 GroupDocs.Redaction の設定
 
-- **必須ライブラリ**: GroupDocs.Redaction ライブラリ バージョン 24.9 が必要です。  
-- **環境設定**: マシンに Java Development Kit (JDK) がインストールされており、IntelliJ IDEA や Eclipse などの IDE があること。  
-- **知識の前提**: Java プログラミングの基本的な理解と、ファイル I/O 操作に慣れていること。
+#### Maven 設定
 
-## Java 用 GroupDocs.Redaction の設定
+`pom.xml` に以下の依存関係を追加してください。
 
-GroupDocs.Redaction の使用を開始するには、プロジェクトにライブラリを設定します。手順は以下の通りです：
-
-**Maven 設定:**
-
-`pom.xml` に以下の設定を追加してください：
-
+The following Maven dependency adds GroupDocs.Redaction to your project.
+```xml
+<!-- Maven dependency placeholder -->
+```
 ```xml
 <repositories>
    <repository>
@@ -77,43 +122,42 @@ GroupDocs.Redaction の使用を開始するには、プロジェクトにライ
 </dependencies>
 ```
 
-**直接ダウンロード:**  
-または、最新バージョンを [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/) からダウンロードしてください。
+#### 直接ダウンロード
+
+または、最新の JAR を [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/) からダウンロードしてください。
 
 ### ライセンス取得
 
-GroupDocs.Redaction の機能をフルに活用するには、ライセンス取得を検討してください。無料トライアルで始めるか、一時ライセンスをリクエストして機能を十分に試すことができます。
+開発にはトライアルライセンスで十分ですが、本番環境でのデプロイには、アプリケーションのリソースフォルダーに配置し、実行時に参照する永続ライセンスファイルが必要です。
 
 ### 基本的な初期化と設定
 
-ライブラリをインストールしたら、必要なクラスをインポートして Java アプリケーションで初期化します：
+必要なクラスをインポートし、`Redactor` インスタンスを作成します。**Redactor** はドキュメントの編集操作を実行する主要クラスです。
 
+```java
+// Initialization code placeholder
+```
 ```java
 import com.groupdocs.redaction.*;
 ```
 
 ## 実装ガイド
 
-このセクションでは、2 つの主要機能、すなわち赤字処理ポリシーの読み込みと適用、そして特定のラスタライズオプションで処理済みドキュメントを保存する方法を解説します。
+### 編集ポリシーとは何ですか？
 
-### 赤字処理ポリシーの読み込みと適用
-
-**概要:** この機能は、事前に定義された赤字処理ポリシーをファイルから読み込み、指定ディレクトリ内のすべてのドキュメントに適用します。処理結果は成功か失敗かに応じて保存されます。
-
-#### 手順 1: RedactionPolicy の初期化
-
-以下のコードで赤字処理ポリシーを読み込みます：
+編集ポリシーは、Redactor に対してどのテキストパターン、画像、メタデータを隠すまたは削除するかを指示する再利用可能なルールセットです。一度定義すれば任意の数のドキュメントに適用でき、すべての処理ファイルで一貫したコンプライアンスを実現します。
 
 ```java
 RedactionPolicy policy = RedactionPolicy.load("YOUR_POLICY_FILE_PATH");
 ```
 
-このステップは重要です。ポリシーはドキュメント内の機密データを赤字処理するルールを定義します。
+### 編集ポリシーの読み込みと適用
 
-#### 手順 2: ドキュメントへのポリシー適用
+**ポリシーを** XML または JSON ファイルから読み込み、**フォルダー内の各ドキュメントに適用** します。
 
-ディレクトリ内の各ファイルを走査し、ポリシーを適用します：
-
+```java
+// Load and apply policy code placeholder
+```
 ```java
 for (final File fileEntry : new File("YOUR_DOCUMENT_DIRECTORY").listFiles()) {
     final Redactor redactor = new Redactor(fileEntry.getPath());
@@ -136,26 +180,26 @@ for (final File fileEntry : new File("YOUR_DOCUMENT_DIRECTORY").listFiles()) {
 }
 ```
 
-**パラメータの説明:**  
-- `RedactionPolicy.load()` – 指定されたパスからポリシーを読み込みます。  
-- `redactor.apply(policy)` – 読み込んだポリシーに基づいて赤字処理を実行します。  
+### バッチで複数ファイルを処理する
 
-### ラスタライズオプションで処理済みドキュメントを保存
+ディレクトリを走査し、`Redactor` で各ファイルを開き、同じポリシーを適用します。
 
-**概要:** 赤字処理を適用した後、特定のラスタライズオプションを使用して出力形式と品質を制御しながらドキュメントを保存します。
-
-#### 手順 1: 入力ファイル用 Redactor の初期化
-
-処理対象のファイルを開きます：
-
+```java
+// Batch processing code placeholder
+```
 ```java
 File inputFile = new File("YOUR_DOCUMENT_DIRECTORY/input.docx");
 ```
 
-#### 手順 2: ラスタライズオプションで保存
+### ラスタライズオプションで処理済みドキュメントを保存する
 
-ラスタライズ設定を指定して処理済みドキュメントを保存します：
+#### 入力ファイル用 Redactor の初期化
 
+編集対象のファイルを開きます。
+
+```java
+// Open file code placeholder
+```
 ```java
 try (Redactor redactor = new Redactor(inputFile.getPath())) {
     try (FileOutputStream fileStream = new FileOutputStream(outputFileDirectory.getPath() + "/processed_output.docx")) {
@@ -166,58 +210,85 @@ try (Redactor redactor = new Redactor(inputFile.getPath())) {
 }
 ```
 
-**主な設定オプション:**  
-- `RasterizationOptions` – 赤字処理後のドキュメント保存方法を制御し、元の形式を保持するか、セキュリティ向上のために画像へ変換するかを選べます。
+#### ラスタライズオプションで保存
 
-## 実用的な活用例
+`RasterizationOptions` を設定して元の形式を保持するかページを画像に変換し、保存します。
 
-1. **法務文書処理** – 下書きを共有する前に機密クライアント情報を赤字処理します。  
-2. **医療データ管理** – 医療記録を赤字処理して患者の機密性を確保します。  
-3. **財務報告** – ステークホルダーと共有するレポートの財務データを保護します。  
-4. **契約レビュー** – 契約交渉中に独自条項を保護します。  
-5. **メールアーカイブ** – ビジネスメールをアーカイブする際にプライバシーコンプライアンスを維持します。
+```java
+// Save options code placeholder
+```
 
-## パフォーマンス上の考慮点
+**主なオプション**  
+- `setEnabled(false)` – 元のファイルタイプを保持します。  
+- `setResolution(150)` – 画像にラスタライズする際の DPI を設定します。  
 
-GroupDocs.Redaction を使用する際のパフォーマンス最適化ポイントは次のとおりです：
+### 書式を失わずに編集済みドキュメントを保存する方法？
 
-- **効率的なリソース管理** – ファイルを適切に閉じてシステムリソースを解放します。  
-- **バッチ処理** – バッチでドキュメントを処理し、メモリ使用量を効果的に管理します。  
-- **赤字処理ポリシーの最適化** – 必要な赤字処理だけを対象にポリシーを調整し、処理時間を短縮します。
+`save` を呼び出す前にラスタライズフラグを `false` に設定します。これにより GroupDocs.Redaction はソースと同じ形式で出力し、テーブルやフォント、レイアウトが変更されないまま必要な編集を適用します。
 
-## よくある落とし穴とトラブルシューティング
+### 実用的な活用例
 
-- **ライセンスが見つからない例外** – ライセンスエラーが表示された場合、ライセンスファイルが正しく配置され、アプリケーションでパスが設定されているか確認してください。  
-- **サポート外のファイルタイプ** – ファイル形式がサポートリストに含まれているか確認してください。含まれていない場合、Redactor は `UnsupportedFormatException` をスローします。  
-- **大容量ファイルでのメモリ不足** – 非常に大きな PDF の場合、JVM ヒープサイズ（例：`-Xmx2g`）を増やすか、ファイルを小さなチャンクに分割して処理することを検討してください。
+1. **法務文書の処理** – 下書きを共有する前にクライアント識別子を編集します。  
+2. **医療データ管理** – 患者情報を削除して HIPAA 準拠を維持します。  
+3. **財務レポート** – 配布時に口座番号を非表示にします。  
+4. **契約書レビュー** – 交渉中に機密条項を保護します。  
+5. **メールアーカイブ** – 企業メールアーカイブを保存する際にプライバシーコンプライアンスを確保します。  
+
+### パフォーマンス上の考慮点
+
+- **リソース管理** – メモリ解放のために常に `Redactor` を閉じます。  
+- **バッチ処理** – 速度とメモリ使用量のバランスを取るため、10〜20 件ずつのグループでファイルを処理します。  
+- **最適化されたポリシー** – 必要なパターンだけに限定し、広範なパターンは処理時間を増加させます。  
+
+### よくある落とし穴とトラブルシューティング
+
+- **ライセンスが見つからない例外** – ライセンスファイルのパスが正しいか、ファイルが読み取り可能か確認してください。  
+- **未対応ファイル形式** – サポートされている形式リストを確認してください。未対応ファイルは `UnsupportedFormatException` をスローします。  
+- **大容量 PDF のメモリ不足エラー** – JVM ヒープを増やす（`-Xmx2g`）か、編集前に PDF を小さなチャンクに分割してください。  
 
 ## よくある質問
 
-**Q:** 1 つのコマンドで複数ファイルを処理するには？  
-**A:** “Apply Policy to Documents” の例にあるディレクトリ反復ループを使用してください。フォルダー内のすべてのファイルを自動的に処理します。
+**Q:** 1 つのコマンドで複数のファイルを処理するにはどうすればよいですか？  
+**A:** 「ドキュメントへのポリシー適用」例に示したディレクトリ反復ループを使用してください。指定フォルダー内のすべてのファイルが自動的に編集されます。
 
-**Q:** “機密データを赤字処理する” とは実際に何を除去するのですか？  
-**A:** 赤字処理ポリシーはテキストパターン、画像、メタデータを対象にでき、黒いボックスで置き換えるか、完全に削除します。
+**Q:** 「機密データを編集する」とは実際に何が削除されますか？  
+**A:** ポリシーはプレーンテキストパターン、画像、メタデータを対象にでき、設定に応じて黒枠で隠すか完全に削除します。
 
-**Q:** 適用前に赤字処理ポリシーをプレビューする方法はありますか？  
-**A:** はい、ポリシーを読み込み、`redactor.preview(policy)`（サポートされている場合）を呼び出すことでプレビュー PDF を生成できます。
+**Q:** 編集ポリシーを適用する前にプレビューする方法はありますか？  
+**A:** はい。`redactor.preview(policy)`（サポートされている場合）を呼び出すと、隠される内容を示すプレビューページ PDF が生成されます。
 
-**Q:** 元のフォーマットを失わずに“赤字処理したドキュメントを保存”するには？  
-**A:** 示したとおり `RasterizationOptions.setEnabled(false)` を設定すれば、元のファイル形式が保持されます。
+**Q:** 元の書式を失わずに編集済みドキュメントを保存するにはどうすればよいですか？  
+**A:** `RasterizationOptions.setEnabled(false)` を設定してください。これにより、ネイティブ形式で保存されながら編集が適用されます。
 
 **Q:** 開発テストにライセンスは必要ですか？  
-**A:** 開発には一時的またはトライアルライセンスで十分です。本番展開には正式なライセンスが必要です。
+**A:** 開発には一時的またはトライアルライセンスで十分です。本番デプロイにはフルライセンスが必要です。
 
 ## リソース
 
-- **ドキュメント**: [GroupDocs.Redaction Java Docs](https://docs.groupdocs.com/redaction/java/)  
-- **API リファレンス**: [API Reference](https://reference.groupdocs.com/redaction/java)  
-- **ダウンロード**: [Latest Releases](https://releases.groupdocs.com/redaction/java/)  
-- **GitHub**: [Source Code on GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
-- **無料サポート**: [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)
+- [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/) – 最新の JAR ファイルをダウンロード。  
+- [GroupDocs.Redaction Java Docs](https://docs.groupdocs.com/redaction/java/) – 公式ドキュメントと使用例。  
+- [API Reference](https://reference.groupdocs.com/redaction/java) – 詳細なクラス・メソッドリファレンス。  
+- [Latest Releases](https://releases.groupdocs.com/redaction/java/) – バージョン履歴と変更ログを表示。  
+- [Source Code on GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java) – オープンソースリポジトリを探索。  
+- [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33) – コミュニティサポートとディスカッション。
+
+## 結論
+
+本ガイドに従うことで、GroupDocs.Redaction の強力なポリシーエンジンとバッチ処理機能を活用し、Java ドキュメントから機密データを安全に大規模に **編集** できます。コンプライアンス要件に合わせてポリシーを調整し、パフォーマンス向上のためにラスタライズ設定を最適化し、任意の Java ベースのバックエンドサービスにワークフローを統合してください。
 
 ---
 
-**最終更新日:** 2026-03-14  
+**最終更新日:** 2026-08-31  
 **テスト環境:** GroupDocs.Redaction 24.9 for Java  
 **作者:** GroupDocs
+
+## 関連チュートリアル
+
+- [ファイルパスから GroupDocs Redaction Java ライセンスを使用してドキュメントを編集する方法 – ステップバイステップガイド](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)
+- [機密データをマスクする Java – GroupDocs.Redaction ガイド](/redaction/java/getting-started/)
+- [GroupDocs.Redaction を使用して Java ドキュメントのテキストを編集する方法](/redaction/java/text-redaction/java-redaction-guide-groupdocs-document-security/)
+
+{{< /blocks/products/pf/tutorial-page-section >}}
+{{< /blocks/products/pf/main-container >}}
+{{< /blocks/products/pf/main-wrap-class >}}
+{{< blocks/products/products-backtop-button >}}

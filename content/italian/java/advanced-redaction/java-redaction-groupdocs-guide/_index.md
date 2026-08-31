@@ -1,55 +1,112 @@
 ---
-date: '2026-03-14'
-description: Scopri come oscurare i file Java in modo sicuro usando GroupDocs.Redaction.
-  Questa guida copre il caricamento delle politiche, l'elaborazione batch e il salvataggio
-  dei documenti oscurati.
+date: '2026-08-31'
+description: Scopri come censurare dati sensibili nei documenti Java usando GroupDocs.Redaction.
+  Guida passo‑passo che copre le politiche, l'elaborazione batch e la conservazione
+  della formattazione originale.
 keywords:
-- Java Redaction
-- Secure Document Processing
-- GroupDocs.Redaction for Java
-title: Come redigere documenti Java con GroupDocs.Redaction
+- redact sensitive data
+- process multiple files
+- secure document processing
+- save redacted document
+lastmod: '2026-08-31'
+og_description: Scopri come censurare dati sensibili nei documenti Java usando GroupDocs.Redaction.
+  Questa guida ti accompagna attraverso le politiche, l'elaborazione batch e la conservazione
+  della formattazione.
+og_image_alt: Guide showing how to redact sensitive data in Java using GroupDocs.Redaction
+og_title: Censura dati sensibili in Java con GroupDocs.Redaction
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-31'
+  description: Learn how to redact sensitive data in Java documents using GroupDocs.Redaction.
+    Step‑by‑step guide covers policies, batch processing, and preserving original
+    formatting.
+  headline: Redact sensitive data in Java with GroupDocs.Redaction
+  type: TechArticle
+- description: Learn how to redact sensitive data in Java documents using GroupDocs.Redaction.
+    Step‑by‑step guide covers policies, batch processing, and preserving original
+    formatting.
+  name: Redact sensitive data in Java with GroupDocs.Redaction
+  steps:
+  - name: '**Legal document processing** – redact client identifiers before sharing
+      drafts.'
+    text: '**Legal document processing** – redact client identifiers before sharing
+      drafts.'
+  - name: '**Healthcare data management** – remove patient details to stay HIPAA‑compliant.'
+    text: '**Healthcare data management** – remove patient details to stay HIPAA‑compliant.'
+  - name: '**Financial reporting** – hide account numbers when distributing reports.'
+    text: '**Financial reporting** – hide account numbers when distributing reports.'
+  - name: '**Contract review** – protect proprietary clauses during negotiations.'
+    text: '**Contract review** – protect proprietary clauses during negotiations.'
+  - name: '**Email archiving** – ensure privacy compliance when storing corporate
+      email archives.'
+    text: '**Email archiving** – ensure privacy compliance when storing corporate
+      email archives.'
+  type: HowTo
+- questions:
+  - answer: It means handling, redacting, and storing files so that confidential data
+      is protected throughout the entire workflow.
+    question: What does secure document processing mean?
+  - answer: Yes—by iterating over a folder you can apply the same redaction policy
+      to every document automatically.
+    question: Can I process multiple files in one run?
+  - answer: Create a redaction policy that defines the patterns or objects to hide,
+      then run the `Redactor` with that policy.
+    question: How do I redact sensitive data?
+  - answer: A valid GroupDocs.Redaction license is required for production; a trial
+      license is available for evaluation.
+    question: Do I need a license for production?
+  - answer: Set `RasterizationOptions.setEnabled(false)` to keep the original file
+      format unchanged.
+    question: Can I save the redacted document without rasterization?
+  type: FAQPage
+tags:
+- redact sensitive data
+- GroupDocs.Redaction
+- Java document processing
+- batch redaction
+title: Censura dati sensibili in Java con GroupDocs.Redaction
 type: docs
 url: /it/java/advanced-redaction/java-redaction-groupdocs-guide/
 weight: 1
 ---
 
-.
+{{< blocks/products/pf/main-wrap-class >}}
+{{< blocks/products/pf/main-container >}}
+{{< blocks/products/pf/tutorial-page-section >}}
 
-Now produce final content.# Come redigere documenti Java con GroupDocs.Redaction
+# Redigere dati sensibili in Java con GroupDocs.Redaction
 
-In questo tutorial scoprirai **come redigere file java** in modo efficiente usando GroupDocs.Redaction. Che tu stia gestendo contratti legali, cartelle cliniche o bilanci finanziari, i passaggi seguenti ti aiuteranno a caricare una politica di redazione, elaborare più documenti in batch e salvare i risultati mantenendo intatto il formato originale.
+**GroupDocs.Redaction** è una libreria Java che rimuove programmaticamente informazioni riservate da più di 70 formati di documento mantenendo intatto il layout originale. In questo tutorial imparerai come **redigere dati sensibili** nelle applicazioni Java, applicare una politica di redazione a un batch di file e salvare i risultati senza perdere la formattazione.
 
 ## Risposte rapide
-- **Cosa significa l'elaborazione sicura dei documenti?** Si riferisce alla gestione, redazione e archiviazione dei documenti proteggendo i dati riservati durante l'intero flusso di lavoro.  
-- **Posso elaborare più file in un'unica esecuzione?** Sì, il codice di esempio itera su una directory e applica la politica a ciascun file.  
-- **Come redigo i dati sensibili?** Definisci una politica di redazione che specifica i pattern o il testo da nascondere, quindi applicala con il Redactor.  
-- **È necessaria una licenza per la produzione?** È richiesta una licenza valida di GroupDocs.Redaction per l'uso in produzione; è disponibile una versione di prova per la valutazione.  
-- **Posso salvare il documento redatto senza rasterizzazione?** Assolutamente—imposta `RasterizationOptions.setEnabled(false)` per mantenere il formato originale.
+- **Cosa significa l'elaborazione sicura dei documenti?** Significa gestire, redigere e archiviare i file in modo che i dati riservati siano protetti durante l'intero flusso di lavoro.  
+- **Posso elaborare più file in un'unica esecuzione?** Sì—iterando su una cartella è possibile applicare la stessa politica di redazione a ogni documento automaticamente.  
+- **Come redigo i dati sensibili?** Crea una politica di redazione che definisce i pattern o gli oggetti da nascondere, quindi esegui il `Redactor` con quella politica.  
+- **È necessaria una licenza per la produzione?** È richiesta una licenza valida di GroupDocs.Redaction per la produzione; è disponibile una licenza di prova per la valutazione.  
+- **Posso salvare il documento redatto senza rasterizzazione?** Imposta `RasterizationOptions.setEnabled(false)` per mantenere invariato il formato originale del file.  
 
-## Come redigere java con GroupDocs.Redaction
-L'elaborazione sicura dei documenti prevede l'identificazione e la rimozione automatica di informazioni riservate da una varietà di tipi di file, mantenendo l'integrità e l'usabilità del documento. GroupDocs.Redaction offre un modo programmatico per ottenere ciò in Java.
+## Come redigere dati sensibili nei documenti Java con GroupDocs.Redaction?
+
+Carica la tua politica di redazione, eseguila su ogni file in una directory e salva l'output—tutto in pochi passaggi concisi. L'API di GroupDocs.Redaction ti consente di elaborare documenti in batch, preservando il layout mentre rimuove in modo sicuro i dati specificati, e offre opzioni per controllare la rasterizzazione, il formato di output e le caratteristiche di prestazione.
 
 ### Perché usare GroupDocs.Redaction per Java?
-- **Supporto completo dei formati** – PDF, Word, immagini e altro.  
-- **Controllo dettagliato della politica** – Crea una politica di redazione che mira esattamente a ciò di cui hai bisogno.  
-- **Gestione batch scalabile** – Elabora più file in un'unica operazione, riducendo lo sforzo manuale.  
-- **Opzioni di rasterizzazione integrate** – Scegli se rasterizzare le pagine per una sicurezza aggiuntiva.
 
-## Prerequisiti
+GroupDocs.Redaction supporta **oltre 70 formati di input e output** (PDF, DOCX, PPTX, immagini, ecc.) e consente di definire politiche granulari che mirano a testo, immagini o metadati specifici. La libreria elabora i batch in modo efficiente e puoi attivare o disattivare la rasterizzazione per mantenere il formato originale o convertire le pagine in immagini per una maggiore sicurezza.
 
-Prima di implementare GroupDocs.Redaction per Java, assicurati di avere quanto segue:
-- **Librerie richieste**: È necessaria la libreria GroupDocs.Redaction versione 24.9.  
-- **Configurazione dell'ambiente**: Un Java Development Kit (JDK) installato sulla tua macchina e un IDE come IntelliJ IDEA o Eclipse.  
-- **Prerequisiti di conoscenza**: Comprensione di base della programmazione Java e familiarità con le operazioni di I/O dei file.
+### Prerequisiti
+- **Java Development Kit (JDK) 8 o superiore** installato.  
+- **Maven** o un altro strumento di build per gestire le dipendenze.  
+- Conoscenze di base di Java e familiarità con I/O di file.  
 
-## Configurazione di GroupDocs.Redaction per Java
+### Configurazione di GroupDocs.Redaction per Java
 
-Per iniziare a usare GroupDocs.Redaction, configura la libreria nel tuo progetto. Ecco come:
+#### Configurazione Maven
+Aggiungi la seguente dipendenza al tuo `pom.xml`:
 
-**Maven Setup:**
-
-Aggiungi la seguente configurazione al tuo `pom.xml`:
-
+La seguente dipendenza Maven aggiunge GroupDocs.Redaction al tuo progetto.
+```xml
+<!-- Maven dependency placeholder -->
+```
 ```xml
 <repositories>
    <repository>
@@ -68,43 +125,38 @@ Aggiungi la seguente configurazione al tuo `pom.xml`:
 </dependencies>
 ```
 
-**Download diretto:**  
-In alternativa, scarica l'ultima versione da [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+#### Download diretto
+In alternativa, scarica l'ultimo JAR da [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
 ### Acquisizione della licenza
 
-Per sfruttare appieno le capacità di GroupDocs.Redaction, considera l'acquisizione di una licenza. Puoi iniziare con una prova gratuita o richiedere una licenza temporanea per esplorare ampiamente le sue funzionalità.
+Una licenza di prova funziona per lo sviluppo, ma una distribuzione in produzione richiede un file di licenza permanente posizionato nella cartella delle risorse della tua applicazione e referenziato a runtime.
 
 ### Inizializzazione e configurazione di base
 
-Una volta installata la libreria, inizializzala nella tua applicazione Java importando le classi necessarie:
-
+Importa le classi necessarie e crea un'istanza di `Redactor`. **Redactor** è la classe principale che esegue le operazioni di redazione sui documenti.
+```java
+// Initialization code placeholder
+```
 ```java
 import com.groupdocs.redaction.*;
 ```
 
 ## Guida all'implementazione
 
-Questa sezione ti guida nell'implementazione di due funzionalità chiave: caricare e applicare una politica di redazione, e salvare i documenti elaborati con opzioni di rasterizzazione specifiche.
+### Cos'è una politica di redazione?
 
-### Caricare e applicare la politica di redazione
-
-**Panoramica:** Questa funzionalità carica una politica di redazione predefinita da un file e la applica a tutti i documenti in una directory specificata. I file elaborati vengono salvati in base al successo o al fallimento dell'operazione.
-
-#### Passo 1: Inizializzare RedactionPolicy
-
-Carica la tua politica di redazione usando:
-
+Una politica di redazione è un insieme riutilizzabile di regole che indica al Redactor quali pattern di testo, immagini o metadati nascondere o eliminare. La definisci una volta e la applichi a qualsiasi numero di documenti, garantendo una conformità coerente su tutti i file elaborati.
 ```java
 RedactionPolicy policy = RedactionPolicy.load("YOUR_POLICY_FILE_PATH");
 ```
 
-Questo passo è cruciale perché la politica definisce le regole per redigere i dati sensibili nei tuoi documenti.
+### Carica e applica la politica di redazione
 
-#### Passo 2: Applicare la politica ai documenti
-
-Itera su ogni file in una directory e applica la politica:
-
+**Carica la politica** da un file XML o JSON e **applicala** a ogni documento in una cartella:
+```java
+// Load and apply policy code placeholder
+```
 ```java
 for (final File fileEntry : new File("YOUR_DOCUMENT_DIRECTORY").listFiles()) {
     final Redactor redactor = new Redactor(fileEntry.getPath());
@@ -127,26 +179,24 @@ for (final File fileEntry : new File("YOUR_DOCUMENT_DIRECTORY").listFiles()) {
 }
 ```
 
-**Parametri spiegati:**  
-- `RedactionPolicy.load()` – Carica la politica da un percorso specificato.  
-- `redactor.apply(policy)` – Esegue la redazione in base alla politica caricata.
+### Elabora più file in batch
 
-### Salvare i documenti elaborati con opzioni di rasterizzazione
-
-**Panoramica:** Dopo aver applicato le redazioni, salva i documenti usando opzioni di rasterizzazione specifiche per controllare il formato di output e la qualità.
-
-#### Passo 1: Inizializzare Redactor per il file di input
-
-Apri un file per l'elaborazione:
-
+Itera attraverso una directory, apri ogni file con un `Redactor` e applica la stessa politica:
+```java
+// Batch processing code placeholder
+```
 ```java
 File inputFile = new File("YOUR_DOCUMENT_DIRECTORY/input.docx");
 ```
 
-#### Passo 2: Salvare con opzioni di rasterizzazione
+### Salva i documenti elaborati con opzioni di rasterizzazione
 
-Salva il documento elaborato, specificando le impostazioni di rasterizzazione:
+#### Inizializza Redactor per un file di input
 
+Apri il file di destinazione per la redazione:
+```java
+// Open file code placeholder
+```
 ```java
 try (Redactor redactor = new Redactor(inputFile.getPath())) {
     try (FileOutputStream fileStream = new FileOutputStream(outputFileDirectory.getPath() + "/processed_output.docx")) {
@@ -157,57 +207,85 @@ try (Redactor redactor = new Redactor(inputFile.getPath())) {
 }
 ```
 
-**Opzioni di configurazione chiave:**  
-- `RasterizationOptions` – Controlla come i documenti vengono salvati dopo la redazione, permettendoti di mantenere il formato originale o convertire in immagini per una maggiore sicurezza.
+#### Salva con opzioni di rasterizzazione
 
-## Applicazioni pratiche
+Configura `RasterizationOptions` per mantenere il formato originale o convertire le pagine in immagini, quindi salva:
+```java
+// Save options code placeholder
+```
 
-1. **Elaborazione di documenti legali** – Redigere le informazioni sensibili dei clienti prima di condividere le bozze.  
-2. **Gestione dei dati sanitari** – Garantire la riservatezza dei pazienti redigendo le cartelle cliniche.  
-3. **Reporting finanziario** – Proteggere i dati finanziari nei report condivisi con gli stakeholder.  
-4. **Revisione contratti** – Salvaguardare i termini proprietari durante le negoziazioni contrattuali.  
-5. **Archiviazione email** – Mantenere la conformità alla privacy durante l'archiviazione delle email aziendali.
+**Opzioni chiave**  
+- `setEnabled(false)` – preserva il tipo di file originale.  
+- `setResolution(150)` – imposta i DPI durante la rasterizzazione in immagini.  
 
-## Considerazioni sulle prestazioni
+### Come salvare un documento redatto senza perdere la formattazione?
 
-Per ottimizzare le prestazioni durante l'uso di GroupDocs.Redaction:  
-- **Gestione efficiente delle risorse** – Assicurati che i file siano chiusi correttamente per liberare le risorse di sistema.  
-- **Elaborazione batch** – Elabora i documenti in batch per gestire efficacemente l'uso della memoria.  
-- **Ottimizzare le politiche di redazione** – Adatta le politiche per mirare solo alle redazioni necessarie, riducendo i tempi di elaborazione.
+Imposta il flag di rasterizzazione su `false` prima di chiamare `save`. Questo indica a GroupDocs.Redaction di scrivere l'output nello stesso formato della sorgente, garantendo che tabelle, caratteri e layout rimangano invariati pur applicando le redazioni richieste.
 
-## Problemi comuni e risoluzione
+### Applicazioni pratiche
 
-- **Eccezione licenza mancante** – Se visualizzi un errore di licenza, verifica che il file di licenza sia posizionato correttamente e che il percorso sia impostato nella tua applicazione.  
-- **Tipi di file non supportati** – Assicurati che il formato del file sia nella lista dei supportati; altrimenti, il Redactor genererà un `UnsupportedFormatException`.  
-- **File di grandi dimensioni fuori memoria** – Per PDF molto grandi, considera di aumentare la dimensione dell'heap JVM (`-Xmx2g`) o di elaborare i file in blocchi più piccoli.
+1. **Elaborazione di documenti legali** – redigere gli identificatori dei clienti prima di condividere le bozze.  
+2. **Gestione dei dati sanitari** – rimuovere i dettagli dei pazienti per rimanere conformi a HIPAA.  
+3. **Report finanziari** – nascondere i numeri di conto quando si distribuiscono i report.  
+4. **Revisione contratti** – proteggere le clausole proprietarie durante le negoziazioni.  
+5. **Archiviazione email** – garantire la conformità alla privacy quando si archiviano le email aziendali.  
+
+### Considerazioni sulle prestazioni
+
+- **Gestione delle risorse** – chiudi sempre il `Redactor` per liberare memoria.  
+- **Elaborazione batch** – gestisci i file in gruppi di 10‑20 per bilanciare velocità e utilizzo della memoria.  
+- **Politiche ottimizzate** – limita i pattern solo a ciò di cui hai bisogno; pattern più ampi aumentano il tempo di elaborazione.  
+
+### Problemi comuni e risoluzione dei problemi
+
+- **Eccezione licenza mancante** – verifica che il percorso del file di licenza sia corretto e che il file sia leggibile.  
+- **Tipo di file non supportato** – controlla l'elenco dei formati supportati; i file non supportati generano `UnsupportedFormatException`.  
+- **Errori di out‑of‑memory su PDF di grandi dimensioni** – aumenta l'heap JVM (`-Xmx2g`) o suddividi il PDF in parti più piccole prima della redazione.  
 
 ## Domande frequenti
 
 **Q:** Come posso elaborare più file con un unico comando?  
-**A:** Usa il ciclo di iterazione della directory mostrato nell'esempio “Apply Policy to Documents”; elabora automaticamente ogni file nella cartella.
+**A:** Usa il ciclo di iterazione della directory mostrato nell'esempio “Apply policy to documents”; redige automaticamente ogni file nella cartella specificata.
 
 **Q:** Cosa rimuove effettivamente “redigere dati sensibili”?  
-**A:** La politica di redazione può mirare a pattern di testo, immagini o metadati, sostituendoli con caselle nere o rimuovendoli completamente.
+**A:** La politica può mirare a pattern di testo semplice, immagini o metadati, sostituendoli con caselle nere o rimuovendoli completamente in base alla tua configurazione.
 
 **Q:** Esiste un modo per visualizzare in anteprima una politica di redazione prima di applicarla?  
-**A:** Sì, puoi caricare la politica e chiamare `redactor.preview(policy)` (se supportato) per generare un PDF di anteprima.
+**A:** Sì—chiama `redactor.preview(policy)` (se supportato) per generare un PDF di anteprima che mostra esattamente cosa verrà nascosto.
 
-**Q:** Come “salvare il documento redatto” senza perdere il formato originale?  
-**A:** Imposta `RasterizationOptions.setEnabled(false)` come mostrato; questo mantiene intatto il formato originale del file.
+**Q:** Come salvo un documento redatto senza perdere la formattazione originale?  
+**A:** Imposta `RasterizationOptions.setEnabled(false)` come mostrato; questo mantiene il file nel suo formato nativo pur applicando le redazioni.
 
 **Q:** È necessaria una licenza per i test di sviluppo?  
-**A:** Una licenza temporanea o di prova è sufficiente per lo sviluppo; è necessaria una licenza completa per le distribuzioni in produzione.
+**A:** Una licenza temporanea o di prova è sufficiente per lo sviluppo; è richiesta una licenza completa per le distribuzioni in produzione.
 
 ## Risorse
 
-- **Documentazione**: [GroupDocs.Redaction Java Docs](https://docs.groupdocs.com/redaction/java/)  
-- **Riferimento API**: [API Reference](https://reference.groupdocs.com/redaction/java)  
-- **Download**: [Latest Releases](https://releases.groupdocs.com/redaction/java/)  
-- **GitHub**: [Source Code on GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
-- **Supporto gratuito**: [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)
+- [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/) – scarica gli ultimi file JAR.  
+- [GroupDocs.Redaction Java Docs](https://docs.groupdocs.com/redaction/java/) – documentazione ufficiale ed esempi d'uso.  
+- [API Reference](https://reference.groupdocs.com/redaction/java) – riferimento dettagliato di classi e metodi.  
+- [Latest Releases](https://releases.groupdocs.com/redaction/java/) – visualizza la cronologia delle versioni e i changelog.  
+- [Source Code on GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java) – esplora il repository open‑source.  
+- [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33) – supporto della community e discussioni.  
+
+## Conclusione
+
+Seguendo questa guida puoi **redigere in modo sicuro dati sensibili** dai documenti Java su larga scala, utilizzando il potente motore di politiche e le capacità di elaborazione batch di GroupDocs.Redaction. Adatta la politica per soddisfare i requisiti di conformità, regola le impostazioni di rasterizzazione per le prestazioni e integra il flusso di lavoro in qualsiasi servizio backend basato su Java.
 
 ---
 
-**Ultimo aggiornamento:** 2026-03-14  
-**Testato con:** GroupDocs.Redaction 24.9 per Java  
+**Ultimo aggiornamento:** 2026-08-31  
+**Testato con:** GroupDocs.Redaction 24.9 for Java  
 **Autore:** GroupDocs
+
+## Tutorial correlati
+
+- [Come redigere documenti con la licenza Java di GroupDocs Redaction da percorso file – Guida passo‑passo](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)
+- [Mascherare dati sensibili Java – Guida GroupDocs.Redaction](/redaction/java/getting-started/)
+- [Come redigere testo nei documenti Java con GroupDocs.Redaction](/redaction/java/text-redaction/java-redaction-guide-groupdocs-document-security/)
+
+
+{{< /blocks/products/pf/tutorial-page-section >}}
+{{< /blocks/products/pf/main-container >}}
+{{< /blocks/products/pf/main-wrap-class >}}
+{{< blocks/products/products-backtop-button >}}

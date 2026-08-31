@@ -1,58 +1,110 @@
 ---
-date: '2026-03-14'
-description: GroupDocs.Redaction을 사용하여 Java 파일을 안전하게 편집하는 방법을 배웁니다. 이 가이드는 정책 로드,
-  배치 처리 및 편집된 문서 저장에 대해 다룹니다.
+date: '2026-08-31'
+description: GroupDocs.Redaction을 사용하여 Java 문서에서 민감한 데이터를 가리는 방법을 배웁니다. 단계별 가이드에서는
+  policies, batch processing, 그리고 original formatting을 다룹니다.
 keywords:
-- Java Redaction
-- Secure Document Processing
-- GroupDocs.Redaction for Java
-title: GroupDocs.Redaction을 사용한 Java 문서 가리기 방법
+- redact sensitive data
+- process multiple files
+- secure document processing
+- save redacted document
+lastmod: '2026-08-31'
+og_description: GroupDocs.Redaction을 사용하여 Java 문서에서 민감한 데이터를 가리는 방법을 배웁니다. 이 가이드는
+  policies, batch processing, 그리고 formatting 보존을 안내합니다.
+og_image_alt: Guide showing how to redact sensitive data in Java using GroupDocs.Redaction
+og_title: GroupDocs.Redaction을 사용하여 Java에서 민감한 데이터 가리기
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-31'
+  description: Learn how to redact sensitive data in Java documents using GroupDocs.Redaction.
+    Step‑by‑step guide covers policies, batch processing, and preserving original
+    formatting.
+  headline: Redact sensitive data in Java with GroupDocs.Redaction
+  type: TechArticle
+- description: Learn how to redact sensitive data in Java documents using GroupDocs.Redaction.
+    Step‑by‑step guide covers policies, batch processing, and preserving original
+    formatting.
+  name: Redact sensitive data in Java with GroupDocs.Redaction
+  steps:
+  - name: '**Legal document processing** – redact client identifiers before sharing
+      drafts.'
+    text: '**Legal document processing** – redact client identifiers before sharing
+      drafts.'
+  - name: '**Healthcare data management** – remove patient details to stay HIPAA‑compliant.'
+    text: '**Healthcare data management** – remove patient details to stay HIPAA‑compliant.'
+  - name: '**Financial reporting** – hide account numbers when distributing reports.'
+    text: '**Financial reporting** – hide account numbers when distributing reports.'
+  - name: '**Contract review** – protect proprietary clauses during negotiations.'
+    text: '**Contract review** – protect proprietary clauses during negotiations.'
+  - name: '**Email archiving** – ensure privacy compliance when storing corporate
+      email archives.'
+    text: '**Email archiving** – ensure privacy compliance when storing corporate
+      email archives.'
+  type: HowTo
+- questions:
+  - answer: It means handling, redacting, and storing files so that confidential data
+      is protected throughout the entire workflow.
+    question: What does secure document processing mean?
+  - answer: Yes—by iterating over a folder you can apply the same redaction policy
+      to every document automatically.
+    question: Can I process multiple files in one run?
+  - answer: Create a redaction policy that defines the patterns or objects to hide,
+      then run the `Redactor` with that policy.
+    question: How do I redact sensitive data?
+  - answer: A valid GroupDocs.Redaction license is required for production; a trial
+      license is available for evaluation.
+    question: Do I need a license for production?
+  - answer: Set `RasterizationOptions.setEnabled(false)` to keep the original file
+      format unchanged.
+    question: Can I save the redacted document without rasterization?
+  type: FAQPage
+tags:
+- redact sensitive data
+- GroupDocs.Redaction
+- Java document processing
+- batch redaction
+title: GroupDocs.Redaction을 사용하여 Java에서 민감한 데이터 가리기
 type: docs
 url: /ko/java/advanced-redaction/java-redaction-groupdocs-guide/
 weight: 1
 ---
 
-2026-03-14\n**테스트 환경:** Java용 GroupDocs.Redaction 24.9\n**작성자:** GroupDocs"
+{{< blocks/products/pf/main-wrap-class >}}
+{{< blocks/products/pf/main-container >}}
+{{< blocks/products/pf/tutorial-page-section >}}
 
-Make sure to keep the horizontal rule "---". Keep bold formatting.
+# Java에서 GroupDocs.Redaction을 사용한 민감한 데이터 가리기
 
-Now produce final content. Ensure no extra spaces that break formatting. Keep code block placeholders unchanged.
-
-Let's assemble.# GroupDocs.Redaction을 사용한 Java 문서 가리기
-
-이 튜토리얼에서는 **Java 파일 가리기** 방법을 효율적으로 GroupDocs.Redaction을 사용하여 알아봅니다. 법률 계약서, 의료 기록, 재무 보고서 등을 다루는 경우, 아래 단계에서는 가리기 정책을 로드하고, 배치로 여러 문서를 처리하며, 원본 형식을 유지한 채 결과를 저장하는 방법을 안내합니다.
+**GroupDocs.Redaction**은 70개 이상의 문서 형식에서 기밀 정보를 프로그래밍 방식으로 제거하면서 원본 레이아웃을 유지하는 Java 라이브러리입니다. 이 튜토리얼에서는 Java 애플리케이션에서 **민감한 데이터를 가리는** 방법, 파일 배치에 가리기 정책을 적용하는 방법, 서식을 잃지 않고 결과를 저장하는 방법을 배웁니다.
 
 ## 빠른 답변
-- **보안 문서 처리란 무엇을 의미하나요?** 워크플로 전체에서 기밀 데이터를 보호하면서 문서를 처리하고, 가리며, 저장하는 것을 의미합니다.  
-- **한 번에 여러 파일을 처리할 수 있나요?** 예, 샘플 코드는 디렉터리를 순회하며 각 파일에 정책을 적용합니다.  
-- **민감한 데이터를 어떻게 가릴 수 있나요?** 숨길 패턴이나 텍스트를 지정하는 가리기 정책을 정의한 뒤, Redactor를 사용해 적용합니다.  
-- **프로덕션에 라이선스가 필요합니까?** 프로덕션 사용에는 유효한 GroupDocs.Redaction 라이선스가 필요하며, 평가용 트라이얼을 제공합니다.  
-- **가리기된 문서를 래스터화 없이 저장할 수 있나요?** 물론입니다—원본 형식을 유지하려면 `RasterizationOptions.setEnabled(false)`를 설정하면 됩니다.
+- **보안 문서 처리란 무엇을 의미합니까?** 파일을 처리, 가리기 및 저장하는 전체 워크플로우에서 기밀 데이터가 보호되는 것을 의미합니다.  
+- **한 번에 여러 파일을 처리할 수 있나요?** 예—폴더를 순회하면서 동일한 가리기 정책을 모든 문서에 자동으로 적용할 수 있습니다.  
+- **민감한 데이터를 어떻게 가릴 수 있나요?** 숨길 패턴이나 객체를 정의하는 가리기 정책을 만든 다음 해당 정책으로 `Redactor`를 실행합니다.  
+- **프로덕션에 라이선스가 필요합니까?** 프로덕션에서는 유효한 GroupDocs.Redaction 라이선스가 필요합니다; 평가용으로는 체험 라이선스를 사용할 수 있습니다.  
+- **래스터화 없이 가린 문서를 저장할 수 있나요?** `RasterizationOptions.setEnabled(false)`를 설정하면 원본 파일 형식이 변경되지 않습니다.
 
-## GroupDocs.Redaction을 사용한 Java 가리기 방법
-보안 문서 처리는 다양한 파일 유형에서 기밀 정보를 자동으로 식별하고 제거하면서 문서의 무결성과 사용성을 유지하는 것을 의미합니다. GroupDocs.Redaction은 Java에서 이를 프로그래밍 방식으로 구현할 수 있게 합니다.
+## GroupDocs.Redaction을 사용하여 Java 문서에서 민감한 데이터를 가리는 방법은?
 
-### Java에서 GroupDocs.Redaction을 사용하는 이유
-- **포괄적인 형식 지원** – PDF, Word, 이미지 등 다양한 형식을 지원합니다.  
-- **세밀한 정책 제어** – 필요한 항목을 정확히 대상으로 하는 가리기 정책을 생성합니다.  
-- **확장 가능한 배치 처리** – 한 번의 작업으로 여러 파일을 처리하여 수작업을 줄입니다.  
-- **내장된 래스터화 옵션** – 추가 보안을 위해 페이지를 래스터화할지 선택할 수 있습니다.
+가리기 정책을 로드하고 디렉터리의 각 파일에 적용한 뒤 출력물을 저장합니다—몇 단계만으로 완료됩니다. GroupDocs.Redaction API를 사용하면 레이아웃을 유지하면서 지정한 데이터를 안전하게 제거하고, 래스터화, 출력 형식 및 성능 특성을 제어할 수 있는 옵션을 제공합니다.
 
-## 사전 요구 사항
+### Java용 GroupDocs.Redaction을 사용하는 이유는?
 
-Java용 GroupDocs.Redaction을 구현하기 전에 다음 항목을 준비하십시오:
-- **필수 라이브러리**: GroupDocs.Redaction 라이브러리 버전 24.9가 필요합니다.
-- **환경 설정**: 머신에 Java Development Kit (JDK)가 설치되어 있어야 하며, IntelliJ IDEA 또는 Eclipse와 같은 IDE가 필요합니다.
-- **지식 사전 조건**: Java 프로그래밍에 대한 기본 이해와 파일 I/O 작업에 대한 친숙함이 필요합니다.
+GroupDocs.Redaction은 **70개 이상의 입력 및 출력 형식**(PDF, DOCX, PPTX, 이미지 등)을 지원하며 정확한 텍스트, 이미지 또는 메타데이터를 대상으로 하는 세밀한 정책을 정의할 수 있습니다. 라이브러리는 배치를 효율적으로 처리하며, 래스터화를 토글하여 원본 형식을 유지하거나 보안을 강화하기 위해 페이지를 이미지로 변환할 수 있습니다.
 
-## Java용 GroupDocs.Redaction 설정
+### 필수 조건
+- **Java Development Kit (JDK) 8 이상**이 설치되어 있어야 합니다.  
+- **Maven** 또는 기타 빌드 도구를 사용하여 종속성을 관리합니다.  
+- 기본 Java 지식 및 파일 I/O에 대한 이해가 필요합니다.  
 
-GroupDocs.Redaction을 사용하려면 프로젝트에 라이브러리를 설정하십시오. 방법은 다음과 같습니다:
+### Java용 GroupDocs.Redaction 설정
 
-**Maven 설정:**
+#### Maven 설정
+다음 의존성을 `pom.xml`에 추가합니다:
 
-`pom.xml`에 다음 구성을 추가합니다:
-
+다음 Maven 의존성은 프로젝트에 GroupDocs.Redaction을 추가합니다.
+```xml
+<!-- Maven dependency placeholder -->
+```
 ```xml
 <repositories>
    <repository>
@@ -71,43 +123,41 @@ GroupDocs.Redaction을 사용하려면 프로젝트에 라이브러리를 설정
 </dependencies>
 ```
 
-**직접 다운로드:**  
-또는 최신 버전을 [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/)에서 다운로드하십시오.
+#### 직접 다운로드
+또는 최신 JAR 파일을 [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/)에서 다운로드합니다.
 
 ### 라이선스 획득
 
-GroupDocs.Redaction의 기능을 완전히 활용하려면 라이선스를 획득하는 것을 고려하십시오. 무료 트라이얼을 시작하거나 임시 라이선스를 요청하여 기능을 폭넓게 살펴볼 수 있습니다.
+체험 라이선스는 개발에 사용할 수 있지만, 프로덕션 배포에는 영구 라이선스 파일을 애플리케이션의 리소스 폴더에 배치하고 런타임에 참조해야 합니다.
 
 ### 기본 초기화 및 설정
 
-라이브러리를 설치한 후, 필요한 클래스를 임포트하여 Java 애플리케이션에서 초기화합니다:
+필요한 클래스를 가져오고 `Redactor` 인스턴스를 생성합니다. **Redactor**는 문서에 대한 가리기 작업을 수행하는 주요 클래스입니다.
 
+```java
+// Initialization code placeholder
+```
 ```java
 import com.groupdocs.redaction.*;
 ```
 
 ## 구현 가이드
 
-이 섹션에서는 두 가지 핵심 기능인 가리기 정책 로드 및 적용, 그리고 특정 래스터화 옵션으로 처리된 문서를 저장하는 방법을 단계별로 안내합니다.
+### 가리기 정책이란?
 
-### 가리기 정책 로드 및 적용
-
-**개요:** 이 기능은 파일에서 미리 정의된 가리기 정책을 로드하고 지정된 디렉터리의 모든 문서에 적용합니다. 처리된 파일은 작업 성공 여부에 따라 저장됩니다.
-
-#### 단계 1: RedactionPolicy 초기화
-
-다음과 같이 가리기 정책을 로드합니다:
+가리기 정책은 Redactor에게 어떤 텍스트 패턴, 이미지 또는 메타데이터를 숨기거나 삭제할지 알려주는 재사용 가능한 규칙 집합입니다. 한 번 정의하면 여러 문서에 적용할 수 있어 모든 처리 파일에 일관된 규정 준수를 보장합니다.
 
 ```java
 RedactionPolicy policy = RedactionPolicy.load("YOUR_POLICY_FILE_PATH");
 ```
 
-이 단계는 정책이 문서의 민감한 데이터를 가리기 위한 규칙을 정의하기 때문에 중요합니다.
+### 가리기 정책 로드 및 적용
 
-#### 단계 2: 정책을 문서에 적용
+XML 또는 JSON 파일에서 **정책을 로드**하고 폴더의 각 문서에 **적용**합니다:
 
-디렉터리의 각 파일을 순회하며 정책을 적용합니다:
-
+```java
+// Load and apply policy code placeholder
+```
 ```java
 for (final File fileEntry : new File("YOUR_DOCUMENT_DIRECTORY").listFiles()) {
     final Redactor redactor = new Redactor(fileEntry.getPath());
@@ -130,26 +180,26 @@ for (final File fileEntry : new File("YOUR_DOCUMENT_DIRECTORY").listFiles()) {
 }
 ```
 
-**매개변수 설명:**  
-- `RedactionPolicy.load()` – 지정된 경로에서 정책을 로드합니다.  
-- `redactor.apply(policy)` – 로드된 정책에 따라 가리기를 실행합니다.
+### 배치에서 여러 파일 처리
 
-### 래스터화 옵션으로 처리된 문서 저장
+디렉터리를 순회하면서 각 파일을 `Redactor`로 열고 동일한 정책을 적용합니다:
 
-**개요:** 가리기를 적용한 후, 출력 형식과 품질을 제어하는 특정 래스터화 옵션을 사용하여 문서를 저장합니다.
-
-#### 단계 1: 입력 파일용 Redactor 초기화
-
-처리를 위해 파일을 엽니다:
-
+```java
+// Batch processing code placeholder
+```
 ```java
 File inputFile = new File("YOUR_DOCUMENT_DIRECTORY/input.docx");
 ```
 
-#### 단계 2: 래스터화 옵션으로 저장
+### 래스터화 옵션으로 처리된 문서 저장
 
-래스터화 설정을 지정하여 처리된 문서를 저장합니다:
+#### 입력 파일에 대한 Redactor 초기화
 
+가리기 대상 파일을 엽니다:
+
+```java
+// Open file code placeholder
+```
 ```java
 try (Redactor redactor = new Redactor(inputFile.getPath())) {
     try (FileOutputStream fileStream = new FileOutputStream(outputFileDirectory.getPath() + "/processed_output.docx")) {
@@ -160,57 +210,86 @@ try (Redactor redactor = new Redactor(inputFile.getPath())) {
 }
 ```
 
-**핵심 구성 옵션:**  
-- `RasterizationOptions` – 가리기 후 문서 저장 방식을 제어하며, 원본 형식을 유지하거나 보안을 위해 이미지로 변환할 수 있습니다.
+#### 래스터화 옵션으로 저장
 
-## 실용적인 적용 사례
+`RasterizationOptions`를 구성하여 원본 형식을 유지하거나 페이지를 이미지로 변환한 뒤 저장합니다:
 
-1. **법률 문서 처리** – 초안을 공유하기 전에 민감한 고객 정보를 가립니다.  
-2. **헬스케어 데이터 관리** – 의료 기록을 가려 환자 기밀성을 보장합니다.  
-3. **재무 보고** – 이해관계자와 공유되는 보고서의 재무 데이터를 보호합니다.  
-4. **계약 검토** – 계약 협상 중에 독점적인 조항을 보호합니다.  
-5. **이메일 보관** – 비즈니스 이메일을 보관할 때 개인정보 보호 규정을 준수합니다.
+```java
+// Save options code placeholder
+```
 
-## 성능 고려 사항
+**핵심 옵션**  
+- `setEnabled(false)` – 원본 파일 유형을 보존합니다.  
+- `setResolution(150)` – 이미지를 래스터화할 때 DPI를 설정합니다.  
 
-GroupDocs.Redaction을 사용할 때 성능을 최적화하려면:
-- **효율적인 리소스 관리** – 파일을 적절히 닫아 시스템 리소스를 해제합니다.  
-- **배치 처리** – 메모리 사용을 효율적으로 관리하기 위해 문서를 배치로 처리합니다.  
-- **가리기 정책 최적화** – 필요한 가리기만 대상으로 정책을 맞춤 설정하여 처리 시간을 단축합니다.
+### 래스터화 없이 가린 문서를 서식 손실 없이 저장하려면?
 
-## 일반적인 함정 및 문제 해결
+`save`를 호출하기 전에 래스터화 플래그를 `false`로 설정합니다. 이렇게 하면 GroupDocs.Redaction이 소스와 동일한 형식으로 출력을 작성하므로 표, 글꼴 및 레이아웃이 그대로 유지되면서도 필요한 가리기가 적용됩니다.
 
-- **라이선스 누락 예외** – 라이선스 오류가 발생하면 라이선스 파일이 올바르게 배치되고 경로가 애플리케이션에 설정되어 있는지 확인합니다.  
-- **지원되지 않는 파일 형식** – 파일 형식이 지원 목록에 포함되어 있는지 확인하십시오. 그렇지 않으면 Redactor가 `UnsupportedFormatException`을 발생시킵니다.  
-- **대용량 파일 메모리 부족** – 매우 큰 PDF의 경우 JVM 힙 크기(`-Xmx2g`)를 늘리거나 파일을 작은 청크로 나누어 처리하는 것을 고려하십시오.
+### 실용적인 적용 사례
+
+1. **법률 문서 처리** – 초안 공유 전에 클라이언트 식별자를 가립니다.  
+2. **헬스케어 데이터 관리** – 환자 정보를 제거하여 HIPAA 규정을 준수합니다.  
+3. **재무 보고** – 보고서를 배포할 때 계좌 번호를 숨깁니다.  
+4. **계약 검토** – 협상 중에 독점 조항을 보호합니다.  
+5. **이메일 보관** – 기업 이메일 아카이브를 저장할 때 프라이버시 규정을 보장합니다.  
+
+### 성능 고려 사항
+
+- **리소스 관리** – 메모리를 해제하려면 항상 `Redactor`를 닫습니다.  
+- **배치 처리** – 속도와 메모리 사용량의 균형을 맞추려면 10‑20개 파일씩 그룹화합니다.  
+- **최적화된 정책** – 필요한 패턴만 제한하면 처리 시간이 단축됩니다; 광범위한 패턴은 처리 시간을 늘립니다.  
+
+### 일반적인 함정 및 문제 해결
+
+- **라이선스 누락 예외** – 라이선스 파일 경로가 정확하고 파일을 읽을 수 있는지 확인합니다.  
+- **지원되지 않는 파일 형식** – 지원 형식 목록을 확인하십시오; 지원되지 않는 파일은 `UnsupportedFormatException`을 발생시킵니다.  
+- **대용량 PDF에서 메모리 부족 오류** – JVM 힙을 늘리세요(`-Xmx2g`) 또는 가리기 전에 PDF를 작은 청크로 분할합니다.  
 
 ## 자주 묻는 질문
 
-**Q:** 단일 명령으로 여러 파일을 처리하려면 어떻게 해야 하나요?  
-**A:** “문서에 정책 적용” 예제에 표시된 디렉터리 순회 루프를 사용하면 폴더의 모든 파일을 자동으로 처리합니다.
+**Q:** 한 번의 명령으로 여러 파일을 처리할 수 있나요?  
+**A:** “문서에 정책 적용” 예제에 표시된 디렉터리 순회 루프를 사용하면 지정된 폴더의 모든 파일을 자동으로 가릴 수 있습니다.
 
 **Q:** “민감한 데이터 가리기”는 실제로 무엇을 제거하나요?  
-**A:** 가리기 정책은 텍스트 패턴, 이미지 또는 메타데이터를 대상으로 할 수 있으며, 이를 검은 상자로 대체하거나 완전히 제거합니다.
+**A:** 정책은 일반 텍스트 패턴, 이미지 또는 메타데이터를 대상으로 할 수 있으며, 구성에 따라 검은 상자로 대체하거나 완전히 제거합니다.
 
-**Q:** 적용하기 전에 가리기 정책을 미리 볼 수 있는 방법이 있나요?  
-**A:** 예, 정책을 로드한 뒤 `redactor.preview(policy)`(지원되는 경우)를 호출하여 미리보기 PDF를 생성할 수 있습니다.
+**Q:** 적용 전에 가리기 정책을 미리 볼 수 있는 방법이 있나요?  
+**A:** 예—`redactor.preview(policy)`(지원되는 경우)를 호출하면 숨겨질 내용이 정확히 표시된 미리보기 PDF를 생성합니다.
 
-**Q:** 원본 형식을 잃지 않고 “가리기된 문서 저장”을 하려면 어떻게 해야 하나요?  
-**A:** 예시와 같이 `RasterizationOptions.setEnabled(false)`를 설정하면 원본 파일 형식이 유지됩니다.
+**Q:** 원본 서식을 잃지 않고 가린 문서를 저장하려면 어떻게 해야 하나요?  
+**A:** 앞서 설명한 대로 `RasterizationOptions.setEnabled(false)`를 설정하면 파일이 원본 형식으로 유지됩니다.
 
 **Q:** 개발 테스트에 라이선스가 필요합니까?  
-**A:** 개발에는 임시 또는 트라이얼 라이선스면 충분하지만, 프로덕션 배포에는 정식 라이선스가 필요합니다.
+**A:** 개발에는 임시 또는 체험 라이선스로 충분하지만, 프로덕션 배포에는 정식 라이선스가 필요합니다.
 
 ## 리소스
 
-- **문서**: [GroupDocs.Redaction Java Docs](https://docs.groupdocs.com/redaction/java/)  
-- **API 레퍼런스**: [API Reference](https://reference.groupdocs.com/redaction/java)  
-- **다운로드**: [Latest Releases](https://releases.groupdocs.com/redaction/java/)  
-- **GitHub**: [Source Code on GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
-- **무료 지원**: [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)
+- [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/) – 최신 JAR 파일을 다운로드합니다.  
+- [GroupDocs.Redaction Java Docs](https://docs.groupdocs.com/redaction/java/) – 공식 문서 및 사용 예제.  
+- [API Reference](https://reference.groupdocs.com/redaction/java) – 상세 클래스 및 메서드 레퍼런스.  
+- [Latest Releases](https://releases.groupdocs.com/redaction/java/) – 버전 기록 및 변경 로그 확인.  
+- [Source Code on GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java) – 오픈소스 저장소 탐색.  
+- [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33) – 커뮤니티 지원 및 토론.  
+
+## 결론
+
+이 가이드를 따르면 GroupDocs.Redaction의 강력한 정책 엔진과 배치 처리 기능을 활용해 Java 문서에서 민감한 데이터를 대규모로 안전하게 **가릴** 수 있습니다. 정책을 귀사의 규정 준수 요구에 맞게 조정하고, 성능을 위해 래스터화 설정을 튜닝하며, 워크플로를 모든 Java 기반 백엔드 서비스에 통합하십시오.
 
 ---
 
-**마지막 업데이트:** 2026-03-14  
-**테스트 환경:** Java용 GroupDocs.Redaction 24.9  
+**마지막 업데이트:** 2026-08-31  
+**테스트 환경:** GroupDocs.Redaction 24.9 for Java  
 **작성자:** GroupDocs
+
+## 관련 튜토리얼
+
+- [How to Redact Documents with GroupDocs Redaction Java License from File Path – A Step‑by‑Step Guide](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)
+- [Mask Sensitive Data Java – GroupDocs.Redaction Guide](/redaction/java/getting-started/)
+- [How to Redact Text in Java Documents with GroupDocs.Redaction](/redaction/java/text-redaction/java-redaction-guide-groupdocs-document-security/)
+
+
+{{< /blocks/products/pf/tutorial-page-section >}}
+{{< /blocks/products/pf/main-container >}}
+{{< /blocks/products/pf/main-wrap-class >}}
+{{< blocks/products/products-backtop-button >}}

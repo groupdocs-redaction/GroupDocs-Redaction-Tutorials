@@ -1,65 +1,112 @@
 ---
-date: '2026-03-14'
-description: Apprenez à masquer les fichiers Java en toute sécurité avec GroupDocs.Redaction.
-  Ce guide couvre le chargement des politiques, le traitement par lots et l’enregistrement
-  des documents masqués.
+date: '2026-08-31'
+description: Apprenez comment masquer les données sensibles dans les documents Java
+  à l'aide de GroupDocs.Redaction. Ce guide étape par étape couvre les politiques,
+  le traitement par lots et la préservation du formatage original.
 keywords:
-- Java Redaction
-- Secure Document Processing
-- GroupDocs.Redaction for Java
-title: Comment censurer des documents Java avec GroupDocs.Redaction
+- redact sensitive data
+- process multiple files
+- secure document processing
+- save redacted document
+lastmod: '2026-08-31'
+og_description: Apprenez comment masquer les données sensibles dans les documents
+  Java à l'aide de GroupDocs.Redaction. Ce guide étape par étape couvre les politiques,
+  le traitement par lots et la préservation du formatage original.
+og_image_alt: Guide showing how to redact sensitive data in Java using GroupDocs.Redaction
+og_title: Masquer les données sensibles en Java avec GroupDocs.Redaction
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-31'
+  description: Learn how to redact sensitive data in Java documents using GroupDocs.Redaction.
+    Step‑by‑step guide covers policies, batch processing, and preserving original
+    formatting.
+  headline: Redact sensitive data in Java with GroupDocs.Redaction
+  type: TechArticle
+- description: Learn how to redact sensitive data in Java documents using GroupDocs.Redaction.
+    Step‑by‑step guide covers policies, batch processing, and preserving original
+    formatting.
+  name: Redact sensitive data in Java with GroupDocs.Redaction
+  steps:
+  - name: '**Legal document processing** – redact client identifiers before sharing
+      drafts.'
+    text: '**Legal document processing** – redact client identifiers before sharing
+      drafts.'
+  - name: '**Healthcare data management** – remove patient details to stay HIPAA‑compliant.'
+    text: '**Healthcare data management** – remove patient details to stay HIPAA‑compliant.'
+  - name: '**Financial reporting** – hide account numbers when distributing reports.'
+    text: '**Financial reporting** – hide account numbers when distributing reports.'
+  - name: '**Contract review** – protect proprietary clauses during negotiations.'
+    text: '**Contract review** – protect proprietary clauses during negotiations.'
+  - name: '**Email archiving** – ensure privacy compliance when storing corporate
+      email archives.'
+    text: '**Email archiving** – ensure privacy compliance when storing corporate
+      email archives.'
+  type: HowTo
+- questions:
+  - answer: It means handling, redacting, and storing files so that confidential data
+      is protected throughout the entire workflow.
+    question: What does secure document processing mean?
+  - answer: Yes—by iterating over a folder you can apply the same redaction policy
+      to every document automatically.
+    question: Can I process multiple files in one run?
+  - answer: Create a redaction policy that defines the patterns or objects to hide,
+      then run the `Redactor` with that policy.
+    question: How do I redact sensitive data?
+  - answer: A valid GroupDocs.Redaction license is required for production; a trial
+      license is available for evaluation.
+    question: Do I need a license for production?
+  - answer: Set `RasterizationOptions.setEnabled(false)` to keep the original file
+      format unchanged.
+    question: Can I save the redacted document without rasterization?
+  type: FAQPage
+tags:
+- redact sensitive data
+- GroupDocs.Redaction
+- Java document processing
+- batch redaction
+title: Masquer les données sensibles en Java avec GroupDocs.Redaction
 type: docs
 url: /fr/java/advanced-redaction/java-redaction-groupdocs-guide/
 weight: 1
 ---
 
-"
+{{< blocks/products/pf/main-wrap-class >}}
+{{< blocks/products/pf/main-container >}}
+{{< blocks/products/pf/tutorial-page-section >}}
 
-Make sure to keep the markdown separators.
+# Masquer les données sensibles en Java avec GroupDocs.Redaction
 
-Now produce final content with all translations.
-
-Check for any shortcodes: none besides code block placeholders. Ensure they remain.
-
-Check for any markdown links: we kept them.
-
-Check for any code fences: placeholders only.
-
-Now produce final answer.# Comment caviarder les documents Java avec GroupDocs.Redaction
-
-Dans ce tutoriel, vous découvrirez **comment caviarder java** efficacement à l'aide de GroupDocs.Redaction. Que vous manipuliez des contrats juridiques, des dossiers médicaux ou des états financiers, les étapes ci‑dessous vous aideront à charger une politique de caviardage, à traiter plusieurs documents en lot et à enregistrer les résultats tout en conservant le formatage original.
+**GroupDocs.Redaction** est une bibliothèque Java qui supprime de manière programmatique les informations confidentielles de plus de 70 formats de documents tout en conservant la mise en page originale. Dans ce tutoriel, vous apprendrez comment **masquer les données sensibles** dans les applications Java, appliquer une politique de masquage à un lot de fichiers et enregistrer les résultats sans perdre le formatage.
 
 ## Réponses rapides
-- **Que signifie le traitement sécurisé des documents ?** Il s'agit de manipuler, caviarder et stocker les documents tout en protégeant les données confidentielles tout au long du flux de travail.  
-- **Puis-je traiter plusieurs fichiers en une seule exécution ?** Oui, le code d'exemple parcourt un répertoire et applique la politique à chaque fichier.  
-- **Comment caviarder les données sensibles ?** Définissez une politique de caviardage qui spécifie les motifs ou le texte à masquer, puis appliquez‑la avec le Redactor.  
-- **Ai‑je besoin d'une licence pour la production ?** Une licence valide de GroupDocs.Redaction est requise pour une utilisation en production ; une version d'essai est disponible pour l'évaluation.  
-- **Puis‑je enregistrer le document caviardé sans rasterisation ?** Absolument — définissez `RasterizationOptions.setEnabled(false)` pour conserver le format original.
+- **Que signifie le traitement sécurisé des documents ?** Cela signifie gérer, masquer et stocker les fichiers afin que les données confidentielles soient protégées tout au long du flux de travail.  
+- **Puis-je traiter plusieurs fichiers en une seule exécution ?** Oui—en parcourant un dossier, vous pouvez appliquer la même politique de masquage à chaque document automatiquement.  
+- **Comment masquer les données sensibles ?** Créez une politique de masquage qui définit les motifs ou objets à masquer, puis exécutez le `Redactor` avec cette politique.  
+- **Ai-je besoin d'une licence pour la production ?** Une licence valide de GroupDocs.Redaction est requise pour la production ; une licence d'essai est disponible pour l'évaluation.  
+- **Puis-je enregistrer le document masqué sans rasterisation ?** Définissez `RasterizationOptions.setEnabled(false)` pour conserver le format de fichier original inchangé.
 
-## Comment caviarder java avec GroupDocs.Redaction
-Le traitement sécurisé des documents consiste à identifier et supprimer automatiquement les informations confidentielles d'une variété de types de fichiers tout en préservant l'intégrité et l'utilisabilité du document. GroupDocs.Redaction offre une méthode programmatique pour réaliser cela en Java.
+## Comment masquer les données sensibles dans les documents Java avec GroupDocs.Redaction ?
+
+Chargez votre politique de masquage, exécutez‑la sur chaque fichier d'un répertoire et enregistrez la sortie—le tout en quelques étapes concises. L'API de GroupDocs.Redaction vous permet de traiter des documents par lots, en préservant la mise en page tout en supprimant de manière sécurisée les données que vous spécifiez, et elle offre des options pour contrôler la rasterisation, le format de sortie et les caractéristiques de performance.
 
 ### Pourquoi utiliser GroupDocs.Redaction pour Java ?
-- **Prise en charge complète des formats** – PDFs, Word, images, et plus encore.  
-- **Contrôle granulaire des politiques** – Créez une politique de caviardage qui cible exactement ce dont vous avez besoin.  
-- **Gestion de lots évolutive** – Traitez plusieurs fichiers en une seule opération, réduisant l'effort manuel.  
-- **Options de rasterisation intégrées** – Choisissez de rasteriser les pages pour une sécurité supplémentaire.
 
-## Prérequis
+GroupDocs.Redaction prend en charge **plus de 70 formats d'entrée et de sortie** (PDF, DOCX, PPTX, images, etc.) et vous permet de définir des politiques fines qui ciblent du texte, des images ou des métadonnées spécifiques. La bibliothèque traite les lots efficacement, et vous pouvez activer ou désactiver la rasterisation pour soit conserver le format original, soit convertir les pages en images pour une sécurité accrue.
 
-Avant d'implémenter GroupDocs.Redaction pour Java, assurez‑vous de disposer de ce qui suit :
-- **Bibliothèques requises** : Vous avez besoin de la bibliothèque GroupDocs.Redaction version 24.9.  
-- **Configuration de l'environnement** : Un Java Development Kit (JDK) installé sur votre machine et un IDE tel qu'IntelliJ IDEA ou Eclipse.  
-- **Prérequis de connaissances** : Compréhension de base de la programmation Java et familiarité avec les opérations d'E/S de fichiers.
+### Prérequis
+- **Java Development Kit (JDK) 8 ou supérieur** installé.  
+- **Maven** ou un autre outil de construction pour gérer les dépendances.  
+- Connaissances de base en Java et familiarité avec les entrées/sorties de fichiers.  
 
-## Configuration de GroupDocs.Redaction pour Java
+### Configuration de GroupDocs.Redaction pour Java
 
-Pour commencer à utiliser GroupDocs.Redaction, configurez la bibliothèque dans votre projet. Voici comment :
+#### Configuration Maven
+Ajoutez la dépendance suivante à votre `pom.xml` :
 
-**Configuration Maven :**
-
-Ajoutez la configuration suivante à votre `pom.xml` :
-
+The following Maven dependency adds GroupDocs.Redaction to your project.
+```xml
+<!-- Maven dependency placeholder -->
+```
 ```xml
 <repositories>
    <repository>
@@ -78,43 +125,41 @@ Ajoutez la configuration suivante à votre `pom.xml` :
 </dependencies>
 ```
 
-**Téléchargement direct :**  
-Alternativement, téléchargez la dernière version depuis [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+#### Téléchargement direct
+Sinon, téléchargez le JAR le plus récent depuis [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
-### Acquisition de licence
+### Obtention de licence
 
-Pour exploiter pleinement les capacités de GroupDocs.Redaction, envisagez d'obtenir une licence. Vous pouvez commencer avec un essai gratuit ou demander une licence temporaire pour explorer ses fonctionnalités en profondeur.
+Une licence d'essai fonctionne pour le développement, mais un déploiement en production nécessite un fichier de licence permanent placé dans le dossier resources de votre application et référencé au moment de l'exécution.
 
 ### Initialisation et configuration de base
 
-Une fois la bibliothèque installée, initialisez‑la dans votre application Java en important les classes nécessaires :
+Importez les classes requises et créez une instance de `Redactor`. **Redactor** est la classe principale qui effectue les opérations de masquage sur les documents.
 
+```java
+// Initialization code placeholder
+```
 ```java
 import com.groupdocs.redaction.*;
 ```
 
-## Guide d'implémentation
+## Guide de mise en œuvre
 
-Cette section vous guide à travers la mise en œuvre de deux fonctionnalités clés : le chargement et l'application d'une politique de caviardage, et l'enregistrement des documents traités avec des options de rasterisation spécifiques.
+### Qu'est‑ce qu'une politique de masquage ?
 
-### Charger et appliquer une politique de caviardage
-
-**Vue d'ensemble :** Cette fonctionnalité charge une politique de caviardage prédéfinie depuis un fichier et l'applique à tous les documents d'un répertoire spécifié. Les fichiers traités sont enregistrés en fonction du succès ou de l'échec de l'opération.
-
-#### Étape 1 : Initialiser RedactionPolicy
-
-Chargez votre politique de caviardage en utilisant :
+Une politique de masquage est un ensemble réutilisable de règles qui indique au Redactor quels motifs de texte, images ou métadonnées masquer ou supprimer. Vous la définissez une fois et l'appliquez à n'importe quel nombre de documents, assurant une conformité cohérente sur tous les fichiers traités.
 
 ```java
 RedactionPolicy policy = RedactionPolicy.load("YOUR_POLICY_FILE_PATH");
 ```
 
-Cette étape est cruciale car la politique définit les règles de caviardage des données sensibles dans vos documents.
+### Charger et appliquer une politique de masquage
 
-#### Étape 2 : Appliquer la politique aux documents
+**Chargez la politique** depuis un fichier XML ou JSON et **appliquez‑la** à chaque document d'un dossier :
 
-Parcourez chaque fichier d'un répertoire et appliquez la politique :
-
+```java
+// Load and apply policy code placeholder
+```
 ```java
 for (final File fileEntry : new File("YOUR_DOCUMENT_DIRECTORY").listFiles()) {
     final Redactor redactor = new Redactor(fileEntry.getPath());
@@ -137,26 +182,26 @@ for (final File fileEntry : new File("YOUR_DOCUMENT_DIRECTORY").listFiles()) {
 }
 ```
 
-**Paramètres expliqués :**  
-- `RedactionPolicy.load()` – Charge la politique depuis un chemin spécifié.  
-- `redactor.apply(policy)` – Exécute le caviardage selon la politique chargée.
+### Traiter plusieurs fichiers par lot
 
-### Enregistrer les documents traités avec des options de rasterisation
+Parcourez un répertoire, ouvrez chaque fichier avec un `Redactor` et appliquez la même politique :
 
-**Vue d'ensemble :** Après avoir appliqué les caviardages, enregistrez les documents en utilisant des options de rasterisation spécifiques pour contrôler le format de sortie et la qualité.
-
-#### Étape 1 : Initialiser Redactor pour le fichier d'entrée
-
-Ouvrez un fichier pour le traitement :
-
+```java
+// Batch processing code placeholder
+```
 ```java
 File inputFile = new File("YOUR_DOCUMENT_DIRECTORY/input.docx");
 ```
 
-#### Étape 2 : Enregistrer avec les options de rasterisation
+### Enregistrer les documents traités avec les options de rasterisation
 
-Enregistrez le document traité, en spécifiant les paramètres de rasterisation :
+#### Initialiser Redactor pour un fichier d'entrée
 
+Ouvrez le fichier cible pour le masquage :
+
+```java
+// Open file code placeholder
+```
 ```java
 try (Redactor redactor = new Redactor(inputFile.getPath())) {
     try (FileOutputStream fileStream = new FileOutputStream(outputFileDirectory.getPath() + "/processed_output.docx")) {
@@ -167,57 +212,86 @@ try (Redactor redactor = new Redactor(inputFile.getPath())) {
 }
 ```
 
-**Options de configuration clés :**  
-- `RasterizationOptions` – Contrôle la façon dont les documents sont enregistrés après le caviardage, vous permettant de conserver le format original ou de convertir en images pour une sécurité accrue.
+#### Enregistrer avec les options de rasterisation
 
-## Applications pratiques
+Configurez `RasterizationOptions` pour conserver le format original ou convertir les pages en images, puis enregistrez :
 
-1. **Traitement de documents juridiques** – Caviarder les informations sensibles des clients avant de partager les brouillons.  
-2. **Gestion des données de santé** – Garantir la confidentialité des patients en caviardant les dossiers médicaux.  
-3. **Reporting financier** – Protéger les données financières dans les rapports partagés avec les parties prenantes.  
-4. **Révision de contrats** – Protéger les clauses propriétaires lors des négociations de contrat.  
-5. **Archivage d'e‑mails** – Maintenir la conformité en matière de confidentialité lors de l'archivage des e‑mails professionnels.
+```java
+// Save options code placeholder
+```
 
-## Considérations de performance
+**Options clés**  
+- `setEnabled(false)` – préserve le type de fichier original.  
+- `setResolution(150)` – définit le DPI lors de la rasterisation en images.  
 
-Pour optimiser les performances lors de l'utilisation de GroupDocs.Redaction :  
-- **Gestion efficace des ressources** – Assurez‑vous que les fichiers sont correctement fermés pour libérer les ressources système.  
-- **Traitement par lots** – Traitez les documents par lots afin de gérer efficacement l'utilisation de la mémoire.  
-- **Optimiser les politiques de caviardage** – Adaptez les politiques pour cibler uniquement les caviardages nécessaires, réduisant ainsi le temps de traitement.
+### Comment enregistrer un document masqué sans perdre le formatage ?
 
-## Pièges courants et dépannage
+Définissez le drapeau de rasterisation sur `false` avant d'appeler `save`. Cela indique à GroupDocs.Redaction d'écrire la sortie dans le même format que la source, garantissant que les tableaux, les polices et la mise en page restent inchangés tout en appliquant les masquages requis.
 
-- **Exception de licence manquante** – Si vous voyez une erreur de licence, vérifiez que le fichier de licence est correctement placé et que le chemin est défini dans votre application.  
-- **Types de fichiers non pris en charge** – Assurez‑vous que le format du fichier figure parmi la liste prise en charge ; sinon, le Redactor lèvera une `UnsupportedFormatException`.  
-- **Fichiers volumineux hors mémoire** – Pour des PDFs très volumineux, envisagez d'augmenter la taille du tas JVM (`-Xmx2g`) ou de traiter les fichiers par morceaux plus petits.
+### Applications pratiques
 
-## Questions fréquemment posées
+1. **Traitement de documents juridiques** – masquer les identifiants des clients avant de partager les brouillons.  
+2. **Gestion des données de santé** – supprimer les détails des patients pour rester conforme à HIPAA.  
+3. **Rapports financiers** – masquer les numéros de compte lors de la distribution des rapports.  
+4. **Révision de contrats** – protéger les clauses propriétaires pendant les négociations.  
+5. **Archivage des e‑mails** – garantir la conformité à la confidentialité lors du stockage des archives d'e‑mail d'entreprise.  
 
-**Q :** Comment puis‑je traiter plusieurs fichiers avec une seule commande ?  
-**R :** Utilisez la boucle d'itération du répertoire présentée dans l'exemple « Apply Policy to Documents » ; elle traite automatiquement chaque fichier du dossier.
+### Considérations de performance
 
-**Q :** Que supprime réellement « caviarder les données sensibles » ?  
-**R :** La politique de caviardage peut cibler des motifs de texte, des images ou des métadonnées, les remplaçant par des cases noires ou les supprimant complètement.
+- **Gestion des ressources** – fermez toujours le `Redactor` pour libérer la mémoire.  
+- **Traitement par lots** – gérez les fichiers par groupes de 10‑20 pour équilibrer vitesse et utilisation de la mémoire.  
+- **Politiques optimisées** – limitez les motifs à ce dont vous avez besoin ; des motifs plus larges augmentent le temps de traitement.  
 
-**Q :** Existe‑t‑il un moyen de prévisualiser une politique de caviardage avant de l'appliquer ?  
-**R :** Oui, vous pouvez charger la politique et appeler `redactor.preview(policy)` (si supporté) pour générer un PDF de prévisualisation.
+### Écueils courants et dépannage
 
-**Q :** Comment « enregistrer le document caviardé » sans perdre le formatage original ?  
-**R :** Définissez `RasterizationOptions.setEnabled(false)` comme démontré ; cela conserve le format de fichier original.
+- **Exception de licence manquante** – vérifiez que le chemin du fichier de licence est correct et que le fichier est lisible.  
+- **Type de fichier non pris en charge** – consultez la liste des formats supportés ; les fichiers non supportés déclenchent `UnsupportedFormatException`.  
+- **Erreurs de mémoire insuffisante sur les gros PDF** – augmentez le tas JVM (`-Xmx2g`) ou divisez le PDF en morceaux plus petits avant le masquage.  
 
-**Q :** Ai‑je besoin d'une licence pour les tests de développement ?  
-**R :** Une licence temporaire ou d'essai suffit pour le développement ; une licence complète est requise pour les déploiements en production.
+## FAQ
+
+**Q:** Comment puis‑je traiter plusieurs fichiers avec une seule commande ?  
+**A:** Utilisez la boucle d’itération de répertoire présentée dans l’exemple « Appliquer la politique aux documents » ; elle masque automatiquement chaque fichier du dossier spécifié.
+
+**Q:** Que supprime réellement « masquer les données sensibles » ?  
+**A:** La politique peut cibler des motifs de texte brut, des images ou des métadonnées, les remplaçant par des boîtes noires ou les supprimant entièrement selon votre configuration.
+
+**Q:** Existe‑t‑il un moyen de prévisualiser une politique de masquage avant de l’appliquer ?  
+**A:** Oui—appelez `redactor.preview(policy)` (si supporté) pour générer un PDF de prévisualisation montrant exactement ce qui sera masqué.
+
+**Q:** Comment enregistrer un document masqué sans perdre le formatage original ?  
+**A:** Définissez `RasterizationOptions.setEnabled(false)` comme démontré ; cela conserve le fichier dans son format natif tout en appliquant les masquages.
+
+**Q:** Ai‑je besoin d’une licence pour les tests de développement ?  
+**A:** Une licence temporaire ou d’essai suffit pour le développement ; une licence complète est requise pour les déploiements en production.
 
 ## Ressources
 
-- **Documentation** : [GroupDocs.Redaction Java Docs](https://docs.groupdocs.com/redaction/java/)  
-- **Référence API** : [API Reference](https://reference.groupdocs.com/redaction/java)  
-- **Téléchargement** : [Latest Releases](https://releases.groupdocs.com/redaction/java/)  
-- **GitHub** : [Source Code on GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
-- **Support gratuit** : [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)
+- [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/) – téléchargez les derniers fichiers JAR.  
+- [GroupDocs.Redaction Java Docs](https://docs.groupdocs.com/redaction/java/) – documentation officielle et exemples d’utilisation.  
+- [API Reference](https://reference.groupdocs.com/redaction/java) – référence détaillée des classes et méthodes.  
+- [Latest Releases](https://releases.groupdocs.com/redaction/java/) – voir l’historique des versions et les journaux des modifications.  
+- [Source Code on GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java) – explorez le dépôt open‑source.  
+- [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33) – support communautaire et discussions.  
+
+## Conclusion
+
+En suivant ce guide, vous pouvez masquer en toute sécurité les **données sensibles** des documents Java à grande échelle, en utilisant le puissant moteur de politiques et les capacités de traitement par lots de GroupDocs.Redaction. Ajustez la politique pour répondre à vos exigences de conformité, affinez les paramètres de rasterisation pour la performance, et intégrez le flux de travail dans tout service backend basé sur Java.
 
 ---
 
-**Dernière mise à jour :** 2026-03-14  
-**Testé avec :** GroupDocs.Redaction 24.9 for Java  
-**Auteur :** GroupDocs
+**Dernière mise à jour :** 2026-08-31  
+**Testé avec :** GroupDocs.Redaction 24.9 for Java  
+**Auteur :** GroupDocs
+
+## Tutoriels associés
+
+- [Comment masquer les documents avec GroupDocs Redaction Java License depuis le chemin de fichier – Guide étape par étape](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)
+- [Masquer les données sensibles Java – Guide GroupDocs.Redaction](/redaction/java/getting-started/)
+- [Comment masquer du texte dans les documents Java avec GroupDocs.Redaction](/redaction/java/text-redaction/java-redaction-guide-groupdocs-document-security/)
+
+
+{{< /blocks/products/pf/tutorial-page-section >}}
+{{< /blocks/products/pf/main-container >}}
+{{< /blocks/products/pf/main-wrap-class >}}
+{{< blocks/products/products-backtop-button >}}

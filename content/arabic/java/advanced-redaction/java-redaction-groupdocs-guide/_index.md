@@ -1,52 +1,110 @@
 ---
-date: '2026-03-14'
-description: تعلم كيفية إخفاء ملفات Java بأمان باستخدام GroupDocs.Redaction. يغطي
-  هذا الدليل تحميل السياسات، المعالجة الدفعية، وحفظ المستندات المظللة.
+date: '2026-08-31'
+description: تعلم كيفية إزالة البيانات الحساسة في مستندات Java باستخدام GroupDocs.Redaction.
+  دليل خطوة بخطوة يغطي policies, batch processing, و preserving original formatting.
 keywords:
-- Java Redaction
-- Secure Document Processing
-- GroupDocs.Redaction for Java
-title: كيفية تنقيح مستندات جافا باستخدام GroupDocs.Redaction
+- redact sensitive data
+- process multiple files
+- secure document processing
+- save redacted document
+lastmod: '2026-08-31'
+og_description: تعلم كيفية إزالة البيانات الحساسة في مستندات Java باستخدام GroupDocs.Redaction.
+  هذا الدليل يشرح لك policies, batch processing, و preserving formatting.
+og_image_alt: Guide showing how to redact sensitive data in Java using GroupDocs.Redaction
+og_title: إزالة البيانات الحساسة في Java باستخدام GroupDocs.Redaction
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-31'
+  description: Learn how to redact sensitive data in Java documents using GroupDocs.Redaction.
+    Step‑by‑step guide covers policies, batch processing, and preserving original
+    formatting.
+  headline: Redact sensitive data in Java with GroupDocs.Redaction
+  type: TechArticle
+- description: Learn how to redact sensitive data in Java documents using GroupDocs.Redaction.
+    Step‑by‑step guide covers policies, batch processing, and preserving original
+    formatting.
+  name: Redact sensitive data in Java with GroupDocs.Redaction
+  steps:
+  - name: '**Legal document processing** – redact client identifiers before sharing
+      drafts.'
+    text: '**Legal document processing** – redact client identifiers before sharing
+      drafts.'
+  - name: '**Healthcare data management** – remove patient details to stay HIPAA‑compliant.'
+    text: '**Healthcare data management** – remove patient details to stay HIPAA‑compliant.'
+  - name: '**Financial reporting** – hide account numbers when distributing reports.'
+    text: '**Financial reporting** – hide account numbers when distributing reports.'
+  - name: '**Contract review** – protect proprietary clauses during negotiations.'
+    text: '**Contract review** – protect proprietary clauses during negotiations.'
+  - name: '**Email archiving** – ensure privacy compliance when storing corporate
+      email archives.'
+    text: '**Email archiving** – ensure privacy compliance when storing corporate
+      email archives.'
+  type: HowTo
+- questions:
+  - answer: It means handling, redacting, and storing files so that confidential data
+      is protected throughout the entire workflow.
+    question: What does secure document processing mean?
+  - answer: Yes—by iterating over a folder you can apply the same redaction policy
+      to every document automatically.
+    question: Can I process multiple files in one run?
+  - answer: Create a redaction policy that defines the patterns or objects to hide,
+      then run the `Redactor` with that policy.
+    question: How do I redact sensitive data?
+  - answer: A valid GroupDocs.Redaction license is required for production; a trial
+      license is available for evaluation.
+    question: Do I need a license for production?
+  - answer: Set `RasterizationOptions.setEnabled(false)` to keep the original file
+      format unchanged.
+    question: Can I save the redacted document without rasterization?
+  type: FAQPage
+tags:
+- redact sensitive data
+- GroupDocs.Redaction
+- Java document processing
+- batch redaction
+title: إزالة البيانات الحساسة في Java باستخدام GroupDocs.Redaction
 type: docs
 url: /ar/java/advanced-redaction/java-redaction-groupdocs-guide/
 weight: 1
 ---
 
-# كيفية تنقيح مستندات Java باستخدام GroupDocs.Redaction
+{{< blocks/products/pf/main-wrap-class >}}
+{{< blocks/products/pf/main-container >}}
+{{< blocks/products/pf/tutorial-page-section >}}
 
-في هذا الدرس ستكتشف **كيفية تنقيح java** الملفات بفعالية باستخدام GroupDocs.Redaction. سواء كنت تتعامل مع العقود القانونية أو السجلات الطبية أو البيانات المالية، فإن الخطوات أدناه ستساعدك على تحميل سياسة التنقيح، معالجة مستندات متعددة دفعة واحدة، وحفظ النتائج مع الحفاظ على تنسيقها الأصلي.
+# إزالة البيانات الحساسة في Java باستخدام GroupDocs.Redaction
+
+**GroupDocs.Redaction** هي مكتبة Java تقوم برمجيًا بإزالة المعلومات السرية من أكثر من 70 تنسيق مستند مع الحفاظ على تخطيط الأصل دون تغيير. في هذا الدرس ستتعلم كيفية **إزالة البيانات الحساسة** في تطبيقات Java، وتطبيق سياسة إزالة على مجموعة من الملفات، وحفظ النتائج دون فقدان التنسيق.
 
 ## إجابات سريعة
-- **What does secure document processing mean?** It refers to handling, redacting, and storing documents while protecting confidential data throughout the workflow.  
-- **Can I process multiple files in one run?** Yes, the sample code iterates over a directory and applies the policy to each file.  
-- **How do I redact sensitive data?** Define a redaction policy that specifies the patterns or text to be hidden, then apply it with the Redactor.  
-- **Do I need a license for production?** A valid GroupDocs.Redaction license is required for production use; a trial is available for evaluation.  
-- **Can I save the redacted document without rasterization?** Absolutely—set `RasterizationOptions.setEnabled(false)` to keep the original format.
+- **ما معنى معالجة المستندات الآمنة؟** يعني التعامل مع الملفات، وإزالة البيانات، وتخزينها بحيث يتم حماية البيانات السرية طوال سير العمل بالكامل.  
+- **هل يمكنني معالجة ملفات متعددة في تشغيل واحد؟** نعم—عن طريق التكرار عبر مجلد يمكنك تطبيق نفس سياسة الإزالة على كل مستند تلقائيًا.  
+- **كيف يمكنني إزالة البيانات الحساسة؟** أنشئ سياسة إزالة تحدد الأنماط أو الكائنات التي يجب إخفاؤها، ثم شغّل `Redactor` باستخدام تلك السياسة.  
+- **هل أحتاج إلى ترخيص للإنتاج؟** يتطلب الإنتاج ترخيصًا صالحًا لـ GroupDocs.Redaction؛ يتوفر ترخيص تجريبي للتقييم.  
+- **هل يمكنني حفظ المستند المُزال دون تحويل إلى نقطية؟** اضبط `RasterizationOptions.setEnabled(false)` للحفاظ على تنسيق الملف الأصلي دون تغيير.
 
-## كيفية تنقيح java باستخدام GroupDocs.Redaction
-Secure document processing involves automatically identifying and removing confidential information from a variety of file types while preserving the document’s integrity and usability. GroupDocs.Redaction provides a programmatic way to achieve this in Java.
+## كيفية إزالة البيانات الحساسة في مستندات Java باستخدام GroupDocs.Redaction؟
+
+حمّل سياسة الإزالة الخاصة بك، وشغّلها على كل ملف في دليل، واحفظ الناتج — كل ذلك في بضع خطوات مختصرة. تسمح لك واجهة برمجة تطبيقات GroupDocs.Redaction بمعالجة المستندات على دفعات، مع الحفاظ على التخطيط بينما تُزيل البيانات التي تحددها بأمان، وتوفر خيارات للتحكم في التحويل إلى نقطية، وتنسيق الإخراج، وخصائص الأداء.
 
 ### لماذا تستخدم GroupDocs.Redaction لـ Java؟
-- **Comprehensive format support** – PDFs, Word, images, and more.  
-- **Fine‑grained policy control** – Create a redaction policy that targets exactly what you need.  
-- **Scalable batch handling** – Process multiple files in a single operation, reducing manual effort.  
-- **Built‑in rasterization options** – Choose whether to rasterize pages for extra security.
 
-## المتطلبات المسبقة
+يدعم GroupDocs.Redaction **أكثر من 70 تنسيقًا للإدخال والإخراج** (PDF، DOCX، PPTX، الصور، إلخ) ويسمح لك بتعريف سياسات دقيقة تستهدف نصًا محددًا أو صورًا أو بيانات تعريفية. تعالج المكتبة الدفعات بكفاءة، ويمكنك تبديل التحويل إلى نقطية إما للحفاظ على التنسيق الأصلي أو تحويل الصفحات إلى صور لأمان إضافي.
 
-قبل تنفيذ GroupDocs.Redaction لـ Java، تأكد من وجود ما يلي:
-- **المكتبات المطلوبة**: You need the GroupDocs.Redaction library version 24.9.  
-- **إعداد البيئة**: A Java Development Kit (JDK) installed on your machine and an IDE like IntelliJ IDEA or Eclipse.  
-- **المتطلبات المعرفية**: Basic understanding of Java programming and familiarity with file I/O operations.
+### المتطلبات المسبقة
+- **Java Development Kit (JDK) 8 أو أعلى** مثبت.  
+- **Maven** أو أداة بناء أخرى لإدارة التبعيات.  
+- معرفة أساسية بـ Java وإلمام بملفات الإدخال/الإخراج.  
 
-## إعداد GroupDocs.Redaction لـ Java
+### إعداد GroupDocs.Redaction لـ Java
 
-لبدء استخدام GroupDocs.Redaction، قم بإعداد المكتبة في مشروعك. إليك الطريقة:
+#### إعداد Maven
+أضف التبعية التالية إلى ملف `pom.xml` الخاص بك:
 
-**إعداد Maven:**
-
-أضف التكوين التالي إلى ملف `pom.xml` الخاص بك:
-
+التبعية التالية في Maven تضيف GroupDocs.Redaction إلى مشروعك.
+```xml
+<!-- Maven dependency placeholder -->
+```
 ```xml
 <repositories>
    <repository>
@@ -65,43 +123,38 @@ Secure document processing involves automatically identifying and removing confi
 </dependencies>
 ```
 
-**التنزيل المباشر:**  
-بدلاً من ذلك، قم بتحميل أحدث نسخة من [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+#### التحميل المباشر
+بدلاً من ذلك، قم بتنزيل أحدث ملف JAR من [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
 ### الحصول على الترخيص
 
-للاستفادة الكاملة من إمكانات GroupDocs.Redaction، فكر في الحصول على ترخيص. يمكنك البدء بتجربة مجانية أو طلب ترخيص مؤقت لاستكشاف ميزاته بشكل موسع.
+يعمل الترخيص التجريبي للتطوير، لكن النشر في بيئة الإنتاج يتطلب ملف ترخيص دائم يُوضع في مجلد الموارد الخاص بالتطبيق ويُشار إليه أثناء التشغيل.
 
 ### التهيئة الأساسية والإعداد
 
-بعد تثبيت المكتبة، قم بتهيئتها في تطبيق Java الخاص بك عن طريق استيراد الفئات اللازمة:
-
+استورد الفئات المطلوبة وأنشئ مثيلًا من `Redactor`. **Redactor** هو الفئة الرئيسية التي تُجري عمليات الإزالة على المستندات.
+```java
+// Initialization code placeholder
+```
 ```java
 import com.groupdocs.redaction.*;
 ```
 
 ## دليل التنفيذ
 
-هذا القسم يشرح لك كيفية تنفيذ ميزتين رئيسيتين: تحميل وتطبيق سياسة التنقيح، وحفظ المستندات المعالجة مع خيارات تمثيل نقطي محددة.
+### ما هي سياسة الإزالة؟
 
-### تحميل وتطبيق سياسة التنقيح
-
-**Overview:** هذه الميزة تقوم بتحميل سياسة تنقيح معرفة مسبقًا من ملف وتطبيقها على جميع المستندات في دليل محدد. يتم حفظ الملفات المعالجة بناءً على ما إذا كانت العملية ناجحة أم فاشلة.
-
-#### الخطوة 1: تهيئة RedactionPolicy
-
-حمّل سياسة التنقيح الخاصة بك باستخدام:
-
+سياسة الإزالة هي مجموعة قابلة لإعادة الاستخدام من القواعد التي تخبر الـ Redactor أي أنماط نصية أو صور أو بيانات تعريفية يجب إخفاؤها أو حذفها. تقوم بتعريفها مرة واحدة وتطبيقها على أي عدد من المستندات، مما يتيح التوافق المتسق عبر جميع الملفات المعالجة.
 ```java
 RedactionPolicy policy = RedactionPolicy.load("YOUR_POLICY_FILE_PATH");
 ```
 
-هذه الخطوة حاسمة لأن السياسة تحدد القواعد لتنسيق البيانات الحساسة في مستنداتك.
+### تحميل وتطبيق سياسة الإزالة
 
-#### الخطوة 2: تطبيق السياسة على المستندات
-
-قم بالتكرار عبر كل ملف في دليل وتطبيق السياسة:
-
+**حمّل السياسة** من ملف XML أو JSON و**طبقها** على كل مستند في مجلد:
+```java
+// Load and apply policy code placeholder
+```
 ```java
 for (final File fileEntry : new File("YOUR_DOCUMENT_DIRECTORY").listFiles()) {
     final Redactor redactor = new Redactor(fileEntry.getPath());
@@ -124,26 +177,24 @@ for (final File fileEntry : new File("YOUR_DOCUMENT_DIRECTORY").listFiles()) {
 }
 ```
 
-**Parameters Explained:**  
-- `RedactionPolicy.load()` – Loads the policy from a specified path.  
-- `redactor.apply(policy)` – Executes the redaction based on the loaded policy.  
+### معالجة ملفات متعددة على دفعة
 
-### حفظ المستندات المعالجة مع خيارات التمثيل النقطي
-
-**Overview:** بعد تطبيق التنقيحات، احفظ المستندات باستخدام خيارات تمثيل نقطي محددة للتحكم في تنسيق الإخراج والجودة.
-
-#### الخطوة 1: تهيئة Redactor لملف الإدخال
-
-افتح ملفًا للمعالجة:
-
+تجول عبر دليل، افتح كل ملف باستخدام `Redactor`، وطبق نفس السياسة:
+```java
+// Batch processing code placeholder
+```
 ```java
 File inputFile = new File("YOUR_DOCUMENT_DIRECTORY/input.docx");
 ```
 
-#### الخطوة 2: حفظ مع خيارات التمثيل النقطي
+### حفظ المستندات المعالجة مع خيارات التحويل إلى نقطية
 
-احفظ المستند المعالج، مع تحديد إعدادات التمثيل النقطي:
+#### تهيئة Redactor لملف إدخال
 
+افتح الملف المستهدف للإزالة:
+```java
+// Open file code placeholder
+```
 ```java
 try (Redactor redactor = new Redactor(inputFile.getPath())) {
     try (FileOutputStream fileStream = new FileOutputStream(outputFileDirectory.getPath() + "/processed_output.docx")) {
@@ -154,57 +205,81 @@ try (Redactor redactor = new Redactor(inputFile.getPath())) {
 }
 ```
 
-**Key Configuration Options:**  
-- `RasterizationOptions` – Controls how documents are saved post‑redaction, allowing you to keep the original format or convert to images for added security.
+#### حفظ مع خيارات التحويل إلى نقطية
 
-## تطبيقات عملية
+قم بتكوين `RasterizationOptions` للحفاظ على التنسيق الأصلي أو تحويل الصفحات إلى صور، ثم احفظ:
+```java
+// Save options code placeholder
+```
 
-1. **معالجة المستندات القانونية** – Redact sensitive client information before sharing drafts.  
-2. **إدارة بيانات الرعاية الصحية** – Ensure patient confidentiality by redacting medical records.  
-3. **التقارير المالية** – Protect financial data in reports shared with stakeholders.  
-4. **مراجعة العقود** – Safeguard proprietary terms during contract negotiations.  
-5. **أرشفة البريد الإلكتروني** – Maintain privacy compliance when archiving business emails.
+**الخيارات الرئيسية**  
+- `setEnabled(false)` – يحافظ على نوع الملف الأصلي.  
+- `setResolution(150)` – يحدد DPI عند التحويل إلى صور.  
 
-## اعتبارات الأداء
+### كيف تحفظ مستندًا مُزالًا دون فقدان التنسيق؟
 
-لتحسين الأداء أثناء استخدام GroupDocs.Redaction:  
-- **إدارة الموارد بفعالية** – Ensure files are closed properly to free up system resources.  
-- **معالجة دفعات** – Process documents in batches to manage memory usage effectively.  
-- **تحسين سياسات التنقيح** – Tailor policies to target only necessary redactions, reducing processing time.
+اضبط علامة التحويل إلى نقطية على `false` قبل استدعاء `save`. هذا يخبر GroupDocs.Redaction بكتابة الناتج بنفس تنسيق المصدر، مما يضمن بقاء الجداول والخطوط والتخطيط دون تغيير مع استمرار تطبيق الإزالات المطلوبة.
 
-## الأخطاء الشائعة & استكشاف الأخطاء وإصلاحها
+### تطبيقات عملية
+1. **معالجة المستندات القانونية** – إزالة معرفات العملاء قبل مشاركة المسودات.  
+2. **إدارة بيانات الرعاية الصحية** – إزالة تفاصيل المرضى للبقاء متوافقًا مع HIPAA.  
+3. **التقارير المالية** – إخفاء أرقام الحسابات عند توزيع التقارير.  
+4. **مراجعة العقود** – حماية البنود الملكية خلال المفاوضات.  
+5. **أرشفة البريد الإلكتروني** – ضمان الامتثال للخصوصية عند تخزين أرشيفات البريد الإلكتروني للشركة.  
 
-- **استثناء نقص الترخيص** – If you see a licensing error, verify that the license file is correctly placed and the path is set in your application.  
-- **أنواع ملفات غير مدعومة** – Ensure the file format is among the supported list; otherwise, the Redactor will throw an `UnsupportedFormatException`.  
-- **ملفات كبيرة خارج الذاكرة** – For very large PDFs, consider increasing the JVM heap size (`-Xmx2g`) or processing files in smaller chunks.
+### اعتبارات الأداء
+- **إدارة الموارد** – أغلق دائمًا `Redactor` لتحرير الذاكرة.  
+- **المعالجة على دفعات** – عالج الملفات في مجموعات من 10‑20 لتحقيق توازن بين السرعة واستخدام الذاكرة.  
+- **السياسات المُحسّنة** – قصر الأنماط على ما تحتاجه فقط؛ الأنماط الأوسع تزيد من زمن المعالجة.  
+
+### المشكلات الشائعة & استكشاف الأخطاء
+- **استثناء الترخيص المفقود** – تحقق من صحة مسار ملف الترخيص وأن الملف قابل للقراءة.  
+- **نوع ملف غير مدعوم** – راجع قائمة الصيغ المدعومة؛ الملفات غير المدعومة تُثير `UnsupportedFormatException`.  
+- **أخطاء نفاد الذاكرة على ملفات PDF الكبيرة** – زد حجم كومة JVM (`-Xmx2g`) أو قسّم ملف PDF إلى أجزاء أصغر قبل الإزالة.  
 
 ## الأسئلة المتكررة
 
-**Q:** How can I process multiple files with a single command?  
-**A:** Use the directory‑iteration loop shown in the “Apply Policy to Documents” example; it automatically processes every file in the folder.
+**س:** كيف يمكنني معالجة ملفات متعددة بأمر واحد؟  
+**ج:** استخدم حلقة التكرار عبر الدليل الموضحة في مثال “تطبيق السياسة على المستندات”؛ فهي تقوم تلقائيًا بإزالة كل ملف في المجلد المحدد.
 
-**Q:** What does “redact sensitive data” actually remove?  
-**A:** The redaction policy can target text patterns, images, or metadata, replacing them with black boxes or removing them entirely.
+**س:** ماذا يزيل “إزالة البيانات الحساسة” فعليًا؟  
+**ج:** يمكن للسياسة استهداف أنماط النص العادي أو الصور أو البيانات التعريفية، واستبدالها بمربعات سوداء أو إزالتها تمامًا بناءً على تكوينك.
 
-**Q:** Is there a way to preview a redaction policy before applying it?  
-**A:** Yes, you can load the policy and call `redactor.preview(policy)` (if supported) to generate a preview PDF.
+**س:** هل هناك طريقة لمعاينة سياسة الإزالة قبل تطبيقها؟  
+**ج:** نعم—استدعِ `redactor.preview(policy)` (إن كان مدعومًا) لإنشاء PDF معاينة يُظهر بالضبط ما سيتم إخفاؤه.
 
-**Q:** How do I “save redacted document” without losing original formatting?  
-**A:** Set `RasterizationOptions.setEnabled(false)` as demonstrated; this keeps the original file format intact.
+**س:** كيف أحفظ مستندًا مُزالًا دون فقدان التنسيق الأصلي؟  
+**ج:** اضبط `RasterizationOptions.setEnabled(false)` كما هو موضح؛ هذا يحافظ على الملف بتنسيقه الأصلي مع استمرار تطبيق الإزالات.
 
-**Q:** Do I need a license for development testing?  
-**A:** A temporary or trial license is sufficient for development; a full license is required for production deployments.
+**س:** هل أحتاج إلى ترخيص لاختبار التطوير؟  
+**ج:** الترخيص المؤقت أو التجريبي يكفي للتطوير؛ الترخيص الكامل مطلوب للنشر في بيئة الإنتاج.
 
 ## الموارد
 
-- **الوثائق**: [GroupDocs.Redaction Java Docs](https://docs.groupdocs.com/redaction/java/)  
-- **مرجع API**: [API Reference](https://reference.groupdocs.com/redaction/java)  
-- **التنزيل**: [Latest Releases](https://releases.groupdocs.com/redaction/java/)  
-- **GitHub**: [Source Code on GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
-- **دعم مجاني**: [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)
+- [إصدارات GroupDocs.Redaction لـ Java](https://releases.groupdocs.com/redaction/java/) – تنزيل أحدث ملفات JAR.  
+- [وثائق GroupDocs.Redaction Java](https://docs.groupdocs.com/redaction/java/) – الوثائق الرسمية وأمثلة الاستخدام.  
+- [مرجع API](https://reference.groupdocs.com/redaction/java) – مرجع تفصيلي للفئات والطرق.  
+- [الإصدارات الأخيرة](https://releases.groupdocs.com/redaction/java/) – عرض تاريخ الإصدارات وسجلات التغييرات.  
+- [الكود المصدر على GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java) – استكشاف المستودع المفتوح المصدر.  
+- [منتدى GroupDocs](https://forum.groupdocs.com/c/redaction/33) – دعم المجتمع والنقاش.
+
+## الخلاصة
+
+باتباع هذا الدليل يمكنك بأمان **إزالة البيانات الحساسة** من مستندات Java على نطاق واسع، باستخدام محرك السياسات القوي في GroupDocs.Redaction وقدرات المعالجة على دفعات. عدّل السياسة لتتناسب مع متطلبات الامتثال الخاصة بك، اضبط إعدادات التحويل إلى نقطية للأداء، ودمج سير العمل في أي خدمة خلفية مبنية على Java.
 
 ---
 
-**آخر تحديث:** 2026-03-14  
+**آخر تحديث:** 2026-08-31  
 **تم الاختبار مع:** GroupDocs.Redaction 24.9 for Java  
 **المؤلف:** GroupDocs
+
+## دروس ذات صلة
+
+- [كيفية إزالة المستندات باستخدام ترخيص GroupDocs Redaction Java من مسار الملف – دليل خطوة بخطوة](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)
+- [إخفاء البيانات الحساسة Java – دليل GroupDocs.Redaction](/redaction/java/getting-started/)
+- [كيفية إزالة النص في مستندات Java باستخدام GroupDocs.Redaction](/redaction/java/text-redaction/java-redaction-guide-groupdocs-document-security/)
+
+{{< /blocks/products/pf/tutorial-page-section >}}
+{{< /blocks/products/pf/main-container >}}
+{{< /blocks/products/pf/main-wrap-class >}}
+{{< blocks/products/products-backtop-button >}}
