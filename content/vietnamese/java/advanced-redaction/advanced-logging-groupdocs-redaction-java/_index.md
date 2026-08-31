@@ -1,51 +1,111 @@
 ---
-date: '2026-03-14'
-description: Tìm hiểu cách triển khai một logger tùy chỉnh bằng Java cho GroupDocs
-  Redaction, cho phép giám sát chi tiết quá trình xóa, xử lý hàng loạt và gỡ lỗi.
+date: '2026-08-31'
+description: Tìm hiểu cách triển khai custom logger java cho GroupDocs Redaction,
+  cho phép giám sát chi tiết redaction, batch processing và debugging, và khám phá
+  cách giám sát redaction hiệu quả.
 keywords:
 - custom logger java
-- batch document processing
 - how to monitor redaction
-title: 'Logger tùy chỉnh Java: Ghi nhật ký Redaction nâng cao của GroupDocs'
+- batch document processing
+- GroupDocs Redaction logging
+lastmod: '2026-08-31'
+og_description: Custom logger java cho phép bạn giám sát redaction trong GroupDocs
+  Redaction. Tìm hiểu cách thiết lập, ghi nhật ký và audit các quy trình redaction,
+  và tích hợp với batch workflows.
+og_image_alt: Guide showing custom logger java integration with GroupDocs Redaction
+  for Java
+og_title: Custom logger java cho ghi nhật ký nâng cao của GroupDocs Redaction
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-31'
+  description: Learn how to implement a custom logger java for GroupDocs Redaction,
+    enabling detailed monitoring of redaction, batch processing, and debugging, and
+    discover how to monitor redaction effectively.
+  headline: 'Custom logger java: advanced GroupDocs Redaction logging'
+  type: TechArticle
+- description: Learn how to implement a custom logger java for GroupDocs Redaction,
+    enabling detailed monitoring of redaction, batch processing, and debugging, and
+    discover how to monitor redaction effectively.
+  name: 'Custom logger java: advanced GroupDocs Redaction logging'
+  steps:
+  - name: create a custom logger
+    text: 'Implement a class that implements `ILogger`: This logger captures and handles
+      every message emitted by the redaction engine.'
+  - name: load document with redactorsettings
+    text: '`Redactor` is the core class that loads a document and applies redaction
+      rules using the provided settings. Load your document using the `Redactor` class,
+      passing in your custom logger: The `Redactor` object is the core processor that
+      applies redaction rules.'
+  - name: apply redactions
+    text: 'Apply the desired redaction to your document. Here, we demonstrate deleting
+      annotations:'
+  - name: save changes conditionally
+    text: 'Save changes only if no errors were logged: This approach ensures that
+      you are alerted to any issues during processing.'
+  - name: clean up resources
+    text: '`close()` releases all resources held by the `Redactor` instance, preventing
+      memory leaks. Always release resources properly by closing the `Redactor` instance
+      in a `finally` block:'
+  type: HowTo
+- questions:
+  - answer: Implement the `ILogger` interface, create an instance (e.g., `CustomLogger
+      logger = new CustomLogger();`), and pass it to `RedactorSettings`.
+    question: How do I set up a custom logger for GroupDocs Redaction?
+  - answer: Yes. Your custom logger can delegate to Log4j, SLF4J, or `java.util.logging`,
+      allowing seamless integration.
+    question: Can I use GroupDocs Redaction with other Java logging frameworks?
+  - answer: Supported redactions include text replacement, annotation deletion, image
+      removal, and more.
+    question: What types of redactions are supported by GroupDocs Redaction?
+  - answer: Use `logger.hasErrors()` after applying redactions; if true, skip `save()`
+      and investigate the logged messages.
+    question: How do I handle errors during the redaction process?
+  - answer: Absolutely. You can connect it to document management platforms, workflow
+      engines, or cloud storage services for end‑to‑end automation.
+    question: Is it possible to integrate GroupDocs Redaction with other systems?
+  type: FAQPage
+tags:
+- custom logger java
+- GroupDocs Redaction
+- Java logging
+- batch processing
+title: 'Custom logger java: ghi nhật ký nâng cao cho GroupDocs Redaction'
 type: docs
 url: /vi/java/advanced-redaction/advanced-logging-groupdocs-redaction-java/
 weight: 1
 ---
 
-# Trình Ghi Nhớ Tùy Chỉnh Java: Ghi Nhận Nâng Cao GroupDocs Redaction
+# Trình ghi nhật ký tùy chỉnh java: ghi log nâng cao của GroupDocs Redaction
 
-Bạn có gặp khó khăn trong việc theo dõi các thay đổi và lỗi khi sử dụng GroupDocs Redaction trong các ứng dụng Java của mình không? Với khả năng **custom logger java**, bạn có thể tối ưu quá trình gỡ lỗi, nắm bắt những thông tin quan trọng về cách các redaction tài liệu được áp dụng, và thậm chí hỗ trợ xử lý hàng loạt tài liệu. Trong hướng dẫn này, chúng tôi sẽ giải thích tại sao một custom logger lại quan trọng, cách thiết lập nó, và cách giám sát redaction một cách hiệu quả.
+Nếu bạn cần **theo dõi mọi bước xóa thông tin, ghi lại lỗi và duy trì một chuỗi kiểm toán** khi sử dụng GroupDocs Redaction trong một ứng dụng Java, một **custom logger java** là cách đáng tin cậy nhất để thực hiện. Hướng dẫn này giải thích lý do một trình ghi nhật ký tùy chỉnh quan trọng, hướng dẫn bạn qua các bước thiết lập chi tiết, và cho thấy cách bạn có thể giám sát việc xóa thông tin trong thời gian thực, ngay cả khi xử lý hàng ngàn tệp trong một lô.
 
 ## Câu trả lời nhanh
-- **Lớp chính cho việc ghi nhật ký là gì?** Triển khai `ILogger` và truyền nó cho `RedactorSettings`.  
-- **Có thể xử lý nhiều tệp cùng lúc không?** Có—kết hợp logger với vòng lặp xử lý batch tài liệu.  
-- **Làm sao biết một redaction đã thất bại?** Kiểm tra `logger.hasErrors()` trước khi lưu.  
-- **Có cần giấy phép riêng cho việc ghi nhật ký không?** Không, cùng một giấy phép GroupDocs Redaction bao gồm tất cả các tính năng.  
-- **Phiên bản Maven nào được yêu cầu?** GroupDocs.Redaction 24.9 hoặc mới hơn.
+- **Lớp chính để ghi nhật ký là gì?** Implement `ILogger` and pass it to `RedactorSettings`.  
+- **Tôi có thể xử lý nhiều tệp cùng lúc không?** Yes—combine the logger with batch document processing loops.  
+- **Làm sao biết một việc xóa thông tin đã thất bại?** Check `logger.hasErrors()` before saving.  
+- **Tôi có cần giấy phép riêng cho việc ghi nhật ký không?** No, the same GroupDocs Redaction license covers all features.  
+- **Phiên bản Maven nào được yêu cầu?** GroupDocs.Redaction 24.9 or later.
 
-## Custom Logger Java là gì?
-Một **custom logger java** là một triển khai do người dùng định nghĩa của giao diện `ILogger` để thu thập các thông điệp log, lỗi và thông tin chẩn đoán được tạo ra bởi engine GroupDocs Redaction. Bằng cách tùy chỉnh logger, bạn quyết định những gì sẽ được ghi lại, nơi lưu trữ chúng, và cách chúng tích hợp với các framework ghi nhật ký hiện có như Log4j hoặc SLF4J.
+## Trình ghi nhật ký tùy chỉnh java là gì?
+Một **custom logger java** là một triển khai do người dùng định nghĩa của giao diện `ILogger` nhằm ghi lại các tin nhắn log, lỗi và thông tin chẩn đoán được phát ra bởi engine GroupDocs Redaction. `ILogger` nhận mỗi tin nhắn từ engine, cho phép bạn quyết định những gì sẽ ghi lại, nơi lưu trữ và cách tích hợp với các framework ghi nhật ký như Log4j hoặc SLF4J.
 
-## Tại sao nên sử dụng Custom Logger với GroupDocs Redaction?
-- **Giám sát chi tiết** – Xem chính xác redaction nào thành công hoặc thất bại.  
-- **Tuân thủ & dấu vết kiểm toán** – Lưu giữ hồ sơ chi tiết để đáp ứng các yêu cầu pháp lý.  
-- **Nhận thức về hiệu suất** – Ghi lại thời gian và tài nguyên sử dụng, đặc biệt hữu ích cho xử lý batch tài liệu.  
-- **Tích hợp liền mạch** – Kết nối với hệ sinh thái ghi nhật ký Java hiện có của bạn.
+## Tại sao nên sử dụng trình ghi nhật ký tùy chỉnh với GroupDocs Redaction?
+Một trình ghi nhật ký tùy chỉnh cung cấp khả năng quan sát chi tiết trong quy trình xóa thông tin bằng cách ghi lại kết quả của mỗi quy tắc, đánh dấu thời gian các thao tác và tổng hợp các chỉ số hiệu suất. Chuỗi kiểm toán chi tiết này hỗ trợ các yêu cầu tuân thủ, giúp chẩn đoán lỗi nhanh chóng và chỉ gây thêm tải nhẹ—thường dưới 2 ms cho mỗi sự kiện—trong khi cho phép tích hợp liền mạch với các framework ghi nhật ký Java hiện có.
 
 ## Các trường hợp sử dụng phổ biến
-1. **Kiểm toán tuân thủ** – Theo dõi mọi sự kiện redaction để đáp ứng tiêu chuẩn pháp lý và ngành.  
-2. **Redaction batch tự động** – Xử lý hàng ngàn tài liệu trong vòng lặp đồng thời duy trì log kiểm toán cho từng tệp.  
-3. **Quy trình làm việc dựa trên lỗi** – Tạm dừng hoặc thử lại batch khi `logger.hasErrors()` báo lỗi.
+1. **Compliance auditing** – Giữ một log kiểm toán cho mỗi tệp đáp ứng các yêu cầu GDPR, HIPAA hoặc PCI‑DSS.  
+2. **Automated batch redaction** – Chạy một vòng lặp trên hàng ngàn PDF đồng thời duy trì một mục log riêng cho mỗi tài liệu.  
+3. **Error‑driven workflows** – Tạm dừng hoặc thử lại một lô khi `logger.hasErrors()` báo hiệu vấn đề, ngăn ngừa đầu ra bị hỏng.
 
 ## Yêu cầu trước
-- **Thư viện cần thiết**: GroupDocs.Redaction cho Java phiên bản 24.9 hoặc mới hơn.  
-- **Môi trường**: Java 8+ và Maven đã được cài đặt.  
-- **Kiến thức**: Lập trình Java cơ bản và hiểu biết về các khái niệm ghi nhật ký.
+- **Thư viện yêu cầu**: GroupDocs.Redaction for Java 24.9 hoặc mới hơn (hỗ trợ hơn 50 định dạng).  
+- **Môi trường**: Java 8+ và Maven đã cài đặt.  
+- **Kiến thức**: Lập trình Java cơ bản và quen thuộc với các khái niệm ghi nhật ký.
 
 ## Cài đặt GroupDocs.Redaction cho Java
+`RedactorSettings` cấu hình engine xóa thông tin, cho phép bạn chỉ định các tùy chọn như trình ghi nhật ký tùy chỉnh, lưu trữ tài liệu và hành vi xử lý.
 
 ### Sử dụng Maven
-
 Thêm cấu hình sau vào tệp `pom.xml` của bạn để bao gồm các phụ thuộc và kho cần thiết:
 
 ```xml
@@ -67,14 +127,14 @@ Thêm cấu hình sau vào tệp `pom.xml` của bạn để bao gồm các ph�
 ```
 
 ### Tải trực tiếp
+Hoặc, tải phiên bản mới nhất từ [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
-Ngoài ra, tải phiên bản mới nhất từ [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+**License acquisition**: Bắt đầu với bản dùng thử miễn phí để khám phá khả năng của GroupDocs Redaction. Đối với môi trường production, hãy lấy giấy phép tạm thời hoặc đầy đủ.
 
-**Mua giấy phép**: Bắt đầu với bản dùng thử miễn phí để khám phá các khả năng của GroupDocs Redaction. Đối với môi trường sản xuất, hãy mua giấy phép tạm thời hoặc đầy đủ.
+## Khởi tạo và thiết lập cơ bản
+`RedactorSettings` cấu hình engine xóa thông tin, cho phép bạn chỉ định các tùy chọn như trình ghi nhật ký tùy chỉnh, lưu trữ tài liệu và hành vi xử lý.
 
-## Khởi tạo và Cấu hình Cơ bản
-
-Khởi tạo dự án của bạn bằng cách tạo một thể hiện của `RedactorSettings` với một custom logger:
+Tạo một thể hiện của `RedactorSettings` và tiêm trình ghi nhật ký tùy chỉnh của bạn:
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -86,19 +146,17 @@ CustomLogger logger = new CustomLogger();
 RedactorSettings settings = new RedactorSettings(logger);
 ```
 
-## Hướng dẫn Triển khai
+## Hướng dẫn triển khai
 
-### Ghi nhật ký nâng cao với Custom Logger
+### Ghi nhật ký nâng cao với trình ghi tùy chỉnh
 
 #### Tổng quan
+Ghi nhật ký nâng cao ghi lại thông tin chi tiết về các thao tác thực hiện trên tài liệu, giúp việc khắc phục sự cố và tối ưu hoá dễ dàng hơn. Sử dụng một **custom logger java** cho phép bạn kiểm soát hoàn toàn những gì được ghi và cách báo cáo lỗi.
 
-Ghi nhật ký nâng cao thu thập thông tin chi tiết về các thao tác thực hiện trên tài liệu, giúp việc khắc phục sự cố và tối ưu hoá dễ dàng hơn. Sử dụng một **custom logger java** cho phép bạn kiểm soát toàn bộ những gì được ghi lại và cách lỗi được báo cáo.
+#### Triển khai từng bước
 
-#### Triển khai theo bước
-
-##### Bước 1: Tạo Custom Logger
-
-Bắt đầu bằng việc triển khai một lớp thực hiện `ILogger`:
+##### Bước 1: tạo một trình ghi nhật ký tùy chỉnh
+Triển khai một lớp thực hiện `ILogger`:
 
 ```java
 public class CustomLogger implements ILogger {
@@ -106,30 +164,29 @@ public class CustomLogger implements ILogger {
 }
 ```
 
-Custom logger này sẽ thu thập và xử lý các thông điệp log trong quá trình redaction.
+Trình ghi này ghi lại và xử lý mọi tin nhắn được engine xóa thông tin phát ra.
 
-##### Bước 2: Tải tài liệu với RedactorSettings
+##### Bước 2: tải tài liệu với redactorsettings
+`Redactor` là lớp cốt lõi tải tài liệu và áp dụng các quy tắc xóa thông tin bằng các cài đặt đã cung cấp.
 
-Tải tài liệu của bạn bằng lớp `Redactor`, truyền vào custom logger của bạn:
+Tải tài liệu của bạn bằng lớp `Redactor`, truyền vào trình ghi nhật ký tùy chỉnh của bạn:
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX", 
     new LoadOptions(), new RedactorSettings(logger));
 ```
 
-Cấu hình này đảm bảo mọi thao tác đều được ghi lại qua triển khai tùy chỉnh của bạn.
+Đối tượng `Redactor` là bộ xử lý cốt lõi áp dụng các quy tắc xóa thông tin.
 
-##### Bước 3: Áp dụng Redaction
-
-Áp dụng redaction mong muốn cho tài liệu. Ở đây, chúng tôi minh họa việc xóa annotation:
+##### Bước 3: áp dụng các thao tác xóa thông tin
+Áp dụng việc xóa thông tin mong muốn vào tài liệu của bạn. Ở đây, chúng tôi minh họa việc xóa chú thích:
 
 ```java
 redactor.apply(new com.groupdocs.redaction.redactions.DeleteAnnotationRedaction());
 ```
 
-##### Bước 4: Lưu thay đổi có điều kiện
-
-Chỉ lưu thay đổi nếu không có lỗi nào được ghi lại:
+##### Bước 4: lưu thay đổi có điều kiện
+Lưu thay đổi chỉ khi không có lỗi nào được ghi lại:
 
 ```java
 if (!logger.hasErrors()) {
@@ -137,9 +194,10 @@ if (!logger.hasErrors()) {
 }
 ```
 
-Cách tiếp cận này giúp bạn nhận được cảnh báo về bất kỳ vấn đề nào trong quá trình xử lý.
+Cách tiếp cận này đảm bảo bạn được cảnh báo về bất kỳ vấn đề nào trong quá trình xử lý.
 
-##### Bước 5: Dọn dẹp tài nguyên
+##### Bước 5: dọn dẹp tài nguyên
+`close()` giải phóng mọi tài nguyên mà thể hiện `Redactor` đang giữ, ngăn ngừa rò rỉ bộ nhớ.
 
 Luôn giải phóng tài nguyên đúng cách bằng cách đóng thể hiện `Redactor` trong khối `finally`:
 
@@ -149,61 +207,64 @@ finally {
 }
 ```
 
-## Cách Giám sát Redaction với Custom Logger Java
+## Cách giám sát xóa thông tin với custom logger java
+Bạn có thể giám sát việc xóa thông tin trong thời gian thực bằng cách kiểm tra `logger.hasErrors()` sau mỗi thao tác và xem lại các tin nhắn được thu thập bởi triển khai `ILogger` của bạn. Đối với các dự án quy mô lớn, ghi các mục log vào cơ sở dữ liệu hoặc dịch vụ ghi nhật ký trung tâm (ví dụ: ELK stack) để phân tích xu hướng trên nhiều tài liệu.
 
-Bằng cách kiểm tra `logger.hasErrors()` và xem lại các thông điệp được `ILogger` của bạn ghi lại, bạn có thể **giám sát redaction** trong thời gian thực. Đối với các dự án quy mô lớn, bạn có thể ghi các mục log vào cơ sở dữ liệu hoặc dịch vụ log tập trung (ví dụ: ELK stack) để phân tích xu hướng trên nhiều tài liệu.
+## Các cân nhắc về hiệu năng
+Để giữ cho ứng dụng của bạn nhanh và phản hồi tốt, đặc biệt khi xử lý batch tài liệu, hãy tuân theo các lời khuyên sau:
 
-## Các lưu ý về Hiệu suất
+- **Resource management** – Đóng đúng cách các thể hiện `Redactor` để ngăn ngừa rò rỉ bộ nhớ.  
+- **Logging levels** – Sử dụng các mức `info`, `debug`, và `error` để kiểm soát độ chi tiết và giảm tải.  
+- **Batch processing** – Xử lý tài liệu theo nhóm và tái sử dụng một thể hiện logger duy nhất để giảm thiểu việc tạo đối tượng.  
 
-Để giữ cho ứng dụng của bạn nhanh và phản hồi tốt, đặc biệt khi xử lý batch tài liệu, hãy tuân theo các mẹo sau:
+## Mẹo & thực hành tốt nhất
+- **Pro tip:** Bao bọc các lời gọi logger trong khối try‑catch để tránh ngoại lệ không mong muốn lan ra.  
+- **Avoid over‑logging** trong môi trường production; chuyển sang mức `info` trừ khi bạn đang khắc phục sự cố.  
+- **Persist logs** vào một kho lưu trữ bền vững (tệp, DB, hoặc đám mây) khi bạn cần chuỗi kiểm toán cho việc tuân thủ.  
 
-- **Quản lý tài nguyên** – Đóng đúng các thể hiện `Redactor` để tránh rò rỉ bộ nhớ.  
-- **Mức độ log** – Sử dụng các mức `info`, `debug`, và `error` để kiểm soát độ chi tiết và giảm tải.  
-- **Xử lý batch** – Xử lý tài liệu theo nhóm và tái sử dụng một thể hiện logger duy nhất để giảm việc tạo đối tượng mới.
-
-## Mẹo & Thực hành tốt nhất
-
-- **Mẹo chuyên nghiệp:** Bao quanh các lời gọi logger trong khối try‑catch để tránh ngoại lệ không mong muốn lan ra.  
-- **Tránh log quá mức** trong môi trường production; chuyển sang mức `info` trừ khi đang gỡ lỗi.  
-- **Lưu trữ log** vào nơi bền vững (tệp, DB, hoặc cloud) khi bạn cần dấu vết kiểm toán cho mục đích tuân thủ.  
-
-## Các vấn đề thường gặp và Giải pháp
+## Các vấn đề thường gặp và giải pháp
 
 | Vấn đề | Giải pháp |
 |-------|----------|
-| Không có log nào xuất hiện | Đảm bảo `CustomLogger` của bạn triển khai đầy đủ các phương thức yêu cầu của `ILogger` và thể hiện logger được truyền vào `RedactorSettings`. |
-| Ứng dụng chậm khi xử lý batch lớn | Giảm chi tiết log (ví dụ: chuyển từ `debug` sang `info`) hoặc ghi log bất đồng bộ. |
-| Lỗi bị bỏ qua | Xác nhận rằng `logger.hasErrors()` được kiểm tra trước khi gọi `save()`. |
+| Không có log nào xuất hiện | Đảm bảo `CustomLogger` của bạn triển khai tất cả các phương thức `ILogger` bắt buộc và thể hiện logger được truyền vào `RedactorSettings`. |
+| Ứng dụng chậm lại trong các batch lớn | Giảm chi tiết log (ví dụ: chuyển từ `debug` sang `info`) hoặc ghi log bất đồng bộ. |
+| Lỗi bị nuốt chửng | Xác minh `logger.hasErrors()` được kiểm tra trước khi gọi `save()`. |
 
 ## Câu hỏi thường gặp
 
-**Q: Làm sao để thiết lập custom logger cho GroupDocs Redaction?**  
+**Q: Làm sao tôi thiết lập một custom logger cho GroupDocs Redaction?**  
 A: Triển khai giao diện `ILogger`, tạo một thể hiện (ví dụ, `CustomLogger logger = new CustomLogger();`), và truyền nó vào `RedactorSettings`.
 
-**Q: Tôi có thể dùng GroupDocs Redaction cùng với các framework ghi nhật ký Java khác không?**  
-A: Có. Custom logger của bạn có thể ủy quyền cho Log4j, SLF4J, hoặc `java.util.logging`, cho phép tích hợp liền mạch.
+**Q: Tôi có thể sử dụng GroupDocs Redaction với các framework ghi nhật ký Java khác không?**  
+A: Có. Trình ghi nhật ký tùy chỉnh của bạn có thể ủy thác cho Log4j, SLF4J, hoặc `java.util.logging`, cho phép tích hợp liền mạch.
 
-**Q: Những loại redaction nào được GroupDocs Redaction hỗ trợ?**  
-A: Các redaction được hỗ trợ bao gồm thay thế văn bản, xóa annotation, loại bỏ hình ảnh, và nhiều hơn nữa.
+**Q: Những loại xóa thông tin nào được GroupDocs Redaction hỗ trợ?**  
+A: Các loại xóa thông tin được hỗ trợ bao gồm thay thế văn bản, xóa chú thích, loại bỏ hình ảnh, và hơn nữa.
 
-**Q: Làm sao xử lý lỗi trong quá trình redaction?**  
-A: Sử dụng `logger.hasErrors()` sau khi áp dụng redaction; nếu trả về true, bỏ qua `save()` và điều tra các thông điệp log.
+**Q: Làm sao tôi xử lý lỗi trong quá trình xóa thông tin?**  
+A: Sử dụng `logger.hasErrors()` sau khi áp dụng các xóa thông tin; nếu true, bỏ qua `save()` và điều tra các tin nhắn đã ghi.
 
 **Q: Có thể tích hợp GroupDocs Redaction với các hệ thống khác không?**  
-A: Hoàn toàn có thể. Bạn có thể kết nối nó với các nền tảng quản lý tài liệu, engine workflow, hoặc dịch vụ lưu trữ đám mây để tự động hoá toàn diện.
+A: Chắc chắn. Bạn có thể kết nối nó với các nền tảng quản lý tài liệu, engine workflow, hoặc dịch vụ lưu trữ đám mây để tự động hoá đầu‑cuối.
 
 ## Tài nguyên
-- **Tài liệu**: [GroupDocs Redaction Java Docs](https://docs.groupdocs.com/redaction/java/)
-- **Tham chiếu API**: [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)
-- **Tải xuống**: [Latest Releases](https://releases.groupdocs.com/redaction/java/)
-- **Kho GitHub**: [GroupDocs.Redaction for Java on GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
-- **Diễn đàn hỗ trợ miễn phí**: [GroupDocs Redaction Forum](https://forum.groupdocs.com/c/redaction/33)
-- **Giấy phép tạm thời**: [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/) 
+- **Documentation**: [GroupDocs Redaction Java Docs](https://docs.groupdocs.com/redaction/java/)
+- **API reference**: [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)
+- **Download**: [Latest Releases](https://releases.groupdocs.com/redaction/java/)
+- **GitHub repository**: [GroupDocs.Redaction for Java on GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
+- **Free support forum**: [GroupDocs Redaction Forum](https://forum.groupdocs.com/c/redaction/33)
+- **Temporary license**: [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
-Bằng cách làm theo hướng dẫn này, bạn đã sẵn sàng làm chủ **custom logger java** với GroupDocs Redaction cho Java. Chúc bạn lập trình vui vẻ!
+Bằng cách làm theo hướng dẫn này, bạn đang trên con đường thành thạo **custom logger java** với GroupDocs Redaction cho Java. Chúc lập trình vui vẻ!
 
 ---
 
-**Cập nhật lần cuối:** 2026-03-14  
-**Kiểm thử với:** GroupDocs Redaction 24.9  
+**Cập nhật lần cuối:** 2026-08-31  
+**Kiểm tra với:** GroupDocs Redaction 24.9  
 **Tác giả:** GroupDocs
+
+## Hướng dẫn liên quan
+
+- [Triển khai Trình xử lý Xóa thông tin Tùy chỉnh trong Java cho GroupDocs.Redaction](/redaction/java/advanced-redaction/)
+- [Cách Xóa thông tin Tài liệu Java với GroupDocs.Redaction](/redaction/java/advanced-redaction/java-redaction-groupdocs-guide/)
+- [Tạo Chính sách Xóa thông tin cho PDF với GroupDocs.Redaction Java](/redaction/java/advanced-redaction/master-redaction-groupdocs-java-guide/)

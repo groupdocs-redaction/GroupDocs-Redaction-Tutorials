@@ -1,50 +1,107 @@
 ---
-date: '2026-03-14'
-description: 學習如何為 GroupDocs Redaction 實作自訂 Java 記錄器，以實現對遮蔽、批次處理及除錯的詳細監控。
+date: '2026-08-31'
+description: 了解如何為 GroupDocs Redaction 實作自訂 logger java，以實現對修訂、批次處理與除錯的詳細監控，並探索有效的修訂監測方法。
 keywords:
 - custom logger java
-- batch document processing
 - how to monitor redaction
-title: 自訂記錄器 Java：進階 GroupDocs 敏感資訊遮蔽日誌
+- batch document processing
+- GroupDocs Redaction logging
+lastmod: '2026-08-31'
+og_description: 自訂 logger java 可讓您在 GroupDocs Redaction 中監控修訂。了解如何設定、記錄與稽核修訂流程，並與批次工作流程整合。
+og_image_alt: Guide showing custom logger java integration with GroupDocs Redaction
+  for Java
+og_title: 自訂 logger java 用於進階 GroupDocs Redaction 日誌記錄
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-31'
+  description: Learn how to implement a custom logger java for GroupDocs Redaction,
+    enabling detailed monitoring of redaction, batch processing, and debugging, and
+    discover how to monitor redaction effectively.
+  headline: 'Custom logger java: advanced GroupDocs Redaction logging'
+  type: TechArticle
+- description: Learn how to implement a custom logger java for GroupDocs Redaction,
+    enabling detailed monitoring of redaction, batch processing, and debugging, and
+    discover how to monitor redaction effectively.
+  name: 'Custom logger java: advanced GroupDocs Redaction logging'
+  steps:
+  - name: create a custom logger
+    text: 'Implement a class that implements `ILogger`: This logger captures and handles
+      every message emitted by the redaction engine.'
+  - name: load document with redactorsettings
+    text: '`Redactor` is the core class that loads a document and applies redaction
+      rules using the provided settings. Load your document using the `Redactor` class,
+      passing in your custom logger: The `Redactor` object is the core processor that
+      applies redaction rules.'
+  - name: apply redactions
+    text: 'Apply the desired redaction to your document. Here, we demonstrate deleting
+      annotations:'
+  - name: save changes conditionally
+    text: 'Save changes only if no errors were logged: This approach ensures that
+      you are alerted to any issues during processing.'
+  - name: clean up resources
+    text: '`close()` releases all resources held by the `Redactor` instance, preventing
+      memory leaks. Always release resources properly by closing the `Redactor` instance
+      in a `finally` block:'
+  type: HowTo
+- questions:
+  - answer: Implement the `ILogger` interface, create an instance (e.g., `CustomLogger
+      logger = new CustomLogger();`), and pass it to `RedactorSettings`.
+    question: How do I set up a custom logger for GroupDocs Redaction?
+  - answer: Yes. Your custom logger can delegate to Log4j, SLF4J, or `java.util.logging`,
+      allowing seamless integration.
+    question: Can I use GroupDocs Redaction with other Java logging frameworks?
+  - answer: Supported redactions include text replacement, annotation deletion, image
+      removal, and more.
+    question: What types of redactions are supported by GroupDocs Redaction?
+  - answer: Use `logger.hasErrors()` after applying redactions; if true, skip `save()`
+      and investigate the logged messages.
+    question: How do I handle errors during the redaction process?
+  - answer: Absolutely. You can connect it to document management platforms, workflow
+      engines, or cloud storage services for end‑to‑end automation.
+    question: Is it possible to integrate GroupDocs Redaction with other systems?
+  type: FAQPage
+tags:
+- custom logger java
+- GroupDocs Redaction
+- Java logging
+- batch processing
+title: 自訂 logger java：進階 GroupDocs Redaction 日誌記錄
 type: docs
 url: /zh-hant/java/advanced-redaction/advanced-logging-groupdocs-redaction-java/
 weight: 1
 ---
 
-# 自訂記錄器 Java：進階 GroupDocs Redaction 記錄
+# 自訂記錄器 Java：進階 GroupDocs Redaction 日誌記錄
 
-您是否在使用 GroupDocs Redaction 的 Java 應用程式時，苦於追蹤變更與錯誤？透過 **custom logger java** 功能，您可以簡化除錯流程、深入了解文件遮蔽的執行方式，甚至支援批次文件處理。在本指南中，我們將說明自訂記錄器的重要性、設定方式，以及如何有效監控遮蔽。
+如果您需要在 Java 應用程式中使用 GroupDocs Redaction 時 **追蹤每個遮蔽步驟、捕獲錯誤並保留稽核追蹤**，**custom logger java** 是最可靠的做法。本教學說明為何自訂記錄器重要，逐步帶您完成設定，並展示如何即時監控遮蔽，即使在批次處理上千個檔案時亦能如此。
 
-## 快速回答
-- **什麼是主要的記錄類別？** 實作 `ILogger` 並將其傳遞給 `RedactorSettings`。  
-- **我可以一次處理多個檔案嗎？** 可以——將記錄器與批次文件處理迴圈結合使用。  
-- **如何判斷遮蔽是否失敗？** 在儲存前檢查 `logger.hasErrors()`。  
-- **記錄功能需要額外授權嗎？** 不需要，同一個 GroupDocs Redaction 授權涵蓋所有功能。  
-- **需要哪個 Maven 版本？** GroupDocs.Redaction 24.9 或更新版本。  
+## 快速答案
+- **什麼是主要的日誌類別？** Implement `ILogger` and pass it to `RedactorSettings`.  
+- **我可以一次處理多個檔案嗎？** Yes—combine the logger with batch document processing loops.  
+- **如何知道遮蔽是否失敗？** Check `logger.hasErrors()` before saving.  
+- **我需要為日誌另行取得授權嗎？** No, the same GroupDocs Redaction license covers all features.  
+- **需要哪個 Maven 版本？** GroupDocs.Redaction 24.9 or later.
 
-## 什麼是 Custom Logger Java？
-A **custom logger java** 是使用者自行實作的 `ILogger` 介面，用以捕捉 GroupDocs Redaction 引擎產生的記錄訊息、錯誤與診斷資訊。透過自訂記錄器，您可以決定記錄哪些內容、儲存位置，以及如何與現有的記錄框架（如 Log4j 或 SLF4J）整合。
+## 什麼是 custom logger java？
+A **custom logger java** 是 `ILogger` 介面的使用者自訂實作，用於捕獲 GroupDocs Redaction 引擎發出的日誌訊息、錯誤與診斷資訊。`ILogger` 會接收引擎的每則訊息，讓您決定記錄什麼、儲存位置，以及如何整合 Log4j 或 SLF4J 等日誌框架。
 
 ## 為何在 GroupDocs Redaction 中使用自訂記錄器？
-- **細緻的監控** – 精確了解哪些遮蔽成功或失敗。  
-- **合規與稽核追蹤** – 為法規需求保留詳細紀錄。  
-- **效能洞察** – 記錄執行時間與資源使用情況，對批次文件處理特別有幫助。  
-- **無縫整合** – 與您現有的 Java 記錄生態系統掛接。  
+自訂記錄器透過記錄每條規則的結果、為操作加上時間戳記，並彙總效能指標，提供對遮蔽流程的細緻可見性。此詳細稽核追蹤支援合規需求、快速診斷失敗，且僅增加極少的負擔——通常每個事件少於 2 ms——同時允許與現有的 Java 日誌框架無縫整合。
 
 ## 常見使用情境
-1. **合規稽核** – 追蹤每一次遮蔽事件，以符合法律與產業標準。  
-2. **自動化批次遮蔽** – 在迴圈中處理數千份文件，同時保留每個檔案的稽核日誌。  
-3. **錯誤驅動工作流程** – 當 `logger.hasErrors()` 發出問題訊號時，暫停或重試批次。  
+1. **合規稽核** – 保留每個檔案的稽核日誌，以符合 GDPR、HIPAA 或 PCI‑DSS 的要求。  
+2. **自動化批次遮蔽** – 在上千個 PDF 上執行迴圈，同時為每個文件保留獨立的日誌條目。  
+3. **錯誤驅動工作流程** – 當 `logger.hasErrors()` 發出問題訊號時，暫停或重試批次，以防止產出損壞。
 
 ## 前置條件
-- **必要函式庫**：GroupDocs.Redaction for Java 版本 24.9 或更新。  
+- **必要函式庫**：GroupDocs.Redaction for Java 24.9 或更新版本（支援 50+ 格式）。  
 - **環境**：已安裝 Java 8+ 與 Maven。  
-- **知識需求**：基本的 Java 程式設計與記錄概念的了解。  
+- **知識**：基本的 Java 程式設計與日誌概念的熟悉度。
 
 ## 設定 GroupDocs.Redaction for Java
+`RedactorSettings` 用於設定遮蔽引擎，讓您可指定自訂記錄器、文件儲存與處理行為等選項。
 
 ### 使用 Maven
-
 在您的 `pom.xml` 檔案中加入以下設定，以納入必要的相依性與儲存庫：
 
 ```xml
@@ -66,14 +123,14 @@ A **custom logger java** 是使用者自行實作的 `ILogger` 介面，用以�
 ```
 
 ### 直接下載
-
 或者，從 [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/) 下載最新版本。
 
-**取得授權**：先以免費試用版探索 GroupDocs Redaction 功能。正式使用時，請取得臨時或正式授權。
+**授權取得**：先使用免費試用版探索 GroupDocs Redaction 的功能。正式使用時，取得臨時或完整授權。
 
 ## 基本初始化與設定
+`RedactorSettings` 用於設定遮蔽引擎，讓您可指定自訂記錄器、文件儲存與處理行為等選項。
 
-透過建立帶有自訂記錄器的 `RedactorSettings` 實例，來初始化您的專案：
+建立 `RedactorSettings` 的實例，並注入您的自訂記錄器：
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -87,17 +144,14 @@ RedactorSettings settings = new RedactorSettings(logger);
 
 ## 實作指南
 
-### 使用自訂記錄器的進階記錄
-
+### 使用自訂記錄器的進階日誌
 #### 概觀
+進階日誌會捕獲文件操作的詳細資訊，讓除錯與最佳化更為簡易。使用 **custom logger java** 可讓您完整掌控日誌內容與錯誤回報方式。
 
-進階記錄會捕捉文件操作的詳細資訊，讓除錯與最佳化更為簡便。使用 **custom logger java** 可讓您完整掌控記錄內容與錯誤回報方式。
-
-#### 步驟實作說明
+#### 步驟實作
 
 ##### 步驟 1：建立自訂記錄器
-
-首先實作一個實作 `ILogger` 介面的類別：
+實作一個實作 `ILogger` 介面的類別：
 
 ```java
 public class CustomLogger implements ILogger {
@@ -105,29 +159,28 @@ public class CustomLogger implements ILogger {
 }
 ```
 
-此自訂記錄器會在遮蔽過程中捕捉與處理記錄訊息。
+此記錄器會捕獲並處理遮蔽引擎發出的每則訊息。
 
 ##### 步驟 2：使用 RedactorSettings 載入文件
+`Redactor` 是核心類別，使用提供的設定載入文件並套用遮蔽規則。
 
-使用 `Redactor` 類別載入文件，並傳入自訂記錄器：
+使用 `Redactor` 類別載入文件，並傳入您的自訂記錄器：
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX", 
     new LoadOptions(), new RedactorSettings(logger));
 ```
 
-此設定可確保所有操作皆透過您的自訂實作進行記錄。
+`Redactor` 物件是套用遮蔽規則的核心處理器。
 
 ##### 步驟 3：套用遮蔽
-
-將所需的遮蔽套用至文件。此處示範刪除註解：
+對文件套用所需的遮蔽。此處示範刪除註解：
 
 ```java
 redactor.apply(new com.groupdocs.redaction.redactions.DeleteAnnotationRedaction());
 ```
 
 ##### 步驟 4：條件式儲存變更
-
 僅在未記錄錯誤時才儲存變更：
 
 ```java
@@ -136,9 +189,10 @@ if (!logger.hasErrors()) {
 }
 ```
 
-此方式可確保在處理過程中若有問題會即時提示。
+此方式可確保在處理過程中即時收到任何問題的警示。
 
 ##### 步驟 5：清理資源
+`close()` 會釋放 `Redactor` 實例所持有的所有資源，防止記憶體洩漏。
 
 務必在 `finally` 區塊中關閉 `Redactor` 實例，以正確釋放資源：
 
@@ -148,61 +202,64 @@ finally {
 }
 ```
 
-## 如何使用 Custom Logger Java 監控遮蔽
-
-透過檢查 `logger.hasErrors()` 並檢視 `ILogger` 實作捕捉的訊息，即可即時 **how to monitor redaction**。對於大型專案，您可以將記錄寫入資料庫或集中式記錄服務（例如 ELK stack），以分析多份文件的趨勢。
+## 如何使用 custom logger java 監控遮蔽
+您可以在每個操作後檢查 `logger.hasErrors()`，並檢視 `ILogger` 實作所收集的訊息，以即時監控遮蔽。對於大規模專案，將日誌寫入資料庫或集中式日誌服務（例如 ELK stack），以分析多文件的趨勢。
 
 ## 效能考量
+為了讓您的應用程式保持快速與回應，即使在批次文件處理時，也請遵循以下建議：
 
-為了讓應用程式保持快速與回應，即使在處理批次文件時，也請遵循以下建議：
-
-- **資源管理** – 正確關閉 `Redactor` 實例，以防止記憶體泄漏。  
-- **記錄層級** – 使用 `info`、`debug`、`error` 等層級來控制詳細程度，減少額外負擔。  
-- **批次處理** – 以群組方式處理文件，並重複使用同一個記錄器實例，以減少物件建立。  
+- **資源管理** – 正確關閉 `Redactor` 實例以防止記憶體洩漏。  
+- **日誌層級** – 使用 `info`、`debug`、`error` 層級來控制詳細度並減少負擔。  
+- **批次處理** – 分組處理文件，並重複使用單一記錄器實例以減少物件建立。
 
 ## 小技巧與最佳實踐
-
-- **專業提示：** 將記錄器呼叫包在 try‑catch 區塊中，以避免未預期的例外拋出。  
-- **避免過度記錄**：在正式環境中除非在除錯，否則切換至 `info` 層級。  
-- **持久化記錄**：當需要合規稽核時，將記錄保存至永久儲存（檔案、資料庫或雲端）。  
+- **專業提示**：將記錄器呼叫包在 try‑catch 區塊中，以避免未預期的例外拋出。  
+- **避免過度記錄**：在正式環境中切換至 `info` 層級，除非您在除錯。  
+- **持久化日誌**：當需要合規稽核追蹤時，將日誌保存至永久儲存（檔案、資料庫或雲端）。
 
 ## 常見問題與解決方案
 
 | 問題 | 解決方案 |
-|------|----------|
-| 未出現記錄 | 確保您的 `CustomLogger` 實作了所有必要的 `ILogger` 方法，且已將記錄器實例傳遞給 `RedactorSettings`。 |
-| 大量批次時應用程式變慢 | 降低記錄細節（例如，從 `debug` 改為 `info`）或以非同步方式寫入記錄。 |
+|-------|----------|
+| 未出現日誌 | 確保您的 `CustomLogger` 實作了所有必要的 `ILogger` 方法，且已將記錄器實例傳遞給 `RedactorSettings`。 |
+| 大型批次處理時應用程式變慢 | 降低日誌詳細度（例如，從 `debug` 切換至 `info`）或以非同步方式寫入日誌。 |
 | 錯誤被吞掉 | 確認在呼叫 `save()` 前已檢查 `logger.hasErrors()`。 |
 
 ## 常見問答
 
 **Q: 如何為 GroupDocs Redaction 設定自訂記錄器？**  
-A: 實作 `ILogger` 介面，建立實例（例如 `CustomLogger logger = new CustomLogger();`），並將其傳遞給 `RedactorSettings`。
+A: Implement the `ILogger` interface, create an instance (e.g., `CustomLogger logger = new CustomLogger();`), and pass it to `RedactorSettings`.
 
-**Q: 可以將 GroupDocs Redaction 與其他 Java 記錄框架一起使用嗎？**  
-A: 可以。您的自訂記錄器可以委派給 Log4j、SLF4J 或 `java.util.logging`，實現無縫整合。
+**Q: 我可以將 GroupDocs Redaction 與其他 Java 日誌框架一起使用嗎？**  
+A: Yes. Your custom logger can delegate to Log4j, SLF4J, or `java.util.logging`, allowing seamless integration.
 
 **Q: GroupDocs Redaction 支援哪些類型的遮蔽？**  
-A: 支援的遮蔽包括文字取代、註解刪除、圖像移除等。
+A: Supported redactions include text replacement, annotation deletion, image removal, and more.
 
-**Q: 如何處理遮蔽過程中的錯誤？**  
-A: 在套用遮蔽後使用 `logger.hasErrors()`；若返回 true，則跳過 `save()`，並檢查記錄的訊息。
+**Q: 我該如何處理遮蔽過程中的錯誤？**  
+A: Use `logger.hasErrors()` after applying redactions; if true, skip `save()` and investigate the logged messages.
 
-**Q: 能否將 GroupDocs Redaction 與其他系統整合？**  
-A: 完全可以。您可以將其連接至文件管理平台、工作流程引擎或雲端儲存服務，以實現端到端自動化。
+**Q: 是否可以將 GroupDocs Redaction 與其他系統整合？**  
+A: Absolutely. You can connect it to document management platforms, workflow engines, or cloud storage services for end‑to‑end automation.
 
 ## 資源
-- **文件說明**： [GroupDocs Redaction Java Docs](https://docs.groupdocs.com/redaction/java/)  
+- **文件**： [GroupDocs Redaction Java Docs](https://docs.groupdocs.com/redaction/java/)  
 - **API 參考**： [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)  
 - **下載**： [Latest Releases](https://releases.groupdocs.com/redaction/java/)  
 - **GitHub 儲存庫**： [GroupDocs.Redaction for Java on GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - **免費支援論壇**： [GroupDocs Redaction Forum](https://forum.groupdocs.com/c/redaction/33)  
 - **臨時授權**： [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
-遵循本指南，即可順利掌握 **custom logger java** 與 GroupDocs Redaction for Java 的使用。祝開發愉快！
+遵循本指南，即可掌握在 Java 中使用 GroupDocs Redaction 的 **custom logger java**。祝開發愉快！
 
 ---
 
-**最後更新：** 2026-03-14  
+**最後更新：** 2026-08-31  
 **測試環境：** GroupDocs Redaction 24.9  
 **作者：** GroupDocs
+
+## 相關教學
+
+- [在 Java 中實作自訂遮蔽處理程式 for GroupDocs.Redaction](/redaction/java/advanced-redaction/)
+- [如何使用 GroupDocs.Redaction 於 Java 文件進行遮蔽](/redaction/java/advanced-redaction/java-redaction-groupdocs-guide/)
+- [使用 GroupDocs.Redaction Java 為 PDF 建立遮蔽政策](/redaction/java/advanced-redaction/master-redaction-groupdocs-java-guide/)

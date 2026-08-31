@@ -1,52 +1,112 @@
 ---
-date: '2026-03-14'
-description: Naučte se, jak implementovat vlastní logger v Javě pro GroupDocs Redaction,
-  který umožňuje podrobné sledování redakce, dávkového zpracování a ladění.
+date: '2026-08-31'
+description: Zjistěte, jak implementovat custom logger java pro GroupDocs Redaction,
+  umožňující podrobné sledování redaction, batch processing a debugging, a objevte,
+  jak efektivně sledovat redaction.
 keywords:
 - custom logger java
-- batch document processing
 - how to monitor redaction
-title: 'Vlastní logger v Javě: Pokročilé logování redakce GroupDocs'
+- batch document processing
+- GroupDocs Redaction logging
+lastmod: '2026-08-31'
+og_description: Custom logger java vám umožňuje sledovat redaction v GroupDocs Redaction.
+  Zjistěte, jak nastavit, logovat a auditovat procesy redaction a integrovat je s
+  batch workflows.
+og_image_alt: Guide showing custom logger java integration with GroupDocs Redaction
+  for Java
+og_title: Custom logger java pro pokročilé logování GroupDocs Redaction
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-31'
+  description: Learn how to implement a custom logger java for GroupDocs Redaction,
+    enabling detailed monitoring of redaction, batch processing, and debugging, and
+    discover how to monitor redaction effectively.
+  headline: 'Custom logger java: advanced GroupDocs Redaction logging'
+  type: TechArticle
+- description: Learn how to implement a custom logger java for GroupDocs Redaction,
+    enabling detailed monitoring of redaction, batch processing, and debugging, and
+    discover how to monitor redaction effectively.
+  name: 'Custom logger java: advanced GroupDocs Redaction logging'
+  steps:
+  - name: create a custom logger
+    text: 'Implement a class that implements `ILogger`: This logger captures and handles
+      every message emitted by the redaction engine.'
+  - name: load document with redactorsettings
+    text: '`Redactor` is the core class that loads a document and applies redaction
+      rules using the provided settings. Load your document using the `Redactor` class,
+      passing in your custom logger: The `Redactor` object is the core processor that
+      applies redaction rules.'
+  - name: apply redactions
+    text: 'Apply the desired redaction to your document. Here, we demonstrate deleting
+      annotations:'
+  - name: save changes conditionally
+    text: 'Save changes only if no errors were logged: This approach ensures that
+      you are alerted to any issues during processing.'
+  - name: clean up resources
+    text: '`close()` releases all resources held by the `Redactor` instance, preventing
+      memory leaks. Always release resources properly by closing the `Redactor` instance
+      in a `finally` block:'
+  type: HowTo
+- questions:
+  - answer: Implement the `ILogger` interface, create an instance (e.g., `CustomLogger
+      logger = new CustomLogger();`), and pass it to `RedactorSettings`.
+    question: How do I set up a custom logger for GroupDocs Redaction?
+  - answer: Yes. Your custom logger can delegate to Log4j, SLF4J, or `java.util.logging`,
+      allowing seamless integration.
+    question: Can I use GroupDocs Redaction with other Java logging frameworks?
+  - answer: Supported redactions include text replacement, annotation deletion, image
+      removal, and more.
+    question: What types of redactions are supported by GroupDocs Redaction?
+  - answer: Use `logger.hasErrors()` after applying redactions; if true, skip `save()`
+      and investigate the logged messages.
+    question: How do I handle errors during the redaction process?
+  - answer: Absolutely. You can connect it to document management platforms, workflow
+      engines, or cloud storage services for end‑to‑end automation.
+    question: Is it possible to integrate GroupDocs Redaction with other systems?
+  type: FAQPage
+tags:
+- custom logger java
+- GroupDocs Redaction
+- Java logging
+- batch processing
+title: 'Custom logger java: pokročilé logování GroupDocs Redaction'
 type: docs
 url: /cs/java/advanced-redaction/advanced-logging-groupdocs-redaction-java/
 weight: 1
 ---
 
-# Custom Logger Java: Pokročilé logování v GroupDocs Redaction
+# Vlastní logger java: pokročilé logování GroupDocs Redaction
 
-Máte potíže sledovat změny a chyby při používání GroupDocs Redaction ve svých Java aplikacích? S možnostmi **custom logger java** můžete zjednodušit proces ladění, získat cenné poznatky o tom, jak jsou aplikovány redakce dokumentů, a dokonce podpořit hromadné zpracování dokumentů. V tomto průvodci si vysvětlíme, proč je vlastní logger důležitý, jak jej nastavit a jak efektivně monitorovat redakci.
+Pokud potřebujete **sledovat každý krok redakce, zachytávat chyby a udržovat auditní stopu** při používání GroupDocs Redaction v Java aplikaci, **custom logger java** je nejspolehlivější způsob, jak to provést. Tento tutoriál vysvětluje, proč je vlastní logger důležitý, provede vás přes přesné kroky nastavení a ukáže, jak můžete monitorovat redakci v reálném čase, i při zpracování tisíců souborů v dávce.
 
 ## Rychlé odpovědi
-- **Jaká je hlavní třída pro logování?** Implement `ILogger` and pass it to `RedactorSettings`.  
-- **Mohu zpracovávat více souborů najednou?** Yes—combine the logger with batch document processing loops.  
-- **Jak zjistím, zda redakce selhala?** Check `logger.hasErrors()` before saving.  
-- **Potřebuji samostatnou licenci pro logování?** No, the same GroupDocs Redaction license covers all features.  
+- **Jaká je hlavní třída pro logování?** Implement `ILogger` and pass it to `RedactorSettings`.
+- **Mohu zpracovávat více souborů najednou?** Ano—combine the logger with batch document processing loops.
+- **Jak zjistím, zda redakce selhala?** Check `logger.hasErrors()` before saving.
+- **Potřebuji samostatnou licenci pro logování?** Ne, the same GroupDocs Redaction license covers all features.
 - **Jaká verze Maven je vyžadována?** GroupDocs.Redaction 24.9 or later.
 
-## Co je Custom Logger Java?
-A **custom logger java** je uživatelem definovaná implementace rozhraní `ILogger`, která zachycuje logovací zprávy, chyby a diagnostické informace generované enginem GroupDocs Redaction. Úpravou loggeru rozhodujete, co se zaznamená, kde se uloží a jak se integruje s existujícími logovacími frameworky jako Log4j nebo SLF4J.
+## Co je custom logger java?
+A **custom logger java** je uživatelem definovaná implementace rozhraní `ILogger`, která zachycuje logovací zprávy, chyby a diagnostické informace generované enginem GroupDocs Redaction. `ILogger` přijímá každou zprávu z enginu, což vám umožňuje rozhodnout, co zaznamenat, kam to uložit a jak integrovat s logovacími frameworky jako Log4j nebo SLF4J.
 
-## Proč používat Custom Logger s GroupDocs Redaction?
-- **Fine‑grained monitoring** – Zobrazte přesně, které redakce byly úspěšné nebo selhaly.  
-- **Compliance & audit trails** – Uchovávejte podrobné záznamy pro regulatorní požadavky.  
-- **Performance insights** – Logujte časování a využití zdrojů, což je zvláště užitečné při hromadném zpracování dokumentů.  
-- **Seamless integration** – Napojte se na existující Java logovací ekosystém.
+## Proč používat vlastní logger s GroupDocs Redaction?
+Vlastní logger poskytuje podrobný pohled do redakčního pipeline tím, že zaznamenává výsledek každého pravidla, časově označuje operace a agreguje výkonnostní metriky. Tento detailní auditní záznam podporuje požadavky na shodu, pomáhá rychle diagnostikovat selhání a přidává minimální režii—obvykle méně než 2 ms na událost—při zachování plynulé integrace s existujícími Java logovacími frameworky.
 
 ## Běžné případy použití
-1. **Compliance Auditing** – Sledujte každý redakční událost, aby vyhověla právním a průmyslovým standardům.  
-2. **Automated Batch Redaction** – Zpracovávejte tisíce dokumentů ve smyčce při zachování auditního logu pro každý soubor.  
-3. **Error‑Driven Workflows** – Pozastavte nebo opakujte dávku, když `logger.hasErrors()` signalizuje problém.  
+1. **Auditování shody** – Retain a per‑file audit log that satisfies GDPR, HIPAA, or PCI‑DSS requirements.  
+2. **Automatizovaná dávková redakce** – Run a loop over thousands of PDFs while maintaining an individual log entry for each document.  
+3. **Pracovní postupy řízené chybami** – Pause or retry a batch when `logger.hasErrors()` signals a problem, preventing corrupted output.
 
-## Předpoklady
-- **Požadované knihovny**: GroupDocs.Redaction for Java version 24.9 or later.  
-- **Environment**: Java 8+ and Maven installed.  
-- **Knowledge**: Basic Java programming and familiarity with logging concepts.
+## Požadavky
+- **Požadované knihovny**: GroupDocs.Redaction for Java 24.9 or later (supports 50+ formats).  
+- **Prostředí**: Java 8+ and Maven installed.  
+- **Znalosti**: Basic Java programming and familiarity with logging concepts.
 
 ## Nastavení GroupDocs.Redaction pro Java
+`RedactorSettings` konfiguruje redakční engine, což vám umožňuje specifikovat možnosti jako vlastní logger, úložiště dokumentů a chování při zpracování.
 
 ### Použití Maven
-
-Přidejte následující konfiguraci do souboru `pom.xml`, aby se zahrnuly potřebné závislosti a repozitáře:
+Přidejte následující konfiguraci do souboru `pom.xml`, abyste zahrnuli potřebné závislosti a repozitáře:
 
 ```xml
 <repositories>
@@ -67,14 +127,14 @@ Přidejte následující konfiguraci do souboru `pom.xml`, aby se zahrnuly potř
 ```
 
 ### Přímé stažení
-
 Alternativně stáhněte nejnovější verzi z [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
-**License Acquisition**: Začněte s bezplatnou zkušební verzí, abyste prozkoumali možnosti GroupDocs Redaction. Pro produkční použití získáte dočasnou nebo plnou licenci.
+**Získání licence**: Start with a free trial to explore GroupDocs Redaction's capabilities. For production use, obtain a temporary or full license.
 
 ## Základní inicializace a nastavení
+`RedactorSettings` konfiguruje redakční engine, což vám umožňuje specifikovat možnosti jako vlastní logger, úložiště dokumentů a chování při zpracování.
 
-Inicializujte svůj projekt vytvořením instance `RedactorSettings` s vlastním loggerem:
+Vytvořte instanci `RedactorSettings` a injektujte svůj vlastní logger:
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -89,16 +149,13 @@ RedactorSettings settings = new RedactorSettings(logger);
 ## Průvodce implementací
 
 ### Pokročilé logování s vlastním loggerem
-
 #### Přehled
-
-Pokročilé logování zachycuje podrobné informace o operacích prováděných na dokumentech, což usnadňuje řešení problémů a optimalizaci. Použití **custom logger java** vám dává plnou kontrolu nad tím, co se zaznamená a jak jsou hlášeny chyby.
+Pokročilé logování zachycuje podrobné informace o operacích prováděných na dokumentech, což usnadňuje odstraňování problémů a optimalizaci. Použití **custom logger java** vám dává plnou kontrolu nad tím, co se zaznamenává a jak jsou chyby hlášeny.
 
 #### Implementace krok za krokem
 
-##### Krok 1: Vytvořte vlastní logger
-
-Začněte implementací třídy, která implementuje `ILogger`:
+##### Krok 1: vytvořit vlastní logger
+Implementujte třídu, která implementuje `ILogger`:
 
 ```java
 public class CustomLogger implements ILogger {
@@ -106,29 +163,26 @@ public class CustomLogger implements ILogger {
 }
 ```
 
-Tento vlastní logger zachycuje a zpracovává logovací zprávy během procesu redakce.
+Tento logger zachycuje a zpracovává každou zprávu generovanou redakčním enginem.
 
-##### Krok 2: Načtěte dokument s RedactorSettings
+##### Krok 2: načíst dokument s redactorsettings
+`Redactor` je hlavní třída, která načítá dokument a aplikuje redakční pravidla pomocí poskytnutých nastavení.
 
-Načtěte svůj dokument pomocí třídy `Redactor` a předáním vašeho vlastního loggeru:
+Načtěte svůj dokument pomocí třídy `Redactor`, předáním svého vlastního loggeru:
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX", 
     new LoadOptions(), new RedactorSettings(logger));
 ```
 
-Toto nastavení zajišťuje, že všechny operace jsou logovány pomocí vaší vlastní implementace.
-
-##### Krok 3: Aplikujte redakce
-
-Aplikujte požadovanou redakci na svůj dokument. Zde ukazujeme mazání anotací:
+##### Krok 3: aplikovat redakce
+Aplikujte požadovanou redakci na váš dokument. Zde ukazujeme mazání anotací:
 
 ```java
 redactor.apply(new com.groupdocs.redaction.redactions.DeleteAnnotationRedaction());
 ```
 
-##### Krok 4: Uložte změny podmíněně
-
+##### Krok 4: podmíněně uložit změny
 Uložte změny pouze pokud nebyly zaznamenány žádné chyby:
 
 ```java
@@ -137,11 +191,10 @@ if (!logger.hasErrors()) {
 }
 ```
 
-Tento přístup zajišťuje, že budete upozorněni na jakékoli problémy během zpracování.
+##### Krok 5: uvolnit prostředky
+`close()` uvolní všechny prostředky držené instancí `Redactor`, čímž zabrání únikům paměti.
 
-##### Krok 5: Uvolněte prostředky
-
-Vždy správně uvolněte prostředky uzavřením instance `Redactor` v bloku `finally`:
+Vždy správně uvolněte prostředky zavřením instance `Redactor` v bloku `finally`:
 
 ```java
 finally {
@@ -149,59 +202,64 @@ finally {
 }
 ```
 
-## Jak monitorovat redakci pomocí Custom Logger Java
-
-Kontrolou `logger.hasErrors()` a revizí zpráv zachycených vaší implementací `ILogger` můžete **jak monitorovat redakci** v reálném čase. Pro rozsáhlé projekty můžete zapisovat logy do databáze nebo centralizované logovací služby (např. ELK stack) pro analýzu trendů napříč mnoha dokumenty.
+## Jak monitorovat redakci pomocí custom logger java
+Můžete monitorovat redakci v reálném čase kontrolou `logger.hasErrors()` po každé operaci a přezkoumáním zpráv shromážděných vaší implementací `ILogger`. Pro rozsáhlé projekty zapisujte logovací záznamy do databáze nebo centralizované logovací služby (např. ELK stack) pro analýzu trendů napříč mnoha dokumenty.
 
 ## Úvahy o výkonu
+Aby vaše aplikace byla rychlá a responzivní, zejména při zpracování dávkových dokumentů, dodržujte tyto tipy:
 
-Aby vaše aplikace byla rychlá a responzivní, zejména při zpracování hromadných dokumentů, řiďte se těmito tipy:
-- **Resource Management** – Správně uzavírejte instance `Redactor`, aby nedocházelo k únikům paměti.  
-- **Logging Levels** – Používejte úrovně `info`, `debug` a `error` pro kontrolu výstupnosti a snížení zátěže.  
-- **Batch Processing** – Zpracovávejte dokumenty ve skupinách a opakovaně používejte jedinou instanci loggeru, aby se minimalizovalo vytváření objektů.  
+- **Správa zdrojů** – Properly close `Redactor` instances to prevent memory leaks.  
+- **Úrovně logování** – Use `info`, `debug`, and `error` levels to control verbosity and reduce overhead.  
+- **Dávkové zpracování** – Process documents in groups and reuse a single logger instance to minimise object creation.  
 
 ## Tipy a osvědčené postupy
-- **Pro tip:** Zabalte volání loggeru do bloků try‑catch, aby se předešlo neočekávaným výjimkám.  
-- **Avoid over‑logging** v produkci; přepněte na úroveň `info`, pokud neřešíte problémy.  
-- **Persist logs** do trvalého úložiště (soubor, DB nebo cloud), když potřebujete auditní stopu pro soulad.  
+- **Tip:** Wrap your logger calls in try‑catch blocks to avoid unexpected exceptions from bubbling up.  
+- **Vyhněte se nadměrnému logování** in production; switch to `info` level unless you’re troubleshooting.  
+- **Ukládejte logy** to a durable store (file, DB, or cloud) when you need an audit trail for compliance.  
 
 ## Běžné problémy a řešení
 
 | Problém | Řešení |
 |-------|----------|
 | Neobjevují se žádné logy | Ujistěte se, že váš `CustomLogger` implementuje všechny požadované metody `ILogger` a že instance loggeru je předána do `RedactorSettings`. |
-| Aplikace se zpomaluje během velkých dávek | Snižte podrobnost logů (např. přepněte z `debug` na `info`) nebo zapisujte logy asynchronně. |
-| Chyby jsou potlačeny | Ověřte, že `logger.hasErrors()` je zkontrolováno před voláním `save()`. |
+| Aplikace se zpomaluje během velkých dávek | Snižte podrobnost logování (např. přepněte z `debug` na `info`) nebo zapisujte logy asynchronně. |
+| Chyby jsou potlačeny | Ověřte, že `logger.hasErrors()` je kontrolováno před voláním `save()`. |
 
 ## Často kladené otázky
 
 **Q: Jak nastavit vlastní logger pro GroupDocs Redaction?**  
-A: Implementujte rozhraní `ILogger`, vytvořte instanci (např. `CustomLogger logger = new CustomLogger();`) a předávejte ji do `RedactorSettings`.
+A: Implement the `ILogger` interface, create an instance (e.g., `CustomLogger logger = new CustomLogger();`), and pass it to `RedactorSettings`.
 
 **Q: Mohu použít GroupDocs Redaction s jinými Java logovacími frameworky?**  
-A: Ano. Váš vlastní logger může delegovat na Log4j, SLF4J nebo `java.util.logging`, což umožňuje plynulou integraci.
+A: Yes. Your custom logger can delegate to Log4j, SLF4J, or `java.util.logging`, allowing seamless integration.
 
-**Q: Jaké typy redakcí podporuje GroupDocs Redaction?**  
-A: Podporované redakce zahrnují nahrazení textu, mazání anotací, odstraňování obrázků a další.
+**Q: Jaké typy redakcí GroupDocs Redaction podporuje?**  
+A: Supported redactions include text replacement, annotation deletion, image removal, and more.
 
-**Q: Jak zacházet s chybami během procesu redakce?**  
-A: Použijte `logger.hasErrors()` po aplikaci redakcí; pokud je true, přeskočte `save()` a prozkoumejte zaznamenané zprávy.
+**Q: Jak zacházet s chybami během redakčního procesu?**  
+A: Use `logger.hasErrors()` after applying redactions; if true, skip `save()` and investigate the logged messages.
 
 **Q: Je možné integrovat GroupDocs Redaction s jinými systémy?**  
-A: Rozhodně. Můžete jej propojit s platformami pro správu dokumentů, workflow enginy nebo cloudovými úložišti pro end‑to‑end automatizaci.
+A: Absolutely. You can connect it to document management platforms, workflow engines, or cloud storage services for end‑to‑end automation.
 
 ## Zdroje
-- **Documentation**: [GroupDocs Redaction Java Docs](https://docs.groupdocs.com/redaction/java/)
-- **API Reference**: [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)
-- **Download**: [Latest Releases](https://releases.groupdocs.com/redaction/java/)
-- **GitHub Repository**: [GroupDocs.Redaction for Java on GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
-- **Free Support Forum**: [GroupDocs Redaction Forum](https://forum.groupdocs.com/c/redaction/33)
-- **Temporary License**: [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/) 
+- **Dokumentace**: [GroupDocs Redaction Java Docs](https://docs.groupdocs.com/redaction/java/)
+- **Reference API**: [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)
+- **Stáhnout**: [Latest Releases](https://releases.groupdocs.com/redaction/java/)
+- **GitHub repozitář**: [GroupDocs.Redaction for Java on GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
+- **Bezplatné fórum podpory**: [GroupDocs Redaction Forum](https://forum.groupdocs.com/c/redaction/33)
+- **Dočasná licence**: [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
-Podle tohoto průvodce jste na dobré cestě k ovládnutí **custom logger java** s GroupDocs Redaction pro Java. Šťastné programování!
+Podle tohoto průvodce jste na dobré cestě k zvládnutí **custom logger java** s GroupDocs Redaction pro Java. Šťastné programování!
 
 ---
 
-**Last Updated:** 2026-03-14  
-**Tested With:** GroupDocs Redaction 24.9  
-**Author:** GroupDocs
+**Poslední aktualizace:** 2026-08-31  
+**Testováno s:** GroupDocs Redaction 24.9  
+**Autor:** GroupDocs
+
+## Související tutoriály
+
+- [Implementovat vlastní redakční handler v Javě pro GroupDocs.Redaction](/redaction/java/advanced-redaction/)
+- [Jak redigovat Java dokumenty pomocí GroupDocs.Redaction](/redaction/java/advanced-redaction/java-redaction-groupdocs-guide/)
+- [Vytvořit redakční politiku pro PDF s GroupDocs.Redaction Java](/redaction/java/advanced-redaction/master-redaction-groupdocs-java-guide/)
