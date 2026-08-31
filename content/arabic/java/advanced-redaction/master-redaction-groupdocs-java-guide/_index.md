@@ -1,61 +1,99 @@
 ---
-date: '2026-03-14'
-description: تعلم كيفية إنشاء سياسة التشويه وحذف المعلومات من مستندات PDF بلغة Java،
-  بما في ذلك إزالة التعليقات التوضيحية في Java ومسح بيانات التعريف في PDF. دليل كامل.
+date: '2026-08-31'
+description: تعلم كيفية إجراء Redact لملف PDF باستخدام GroupDocs.Redaction للغة Java،
+  وإنشاء سياسات Redact، وإزالة التعليقات التوضيحية، ومحو البيانات الوصفية بطريقة برمجية
+  ومتوافقة.
 keywords:
-- redact sensitive information
+- how to redact pdf
+- erase metadata pdf
+- remove annotations java
 - GroupDocs.Redaction Java
 - document redaction
-title: إنشاء سياسة إخفاء للملف PDF باستخدام GroupDocs.Redaction Java
+lastmod: '2026-08-31'
+og_description: كيفية إجراء Redact لملف PDF باستخدام GroupDocs.Redaction للغة Java.
+  إنشاء سياسات، وإزالة التعليقات التوضيحية، ومحو البيانات الوصفية بسرعة وأمان.
+og_image_alt: Guide showing how to redact PDF files with GroupDocs.Redaction in Java
+og_title: كيفية إجراء Redact لملف PDF باستخدام GroupDocs.Redaction للغة Java
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-31'
+  description: Learn how to redact PDF using GroupDocs.Redaction for Java, create
+    redaction policies, remove annotations, and erase metadata in a programmatic,
+    compliant way.
+  headline: How to redact PDF with GroupDocs.Redaction for Java
+  type: TechArticle
+- description: Learn how to redact PDF using GroupDocs.Redaction for Java, create
+    redaction policies, remove annotations, and erase metadata in a programmatic,
+    compliant way.
+  name: How to redact PDF with GroupDocs.Redaction for Java
+  steps:
+  - name: configure redactions
+    text: 'Configure the redactions using different classes provided by GroupDocs.Redaction:'
+  - name: save redaction policy
+    text: 'Save the configured policy as an XML file:'
+  - name: create exact phrase redaction
+    text: 'Implement an exact phrase redaction:'
+  - name: create regex redaction
+    text: 'Define a regex‑based redaction:'
+  type: HowTo
+- questions:
+  - answer: GroupDocs.Redaction is a Java library that programmatically removes or
+      replaces sensitive content in PDFs and other document formats.
+    question: What is GroupDocs.Redaction?
+  - answer: Add the Maven dependency, obtain a trial license, and follow the initialization
+      steps shown above.
+    question: How do I get started with GroupDocs.Redaction?
+  - answer: Yes—use exact‑phrase redactions, regular‑expression redactions, or the
+      built‑in metadata removal classes.
+    question: Can I customize redaction patterns in GroupDocs.Redaction?
+  - answer: Absolutely—save your `RedactionPolicy` as an XML file and load it later
+      for batch processing.
+    question: Is it possible to save and reuse redaction configurations?
+  - answer: Apply only required redactions, tune Java heap size, and craft efficient
+      regex patterns to minimise CPU usage.
+    question: What are the best practices for optimizing performance with GroupDocs.Redaction?
+  type: FAQPage
+tags:
+- redact PDF
+- GroupDocs.Redaction
+- Java document processing
+- erase metadata pdf
+- remove annotations java
+title: كيفية إجراء Redact لملف PDF باستخدام GroupDocs.Redaction للغة Java
 type: docs
 url: /ar/java/advanced-redaction/master-redaction-groupdocs-java-guide/
 weight: 1
 ---
 
-"
+# كيفية إخفاء محتوى PDF باستخدام GroupDocs.Redaction للغة Java
 
-"**Author:** GroupDocs" translate: "**المؤلف:** GroupDocs"
-
-Then final "---". Keep.
-
-Make sure to keep code block placeholders unchanged.
-
-Now produce final content.
-
-# إنشاء سياسة إخفاء للمستندات PDF باستخدام GroupDocs.Redaction للغة Java
-
-في المشهد الرقمي اليوم، إدارة المعلومات الحساسة أمر أساسي، و**إنشاء سياسة إخفاء** هو أسرع طريقة لضمان عدم تسرب البيانات السرية من ملفات PDF الخاصة بك. سواء كنت بحاجة إلى **إخفاء PDF Java** المستندات، **إزالة التعليقات التوضيحية java**، أو **مسح بيانات التعريف pdf**، فإن GroupDocs.Redaction للغة Java يوفّر لك نهجًا برمجيًا نظيفًا يعمل عبر جميع المنصات الرئيسية.
+في عالم اليوم القائم على البيانات، حماية المعلومات السرية داخل ملفات PDF هي متطلب لا يمكن التفاوض عليه. يوضح هذا الدليل **كيفية إخفاء محتوى PDF** برمجياً باستخدام GroupDocs.Redaction للغة Java، ويغطي إنشاء السياسة، إزالة التعليقات التوضيحية، ومحو البيانات الوصفية. ستحصل على سياسة إخفاء XML قابلة لإعادة الاستخدام يمكن تطبيقها على أي عدد من ملفات PDF، مما يبقيك متوافقاً مع GDPR وHIPAA وغيرها من اللوائح.
 
 ## إجابات سريعة
-- **ما هو الهدف الأساسي من GroupDocs.Redaction؟** لإخفاء المحتوى الحساس برمجيًا من ملفات PDF وغيرها من صيغ المستندات.  
+- **ما هو الغرض الأساسي من GroupDocs.Redaction؟** لإخفاء المحتوى الحساس من ملفات PDF وغيرها من تنسيقات المستندات برمجياً.  
 - **هل يمكنني إزالة التعليقات التوضيحية باستخدام Java؟** نعم—استخدم الفئة `DeleteAnnotationRedaction` (remove annotations java).  
 - **هل أحتاج إلى ترخيص للتطوير؟** إصدار تجريبي مجاني أو ترخيص مؤقت يكفي للاختبار؛ الترخيص الكامل مطلوب للإنتاج.  
 - **ما نسخة Java المدعومة؟** JDK 8 أو أحدث.  
-- **أين يمكنني العثور على ملف سياسة XML؟** تحدد مسار الإخراج في الكود وتستدعي `policy.save(...)`.
+- **أين يمكنني العثور على ملف سياسة XML؟** تحدد مسار الإخراج في الكود الخاص بك وتستدعي `policy.save(...)`.
 
-## ما هي سياسة الإخفاء وكيفية **إنشاء سياسة إخفاء**؟
-سياسة الإخفاء هي مجموعة قابلة لإعادة الاستخدام من القواعد التي تخبر GroupDocs.Redaction بما يجب إخفاؤه أو حذفه أو استبداله داخل المستند. من خلال تعريف السياسة مرة واحدة وحفظها كملف XML، يمكنك تطبيق نفس **إخفاء المعلومات الحساسة** على عدة ملفات PDF دون الحاجة إلى إعادة كتابة الكود.
+الفئة `DeleteAnnotationRedaction` تزيل كائنات التعليقات التوضيحية مثل التعليقات، التظليل، أو الطوابع من ملف PDF.  
+الفئة `RedactionPolicy` تمثل مجموعة من قواعد الإخفاء التي يمكن حفظها أو تحميلها من ملف XML.
+
+## ما هي سياسة الإخفاء وكيفية إنشاء سياسة الإخفاء؟
+سياسة الإخفاء هي مجموعة من القواعد المستندة إلى XML تخبر GroupDocs.Redaction بالضبط أي نص، أنماط، تعليقات توضيحية، أو بيانات وصفية يجب إخفاؤها أو حذفها أو استبدالها في ملف PDF. من خلال تعريف السياسة مرة واحدة وحفظها كملف XML، يمكنك تطبيق **إخفاء المعلومات الحساسة** على عدة ملفات PDF دون الحاجة لإعادة كتابة الكود.
 
 ## لماذا تستخدم GroupDocs.Redaction للغة Java؟
-- **جاهز للامتثال** – يلتزم بـ GDPR، HIPAA، وغيرها من اللوائح.  
-- **تحكم دقيق** – اختر من العبارة الدقيقة، regex، إزالة التعليقات التوضيحية، و**مسح بيانات التعريف pdf**.  
-- **سياسات قابلة لإعادة الاستخدام** – احفظ الإعدادات كملف XML وأعد استخدامها عبر المشاريع.  
-- **محسّن للأداء** – يتعامل مع ملفات PDF الكبيرة بكفاءة مع استهلاك ذاكرة منخفض.
+يقوم GroupDocs.Redaction بمعالجة ملفات PDF باستخدام **محرك فعال في استهلاك الذاكرة** يمكنه التعامل مع ملفات تتجاوز 500 صفحة مع استخدام أقل من 150 ميغابايت من الذاكرة. يدعم **أكثر من 30 صيغة إدخال وإخراج**، بما في ذلك DOCX وXLSX وPPTX وHTML وأنواع الصور الشائعة، ويقدم ميزات امتثال مدمجة لـ GDPR وHIPAA. كما توفر المكتبة تحكمًا دقيقًا في الإخفاءات بناءً على العبارة الدقيقة، regex، التعليقات التوضيحية، والبيانات الوصفية، مما يجعلها الحل الأكثر تنوعًا لمطوري Java.
 
 ## المتطلبات المسبقة
-
-لبدء العمل مع GroupDocs.Redaction للغة Java، تأكد من وجود ما يلي:
-
-- **المكتبات والاعتمادات**: أدرج GroupDocs.Redaction في مشروعك عبر Maven أو التحميل المباشر.  
-- **إعداد البيئة**: تأكد من جاهزية بيئة تطوير Java مع JDK 8 أو أحدث.  
-- **المعرفة المسبقة**: الإلمام الأساسي بمفاهيم برمجة Java والتعبيرات النمطية (regex) مفيد.
+- **المكتبات والاعتمادات** – أضف GroupDocs.Redaction إلى مشروعك عبر Maven أو قم بتحميل ملف JAR مباشرة.  
+- **بيئة Java** – JDK 8 أو أحدث مثبت ومُعد.  
+- **معرفة أساسية** – الإلمام بصياغة Java والتعبيرات النمطية سيسرع من إنشاء السياسة.
 
 ## إعداد GroupDocs.Redaction للغة Java
 
 ### معلومات التثبيت
-
-**Maven:**
-
+**Maven:**  
 لدمج GroupDocs.Redaction باستخدام Maven، أضف ما يلي إلى ملف `pom.xml` الخاص بك:
 
 ```xml
@@ -76,16 +114,13 @@ Now produce final content.
 </dependencies>
 ```
 
-**Direct Download:**
-
-بدلاً من ذلك، قم بتحميل أحدث نسخة من [إصدارات GroupDocs.Redaction للغة Java](https://releases.groupdocs.com/redaction/java/).
+**تحميل مباشر:**  
+بدلاً من ذلك، قم بتحميل أحدث نسخة من [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
 ### الحصول على الترخيص
+ابدأ بإصدار تجريبي مجاني أو احصل على ترخيص مؤقت لاستكشاف جميع الميزات. للاستخدام طويل الأمد، اشترِ ترخيصًا كاملاً.
 
-ابدأ بإصدار تجريبي مجاني أو احصل على ترخيص مؤقت لاستكشاف جميع الميزات. للاستخدام طويل الأمد، فكر في شراء ترخيص كامل.
-
-**التهيئة الأساسية:**
-
+**التهيئة الأساسية:**  
 لتهيئة GroupDocs.Redaction في مشروعك:
 
 ```java
@@ -103,16 +138,13 @@ public class RedactionSetup {
 
 ## دليل التنفيذ
 
-دعونا نقسم التنفيذ إلى ميزات محددة.
-
-### كيفية **إنشاء سياسة إخفاء**: إنشاء وحفظ سياسة الإخفاء
+### كيفية إنشاء سياسة إخفاء: إنشاء وحفظ سياسة الإخفاء
+حمّل تكوين الإخفاء الخاص بك، أضف كائنات الإخفاء المطلوبة، واحفظ السياسة كملف XML. تسمح لك هذه العملية ذات الخطوتين بإعادة استخدام نفس القواعد عبر العديد من ملفات PDF دون الحاجة لإعادة بناء السياسة في كل مرة.
 
 #### نظرة عامة
-
-تتيح لك هذه الميزة تكوين أنواع متعددة من الإخفاءات، مثل العبارة الدقيقة، regex، ومسح بيانات التعريف. يمكنك بعد ذلك حفظ هذه الإعدادات كملف XML للاستخدام المستقبلي.
+تتيح لك هذه الميزة تكوين أنواع متعددة من الإخفاءات، مثل العبارة الدقيقة، regex، ومحو البيانات الوصفية. يمكنك بعد ذلك حفظ هذه التكوينات كملف XML للاستخدام المستقبلي.
 
 ##### الخطوة 1: تكوين الإخفاءات
-
 قم بتكوين الإخفاءات باستخدام الفئات المختلفة التي توفرها GroupDocs.Redaction:
 
 ```java
@@ -141,7 +173,6 @@ RedactionPolicy policy = new RedactionPolicy(new Redaction[] {
 ```
 
 ##### الخطوة 2: حفظ سياسة الإخفاء
-
 احفظ السياسة المكوّنة كملف XML:
 
 ```java
@@ -150,14 +181,13 @@ String outputPath = YOUR_DOCUMENT_DIRECTORY + "YOUR_OUTPUT_DIRECTORY/POLICY_SAVE
 policy.save(outputPath);
 ```
 
-### كيفية **إزالة التعليقات التوضيحية java**: تكوين إخفاء العبارة الدقيقة
+### كيفية إزالة التعليقات التوضيحية java: تكوين إخفاء العبارة الدقيقة
+حمّل ملف PDF، حدد العبارة الدقيقة التي تريد إخفاءها، وأرفق الإخفاء بالسياسة. سيتم استبدال العبارة بصندوق أسود أو نص مخصص.
 
 #### نظرة عامة
-
 تستهدف هذه الميزة عبارات محددة للإخفاء، وتستبدلها بنص محدد مسبقًا.
 
 ##### الخطوة 1: إنشاء إخفاء العبارة الدقيقة
-
 نفّذ إخفاء العبارة الدقيقة:
 
 ```java
@@ -172,15 +202,14 @@ Redaction exactPhraseRedaction = new ExactPhraseRedaction(
 );
 ```
 
-### كيفية **إزالة التعليقات التوضيحية java**: تكوين إخفاء Regex
+### كيفية إزالة التعليقات التوضيحية java: تكوين إخفاء regex
+استخدم التعبيرات النمطية لتحديد الأنماط مثل أرقام الضمان الاجتماعي أو صيغ بطاقات الائتمان، ثم استبدلها أو احذفها تلقائيًا.
 
 #### نظرة عامة
-
 استخدم التعبيرات النمطية لتحديد الأنماط واستبدالها في مستنداتك.
 
-##### الخطوة 1: إنشاء إخفاء Regex
-
-عرّف إخفاءً يعتمد على regex:
+##### الخطوة 1: إنشاء إخفاء regex
+عرّف إخفاءً قائمًا على regex:
 
 ```java
 import com.groupdocs.redaction.Redaction;
@@ -195,45 +224,42 @@ Redaction regexRedaction = new RegexRedaction(
 );
 ```
 
-## التطبيقات العملية
-
-1. **إدارة المستندات السرية**: إخفاء **المعلومات الحساسة** تلقائيًا مثل الأسماء، أرقام الضمان الاجتماعي، أو البيانات المالية في المستندات القانونية وإدارة الموارد البشرية.  
-2. **أتمتة الامتثال**: ضمان الالتزام بـ GDPR، HIPAA، وغيرها من اللوائح التنظيمية من خلال إخفاء المعرفات الشخصية في اتصالات العملاء.  
-3. **إخفاء البيانات للاختبار**: استخدم إخفاءات تعتمد على regex لتجريد مجموعات البيانات الاختبارية مع الحفاظ على بنية البيانات.
+## تطبيقات عملية
+1. **إدارة المستندات السرية** – إخفاء **المعلومات الحساسة** تلقائيًا مثل الأسماء، أرقام الضمان الاجتماعي، أو البيانات المالية في المستندات القانونية وإدارة الموارد البشرية.  
+2. **أتمتة الامتثال** – الالتزام بـ GDPR وHIPAA وغيرها من المتطلبات التنظيمية عن طريق إزالة المعرفات الشخصية من اتصالات العملاء.  
+3. **إخفاء البيانات للاختبار** – تطبيق إخفاءات قائمة على regex لتجريد مجموعات البيانات الاختبارية مع الحفاظ على بنية المستند.
 
 ## اعتبارات الأداء
-
-- **تحسين الإخفاء**: طبق الإخفاءات الضرورية فقط لتحسين سرعة المعالجة.  
-- **إدارة الذاكرة**: راقب استهلاك الموارد وأدر ذاكرة Java بفعالية، خاصة مع المستندات الكبيرة.  
-- **أنماط Regex فعّالة**: تأكد من تحسين أنماط regex للأداء لتقليل زمن الحساب.
+- **تحسين الإخفاء** – طبق فقط الإخفاءات المطلوبة للحفاظ على زمن المعالجة منخفضًا.  
+- **إدارة الذاكرة** – راقب استهلاك الـ Java heap؛ يقوم GroupDocs.Redaction ببث الصفحات بدلاً من تحميل الملف بالكامل في الذاكرة.  
+- **أنماط regex فعّالة** – اكتب تعبيرات نمطية مختصرة لتجنب التراجع المفرط وحمل المعالج.
 
 ## المشكلات الشائعة والحلول
 
 | المشكلة | السبب | الحل |
 |-------|-------|-----|
-| لم يتم تطبيق الإخفاء | عبارة خاطئة/حساسية لحالة الأحرف | استخدم خيارات غير حساسة لحالة الأحرف أو تحقق من النص الدقيق |
-| التعليقات التوضيحية لا تزال موجودة | `DeleteAnnotationRedaction` غير مضاف إلى السياسة | أضف `new DeleteAnnotationRedaction()` إلى مصفوفة السياسة |
-| معالجة بطيئة على ملفات PDF الكبيرة | مسح regex غير ضروري | قصر نطاق regex أو تصفية الصفحات مسبقًا |
+| لم يتم تطبيق الإخفاء | عبارة خاطئة أو حساسية لحالة الأحرف | استخدم خيارات عدم حساسية الحالة أو تحقق من النص الدقيق |
+| التعليقات التوضيحية لا تزال موجودة | `DeleteAnnotationRedaction` لم تُضاف إلى السياسة | أضف `new DeleteAnnotationRedaction()` إلى مصفوفة السياسة |
+| معالجة بطيئة على ملفات PDF الكبيرة | مسح regex غير ضروري | قصر نطاق regex أو تصفية الصفحات مسبقًا قبل تطبيق النمط |
 
 ## الأسئلة المتكررة
 
 **س: ما هو GroupDocs.Redaction؟**  
-ج: مكتبة قوية لإخفاء المعلومات الحساسة من صيغ المستندات المختلفة باستخدام Java.
+ج: GroupDocs.Redaction هي مكتبة Java تقوم بإزالة أو استبدال المحتوى الحساس في ملفات PDF وغيرها من تنسيقات المستندات برمجياً.
 
 **س: كيف أبدأ باستخدام GroupDocs.Redaction؟**  
-ج: قم بإعداد بيئتك، أدرج اعتماد Maven، واتبع دليل التهيئة أعلاه.
+ج: أضف الاعتماد Maven، احصل على ترخيص تجريبي، واتبع خطوات التهيئة الموضحة أعلاه.
 
 **س: هل يمكنني تخصيص أنماط الإخفاء في GroupDocs.Redaction؟**  
-ج: نعم—استخدم العبارات الدقيقة، التعبيرات النمطية، أو الفئات المدمجة لإزالة بيانات التعريف.
+ج: نعم—استخدم إخفاءات العبارة الدقيقة، إخفاءات التعبير النمطي، أو الفئات المدمجة لإزالة البيانات الوصفية.
 
-**س: هل يمكن حفظ وإعادة استخدام إعدادات الإخفاء؟**  
-ج: بالتأكيد—احفظ `RedactionPolicy` كملف XML وحمّله لاحقًا.
+**س: هل يمكن حفظ وإعادة استخدام تكوينات الإخفاء؟**  
+ج: بالتأكيد—احفظ `RedactionPolicy` كملف XML وحمّله لاحقًا للمعالجة الدفعية.
 
 **س: ما هي أفضل الممارسات لتحسين الأداء مع GroupDocs.Redaction؟**  
-ج: طبق الإخفاءات الضرورية فقط، أدِر حجم heap في Java، واكتب أنماط regex فعّالة.
+ج: طبق فقط الإخفاءات المطلوبة، اضبط حجم Java heap، وصمم أنماط regex فعّالة لتقليل استهلاك المعالج.
 
 ## الموارد
-
 - [التوثيق](https://docs.groupdocs.com/redaction/java/)
 - [مرجع API](https://reference.groupdocs.com/redaction/java)
 - [تحميل](https://releases.groupdocs.com/redaction/java/)
@@ -241,10 +267,12 @@ Redaction regexRedaction = new RegexRedaction(
 - [منتدى الدعم المجاني](https://forum.groupdocs.com/c/redaction/33)
 - [ترخيص مؤقت](https://purchase.groupdocs.com/temporary-license/)
 
----
-
-**آخر تحديث:** 2026-03-14  
+**آخر تحديث:** 2026-08-31  
 **تم الاختبار مع:** GroupDocs.Redaction 24.9 للغة Java  
-**المؤلف:** GroupDocs  
+**المؤلف:** GroupDocs
 
----
+## دروس ذات صلة
+
+- [كيفية إزالة التعليقات التوضيحية باستخدام GroupDocs.Redaction Java](/redaction/java/annotation-redaction/)
+- [كيفية إخفاء البيانات الوصفية Java باستخدام GroupDocs.Redaction](/redaction/java/metadata-redaction/)
+- [كيفية إخفاء PDF Java – دروس إخفاء PDF مخصصة لـ GroupDocs.Redaction](/redaction/java/pdf-specific-redaction/)

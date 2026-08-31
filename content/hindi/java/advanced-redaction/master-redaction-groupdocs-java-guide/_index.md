@@ -1,52 +1,100 @@
 ---
-date: '2026-03-14'
-description: रेडैक्शन नीति कैसे बनाएं और PDF जावा दस्तावेज़ों को रेडैक्ट करें, जिसमें
-  जावा में एनोटेशन हटाना और PDF में मेटाडेटा मिटाना शामिल है। एक पूर्ण मार्गदर्शिका।
+date: '2026-08-31'
+description: GroupDocs.Redaction for Java का उपयोग करके PDF को रीडैक्ट करना सीखें,
+  रेडैक्शन पॉलिसी बनाएं, एनोटेशन हटाएं, और प्रोग्रामेटिक, अनुपालन योग्य तरीके से मेटाडेटा
+  मिटाएँ।
 keywords:
-- redact sensitive information
+- how to redact pdf
+- erase metadata pdf
+- remove annotations java
 - GroupDocs.Redaction Java
 - document redaction
-title: GroupDocs.Redaction Java के साथ PDF के लिए रिडैक्शन नीति बनाएं
+lastmod: '2026-08-31'
+og_description: GroupDocs.Redaction for Java का उपयोग करके PDF को रीडैक्ट करें। पॉलिसी
+  बनाएं, एनोटेशन हटाएं, और मेटाडेटा को तेज़ और सुरक्षित तरीके से मिटाएँ।
+og_image_alt: Guide showing how to redact PDF files with GroupDocs.Redaction in Java
+og_title: GroupDocs.Redaction for Java के साथ PDF को रीडैक्ट कैसे करें
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-31'
+  description: Learn how to redact PDF using GroupDocs.Redaction for Java, create
+    redaction policies, remove annotations, and erase metadata in a programmatic,
+    compliant way.
+  headline: How to redact PDF with GroupDocs.Redaction for Java
+  type: TechArticle
+- description: Learn how to redact PDF using GroupDocs.Redaction for Java, create
+    redaction policies, remove annotations, and erase metadata in a programmatic,
+    compliant way.
+  name: How to redact PDF with GroupDocs.Redaction for Java
+  steps:
+  - name: configure redactions
+    text: 'Configure the redactions using different classes provided by GroupDocs.Redaction:'
+  - name: save redaction policy
+    text: 'Save the configured policy as an XML file:'
+  - name: create exact phrase redaction
+    text: 'Implement an exact phrase redaction:'
+  - name: create regex redaction
+    text: 'Define a regex‑based redaction:'
+  type: HowTo
+- questions:
+  - answer: GroupDocs.Redaction is a Java library that programmatically removes or
+      replaces sensitive content in PDFs and other document formats.
+    question: What is GroupDocs.Redaction?
+  - answer: Add the Maven dependency, obtain a trial license, and follow the initialization
+      steps shown above.
+    question: How do I get started with GroupDocs.Redaction?
+  - answer: Yes—use exact‑phrase redactions, regular‑expression redactions, or the
+      built‑in metadata removal classes.
+    question: Can I customize redaction patterns in GroupDocs.Redaction?
+  - answer: Absolutely—save your `RedactionPolicy` as an XML file and load it later
+      for batch processing.
+    question: Is it possible to save and reuse redaction configurations?
+  - answer: Apply only required redactions, tune Java heap size, and craft efficient
+      regex patterns to minimise CPU usage.
+    question: What are the best practices for optimizing performance with GroupDocs.Redaction?
+  type: FAQPage
+tags:
+- redact PDF
+- GroupDocs.Redaction
+- Java document processing
+- erase metadata pdf
+- remove annotations java
+title: GroupDocs.Redaction for Java के साथ PDF को रीडैक्ट कैसे करें
 type: docs
 url: /hi/java/advanced-redaction/master-redaction-groupdocs-java-guide/
 weight: 1
 ---
 
-# PDF के लिए Redaction Policy बनाएं GroupDocs.Redaction for Java
+# GroupDocs.Redaction for Java के साथ PDF को कैसे रेडैक्ट करें
 
-आज के डिजिटल परिदृश्य में, संवेदनशील जानकारी का प्रबंधन आवश्यक है, और **creating a redaction policy** सबसे तेज़ तरीका है यह सुनिश्चित करने का कि गोपनीय डेटा आपके PDF फ़ाइलों से कभी लीक न हो। चाहे आपको **redact PDF Java** दस्तावेज़ों को, **remove annotations java**, या **erase metadata pdf** को हटाने की आवश्यकता हो, GroupDocs.Redaction for Java आपको एक साफ़, प्रोग्रामेटिक दृष्टिकोण देता है जो सभी प्रमुख प्लेटफ़ॉर्म पर काम करता है।
+आज के डेटा‑ड्रिवन विश्व में, PDF फ़ाइलों के भीतर गोपनीय जानकारी की सुरक्षा एक अनिवार्य आवश्यकता है। यह ट्यूटोरियल **PDF को प्रोग्रामेटिक रूप से कैसे रेडैक्ट करें** दिखाता है, जिसमें नीति निर्माण, एनोटेशन हटाना, और मेटाडेटा मिटाना शामिल है। आप एक पुन: उपयोग योग्य XML रेडैक्शन नीति प्राप्त करेंगे जिसे किसी भी संख्या में PDFs पर लागू किया जा सकता है, जिससे आप GDPR, HIPAA और अन्य नियमों के अनुरूप रहेंगे।
 
 ## त्वरित उत्तर
-- **What is the primary purpose of GroupDocs.Redaction?** PDFs और अन्य दस्तावेज़ फ़ॉर्मैट्स से संवेदनशील सामग्री को प्रोग्रामेटिक रूप से रेडैक्ट करने के लिए।  
-- **Can I remove annotations with Java?** हाँ—`DeleteAnnotationRedaction` क्लास का उपयोग करें (remove annotations java).  
-- **Do I need a license for development?** टेस्टिंग के लिए एक फ्री ट्रायल या टेम्पररी लाइसेंस काम करता है; प्रोडक्शन के लिए पूर्ण लाइसेंस आवश्यक है।  
-- **Which Java version is supported?** JDK 8 या उसके बाद का संस्करण।  
-- **Where can I find the XML policy file?** आप अपने कोड में आउटपुट पाथ निर्धारित करते हैं और `policy.save(...)` को कॉल करते हैं।
+- **GroupDocs.Redaction का मुख्य उद्देश्य क्या है?** PDFs और अन्य दस्तावेज़ फ़ॉर्मैट्स से संवेदनशील सामग्री को प्रोग्रामेटिक रूप से रेडैक्ट करना।  
+- **क्या मैं Java के साथ एनोटेशन हटा सकता हूँ?** हाँ—`DeleteAnnotationRedaction` क्लास का उपयोग करें (remove annotations java)।  
+- **क्या विकास के लिए लाइसेंस चाहिए?** परीक्षण के लिए फ्री ट्रायल या टेम्पररी लाइसेंस काम करता है; प्रोडक्शन के लिए पूर्ण लाइसेंस आवश्यक है।  
+- **कौन सा Java संस्करण समर्थित है?** JDK 8 या उसके बाद का।  
+- **XML नीति फ़ाइल कहाँ मिल सकती है?** आप अपने कोड में आउटपुट पाथ निर्धारित करते हैं और `policy.save(...)` कॉल करते हैं।
 
-## रेडैक्शन पॉलिसी क्या है और कैसे **create redaction policy** बनाएं?
-रेडैक्शन पॉलिसी नियमों का पुन: उपयोग योग्य सेट है जो GroupDocs.Redaction को बताता है कि दस्तावेज़ के अंदर क्या छिपाना, हटाना या बदलना है। पॉलिसी को एक बार परिभाषित करके और उसे XML फ़ाइल के रूप में सहेजकर, आप कई PDFs पर वही **redact sensitive info** लागू कर सकते हैं बिना कोड को फिर से लिखे।
+`DeleteAnnotationRedaction` क्लास PDF से टिप्पणी, हाइलाइट या स्टैम्प जैसे एनोटेशन ऑब्जेक्ट्स को हटाता है।  
+`RedactionPolicy` क्लास रेडैक्शन नियमों का संग्रह दर्शाता है जिसे XML फ़ाइल में सहेजा या लोड किया जा सकता है।
+
+## रेडैक्शन नीति क्या है और रेडैक्शन नीति कैसे बनाएं?
+रेडैक्शन नीति एक XML‑आधारित नियमों का सेट है जो GroupDocs.Redaction को बताता है कि PDF में कौन सा टेक्स्ट, पैटर्न, एनोटेशन या मेटाडेटा छुपाना, हटाना या बदलना है। नीति को एक बार परिभाषित करके और उसे XML फ़ाइल के रूप में सहेजकर, आप कई PDFs में एक ही **संवेदनशील जानकारी को रेडैक्ट** कर सकते हैं बिना कोड को फिर से लिखे।
 
 ## GroupDocs.Redaction for Java का उपयोग क्यों करें?
-- **Compliance‑ready** – GDPR, HIPAA और अन्य नियमों को पूरा करता है।  
-- **Fine‑grained control** – एक्सैक्ट फ्रेज़, रेगेक्स, एनोटेशन रिमूवल, और **erase metadata pdf** में से चुनें।  
-- **Reusable policies** – कॉन्फ़िगरेशन को XML के रूप में सहेजें और प्रोजेक्ट्स में पुन: उपयोग करें।  
-- **Performance‑optimized** – बड़े PDFs को न्यूनतम मेमोरी फ़ुटप्रिंट के साथ कुशलता से संभालता है।
+GroupDocs.Redaction PDFs को **मेमोरी‑कुशल इंजन** के साथ प्रोसेस करता है जो 500 पृष्ठों से अधिक फ़ाइलों को 150 MB से कम RAM में संभाल सकता है। यह **30+ इनपुट और आउटपुट फ़ॉर्मैट्स** का समर्थन करता है, जिसमें DOCX, XLSX, PPTX, HTML, और सामान्य इमेज प्रकार शामिल हैं, और GDPR तथा HIPAA के लिए बिल्ट‑इन अनुपालन सुविधाएँ प्रदान करता है। लाइब्रेरी सटीक वाक्यांश, regex, एनोटेशन, और मेटाडेटा रेडैक्शन पर सूक्ष्म नियंत्रण भी देती है, जिससे यह Java डेवलपर्स के लिए सबसे बहुमुखी समाधान बनता है।
 
 ## पूर्वापेक्षाएँ
-
-GroupDocs.Redaction for Java के साथ शुरू करने के लिए, सुनिश्चित करें कि आपके पास निम्नलिखित हैं:
-
-- **Libraries and Dependencies**: Maven या डायरेक्ट डाउनलोड के माध्यम से अपने प्रोजेक्ट में GroupDocs.Redaction को शामिल करें।  
-- **Environment Setup**: सुनिश्चित करें कि JDK 8 या उसके बाद का संस्करण वाला Java विकास सेटअप तैयार है।  
-- **Knowledge Prerequisites**: Java प्रोग्रामिंग अवधारणाओं और रेगेक्स की बुनियादी जानकारी उपयोगी है।
+- **लाइब्रेरीज़ और निर्भरताएँ** – Maven के माध्यम से अपने प्रोजेक्ट में GroupDocs.Redaction जोड़ें या JAR सीधे डाउनलोड करें।  
+- **Java पर्यावरण** – JDK 8 या नया स्थापित और कॉन्फ़िगर किया हुआ।  
+- **बुनियादी ज्ञान** – Java सिंटैक्स और रेगुलर एक्सप्रेशन की परिचितता नीति निर्माण को तेज़ करेगी।
 
 ## GroupDocs.Redaction for Java सेटअप करना
 
 ### इंस्टॉलेशन जानकारी
-
-**Maven:**
-
-GroupDocs.Redaction को Maven के माध्यम से इंटीग्रेट करने के लिए, अपने `pom.xml` में निम्नलिखित जोड़ें:
+**Maven:**  
+Maven का उपयोग करके GroupDocs.Redaction को इंटीग्रेट करने के लिए, अपने `pom.xml` में निम्नलिखित जोड़ें:
 
 ```xml
 <repositories>
@@ -66,16 +114,13 @@ GroupDocs.Redaction को Maven के माध्यम से इंटी�
 </dependencies>
 ```
 
-**Direct Download:**
-
-वैकल्पिक रूप से, नवीनतम संस्करण यहाँ से डाउनलोड करें: [दस्तावेज़ीकरण](https://releases.groupdocs.com/redaction/java/)।
+**Direct download:**  
+वैकल्पिक रूप से, नवीनतम संस्करण को [GroupDocs.Redaction for Java रिलीज़](https://releases.groupdocs.com/redaction/java/) से डाउनलोड करें।
 
 ### लाइसेंस प्राप्ति
+सभी सुविधाओं को आज़माने के लिए फ्री ट्रायल से शुरू करें या टेम्पररी लाइसेंस प्राप्त करें। दीर्घकालिक उपयोग के लिए, पूर्ण लाइसेंस खरीदें।
 
-सभी फीचर्स को एक्सप्लोर करने के लिए फ्री ट्रायल से शुरू करें या टेम्पररी लाइसेंस प्राप्त करें। दीर्घकालिक उपयोग के लिए, पूर्ण लाइसेंस खरीदने पर विचार करें।
-
-**Basic Initialization:**
-
+**Basic initialization:**  
 अपने प्रोजेक्ट में GroupDocs.Redaction को इनिशियलाइज़ करने के लिए:
 
 ```java
@@ -93,17 +138,14 @@ public class RedactionSetup {
 
 ## इम्प्लीमेंटेशन गाइड
 
-आइए इम्प्लीमेंटेशन को विशिष्ट फीचर्स में विभाजित करें।
+### रेडैक्शन नीति कैसे बनाएं: नीति बनाएं और सहेजें
+अपनी रेडैक्शन कॉन्फ़िगरेशन लोड करें, इच्छित रेडैक्शन ऑब्जेक्ट्स जोड़ें, और नीति को XML फ़ाइल के रूप में सहेजें। यह दो‑स्टेप प्रक्रिया आपको कई PDFs में वही नियम दोबारा बनाने की आवश्यकता के बिना पुन: उपयोग करने देती है।
 
-### How to **create redaction policy**: रेडैक्शन पॉलिसी बनाएं और सहेजें
+#### सारांश
+यह फीचर आपको कई प्रकार के रेडैक्शन कॉन्फ़िगर करने देता है, जैसे सटीक वाक्यांश, regex, और मेटाडेटा हटाना। आप इन कॉन्फ़िगरेशन को भविष्य में उपयोग के लिए XML फ़ाइल के रूप में सहेज सकते हैं।
 
-#### Overview
-
-यह फीचर आपको कई प्रकार की रेडैक्शन कॉन्फ़िगर करने की अनुमति देता है, जैसे एक्सैक्ट फ्रेज़, रेगेक्स, और मेटाडाटा इरेज़। आप इन कॉन्फ़िगरेशन को भविष्य में उपयोग के लिए XML फ़ाइल के रूप में सहेज सकते हैं।
-
-##### Step 1: Configure Redactions
-
-GroupDocs.Redaction द्वारा प्रदान किए गए विभिन्न क्लासेज़ का उपयोग करके रेडैक्शन कॉन्फ़िगर करें:
+##### चरण 1: रेडैक्शन कॉन्फ़िगर करें
+GroupDocs.Redaction द्वारा प्रदान की गई विभिन्न क्लासेज़ का उपयोग करके रेडैक्शन कॉन्फ़िगर करें:
 
 ```java
 import com.groupdocs.redaction.RedactionPolicy;
@@ -130,9 +172,8 @@ RedactionPolicy policy = new RedactionPolicy(new Redaction[] {
 });
 ```
 
-##### Step 2: Save Redaction Policy
-
-कॉन्फ़िगर की गई पॉलिसी को XML फ़ाइल के रूप में सहेजें:
+##### चरण 2: रेडैक्शन नीति सहेजें
+कॉन्फ़िगर की गई नीति को XML फ़ाइल के रूप में सहेजें:
 
 ```java
 // Define your output directory path
@@ -140,15 +181,14 @@ String outputPath = YOUR_DOCUMENT_DIRECTORY + "YOUR_OUTPUT_DIRECTORY/POLICY_SAVE
 policy.save(outputPath);
 ```
 
-### How to **remove annotations java**: एक्सैक्ट फ्रेज़ रेडैक्शन कॉन्फ़िगर करें
+### एनोटेशन हटाना java: सटीक वाक्यांश रेडैक्शन कॉन्फ़िगर करें
+PDF लोड करें, वह सटीक वाक्यांश परिभाषित करें जिसे आप छुपाना चाहते हैं, और रेडैक्शन को नीति से जोड़ें। वाक्यांश को काली बॉक्स या कस्टम टेक्स्ट से बदल दिया जाएगा।
 
-#### Overview
+#### सारांश
+यह फीचर विशिष्ट वाक्यांशों को रेडैक्ट करने के लिए लक्षित करता है, उन्हें पूर्वनिर्धारित टेक्स्ट से बदलता है।
 
-यह फीचर विशिष्ट फ्रेज़ को रेडैक्ट करने के लिए लक्षित करता है, उन्हें पूर्वनिर्धारित टेक्स्ट से बदलता है।
-
-##### Step 1: Create Exact Phrase Redaction
-
-एक्सैक्ट फ्रेज़ रेडैक्शन लागू करें:
+##### चरण 1: सटीक वाक्यांश रेडैक्शन बनाएं
+सटीक वाक्यांश रेडैक्शन लागू करें:
 
 ```java
 import com.groupdocs.redaction.Redaction;
@@ -162,15 +202,14 @@ Redaction exactPhraseRedaction = new ExactPhraseRedaction(
 );
 ```
 
-### How to **remove annotations java**: रेगेक्स रेडैक्शन कॉन्फ़िगर करें
+### एनोटेशन हटाना java: regex रेडैक्शन कॉन्फ़िगर करें
+रेगुलर एक्सप्रेशन का उपयोग करके सामाजिक सुरक्षा नंबर या क्रेडिट‑कार्ड फ़ॉर्मैट जैसे पैटर्न खोजें, फिर उन्हें स्वचालित रूप से बदलें या हटाएँ।
 
-#### Overview
+#### सारांश
+अपने दस्तावेज़ों में पैटर्न पहचानने और बदलने के लिए रेगुलर एक्सप्रेशन का उपयोग करें।
 
-अपने दस्तावेज़ों में पैटर्न की पहचान और प्रतिस्थापन के लिए रेगुलर एक्सप्रेशन का उपयोग करें।
-
-##### Step 1: Create Regex Redaction
-
-रेगेक्स-आधारित रेडैक्शन परिभाषित करें:
+##### चरण 1: regex रेडैक्शन बनाएं
+एक regex‑आधारित रेडैक्शन परिभाषित करें:
 
 ```java
 import com.groupdocs.redaction.Redaction;
@@ -186,45 +225,42 @@ Redaction regexRedaction = new RegexRedaction(
 ```
 
 ## व्यावहारिक अनुप्रयोग
-
-1. **Confidential Document Management**: कानूनी और HR दस्तावेज़ों में नाम, सोशल सिक्योरिटी नंबर, या वित्तीय डेटा जैसे संवेदनशील जानकारी को स्वचालित रूप से **redact sensitive info** करें।  
-2. **Compliance Automation**: ग्राहक संचार में व्यक्तिगत पहचानकर्ता को रेडैक्ट करके GDPR, HIPAA और अन्य नियामक अनुपालन सुनिश्चित करें।  
-3. **Data Anonymization for Testing**: संरचनात्मक अखंडता बनाए रखते हुए टेस्ट डेटा सेट को अनाम बनाने के लिए रेगेक्स‑आधारित रेडैक्शन का उपयोग करें।
+1. **गोपनीय दस्तावेज़ प्रबंधन** – कानूनी और HR दस्तावेज़ों में नाम, सामाजिक सुरक्षा नंबर, या वित्तीय डेटा जैसी संवेदनशील जानकारी को स्वचालित रूप से **रेडैक्ट** करें।  
+2. **अनुपालन स्वचालन** – ग्राहक संचार से व्यक्तिगत पहचानकर्ता हटाकर GDPR, HIPAA, और अन्य नियामक आवश्यकताओं को पूरा करें।  
+3. **परीक्षण के लिए डेटा गुमनामकरण** – दस्तावेज़ संरचना को बनाए रखते हुए टेस्ट डेटा सेट को गुमनाम करने के लिए regex‑आधारित रेडैक्शन लागू करें।
 
 ## प्रदर्शन संबंधी विचार
-
-- **Optimize Redaction**: प्रोसेसिंग गति सुधारने के लिए केवल आवश्यक रेडैक्शन लागू करें।  
-- **Memory Management**: संसाधन उपयोग की निगरानी करें और विशेष रूप से बड़े दस्तावेज़ों के साथ Java मेमोरी को प्रभावी ढंग से प्रबंधित करें।  
-- **Efficient Regex Patterns**: गणना समय कम करने के लिए अपने रेगेक्स पैटर्न को प्रदर्शन के लिए अनुकूलित रखें।
+- **रेडैक्शन को अनुकूलित करें** – प्रोसेसिंग समय कम रखने के लिए केवल आवश्यक रेडैक्शन लागू करें।  
+- **मेमोरी प्रबंधन** – Java हीप उपयोग की निगरानी करें; GroupDocs.Redaction पूरे फ़ाइल को मेमोरी में लोड करने के बजाय पेजेस को स्ट्रीम करता है।  
+- **कुशल regex पैटर्न** – अत्यधिक बैकट्रैकिंग और CPU लोड से बचने के लिए संक्षिप्त रेगुलर एक्सप्रेशन लिखें।
 
 ## सामान्य समस्याएँ और समाधान
 
 | समस्या | कारण | समाधान |
 |-------|-------|-----|
-| रेडैक्शन लागू नहीं हुआ | गलत वाक्यांश/केस सेंसिटिविटी | केस‑इंसेंसिटिव विकल्पों का उपयोग करें या सटीक टेक्स्ट की जाँच करें |
-| एनोटेशन बना रहता है | `DeleteAnnotationRedaction` पॉलिसी में नहीं जोड़ा गया | `new DeleteAnnotationRedaction()` को पॉलिसी एरे में जोड़ें |
-| बड़े PDFs पर प्रोसेसिंग धीमी | अनावश्यक रेगेक्स स्कैन | रेगेक्स स्कोप को सीमित करें या पेजों को पूर्व‑फ़िल्टर करें |
+| रेडैक्शन लागू नहीं हुआ | गलत वाक्यांश या केस सेंसिटिविटी | केस‑इन्सेंसिटिव विकल्प उपयोग करें या सटीक टेक्स्ट स्ट्रिंग की जाँच करें |
+| एनोटेशन बना रहता है | `DeleteAnnotationRedaction` नीति में नहीं जोड़ा गया | नीति एरे में `new DeleteAnnotationRedaction()` जोड़ें |
+| बड़े PDFs पर धीमी प्रोसेसिंग | अनावश्यक regex स्कैन | regex स्कोप सीमित करें या पैटर्न लागू करने से पहले पेजेस को प्री‑फ़िल्टर करें |
 
 ## अक्सर पूछे जाने वाले प्रश्न
 
-**Q: What is GroupDocs.Redaction?**  
-A: विभिन्न दस्तावेज़ फ़ॉर्मैट्स से संवेदनशील जानकारी को Java का उपयोग करके रेडैक्ट करने के लिए एक शक्तिशाली लाइब्रेरी है।
+**Q: GroupDocs.Redaction क्या है?**  
+A: GroupDocs.Redaction एक Java लाइब्रेरी है जो PDFs और अन्य दस्तावेज़ फ़ॉर्मैट्स में संवेदनशील सामग्री को प्रोग्रामेटिक रूप से हटाती या बदलती है।
 
-**Q: How do I get started with GroupDocs.Redaction?**  
-A: अपना वातावरण सेट करें, Maven डिपेंडेंसी शामिल करें, और ऊपर दिए गए इनिशियलाइज़ेशन गाइड का पालन करें।
+**Q: GroupDocs.Redaction के साथ कैसे शुरू करें?**  
+A: Maven डिपेंडेंसी जोड़ें, ट्रायल लाइसेंस प्राप्त करें, और ऊपर दिखाए गए इनिशियलाइज़ेशन चरणों का पालन करें।
 
-**Q: Can I customize redaction patterns in GroupDocs.Redaction?**  
-A: हाँ—एक्सैक्ट फ्रेज़, रेगेक्स, या बिल्ट‑इन मेटाडाटा रिमूवल क्लासेज़ का उपयोग करें।
+**Q: क्या मैं GroupDocs.Redaction में रेडैक्शन पैटर्न को कस्टमाइज़ कर सकता हूँ?**  
+A: हाँ—सटीक‑वाक्यांश रेडैक्शन, रेगुलर‑एक्सप्रेशन रेडैक्शन, या बिल्ट‑इन मेटाडेटा रिमूवल क्लासेज़ का उपयोग करें।
 
-**Q: Is it possible to save and reuse redaction configurations?**  
-A: बिल्कुल—अपने `RedactionPolicy` को XML फ़ाइल के रूप में सहेजें और बाद में लोड करें।
+**Q: क्या रेडैक्शन कॉन्फ़िगरेशन को सहेजना और पुन: उपयोग करना संभव है?**  
+A: बिल्कुल—अपने `RedactionPolicy` को XML फ़ाइल के रूप में सहेजें और बाद में बैच प्रोसेसिंग के लिए लोड करें।
 
-**Q: What are the best practices for optimizing performance with GroupDocs.Redaction?**  
-A: केवल आवश्यक रेडैक्शन लागू करें, Java हीप साइज प्रबंधित करें, और कुशल रेगेक्स पैटर्न लिखें।
+**Q: GroupDocs.Redaction के साथ प्रदर्शन को अनुकूलित करने के लिए सर्वोत्तम प्रथाएँ क्या हैं?**  
+A: केवल आवश्यक रेडैक्शन लागू करें, Java हीप साइज ट्यून करें, और CPU उपयोग कम करने के लिए कुशल regex पैटर्न बनाएं।
 
 ## संसाधन
-
-- [दस्तावेज़ीकरण](https://docs.groupdocs.com/redaction/java/)
+- [डॉक्यूमेंटेशन](https://docs.groupdocs.com/redaction/java/)
 - [API रेफ़रेंस](https://reference.groupdocs.com/redaction/java)
 - [डाउनलोड](https://releases.groupdocs.com/redaction/java/)
 - [GitHub रिपॉज़िटरी](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
@@ -233,8 +269,12 @@ A: केवल आवश्यक रेडैक्शन लागू कर�
 
 ---
 
-**अंतिम अपडेट:** 2026-03-14  
+**अंतिम अपडेट:** 2026-08-31  
 **परीक्षण किया गया:** GroupDocs.Redaction 24.9 for Java  
-**लेखक:** GroupDocs  
+**लेखक:** GroupDocs
 
----
+## संबंधित ट्यूटोरियल
+
+- [GroupDocs.Redaction Java के साथ एनोटेशन कैसे हटाएं](/redaction/java/annotation-redaction/)
+- [GroupDocs.Redaction के साथ Java में मेटाडेटा कैसे रेडैक्ट करें](/redaction/java/metadata-redaction/)
+- [Java में PDF को कैसे रेडैक्ट करें – GroupDocs.Redaction के लिए PDF-विशिष्ट रेडैक्शन ट्यूटोरियल](/redaction/java/pdf-specific-redaction/)
