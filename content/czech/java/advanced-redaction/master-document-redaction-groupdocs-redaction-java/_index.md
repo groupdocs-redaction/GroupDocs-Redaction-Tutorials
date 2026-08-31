@@ -264,10 +264,6 @@ A: Připojte se k [GroupDocs Support Forum](https://forum.groupdocs.com/c/redact
 **Tested With:** GroupDocs.Redaction 24.9 for Java  
 **Author:** GroupDocs  
 
-{< /blocks/products/pf/tutorial-page-section >}
-{< /blocks/products/pf/main-container >}
-{< /blocks/products/pf/main-wrap-class >}
-{< blocks/products/products-backtop-button >}
 
 ## Související tutoriály
 

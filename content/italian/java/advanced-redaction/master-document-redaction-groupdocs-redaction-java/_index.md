@@ -267,10 +267,6 @@ A: Unisciti al [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction
 **Testato con:** GroupDocs.Redaction 24.9 for Java  
 **Autore:** GroupDocs  
 
-{< /blocks/products/pf/tutorial-page-section >}
-{< /blocks/products/pf/main-container >}
-{< /blocks/products/pf/main-wrap-class >}
-{< blocks/products/products-backtop-button >}
 
 ## Tutorial correlati
 

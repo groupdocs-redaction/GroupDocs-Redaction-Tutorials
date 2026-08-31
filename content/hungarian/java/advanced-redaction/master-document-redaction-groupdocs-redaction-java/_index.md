@@ -266,10 +266,6 @@ V: Csatlakozz a [GroupDocs Support Forum](https://forum.groupdocs.com/c/redactio
 **Tesztelve:** GroupDocs.Redaction 24.9 for Java  
 **Szerző:** GroupDocs  
 
-{< /blocks/products/pf/tutorial-page-section >}
-{< /blocks/products/pf/main-container >}
-{< /blocks/products/pf/main-wrap-class >}
-{< blocks/products/products-backtop-button >}
 
 ## Kapcsolódó oktatóanyagok
 

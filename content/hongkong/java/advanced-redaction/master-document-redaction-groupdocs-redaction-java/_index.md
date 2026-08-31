@@ -267,10 +267,6 @@ A: 可加入 [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/3
 **Tested With：** GroupDocs.Redaction 24.9 for Java  
 **Author：** GroupDocs  
 
-{< /blocks/products/pf/tutorial-page-section >}
-{< /blocks/products/pf/main-container >}
-{< /blocks/products/pf/main-wrap-class >}
-{< blocks/products/products-backtop-button >}
 
 ## 相關教學
 

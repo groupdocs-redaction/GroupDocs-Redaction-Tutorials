@@ -264,10 +264,6 @@ try (Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX")) {
 **Δοκιμασμένο Με:** GroupDocs.Redaction 24.9 for Java  
 **Συγγραφέας:** GroupDocs  
 
-{< /blocks/products/pf/tutorial-page-section >}
-{< /blocks/products/pf/main-container >}
-{< /blocks/products/pf/main-wrap-class >}
-{< blocks/products/products-backtop-button >}
 
 ## Σχετικές Εκπαιδεύσεις
 - [Μετατροπή Word σε PDF και Αποθήκευση Διαγραμμένων Εγγράφων με GroupDocs.Redaction Java](/redaction/java/document-saving/)  

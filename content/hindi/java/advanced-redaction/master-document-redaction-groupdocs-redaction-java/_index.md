@@ -265,10 +265,6 @@ try (Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX")) {
 **परीक्षित संस्करण:** GroupDocs.Redaction 24.9 for Java  
 **लेखक:** GroupDocs  
 
-{< /blocks/products/pf/tutorial-page-section >}
-{< /blocks/products/pf/main-container >}
-{< /blocks/products/pf/main-wrap-class >}
-{< blocks/products/products-backtop-button >}
 
 ## संबंधित ट्यूटोरियल
 

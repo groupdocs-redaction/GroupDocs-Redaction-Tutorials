@@ -267,10 +267,6 @@ A: เข้าร่วม [GroupDocs Support Forum](https://forum.groupdocs.co
 **ทดสอบด้วย:** GroupDocs.Redaction 24.9 for Java  
 **ผู้เขียน:** GroupDocs  
 
-{< /blocks/products/pf/tutorial-page-section >}
-{< /blocks/products/pf/main-container >}
-{< /blocks/products/pf/main-wrap-class >}
-{< blocks/products/products-backtop-button >}
 
 ## บทแนะนำที่เกี่ยวข้อง
 

@@ -262,10 +262,6 @@ A: 専門家の支援を受けるには、[GroupDocs Support Forum](https://foru
 **テスト環境:** GroupDocs.Redaction 24.9 for Java  
 **作者:** GroupDocs  
 
-{< /blocks/products/pf/tutorial-page-section >}
-{< /blocks/products/pf/main-container >}
-{< /blocks/products/pf/main-wrap-class >}
-{< blocks/products/products-backtop-button >}
 
 ## 関連チュートリアル
 

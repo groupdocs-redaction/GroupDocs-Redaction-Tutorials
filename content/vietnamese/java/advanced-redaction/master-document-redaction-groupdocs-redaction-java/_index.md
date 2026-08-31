@@ -267,10 +267,6 @@ A: Tham gia [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33
 **Được kiểm tra với:** GroupDocs.Redaction 24.9 cho Java  
 **Tác giả:** GroupDocs  
 
-{< /blocks/products/pf/tutorial-page-section >}
-{< /blocks/products/pf/main-container >}
-{< /blocks/products/pf/main-wrap-class >}
-{< blocks/products/products-backtop-button >}
 
 ## Hướng dẫn liên quan
 

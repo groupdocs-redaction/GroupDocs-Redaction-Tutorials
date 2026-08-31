@@ -267,10 +267,6 @@ A: Treten Sie dem [GroupDocs Support Forum](https://forum.groupdocs.com/c/redact
 **Getestet mit:** GroupDocs.Redaction 24.9 für Java  
 **Autor:** GroupDocs  
 
-{< /blocks/products/pf/tutorial-page-section >}
-{< /blocks/products/pf/main-container >}
-{< /blocks/products/pf/main-wrap-class >}
-{< blocks/products/products-backtop-button >}
 
 ## Verwandte Tutorials
 

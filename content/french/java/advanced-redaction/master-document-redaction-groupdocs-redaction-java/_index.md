@@ -266,10 +266,6 @@ R : Rejoignez le [Forum d'assistance GroupDocs](https://forum.groupdocs.com/c/
 **Testé avec :** GroupDocs.Redaction 24.9 for Java  
 **Auteur :** GroupDocs  
 
-{< /blocks/products/pf/tutorial-page-section >}
-{< /blocks/products/pf/main-container >}
-{< /blocks/products/pf/main-wrap-class >}
-{< blocks/products/products-backtop-button >}
 
 ## Tutoriels associés
 

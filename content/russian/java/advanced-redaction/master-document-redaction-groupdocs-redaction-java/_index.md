@@ -267,10 +267,6 @@ A: Присоединяйтесь к [GroupDocs Support Forum](https://forum.gro
 **Тестировано с:** GroupDocs.Redaction 24.9 for Java  
 **Автор:** GroupDocs  
 
-{< /blocks/products/pf/tutorial-page-section >}
-{< /blocks/products/pf/main-container >}
-{< /blocks/products/pf/main-wrap-class >}
-{< blocks/products/products-backtop-button >}
 
 ## Связанные руководства
 

@@ -268,10 +268,6 @@ A: Gå med i [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/3
 **Testat med:** GroupDocs.Redaction 24.9 for Java  
 **Författare:** GroupDocs  
 
-{< /blocks/products/pf/tutorial-page-section >}
-{< /blocks/products/pf/main-container >}
-{< /blocks/products/pf/main-wrap-class >}
-{< blocks/products/products-backtop-button >}
 
 ## Relaterade handledningar
 

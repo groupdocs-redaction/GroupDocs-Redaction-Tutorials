@@ -266,10 +266,6 @@ A: Join the [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33
 **테스트 환경:** GroupDocs.Redaction 24.9 for Java  
 **작성자:** GroupDocs  
 
-{< /blocks/products/pf/tutorial-page-section >}
-{< /blocks/products/pf/main-container >}
-{< /blocks/products/pf/main-wrap-class >}
-{< blocks/products/products-backtop-button >}
 
 ## 관련 튜토리얼
 

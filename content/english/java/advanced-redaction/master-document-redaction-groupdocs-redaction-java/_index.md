@@ -265,11 +265,6 @@ A: Join the [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33
 **Tested With:** GroupDocs.Redaction 24.9 for Java  
 **Author:** GroupDocs  
 
-{< /blocks/products/pf/tutorial-page-section >}
-{< /blocks/products/pf/main-container >}
-{< /blocks/products/pf/main-wrap-class >}
-{< blocks/products/products-backtop-button >}
-
 ## Related Tutorials
 
 - [Convert Word to PDF and Save Redacted Documents with GroupDocs.Redaction Java](/redaction/java/document-saving/)
