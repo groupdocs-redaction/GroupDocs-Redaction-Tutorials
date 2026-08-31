@@ -64,20 +64,6 @@ GroupDocs.Redaction फ़ाइलों को लोड करना सर�
 - [GroupDocs.Redaction फ़ोरम](https://forum.groupdocs.com/c/redaction/33)
 - [Free Support](https://forum.groupdocs.com/)
 - [Temporary License](https://purchase.groupdocs.com/temporary-license/)
-
-## लक्ष्य कीवर्ड्स:
-
-**Primary Keyword (HIGHEST PRIORITY):**  
-preview document pages java
-
-**Secondary Keywords (SUPPORTING):**  
-load documents java, redact password protected java, load document local java
-
-**Keyword Integration Strategy:**  
-1. Primary keyword: Use 3‑5 times (title, meta, first paragraph, H2 heading, body).  
-2. Secondary keywords: Use 1‑2 times each (headings, body text).  
-3. All keywords must be integrated naturally – prioritize readability over keyword count.  
-
 ## अक्सर पूछे जाने वाले प्रश्न
 
 **Q: क्या मैं एन्क्रिप्टेड PDFs का प्रीव्यू कर सकता हूँ?**  

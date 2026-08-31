@@ -1,41 +1,41 @@
 ---
-date: '2026-01-08'
-description: Naučte se, jak používat MetadataSearchRedaction v Javě s GroupDocs.Redaction
-  k bezpečnému redigování citlivých metadat dokumentu.
+date: '2026-03-22'
+description: Naučte se, jak provádět redakci metadat s GroupDocs v Javě, bezpečně
+  odstraňovat důvěrná metadata dokumentu pomocí GroupDocs.Redaction.
 keywords:
 - metadata redaction Java
 - GroupDocs Redaction tutorial
 - secure document metadata
-title: Jak používat MetadataSearchRedaction v Javě s GroupDocs
+title: Jak provést redakci metadat pomocí GroupDocs v Javě
 type: docs
 url: /cs/java/metadata-redaction/java-metadata-redaction-groupdocs-tutorial/
 weight: 1
 ---
 
-# Jak používat MetadataSearchRedaction v Javě s GroupDocs
+# Jak provést redakci metadat pomocí GroupDocs v Javě
 
-V tomto komplexním průvodci se dozvíte **jak používat MetadataSearchRedaction** k odstranění důvěrných metadat—například názvů společností—z formátů Word, PDF a dalších dokumentů pomocí GroupDocs.Redaction pro Javu. Na konci tutoriálu budete schopni integrovat redakci metadat do libovolného Java‑založeného pracovního postupu a chránit citlivé informace.
+V tomto komplexním průvodci se dozvíte **jak používat redakci metadat s GroupDocs** k odstranění důvěrných metadat—například názvů společností—z formátů Word, PDF a dalších dokumentů pomocí GroupDocs.Redaction pro Javu. Na konci tutoriálu budete schopni integrovat redakci metadat do jakéhokoli pracovního postupu založeného na Javě a udržet citlivé informace v bezpečí.
 
 ## Rychlé odpovědi
 - **Co dělá MetadataSearchRedaction?** Vyhledává konkrétní pole metadat a nahrazuje jejich hodnoty vlastním textem.  
 - **Která knihovna je vyžadována?** GroupDocs.Redaction for Java (v24.9 nebo novější).  
-- **Potřebuji licenci?** Bezplatná zkušební verze funguje pro hodnocení; plná licence je vyžadována pro produkci.  
-- **Mohu zachovat původní formát souboru?** Ano — použijte `SaveOptions` pro zachování původního formátu.  
+- **Potřebuji licenci?** Bezplatná zkušební verze funguje pro hodnocení; pro produkci je vyžadována plná licence.  
+- **Mohu zachovat původní formát souboru?** Ano—použijte `SaveOptions` pro zachování původního formátu.  
 - **Je tento přístup thread‑safe?** Každá instance `Redactor` je nezávislá, takže můžete zpracovávat dokumenty paralelně.
 
-## Co je MetadataSearchRedaction?
-`MetadataSearchRedaction` je specializovaná třída pro redakci, která vám umožní zaměřit se na konkrétní vlastnost metadat (např. *Company*, *Author*) a nahradit její obsah zástupným textem. Je ideální, když potřebujete anonymizovat firemní data před sdílením dokumentů s externími partnery.
+## Co je redakce metadat s GroupDocs?
+`MetadataSearchRedaction` je specializovaná třída, která vám umožní zaměřit se na konkrétní vlastnost metadat (např. *Company*, *Author*) a nahradit její obsah zástupným textem. Je ideální, když potřebujete anonymizovat firemní data před sdílením dokumentů s externími partnery.
 
-## Proč použít MetadataSearchRedaction pro redakci metadat?
-- **Přesnost** – Rediguje pouze pole, která určíte, a zbytek dokumentu ponechá nedotčený.  
+## Proč používat redakci metadat s GroupDocs?
+- **Přesnost** – Redigujte pouze pole, která určíte, a zbytek dokumentu zůstane nedotčen.  
 - **Soulad** – Pomáhá splnit GDPR, HIPAA a další předpisy o ochraně soukromí odstraněním skrytých identifikátorů.  
-- **Připraveno na automatizaci** – Bez problémů zapadá do dávkových zpracovatelských pipeline nebo mikro‑služeb.
+- **Připraveno pro automatizaci** – Bez problémů se integruje do dávkových zpracovatelských pipeline nebo mikro‑služeb.
 
 ## Předpoklady
 - **GroupDocs.Redaction for Java** ≥ 24.9.  
-- Java 8 nebo novější nainstalovaná na vašem počítači.  
+- Java 8 nebo novější nainstalovaný na vašem počítači.  
 - IDE jako IntelliJ IDEA nebo Eclipse (volitelné, ale doporučené).  
-- Základní znalost Maven (nebo možnost přidat JAR soubory ručně).
+- Základní znalost Maven (nebo schopnost přidat JAR soubory ručně).  
 
 ## Nastavení GroupDocs.Redaction pro Javu
 Přidejte repozitář a závislost do vašeho `pom.xml`. Tento krok zajistí, že Maven může knihovnu stáhnout automaticky.
@@ -58,13 +58,13 @@ Přidejte repozitář a závislost do vašeho `pom.xml`. Tento krok zajistí, ž
 </dependencies>
 ```
 
-*Alternativně můžete JAR stáhnout přímo z oficiální stránky vydání:*  
+*Alternativně můžete stáhnout JAR přímo z oficiální stránky vydání:*  
 [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/)
 
 ### Získání licence
-- **Free Trial** – Stáhněte si zkušební licenci a vyzkoušejte všechny funkce.  
-- **Temporary License** – Použijte pro rozšířené testování.  
-- **Full License** – Vyžadována pro nasazení do produkce.
+- **Bezplatná zkušební verze** – Stáhněte si zkušební licenci a vyzkoušejte všechny funkce.  
+- **Dočasná licence** – Použijte pro rozšířené testování.  
+- **Plná licence** – Vyžadována pro nasazení do produkce.
 
 ## Základní inicializace
 Vytvořte instanci `Redactor`, která ukazuje na dokument, který chcete zpracovat.
@@ -111,12 +111,12 @@ redactor.apply(redaction);
 ```
 
 ### Krok 5: Uložte s vlastními možnostmi
-Nakonfigurujte `SaveOptions`, aby redigovaný soubor získal příponu “_Redacted” a zároveň zachoval původní formát.
+Nakonfigurujte `SaveOptions`, aby redigovaný soubor získal příponu „_Redacted“ a zároveň zachoval původní formát.
 
 ```java
 SaveOptions tmp0 = new SaveOptions();
 tmp0.setAddSuffix(true);  // Adds "_Redacted" to file name
-	tmp0.setRasterizeToPDF(false);  // Keeps original format
+tmp0.setRasterizeToPDF(false);  // Keeps original format
 
 redactor.save(tmp0);
 ```
@@ -132,7 +132,7 @@ finally {
 
 ## Časté problémy a řešení
 - **FileNotFoundException** – Zkontrolujte znovu cestu, kterou předáváte `Redactor`. Používejte absolutní cesty nebo `Paths.get(...)` pro spolehlivost.  
-- **Žádné změny** – Ověřte, že cílové pole metadat skutečně obsahuje hledaný řetězec; metadata jsou ve výchozím nastavení citlivá na velikost písmen.  
+- **Žádné změny pozorovány** – Ověřte, že cílové pole metadat skutečně obsahuje hledaný řetězec; metadata jsou ve výchozím nastavení citlivá na velikost písmen.  
 - **Chyby nedostatku paměti u velkých souborů** – Zpracovávejte dokumenty v menších dávkách a po každém souboru okamžitě zavolejte `redactor.close()`.
 
 ## Praktické aplikace
@@ -142,15 +142,15 @@ finally {
 
 ## Úvahy o výkonu
 - **Správa paměti** – Knihovna drží celý dokument v paměti; uzavření `Redactor` po každém souboru je nezbytné.  
-- **Dávkové zpracování** – Pro scénáře s vysokým objemem procházejte kolekci souborů a znovu použijte jedinou instanci `SaveOptions`.  
+- **Dávkové zpracování** – Pro scénáře s vysokým objemem procházejte kolekci souborů a znovu použijte jednu instanci `SaveOptions`.  
 - **Zůstaňte aktualizováni** – Nová vydání přinášejí vylepšení výkonu a opravy chyb; vždy cílte na nejnovější stabilní verzi.
 
 ## Závěr
-Nyní víte **jak používat MetadataSearchRedaction** k bezpečnému odstranění firemních metadat z dokumentů pomocí GroupDocs.Redaction pro Javu. Začleňte tyto kroky do vašich pipeline pro zpracování dokumentů, abyste zůstali v souladu s předpisy a chránili citlivé informace.
+Nyní víte **jak používat redakci metadat s GroupDocs** k bezpečnému odstranění firemních metadat z dokumentů pomocí GroupDocs.Redaction pro Javu. Začleňte tyto kroky do vašich pipeline pro zpracování dokumentů, abyste zůstali v souladu a chránili citlivé informace.
 
 **Další kroky**
 - Experimentujte s dalšími poli metadat, jako je *Author* nebo *Creator*.  
-- Kombinujte redakci metadat s redakcí textu nebo obrázků pro kompletní řešení.
+- Kombinujte redakci metadat s textovou nebo obrazovou redakcí pro kompletní řešení.  
 
 ## Sekce FAQ
 1. **Co je GroupDocs.Redaction pro Javu?**  
@@ -169,21 +169,21 @@ Nyní víte **jak používat MetadataSearchRedaction** k bezpečnému odstraněn
 A: Ano. Načtěte dokument s příslušným heslem pomocí konstruktoru `Redactor`, který přijímá parametr hesla.
 
 **Q: Mohu v jednom běhu řetězit více redakcí metadat?**  
-A: Rozhodně. Vytvořte více objektů `MetadataSearchRedaction`, nastavte různé filtry a aplikujte je postupně před uložením.
+A: Rozhodně. Vytvořte více objektů `MetadataSearchRedaction`, nastavte různé filtry a aplikujte je sekvenčně před uložením.
 
 **Q: Je možné před uložením zobrazit náhled redakcí?**  
 A: Můžete zavolat `redactor.getRedactions()`, abyste získali seznam čekajících redakcí a programově je prozkoumali.
 
 ## Zdroje
-- **Documentation**: Prozkoumejte podrobné průvodce na [GroupDocs Documentation](https://docs.groupdocs.com/redaction/java/).  
-- **API Reference**: Prohlédněte si kompletní referenci API na [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java).  
-- **Download Library**: Získejte nejnovější vydání z [GroupDocs Downloads](https://releases.groupdocs.com/redaction/java/).  
-- **Source Code**: Prohlédněte a přispívejte na [GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java).  
-- **Support**: Získejte pomoc prostřednictvím bezplatného kanálu podpory na [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33).
+- **Dokumentace**: Prozkoumejte podrobné průvodce na [GroupDocs Documentation](https://docs.groupdocs.com/redaction/java/).  
+- **Reference API**: Prohlédněte si kompletní referenci API na [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java).  
+- **Stáhnout knihovnu**: Získejte nejnovější vydání z [GroupDocs Downloads](https://releases.groupdocs.com/redaction/java/).  
+- **Zdrojový kód**: Prohlédněte a přispívejte na [GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java).  
+- **Podpora**: Získejte pomoc prostřednictvím bezplatného kanálu podpory na [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33).
 
 ---
 
-**Poslední aktualizace:** 2026-01-08  
+**Poslední aktualizace:** 2026-03-22  
 **Testováno s:** GroupDocs.Redaction 24.9 pro Javu  
 **Autor:** GroupDocs  
 

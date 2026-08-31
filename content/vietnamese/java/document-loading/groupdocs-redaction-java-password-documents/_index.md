@@ -1,53 +1,55 @@
 ---
-date: '2025-12-20'
-description: Tìm hiểu cách chỉnh sửa tài liệu được bảo vệ bằng mật khẩu trong Java
-  và xóa thông tin nhạy cảm khỏi file docx được bảo vệ bằng mật khẩu bằng GroupDocs.Redaction
+date: '2026-03-17'
+description: Tìm hiểu cách chỉnh sửa tài liệu java được bảo vệ bằng mật khẩu và xóa
+  thông tin trong tài liệu docx được bảo vệ bằng mật khẩu với GroupDocs.Redaction
   cho Java, đảm bảo quyền riêng tư dữ liệu đồng thời duy trì bảo mật tài liệu.
 keywords:
 - GroupDocs.Redaction for Java
 - edit password-protected docs java
 - redact password-protected docx
-title: 'Chỉnh sửa tài liệu được bảo vệ bằng mật khẩu Java - Xóa thông tin tài liệu
-  bằng GroupDocs.Redaction'
+title: Chỉnh sửa tài liệu được bảo vệ bằng mật khẩu Java - Xóa thông tin tài liệu
+  bằng GroupDocs.Redaction
 type: docs
 url: /vi/java/document-loading/groupdocs-redaction-java-password-documents/
 weight: 1
 ---
 
-# Chỉnh sửa tài liệu được bảo vệ bằng mật khẩu Java: Xóa nội dung bằng GroupDocs.Redaction
+ but not actual fenced code blocks. So we keep them.
 
-## Giới thiệu
+Make sure to keep markdown formatting.
 
-Trong thời đại kỹ thuật số ngày nay, **edit password-protected docs java** là một yêu cầu phổ biến đối với các nhà phát triển cần bảo vệ thông tin nhạy cảm đồng thời vẫn có thể chỉnh sửa nội dung. Dù là dữ liệu cá nhân hay thông tin kinh doanh độc quyền, việc bảo vệ bằng mật khẩu bảo đảm tính riêng tư, nhưng việc xóa (redact) các đoạn văn bản cụ thể trong các tệp được bảo mật có thể gây khó khăn. Hướng dẫn này sẽ chỉ cho bạn cách sử dụng **GroupDocs.Redaction for Java** để chỉnh sửa và xóa nội dung tài liệu được bảo vệ bằng mật khẩu một cách liền mạch, duy trì cả bảo mật và tuân thủ.
+Proceed.
 
-Bạn sẽ học cách mở tệp được bảo vệ, áp dụng việc xóa cụm từ chính xác, và lưu kết quả mà không mất mật khẩu gốc. Hãy bắt đầu!
+# Chỉnh sửa Tài liệu được bảo vệ bằng mật khẩu Java: Che dấu Tài liệu bằng GroupDocs.Redaction
+
+Trong thời đại số hiện nay, **edit password-protected docs java** là một yêu cầu phổ biến đối với các nhà phát triển cần bảo vệ thông tin nhạy cảm đồng thời vẫn có thể chỉnh sửa nội dung. Dù là dữ liệu cá nhân hay thông tin kinh doanh độc quyền, việc bảo vệ bằng mật khẩu giúp giữ riêng tư, nhưng việc che dấu các đoạn văn bản cụ thể trong các tệp đã được bảo mật có thể gây khó khăn. Hướng dẫn này sẽ chỉ cho bạn cách sử dụng **GroupDocs.Redaction for Java** để chỉnh sửa và che dấu tài liệu được bảo vệ bằng mật khẩu một cách liền mạch, đồng thời duy trì cả bảo mật và tuân thủ.
 
 ## Câu trả lời nhanh
-- **What does “edit password-protected docs java” mean?** Nó đề cập đến việc mở một tài liệu được bảo mật trong Java, thực hiện các thay đổi và lưu lại trong khi giữ nguyên hoặc cập nhật mật khẩu của nó.
-- **Can GroupDocs.Redaction handle .docx files?** Có, nó hỗ trợ DOCX, PDF, PPTX và nhiều định dạng khác.
-- **Do I need a license to try this?** Một giấy phép dùng thử miễn phí có sẵn; giấy phép đầy đủ là bắt buộc cho việc sử dụng trong môi trường sản xuất.
-- **Is the original password retained after redaction?** Bạn có thể áp dụng lại cùng một mật khẩu khi lưu tài liệu.
-- **What Java version is required?** JDK 8 hoặc mới hơn được khuyến nghị.
+- **“edit password-protected docs java” có nghĩa là gì?** Nó đề cập đến việc mở một tài liệu được bảo mật trong Java, thực hiện thay đổi và lưu lại trong khi giữ hoặc cập nhật mật khẩu của nó.  
+- **GroupDocs.Redaction có thể xử lý tệp .docx không?** Có, nó hỗ trợ DOCX, PDF, PPTX và nhiều định dạng khác.  
+- **Tôi có cần giấy phép để thử không?** Có giấy phép dùng thử miễn phí; giấy phép đầy đủ cần thiết cho môi trường sản xuất.  
+- **Mật khẩu gốc có được giữ lại sau khi che dấu không?** Bạn có thể áp dụng lại cùng một mật khẩu khi lưu tài liệu.  
+- **Yêu cầu phiên bản Java nào?** JDK 8 hoặc mới hơn được khuyến nghị.
+
+## “edit password-protected docs java” là gì?
+Chỉnh sửa tài liệu được bảo vệ bằng mật khẩu trong Java có nghĩa là tải một tài liệu đã được mã hoá bằng mật khẩu, thực hiện các thao tác như che dấu hoặc thay thế văn bản, sau đó lưu lại tệp — tùy chọn áp dụng lại cùng mật khẩu để giữ an toàn.
+
+## Tại sao nên dùng GroupDocs.Redaction cho nhiệm vụ này?
+GroupDocs.Redaction cung cấp một API cấp cao giúp ẩn đi các chi tiết thấp cấp khi xử lý các tệp Office được mã hoá. Nó cho phép bạn tập trung vào **điều gì** cần che dấu thay vì **cách** giải mã, chỉnh sửa và mã hoá lại tài liệu.
 
 ## Yêu cầu trước
 
-Trước khi chúng ta bắt đầu triển khai các đoạn mã mẫu được cung cấp, hãy đảm bảo các yêu cầu trước sau đã được đáp ứng:
+- **Java Development Kit (JDK) 8+** – bắt buộc để chạy GroupDocs.Redaction.  
+- **Maven** (hoặc công cụ xây dựng khác) – để quản lý các phụ thuộc.  
+- **Giấy phép GroupDocs.Redaction hợp lệ** – giấy phép dùng thử để thử nghiệm, giấy phép đầy đủ cho môi trường sản xuất.  
+- **Kiến thức cơ bản về Java** – quen thuộc với các lớp, xử lý ngoại lệ và I/O tệp.
 
-### Thư viện và phụ thuộc cần thiết
-Để sử dụng GroupDocs.Redaction for Java, bao gồm nó như một phụ thuộc trong dự án của bạn. Dưới đây là cách thực hiện bằng Maven hoặc tải trực tiếp.
+## Cài đặt GroupDocs.Redaction cho Java
 
-### Yêu cầu thiết lập môi trường
-Đảm bảo bạn đã cài đặt Java Development Kit (JDK) tương thích trên máy của mình. JDK 8 hoặc mới hơn được khuyến nghị để tương thích tối ưu với GroupDocs.Redaction.
+Hãy thiết lập môi trường cần thiết để làm việc với GroupDocs.Redaction. Bạn có thể dùng Maven hoặc tải thư viện trực tiếp từ trang web GroupDocs.
 
-### Kiến thức nền tảng cần có
-Kiến thức cơ bản về lập trình Java và hiểu biết về các khái niệm xử lý tài liệu sẽ có lợi khi chúng ta tiến hành qua hướng dẫn này.
-
-## Thiết lập GroupDocs.Redaction cho Java
-
-Hãy thiết lập môi trường cần thiết để làm việc với GroupDocs.Redaction. Bạn có thể sử dụng Maven hoặc tải thư viện trực tiếp từ trang web GroupDocs.
-
-**Maven Setup:**  
-Thêm cấu hình kho và phụ thuộc sau vào tệp `pom.xml` của bạn:
+**Cài đặt Maven:**  
+Thêm cấu hình repository và dependency sau vào tệp `pom.xml` của bạn:
 
 ```xml
 <repositories>
@@ -67,13 +69,13 @@ Thêm cấu hình kho và phụ thuộc sau vào tệp `pom.xml` của bạn:
 </dependencies>
 ```
 
-**Direct Download:**  
-Nếu bạn không muốn sử dụng Maven, tải phiên bản mới nhất từ [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+**Tải trực tiếp:**  
+Nếu bạn không muốn dùng Maven, tải phiên bản mới nhất từ [GroupDocs.Redaction cho Java - bản phát hành](https://releases.groupdocs.com/redaction/java/).
 
-### Nhận giấy phép
-Bắt đầu với giấy phép dùng thử miễn phí có sẵn trên trang web GroupDocs. Đối với việc sử dụng lâu dài, hãy cân nhắc mua giấy phép đầy đủ hoặc lấy giấy phép tạm thời nếu cần.
+### Mua giấy phép
+Bắt đầu với giấy phép dùng thử miễn phí có trên trang web GroupDocs. Đối với việc sử dụng lâu dài, hãy cân nhắc mua giấy phép đầy đủ hoặc lấy giấy phép tạm thời nếu cần.
 
-### Khởi tạo và thiết lập cơ bản
+### Khởi tạo và cấu hình cơ bản
 Để bắt đầu sử dụng thư viện, khởi tạo nó trong môi trường dự án của bạn như sau:
 
 ```java
@@ -87,25 +89,25 @@ Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/PROTECTED_SAMPLE_DOCX"
 
 ## Hướng dẫn triển khai
 
-Hãy chia nhỏ việc triển khai thành các tính năng riêng biệt, mỗi tính năng nhằm giúp bạn đạt được các mục tiêu cụ thể với GroupDocs.Redaction.
+Chúng ta sẽ chia quá trình triển khai thành các tính năng riêng biệt, mỗi tính năng giúp bạn đạt được mục tiêu cụ thể với GroupDocs.Redaction.
 
-### Tải tài liệu được bảo vệ bằng mật khẩu
+### Cách chỉnh sửa tài liệu được bảo vệ bằng mật khẩu java với GroupDocs.Redaction
+Phần này hướng dẫn chi tiết các bước cần **edit password-protected docs java** đồng thời giữ bí mật tài liệu.
 
-#### Tổng quan
-Tính năng này trình bày cách mở và tải tài liệu được bảo vệ bằng mật khẩu một cách an toàn. Nó đảm bảo chỉ người dùng được ủy quyền mới có thể truy cập và chỉnh sửa các tệp này.
+#### Tải tài liệu được bảo vệ bằng mật khẩu
 
 ##### Bước 1: Xác định đường dẫn tài liệu và mật khẩu
-Bắt đầu bằng cách chỉ định đường dẫn tài liệu và mật khẩu liên quan:
+Bắt đầu bằng cách chỉ định đường dẫn tài liệu và mật khẩu tương ứng:
 
 ```java
 String documentPath = "YOUR_DOCUMENT_DIRECTORY/PROTECTED_SAMPLE_DOCX";
 LoadOptions loadOptions = new LoadOptions("mypassword");
 ```
 
-Ở đây, `loadOptions` chứa mật khẩu mở khóa truy cập vào tài liệu của bạn.
+Ở đây, `loadOptions` chứa mật khẩu để mở khóa truy cập vào tài liệu của bạn.
 
 ##### Bước 2: Khởi tạo Redactor
-Tạo một thể hiện `Redactor` bằng cách sử dụng đường dẫn và tùy chọn tải:
+Tạo một thể hiện `Redactor` bằng đường dẫn và tùy chọn tải:
 
 ```java
 final Redactor redactor = new Redactor(documentPath, loadOptions);
@@ -113,24 +115,24 @@ final Redactor redactor = new Redactor(documentPath, loadOptions);
 
 Bước này rất quan trọng vì nó chuẩn bị cho ứng dụng của bạn xử lý nội dung tài liệu một cách an toàn.
 
-##### Bước 3: Áp dụng việc xóa cụm từ chính xác
-Sau khi tải, bạn có thể áp dụng các việc xóa cụ thể. Dưới đây là cách thay thế "John Doe" bằng "[personal]":
+##### Bước 3: Áp dụng che dấu cụm từ chính xác
+Sau khi tải, bạn có thể áp dụng các che dấu cụ thể. Ví dụ, thay thế “John Doe” bằng “[personal]”:
 
 ```java
 redactor.apply(new ExactPhraseRedaction("John Doe", new ReplacementOptions("[personal]"));
 ```
 
-Phương pháp này đảm bảo văn bản được chỉ định được thay thế trong toàn bộ tài liệu.
+Phương pháp này đảm bảo rằng đoạn văn bản được chỉ định được thay thế trên toàn bộ tài liệu.
 
 ##### Bước 4: Lưu thay đổi
-Sau khi áp dụng các việc xóa cần thiết, lưu các thay đổi của bạn:
+Sau khi áp dụng các che dấu cần thiết, lưu các thay đổi của bạn:
 
 ```java
 documentPath = "YOUR_DOCUMENT_DIRECTORY/PROTECTED_SAMPLE_DOCX";
 redactor.save();
 ```
 
-Đảm bảo đóng các tài nguyên đúng cách bằng `redactor.close()` để tránh rò rỉ bộ nhớ:
+Đảm bảo đóng tài nguyên đúng cách bằng `redactor.close()` để tránh rò rỉ bộ nhớ:
 
 ```java
 finally {
@@ -139,37 +141,27 @@ finally {
 ```
 
 #### Mẹo khắc phục sự cố
-- Đảm bảo đã cung cấp đúng đường dẫn và mật khẩu.
-- Kiểm tra bất kỳ ngoại lệ nào trong quá trình truy cập tệp, có thể cho thấy vấn đề quyền truy cập.
+- Kiểm tra lại đường dẫn tệp và mật khẩu có đúng không.  
+- Bắt `IOException` hoặc `RedactionException` để chẩn đoán các vấn đề liên quan đến truy cập.  
 
-### Áp dụng việc xóa cụm từ chính xác mà không cần bảo vệ mật khẩu
+### Cách che dấu tài liệu docx được bảo vệ bằng mật khẩu sử dụng GroupDocs.Redaction
+Nếu mục tiêu của bạn là **redact password-protected docx**, quy trình làm việc là giống hệt; chỉ khác ở chỗ bạn phải cung cấp mật khẩu khi tải tài liệu (như đã trình bày ở trên). Sau khi che dấu, bạn có thể áp dụng lại cùng mật khẩu khi gọi `redactor.save()`.
 
-#### Tổng quan
-Tính năng này cho phép bạn áp dụng việc xóa cụm từ chính xác trên các tài liệu mà không cần mật khẩu. Nó hữu ích cho việc chỉnh sửa tài liệu chung khi không quan tâm đến bảo mật.
+#### Áp dụng che dấu cụm từ chính xác mà không có bảo vệ mật khẩu
 
-##### Bước 1: Xác định đường dẫn tài liệu
-Xác định đường dẫn của tài liệu không được mã hoá của bạn:
+Nếu bạn cần che dấu một tài liệu thông thường (không được bảo vệ), các bước sẽ còn đơn giản hơn:
 
 ```java
 String documentPath = "YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX";
 ```
 
-##### Bước 2: Khởi tạo Redactor mà không có tùy chọn tải
-Khởi tạo `Redactor` mà không cung cấp bất kỳ tùy chọn tải nào cho tài liệu không được bảo vệ:
-
 ```java
 final Redactor redactor = new Redactor(documentPath);
 ```
 
-##### Bước 3: Áp dụng việc xóa cụm từ chính xác
-Sử dụng cùng phương pháp như trên để áp dụng việc xóa cụm từ:
-
 ```java
 redactor.apply(new ExactPhraseRedaction("John Doe", new ReplacementOptions("[personal]"));
 ```
-
-##### Bước 4: Lưu và đóng tài nguyên
-Đừng quên lưu các thay đổi và đóng tài nguyên đúng cách:
 
 ```java
 try {
@@ -180,54 +172,54 @@ try {
 ```
 
 #### Mẹo khắc phục sự cố
-- Xác minh đường dẫn tài liệu là đúng.
-- Xử lý các ngoại lệ liên quan đến I/O tệp hoặc các thao tác không hợp lệ.
+- Kiểm tra lại đường dẫn tài liệu.  
+- Xử lý `FileNotFoundException` cho các tệp bị thiếu.  
 
 ## Ứng dụng thực tiễn
 
-GroupDocs.Redaction for Java có thể được áp dụng trong nhiều tình huống:
+GroupDocs.Redaction cho Java có thể được áp dụng trong nhiều kịch bản:
 
-1. **Tuân thủ bảo mật dữ liệu:** Tự động xóa thông tin nhạy cảm như PII (Thông tin nhận dạng cá nhân) khỏi tài liệu khách hàng để tuân thủ các quy định như GDPR.
-2. **Chuẩn bị tài liệu pháp lý:** Xóa các chi tiết bí mật khỏi tài liệu pháp lý trước khi chia sẻ với bên ngoài, đảm bảo tính riêng tư và tuân thủ.
-3. **Quản lý báo cáo nội bộ:** Chỉnh sửa an toàn các báo cáo nội bộ bằng cách thay thế tên thương hiệu hoặc số liệu tài chính trước khi phân phối trong công ty.
-4. **Quy trình xem xét nội dung:** Tinh giản quy trình xem xét nội dung bằng cách tự động xóa các cụm từ nhạy cảm trong bản thảo tài liệu gửi để xuất bản.
-5. **Lưu trữ tài liệu an toàn:** Duy trì tính riêng tư trong quá trình lưu trữ tài liệu bằng cách đảm bảo mọi thông tin bí mật đã được xóa trước khi lưu trữ.
+1. **Tuân thủ quyền riêng tư dữ liệu:** Tự động che dấu thông tin nhạy cảm như PII (Thông tin Nhận dạng Cá nhân) từ tài liệu khách hàng để đáp ứng các quy định như GDPR.  
+2. **Chuẩn bị tài liệu pháp lý:** Che dấu các chi tiết bí mật trong tài liệu pháp lý trước khi chia sẻ với bên ngoài.  
+3. **Quản lý báo cáo nội bộ:** Chỉnh sửa an toàn các báo cáo nội bộ bằng cách thay thế tên thương hiệu hoặc số liệu tài chính trước khi phân phối.  
+4. **Quy trình xem xét nội dung:** Tự động che dấu các cụm từ nhạy cảm trong bản thảo tài liệu trước khi xuất bản.  
+5. **Lưu trữ tài liệu an toàn:** Đảm bảo mọi thông tin bí mật được loại bỏ trước khi lưu trữ lâu dài.  
 
-## Cân nhắc về hiệu suất
+## Các lưu ý về hiệu năng
 
-Khi làm việc với GroupDocs.Redaction, hãy cân nhắc các mẹo về hiệu suất sau:
+Khi làm việc với GroupDocs.Redaction, hãy cân nhắc các lời khuyên sau về hiệu năng:
 
-- Tối ưu việc sử dụng tài nguyên bằng cách quản lý bộ nhớ hiệu quả.
-- Triển khai xử lý ngoại lệ để nhanh chóng bắt và giải quyết các vấn đề thời gian chạy.
-- Sử dụng xử lý batch khi có thể cho các việc xóa tài liệu quy mô lớn.
+- **Quản lý bộ nhớ:** Giải phóng thể hiện `Redactor` bằng `close()` ngay khi hoàn thành xử lý để giải phóng tài nguyên gốc.  
+- **Xử lý hàng loạt:** Đối với khối lượng lớn, xử lý tài liệu theo batch để tránh tiêu thụ bộ nhớ quá mức.  
+- **Xử lý ngoại lệ:** Bao bọc các lời gọi che dấu trong khối try‑catch để xử lý lỗi một cách nhẹ nhàng.
 
-**Best Practices:**  
-- Thường xuyên cập nhật thư viện để hưởng lợi từ các cải tiến về hiệu suất.
-- Đánh giá hiệu năng ứng dụng để xác định các điểm nghẽn trong quá trình xóa.
+**Các thực tiễn tốt nhất**
+
+- Giữ thư viện luôn cập nhật để tận dụng các cải tiến về hiệu năng.  
+- Đánh giá hiệu suất ứng dụng nếu bạn nhận thấy độ trễ khi xử lý các tệp lớn.  
 
 ## Kết luận
-
-Trong hướng dẫn này, bạn đã học cách **edit password-protected docs java** bằng cách sử dụng GroupDocs.Redaction cho Java. Từ việc thiết lập môi trường và triển khai việc xóa cụm từ chính xác đến việc hiểu các ứng dụng thực tiễn và cân nhắc về hiệu suất, bạn giờ đã có các công cụ cần thiết để đảm bảo an ninh và riêng tư cho tài liệu.
+Trong hướng dẫn này, bạn đã học cách **edit password-protected docs java** bằng GroupDocs.Redaction cho Java. Từ việc thiết lập môi trường, triển khai các che dấu cụm từ chính xác cho tới việc hiểu các ứng dụng thực tiễn và lưu ý về hiệu năng, giờ đây bạn đã sẵn sàng bảo vệ dữ liệu nhạy cảm đồng thời duy trì khả năng sử dụng tài liệu.
 
 ## Câu hỏi thường gặp
 
-**Q: Tôi có thể xóa một tệp DOCX được bảo vệ bằng mật khẩu không?**  
-A: Có. Sử dụng `LoadOptions` với mật khẩu của tài liệu, sau đó áp dụng việc xóa như trong các ví dụ.
+**H: Tôi có thể che dấu một tệp DOCX được bảo vệ bằng mật khẩu không?**  
+Đ: Có. Sử dụng `LoadOptions` với mật khẩu của tài liệu, sau đó áp dụng che dấu như trong các ví dụ.
 
-**Q: Mật khẩu gốc có giữ nguyên sau khi lưu không?**  
-A: Bạn có thể áp dụng lại cùng một mật khẩu khi gọi `redactor.save()`. Nếu bỏ qua, tệp sẽ được lưu mà không có bảo vệ.
+**H: Mật khẩu gốc có được giữ nguyên sau khi lưu không?**  
+Đ: Bạn có thể áp dụng lại cùng mật khẩu khi gọi `redactor.save()`. Nếu không cung cấp, tệp sẽ được lưu mà không có bảo vệ.
 
-**Q: Nếu tôi cần xóa nhiều cụm từ cùng lúc thì sao?**  
-A: Gọi `redactor.apply()` cho mỗi cụm từ hoặc sử dụng một bộ quy tắc xóa trước khi lưu.
+**H: Nếu tôi muốn che dấu nhiều cụm từ cùng lúc thì sao?**  
+Đ: Gọi `redactor.apply()` cho mỗi cụm từ hoặc xây dựng một bộ quy tắc che dấu trước khi thực hiện `save()`.
 
-**Q: Có giới hạn kích thước tệp không?**  
-A: GroupDocs.Redaction xử lý các tệp lớn, nhưng hãy giám sát việc sử dụng bộ nhớ và cân nhắc xử lý tài liệu theo batch cho các kho lưu trữ rất lớn.
+**H: Có giới hạn kích thước tệp không?**  
+Đ: GroupDocs.Redaction xử lý các tệp lớn, nhưng bạn nên giám sát việc sử dụng bộ nhớ và cân nhắc xử lý batch cho các kho lưu trữ rất lớn.
 
-**Q: Làm thế nào để tôi có được giấy phép sản xuất?**  
-A: Truy cập trang web GroupDocs, yêu cầu bản dùng thử và nâng cấp lên giấy phép trả phí khi bạn sẵn sàng triển khai trong môi trường sản xuất.
+**H: Làm sao để có được giấy phép sản xuất?**  
+Đ: Truy cập trang web GroupDocs, yêu cầu bản dùng thử và nâng cấp lên giấy phép trả phí khi bạn đã sẵn sàng triển khai trong môi trường sản xuất.
 
 ---
 
-**Cập nhật lần cuối:** 2025-12-20  
-**Kiểm tra với:** GroupDocs.Redaction 24.9 for Java  
+**Cập nhật lần cuối:** 2026-03-17  
+**Được kiểm tra với:** GroupDocs.Redaction 24.9 cho Java  
 **Tác giả:** GroupDocs

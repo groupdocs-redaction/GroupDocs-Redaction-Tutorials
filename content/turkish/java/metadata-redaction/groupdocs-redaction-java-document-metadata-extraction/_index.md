@@ -1,45 +1,49 @@
 ---
-date: '2026-01-06'
-description: GroupDocs.Redaction for Java ile Java’da dosya tipini alma, belge özelliklerini
-  okuma ve sayfa sayısını elde etme hakkında bilgi edinin. Kodlu adım adım rehber.
+date: '2026-03-22'
+description: GroupDocs.Redaction for Java kullanarak Java’da dosya meta verilerini
+  okuma, dosya tipini alma ve sayfa sayısını elde etme yöntemlerini öğrenin. Adım
+  adım kod örnekleriyle rehber.
 keywords:
 - GroupDocs.Redaction Java
 - document metadata extraction
 - Java stream APIs
-title: GroupDocs.Redaction kullanarak Java dosya türünü al – Meta Veri Çıkarma
+title: java dosya meta verilerini oku – GroupDocs.Redaction ile dosya türü
 type: docs
 url: /tr/java/metadata-redaction/groupdocs-redaction-java-document-metadata-extraction/
 weight: 1
 ---
 
-# Java'da dosya türünü al ve GroupDocs.Redaction ile belge meta verilerini çıkar
+# java read file metadata – GroupDocs.Redaction ile Java'da Dosya Türünü Alın
 
-Modern Java uygulamalarında, **dosya türünü hızlıca al** ve sayfa sayısı, boyut ve özel meta veriler gibi diğer faydalı belge özelliklerini çekebilmek, sağlam bir belge‑yönetimi veya veri‑analizi boru hattı oluşturmak için çok önemlidir. Bu öğreticide, GroupDocs.Redaction kullanarak belge özelliklerini nasıl okuyacağınızı, bu görev için neden tercih edilen kütüphane olduğunu ve çözümü kod tabanınıza nasıl temiz bir şekilde entegre edeceğinizi göstereceğiz.
+Modern Java uygulamalarında, **java read file metadata** hızlı bir şekilde—özellikle dosya türü, sayfa sayısı, boyut ve herhangi bir özel özellik—güvenilir belge‑yönetimi veya veri‑analizi boru hatları oluşturmak için gereklidir. Bu öğretici, bu özellikleri GroupDocs.Redaction ile okumanızı sağlar, **how to get file type java** nasıl yapılır açıklıyor ve **java get page count** ve **read file size java** nasıl yapılır gösteriyor, temiz ve akış‑dostu bir şekilde.
 
 ## Hızlı Yanıtlar
 - **Java'da bir belgenin dosya türünü nasıl alabilirim?** `redactor.getDocumentInfo().getFileType()` kullanın.  
-- **Meta veri çıkarma ve kırpma işlemlerini birlikte hangi kütüphane yönetir?** Java için GroupDocs.Redaction.  
+- **Meta veri çıkarımı ve redaksiyonu birlikte yöneten kütüphane hangisidir?** Java için GroupDocs.Redaction.  
 - **Geliştirme için lisansa ihtiyacım var mı?** Değerlendirme için ücretsiz deneme çalışır; üretim için kalıcı bir lisans gereklidir.  
 - **Sayfa sayısını da alabilir miyim?** Evet, `IDocumentInfo` nesnesinde `getPageCount()` metodunu çağırın.  
 - **Bu yaklaşım Java 8+ ile uyumlu mu?** Kesinlikle—GroupDocs.Redaction Java 8 ve üzerini destekler.
 
-## “dosya türünü al” nedir ve neden önemlidir?
-`getFileType()` metodunu bir belge üzerinde çağırdığınızda, kütüphane dosya başlığını inceler ve dostane bir enum döndürür (ör. **DOCX**, **PDF**, **XLSX**). Tam türü bilmek, dosyayı doğru işleme hattına yönlendirmenizi, güvenlik politikalarını uygulamanızı veya sadece son‑kullanıcılara doğru bilgi göstermenizi sağlar.
+## GroupDocs.Redaction ile java read file metadata nasıl yapılır
+**java read file metadata** adımlarını anlamak, mantığı uygulamanızda nerede konumlandıracağınızı belirlemenize yardımcı olur—yüklemeleri doğrulayan bir mikro‑service olsun ya da büyük belge koleksiyonlarını indeksleyen bir toplu iş olsun.
 
-## Java'da belge özelliklerini okumak için neden GroupDocs.Redaction kullanılmalı?
-- **Hepsi bir arada çözüm:** Kırpma, meta veri çıkarma ve format dönüşümü tek bir API altında bulunur.  
+### “get file type java” nedir ve neden önemlidir?
+`getFileType()` metodunu bir belge üzerinde çağırdığınızda, kütüphane dosya başlığını inceler ve dostane bir enum döndürür (ör. **DOCX**, **PDF**, **XLSX**). Tam türü bilmek, dosyayı doğru işleme boru hattına yönlendirmenizi, güvenlik politikalarını uygulamanızı veya son kullanıcılara doğru bilgi göstermeyi sağlar.
+
+### java read document properties için GroupDocs.Redaction neden kullanılmalı?
+- **Hepsi bir arada çözüm:** Redaksiyon, meta veri çıkarımı ve format dönüşümü tek bir API altında bulunur.  
 - **Akış dostu:** `InputStream` ile doğrudan çalışır, böylece dosyaları diskten, ağdan veya bulut depolamadan geçici dosyalar olmadan işleyebilirsiniz.  
-- **Performans odaklı:** Minimum bellek kullanımı ve `Redactor` örneğini kapattığınızda otomatik kaynak temizliği.
+- **Performans odaklı:** Minimum bellek ayak izi ve `Redactor` örneğini kapattığınızda otomatik kaynak temizliği.
 
 ## Önkoşullar
-1. **Java için GroupDocs.Redaction** (sürüm 24.9 veya üzeri).  
-2. JDK 8 ve üzeri.  
-3. Temel Java bilgisi ve dosya I/O akışlarına aşinalık.
+1. **GroupDocs.Redaction for Java** (sürüm 24.9 veya sonrası).  
+2. JDK 8 veya daha yenisi.  
+3. Temel Java bilgisi ve dosya I/O akışlarına aşinalık.  
 
-## Java için GroupDocs.Redaction Kurulumu
+## GroupDocs.Redaction for Java Kurulumu
 
 ### Maven Kurulumu
-Depoyu ve bağımlılığı `pom.xml` dosyanıza ekleyin:
+pom.xml dosyanıza depo ve bağımlılığı ekleyin:
 
 ```xml
 <repositories>
@@ -60,7 +64,7 @@ Depoyu ve bağımlılığı `pom.xml` dosyanıza ekleyin:
 ```
 
 ### Doğrudan İndirme
-Alternatif olarak, en son sürümü doğrudan [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/) adresinden indirin.
+Alternatif olarak, en son sürümü doğrudan [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/) adresinden indirebilirsiniz.
 
 ### Lisans Edinme
 - **Ücretsiz Deneme:** API'yi değerlendirmek için idealdir.  
@@ -78,24 +82,24 @@ final Redactor redactor = new Redactor(stream);
 // Proceed with document operations...
 ```
 
-## GroupDocs.Redaction ile dosya türünü nasıl alabilirsiniz
+## Meta verileri almak için adım adım rehber
 
-### Adım 1: Dosya Akışı Açma
-Hedef belge için bir `InputStream` oluşturarak başlayın:
+### Adım 1: Dosya Akışı Açın
+Hedef belge için bir `InputStream` oluşturun:
 
 ```java
 FileInputStream stream = new FileInputStream("YOUR_DOCUMENT_DIRECTORY/Sample.docx");
 ```
 
-### Adım 2: Redactor'ı Başlatma
-`Redactor` örneğini akışı kullanarak oluşturun. Bu nesne, belgenin meta verilerine erişmenizi sağlar.
+### Adım 2: Redactor'ı Başlatın
+Akışı kullanarak bir `Redactor` örneği oluşturun. Bu nesne belge meta verilerine erişim sağlar.
 
 ```java
 final Redactor redactor = new Redactor(stream);
 ```
 
-### Adım 3: Belge Bilgilerini Almak
-`getDocumentInfo()` metodunu çağırarak bir `IDocumentInfo` nesnesi elde edin. Burada **dosya türünü al**, diğer özellikleri okuyabilir ve hatta **sayfa sayısını al**.
+### Adım 3: Belge Bilgilerini Alın
+`getDocumentInfo()` metodunu çağırarak bir `IDocumentInfo` nesnesi elde edin. İşte **java read file metadata**, **java get document type**, **java get page count** ve hatta **read file size java** burada yapılır.
 
 ```java
 try {
@@ -116,62 +120,62 @@ Document size: " + info.getSize() + " bytes");
 
 > **Pro ipucu:** `System.out.println` satırlarının yorumunu yalnızca konsol çıktısına ihtiyacınız olduğunda kaldırın; üretimde yorumlu tutmak I/O yükünü azaltır.
 
-### Adım 4: Kaynakları Kapatma
-`Redactor` ve akışı her zaman bir `finally` bloğunda (gösterildiği gibi) kapatın; böylece özellikle paralel olarak çok sayıda belge işlediğinizde bellek sızıntılarını önlersiniz.
+### Adım 4: Kaynakları Kapatın
+`Redactor` ve akışı her zaman bir `finally` bloğunda (gösterildiği gibi) kapatın; özellikle paralel olarak çok sayıda belge işlediğinizde bellek sızıntılarını önler.
 
-## Pratik Uygulamalar (Java'da belge özelliklerini okuma)
+## Pratik Uygulamalar (java read document properties)
 
 1. **Belge Yönetim Sistemleri:** Dosyaları tür, sayfa sayısı ve boyuta göre otomatik kataloglayın.  
-2. **Veri‑Analitiği Boru Hatları:** Meta verileri raporlama için panellere besleyin.  
-3. **İçerik‑Oluşturma Platformları:** Kullanıcıların indirme veya ön izleme öncesinde dosya detaylarını görmesini sağlayın.
+2. **Veri Analitiği Boru Hatları:** Raporlama için meta verileri panellere besleyin.  
+3. **İçerik Oluşturma Platformları:** Kullanıcılara indirme veya ön izleme öncesinde dosya detaylarını gösterin.  
 
 ## Performans Düşünceleri
-- Büyük dosyalar için **buffered stream** (`BufferedInputStream`) kullanarak I/O hızını artırın.  
-- Kaynakları hızlı bir şekilde serbest bırakın (`Redactor` ve akışın `close()` metodu).  
-- Toplu işlem yaparken, nesne oluşturma yükünü azaltmak için her iş parçacığı başına tek bir `Redactor` örneğini yeniden kullanmayı düşünün.
+- Büyük dosyalar için **buffered streams** (`BufferedInputStream`) kullanın, I/O hızını artırır.  
+- Kaynakları hızlıca serbest bırakın (`Redactor` ve akışın `close()` metodunu çağırın).  
+- Toplu işlerde, nesne oluşturma yükünü azaltmak için her iş parçacığı başına tek bir `Redactor` örneği yeniden kullanmayı düşünün.
 
 ## Yaygın Sorunlar ve Çözümler
-
 | Belirti | Muhtemel Neden | Çözüm |
-|---------|----------------|------|
+|---------|----------------|-------|
 | `FileNotFoundException` | Yanlış yol veya eksik dosya | Mutlak/göreli yolu ve dosya izinlerini doğrulayın. |
-| `LicenseException` | Geçerli lisans yüklenmemiş | `Redactor` oluşturmadan önce bir deneme veya satın alınmış lisans yükleyin. |
-| `OutOfMemoryError` büyük PDF'lerde | Buffer'lenmemiş akış veya aynı anda çok sayıda dosya işlenmesi | `BufferedInputStream` kullanın ve eşzamanlı iş parçacıklarını sınırlayın. |
+| `LicenseException` | Geçerli lisans yüklenmemiş | `Redactor` oluşturulmadan önce bir deneme veya satın alınmış lisans yükleyin. |
+| `OutOfMemoryError` on large PDFs | Buffer'siz akış veya aynı anda çok sayıda dosya işlenmesi | `BufferedInputStream` kullanın ve eşzamanlı iş parçacığı sayısını sınırlayın. |
 
 ## Sıkça Sorulan Sorular
 
 **S: GroupDocs.Redaction ne için kullanılır?**  
-C: Öncelikle hassas içeriği kırpmak için kullanılır, ayrıca **Java'da belge özelliklerini okuma** gibi dosya türü ve sayfa sayısı gibi robust API'ler sunar.
+C: Öncelikle hassas içeriği redakte etmek için kullanılır, ayrıca dosya türü ve sayfa sayısı gibi **java read document properties** için sağlam API'ler sunar.
 
 **S: GroupDocs.Redaction'ı diğer Java çerçeveleriyle kullanabilir miyim?**  
 C: Evet, kütüphane Spring, Jakarta EE ve hatta sade Java SE projeleriyle sorunsuz çalışır.
 
 **S: Çok büyük belgeleri verimli bir şekilde nasıl yönetebilirim?**  
-C: Dosya akışını `BufferedInputStream` ile sarın, kaynakları hızlıca kapatın ve tüm belgeyi belleğe yüklemek yerine akış şeklinde işlemeyi düşünün.
+C: Dosya akışını `BufferedInputStream` ile sarın, kaynakları hızlıca kapatın ve belgeyi belleğe tamamen yüklemek yerine akış şeklinde işlemeyi düşünün.
 
 **S: Kütüphane İngilizce dışı belgeleri destekliyor mu?**  
-C: Kesinlikle—GroupDocs.Redaction kutudan çıkar çıkmaz birden fazla dil ve karakter setini yönetir.
+C: Kesinlikle—GroupDocs.Redaction kutudan çıkar çıkmaz birden fazla dil ve karakter setini destekler.
 
 **S: Meta veri çıkarırken tipik tuzaklar nelerdir?**  
-C: Eksik lisanslar, yanlış dosya yolları ve akışları kapatmayı unutmak en yaygın olanlardır. Her zaman yukarıda gösterilen kaynak‑temizleme desenini izleyin.
+C: Eksik lisanslar, yanlış dosya yolları ve akışları kapatmayı unutmak en yaygın olanlarıdır. Yukarıda gösterilen kaynak temizleme desenini her zaman izleyin.
 
 ## Sonuç
-Artık **dosya türünü al**, diğer belge özelliklerini okuyabilir ve **sayfa sayısını al** için GroupDocs.Redaction kullanarak eksiksiz, üretim‑hazır bir tarifiniz var. Bu kod parçacıklarını mevcut hizmetlerinize entegre edin ve sisteminizden geçen her belgeye anında görünürlük kazanın.
+Artık **java read file metadata**, diğer belge özelliklerini okuma ve GroupDocs.Redaction kullanarak **java get page count** için eksiksiz, üretime hazır bir tarifiniz var. Bu kod parçacıklarını mevcut hizmetlerinize entegre edin, sisteminizde akan her belgeye anlık görünürlük kazanın.
 
 **Sonraki Adımlar**  
 - `IDocumentInfo` tarafından sunulan diğer meta veri alanlarıyla deney yapın.  
-- Meta veri çıkarımını kırpma iş akışlarıyla birleştirerek uçtan uca belge güvenliği sağlayın.  
-- Yüksek hacimli ortamlar için toplu işleme desenlerini keşfedin.
+- Meta veri çıkarımını redaksiyon iş akışlarıyla birleştirerek uçtan uca belge güvenliği sağlayın.  
+- Yüksek hacimli ortamlar için toplu iş işleme desenlerini keşfedin.
 
-## Kaynaklar  
-- [Documentation](https://docs.groupdocs.com/redaction/java/)  
-- [API Reference](https://reference.groupdocs.com/redaction/java)  
-- [Download GroupDocs.Redaction for Java](https://releases.groupdocs.com/redaction/java/)  
-- [GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
-- [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)  
-- [Temporary License Information](https://purchase.groupdocs.com/temporary-license/)
+**Kaynaklar**  
+- [Dokümantasyon](https://docs.groupdocs.com/redaction/java/)  
+- [API Referansı](https://reference.groupdocs.com/redaction/java)  
+- [GroupDocs.Redaction for Java İndir](https://releases.groupdocs.com/redaction/java/)  
+- [GitHub Deposu](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
+- [Ücretsiz Destek Forumu](https://forum.groupdocs.com/c/redaction/33)  
+- [Geçici Lisans Bilgileri](https://purchase.groupdocs.com/temporary-license/)  
 
----  
-**Last Updated:** 2026-01-06  
-**Tested With:** GroupDocs.Redaction 24.9 for Java  
-**Author:** GroupDocs  
+---
+
+**Son Güncelleme:** 2026-03-22  
+**Test Edilen Versiyon:** GroupDocs.Redaction 24.9 for Java  
+**Yazar:** GroupDocs

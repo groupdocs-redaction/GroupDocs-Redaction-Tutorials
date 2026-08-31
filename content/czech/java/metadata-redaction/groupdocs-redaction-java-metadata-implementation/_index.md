@@ -1,47 +1,50 @@
 ---
-date: '2026-01-08'
-description: Naučte se, jak používat EraseMetadataRedaction v Javě s GroupDocs. Tento
-  tutoriál vás provede redakcí metadat, ukazuje příklady kódu a osvědčené postupy.
+date: '2026-03-22'
+description: Naučte se, jak v Javě pomocí GroupDocs vymazat metadata a odstranit metadata
+  autora. Tento tutoriál vám ukáže, jak bezpečně uložit cenzurované dokumenty.
 keywords:
 - metadata redaction in Java
 - GroupDocs Redaction setup
 - removing metadata fields
-title: 'Jak použít EraseMetadataRedaction v Javě s GroupDocs - krok za krokem průvodce'
+title: 'Jak odstranit metadata v Javě pomocí GroupDocs: krok za krokem'
 type: docs
 url: /cs/java/metadata-redaction/groupdocs-redaction-java-metadata-implementation/
 weight: 1
 ---
 
-# Jak používat EraseMetadataRedaction v Javě s GroupDocs: Průvodce krok za krokem
+# Jak odstranit metadata v Javě pomocí GroupDocs
 
-V dnešním digitálním světě je ochrana citlivých informací v dokumentech nezbytných. V tomto průvodci **se naučíte, jak používat EraseMetadataRedaction** k odstranění metadat, jako jsou *Author* a *Manager*, z Word soubory pomocí GroupDocs.Redaction pro Javu. Na konci tutoriálu budete mít čistý, bezpečný dokument připravený ke sdílení nebo archivaci.
+V dnešním digitálním světě je ochrana citlivých informací v dokumentech nezbytná a **znalost toho, jak odstranit metadata**, je klíčovou součástí této ochrany. V tomto průvodci se naučíte, jak použít `EraseMetadataRedaction` k odstranění metadat, jako jsou *Author* a *Manager*, z Word souborů pomocí GroupDocs.Redaction pro Javu. Na konci tutoriálu budete mít čistý, soukromí‑bezpečný dokument a budete vědět, jak **uložit redigovaný dokument** pro bezpečné sdílení nebo archivaci.
 
-## Rychlé odpovědi
-- **Co dělá EraseMetadataRedaction?** Odstraňuje vybraná pole metadat z dokumentu.
-- **Která knihovna tuto funkci poskytuje?** GroupDocs.Redaction pro Javu.
-- **Potřebuji licenci?** Bezplatná zkušební verze funguje pro testování; pro produkci je vyžadována trvalá licence.
-- **Mohu cílit na více polí najednou?** Ano, kombinujte filtry pomocí logického OR.
-- **Je proces thread‑safe?** Instance Redactoru nejsou sdíleny mezi vlákny; druhá nová instance pro každou operaci.
+## Quick Answers
+- **Co dělá EraseMetadataRedaction?** Odstraňuje vybraná metadata pole z dokumentu.  
+- **Která knihovna tuto funkci poskytuje?** GroupDocs.Redaction pro Javu.  
+- **Potřebuji licenci?** Bezplatná zkušební verze funguje pro testování; pro produkci je vyžadována trvalá licence.  
+- **Mohu cílit na více polí najednou?** Ano, kombinujte filtry pomocí logického OR.  
+- **Je proces thread‑safe?** Instance Redactor nejsou sdíleny mezi vlákny; vytvořte novou instanci pro každou operaci.
 
-## Co je EraseMetadataRedaction?
-`EraseMetadataRedaction` je vestavěná třída pro redakci, která vám umožňuje určit, které položky metadat mají být odstraněny. Funguje na široké škále podporovaných formátů dokumentů GroupDocs.Redaction, což zajišťuje, že skryté informace o autorovi nikdy neuniknou.
+## Jak odstranit metadata v Javě
+Tato sekce vás provede přesnými kroky potřebnými k **odstranění autorových metadat** a dalších nechtěných vlastností z vašich souborů.
 
-## Proč používat EraseMetadataRedaction s GroupDocs?
-- **Compliance** – Vyplňte GDPR, HIPAA nebo firemní politiku odstraněním osobních identifikátorů.
-- **Consistency** – Použijte stejnou logiku redakce napříč PDF, DOCX, PPTX a dalšími.
-- **Performance** – Redakce běží v paměti bez potřeby externích nástrojů.
+### Co je EraseMetadataRedaction?
+`EraseMetadataRedaction` je vestavěná třída pro redakci, která vám umožňuje určit, které položky metadat mají být odstraněny. Funguje na široké škále formátů dokumentů podporovaných GroupDocs.Redaction, čímž zajišťuje, že skryté informace o autorovi nikdy neuniknou.
+
+### Proč používat EraseMetadataRedaction s GroupDocs?
+- **Soulad** – Splňte GDPR, HIPAA nebo firemní politiky odstraněním osobních identifikátorů.  
+- **Konzistence** – Použijte stejnou logiku redakce napříč PDF, DOCX, PPTX a dalšími.  
+- **Výkon** – Redakce běží v paměti bez potřeby externích nástrojů.  
 - **Flexibilita** – Kombinujte více `MetadataFilters` k přesnému cílení na to, co potřebujete.
 
-## Předpoklady
-- Java 8nebo vyšší nainstalována.
-- Maven (nebo možnost přidat JAR soubory ručně).
-- GroupDocs.Redaction pro Java (verze24.9nebo novější).
+## Prerequisites
+- Java 8 nebo novější nainstalována.  
+- Maven (nebo možnost přidat JAR soubory ručně).  
+- GroupDocs.Redaction pro Java (verze 24.9 nebo novější).  
 - Platná zkušební nebo trvalá licence GroupDocs.
 
-## Nastavení GroupDocs.Redaction pro Java
+## Setting Up GroupDocs.Redaction for Java
 
-### Instalace Maven
-Add the GroupDocs repository and dependency to your **pom.xml**:
+### Maven Installation
+Přidejte repozitář GroupDocs a závislost do vašeho **pom.xml**:
 
 ```xml
 <repositories>
@@ -61,14 +64,14 @@ Add the GroupDocs repository and dependency to your **pom.xml**:
 </dependencies>
 ```
 
-### Přímé stažení
-Případně si stáhněte nejnovější JAR z [GroupDocs.Redaction for Java release] (https://releases.groupdocs.com/redaction/java/).
+### Direct Download
+Alternatively, download the latest JAR from [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
-### Získání licence
-Získejte bezplatnou zkušební verzi nebo zakupte dočasnou licenci z portálu GroupDocs. Soubor licence by měl být umístěn tam, kde její může vaše aplikace načíst (např. kořen classpath).
+### License Acquisition
+Obtain a free trial or purchase a temporary license from the GroupDocs portal. The license file should be placed where your application can load it (e.g., classpath root).
 
-### Základní inicializace a nastavení
-Níže je uveden minimální příklad, který vytvoří instanci „Redactor“ pro soubor DOCX:
+### Basic Initialization and Setup
+Below is a minimal example that creates a `Redactor` instance for a DOCX file:
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -77,17 +80,17 @@ String filePath = "YOUR_DOCUMENT_DIRECTORY/sample.docx";
 Redactor redactor = new Redactor(filePath);
 ```
 
-## Jak používat EraseMetadataRedaction v Javě
-V následujících sekcích je implementace rozdělena do jasných, akčních kroků.
+## How to Use EraseMetadataRedaction in Java
+Následující sekce rozdělují implementaci na jasné, akční kroky.
 
-### Funkce: Vyčistěte specifické položky metadat
+### Feature: Clean Specific Metadata Items
 
-#### Přehled
-Odstraníme metadata **Author** a **Manager** pomocí `EraseMetadataRedaction`. To je častý požadavek při sdílení interních zpráv s externími partnery.
+#### Overview
+We will erase the **Author** and **Manager** metadata fields using `EraseMetadataRedaction`. This is a common requirement when sharing internal reports with external partners.
 
-#### Implementace krok za krokem
+#### Step‑by‑Step Implementation
 
-##### 1️⃣ Inicializujte objekt Redactor
+##### 1️⃣ Initialize the Redactor Object
 Create a `Redactor` instance that points to the document you want to clean:
 
 ```java
@@ -97,8 +100,8 @@ String inputFilePath = "YOUR_DOCUMENT_DIRECTORY/sample.docx";
 final Redactor redactor = new Redactor(inputFilePath);
 ```
 
-##### 2️⃣ Použijte třídu EraseMetadataRedaction
-Použijte třídu `EraseMetadataRedaction` společně s třídou `MetadataFilters`. Bitový operátor OR (`|`) kombinuje filtry `Author` a `Manager`, takže obě pole jsou odstraněna v jednom volání:
+##### 2️⃣ Apply EraseMetadataRedaction
+Use the `EraseMetadataRedaction` class together with `MetadataFilters`. The bitwise OR (`|`) combines the `Author` and `Manager` filters so both fields are removed in one call:
 
 ```java
 import com.groupdocs.redaction.redactions.EraseMetadataRedaction;
@@ -111,8 +114,8 @@ try {
 }
 ```
 
-##### 3️⃣ Konfigurace možností ukládání
-Úpravou políčka „Možnosti ukládání“ určete název výstupního souboru a zda má být dokument rastrován do PDF:
+##### 3️⃣ Configure Save Options
+Adjust the `SaveOptions` to control the output file name and whether the document should be rasterized to PDF:
 
 ```java
 import com.groupdocs.redaction.options.SaveOptions;
@@ -124,62 +127,58 @@ saveOptions.setRasterizeToPDF(false);
 redactor.save(saveOptions);
 ```
 
-### Tipy pro odstraňování problémů
-- **File not found** – Ověřte, že cesta v `inputFilePath` ukazuje na existující soubor a že aplikace má oprávnění ke čtení.
-- **Chybí pole metadat** – Ne všechny typy dokumentů ukládají stejná klíče metadat; nejprve především vlastnosti dokumentu v Office.
-- **License errors** – naleznete se, že soubor licence je načten správně před vytvořením instance `Redactor`.
+### Common Use Cases
+1. **Právní dokumenty** – Redigujte informace o autorovi před odesláním smluv protistrannému právnímu zástupci.  
+2. **Firemní zprávy** – Odstraňte jména manažerů při zveřejňování čtvrtletních výsledků akcionářům.  
+3. **Projektové soubory** – Vyčistěte interní projektovou dokumentaci před archivací nebo nahráním do veřejného úložiště.
 
-## Praktické aplikace
-1. **Legal Documents** – Redigujte informace o autorovi před odesláním smluv protistrany.
-2. **Corporate Reports** – Odstraňte jména manažerů při publikacích čtvrtletních výsledků akcionářům.
-3. **Project Files** – Vyčištění interní projektové dokumentace před archivací nebo nahráním do veřejného repozitáře.
+### Troubleshooting Tips
+- **Soubor nenalezen** – Ověřte, že cesta v `inputFilePath` ukazuje na existující soubor a že aplikace má oprávnění ke čtení.  
+- **Chybějící pole metadat** – Ne všechny typy dokumentů ukládají stejné klíče metadat; nejprve zkontrolujte vlastnosti dokumentu v Office.  
+- **Chyby licence** – Ujistěte se, že soubor licence je správně načten před vytvořením instance `Redactor`.
 
-## Úvahy o výkonu
-- Uzavřete objekt `Redactor` okamžitě (jak je ukázáno v bloku `konečně`), aby se uvolnily nativní zdroje.
+## Performance Considerations
+- Uzavřete objekt `Redactor` okamžitě (jak je ukázáno v bloku `finally`), aby se uvolnily nativní zdroje.  
 - Vyhněte se rasterizaci velkých dokumentů, pokud nepotřebujete PDF náhled; rasterizace může výrazně zvýšit zatížení CPU a paměti.
 
-## Závěr
-Nyní víte **jak používat EraseMetadataRedaction** v Javě s GroupDocs k bezpečnému odstranění citlivých metadat z vašich dokumentů. Tato funkce vám pomůže zůstat v souladu s předpisy, chránit soukromí a sebejistě sdílet čisté soubory. Klidně tuto metodiku začleňte do větších pracovních postupů – dávkové zpracování, webové služby nebo automatizované pipeline dokumentů.
+## Frequently Asked Questions
 
-## Sekce FAQ
+**Q1: Co je redakce metadat?**  
+A1: Redakce metadat zahrnuje odstranění skrytých vlastností dokumentu (jako autor, manažer nebo vlastní značky), aby se zabránilo neúmyslnému odhalení citlivých informací.
 
-**Q1: ​​Co je redakce metadat?**
-A1: Redakce metadat zahrnuje odstranění skrytých vlastností dokumentu (jako autor, manažer nebo vlastní štítky), aby došlo k neúmyslnému odhalení citlivých informací.
-
-**Q2: Mohu použít GroupDocs.Redaction pro jiné typy souborů?**
+**Q2: Mohu použít GroupDocs.Redaction pro jiné typy souborů?**  
 A2: Ano, knihovna podporuje PDF, DOCX, PPTX, XLSX a mnoho dalších formátů.
 
-**Q3: Jak zacházet s chybami během redakce?**
-A3: Zabalte volání `apply` do bloku try-catch a vždy uzavřete `Redactor` v bloku nakonec, aby byly zdroje uvolněny.
+**Q3: Jak zacházet s chybami během redakce?**  
+A3: Zabalte volání `apply` do try‑catch bloku a vždy uzavřete `Redactor` v finally bloku, aby byly zdroje uvolněny.
 
-**Q4: Je možné redigovat vlastní pole metadat?**
-A4: Rozhodně. Použijte `MetadataFilters.Custom("YourFieldName")` (nebo odpovídající enum) k cílení na libovolnou vlastní vlastnost.
+**Q4: Je možné redigovat vlastní pole metadat?**  
+A4: Absolutně. Použijte `MetadataFilters.Custom("YourFieldName")` (nebo odpovídající enum) k cílení na jakoukoli vlastní vlastnost.
 
-**Q5: Jaké jsou nejlepší postupy pro používání GroupDocs.Redaction?**
-- Načtěte si licenci co nejdříve ve vaší aplikaci
-- Okamžitě zavřete objekty `Redactor`.
-- Použijte `SaveOptions` k přidání přípony, aby originální soubory zůstaly nedotčeny.
-- Otestujte redakci na kopii dokumentu před zpracováním dávek.
+**Q5: Jaké jsou nejlepší postupy pro používání GroupDocs.Redaction?**  
+A5:  
+- Načtěte licenci co nejdříve ve vaší aplikaci.  
+- Uzavírejte objekty `Redactor` okamžitě.  
+- Použijte `SaveOptions` k přidání přípony, aby originální soubory zůstaly nedotčeny.  
+- Testujte redakci na kopii dokumentu před zpracováním dávky.
 
-**Q6: Podporuje EraseMetadataRedaction dávkové operace?**
-A6: Můžete iterovat přes kolekci cest k souborům, vytvořit nový `Redactor` pro každý soubor a stejnou logiku redakce.
+**Q6: Podporuje EraseMetadataRedaction dávkové operace?**  
+A6: Můžete iterovat přes kolekci cest k souborům, vytvořit nový `Redactor` pro každý soubor a aplikovat stejnou logiku redakce.
 
-**Q7: Mohu kombinovat EraseMetadataRedaction s jinými typy redakce?**
-A7: Ano, můžete řetězit více redakčních objektů (např. textovou redakci následovanou redakcí metadat) před uložením.
+**Q7: Mohu kombinovat EraseMetadataRedaction s jinými typy redakce?**  
+A7: Ano, můžete řetězit více redakčních objektů (např. textová redakce následovaná redakcí metadat) před uložením.
 
-## Zdroje
+## Resources
 
-- **Dokumentace**: [GroupDocs Redaction Java Docs](https://docs.groupdocs.com/redaction/java/)
-- **Referenční informace k API**: [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)
-- **Ke stažení**: [Nejnovější verze](https://releases.groupdocs.com/redaction/java/)
-- **GitHub**: [GroupDocs GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
-- **Bezplatná podpora**: [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)
-- **Dočasná licence**: [Získejte dočasnou licenci](https://purchase.groupdocs.com/temporary-license)
-
----
-
-**Poslední aktualizace:** 2026-01-08
-**Testováno s:** GroupDocs.Redaction 24.9 pro Javu
-**Autor:** GroupDocs 
+- **Dokumentace**: [GroupDocs Redaction Java Docs](https://docs.groupdocs.com/redaction/java/)  
+- **API Reference**: [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)  
+- **Stáhnout**: [Latest Releases](https://releases.groupdocs.com/redaction/java/)  
+- **GitHub**: [GroupDocs GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
+- **Bezplatná podpora**: [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)  
+- **Dočasná licence**: [Acquire a Temporary License](https://purchase.groupdocs.com/temporary-license)
 
 ---
+
+**Last Updated:** 2026-03-22  
+**Tested With:** GroupDocs.Redaction 24.9 for Java  
+**Author:** GroupDocs

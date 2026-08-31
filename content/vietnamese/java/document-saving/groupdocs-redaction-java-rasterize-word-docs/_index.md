@@ -1,14 +1,14 @@
 ---
-date: '2025-12-21'
-description: Tìm hiểu cách chuyển đổi docx sang hình ảnh và xóa thông tin trong các
-  tệp Word bằng GroupDocs Redaction cho Java. Hướng dẫn chi tiết từng bước bao gồm
-  raster hóa, xóa khu vực hình ảnh và cài đặt Maven.
+date: '2026-02-21'
+description: Tìm hiểu cách chuyển đổi docx sang hình ảnh và xóa thông tin nhạy cảm
+  trong tệp Word bằng GroupDocs Redaction cho Java. Hướng dẫn từng bước bao gồm raster
+  hoá, xóa khu vực hình ảnh và cài đặt Maven.
 keywords:
 - GroupDocs Redaction Java
 - Word document rasterization
 - secure redaction
-title: Cách Chuyển Đổi DOCX Sang Hình Ảnh & Che Mờ Tài Liệu Word Bằng GroupDocs Redaction
-  Java
+title: Cách chuyển đổi DOCX sang hình ảnh và xóa thông tin nhạy cảm trong tài liệu
+  Word bằng GroupDocs Redaction Java
 type: docs
 url: /vi/java/document-saving/groupdocs-redaction-java-rasterize-word-docs/
 weight: 1
@@ -16,43 +16,37 @@ weight: 1
 
 # Chuyển DOCX sang Hình ảnh & Che dấu Tài liệu Word bằng GroupDocs Redaction Java
 
-Bảo vệ thông tin nhạy cảm trong các tệp Microsoft Word là một thách thức hàng ngày đối với các nhà phát triển xây dựng các ứng dụng tập trung vào tài liệu. Cho dù bạn cần ẩn dữ liệu cá nhân, tuân thủ GDPR, hoặc chuẩn bị hợp đồng pháp lý để xem xét bên ngoài, **chuyển đổi docx sang hình ảnh** trước khi che dấu đảm bảo bố cục gốc vẫn nguyên vẹn trong khi nội dung được ẩn một cách an toàn.
+Bảo vệ thông tin nhạy cảm trong các tệp Microsoft Word là một thách thức hàng ngày đối với các nhà phát triển xây dựng các ứng dụng tập trung vào tài liệu. Cho dù bạn cần ẩn dữ liệu cá nhân, tuân thủ GDPR, hoặc chuẩn bị các hợp đồng pháp lý để xem xét bên ngoài, **convert docx to image** trước khi che dấu đảm bảo bố cục gốc vẫn nguyên vẹn trong khi nội dung được ẩn một cách an toàn. Trong hướng dẫn này, bạn cũng sẽ thấy cách quy trình thực hiện **convert word to pdf** một cách hiệu quả, cung cấp cho bạn một PDF rasterized hoàn hảo để che dấu dữ liệu nhạy cảm.
 
-Trong tutorial này bạn sẽ học cách:
+## Quick Answers
+- **“convert docx to image” có nghĩa là gì?**  
+  Nó rasterizes mỗi trang của tệp Word thành một bitmap, giữ nguyên bố cục để che dấu một cách đáng tin cậy.  
+- **Artifact Maven nào được yêu cầu?** `com.groupdocs:groupdocs-redaction` (xem phần *groupdocs maven dependency*).  
+- **Tôi có thể ẩn văn bản trong Java không?** Có—sử dụng `ImageAreaRedaction` với `RegionReplacementOptions` để phủ một màu đồng nhất.  
+- **Tôi có cần giấy phép không?** Một giấy phép dùng thử hoạt động cho việc đánh giá; giấy phép thương mại là bắt buộc cho môi trường sản xuất.  
+- **Đầu ra là PDF hay tệp hình ảnh?** Bước rasterization tạo ra một PDF trong đó mỗi trang là một hình ảnh, sẵn sàng để che dấu.
 
-- **Convert DOCX to image** bằng cách raster hoá tài liệu Word với GroupDocs Redaction cho Java.  
-- Áp dụng **image area redaction** trên PDF đã raster hoá để ẩn văn bản hoặc đồ họa.  
-- Thiết lập **GroupDocs Maven dependency** và quản lý giấy phép.  
+## “convert docx to image” là gì?
+Rasterizing một tệp DOCX chuyển đổi mỗi trang thành một hình ảnh (thường được nhúng trong PDF). Việc chuyển đổi này loại bỏ văn bản có thể chọn được, khiến các thao tác che dấu sau này trở nên không thể đảo ngược và không thể bị giả mạo.
 
-Hãy cùng đi qua toàn bộ quy trình, từ chuẩn bị môi trường đến lưu tài liệu cuối cùng.
-
-## Câu trả lời nhanh
-- **What does “convert docx to image” mean?** Nó raster hoá mỗi trang của tệp Word thành một bitmap, giữ nguyên bố cục để che dấu một cách đáng tin cậy.  
-- **Which Maven artifact is required?** `com.groupdocs:groupdocs-redaction` (xem phần *groupdocs maven dependency*).  
-- **Can I hide text in Java?** Có — sử dụng `ImageAreaRedaction` cùng `RegionReplacementOptions` để phủ một màu đồng nhất.  
-- **Do I need a license?** Giấy phép dùng thử hoạt động cho việc đánh giá; giấy phép thương mại cần thiết cho môi trường sản xuất.  
-- **Is the output a PDF or an image file?** Bước raster hoá tạo ra một PDF trong đó mỗi trang là một hình ảnh, sẵn sàng cho việc che dấu.
-
-## Convert docx sang hình ảnh là gì?
-Raster hoá một tệp DOCX chuyển đổi mọi trang thành một hình ảnh (thường được nhúng trong PDF). Việc chuyển đổi này loại bỏ khả năng chọn văn bản, khiến các thao tác che dấu sau này không thể đảo ngược và chống giả mạo.
-
-## Tại sao nên dùng GroupDocs Redaction cho Java?
-- **Accurate layout preservation** – định dạng Word gốc vẫn giữ nguyên.  
-- **Fine‑grained redaction** – bạn có thể nhắm mục tiêu các vùng cụ thể, hình ảnh, hoặc toàn bộ trang.  
-- **Seamless Maven integration** – *groupdocs maven dependency* nhẹ và được cập nhật thường xuyên.  
-- **Cross‑platform support** – hoạt động trên bất kỳ hệ điều hành nào chạy Java 8+.
+## Tại sao nên sử dụng GroupDocs Redaction cho Java?
+- **Bảo tồn bố cục chính xác** – định dạng Word gốc vẫn giữ nguyên.  
+- **Che dấu chi tiết** – bạn có thể nhắm mục tiêu các vùng cụ thể, hình ảnh, hoặc toàn bộ trang.  
+- **Tích hợp Maven liền mạch** – *groupdocs maven dependency* nhẹ và được cập nhật thường xuyên.  
+- **Hỗ trợ đa nền tảng** – hoạt động trên bất kỳ hệ điều hành nào chạy Java 8+.  
+- **Che dấu dữ liệu nhạy cảm** – thư viện được xây dựng để loại bỏ an toàn thông tin cá nhân hoặc bí mật.
 
 ## Yêu cầu trước
 - JDK 8 hoặc mới hơn đã được cài đặt.  
 - Một IDE như IntelliJ IDEA, Eclipse, hoặc NetBeans.  
-- Kết nối Internet để tải các artifact Maven hoặc JAR trực tiếp.  
+- Kết nối Internet để tải về các artifact Maven hoặc JAR trực tiếp.  
 - Kiến thức cơ bản về Java và quen thuộc với Maven.
 
-## Cài đặt GroupDocs.Redaction cho Java
+## Setting Up GroupDocs.Redaction for Java
 
 ### Maven Dependency (groupdocs maven dependency)
 
-Thêm kho lưu trữ chính thức của GroupDocs và thư viện Redaction vào file `pom.xml` của bạn:
+Add the official GroupDocs repository and the Redaction library to your `pom.xml`:
 
 ```xml
 <repositories>
@@ -72,15 +66,16 @@ Thêm kho lưu trữ chính thức của GroupDocs và thư viện Redaction và
 </dependencies>
 ```
 
-**Direct Download** – Nếu bạn không muốn dùng Maven, tải JAR mới nhất từ trang chính thức: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+**Tải trực tiếp** – Nếu bạn không muốn sử dụng Maven, tải JAR mới nhất từ trang chính thức: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
-### License Acquisition
-1. Yêu cầu **free trial license** từ cổng thông tin GroupDocs.  
-2. Đối với triển khai sản xuất, mua **commercial license** và thay thế key dùng thử bằng key vĩnh viễn của bạn.
+### Nhận giấy phép
 
-## Hướng dẫn từng bước
+1. Yêu cầu **giấy phép dùng thử miễn phí** từ cổng GroupDocs.  
+2. Đối với triển khai sản xuất, mua **giấy phép thương mại** và thay thế khóa dùng thử bằng khóa vĩnh viễn của bạn.
 
-### Step 1: Import Required Classes (how to rasterize word)
+## Step‑by‑Step Guide
+
+### Bước 1: Nhập các lớp cần thiết (cách rasterize word)
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -91,7 +86,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 ```
 
-### Step 2: Load and Rasterize the DOCX (convert docx to image)
+### Bước 2: Tải và rasterize DOCX (convert docx to image)
 
 ```java
 String inputFilePath = "YOUR_DOCUMENT_DIRECTORY/sample.docx";
@@ -107,17 +102,17 @@ try (Redactor rasterizer = new Redactor(inputFilePath)) {
 }
 ```
 
-**Explanation:** `RasterizationOptions` chỉ cho GroupDocs render mỗi trang dưới dạng hình ảnh. `ByteArrayOutputStream` giữ kết quả trong bộ nhớ, sẵn sàng cho bước tiếp theo mà không cần ghi file trung gian.
+**Giải thích:** `RasterizationOptions` chỉ cho GroupDocs render mỗi trang dưới dạng hình ảnh. `ByteArrayOutputStream` giữ kết quả trong bộ nhớ, sẵn sàng cho bước tiếp theo mà không ghi các tệp trung gian. Bước này cũng **convert word to pdf** phía sau—mỗi trang đã rasterized được lưu trong một container PDF.
 
-### Step 3: Prepare the Rasterized Output for Redaction
+### Bước 3: Chuẩn bị đầu ra đã rasterized cho việc che dấu
 
 ```java
 ByteArrayInputStream inputStream = new ByteArrayInputStream(stream.toByteArray());
 ```
 
-Bây giờ PDF đã raster hoá có sẵn dưới dạng `InputStream`, bạn có thể truyền trực tiếp vào engine che dấu.
+Bây giờ PDF đã rasterized có sẵn dưới dạng `InputStream`, bạn có thể truyền trực tiếp vào engine che dấu.
 
-### Step 4: Apply Image Area Redaction (how to redact word)
+### Bước 4: Áp dụng Image Area Redaction (cách redact word)
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -152,52 +147,60 @@ try (Redactor redactor = new Redactor(inputStream)) {
 }
 ```
 
-**Explanation:**  
-- `ImageAreaRedaction` nhắm vào một vùng hình chữ nhật được xác định bởi `startPoint` và `size`.  
-- `RegionReplacementOptions` cho phép bạn chọn màu phủ (xanh dương trong ví dụ này) và kích thước của hình chữ nhật thay thế.  
-- Sau khi áp dụng che dấu, tài liệu được lưu dưới dạng PDF raster hoá với vùng nhạy cảm được ẩn một cách an toàn.
+**Giải thích:**  
+- `ImageAreaRedaction` nhắm vào một vùng hình chữ nhật được định nghĩa bởi `startPoint` và `size`.  
+- `RegionReplacementOptions` cho phép bạn chọn màu phủ (màu xanh trong ví dụ này) và kích thước của hình chữ nhật thay thế.  
+- Sau khi áp dụng che dấu, tài liệu được lưu dưới dạng PDF rasterized với khu vực nhạy cảm được ẩn một cách an toàn. Đây là cách cốt lõi để **hide text java** mà các nhà phát triển cần khi làm việc với nội dung Word bí mật.
 
-## Ứng dụng thực tiễn (how to redact word)
+## Cách chuyển Word sang PDF và Che dấu Dữ liệu Nhạy cảm
 
-| Scenario | Why Rasterize & Redact? |
-|----------|--------------------------|
+Quá trình rasterization tự động **convert word to pdf**, nhúng mỗi trang dưới dạng hình ảnh trong tệp PDF. Khi ở định dạng này, bạn có thể sử dụng GroupDocs Redaction để **redact sensitive data** như các định danh cá nhân, số tài chính, hoặc đồ họa sở hữu. Vì văn bản không còn có thể chọn được, việc che dấu trở nên không thể bị giả mạo.
+
+## Cách ẩn Văn bản trong Java bằng GroupDocs
+
+Nếu trường hợp sử dụng của bạn chỉ là che khuất một phần tài liệu, lớp `ImageAreaRedaction` cung cấp một API đơn giản. Bằng cách chỉ định tọa độ và màu thay thế, bạn có thể **hide text in Java** mà không cần xử lý PDF ở mức thấp.
+
+## Ứng dụng Thực tiễn (cách redact word)
+
+| Kịch bản | Tại sao phải rasterize & che dấu? |
+|----------|-----------------------------------|
 | **Legal contracts** | Đảm bảo tính bảo mật cho khách hàng trước khi chia sẻ bản nháp. |
-| **Medical records** | Loại bỏ PHI trong khi giữ nguyên bố cục báo cáo gốc. |
-| **Financial statements** | Che dấu số tài khoản hoặc số liệu sở hữu cho các cuộc kiểm toán bên ngoài. |
+| **Medical records** | Xóa PHI trong khi giữ nguyên bố cục báo cáo gốc. |
+| **Financial statements** | Che giấu số tài khoản hoặc số liệu sở hữu cho các cuộc kiểm toán bên ngoài. |
 
-## Các cân nhắc về hiệu năng
+## Các cân nhắc về hiệu suất
 
-- **Memory Management:** Sử dụng streams (`ByteArrayOutputStream` / `ByteArrayInputStream`) để tránh tải toàn bộ file vào bộ nhớ.  
-- **CPU Usage:** Raster hoá tiêu tốn CPU cao; cân nhắc tăng heap JVM (`-Xmx2g`) cho các tệp DOCX lớn.  
-- **Version Updates:** Giữ thư viện GroupDocs luôn cập nhật (ví dụ: 24.9) để tận dụng các cải tiến về hiệu năng và sửa lỗi.
+- **Quản lý bộ nhớ:** Sử dụng streams (`ByteArrayOutputStream` / `ByteArrayInputStream`) để tránh tải toàn bộ tệp vào bộ nhớ.  
+- **Sử dụng CPU:** Rasterization tiêu tốn nhiều CPU; cân nhắc tăng heap JVM (`-Xmx2g`) cho các tệp DOCX lớn.  
+- **Cập nhật phiên bản:** Giữ thư viện GroupDocs luôn cập nhật (ví dụ, 24.9) để hưởng lợi từ các cải tiến hiệu suất và sửa lỗi.
 
 ## Các vấn đề thường gặp & Giải pháp (hide text java)
 
-| Issue | Solution |
-|-------|----------|
+| Vấn đề | Giải pháp |
+|--------|-----------|
 | **OutOfMemoryError** khi xử lý DOCX lớn | Xử lý tài liệu theo từng phần hoặc tăng kích thước heap JVM. |
-| **Redaction not applied** | Kiểm tra `result.getStatus()` không phải `Failed` và các tọa độ nằm trong giới hạn trang. |
-| **Output PDF blank** | Đảm bảo `RasterizationOptions.setEnabled(false)` chỉ được gọi sau khi che dấu; giữ `true` trong quá trình raster hoá ban đầu. |
+| **Redaction not applied** | Kiểm tra `result.getStatus()` không phải là `Failed` và các tọa độ nằm trong giới hạn trang. |
+| **Output PDF blank** | Đảm bảo `RasterizationOptions.setEnabled(false)` chỉ được gọi sau khi che dấu; giữ nó `true` trong quá trình rasterization ban đầu. |
 
 ## Câu hỏi thường gặp
 
-**Q: What does “convert docx to image” actually produce?**  
-A: Quá trình tạo ra một PDF trong đó mỗi trang là một bitmap được nhúng, làm cho văn bản không thể chọn và an toàn cho việc che dấu.
+**Q: “convert docx to image” thực sự tạo ra gì?**  
+A: Quá trình tạo ra một PDF trong đó mỗi trang là một bitmap được nhúng, làm cho văn bản không thể chọn được và an toàn để che dấu.
 
-**Q: Can I use GroupDocs Redaction for other file types?**  
+**Q: Tôi có thể sử dụng GroupDocs Redaction cho các loại tệp khác không?**  
 A: Có, nó hỗ trợ PDF, hình ảnh và nhiều định dạng tài liệu khác.
 
-**Q: How does the temporary license work?**  
-A: Giấy phép dùng thử mở khóa tất cả tính năng trong một khoảng thời gian giới hạn, cho phép bạn đánh giá raster hoá và che dấu mà không bị hạn chế.
+**Q: Giấy phép tạm thời hoạt động như thế nào?**  
+A: Giấy phép dùng thử mở khóa tất cả các tính năng trong một thời gian giới hạn, cho phép bạn đánh giá rasterization và che dấu mà không bị hạn chế.
 
-**Q: Is there a way to redact multiple regions at once?**  
-A: Chắc chắn — gọi `redactor.apply()` nhiều lần hoặc truyền một collection các đối tượng `ImageAreaRedaction`.
+**Q: Có cách nào để che dấu nhiều vùng cùng lúc không?**  
+A: Chắc chắn—gọi `redactor.apply()` nhiều lần hoặc truyền một collection của các đối tượng `ImageAreaRedaction`.
 
-**Q: Do I need to convert the DOCX to PDF first?**  
-A: Không. Redactor có thể raster hoá DOCX trực tiếp và xuất ra PDF trong một bước, như đã minh họa ở trên.
+**Q: Tôi có cần chuyển DOCX sang PDF trước không?**  
+A: Không. Redactor có thể rasterize DOCX trực tiếp và xuất ra PDF trong một bước, như đã trình bày ở trên.
 
 ---
 
-**Last Updated:** 2025-12-21  
-**Tested With:** GroupDocs.Redaction 24.9 (Java)  
-**Author:** GroupDocs
+**Cập nhật lần cuối:** 2026-02-21  
+**Được kiểm tra với:** GroupDocs.Redaction 24.9 (Java)  
+**Tác giả:** GroupDocs

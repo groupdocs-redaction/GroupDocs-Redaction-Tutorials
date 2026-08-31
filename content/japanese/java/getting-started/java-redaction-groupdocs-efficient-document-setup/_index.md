@@ -1,45 +1,47 @@
 ---
-date: '2025-12-26'
-description: GroupDocs.Redaction を使用して、Java で出力フォルダーを作成し、文書の赤字処理を適用する方法を学びます。ステップバイステップのセットアップ、コード例、ベストプラクティスをご紹介します。
+date: '2026-02-26'
+description: Java のファイルが見つからない問題を、Java 出力ディレクトリを作成し、GroupDocs.Redaction のレダクションを適用することで解決する方法を学びましょう。コード例付きのステップバイステップガイドです。
 keywords:
 - Java Redaction
 - GroupDocs.Redaction Setup
 - Document Redaction
-title: GroupDocs.Redaction 用 Java ガイド：出力フォルダーの作成
+title: Java ファイルが見つかりません – Javaで出力フォルダを作成
 type: docs
 url: /ja/java/getting-started/java-redaction-groupdocs-efficient-document-setup/
 weight: 1
 ---
 
-# GroupDocs.Redaction のための Java 出力フォルダー作成ガイド
+# java file not found – Javaで出力フォルダーを作成する
 
-今日のデジタル時代において、文書内の機密情報を保護することは最重要課題です。このチュートリアルでは **how to create output folder java** の方法と、GroupDocs.Redaction を使用して機密データを迅速かつ確実に隠す方法を示します。環境設定、フォルダー作成、レダクション実装、パフォーマンスのヒントを順に解説し、個人、財務、ビジネス記録を自信を持って保護できるようにします。
+モダンなアプリケーションでは、**java file not found** エラーが発生すると処理パイプラインが停止してしまいます。一般的な原因は、存在しないディレクトリに赤字化した文書を書き込もうとすることです。このチュートリアルでは、Javaで必要な出力フォルダーを作成し、**GroupDocs.Redaction** と統合して、ファイルが見つからない例外を回避する方法をステップバイステップで解説します。最後まで読むと、元のファイルは安全に保ちつつ、赤字化したコピーを専用の **java output directory** に保存できる、クリーンで再利用可能なワークフローが手に入ります。
 
-## クイック回答
-- **最初のステップは何ですか？** Java で出力フォルダーを作成し、GroupDocs.Redaction ライブラリを追加します。  
-- **必要なライブラリのバージョンは？** GroupDocs.Redaction 24.9 以降。  
-- **ライセンスは必要ですか？** 無料トライアルでテストは可能ですが、本番環境では有料ライセンスが必要です。  
-- **元のドキュメント形式を保持できますか？** はい—保存時にラスタライズを無効にします。  
-- **大きなファイルにも適していますか？** 適切なメモリ調整を行えば、はい。
+## Quick Answers
+- **What is the first step?** Javaで出力フォルダーを作成し、GroupDocs.Redaction ライブラリを追加します。  
+- **Which library version is required?** GroupDocs.Redaction 24.9 以降。  
+- **Do I need a license?** テスト用には無料トライアルで動作しますが、本番環境では有料ライセンスが必要です。  
+- **Can I keep the original document format?** はい、保存時に rasterization を無効にすれば元の形式を保持できます。  
+- **Is this suitable for large files?** メモリ調整を適切に行えば対応可能です。
 
-## 「create output folder java」とは何ですか？
-Java で出力フォルダーを作成することは、ディレクトリが存在するかプログラムで確認し、存在しなければ作成して、処理されたファイルを保存する専用の場所を確保することを意味します。この手順により、レダクションされた文書を元の文書から分離し、プロジェクトを整理された状態に保ちます。
+## What is “create output folder java”?
+Javaで出力フォルダーを作成するとは、プログラム上でディレクトリの有無を確認し、存在しなければ作成して、処理されたファイルを保存する専用の場所を確保することを意味します。この手順により、赤字化した文書を元の文書から分離し、プロジェクトを整理された状態に保ちます。
 
-## GroupDocs.Redaction で output folder java を作成する理由
-- **関心の分離:** 元のファイルとレダクションされたファイルを別々に保ちます。  
-- **スケーラビリティ:** 多数の文書を単一の場所でバッチ処理できます。  
-- **コンプライアンス:** サニタイズされたバージョンのみを保存することで監査トレイルが容易になります。  
-- **パフォーマンス:** ファイルシステムの乱雑さを減らし、I/O 速度の向上につながります。
+## Why create output folder java with GroupDocs.Redaction?
+- **Separation of concerns:** 元のファイルと赤字化ファイルを明確に分離します。  
+- **Scalability:** 多数の文書を一括で同一の場所に処理できます。  
+- **Compliance:** サニタイズされたバージョンだけを保存することで、監査証跡が作りやすくなります。  
+- **Performance:** ファイルシステムの散在を減らすことで I/O 速度が向上する可能性があります。
 
-## 前提条件
-- **GroupDocs.Redaction ライブラリ** – バージョン 24.9 以上。  
-- **Java Development Kit (JDK)** – バージョン 8 以上。  
+## Prerequisites
+作業を始める前に、以下が揃っていることを確認してください。
+
+- **GroupDocs.Redaction Library** – バージョン 24.9 以上。  
+- **Java Development Kit (JDK)** – バージョン 8 以上。  
 - IntelliJ IDEA や Eclipse などの Java IDE。  
 - 依存関係管理のために Maven がインストールされていること。  
-- 特にファイル操作に関する基本的な Java 知識。
+- ファイル操作を中心とした基本的な Java 知識。
 
-## GroupDocs.Redaction の Java 環境設定
-`pom.xml` に GroupDocs リポジトリと Redaction 依存関係を追加します:
+## Setting Up GroupDocs.Redaction for Java
+`pom.xml` に GroupDocs リポジトリと Redaction の依存関係を追加します。
 
 ```xml
 <repositories>
@@ -59,18 +61,18 @@ Java で出力フォルダーを作成することは、ディレクトリが存
 </dependencies>
 ```
 
-手動でダウンロードしたい場合は、公式リリースページから最新の JAR を取得してください: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+手動でダウンロードしたい場合は、公式リリースページから最新の JAR を取得してください: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/)。
 
-### ライセンス取得手順
-まずは無料トライアルで API を試してください。本番環境の準備ができたら、GroupDocs ポータルから一時ライセンスまたはフルライセンスを取得します。
+### License Acquisition Steps
+まずは無料トライアルで API を試し、製品版が必要になったら GroupDocs ポータルから一時ライセンスまたは正式ライセンスを取得します。
 
-## 実装ガイド
+## Implementation Guide
 
-### output folder java の作成方法
-出力先の整理は、クリーンなレダクションワークフローの基礎です。以下では、指定したベースディレクトリ内に `HelloWorld` というフォルダーを作成します。
+### How to create output folder java
+出力先の整理は、クリーンな赤字化ワークフローの基盤です。ここでは、ユーザーが指定するベースディレクトリ配下に `HelloWorld` という名前のフォルダーを作成します。
 
-#### ドキュメントディレクトリ設定
-以下のスニペットはフォルダーの存在を確認し、必要に応じて作成します。また、レダクションされたドキュメントのパスも準備します。
+#### Document Directory Setup
+以下のスニペットはフォルダーの有無を確認し、必要に応じて作成します。また、赤字化文書の保存パスも同時に設定します。
 
 ```java
 import java.io.File;
@@ -87,12 +89,12 @@ public class DocumentDirectorySetup {
 }
 ```
 
-- **重要な理由:** プログラムでフォルダーを作成することで、レダクション手順が常に有効な保存先を持ち、`FileNotFoundException` エラーを防止します。
+- **Why this matters:** フォルダーをプログラムで作成することで、常に有効な保存先が確保され、`FileNotFoundException` エラーの発生を防げます。
 
-### レダクションの適用
-出力フォルダーが作成されたので、ソースファイルを読み込み、レダクションを適用し、結果を先ほど作成したフォルダーに保存できます。
+### Redaction Application
+出力フォルダーが作成されたので、次にソースファイルを読み込み、赤字化を適用し、先ほど作成したフォルダーに結果を保存します。
 
-#### レダクションコード
+#### Redaction Code
 ```java
 import com.groupdocs.redaction.Redactor;
 import java.io.FileOutputStream;
@@ -126,48 +128,58 @@ public class RedactionApplication {
 }
 ```
 
-- **説明:** `Redactor` は `sample_document.docx` をロードし、正確なフレーズ “John Doe” を検索して赤いオーバーレイで置換し、先に作成したフォルダーに結果を書き込みます。ラスタライズを無効にすることで元の DOCX レイアウトが保持されます。
+- **Explanation:** `Redactor` が `sample_document.docx` を読み込み、正確なフレーズ “John Doe” を検索して赤いオーバーレイで置換し、先に作成したフォルダーに結果を書き出します。rasterization を無効にすることで元の DOCX レイアウトが保持されます。
 
-#### トラブルシューティングのヒント
-- **パスが間違っている:** `YOUR_DOCUMENT_DIRECTORY` と `YOUR_OUTPUT_DIRECTORY` が実際の場所を指しているか再確認してください。  
-- **バージョンの衝突:** Maven 依存関係がダウンロードしたライブラリのバージョンと一致していることを確認してください。  
-- **ライセンスエラー:** ライセンスが欠如または無効な場合、実行時に例外がスローされます。
+#### Troubleshooting Tips
+- **Incorrect paths:** `YOUR_DOCUMENT_DIRECTORY` と `YOUR_OUTPUT_DIRECTORY` が実在する場所を指しているか再確認してください。  
+- **Version conflicts:** Maven の依存関係がダウンロードしたライブラリのバージョンと一致していることを確認します。  
+- **License errors:** ライセンスが欠如または無効な場合、実行時に例外がスローされます。
 
-## 実用的な応用例
-実際のシナリオで **create output folder java** を作成し、GroupDocs.Redaction を使用する例は次の通りです:
+## How to fix java file not found when creating the output folder
+フォルダー作成コードを追加した後でも **java file not found** 例外が出る場合は、以下の追加チェックを行ってください。
 
-1. **コンプライアンス管理:** 契約書から個人データを自動的に削除してから提出します。  
-2. **財務報告:** 外部監査人と共有する四半期報告書の口座番号を隠します。  
-3. **医療記録:** HIPAA 要件を満たすために医療文書から患者識別子を除去します。
+1. **Absolute vs. relative paths:** 作業ディレクトリの混乱を防ぐため、絶対パス（例: `C:/data/HelloWorld`）を使用します。  
+2. **File permissions:** Java プロセスが対象ディレクトリに書き込み権限を持っているか確認します。  
+3. **Path separators:** Windows 環境では `File.separator` またはスラッシュ（`/`）を使用し、エスケープ文字の問題を回避します。  
 
-## パフォーマンスに関する考慮点
-- **メモリ管理:** 非常に大きな DOCX や PDF ファイルにはストリーミング API を使用し、ドキュメント全体をメモリに読み込まないようにします。  
-- **バッチ処理:** ファイルリストをループし、可能な限り単一の `Redactor` インスタンスを再利用します。  
-- **JVM チューニング:** 50 MB を超える文書を頻繁に処理する場合はヒープサイズ（`-Xmx2g`）を増やします。
+これらの対策により、出力先フォルダーが欠如していることが原因で赤字化ステップが失敗することはなくなります。
 
-## 結論
-これで **create output folder java** の方法、GroupDocs.Redaction の統合、元のフォーマットを保持しながら正確なレダクションを適用する方法が分かりました。このワークフローは、コンプライアンス基準を満たし、機密データを効率的に保護するのに役立ちます。
+## Practical Applications
+**create output folder java** と GroupDocs.Redaction を組み合わせて活用できる実務シナリオ例：
 
-さらに詳しくは公式ドキュメントをご覧ください: [GroupDocs documentation](https://docs.groupdocs.com/redaction/java/).
+1. **Compliance Management:** 契約書から個人情報を自動で除去し、保存前にコンプライアンスを確保。  
+2. **Financial Reporting:** 四半期報告書から口座番号を隠し、外部監査人と安全に共有。  
+3. **Healthcare Records:** 医療文書から患者識別子を除去し、HIPAA 要件に準拠。
 
-## FAQ セクション
-1. **GroupDocs.Redaction の使い方は？**  
-   上記の Maven 依存関係を追加し、出力フォルダーを作成し、示されたように `Redactor` をインスタンス化して開始します。  
+## Performance Considerations
+- **Memory Management:** 非常に大きな DOCX や PDF ファイルは、全体をメモリに読み込まないようストリーミング API を活用します。  
+- **Batch Processing:** ファイルリストをループ処理し、可能な限り単一の `Redactor` インスタンスを再利用します。  
+- **JVM Tuning:** 50 MB 超の文書を頻繁に処理する場合は、ヒープサイズ（例: `-Xmx2g`）を増やします。
 
-2. **GroupDocs.Redaction は大きな文書を効率的に処理できますか？**  
-   はい—メモリを賢く管理し、ラスタライズを無効にすることで、過剰なオーバーヘッドなしに大容量ファイルを処理できます。  
+## Conclusion
+これで **create output folder java** の手順、GroupDocs.Redaction の統合方法、そして元のフォーマットを保持しながら正確に赤字化を行う方法が分かりました。このワークフローはコンプライアンス基準を満たし、機密データを効率的に保護すると同時に、煩わしい **java file not found** エラーを根本的に排除します。
 
-3. **本番環境でライセンスは必要ですか？**  
-   評価には無料トライアルで十分ですが、商用展開には有料ライセンスが必須です。  
+さらに詳しい情報は公式ドキュメントをご覧ください: [GroupDocs documentation](https://docs.groupdocs.com/redaction/java/)。
 
-4. **対応しているファイル形式は何ですか？**  
-   GroupDocs.Redaction は DOCX、PDF、PPTX、XLSX、そしていくつかの画像形式に対応しています。  
+## Frequently Asked Questions
 
-5. **複数ファイルのレダクションを自動化するには？**  
-   ディレクトリ内のファイルをループで処理し、同じ出力フォルダーパターンを再利用してレダクションロジックを組み込みます。  
+**Q: How do I get started with GroupDocs.Redaction?**  
+A: 上記の Maven 依存関係を追加し、出力フォルダーを作成した後に `Redactor` をインスタンス化するだけです。
+
+**Q: Can GroupDocs.Redaction handle large documents efficiently?**  
+A: はい。メモリ管理を適切に行い rasterization を無効にすれば、サイズの大きなファイルでも過度なオーバーヘッドなく処理できます。
+
+**Q: Is a license required for production use?**  
+A: 評価には無料トライアルで十分ですが、商用環境では有料ライセンスが必須です。
+
+**Q: What file formats are supported?**  
+A: DOCX、PDF、PPTX、XLSX、その他多数の画像フォーマットに対応しています。
+
+**Q: How can I automate redaction for multiple files?**  
+A: ディレクトリ内のファイルをループで処理し、同一の出力フォルダー構成を再利用するロジックを組み込めば実現できます。
 
 ---
 
-**最終更新日:** 2025-12-26  
-**テスト環境:** GroupDocs.Redaction 24.9  
-**作者:** GroupDocs
+**Last Updated:** 2026-02-26  
+**Tested With:** GroupDocs.Redaction 24.9  
+**Author:** GroupDocs

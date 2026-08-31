@@ -1,57 +1,79 @@
 ---
-date: '2026-02-13'
-description: Pelajari cara membuat PDF grayscale menggunakan GroupDocs.Redaction untuk
-  Java, mengonversi PDF ke grayscale secara aman sambil mempertahankan kualitas dokumen.
+date: '2026-05-17'
+description: Pelajari cara merasterkan PDF ke skala abu-abu menggunakan GroupDocs.Redaction
+  untuk Java, terapkan filter skala abu-abu, dan jaga dokumen Anda tetap aman serta
+  berkualitas tinggi.
 keywords:
-- GroupDocs.Redaction
-- Java
-- Document Processing
-title: Cara membuat PDF grayscale dengan GroupDocs.Redaction Java – Amankan dan Optimalkan
-  Dokumen Anda
+- how to rasterize pdf
+- java pdf to image
+- apply grayscale filter pdf
+schemas:
+- author: GroupDocs
+  dateModified: '2026-05-17'
+  description: Learn how to rasterize PDF to grayscale using GroupDocs.Redaction for
+    Java, apply a grayscale filter, and keep your documents secure and high‑quality.
+  headline: How to rasterize PDF to grayscale with GroupDocs.Redaction Java – Secure
+    and Optimize Your Documents
+  type: TechArticle
+- questions:
+  - answer: In GroupDocs.Redaction, the grayscale option is tied to rasterization,
+      which ensures consistent results and adds a security layer.
+    question: Can I convert documents to grayscale without rasterization?
+  - answer: All major formats supported by GroupDocs.Redaction—including DOCX, PDF,
+      XLSX, PPTX, RTF, and more than 100 others—can be rasterized and converted to
+      grayscale.
+    question: What document formats support grayscale rasterization?
+  - answer: Yes. Text‑heavy files may grow, while image‑heavy files might shrink.
+      DPI settings have the biggest impact.
+    question: Will rasterization affect the file size of my documents?
+  - answer: No. Rasterization is one‑way; keep a backup of the original if you need
+      to revert.
+    question: Is it possible to reverse the grayscale rasterization process?
+  - answer: Use a higher DPI (300 + for print quality) and choose PDF as the output
+      format for best archival results.
+    question: How can I optimize the quality of grayscale rasterized documents?
+  type: FAQPage
+title: Cara merasterkan PDF ke skala abu-abu dengan GroupDocs.Redaction Java – Amankan
+  dan Optimalkan Dokumen Anda
 type: docs
 url: /id/java/rasterization-options/grayscale-rasterization-groupdocs-redaction-java/
 weight: 1
 ---
 
- shortcodes: none.
+# Cara meraster PDF ke grayscale dengan GroupDocs.Redaction Java
 
-Proceed.
+Jika Anda perlu **meraster PDF** ke grayscale sambil menjaga dokumen Anda tetap aman, tampak profesional, dan mudah diarsipkan, Anda berada di tempat yang tepat. Dalam tutorial ini kami akan menjelaskan langkah‑langkah tepat untuk mengonversi DOCX, PDF, atau file lain yang didukung yang berwarna menjadi versi rasterized grayscale yang bersih menggunakan GroupDocs.Redaction untuk Java. Anda akan memahami mengapa rasterisasi menambahkan lapisan keamanan, cara mengonfigurasi perpustakaan, dan cara mengelola sumber daya secara efisien—semua disajikan dalam gaya yang ramah, langkah demi langkah.
 
-# GroupDocs.Redaction Java: Panduan Rasterisasi Grayscale
-
-## Introduction
-
-Jika Anda perlu **membuat pdf grayscale** sambil menjaga dokumen tetap aman dan terlihat profesional, Anda berada di tempat yang tepat. Dalam tutorial ini kami akan membahas langkah‑langkah tepat untuk mengonversi DOCX, PDF, atau file lain yang didukung menjadi versi rasterized grayscale yang bersih menggunakan GroupDocs.Redaction untuk Java. Anda akan mempelajari mengapa rasterisasi menambahkan lapisan keamanan ekstra, cara mengonfigurasi pustaka, dan cara mengelola sumber daya secara efisien—semua dalam gaya percakapan langkah‑demi‑langkah.
-
-## Quick Answers
-- **Apa yang dilakukan rasterisasi grayscale?** Itu mengubah setiap halaman dokumen menjadi gambar beresolusi tinggi dan kemudian menerapkan filter grayscale, menghapus semua informasi warna.  
-- **Mengapa menggunakan GroupDocs.Redaction untuk ini?** Ia menggabungkan keamanan redaksi dengan opsi rasterisasi yang kuat dalam satu API.  
-- **Format apa saja yang didukung?** DOCX, PDF, XLSX, PPTX, RTF, dan banyak lagi.  
-- **Apakah saya memerlukan lisensi?** Lisensi GroupDocs.Redaction yang valid diperlukan untuk penggunaan produksi; versi percobaan tersedia untuk pengujian.  
+## Jawaban Cepat
+- **Apa yang dilakukan rasterisasi grayscale?** Itu mengonversi setiap halaman menjadi gambar beresolusi tinggi dan kemudian menerapkan filter grayscale, menghapus semua informasi warna.  
+- **Mengapa menggunakan GroupDocs.Redaction untuk ini?** Ini menggabungkan keamanan redaksi dengan opsi rasterisasi dalam satu API yang mudah digunakan.  
+- **Format apa yang didukung?** DOCX, PDF, XLSX, PPTX, RTF, dan lebih dari 100 format lainnya.  
+- **Apakah saya memerlukan lisensi?** Lisensi GroupDocs.Redaction yang valid diperlukan untuk produksi; percobaan gratis tersedia untuk pengujian.  
 - **Versi Java apa yang diperlukan?** JDK 8 atau lebih tinggi.
 
-## What is **create grayscale pdf**?
+## Cara meraster PDF ke grayscale?
+
+Muat dokumen sumber Anda dengan `new Redactor("path/to/file")`, aktifkan rasterisasi melalui `RasterizationOptions`, tambahkan opsi lanjutan grayscale, dan panggil `save()`—seluruh konversi terjadi dalam beberapa baris singkat. Pendekatan ini menjamin setiap halaman menjadi PDF berbasis gambar, hitam‑putih, mencegah pemilihan teks, dan memastikan tampilan siap cetak yang seragam.
+
+## Apa itu **create grayscale pdf**?
 
 Membuat PDF grayscale berarti mengonversi setiap elemen visual dari dokumen asli menjadi nuansa abu‑abu. Hasilnya adalah file yang lebih kecil, ramah cetak, yang menghilangkan gangguan terkait warna dan menambahkan manfaat keamanan halus karena kontennya kini berbasis gambar.
 
-## Why use grayscale rasterization with GroupDocs.Redaction?
+## Mengapa menggunakan rasterisasi grayscale dengan GroupDocs.Redaction?
 
-- **Keamanan yang ditingkatkan** – halaman yang diraster tidak dapat dipilih, disalin, atau diedit sebagai teks.  
-- **Penampilan konsisten** – warna dihilangkan, memberikan tampilan seragam dan profesional.  
-- **Dukungan format luas** – API yang sama bekerja untuk DOCX, PDF, PPTX, dan lainnya.  
-- **Kontrol yang disesuaikan** – Anda dapat mengatur DPI, format output, dan opsi lanjutan seperti konversi grayscale.
+Rasterisasi mengubah setiap halaman menjadi gambar, yang berarti teks tidak dapat disalin atau diedit, dan output visual tetap konsisten di semua printer dan penampil. GroupDocs.Redaction mendukung **lebih dari 100 format input dan output**—termasuk DOCX, XLSX, PPTX, HTML, dan tipe gambar—sehingga Anda dapat menerapkan alur kerja yang sama pada hampir semua dokumen yang Anda tangani.
 
-## Prerequisites
+## Prasyarat
 
 - Java Development Kit (JDK) 8 atau yang lebih baru. Verifikasi dengan `java -version`.  
-- IDE (IntelliJ IDEA, Eclipse, atau NetBeans) untuk mempermudah penulisan kode dan debugging.  
+- Sebuah IDE (IntelliJ IDEA, Eclipse, atau NetBeans) untuk memudahkan penulisan kode dan debugging.  
 - GroupDocs.Redaction untuk Java yang ditambahkan melalui Maven atau Gradle.  
-- Dokumen contoh (misalnya, DOCX multi‑halaman) yang dapat Anda gunakan untuk bereksperimen secara aman.  
+- Dokumen contoh (misalnya, DOCX multi‑halaman) yang dapat Anda coba dengan aman.  
 - Ruang disk yang cukup untuk output rasterized (file raster dapat lebih besar daripada sumber).
 
-## Import Packages
+## Impor Paket
 
-Menyiapkan impor yang tepat seperti mengatur kotak perkakas sebelum memulai proyek. Impor berikut memberi Anda akses ke kelas Redactor inti dan opsi rasterisasi yang akan kita gunakan.
+Impor berikut membawa kelas inti Redactor dan rasterisasi yang diperlukan untuk contoh.
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -60,60 +82,56 @@ import com.groupdocs.redaction.options.RasterizationOptions;
 import com.groupdocs.redaction.options.AdvancedRasterizationOptions;
 ```
 
-## Step 1: Initialize the Redactor Object
+## Langkah 1: Inisialisasi Objek Redactor
 
-Membuat instance `Redactor` membuka pintu ke semua kemampuan pemrosesan dokumen.
+Kelas `Redactor` adalah titik masuk untuk semua operasi pemrosesan dokumen di GroupDocs.Redaction. Membuat sebuah instance membuka pintu untuk memuat, mengedit, dan menyimpan dokumen.
 
 ```java
 final Redactor redactor = new Redactor(Constants.MULTIPAGE_SAMPLE_DOCX);
 ```
 
-Ganti `Constants.MULTIPAGE_SAMPLE_DOCX` dengan path ke file yang ingin Anda konversi menjadi PDF grayscale.
+Ganti `Constants.MULTIPAGE_SAMPLE_DOCX` dengan jalur ke file yang ingin Anda konversi menjadi PDF grayscale.
 
-## Step 2: Configure Save Options
+## Langkah 2: Konfigurasi Opsi Penyimpanan
 
-`SaveOptions` menentukan bagaimana file akhir akan ditulis. Menambahkan akhiran membantu Anda menjaga file asli tetap utuh.
+Kelas `SaveOptions` menentukan bagaimana dokumen yang diproses akan ditulis ke disk, termasuk format dan nama file.
 
 ```java
 SaveOptions so = new SaveOptions();
 so.setRedactedFileSuffix("_scan");
 ```
 
-Output akan dinamai `yourfile_scan.docx` (atau format yang Anda tentukan kemudian).
+Output akan diberi nama `yourfile_scan.pdf` (atau format yang Anda tentukan kemudian).
 
-## Step 3: Enable Rasterization
+## Langkah 3: Aktifkan Rasterisasi
 
-Mengaktifkan rasterisasi memberi tahu mesin untuk merender setiap halaman sebagai gambar sebelum disimpan.
+Objek `RasterizationOptions` mengaktifkan rendering berbasis gambar untuk setiap halaman sebelum disimpan.
 
 ```java
 so.getRasterization().setEnabled(true);
 ```
 
-Rasterisasi adalah dasar untuk membuat PDF grayscale karena mengubah dokumen menjadi representasi berbasis gambar.
+## Langkah 4: Terapkan Konversi Grayscale
 
-## Step 4: Apply Grayscale Conversion
-
-Sekarang kita menambahkan filter grayscale ke pipeline rasterisasi.
+`AdvancedRasterizationOptions.Grayscale` adalah flag yang memaksa gambar rasterized menggunakan hanya nuansa abu‑abu.
 
 ```java
 so.getRasterization().addAdvancedOption(AdvancedRasterizationOptions.Grayscale);
 ```
 
-Opsi ini memaksa setiap piksel dirender dalam nuansa abu‑abu, memberikan hasil **create grayscale pdf** yang Anda inginkan.
+## Langkah 5: Jalankan Transformasi Dokumen
 
-## Step 5: Execute the Document Transformation
-
-Pemanggilan `save` menjalankan seluruh rantai pemrosesan.
+Memanggil `save()` menjalankan seluruh pipeline pemrosesan dan menulis file output.
 
 ```java
 redactor.save(so);
 ```
 
-Setelah baris ini dijalankan, Anda akan menemukan file baru di disk yang sepenuhnya diraster, grayscale, dan disimpan dengan akhiran `_scan`.
+Setelah baris ini dijalankan, Anda akan menemukan file baru di disk yang sepenuhnya rasterized, grayscale, dan disimpan dengan akhiran `_scan`.
 
-## Step 6: Proper Resource Management
+## Langkah 6: Manajemen Sumber Daya yang Tepat
 
-Membersihkan sumber daya mencegah penguncian file dan kebocoran memori.
+Metode `close()` melepaskan sumber daya native dan menghapus file sementara.
 
 ```java
 finally { redactor.close(); }
@@ -130,11 +148,11 @@ try (Redactor redactor = new Redactor(Constants.MULTIPAGE_SAMPLE_DOCX)) {
 
 Kedua pendekatan aman; yang terakhir lebih ringkas.
 
-## Advanced Configuration Options
+## Opsi Konfigurasi Lanjutan
 
-### Adjust DPI for Quality or Size
+### Sesuaikan DPI untuk Kualitas atau Ukuran
 
-DPI yang lebih tinggi menghasilkan gambar lebih tajam (baik untuk pencetakan), sementara DPI yang lebih rendah mengurangi ukuran file.
+DPI yang lebih tinggi menghasilkan gambar lebih tajam (baik untuk pencetakan), sementara DPI yang lebih rendah mengurangi ukuran file. Keseimbangan umum adalah 150 DPI untuk tampilan di layar dan 300 DPI untuk PDF siap cetak.
 
 ```java
 saveOptions.getRasterization().setDpi(300); // High quality for printing
@@ -142,54 +160,64 @@ saveOptions.getRasterization().setDpi(300); // High quality for printing
 saveOptions.getRasterization().setDpi(150); // Balanced quality and size
 ```
 
-### Choose an Output Format
+### Pilih Format Output
 
-Anda dapat memaksa hasil rasterized ke format kontainer tertentu, seperti PDF.
+Anda dapat memaksa hasil rasterized ke dalam format kontainer tertentu, seperti PDF, TIFF, atau PNG. PDF adalah format arsip yang paling banyak digunakan.
 
 ```java
 saveOptions.setRasterizationFormat(RasterizationFormat.PDF);
 ```
 
-## Common Use Cases
+## Kasus Penggunaan Umum
 
-- **Arsip dokumen hukum** – buat PDF grayscale yang tidak dapat diubah.  
+- **Pengarsipan dokumen hukum** – buat PDF grayscale yang tidak dapat diubah.  
 - **Laporan siap cetak** – pastikan output hitam‑putih yang konsisten untuk pencetakan massal.  
 - **Alur kerja kepatuhan** – gabungkan redaksi dengan rasterisasi grayscale untuk memenuhi regulasi privasi data yang ketat.
 
-## Common Issues and Solutions
+## Masalah Umum dan Solusinya
 
-| Issue | Why it Happens | Fix |
+| Masalah | Mengapa Terjadi | Solusi |
 |-------|----------------|-----|
-| Output file is larger than expected | DPI set too high or image compression disabled | Lower DPI (e.g., 150) or enable compression in `RasterizationOptions`. |
-| Text appears blurry | Insufficient DPI for the original font size | Increase DPI to 300 or higher. |
-| Process throws `OutOfMemoryError` on large docs | Whole document loaded into memory | Use streaming APIs or process pages in batches if supported. |
-| Grayscale not applied | Advanced option not added correctly | Verify `addAdvancedOption(AdvancedRasterizationOptions.Grayscale)` is called before `save()`. |
+| File output lebih besar dari yang diharapkan | DPI diatur terlalu tinggi atau kompresi gambar dinonaktifkan | Turunkan DPI (mis., 150) atau aktifkan kompresi di `RasterizationOptions`. |
+| Teks terlihat buram | DPI tidak cukup untuk ukuran font asli | Tingkatkan DPI ke 300 atau lebih tinggi. |
+| Proses melempar `OutOfMemoryError` pada dokumen besar | Seluruh dokumen dimuat ke memori | Gunakan API streaming atau proses halaman secara batch jika didukung. |
+| Grayscale tidak diterapkan | Opsi lanjutan tidak ditambahkan dengan benar | Pastikan `addAdvancedOption(AdvancedRasterizationOptions.Grayscale)` dipanggil sebelum `save()`. |
 
-## Frequently Asked Questions
+## Pertanyaan yang Sering Diajukan
 
-**Q: Can I convert documents to grayscale without rasterization?**  
-A: In GroupDocs.Redaction, the grayscale option is tied to rasterization, which ensures consistent results and adds security.
+**Q: Bisakah saya mengonversi dokumen ke grayscale tanpa rasterisasi?**  
+A: Di GroupDocs.Redaction, opsi grayscale terikat pada rasterisasi, yang memastikan hasil konsisten dan menambahkan lapisan keamanan.
 
-**Q: What document formats support grayscale rasterization?**  
-A: All major formats supported by GroupDocs.Redaction—including DOCX, PDF, XLSX, PPTX, RTF, and more—can be rasterized and converted to grayscale.
+**Q: Format dokumen apa yang mendukung rasterisasi grayscale?**  
+A: Semua format utama yang didukung oleh GroupDocs.Redaction—termasuk DOCX, PDF, XLSX, PPTX, RTF, dan lebih dari 100 lainnya—dapat dirasterisasi dan dikonversi ke grayscale.
 
-**Q: Will rasterization affect the file size of my documents?**  
-A: Yes. Text‑heavy files may grow, while image‑heavy files might shrink. DPI settings have the biggest impact.
+**Q: Apakah rasterisasi memengaruhi ukuran file dokumen saya?**  
+A: Ya. File yang banyak teks dapat menjadi lebih besar, sementara file yang banyak gambar mungkin menyusut. Pengaturan DPI memiliki dampak terbesar.
 
-**Q: Is it possible to reverse the grayscale rasterization process?**  
-A: No. Rasterization is one‑way; keep a backup of the original if you need to revert.
+**Q: Apakah memungkinkan untuk membalik proses rasterisasi grayscale?**  
+A: Tidak. Rasterisasi bersifat satu arah; simpan cadangan dokumen asli jika Anda perlu mengembalikannya.
 
-**Q: How can I optimize the quality of grayscale rasterized documents?**  
-A: Use a higher DPI (300 + for print quality) and choose an appropriate output format (PDF is common for archival).
+**Q: Bagaimana saya dapat mengoptimalkan kualitas dokumen rasterized grayscale?**  
+A: Gunakan DPI yang lebih tinggi (300 + untuk kualitas cetak) dan pilih PDF sebagai format output untuk hasil arsip terbaik.
 
-## Conclusion
+## Kesimpulan
 
-Anda kini memiliki resep lengkap, siap produksi untuk **create grayscale pdf** menggunakan GroupDocs.Redaction untuk Java. Dengan mengaktifkan rasterisasi, menambahkan opsi lanjutan grayscale, dan mengelola sumber daya secara bertanggung jawab, Anda dapat menghasilkan dokumen yang aman, ramah cetak, dan memenuhi standar kepatuhan.
-
----
-
-**Last Updated:** 2026-02-13  
-**Tested With:** GroupDocs.Redaction 23.11 for Java  
-**Author:** GroupDocs  
+Anda kini memiliki resep lengkap yang siap produksi untuk **meraster PDF ke grayscale** menggunakan GroupDocs.Redaction untuk Java. Dengan mengaktifkan rasterisasi, menambahkan opsi lanjutan grayscale, dan mengelola sumber daya secara bertanggung jawab, Anda dapat menghasilkan dokumen yang aman, ramah cetak, yang memenuhi standar kepatuhan dan tampak konsisten di semua penampil.
 
 ---
+
+**Terakhir Diperbarui:** 2026-05-17  
+**Diuji Dengan:** GroupDocs.Redaction 23.11 for Java  
+**Penulis:** GroupDocs  
+
+## KATA KUNCI TARGET:
+
+**Kata Kunci Utama (PRIORITAS TERTINGGI):** how to rasterize pdf
+
+**Kata Kunci Sekunder (MENDUKUNG):** java pdf to image, apply grayscale filter pdf
+
+## Tutorial Terkait
+
+- [Tutorial Opsi Rasterisasi untuk GroupDocs.Redaction Java](/redaction/java/rasterization-options/)
+- [Cara menggunakan groupdocs redaction untuk Java: Pra‑Rasterisasi dalam Dokumen Word](/redaction/java/rasterization-options/groupdocs-redaction-java-pre-rasterization-word-docs/)
+- [Rasterisasi Noise Kustom di Java&#58; Amankan Informasi Sensitif dengan GroupDocs.Redaction](/redaction/java/rasterization-options/java-groupdocs-redaction-custom-noise-rasterization/)

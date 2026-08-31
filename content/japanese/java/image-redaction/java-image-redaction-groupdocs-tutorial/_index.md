@@ -1,42 +1,40 @@
 ---
-date: '2025-12-29'
-description: GroupDocs.Redaction for Java を使用して、スキャンした文書画像の赤字処理方法を学びましょう。セットアップ、画像領域の赤字処理、検証をカバーしたステップバイステップガイドです。
+date: '2026-03-22'
+description: GroupDocs.Redaction を使用して、スキャン画像の Java でのレダクション方法を学びましょう。このステップバイステップガイドでは、セットアップ、画像領域のレダクション、そして検証について説明します。
 keywords:
 - Java image redaction
 - GroupDocs.Redaction for Java
 - image area redaction
-title: JavaでGroupDocsを使用してスキャン文書画像をマスク処理する方法
+title: GroupDocs を使用した Java でのスキャン画像の情報隠蔽方法
 type: docs
 url: /ja/java/image-redaction/java-image-redaction-groupdocs-tutorial/
 weight: 1
 ---
 
-# GroupDocs を使用した Java でスキャン文書画像を赤塗りする方法
+# GroupDocs を使用したスキャン画像の Java での赤字処理方法
 
-今日のデジタル環境では、**スキャンされた文書画像の赤塗り**はプライバシー保護とコンプライアンス遵守に不可欠です。スキャンされた契約書の個人情報を隠す場合や、医療画像の患者情報を覆い隠す場合でも、本チュートリアルでは **GroupDocs.Redaction for Java** を使って **画像の赤塗り** を迅速かつ確実に行う方法を示します。プロジェクトのセットアップから赤塗りが成功したことの確認までを順に解説するので、あらゆる Java アプリケーションに自信を持って統合できます。
+今日のデジタル環境では、**redact scanned image java** はプライバシー保護とコンプライアンス要件の遵守に不可欠です。スキャンした契約書の個人データを隠す場合や、医療画像の患者情報をぼかす場合でも、本チュートリアルでは **GroupDocs.Redaction for Java** を使用して **画像を赤字処理する方法** を迅速かつ確実に示します。プロジェクトのセットアップから赤字処理が成功したことの確認までを順に解説するので、任意の Java アプリケーションに自信を持って組み込むことができます。
 
-## クイックアンサー
-- **Java で画像の赤塗りを扱うライブラリは？** GroupDocs.Redaction for Java  
-- **赤塗りの色は選べますか？** はい – 任意の `java.awt.Color`（例: `Color.BLUE`）を使用可能です  
-- **本番環境でライセンスは必須ですか？** はい、有効な GroupDocs ライセンスが必要です  
+## クイック回答
+- **Java で画像の赤字処理を行うライブラリは？** GroupDocs.Redaction for Java  
+- **赤字の色を選択できますか？** はい – 任意の `java.awt.Color`（例: `Color.BLUE`）  
+- **本番環境でライセンスは必要ですか？** はい、有効な GroupDocs ライセンスが必要です  
 - **元の画像は上書きされますか？** いいえ – 結果は新しいファイルに保存します  
-- **対応している Java バージョンは？** Java 8 以上（最新の JDK と互換性あり）
+- **サポートされている Java バージョンは？** Java 8+（最新の JDK と互換性あり）
 
-## 画像の赤塗りとは何か、なぜスキャン文書画像を赤塗りするのか
-画像の赤塗りとは、名前・番号・署名などの機密ビジュアル情報を永久に隠し、復元できないようにすることです。スキャン文書の場合、データはピクセルとして埋め込まれるため、従来のテキスト赤塗りツールは効果がありません。GroupDocs.Redaction を使用すれば、正確なピクセル領域を対象にして単色で置き換えることができ、情報が確実に除去されます。
+## 画像の赤字処理とは何か、そしてなぜスキャン画像の Java で赤字処理が必要なのか
+画像の赤字処理とは、名前、番号、署名などの機密視覚情報を永久に隠し、復元できないようにすることです。スキャンした文書ではデータがピクセルとして埋め込まれるため、従来のテキスト赤字ツールは効果がありません。GroupDocs.Redaction を使用すると、正確なピクセル領域を指定して単色で置き換えることができ、情報が確実に削除されます。
 
 ## 前提条件
-開始する前に以下を用意してください：
+- **JDK 8 以上** がインストールされていること  
+- 依存関係管理のための **Maven**（または他のビルドツール）  
+- **IntelliJ IDEA**、**Eclipse**、**NetBeans** のいずれかの IDE  
+- 基本的な Java の知識とファイル I/O の経験  
 
-- **JDK 8 以上** がインストール済み  
-- **Maven**（または他のビルドツール）で依存関係を管理  
-- **IntelliJ IDEA**、**Eclipse**、または **NetBeans** などの IDE  
-- 基本的な Java 知識とファイル I/O の経験  
-
-## GroupDocs.Redaction for Java の設定
+## GroupDocs.Redaction for Java のセットアップ
 
 ### Maven 設定
-`pom.xml` に GroupDocs リポジトリと依存関係を追加します。
+`pom.xml` に GroupDocs リポジトリと依存関係を追加します:
 
 ```xml
 <repositories>
@@ -57,25 +55,24 @@ weight: 1
 ```
 
 ### 直接ダウンロード
-あるいは、公式リリースページから最新 JAR をダウンロードしてください: [GroupDocs.Redaction for Java のリリース](https://releases.groupdocs.com/redaction/java/)。
+あるいは、公式リリースページから最新の JAR をダウンロードしてください: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
 ### ライセンス取得
-- **無料トライアル:** API を試すためにトライアルにサインアップ  
-- **一時ライセンス:** 長期テスト用に一時キーを使用  
-- **フル購入:** 無制限に使用できる本番ライセンスを取得  
+- **無料トライアル:** API を試すためにサインアップしてください。  
+- **一時ライセンス:** 長期テスト用に一時キーを使用します。  
+- **フル購入:** 無制限に使用できる本番ライセンスを取得します。
 
 ## 実装ガイド
+実装は 2 つの主要機能に分けます: **Image Area Redaction**（実際のマスク処理）と **Redaction Status Check**（成功の検証）。
 
-実装は **画像領域の赤塗り**（実際のマスク処理）と **赤塗りステータスの確認**（成功判定）の 2 つのコア機能に分けて説明します。
-
-### スキャン文書画像を赤塗りする – 手順 1: Redactor の初期化
+### スキャン文書画像の赤字処理方法 – 手順 1: Redactor の初期化
 まず、処理対象の画像を指す `Redactor` インスタンスを作成します。
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_JPG");
 ```
 
-### 手順 2: 赤塗りパラメータの定義
+### 手順 2: 赤字パラメータの定義
 隠したい矩形の左上隅（`Point`）とサイズ（`Dimension`）を指定します。この例では青色で塗りつぶします。
 
 ```java
@@ -86,8 +83,8 @@ Point samplePoint = new Point(385, 485);
 Dimension sampleSize = new Dimension(1793, 2069);
 ```
 
-### 手順 3: 赤塗りの適用
-`RegionReplacementOptions` を使用した `ImageAreaRedaction` オブジェクトを作成し、実行します。メソッドは `RedactorChangeLog` を返し、操作が成功したかどうかを知らせます。
+### 手順 3: 赤字処理の適用
+`RegionReplacementOptions` を使用して `ImageAreaRedaction` オブジェクトを作成し、実行します。このメソッドは操作の成功可否を示す `RedactorChangeLog` を返します。
 
 ```java
 RedactorChangeLog result = redactor.apply(
@@ -101,14 +98,14 @@ if (result.getStatus() != RedactionStatus.Failed) {
 ```
 
 ### 手順 4: リソースの解放
-処理が終わったら必ず `Redactor` を閉じて、ネイティブリソースを解放します。
+処理が完了したら必ず `Redactor` を閉じて、ネイティブリソースを解放してください。
 
 ```java
 redactor.close();
 ```
 
-### 赤塗りの検証 – ステータスチェック
-赤塗りを適用した後、`RedactorChangeLog` を確認して操作が失敗していないか検証できます。
+### 赤字処理の検証方法 – ステータスチェック
+赤字処理を適用した後、`RedactorChangeLog` を調べて操作が失敗していないことを確認できます。
 
 ```java
 if (result != null && result.getStatus() != RedactionStatus.Failed) {
@@ -118,53 +115,53 @@ if (result != null && result.getStatus() != RedactionStatus.Failed) {
 }
 ```
 
-## 実用例
-- **機密文書の取り扱い:** スキャンされた契約書の個人情報を自動でマスクし、外部関係者と共有  
-- **法務文書:** 証拠画像の識別子を赤塗りして GDPR や HIPAA に準拠  
-- **医療記録:** 放射線画像の顔や手書きメモを覆い、患者プライバシーを保護  
+## 実用的な活用例
+- **機密文書の取り扱い:** スキャンした契約書の個人データを自動的にマスクし、外部に共有する前に保護します。  
+- **法的文書:** 証拠画像の識別子を赤字処理して GDPR や HIPAA への準拠を確保します。  
+- **医療記録:** 放射線画像の顔や手書きメモをぼかして患者のプライバシーを保護します。
 
 ## パフォーマンス上の考慮点
-- **バッチ処理:** メモリ使用量を抑えるために小さなバッチで画像をロード・赤塗り  
-- **効率的なデータ構造:** 多数の画像を処理する際は `Point` と `Dimension` オブジェクトを再利用  
-- **最新バージョンの維持:** パフォーマンス向上やバグ修正のため、定期的に GroupDocs.Redaction の最新バージョンへアップデート  
+- **バッチ処理:** メモリ使用量を抑えるために、画像を小さなバッチでロードして赤字処理します。  
+- **効率的なデータ構造:** 多数の画像を処理する際は `Point` と `Dimension` オブジェクトを再利用します。  
+- **常に最新を保つ:** パフォーマンス向上やバグ修正のため、定期的に最新の GroupDocs.Redaction バージョンへアップグレードしてください。
 
 ## よくある問題と解決策
-| 問題 | 原因 | 対策 |
-|------|------|------|
-| **`Failed` ステータスで赤塗りが失敗** | ファイルパスが間違っている、または未対応の画像形式 | 画像が存在し、サポートされている形式（JPG、PNG、BMP）か確認 |
-| **出力ファイルが空** | `redactor.save()` を赤塗り完了前に呼び出した | `apply()` が成功ステータスを返すことを確認してから保存 |
-| **色が適用されない** | 透明色を使用した | 不透明な `Color`（例: `Color.BLACK` または `Color.BLUE`）を選択 |
+| Issue | Cause | Fix |
+|-------|-------|-----|
+| **`Failed` ステータスで赤字処理が失敗** | ファイルパスが間違っている、またはサポートされていない画像形式 | 画像が存在し、サポートされている形式（JPG、PNG、BMP）であることを確認してください。 |
+| **出力ファイルが空** | `redactor.save()` が赤字処理完了前に呼び出された | 保存する前に `apply()` が成功ステータスを返すことを確認してください。 |
+| **色が適用されない** | 透明な色を使用している | 不透明な `Color`（例: `Color.BLACK` または `Color.BLUE`）を選択してください。 |
 
-## FAQ
+## よくある質問
 
-**Q: `ImageAreaRedaction` とテキスト赤塗りの違いは？**  
-A: `ImageAreaRedaction` はピクセル座標で処理し、テキスト赤塗りは OCR レイヤーを解析して文字コンテンツを除去します。
+**Q: `ImageAreaRedaction` とテキスト赤字処理の違いは何ですか？**  
+A: `ImageAreaRedaction` はピクセル座標で動作し、テキスト赤字処理は OCR レイヤーを解析してテキストコンテンツを特定・削除します。
 
-**Q: 1 つの画像に複数領域を赤塗りできますか？**  
-A: はい – `redactor.apply()` を異なる `ImageAreaRedaction` オブジェクトで繰り返し呼び出し、保存前にすべて適用できます。
+**Q: 1 つの画像で複数の領域を赤字処理できますか？**  
+A: はい。保存する前に異なる `ImageAreaRedaction` オブジェクトを使用して `redactor.apply()` を繰り返し呼び出します。
 
-**Q: TIFF など他の画像形式はサポートしていますか？**  
-A: ライブラリは一般的なラスタ形式（JPG、PNG、BMP、GIF）をサポートします。TIFF の場合はまずサポート対象形式に変換してください。
+**Q: TIFF などの他の画像形式は GroupDocs.Redaction でサポートされていますか？**  
+A: ライブラリは一般的なラスタ形式（JPG、PNG、BMP、GIF）をサポートしています。TIFF の場合は、まずサポートされている形式に変換してください。
 
-**Q: スキャンされた PDF フォルダ全体を自動で赤塗りするには？**  
-A: PDF から抽出した各ページ画像をループで処理し、同じ赤塗りロジックを適用した後、PDF ライブラリで PDF を再構築します。
+**Q: スキャンした PDF のフォルダー全体を自動的に赤字処理するには？**  
+A: PDF から抽出した各ページ画像を順に処理し、同じ赤字ロジックを適用した後、PDF ライブラリで PDF を再構築します。
 
-**Q: 保存前に赤塗りプレビューを表示できますか？**  
-A: `Redactor` を `BufferedImage` にレンダリングし、Swing や JavaFX の UI で表示すれば、確定前に確認できます。
+**Q: 保存前に赤字処理をプレビューする方法はありますか？**  
+A: `Redactor` を `BufferedImage` にレンダリングし、Swing または JavaFX の UI で表示してから変更を確定できます。
 
 ## 結論
-これで **画像コンテンツの赤塗り** と、特に **GroupDocs.Redaction for Java を使用したスキャン文書画像の赤塗り** に関する完全な本番対応ガイドが完成しました。上記手順に従えば、さまざまな業界で機密ビジュアルデータを保護できます。テキスト赤塗りや PDF ページ赤塗りなどの追加 API も活用し、組織全体のデータプライバシーソリューションを構築してください。
+これで、**画像を赤字処理する方法**、特に GroupDocs.Redaction for Java を使用した **スキャン画像の Java での赤字処理** に関する完全な本番対応ガイドが手に入りました。上記の手順に従うことで、さまざまな業界で機密の視覚データを保護できます。テキスト赤字処理や PDF ページの赤字処理など、他の API も活用して、組織向けの包括的なデータプライバシーソリューションを構築してください。
 
 **リソース**  
-- [ドキュメンテーション](https://docs.groupdocs.com/redaction/java/)  
+- [ドキュメント](https://docs.groupdocs.com/redaction/java/)  
 - [API リファレンス](https://reference.groupdocs.com/redaction/java)  
 - [ダウンロード](https://releases.groupdocs.com/redaction/java/)  
 - [GitHub リポジトリ](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - [無料サポートフォーラム](https://forum.groupdocs.com/c/redaction/33)  
-- [一時ライセンス取得](https://purchase.groupdocs.com/temporary-license/)
+- [一時ライセンス](https://purchase.groupdocs.com/temporary-license/) 
 
 ---
 
-**最終更新日:** 2025-12-29  
+**最終更新:** 2026-03-22  
 **テスト環境:** GroupDocs.Redaction 24.9 (Java)  
-**作成者:** GroupDocs  
+**作者:** GroupDocs

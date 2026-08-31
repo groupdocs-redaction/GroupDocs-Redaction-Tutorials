@@ -1,57 +1,56 @@
 ---
-date: '2025-12-21'
-description: Tanulja meg, hogyan valósíthat meg egy egyedi formátumkezelőt Java-ban,
-  és hogyan redakciózhat szöveges Java-dokumentumokat a GroupDocs.Redaction segítségével.
-  Hatékonyan védje a bizalmas információkat.
+date: '2026-03-17'
+description: Tanulja meg, hogyan valósíthat meg egyedi formátumkezelőt Java-ban, és
+  hogyan menthet el egy redaktált dokumentumot a GroupDocs.Redaction segítségével,
+  hatékonyan védve az érzékeny adatokat.
 keywords:
 - implement custom format handlers Java
 - apply redactions GroupDocs Redaction
 - Java data protection
-title: 'Egyedi formátumkezelő Java - Implementálás a GroupDocs.Redaction segítségével'
+title: Egyéni formátumkezelő implementálása Java-ban a GroupDocs.Redaction használatával
 type: docs
 url: /hu/java/format-handling/implement-custom-format-handlers-java-groupdocs-redaction/
 weight: 1
 ---
 
-# Egyedi formátumkezelők megvalósítása Java-ban a GroupDocs.Redaction segítségével
+# Egyéni formátumkezelő implementálása Java-ban a GroupDocs.Redaction használatával
 
-## Bevezetés
-A mai adat‑központú világban az érzékeny információk védelme kiemelten fontos, és a **custom format handler java** rugalmasságot biztosít, hogy bármilyen fájltípussal dolgozhass. Legyen szó jogi dokumentumokról, pénzügyi nyilvántartásokról vagy személyes adatokról, a titoktartás biztosítása kihívást jelenthet. Ez az útmutató végigvezet a saját formátumkezelő megvalósításán egyszerű szöveges dokumentumokhoz, és a redakciók alkalmazásán a GroupDocs.Redaction segítségével, így hatékonyan tudod védeni a fájlokat.
+A mai adat‑központú világban a bizalmas információk védelme kiemelten fontos, és a **implement custom format handler** Java-ban való elsajátítása rugalmasságot biztosít bármilyen fájltípus kezeléséhez. Legyen szó jogi szerződésekről, pénzügyi kimutatásokról vagy személyes nyilvántartásokról, ez az útmutató végigvezet a saját formátumkezelő regisztrálásán egyszerű szöveges fájlokhoz, valamint a redakciók alkalmazásán a GroupDocs.Redaction segítségével, hogy biztonságosan feldolgozhassa és **save redacted document** fájlokat.
 
 ## Gyors válaszok
-- **Mi az a custom format handler java?** Egy plug‑in, amely megmondja a GroupDocs.Redaction-nak, hogyan olvassa be és dolgozza fel a nem szabványos fájlkiterjesztést.  
-- **Miért használjuk a GroupDocs.Redaction-t a redakcióhoz?** Megbízható, nagy teljesítményű redakció API-kat biztosít számos dokumentumtípushoz.  
+- **Mi az a custom format handler java?** Egy plug‑in, amely megmondja a GroupDocs.Redaction‑nak, hogyan olvasson és dolgozzon fel egy nem szabványos fájlkiterjesztést.  
+- **Miért használjuk a GroupDocs.Redaction‑t a redakcióhoz?** Megbízható, nagy teljesítményű redakciós API‑kat biztosít számos dokumentumtípushoz.  
 - **Melyik Java verzió szükséges?** Java 8 vagy újabb; a JDK‑nek telepítve kell lennie a fejlesztői gépen.  
-- **Szükségem van licencre?** Elérhető egy ingyenes próba, de a termelésben való használathoz állandó licenc szükséges.  
-- **Képes vagyok kötegelt feldolgozásra?** Igen — inicializálj egy Redactor‑t minden fájlhoz egy ciklusban, vagy használj párhuzamos streameket.
+- **Szükség van licencre?** Elérhető egy ingyenes próba, de a termelésben való használathoz állandó licenc szükséges.  
+- **Lehet kötegelt feldolgozást végezni?** Igen — hozz létre egy Redactor‑t minden fájlhoz egy ciklusban, vagy használj párhuzamos stream‑eket.
 
 ## Amit megtanulsz
-- Regisztrálj egy **custom format handler java**‑t specifikus fájltípusokhoz.  
-- **Redact text java documents** használata a GroupDocs.Redaction API-jával.  
-- Valós életbeli alkalmazások adatvédelemhez.  
-- Teljesítmény‑hangolási tippek a hatékony erőforrás‑kezeléshez.
+- **custom format handler** regisztrálása adott fájltípusokhoz.  
+- **Redact text java** dokumentumok használata a GroupDocs.Redaction API‑val.  
+- Valós példák adatvédelemre és **replace sensitive text** biztonságos végrehajtására.  
+- Teljesítmény‑optimalizálási tippek a hatékony erőforrás‑kezeléshez.
 
 ## Előfeltételek
-Mielőtt elkezdenénk, győződj meg róla, hogy a következőkkel rendelkezel:
+Mielőtt elkezdenénk, győződj meg róla, hogy a következők rendelkezésre állnak:
 
 ### Szükséges könyvtárak és verziók
 - **GroupDocs.Redaction**: 24.9 vagy újabb verzió.
 
 ### Környezet beállítási követelmények
-- Java Development Kit (JDK) telepítve.  
-- IDE, például IntelliJ IDEA vagy Eclipse a kódfejlesztéshez és futtatáshoz.
+- Telepített Java Development Kit (JDK).  
+- IntelliJ IDEA vagy Eclipse típusú IDE a kódfejlesztéshez és futtatáshoz.
 
-### Tudás előfeltételek
+### Tudásbeli előfeltételek
 - Alapvető Java programozási ismeretek.  
 - Maven ismerete a függőségkezeléshez (hasznos, de nem kötelező).
 
-Ezekkel az előfeltételekkel, állítsuk be a GroupDocs.Redaction‑t a Java projektedhez.
+Ezekkel az előfeltételekkel készen állsz a GroupDocs.Redaction beállítására a Java projektedben.
 
-## A GroupDocs.Redaction beállítása Java-hoz
-A GroupDocs.Redaction Java alkalmazásba való integrálásához két fő módszer áll rendelkezésre: Maven használata vagy közvetlen letöltés. Mindkét lehetőséget bemutatjuk, hogy bármilyen beállítási preferenciád mellett is felkészülten tudj dolgozni.
+## GroupDocs.Redaction beállítása Java-hoz
+A GroupDocs.Redaction integrálásához a Java alkalmazásodba két fő módszer áll rendelkezésre: Maven használata vagy közvetlen letöltés. Mindkét opciót bemutatjuk, hogy a beállítási preferenciádtól függetlenül készen állj.
 
 ### Maven használata
-Add the following configurations to your `pom.xml` file:
+Add hozzá a következő konfigurációkat a `pom.xml` fájlodhoz:
 
 ```xml
 <repositories>
@@ -74,13 +73,13 @@ Add the following configurations to your `pom.xml` file:
 ### Közvetlen letöltés
 Alternatívaként töltsd le a legújabb verziót közvetlenül a [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/) oldalról.
 
-#### Licenc megszerzési lépések
-- **Free Trial**: Kezd egy ingyenes próbaidőszakkal a funkciók felfedezéséhez.  
-- **Temporary License**: Szerezz be egy ideiglenes licencet a hosszabb teszteléshez.  
-- **Purchase**: Vásárolj licencet a teljes hozzáféréshez.
+#### Licenc beszerzési lépések
+1. **Free Trial**: Kezd egy ingyenes próbaverzióval a funkciók felfedezéséhez.  
+2. **Temporary License**: Szerezz be egy ideiglenes licencet a kiterjesztett teszteléshez.  
+3. **Purchase**: Vásárolj licencet a teljes hozzáféréshez.
 
-### Alap inicializálás és beállítás
-Telepítés után inicializáld a GroupDocs.Redaction‑t a következő módon:
+### Alapvető inicializálás és beállítás
+A telepítés után inicializáld a GroupDocs.Redaction‑t a következőképpen:
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -95,20 +94,19 @@ public class InitializeRedaction {
 }
 ```
 
-Miután a GroupDocs.Redaction be van állítva, lépjünk tovább a **custom format handler java** megvalósítására és a redakciók alkalmazására.
+A GroupDocs.Redaction beállítása után most már elmélyülhetünk a **how to implement custom format handler** és a redakciók alkalmazásában.
 
-## Implementációs útmutató
-Ez a szakasz két fő funkcióra oszlik: Egyedi formátumkezelő regisztrációja és Redakció alkalmazása. Kövesd ezeket a lépéseket a céljaid eléréséhez.
+## Hogyan implementáljuk a custom format handler‑t Java-ban
 
-### 1. funkció: Egyedi formátumkezelő regisztrációja
+### 1. funkció: Custom Format Handler regisztrálása
 
 #### Áttekintés
-A **custom format handler java** regisztrálása kibővíti a GroupDocs.Redaction képességeit, hogy specifikus dokumentumtípusokat kezeljen, például egyedi kiterjesztésű egyszerű szövegfájlokat.
+A **custom format handler** regisztrálása kiterjeszti a GroupDocs.Redaction képességeit, hogy specifikus dokumentumtípusokat kezeljen, például egyedi kiterjesztésű egyszerű szöveges fájlokat.
 
-#### A megvalósítás lépései
+#### Implementálási lépések
 
 ##### 1. lépés: Szükséges osztályok importálása
-Kezdd a szükséges osztályok importálásával a konfigurációhoz:
+Kezdjük a konfigurációhoz szükséges osztályok importálásával:
 
 ```java
 import com.groupdocs.redaction.configuration.DocumentFormatConfiguration;
@@ -117,7 +115,7 @@ import com.groupdocs.redaction.examples.java.helper_classes.CustomTextualDocumen
 ```
 
 ##### 2. lépés: Dokumentumformátum konfigurálása
-Állítsd be a dokumentumformátum konfigurációt, hogy meghatározd, melyik fájlkiterjesztés és osztály kezeli az egyedi formátumot:
+Állítsd be a dokumentumformátum konfigurációt, hogy meghatározd, melyik fájlkiterjesztés és osztály kezeli az egyéni formátumot:
 
 ```java
 class CustomFormatHandlerRegistration {
@@ -133,16 +131,16 @@ class CustomFormatHandlerRegistration {
 }
 ```
 
-#### Kulcsfontosságú konfigurációs beállítások
+**Kulcsfontosságú konfigurációs beállítások**  
 - `setExtensionFilter`: Meghatározza, mely fájlkiterjesztésekre vonatkozik a kezelő.  
 - `setDocumentType`: Egy dokumentumosztályt kapcsol a feldolgozáshoz.
 
 ### 2. funkció: Redakció alkalmazása
 
 #### Áttekintés
-Ez a funkció bemutatja, hogyan lehet **redact text java documents** használni a GroupDocs.Redaction segítségével, biztosítva, hogy az érzékeny információk hatékonyan el legyenek takarva.
+Ez a funkció bemutatja, hogyan **redact text java** dokumentumokat, biztosítva, hogy a **replace sensitive text** művelet biztonságosan legyen végrehajtva.
 
-#### A megvalósítás lépései
+#### Implementálási lépések
 
 ##### 1. lépés: Szükséges osztályok importálása
 Importáld a redakciók végrehajtásához szükséges osztályokat:
@@ -155,7 +153,7 @@ import com.groupdocs.redaction.redactions.ReplacementOptions;
 ```
 
 ##### 2. lépés: Redactor inicializálása és redakciók alkalmazása
-Inicializáld a redactor‑t a dokumentum útvonalával, alkalmazd a kívánt redakciókat, majd mentsd el a módosított fájlt:
+Inicializáld a redactor‑t a dokumentum útvonalával, alkalmazd a kívánt redakciókat, és **save redacted document** új néven:
 
 ```java
 class RedactionApplication {
@@ -174,55 +172,58 @@ class RedactionApplication {
 ```
 
 #### Hibaelhárítási tippek
-- Győződj meg róla, hogy a fájl útvonala helyes és elérhető.  
-- Ellenőrizd újra a konfigurációs beállításokat, ha az egyedi kezelők nem töltődnek be.
+- Ellenőrizd, hogy a fájl útvonala helyes és elérhető.  
+- Nézd át a konfigurációs beállításokat, ha az egyéni kezelők nem töltődnek be.
 
 ## Gyakorlati alkalmazások
-1. **Legal Document Protection** – Redakcióval takard el az érzékeny ügy részleteket, mielőtt a dokumentumokat külsőleg megosztanád.  
-2. **Financial Records Security** – Biztonságosan kezeld a bankszámlakivonatokat a számlaszámok és személyes adatok eltakarással.  
-3. **HR Data Management** – Véd a munkavállalói nyilvántartásokat auditok vagy külső felülvizsgálatok során.  
-4. **Integration with CRM Systems** – Automatikusan redakcióval takard el az ügyféladatokat, mielőtt a CRM platformokból jelentéseket exportálnál.  
-5. **Automated Compliance Reporting** – Biztosítsd, hogy a megfelelőségi dokumentumok ne tartalmazzanak érzékeny adat szivárgásokat.
+Néhány valós életbeli forgatókönyv, ahol ezeket a technikákat alkalmazhatod:
 
-## Teljesítmény szempontok
-A GroupDocs.Redaction használata során vedd figyelembe ezeket a tippeket a legoptimálisabb teljesítmény érdekében:
+1. **Legal Document Protection** – Érzékeny ügyészeti részletek redakciója a dokumentumok külső megosztása előtt.  
+2. **Financial Records Security** – Banki kimutatások biztonságos kezelése a számlaszámok és személyes adatok elrejtésével.  
+3. **HR Data Management** – Alkalmazotti nyilvántartások védelme auditok vagy külső felülvizsgálatok során.  
+4. **Integration with CRM Systems** – Ügyféladatok automatikus redakciója a CRM‑rendszerekből exportált jelentések előtt.  
+5. **Automated Compliance Reporting** – Biztosítsd, hogy a megfelelőségi dokumentumok ne tartalmazzanak érzékeny adat szivárgást.
 
-- **Optimize Resource Usage** – Kezeld a memóriát hatékonyan, erőforrásokat azonnal zárd le használat után.  
-- **Batch Processing** – Redakcióval takard el több dokumentumot kötegben a betöltési idő csökkentése érdekében.  
-- **Profile and Benchmark** – Rendszeresen profilozd az alkalmazást a szűk keresztmetszetek azonosításához.
+## Teljesítménybeli megfontolások
+GroupDocs.Redaction használata közben vedd figyelembe a következő tippeket az optimális teljesítmény érdekében:
+
+- **Erőforrás‑használat optimalizálása** – Zárd le a Redactor példányokat azonnal a fájl feldolgozása után.  
+- **Kötegelt feldolgozás** – Redakció több dokumentumra kötegben a betöltési idő csökkentése érdekében.  
+- **Profilozás és benchmark** – Rendszeresen profilozd az alkalmazást a szűk keresztmetszetek azonosításához.
 
 ## Gyakori problémák és megoldások
-| Probléma | Ok | Megoldás |
-|----------|----|----------|
-| A kezelő nem ismerhető fel | Kiterjesztés‑szűrő eltérés | Ellenőrizd, hogy a `setExtensionFilter` pontosan egyezik a fájl kiterjesztésével (pl. `.dump`). |
-| A redakció nem alkalmazott | Kifejezés nagybetűérzékenysége | Állítsd a `ignoreCase` jelzőt `true`‑ra az `ExactPhraseRedaction`‑ben. |
-| Memória‑hiány hibák | Nagy fájlok egyidejű betöltése | Feldolgozd a fájlokat sorban, vagy használd a streaming API‑kat, ha elérhetők. |
+| Issue | Cause | Solution |
+|-------|-------|----------|
+| Handler not recognized | Extension filter mismatch | Verify `setExtensionFilter` matches the file’s extension exactly (e.g., `.dump`). |
+| Redaction not applied | Phrase case‑sensitivity | Set the `ignoreCase` flag to `true` in `ExactPhraseRedaction`. |
+| Out‑of‑memory errors | Large files loaded simultaneously | Process files sequentially or use streaming APIs where available. |
 
-## Következtetés
-Eddig már szilárd megértésed van arról, hogyan valósítsd meg a **custom format handler java**‑t és a **redact text java documents**‑et a GroupDocs.Redaction Java verziójával. Ezek a készségek felbecsülhetetlenek az érzékeny információk különböző dokumentumtípusokban való védelméhez. A tudásod további bővítéséhez tekintsd át az alább megadott forrásokat, és kísérletezz különböző felhasználási esetekkel.
+## Összegzés
+Most már szilárd megértésed van arról, hogyan **implement custom format handler** és **redact text java** dokumentumokat használj a GroupDocs.Redaction for Java‑val. Ezek a készségek felbecsülhetetlenek a bizalmas információk védelmében különféle dokumentumtípusok esetén. A tudás mélyítéséhez fedezz fel további redakciós technikákat, például mintázat‑alapú redakciót, és fontold meg a munkafolyamat integrálását CI/CD pipeline‑okba az automatizált megfelelőségi ellenőrzésekhez.
 
 ### Következő lépések
-- Fedezz fel további redakciós technikákat, például mintázat‑alapú redakciót.  
-- Integráld a munkafolyamatot CI/CD pipeline‑okkal az automatikus megfelelőségi ellenőrzésekhez.
+- Kísérletezz mintázat‑alapú redakcióval az érzékeny adatok automatikus megtalálásához és helyettesítéséhez.  
+- Integráld a redakciós folyamatot a build pipeline‑odba, hogy a telepítés előtt érvényesítsd az adatvédelmi szabályzatokat.  
 
-## GyIK szekció
-**Q1: Milyen fájltípusokat kezelhetek egyedi formátumkezelőkkel?**  
+## GYIK
+
+**Q1: Milyen fájltípusokat kezelhetek egyéni formátumkezelőkkel?**  
 A1: Bármilyen fájltípust konfigurálhatsz, ha megadod a kiterjesztést és a megfelelő dokumentumosztályt.
 
-**Q2: Hogyan szerezz be egy ideiglenes licencet a GroupDocs.Redaction‑hoz?**  
-A: Látogasd meg a [GroupDocs hivatalos oldalát](https://products.groupdocs.com/redaction), hogy ideiglenes licencet kérj.
+**Q2: Hogyan szerezhetek ideiglenes licencet a GroupDocs.Redaction‑hoz?**  
+A: Látogasd meg a [GroupDocs hivatalos oldalát](https://products.groupdocs.com/redaction), és kérj ideiglenes licencet.
 
-**Q3: Hatékonyan tudok nagy kötegeket feldolgozni?**  
-A: Igen — használd a kötegelt feldolgozási tippeket a Teljesítmény szempontok szakaszban, és zárd le minden Redactor példányt időben.
+**Q3: Feldolgozhatok nagy kötegeket hatékonyan?**  
+A: Igen — használd a Performance Considerations szekcióban leírt kötegelt feldolgozási tippeket, és zárd le minden Redactor példányt a feldolgozás után.
 
-**Q4: Lehetséges ugyanazzal a kezelővel redakciót végezni PDF fájlokon?**  
-A: A GroupDocs.Redaction már natív PDF támogatással rendelkezik; az egyedi kezelőket általában nem szabványos formátumokhoz, például `.dump`‑hoz használják.
+**Q4: Lehet ugyanazzal a kezelővel PDF fájlokat is redakciózni?**  
+A: A GroupDocs.Redaction már natív PDF‑támogatással rendelkezik; az egyéni kezelőket általában nem‑szabványos formátumokhoz, például `.dump`‑hez használják.
 
 **Q5: Támogatja az API az aszinkron műveleteket?**  
-A: Bár a fő API szinkron, a hívásokat Java `CompletableFuture`‑be csomagolhatod vagy párhuzamos streameket használhatsz a konkurenciához.
+A: Bár a fő API szinkron, a hívásokat Java `CompletableFuture`‑ben vagy párhuzamos stream‑ekben csomagolhatod a párhuzamos végrehajtáshoz.
 
 ---
 
-**Last Updated:** 2025-12-21  
+**Last Updated:** 2026-03-17  
 **Tested With:** GroupDocs.Redaction 24.9  
 **Author:** GroupDocs

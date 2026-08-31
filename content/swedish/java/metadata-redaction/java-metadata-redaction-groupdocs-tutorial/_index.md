@@ -1,44 +1,44 @@
 ---
-date: '2026-01-08'
-description: Lär dig hur du använder MetadataSearchRedaction i Java med GroupDocs.Redaction
-  för att säkert radera känslig dokumentmetadata.
+date: '2026-03-22'
+description: Lär dig hur du utför metadata‑redigering med GroupDocs i Java och säkert
+  tar bort konfidentiell dokumentmetadata med GroupDocs.Redaction.
 keywords:
 - metadata redaction Java
 - GroupDocs Redaction tutorial
 - secure document metadata
-title: Hur man använder MetadataSearchRedaction i Java med GroupDocs
+title: Hur man utför metadata‑redigering med GroupDocs i Java
 type: docs
 url: /sv/java/metadata-redaction/java-metadata-redaction-groupdocs-tutorial/
 weight: 1
 ---
 
-# Så använder du MetadataSearchRedaction i Java med GroupDocs
+# Så utför du metadata-redigering med GroupDocs i Java
 
-I den här omfattande guiden kommer du att upptäcka **hur du använder MetadataSearchRedaction** för att ta bort konfidentiell metadata—såsom företagsnamn—från Word, PDF och andra dokumentformat med hjälp av GroupDocs.Redaction för Java. I slutet av tutorialen kommer du att kunna integrera metadata‑redigering i vilket Java‑baserat arbetsflöde som helst och hålla känslig information säker.
+I den här omfattande guiden kommer du att upptäcka **hur du använder metadata-redigering med GroupDocs** för att ta bort konfidentiell metadata—såsom företagsnamn—från Word, PDF och andra dokumentformat med hjälp av GroupDocs.Redaction för Java. I slutet av tutorialen kommer du att kunna integrera metadata-redigering i vilket Java‑baserat arbetsflöde som helst och hålla känslig information säker.
 
-## Snabba svar
+## Quick Answers
 - **Vad gör MetadataSearchRedaction?** Den söker efter specifika metadatafält och ersätter deras värden med anpassad text.  
 - **Vilket bibliotek krävs?** GroupDocs.Redaction for Java (v24.9 eller nyare).  
-- **Behöver jag en licens?** En gratis provversion fungerar för utvärdering; en full licens krävs för produktion.  
+- **Behöver jag en licens?** En gratis provperiod fungerar för utvärdering; en full licens krävs för produktion.  
 - **Kan jag behålla originalfilformatet?** Ja—använd `SaveOptions` för att bevara originalformatet.  
 - **Är detta tillvägagångssätt trådsäkert?** Varje `Redactor`‑instans är oberoende, så du kan bearbeta dokument parallellt.
 
-## Vad är MetadataSearchRedaction?
-`MetadataSearchRedaction` är en specialiserad redigeringsklass som låter dig rikta in dig på en specifik metadataproperty (t.ex. *Company*, *Author*) och ersätta dess innehåll med en platshållare. Den är idealisk när du behöver anonymisera företagsdata innan du delar dokument med externa partners.
+## Vad är metadata-redigering med GroupDocs?
+`MetadataSearchRedaction` är en specialiserad klass som låter dig rikta in dig på en specifik metadataproperty (t.ex. *Company*, *Author*) och ersätta dess innehåll med en platshållare. Den är idealisk när du behöver anonymisera företagsdata innan du delar dokument med externa partners.
 
-## Varför använda MetadataSearchRedaction för metadata‑redigering?
+## Varför använda metadata-redigering med GroupDocs?
 - **Precision** – Redigera endast de fält du specificerar, och lämna resten av dokumentet orört.  
-- **Efterlevnad** – Hjälper att uppfylla GDPR, HIPAA och andra integritetsregler genom att ta bort dolda identifierare.  
+- **Efterlevnad** – Hjälper till att uppfylla GDPR, HIPAA och andra sekretessregler genom att ta bort dolda identifierare.  
 - **Automationsklar** – Passar sömlöst in i batch‑bearbetningspipelines eller mikrotjänster.
 
 ## Förutsättningar
 - **GroupDocs.Redaction for Java** ≥ 24.9.  
 - Java 8 eller nyare installerat på din maskin.  
-- En IDE som IntelliJ IDEA eller Eclipse (valfritt men rekommenderat).  
+- En IDE såsom IntelliJ IDEA eller Eclipse (valfritt men rekommenderat).  
 - Grundläggande kunskap om Maven (eller möjlighet att lägga till JAR-filer manuellt).  
 
 ## Installera GroupDocs.Redaction för Java
-Lägg till repository och beroende i din `pom.xml`. Detta steg säkerställer att Maven kan ladda ner biblioteket automatiskt.
+Lägg till repositoryn och beroendet i din `pom.xml`. Detta steg säkerställer att Maven kan ladda ner biblioteket automatiskt.
 
 ```xml
 <repositories>
@@ -62,7 +62,7 @@ Lägg till repository och beroende i din `pom.xml`. Detta steg säkerställer at
 [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/)
 
 ### Licensanskaffning
-- **Gratis provversion** – Ladda ner en provlicens för att utforska alla funktioner.  
+- **Gratis provperiod** – Ladda ner en provlicens för att utforska alla funktioner.  
 - **Tillfällig licens** – Använd för utökad testning.  
 - **Full licens** – Krävs för produktionsdistributioner.
 
@@ -95,8 +95,8 @@ Instansiera `Redactor` med sökvägen till din källfil.
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX");
 ```
 
-### Steg 3: Konfigurera metadata‑sökning och redigering
-Skapa en `MetadataSearchRedaction` som söker efter den exakta strängen **"Company Ltd."** och ersätter den med **"--company--"**. Anropet `setFilter` begränsar operationen till endast *Company*‑metadatafältet.
+### Steg 3: Konfigurera metadata-sökning och redigering
+Skapa en `MetadataSearchRedaction` som söker efter den exakta strängen **"Company Ltd."** och ersätter den med **"--company--"**. Anropet `setFilter` begränsar operationen till endast *Company*-metadatafältet.
 
 ```java
 MetadataSearchRedaction redaction = new MetadataSearchRedaction("Company Ltd.", "--company--");
@@ -116,7 +116,7 @@ Konfigurera `SaveOptions` så att den redigerade filen får suffixet “_Redacte
 ```java
 SaveOptions tmp0 = new SaveOptions();
 tmp0.setAddSuffix(true);  // Adds "_Redacted" to file name
-	tmp0.setRasterizeToPDF(false);  // Keeps original format
+tmp0.setRasterizeToPDF(false);  // Keeps original format
 
 redactor.save(tmp0);
 ```
@@ -146,17 +146,17 @@ finally {
 - **Håll dig uppdaterad** – Nya releaser ger prestandaförbättringar och buggfixar; sikta alltid på den senaste stabila versionen.
 
 ## Slutsats
-Du vet nu **hur du använder MetadataSearchRedaction** för att säkert ta bort företagsmetadata från dokument med hjälp av GroupDocs.Redaction för Java. Inkludera dessa steg i dina dokument‑bearbetningspipelines för att vara i enlighet med regelverk och skydda känslig information.
+Du vet nu **hur du använder metadata-redigering med GroupDocs** för att säkert ta bort företagsmetadata från dokument med hjälp av GroupDocs.Redaction för Java. Inkludera dessa steg i dina dokument‑bearbetningspipelines för att vara efterlevande och skydda känslig information.
 
 **Nästa steg**
 - Experimentera med andra metadatafält som *Author* eller *Creator*.  
 - Kombinera metadata‑redigering med text‑ eller bildredigering för en heltäckande lösning.  
 
-## FAQ‑avsnitt
-1. **Vad är GroupDocs.Redaction för Java?**  
-   - Det är ett kraftfullt bibliotek som gör det möjligt att redigera text, metadata och bilder i dokument med Java‑applikationer.  
+## FAQ‑sektion
+1. **Vad är GroupDocs.Redaction for Java?**  
+   - Det är ett kraftfullt bibliotek som låter dig redigera text, metadata och bilder i dokument med Java‑applikationer.  
 2. **Kan jag använda GroupDocs.Redaction utan att köpa en licens?**  
-   - Ja, men med begränsningar. En gratis provversion eller tillfällig licens ger full åtkomst för teständamål.  
+   - Ja, men med begränsningar. En gratis provperiod eller tillfällig licens ger full åtkomst för teständamål.  
 3. **Hur säkerställer jag att dokumentformat bevaras under redigering?**  
    - Använd `SaveOptions` för att specificera dina krav, t.ex. undvika rasterisering till PDF.  
 4. **Vilka typer av dokument kan redigeras med GroupDocs.Redaction?**  
@@ -176,15 +176,15 @@ A: Du kan anropa `redactor.getRedactions()` för att hämta en lista över vänt
 
 ## Resurser
 - **Dokumentation**: Utforska detaljerade guider på [GroupDocs Documentation](https://docs.groupdocs.com/redaction/java/).  
-- **API‑referens**: Se den kompletta API‑referensen på [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java).  
-- **Ladda ner biblioteket**: Få den senaste releasen från [GroupDocs Downloads](https://releases.groupdocs.com/redaction/java/).  
+- **API‑referens**: Se den fullständiga API‑referensen på [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java).  
+- **Ladda ner bibliotek**: Få den senaste releasen från [GroupDocs Downloads](https://releases.groupdocs.com/redaction/java/).  
 - **Källkod**: Visa och bidra på [GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java).  
 - **Support**: Få hjälp via den kostnadsfria supportkanalen på [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33).
 
 ---
 
-**Senast uppdaterad:** 2026-01-08  
-**Testat med:** GroupDocs.Redaction 24.9 för Java  
+**Senast uppdaterad:** 2026-03-22  
+**Testad med:** GroupDocs.Redaction 24.9 för Java  
 **Författare:** GroupDocs  
 
 ---

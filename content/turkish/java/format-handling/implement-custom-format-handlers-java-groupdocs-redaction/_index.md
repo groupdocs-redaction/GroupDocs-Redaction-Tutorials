@@ -1,56 +1,54 @@
 ---
-date: '2025-12-21'
-description: GroupDocs.Redaction kullanarak özel bir format işleyicisi Java'yı nasıl
-  uygulayacağınızı ve Java belgelerindeki metni nasıl karalayacağınızı öğrenin. Hassas
-  bilgileri etkili bir şekilde güvence altına alın.
+date: '2026-03-17'
+description: Java'da özel format işleyicisini nasıl uygulayacağınızı öğrenin ve GroupDocs.Redaction
+  kullanarak kırpılmış belgeyi kaydedin, hassas verileri etkili bir şekilde koruyun.
 keywords:
 - implement custom format handlers Java
 - apply redactions GroupDocs Redaction
 - Java data protection
-title: 'Özel Biçim İşleyicisi Java - GroupDocs.Redaction ile Uygula'
+title: GroupDocs.Redaction Kullanarak Java'da Özel Biçim İşleyicisi Uygulayın
 type: docs
 url: /tr/java/format-handling/implement-custom-format-handlers-java-groupdocs-redaction/
 weight: 1
 ---
 
-# Java'da GroupDocs.Redaction Kullanarak Özel Biçim İşleyicileri Uygulama
+# GroupDocs.Redaction Kullanarak Java'da Custom Format Handler Uygulama
 
-## Giriş
-Günümüzün veri odaklı dünyasında, hassas bilgileri korumak çok önemlidir ve **custom format handler java**, karşılaştığınız herhangi bir dosya türüyle çalışabilme esnekliğini sağlar. Hukuki belgeler, finansal kayıtlar veya kişisel verilerle uğraşıyor olun, gizliliği sağlamak zorlayıcı olabilir. Bu öğreticide, düz metin belgeleri için bir özel biçim işleyicisi uygulamayı ve GroupDocs.Redaction ile redaksiyon uygulamayı adım adım göstereceğiz, böylece dosyaları etkili bir şekilde güvence altına alabilirsiniz.
+Günümüz veri odaklı dünyasında, hassas bilgileri korumak çok önemlidir ve Java'da **implement custom format handler** öğrenmek, karşılaştığınız herhangi bir dosya türüyle çalışabilme esnekliği sağlar. Hukuki sözleşmeler, finansal tablolar veya kişisel kayıtlar üzerinde çalışıyor olun, bu öğretici size düz metin dosyaları için bir custom format handler kaydetmeyi ve GroupDocs.Redaction ile redaksiyon uygulamayı adım adım gösterecek, böylece **save redacted document** dosyalarını güvenli bir şekilde işleyebileceksiniz.
 
-## Hızlı Yanıtlar
-- **custom format handler java** nedir?** GroupDocs.Redaction'a standart olmayan bir dosya uzantısını nasıl okuyup işleyebileceğini söyleyen bir eklentidir.  
-- **Redaksiyon için neden GroupDocs.Redaction kullanılmalı?** Birçok belge türü için güvenilir, yüksek performanslı redaksiyon API'leri sağlar.  
-- **Hangi Java sürümü gereklidir?** Java 8 veya üzeri; JDK geliştirme makinenize kurulu olmalıdır.  
-- **Lisans gerekli mi?** Ücretsiz deneme mevcuttur, ancak üretim kullanımı için kalıcı bir lisans gereklidir.  
-- **Dosyaları toplu işleyebilir miyim?** Evet—her dosya için bir Redactor başlatın ya da döngü içinde paralel akışlar kullanın.  
+## Quick Answers
+- **Custom format handler java nedir?** GroupDocs.Redaction'a standart dışı dosya uzantılarını nasıl okuyup işleneceğini söyleyen bir eklentidir.  
+- **GroupDocs.Redaction'ı redaksiyon için neden kullanmalısınız?** Birçok belge türü için güvenilir, yüksek performanslı redaksiyon API'leri sağlar.  
+- **Hangi Java sürümü gereklidir?** Java 8 veya üzeri; JDK geliştirme makinenizde kurulu olmalıdır.  
+- **Bir lisansa ihtiyacım var mı?** Ücretsiz deneme mevcuttur, ancak üretim kullanımı için kalıcı bir lisans gereklidir.  
+- **Dosyaları toplu işleyebilir miyim?** Evet—her dosya için bir Redactor başlatın ya da döngü içinde paralel akışlar (parallel streams) kullanın.
 
-## Neler Öğreneceksiniz
-- Belirli dosya türleri için bir **custom format handler java** kaydedin.  
-- GroupDocs.Redaction API'si kullanarak **text java belgelerini redakte** edin.  
-- Veri koruması için gerçek dünya uygulamaları.  
-- Verimli kaynak yönetimi için performans ayarlama ipuçları.  
+## What You’ll Learn
+- Belirli dosya türleri için bir **custom format handler** kaydedin.  
+- GroupDocs.Redaction API'si kullanarak **Redact text java** belgelerini redakte edin.  
+- Veri koruması için gerçek dünya uygulamaları ve **replace sensitive text** güvenli bir şekilde değiştirme.  
+- Verimli kaynak yönetimi için performans ayarlama ipuçları.
 
-## Önkoşullar
+## Prerequisites
 Başlamadan önce, aşağıdakilere sahip olduğunuzdan emin olun:
 
-### Gerekli Kütüphaneler ve Sürümler
+### Required Libraries and Versions
 - **GroupDocs.Redaction**: Version 24.9 veya üzeri.
 
-### Ortam Kurulum Gereksinimleri
-- Java Development Kit (JDK) kurulu.  
+### Environment Setup Requirements
+- Java Development Kit (JDK) yüklü.  
 - Kod geliştirme ve çalıştırma için IntelliJ IDEA veya Eclipse gibi bir IDE.
 
-### Bilgi Önkoşulları
+### Knowledge Prerequisites
 - Java programlamaya temel bir anlayış.  
-- Bağımlılık yönetimi için Maven'e aşinalık (yararlı ancak zorunlu değil).
+- Bağımlılık yönetimi için Maven'e aşina olmak (yardımcı olur ancak zorunlu değil).
 
-Bu önkoşulları sağladıktan sonra, Java projeniz için GroupDocs.Redaction'ı kurmaya başlayalım.
+Bu ön koşullar sağlandığında, Java projeniz için GroupDocs.Redaction'ı kurmaya başlayalım.
 
-## Java için GroupDocs.Redaction Kurulumu
-GroupDocs.Redaction'ı Java uygulamanıza entegre etmek için iki ana yönteminiz var: Maven kullanmak veya doğrudan indirmek. Kurulum tercihiniz ne olursa olsun hazır olmanızı sağlamak için her iki seçeneği de adım adım anlatacağız.
+## Setting Up GroupDocs.Redaction for Java
+GroupDocs.Redaction'ı Java uygulamanıza entegre etmek için iki ana yönteminiz var: Maven kullanmak veya doğrudan indirmek. Her iki seçeneği de adım adım anlatacağız, böylece tercih ettiğiniz kurulum şekline bakılmaksızın hazır olacaksınız.
 
-### Maven Kullanarak
+### Using Maven
 `pom.xml` dosyanıza aşağıdaki yapılandırmaları ekleyin:
 
 ```xml
@@ -71,15 +69,15 @@ GroupDocs.Redaction'ı Java uygulamanıza entegre etmek için iki ana yöntemini
 </dependencies>
 ```
 
-### Doğrudan İndirme
+### Direct Download
 Alternatif olarak, en son sürümü doğrudan [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/) adresinden indirin.
 
-#### Lisans Edinme Adımları
-1. **Ücretsiz Deneme**: Özellikleri keşfetmek için ücretsiz deneme ile başlayın.  
-2. **Geçici Lisans**: Uzun vadeli testler için geçici bir lisans alın.  
-3. **Satın Alma**: Tam erişim için bir lisans satın alın.
+#### License Acquisition Steps
+1. **Free Trial**: Özellikleri keşfetmek için ücretsiz deneme ile başlayın.  
+2. **Temporary License**: Uzun süreli test için geçici bir lisans edinin.  
+3. **Purchase**: Tam erişim için bir lisans satın alın.
 
-### Temel Başlatma ve Kurulum
+### Basic Initialization and Setup
 Kurulum tamamlandıktan sonra, GroupDocs.Redaction'ı aşağıdaki gibi başlatın:
 
 ```java
@@ -95,19 +93,18 @@ public class InitializeRedaction {
 }
 ```
 
-GroupDocs.Redaction kurulduğunda, **custom format handler java** uygulamaya ve redaksiyonları eklemeye geçelim.
+GroupDocs.Redaction kurulduğunda, şimdi **how to implement custom format handler** konusuna dalabilir ve redaksiyonları uygulayabiliriz.
 
-## Uygulama Kılavuzu
-Bu bölüm iki ana özelliğe ayrılmıştır: Özel Biçim İşleyicisi Kaydı ve Redaksiyon Uygulaması. Hedeflerinize ulaşmak için bu adımları izleyin.
+## How to Implement Custom Format Handler in Java
 
-### Özellik 1: Özel Biçim İşleyicisi Kaydı
+### Feature 1: Custom Format Handler Registration
 
-#### Genel Bakış
-Bir **custom format handler java** kaydetmek, GroupDocs.Redaction'ın yeteneklerini, benzersiz uzantılara sahip düz metin dosyaları gibi belirli belge türlerini işleyebilecek şekilde genişletir.
+#### Overview
+**custom format handler** kaydetmek, GroupDocs.Redaction'ın belirli belge türlerini, örneğin benzersiz uzantılara sahip düz metin dosyalarını işleme yeteneklerini genişletir.
 
-#### Uygulama Adımları
+#### Steps for Implementation
 
-##### Adım 1: Gerekli Sınıfları İçe Aktarın
+##### Step 1: Import Required Classes
 Yapılandırma için gerekli sınıfları içe aktararak başlayın:
 
 ```java
@@ -116,8 +113,8 @@ import com.groupdocs.redaction.integration.DocumentFormatInstance;
 import com.groupdocs.redaction.examples.java.helper_classes.CustomTextualDocument;
 ```
 
-##### Adım 2: Belge Biçimini Yapılandırın
-Özel biçimi hangi dosya uzantısının ve sınıfın işleyeceğini belirlemek için belge biçimi yapılandırmasını ayarlayın:
+##### Step 2: Configure Document Format
+Custom format'ı hangi dosya uzantısının ve sınıfın işleyeceğini belirlemek için belge formatı yapılandırmasını ayarlayın:
 
 ```java
 class CustomFormatHandlerRegistration {
@@ -133,18 +130,18 @@ class CustomFormatHandlerRegistration {
 }
 ```
 
-#### Temel Yapılandırma Seçenekleri
+**Key Configuration Options**  
 - `setExtensionFilter`: İşleyicinin uygulanacağı dosya uzantılarını belirler.  
 - `setDocumentType`: İşleme için bir belge sınıfını bağlar.
 
-### Özellik 2: Redaksiyon Uygulaması
+### Feature 2: Redaction Application
 
-#### Genel Bakış
-Bu özellik, GroupDocs.Redaction kullanarak **text java belgelerini redakte** etmeyi gösterir ve hassas bilgilerin etkili bir şekilde gizlenmesini sağlar.
+#### Overview
+Bu özellik, **redact text java** belgelerinin nasıl redakte edileceğini gösterir ve herhangi bir **replace sensitive text** işleminin güvenli bir şekilde yapılmasını sağlar.
 
-#### Uygulama Adımları
+#### Steps for Implementation
 
-##### Adım 1: Gerekli Sınıfları İçe Aktarın
+##### Step 1: Import Required Classes
 Redaksiyonları gerçekleştirmek için gerekli sınıfları içe aktarın:
 
 ```java
@@ -154,8 +151,8 @@ import com.groupdocs.redaction.redactions.ExactPhraseRedaction;
 import com.groupdocs.redaction.redactions.ReplacementOptions;
 ```
 
-##### Adım 2: Redactor'ı Başlatın ve Redaksiyonları Uygulayın
-Redactor'ı belge yolunuzla başlatın, istediğiniz redaksiyonları uygulayın ve değiştirilmiş dosyayı kaydedin:
+##### Step 2: Initialize Redactor and Apply Redactions
+Redactor'ı belge yolunuzla başlatın, istenen redaksiyonları uygulayın ve **save redacted document** yeni bir adla kaydedin:
 
 ```java
 class RedactionApplication {
@@ -173,56 +170,59 @@ class RedactionApplication {
 }
 ```
 
-#### Sorun Giderme İpuçları
-- Dosya yolunuzun doğru ve erişilebilir olduğundan emin olun.  
-- Özel işleyiciler yüklenmezse yapılandırma ayarlarını iki kez kontrol edin.  
+#### Troubleshooting Tips
+- Dosya yolunun doğru ve erişilebilir olduğunu doğrulayın.  
+- Custom handler'lar yüklenmezse yapılandırma ayarlarını iki kez kontrol edin.  
 
-## Pratik Uygulamalar
+## Practical Applications
 Bu tekniklerin uygulanabileceği bazı gerçek dünya senaryoları:
 
-1. **Hukuki Belge Koruması** – Belgeleri dışarı paylaşmadan önce hassas dava detaylarını redakte edin.  
-2. **Finansal Kayıt Güvenliği** – Hesap numaralarını ve kişisel bilgileri gizleyerek banka ekstrelerini güvenli bir şekilde işleyin.  
-3. **İK Veri Yönetimi** – Denetimler veya dış incelemeler sırasında çalışan kayıtlarını koruyun.  
-4. **CRM Sistemleriyle Entegrasyon** – CRM platformlarından rapor dışa aktarırken müşteri verilerini otomatik olarak redakte edin.  
-5. **Otomatik Uyumluluk Raporlaması** – Uyumluluk belgelerinin hassas veri sızıntılarından arındırılmış olmasını sağlayın.  
+1. **Legal Document Protection** – Belgeleri dışarı paylaşmadan önce hassas dava detaylarını redakte edin.  
+2. **Financial Records Security** – Hesap numaralarını ve kişisel bilgileri gizleyerek banka ekstrelerini güvenli bir şekilde işleyin.  
+3. **HR Data Management** – Denetimler veya dış incelemeler sırasında çalışan kayıtlarını koruyun.  
+4. **Integration with CRM Systems** – CRM platformlarından rapor dışa aktarırken müşteri verilerini otomatik olarak redakte edin.  
+5. **Automated Compliance Reporting** – Uyum belgelerinin hassas veri sızıntılarından arındırılmış olmasını sağlayın.
 
-## Performans Düşünceleri
-GroupDocs.Redaction ile çalışırken, optimum performans için şu ipuçlarını göz önünde bulundurun:
+## Performance Considerations
+GroupDocs.Redaction ile çalışırken, optimal performans için şu ipuçlarını göz önünde bulundurun:
 
-- **Kaynak Kullanımını Optimize Edin** – Kullanım sonrası kaynakları hızlıca kapatarak belleği verimli yönetin.  
-- **Toplu İşleme** – Yükleme süresini azaltmak için birden fazla belgeyi toplu olarak redakte edin.  
-- **Profil ve Benchmark** – Dar boğazları tespit etmek için uygulamanızı düzenli olarak profil ve benchmark yapın.  
+- **Optimize Resource Usage** – Her dosyayı işledikten sonra Redactor örneklerini hemen kapatın.  
+- **Batch Processing** – Yükleme süresini azaltmak için birden fazla belgeyi toplu olarak redakte edin.  
+- **Profile and Benchmark** – Dar boğazları tespit etmek için uygulamanızı düzenli olarak profil ve benchmark yapın.
 
-## Yaygın Sorunlar ve Çözümler
-| Issue | Cause | Solution |
+## Common Issues and Solutions
+| Sorun | Neden | Çözüm |
 |-------|-------|----------|
-| İşleyici tanınmadı | Uzantı filtresi eşleşmiyor | `setExtensionFilter`'ın dosyanın uzantısıyla tam olarak eşleştiğini doğrulayın (ör. `.dump`). |
+| Handler tanınmıyor | Uzantı filtresi uyumsuzluğu | `setExtensionFilter`'ın dosyanın uzantısıyla tam olarak eşleştiğini doğrulayın (ör. `.dump`). |
 | Redaksiyon uygulanmadı | İfade büyük/küçük harf duyarlılığı | `ExactPhraseRedaction` içinde `ignoreCase` bayrağını `true` olarak ayarlayın. |
-| Bellek yetersizliği hataları | Büyük dosyalar aynı anda yüklendiğinde | Dosyaları sıralı olarak işleyin veya mevcut olduğunda akış API'lerini kullanın. |
+| Bellek yetersizliği hataları | Büyük dosyalar aynı anda yüklendi | Dosyaları sıralı işleyin veya mevcut olduğunda streaming API'leri kullanın. |
 
-## Sonuç
-Şimdiye kadar, Java için GroupDocs.Redaction kullanarak bir **custom format handler java** ve **text java belgelerini redakte** etmenin nasıl uygulanacağını sağlam bir şekilde anlamış olmalısınız. Bu beceriler, çeşitli belge türlerinde hassas bilgileri güvence altına almak için çok değerlidir. Uzmanlığınızı daha da artırmak için aşağıda verilen kaynakları inceleyin ve farklı kullanım senaryolarıyla deneyler yapın.
+## Conclusion
+Şimdiye kadar, GroupDocs.Redaction for Java kullanarak **implement custom format handler** ve **redact text java** belgelerini nasıl redakte edeceğinizi sağlam bir şekilde anlamış olmalısınız. Bu beceriler, çeşitli belge türlerinde hassas bilgileri güvence altına almak için çok değerlidir. Uzmanlığınızı derinleştirmek için desen‑tabanlı redaksiyon gibi ek redaksiyon tekniklerini keşfedin ve iş akışını CI/CD boru hatlarına entegre ederek otomatik uyum kontrolleri yapmayı düşünün.
 
-### Sonraki Adımlar
-- Desen tabanlı redaksiyon gibi ek redaksiyon tekniklerini keşfedin.  
-- İş akışını CI/CD boru hatlarıyla entegre ederek otomatik uyumluluk kontrolleri yapın.  
+### Next Steps
+- Otomatik olarak hassas verileri bulup değiştirmek için desen‑tabanlı redaksiyonu deneyin.  
+- Redaksiyon sürecini derleme boru hattınıza entegre ederek dağıtımdan önce veri koruma politikalarını zorlayın.  
 
-## SSS Bölümü
-**S1: Özel biçim işleyicileriyle hangi dosya türlerini işleyebilirim?**  
-A1: Uzantıyı ve ilgili belge sınıfını belirterek herhangi bir dosya türü için işleyicileri yapılandırabilirsiniz.
+## FAQ
+
+**S1: Custom format handler'larla hangi dosya türlerini işleyebilirim?**  
+C1: Uzantıyı ve ilgili belge sınıfını belirterek herhangi bir dosya türü için handler yapılandırabilirsiniz.
 
 **S2: GroupDocs.Redaction için geçici bir lisans nasıl alabilirim?**  
-A2: Geçici bir lisans talep etmek için [GroupDocs resmi sitesini](https://products.groupdocs.com/redaction) ziyaret edin.
+C2: Geçici lisans talep etmek için [GroupDocs' resmi sitesini](https://products.groupdocs.com/redaction) ziyaret edin.
 
 **S3: Büyük belge topluluklarını verimli bir şekilde işleyebilir miyim?**  
-A3: Evet—Performans Düşünceleri bölümündeki toplu işleme ipuçlarını kullanın ve her Redactor örneğini hızlıca kapatın.
+C3: Evet—Performance Considerations bölümündeki toplu işleme ipuçlarını kullanın ve her Redactor örneğini hemen kapatın.
 
-**S4: Aynı işleyiciyle PDF dosyalarını redakte etmek mümkün mü?**  
-A4: GroupDocs.Redaction zaten yerel PDF desteğine sahiptir; özel işleyiciler genellikle `.dump` gibi standart dışı formatlar için kullanılır.
+**S4: Aynı handler ile PDF dosyalarını redakte etmek mümkün mü?**  
+C4: GroupDocs.Redaction zaten yerel PDF desteğine sahiptir; custom handler'lar genellikle `.dump` gibi standart dışı formatlar için kullanılır.
 
 **S5: API asenkron işlemleri destekliyor mu?**  
-A5: Temel API senkron olsa da, çağrıları Java `CompletableFuture` içinde sarabilir veya eşzamanlılık için paralel akışları kullanabilirsiniz.
+C5: Temel API senkron olsa da, çağrıları Java `CompletableFuture` içinde sarabilir veya eşzamanlılık için paralel akışları (parallel streams) kullanabilirsiniz.
 
-**Son Güncelleme:** 2025-12-21  
-**Test Edilen:** GroupDocs.Redaction 24.9  
-**Yazar:** GroupDocs
+---
+
+**Last Updated:** 2026-03-17  
+**Tested With:** GroupDocs.Redaction 24.9  
+**Author:** GroupDocs

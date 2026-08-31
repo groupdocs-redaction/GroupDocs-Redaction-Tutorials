@@ -1,43 +1,42 @@
 ---
-date: '2025-12-29'
-description: Tanulja meg, hogyan lehet redakcióval ellátni beolvasott dokumentumképeket
-  a GroupDocs.Redaction for Java használatával. Lépésről‑lépésre útmutató a beállításról,
-  a képrészletek redakciójáról és az ellenőrzésről.
+date: '2026-03-22'
+description: Ismerje meg, hogyan lehet a beolvasott képet Java-ban a GroupDocs.Redaction
+  segítségével redakcióval ellátni. Ez a lépésről‑lépésre útmutató a beállítást, a
+  képarcsi redakciót és az ellenőrzést tárgyalja.
 keywords:
 - Java image redaction
 - GroupDocs.Redaction for Java
 - image area redaction
-title: Hogyan lehet kitakarni beolvasott dokumentumképeket a GroupDocs segítségével
-  Java-ban
+title: Hogyan cenzúrázzunk beolvasott képet Java-val a GroupDocs segítségével
 type: docs
 url: /hu/java/image-redaction/java-image-redaction-groupdocs-tutorial/
 weight: 1
 ---
 
-# Hogyan redigáljunk beolvasott dokumentum képeket a GroupDocs segítségével Java-ban
+# Hogyan redigáljunk beolvasott képet Java-val a GroupDocs használatával
 
-A mai digitális környezetben a **beolvasott dokumentum** képek **redigálása** elengedhetetlen a magánszféra védelme és a megfelelőségi követelmények teljesítése érdekében. Akár személyes adatokat kell elrejteni egy beolvasott szerződésben, akár betegadatokat egy orvosi képen, ez a bemutató megmutatja, hogyan **redigálhatja a képet** gyorsan és megbízhatóan a **GroupDocs.Redaction for Java** segítségével. Lépésről lépésre végigvezetünk a projekt beállításától a redigálás sikerességének ellenőrzéséig, így magabiztosan integrálhatja a megoldást bármely Java alkalmazásba.
+A mai digitális környezetben a **redact scanned image java** elengedhetetlen a magánszféra védelme és a megfelelőségi követelmények teljesítése érdekében. Akár személyes adatokat kell elrejteni egy beolvasott szerződésben, akár a beteg adatait egy orvosi képen, ez a tutorial megmutatja, hogyan **how to redact image** tartalmat gyorsan és megbízhatóan a **GroupDocs.Redaction for Java** használatával. Lépésről lépésre végigvezetünk a projekt beállításától a redigálás sikerének ellenőrzéséig, hogy magabiztosan integrálhassa a megoldást bármely Java alkalmazásba.
 
-## Quick Answers
+## Gyors válaszok
 - **Melyik könyvtár kezeli a képek redigálását Java-ban?** GroupDocs.Redaction for Java  
 - **Választhatok redigálási színt?** Igen – bármely `java.awt.Color` (pl. `Color.BLUE`)  
-- **Szükséges licenc a termeléshez?** Igen, érvényes GroupDocs licenc szükséges  
-- **Felülírja az eredeti képet?** Nem – az eredményt egy új fájlba menti  
+- **Szükséges licenc a termeléshez?** Igen, egy érvényes GroupDocs licenc szükséges  
+- **Felülíródik az eredeti kép?** Nem – az eredményt egy új fájlba menti  
 - **Melyik Java verzió támogatott?** Java 8+ (kompatibilis a modern JDK-kkal)
 
-## What is image redaction and why redact scanned document images?
-A képek redigálása azt jelenti, hogy végleges módon eltakarnak érzékeny vizuális információkat – például neveket, számokat vagy aláírásokat – úgy, hogy azok ne legyenek visszaállíthatók. Beolvasott dokumentumok esetén az adatok pixelként vannak beágyazva, ami a hagyományos szöveges redigálási eszközöket hatástalanná teszi. A GroupDocs.Redaction segítségével pontos pixelterületeket célozhat meg, és egy egyszínű színnel helyettesítheti őket, biztosítva, hogy az információ valóban eltávolításra kerüljön.
+## Mi az a képrédigálás és miért redigáljunk beolvasott képet Java-val?
+A képrédigálás azt jelenti, hogy véglegesen eltakítjuk az érzékeny vizuális információkat – például neveket, számokat vagy aláírásokat – úgy, hogy azok ne legyenek visszaállíthatók. Beolvasott dokumentumok esetén az adatok pixelként vannak beágyazva, ami a hagyományos szövegrédigálási eszközöket hatástalanná teszi. A GroupDocs.Redaction használatával pontos pixelterületeket célozhat meg, és helyettesítheti őket egy egyszínű színnel, biztosítva, hogy az információ valóban eltávolításra kerüljön.
 
-## Prerequisites
+## Előfeltételek
 - **JDK 8 vagy újabb** telepítve  
-- **Maven** (vagy más build eszköz) a függőségek kezeléséhez  
-- IDE, például **IntelliJ IDEA**, **Eclipse**, vagy **NetBeans**  
-- Alapvető Java ismeretek és fájl I/O tapasztalat  
+- **Maven** (vagy más build eszköz) a függőségkezeléshez  
+- Egy IDE, például **IntelliJ IDEA**, **Eclipse**, vagy **NetBeans**  
+- Alapvető Java ismeretek és a fájl I/O ismerete  
 
-## Setting Up GroupDocs.Redaction for Java
+## A GroupDocs.Redaction beállítása Java-hoz
 
-### Maven Setup
-Adja hozzá a GroupDocs tárolót és függőséget a `pom.xml`-hez:
+### Maven beállítás
+Add the GroupDocs repository and dependency to your `pom.xml`:
 
 ```xml
 <repositories>
@@ -57,27 +56,27 @@ Adja hozzá a GroupDocs tárolót és függőséget a `pom.xml`-hez:
 </dependencies>
 ```
 
-### Direct Download
+### Közvetlen letöltés
 Alternatívaként töltse le a legújabb JAR-t a hivatalos kiadási oldalról: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
-### License Acquisition
+### Licenc beszerzése
 - **Ingyenes próba:** Regisztráljon egy próbaverzióra az API felfedezéséhez.  
-- **Ideiglenes licenc:** Használjon ideiglenes kulcsot a kiterjesztett teszteléshez.  
-- **Teljes vásárlás:** Szerezzen termelési licencet korlátlan használathoz.
+- **Ideiglenes licenc:** Használjon ideiglenes kulcsot a hosszabb teszteléshez.  
+- **Teljes vásárlás:** Szerezzen be egy termelési licencet korlátlan használathoz.  
 
-## Implementation Guide
+## Implementációs útmutató
 
-A megvalósítást két fő funkcióra bontjuk: **Image Area Redaction** (a tényleges maszkolás) és **Redaction Status Check** (a siker ellenőrzése).
+Az implementációt két fő funkcióra bontjuk: **Image Area Redaction** (a tényleges maszkolás) és **Redaction Status Check** (a siker ellenőrzése).
 
-### How to redact scanned document images – Step 1: Initialize the Redactor
+### Hogyan redigáljunk beolvasott dokumentum képeket – 1. lépés: A Redactor inicializálása
 Először hozzon létre egy `Redactor` példányt, amely a feldolgozni kívánt képre mutat.
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_JPG");
 ```
 
-### Step 2: Define Redaction Parameters
-Adja meg a bal‑felső sarok (`Point`) és a téglalap mérete (`Dimension`) koordinátáit, amelyet el szeretne takarni. Ebben a példában kék kitöltést használunk.
+### 2. lépés: Redigálási paraméterek meghatározása
+Adja meg a bal‑felső sarkot (`Point`) és a téglalap méretét (`Dimension`), amelyet el szeretne takarni. Ebben a példában kék kitöltést használunk.
 
 ```java
 // Define the position on the image where redaction starts.
@@ -87,8 +86,8 @@ Point samplePoint = new Point(385, 485);
 Dimension sampleSize = new Dimension(1793, 2069);
 ```
 
-### Step 3: Apply Redaction
-Hozzon létre egy `ImageAreaRedaction` objektumot a `RegionReplacementOptions` segítségével, és hajtsa végre. A metódus egy `RedactorChangeLog`-ot ad vissza, amely tájékoztatja, hogy a művelet sikeres volt-e.
+### 3. lépés: Redigálás alkalmazása
+Hozzon létre egy `ImageAreaRedaction` objektumot a `RegionReplacementOptions` segítségével, és hajtsa végre. A metódus egy `RedactorChangeLog`-ot ad vissza, amely megmutatja, hogy a művelet sikeres volt-e.
 
 ```java
 RedactorChangeLog result = redactor.apply(
@@ -101,14 +100,14 @@ if (result.getStatus() != RedactionStatus.Failed) {
 }
 ```
 
-### Step 4: Release Resources
+### 4. lépés: Erőforrások felszabadítása
 Mindig zárja le a `Redactor`-t, amikor befejezte, hogy felszabadítsa a natív erőforrásokat.
 
 ```java
 redactor.close();
 ```
 
-### How to verify the redaction – Status Check
+### Hogyan ellenőrizzük a redigálást – Állapot ellenőrzés
 A redigálás alkalmazása után ellenőrizheti a `RedactorChangeLog`-ot, hogy megerősítse, a művelet nem hibázott.
 
 ```java
@@ -119,53 +118,53 @@ if (result != null && result.getStatus() != RedactionStatus.Failed) {
 }
 ```
 
-## Practical Applications
-- **Bizalmas dokumentumkezelés:** Automatikusan elrejti a személyes adatokat beolvasott szerződésekben, mielőtt külső felekkel megosztaná.  
-- **Jogi dokumentáció:** Biztosítja a GDPR vagy HIPAA megfelelőséget az azonosítókat tartalmazó bizonyíték képek redigálásával.  
-- **Orvosi feljegyzések:** Védi a beteg magánszféráját az arcok vagy kézzel írt jegyzetek eltakargatásával radiológiai képeken.  
+## Gyakorlati alkalmazások
+- **Bizalmas dokumentumkezelés:** Automatikusan takarja el a személyes adatokat beolvasott szerződésekben, mielőtt külső felekkel megosztaná.  
+- **Jogi dokumentáció:** Biztosítsa a GDPR vagy HIPAA megfelelőséget az azonosítók redigálásával a bizonyíték képeken.  
+- **Orvosi feljegyzések:** Védje a betegek magánszféráját az arcok vagy kézzel írt jegyzetek eltakításával a radiológiai képeken.  
 
-## Performance Considerations
-- **Kötegelt feldolgozás:** Képek betöltése és redigálása kis adagokban a memóriahasználat alacsonyan tartása érdekében.  
+## Teljesítménybeli szempontok
+- **Kötegelt feldolgozás:** Töltsön be és redigáljon képeket kis adagokban a memóriahasználat alacsonyan tartása érdekében.  
 - **Hatékony adatstruktúrák:** Használja újra a `Point` és `Dimension` objektumokat sok kép feldolgozásakor.  
 - **Maradjon naprakész:** Rendszeresen frissítse a legújabb GroupDocs.Redaction verzióra a teljesítményjavulás és hibajavítások érdekében.  
 
-## Common Issues & Solutions
+## Gyakori problémák és megoldások
 | Probléma | Ok | Megoldás |
 |----------|----|----------|
 | **Redigálás sikertelen `Failed` állapottal** | Helytelen fájlútvonal vagy nem támogatott képformátum | Ellenőrizze, hogy a kép létezik és támogatott formátumú (JPG, PNG, BMP). |
 | **A kimeneti fájl üres** | `redactor.save()` meghívva a redigálás befejezése előtt | Győződjön meg róla, hogy az `apply()` sikeres állapotot ad vissza a mentés előtt. |
-| **A szín nem került alkalmazásra** | Átlátszó szín használata | Válasszon átlátszatlan `Color`-t (pl. `Color.BLACK` vagy `Color.BLUE`). |
+| **A szín nem alkalmazott** | Átlátszó szín használata | Válasszon átlátszatlan `Color`-t (pl. `Color.BLACK` vagy `Color.BLUE`). |
 
-## Frequently Asked Questions
+## Gyakran ismételt kérdések
 
-**Q: Mi a különbség az `ImageAreaRedaction` és a szöveges redigálás között?**  
-A: Az `ImageAreaRedaction` pixelkoordinátákon dolgozik, míg a szöveges redigálás OCR rétegeket elemez a szöveges tartalom megtalálásához és eltávolításához.
+**Q: Mi a különbség az `ImageAreaRedaction` és a szövegrédigálás között?**  
+A: `ImageAreaRedaction` pixelkoordinátákon dolgozik, míg a szövegrédigálás OCR rétegeket elemez a szöveges tartalom megtalálásához és eltávolításához.
 
 **Q: Redigálhatok több területet egyetlen képen?**  
-A: Igen – a `redactor.apply()`-t többször is meghívhatja különböző `ImageAreaRedaction` objektumokkal a mentés előtt.
+A: Igen – hívja többször a `redactor.apply()`-t különböző `ImageAreaRedaction` objektumokkal a mentés előtt.
 
-**Q: Támogatja a GroupDocs.Redaction más képformátumokat, például TIFF-et?**  
-A: A könyvtár a gyakori raszteres formátumokat (JPG, PNG, BMP, GIF) támogatja. TIFF esetén először konvertálja egy támogatott formátumba.
+**Q: Támogatja a GroupDocs.Redaction más képformátumokat, például a TIFF-et?**  
+A: A könyvtár támogatja a gyakori raszteres formátumokat (JPG, PNG, BMP, GIF). TIFF esetén először konvertálja egy támogatott formátumba.
 
-**Q: Hogyan automatizálhatom a redigálást egy beolvasott PDF-ek mappájára?**  
-A: Iteráljon a PDF-ből kinyert egyes oldalképeken, alkalmazza ugyanazt a redigálási logikát, majd építse újra a PDF-et egy PDF könyvtár segítségével.
+**Q: Hogyan automatizálhatom a redigálást beolvasott PDF-ek mappájában?**  
+A: Iteráljon minden PDF-ből kinyert oldalképen, alkalmazza ugyanazt a redigálási logikát, majd építse újra a PDF-et egy PDF könyvtár segítségével.
 
-**Q: Van lehetőség a redigálás előnézetére a mentés előtt?**  
-A: Renderelheti a `Redactor`-t egy `BufferedImage`-re, és megjelenítheti egy Swing vagy JavaFX UI-ban, mielőtt véglegesítené a változtatásokat.
+**Q: Van mód a redigálás előnézetére a mentés előtt?**  
+A: Renderelheti a `Redactor`-t egy `BufferedImage`-re, és megjelenítheti egy Swing vagy JavaFX UI-ban a változtatások véglegesítése előtt.
 
-## Conclusion
-Most már rendelkezik egy teljes, termelés‑kész útmutatóval arról, **hogyan redigálja a képet**, és különösen arról, **hogyan redigálja a beolvasott dokumentum képeket** a GroupDocs.Redaction for Java segítségével. A fenti lépések követésével védheti az érzékeny vizuális adatokat számos iparágban. Fedezze fel a további API-kat – például a szöveges redigálást vagy a PDF‑oldal redigálást – hogy átfogó adatvédelmi megoldást építsen szervezete számára.
+## Következtetés
+Most már rendelkezik egy teljes, termelésre kész útmutatóval a **how to redact image** tartalom redigálásához, és különösen a **redact scanned image java** használatához a GroupDocs.Redaction for Java segítségével. A fenti lépések követésével védheti az érzékeny vizuális adatokat számos iparágban. Fedezze fel a további API-kat – például a szövegrédigálást vagy a PDF oldal redigálást – hogy átfogó adatvédelmi megoldást építsen szervezete számára.
 
-**Resources**  
+**Erőforrások**  
 - [Dokumentáció](https://docs.groupdocs.com/redaction/java/)  
-- [API referencia](https://reference.groupdocs.com/redaction/java)  
+- [API Referencia](https://reference.groupdocs.com/redaction/java)  
 - [Letöltés](https://releases.groupdocs.com/redaction/java/)  
-- [GitHub tároló](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
+- [GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - [Ingyenes támogatási fórum](https://forum.groupdocs.com/c/redaction/33)  
-- [Ideiglenes licenc](https://purchase.groupdocs.com/temporary-license/)
+- [Ideiglenes licenc](https://purchase.groupdocs.com/temporary-license/) 
 
 ---
 
-**Last Updated:** 2025-12-29  
-**Tested With:** GroupDocs.Redaction 24.9 (Java)  
-**Author:** GroupDocs  
+**Utoljára frissítve:** 2026-03-22  
+**Tesztelve ezzel:** GroupDocs.Redaction 24.9 (Java)  
+**Szerző:** GroupDocs

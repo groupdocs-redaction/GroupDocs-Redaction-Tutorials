@@ -1,49 +1,50 @@
 ---
-date: '2025-12-20'
+date: '2026-03-20'
 description: Naucz się, jak uzyskać typ pliku w Javie, rozmiar dokumentu w Javie oraz
-  pobrać metadane PDF w Javie przy użyciu GroupDocs.Redaction dla Javy. Zwiększ wydajność
-  obsługi dokumentów w swojej aplikacji Java już dziś.
+  pobrać metadane PDF w Javie przy użyciu GroupDocs.Redaction for Java. Zwiększ już
+  dziś możliwości obsługi dokumentów w swojej aplikacji Java.
 keywords:
 - get file type java
 - get document size java
 - retrieve pdf metadata java
 - get page count java
 - GroupDocs Redaction library setup Java
-title: Jak uzyskać typ pliku java przy użyciu GroupDocs.Redaction
+title: Jak uzyskać typ pliku Java przy użyciu GroupDocs.Redaction
 type: docs
 url: /pl/java/document-information/retrieve-document-info-using-groupdocs-redaction-java/
 weight: 1
 ---
 
-# Jak uzyskać typ pliku java przy użyciu GroupDocs.Redaction
+# Jak uzyskać typ pliku java z GroupDocs.Redaction
 
-Pobieranie krytycznych szczegółów o dokumencie — takich jak **file type**, liczba stron i rozmiar — jest powszechnym wymogiem przy budowaniu aplikacji Java skoncentrowanych na dokumentach. W tym samouczku dowiesz się, jak **get file type java** oraz jak **get document size java**, **get page count java**, a nawet **retrieve pdf metadata java** przy użyciu biblioteki GroupDocs.Redaction.
+Pobieranie krytycznych szczegółów dokumentu — takich jak **file type**, liczba stron i rozmiar — jest powszechnym wymogiem przy tworzeniu aplikacji Java skoncentrowanych na dokumentach. W tym samouczku dowiesz się, jak **get file type java**, a także jak **get document size java**, **get page count java** oraz **retrieve pdf metadata java** przy użyciu biblioteki GroupDocs.Redaction. Znajomość typu pliku na wczesnym etapie pozwala zdecydować, którą ścieżkę przetwarzania obrać, a informacje o rozmiarze i liczbie stron pomagają efektywnie zarządzać zasobami.
 
-## Szybkie odpowiedzi
-- **Jaka metoda zwraca typ pliku?** `IDocumentInfo.getFileType()`
-- **Jak mogę uzyskać liczbę stron?** `IDocumentInfo.getPageCount()`
-- **Które wywołanie podaje rozmiar dokumentu w bajtach?** `IDocumentInfo.getSize()`
-- **Czy potrzebna jest licencja do uruchomienia przykładu?** A trial or temporary license works for evaluation.
-- **Jaka wersja Javy jest wymagana?** Java 8 or higher.
+## Quick Answers
+- **What method returns the file type?** `IDocumentInfo.getFileType()`
+- **How can I obtain the page count?** `IDocumentInfo.getPageCount()`
+- **Which call gives the document size in bytes?** `IDocumentInfo.getSize()`
+- **Do I need a license to run the sample?** Licencja próbna lub tymczasowa działa w trybie ewaluacji.
+- **Which Java version is required?** Java 8 lub nowsza.
 
-## Co to jest „get file type java”?
-To wyrażenie odnosi się do wyodrębniania formatu pliku (np. DOCX, PDF) z dokumentu programowo w Javie. GroupDocs.Redaction udostępnia tę informację poprzez interfejs `IDocumentInfo`.
+## What is “get file type java”?
+Wyrażenie odnosi się do programowego wyodrębniania formatu pliku (np. DOCX, PDF) z dokumentu w Javie. GroupDocs.Redaction udostępnia tę informację poprzez interfejs `IDocumentInfo`, co pozwala na jednowierszowe wywołanie.
 
-## Dlaczego używać GroupDocs.Redaction do wyodrębniania metadanych?
-- **Szerokie wsparcie formatów:** Obsługuje PDF, DOCX, XLSX, PPTX i wiele innych.  
-- **Proste API:** Jednolinijkowe wywołania zwracają typ pliku, liczbę stron i rozmiar.  
-- **Wydajność zoptymalizowana:** Ładuje tylko potrzebne metadane, utrzymując niskie zużycie pamięci.
+## Why use GroupDocs.Redaction for metadata extraction?
+- **Broad format support:** Obsługuje PDF, DOCX, XLSX, PPTX i wiele innych.
+- **Simple API:** Jednowierszowe wywołania zwracają file type, page count i size.
+- **Performance‑optimized:** Ładuje tylko potrzebne metadane, utrzymując niskie zużycie pamięci.
+- **Consistent results:** Działa tak samo we wszystkich obsługiwanych rozszerzeniach plików, więc możesz również polegać na nim w scenariuszu **java get file extension**.
 
-## Wymagania wstępne
-- Java 8 lub nowszy zainstalowany.  
-- IDE kompatybilne z Mavenem (IntelliJ IDEA, Eclipse itp.).  
-- Dostęp do licencji GroupDocs.Redaction (bezpłatna wersja próbna lub tymczasowa licencja).
+## Prerequisites
+- Java 8 lub nowsza zainstalowana.
+- IDE kompatybilne z Maven (IntelliJ IDEA, Eclipse itp.).
+- Dostęp do licencji GroupDocs.Redaction (bezpłatna wersja próbna lub licencja tymczasowa).
 
-## Konfigurowanie GroupDocs.Redaction dla Javy
+## Setting Up GroupDocs.Redaction for Java
 
-Aby używać biblioteki GroupDocs.Redaction w swoim projekcie Java, postępuj zgodnie z poniższymi krokami instalacji:
+Aby używać biblioteki GroupDocs.Redaction w projekcie Java, wykonaj poniższe kroki instalacyjne:
 
-**Instalacja Maven**
+**Maven Installation**
 
 Dodaj następujące repozytorium i zależność do pliku `pom.xml`:
 
@@ -65,16 +66,16 @@ Dodaj następujące repozytorium i zależność do pliku `pom.xml`:
 </dependencies>
 ```
 
-**Bezpośrednie pobranie**
+**Direct Download**
 
 Alternatywnie pobierz najnowszą wersję z [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
-### Uzyskiwanie licencji
-- **Free Trial:** Rozpocznij od bezpłatnej wersji próbnej, aby ocenić bibliotekę.  
-- **Temporary License:** Uzyskaj tymczasową licencję na wydłużoną ocenę.  
-- **Purchase:** Rozważ zakup, jeśli odpowiada Twoim potrzebom.
+### License Acquisition
+- **Free Trial:** Rozpocznij od wersji próbnej, aby ocenić bibliotekę.  
+- **Temporary License:** Uzyskaj tymczasową licencję na rozszerzoną ewaluację.  
+- **Purchase:** Rozważ zakup, jeśli spełnia Twoje potrzeby.
 
-Po zainstalowaniu, zainicjalizuj i skonfiguruj GroupDocs.Redaction:
+Po zainstalowaniu zainicjalizuj i skonfiguruj GroupDocs.Redaction:
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -83,11 +84,14 @@ import com.groupdocs.redaction.Redactor;
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX");
 ```
 
-## Jak uzyskać typ pliku java, rozmiar dokumentu java i liczbę stron java
+## Why get file type java matters in real‑world projects
+Zrozumienie typu dokumentu na wczesnym etapie pozwala kierować pliki do właściwego potoku przetwarzania — np. wysyłać PDF‑y do workflow redakcji, pliki Word do usługi konwersji lub obrazy do silnika OCR. Pomaga to także egzekwować polityki bezpieczeństwa (blokowanie plików wykonywalnych) oraz wyświetlać dokładne ikony UI w systemach zarządzania dokumentami.
+
+## How to get file type java, get document size java, and get page count java
 
 Teraz, gdy biblioteka jest gotowa, przejdźmy przez dokładne kroki, aby pobrać potrzebne informacje.
 
-### Krok 1: Importowanie niezbędnych klas
+### Step 1: Import Necessary Classes
 
 Upewnij się, że importujesz wymagane klasy na początku pliku Java:
 
@@ -96,7 +100,7 @@ import com.groupdocs.redaction.Redactor;
 import com.groupdocs.redaction.domain.IDocumentInfo;
 ```
 
-### Krok 2: Inicjalizacja Redactor
+### Step 2: Initialize Redactor
 
 Utwórz instancję `Redactor`, podając ścieżkę do swojego dokumentu. Ten obiekt umożliwia interakcję z plikiem i pobieranie metadanych.
 
@@ -109,9 +113,9 @@ try {
 }
 ```
 
-### Krok 3: Pobranie i wyświetlenie informacji o dokumencie
+### Step 3: Retrieve and Display Document Info
 
-Wywołaj `getDocumentInfo()`, aby uzyskać obiekt `IDocumentInfo`. Z tego obiektu możesz **get file type java**, **get document size java** i **get page count java** w jednym wywołaniu.
+Wywołaj `getDocumentInfo()`, aby uzyskać obiekt `IDocumentInfo`. Z tego obiektu możesz **get file type java**, **get document size java** oraz **get page count java** w jednym wywołaniu.
 
 ```java
 // Retrieve document information
@@ -123,73 +127,76 @@ System.out.println("Page Count: " + info.getPageCount());
 System.out.println("Size (Bytes): " + info.getSize());
 ```
 
-Trzy instrukcje `System.out.println` podają typ pliku, liczbę stron oraz rozmiar w bajtach — dokładnie to, czego potrzebujesz do dalszego przetwarzania.
+Trzy instrukcje `System.out.println` wyświetlają typ pliku, liczbę stron oraz rozmiar w bajtach — dokładnie to, czego potrzebujesz do dalszego przetwarzania.
 
-## Jak pobrać metadane PDF java
+## How to retrieve pdf metadata java
 
-Jeśli dokument źródłowy jest PDF, te same wywołania `IDocumentInfo` zwracają metadane specyficzne dla PDF (np. wersję PDF, status szyfrowania). Nie wymaga dodatkowego kodu; po prostu użyj tej samej metody `getDocumentInfo()`.
+Jeśli źródłowy dokument jest PDF‑em, te same wywołania `IDocumentInfo` zwracają metadane specyficzne dla PDF (np. wersję PDF, status szyfrowania). Nie wymaga to dodatkowego kodu; po prostu użyj tego samego metody `getDocumentInfo()`.
 
-## Typowe problemy i rozwiązania
-- **File not found:** Sprawdź, czy podana do `Redactor` ścieżka jest absolutna lub względna.  
-- **Unsupported format:** Upewnij się, że rozszerzenie Twojego dokumentu jest obsługiwane przez GroupDocs.Redaction.  
-- **License errors:** Użyj ważnej wersji próbnej lub stałej licencji; w przeciwnym razie API zgłosi wyjątek licencyjny.
-
-## Praktyczne zastosowania
-
-Zrozumienie, jak **get file type java** i powiązane metadane, otwiera wiele scenariuszy:
-
+## Common Use Cases
 1. **Document Management Systems:** Automatycznie kategoryzuj pliki według typu lub rozmiaru przed ich przechowywaniem.  
-2. **Content Processing Pipelines:** Wybieraj różne strategie przetwarzania w zależności od liczby stron.  
-3. **Digital Asset Libraries:** Udostępniaj użytkownikom szybkie podglądy właściwości dokumentu.
+2. **Content Processing Pipelines:** Wybieraj różne strategie przetwarzania w zależności od liczby stron (np. batch‑redact duże PDF‑y vs. małe dokumenty Word).  
+3. **Digital Asset Libraries:** Pokazuj użytkownikom szybkie podglądy właściwości dokumentu bez otwierania pliku.
 
-## Uwagi dotyczące wydajności
+## Common Issues and Solutions
+- **File not found:** Zweryfikuj absolutną lub względną ścieżkę przekazywaną do `Redactor`.  
+- **Unsupported format:** Upewnij się, że rozszerzenie Twojego dokumentu jest obsługiwane przez GroupDocs.Redaction.  
+- **License errors:** Użyj ważnej licencji próbnej lub stałej; w przeciwnym razie API zgłosi wyjątek licencyjny.  
+
+## Troubleshooting Tips (read document metadata java)
+- Umieść wywołania metadanych w bloku `try‑catch`, aby elegancko obsłużyć uszkodzone pliki.  
+- Użyj `redactor.isEncrypted()` (jeśli dostępne), aby wykryć zaszyfrowane PDF‑y przed odczytem metadanych.  
+- Przy przetwarzaniu wielu plików ponownie wykorzystuj pulę wątków i zamykaj każdą instancję `Redactor` niezwłocznie, aby uniknąć wycieków uchwytów plików.
+
+## Performance Considerations
 
 Podczas obsługi dużych partii:
+
 - Otwieraj każdy dokument w bloku `try‑with‑resources`, aby zapewnić terminowe zwolnienie uchwytów plików.  
-- Buforuj tylko potrzebne metadane; unikaj ładowania pełnej zawartości dokumentu, chyba że jest to wymagane.
+- Buforuj tylko potrzebne metadane; unikaj ładowania pełnej zawartości dokumentu, chyba że jest to konieczne.  
 
-## Podsumowanie
+## Conclusion
 
-Teraz wiesz, jak **get file type java**, **get document size java**, **get page count java** oraz **retrieve pdf metadata java** przy użyciu GroupDocs.Redaction. Włącz te fragmenty kodu do swoich aplikacji Java, aby podejmować lepsze decyzje dotyczące obsługi dokumentów.
+Teraz wiesz, jak **get file type java**, **get document size java**, **get page count java** oraz **retrieve pdf metadata java** przy użyciu GroupDocs.Redaction. Włącz te fragmenty kodu do swoich aplikacji Java, aby podejmować mądrzejsze decyzje dotyczące obsługi dokumentów, poprawić wydajność i dostarczyć bogatsze doświadczenia użytkownikom.
 
-## Sekcja FAQ
+## FAQ Section
 
-**Q1: Czym jest GroupDocs.Redaction?**  
+**Q1: What is GroupDocs.Redaction?**  
 A1: To biblioteka do redagowania i zarządzania informacjami o dokumentach w aplikacjach Java.
 
-**Q2: Czy mogę pobrać metadane z plików PDF?**  
-A2: Tak, biblioteka obsługuje różne formaty plików, w tym PDF.
+**Q2: Can I retrieve metadata from PDF files?**  
+A2: Tak, biblioteka obsługuje różne formaty plików, w tym PDF‑y.
 
-**Q3: Jak mogę obsłużyć wyjątki przy pobieraniu informacji o dokumencie?**  
-A3: Używaj bloków try‑catch, aby elegancko zarządzać potencjalnymi błędami.
+**Q3: How can I handle exceptions when retrieving document info?**  
+A3: Używaj bloków try‑catch, aby zarządzać potencjalnymi błędami w sposób elegancki.
 
-**Q4: Jakiego rodzaju informacje mogę uzyskać o dokumencie?**  
-A4: Typ pliku, liczba stron oraz rozmiar w bajtach to niektóre z szczegółów, które możesz pobrać.
+**Q4: What kind of information can I get about a document?**  
+A4: Typ pliku, liczbę stron oraz rozmiar w bajtach to niektóre z szczegółów, które możesz pobrać.
 
-**Q5: Czy istnieje wsparcie dla innych formatów plików poza dokumentami Word?**  
-A5: Tak, GroupDocs.Redaction obsługuje wiele typów plików, w tym PDF, pliki Excel i inne.
+**Q5: Is there support for other file formats besides Word documents?**  
+A5: Tak, GroupDocs.Redaction obsługuje wiele typów plików, w tym PDF‑y, pliki Excel i inne.
 
-## Dodatkowe często zadawane pytania
+## Additional Frequently Asked Questions
 
-**Q: Czy API zwraca wersję PDF (np. 1.7) jako część metadanych?**  
-A: Obiekt `IDocumentInfo` zawiera podstawowe cechy PDF; aby uzyskać szczegółowe informacje o wersji, możesz zapytać o właściwości specyficzne dla PDF za pomocą API Redactor.
+**Q: Does the API return the PDF version (e.g., 1.7) as part of the metadata?**  
+A: Obiekt `IDocumentInfo` zawiera podstawowe cechy PDF; aby uzyskać szczegółowe informacje o wersji, możesz zapytać o właściwości specyficzne dla PDF poprzez API Redactor.
 
-**Q: Czy mogę pobrać metadane bez ładowania całego dokumentu do pamięci?**  
-A: Tak, `getDocumentInfo()` odczytuje tylko nagłówki potrzebne do metadanych, utrzymując niskie zużycie pamięci.
+**Q: Can I retrieve metadata without loading the entire document into memory?**  
+A: Tak, `getDocumentInfo()` odczytuje jedynie nagłówek potrzebny do metadanych, utrzymując niskie zużycie pamięci.
 
-**Q: Czy możliwe jest efektywne przetwarzanie wsadowe wielu dokumentów?**  
-A: Otaczaj przetwarzanie każdego dokumentu własną instancją `Redactor` i wykorzystaj pulę wątków do równoległego przetwarzania.
+**Q: Is it possible to batch‑process many documents efficiently?**  
+A: Umieść przetwarzanie każdego dokumentu w osobnej instancji `Redactor` i ponownie wykorzystuj pulę wątków, aby równolegle przetwarzać zadania.
 
-**Zasoby**  
-- **Dokumentacja:** [GroupDocs Redaction Java Documentation](https://docs.groupdocs.com/redaction/java/)  
-- **Referencja API:** [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)  
-- **Pobieranie:** [GroupDocs.Redaction for Java Downloads](https://releases.groupdocs.com/redaction/java/)  
+**Resources**  
+- **Documentation:** [GroupDocs Redaction Java Documentation](https://docs.groupdocs.com/redaction/java/)  
+- **API Reference:** [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)  
+- **Download:** [GroupDocs.Redaction for Java Downloads](https://releases.groupdocs.com/redaction/java/)  
 - **GitHub:** [GroupDocs GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
-- **Bezpłatne wsparcie:** [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)  
-- **Tymczasowa licencja:** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/)
+- **Free Support:** [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)  
+- **Temporary License:** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/)  
 
 ---
 
-**Ostatnia aktualizacja:** 2025-12-20  
-**Testowano z:** GroupDocs.Redaction 24.9 for Java  
-**Autor:** GroupDocs  
+**Last Updated:** 2026-03-20  
+**Tested With:** GroupDocs.Redaction 24.9 for Java  
+**Author:** GroupDocs

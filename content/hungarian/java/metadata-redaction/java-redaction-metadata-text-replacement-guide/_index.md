@@ -1,46 +1,47 @@
 ---
-date: '2026-01-08'
-description: Tanulja meg, hogyan lehet pirosítani a metaadatokat és cserélni a metaadat
-  szövegét Java dokumentumokban a GroupDocs.Redaction segítségével. Lépésről‑lépésre
-  útmutató a legjobb gyakorlatokkal.
+date: '2026-03-25'
+description: Tanulja meg, hogyan cserélje le a metaadat szöveget Java-ban a GroupDocs.Redaction
+  használatával. Ez a lépésről‑lépésre útmutató bemutatja a biztonságos metaadat‑redakciót
+  és a legjobb gyakorlatokat.
 keywords:
 - Java metadata redaction
 - GroupDocs.Redaction for Java
 - metadata text replacement
-title: 'Hogyan takarjuk el a metaadatokat Java-ban - Biztonságos szövegcsere dokumentumokban'
+title: Metadata szöveg cseréje Java-ban – Biztonságos redakció a GroupDocs-szel
 type: docs
 url: /hu/java/metadata-redaction/java-redaction-metadata-text-replacement-guide/
 weight: 1
 ---
 
-# Hogyan redigáljunk metaadatokat Java-ban
+# replace metadata text java – Biztonságos Redakció a GroupDocs-szal
 
-A mai digitális környezetben a **metaadatok redigálása** kritikus készség a dokumentumtulajdonságokban rejtett bizalmas információk védelme érdekében. Akár szerződéseket, személyes nyilvántartásokat vagy belső jelentéseket védelmez, a érzékeny metaadatok eltávolítása vagy helyettesítése megakadályozza a véletlen adatszivárgásokat. Ebben az útmutatóban megtanulja, hogyan redigálja a metaadatokat és **metaadat szöveget cserél** a GroupDocs.Redaction for Java segítségével, a beállítástól a megtisztított dokumentum mentéséig.
+A mai digitális környezetben a **replace metadata text java** elsajátítása kritikus készség a dokumentumtulajdonságokban rejtett bizalmas információk védelme érdekében. Akár szerződéseket, személyes nyilvántartásokat vagy belső jelentéseket védsz, az érzékeny metaadatok eltávolítása vagy cseréje megakadályozza a véletlen adatszivárgásokat. Ebben az útmutatóban megismerheted, hogyan lehet redakcióval eltávolítani a metaadatokat és a **replace metadata text java**-t a GroupDocs.Redaction for Java segítségével, a környezet beállításától a megtisztított dokumentum mentéséig.
 
 ## Gyors válaszok
-- **Melyik könyvtár kezeli a metaadatok redigálását Java-ban?** GroupDocs.Redaction for Java.  
+- **Melyik könyvtár kezeli a metaadatok redakcióját Java-ban?** GroupDocs.Redaction for Java.  
 - **Melyik elsődleges metódus cseréli a szöveget a metaadatokban?** `MetadataSearchRedaction`.  
-- **Szükségem van licencre a fejlesztéshez?** Ideiglenes licenc működik teszteléshez; teljes licenc szükséges a termeléshez.  
-- **Megőrizhetem az eredeti fájlformátumot a redigálás után?** Igen—állítsa be `saveOptions.setRasterizeToPDF(false)`.  
-- **Támogatott a kötegelt feldolgozás?** Teljesen; egyszerűen ciklusba helyezze a fájlokat és használja újra ugyanazt a Redactor példányt.
+- **Szükségem van licencre a fejlesztéshez?** Egy ideiglenes licenc teszteléshez működik; a termeléshez teljes licenc szükséges.  
+- **Megőrizhetem az eredeti fájlformátumot a redakció után?** Igen—állítsd be a `saveOptions.setRasterizeToPDF(false)` értéket.  
+- **Támogatott a kötegelt feldolgozás?** Teljesen; egyszerűen iterálj a fájlokon és használd újra ugyanazt a Redactor példányt.  
 
-## Mi az a „metaadatok redigálása”?
-A metaadatok redigálása azt jelenti, hogy átvizsgálja egy dokumentum rejtett tulajdonságait (szerző, cég neve, egyéni mezők stb.) és eltávolítja vagy helyettesíti az érzékeny értékeket. A látható tartalommal ellentétben a metaadatok gyakran észrevétlenül terjednek, ezért a kifejezett redigálás elengedhetetlen a GDPR, HIPAA és egyéb adatvédelmi szabályozásoknak való megfeleléshez.
+## Mi az a replace metadata text java?
+A metaadatok redakciója azt jelenti, hogy átvizsgálod a dokumentum rejtett tulajdonságait (szerző, cég neve, egyéni mezők stb.) és eltávolítod vagy helyettesíted az érzékeny értékeket. A látható tartalommal ellentétben a metaadatok gyakran észrevétlenül terjednek, ezért a kifejezett redakció elengedhetetlen a GDPR, HIPAA és egyéb adatvédelmi szabályozások betartásához.
 
-## Miért kell cserélni a metaadat szövegét?
-A metaadat szövegének cseréje lehetővé teszi, hogy a dokumentum szerkezetét érintetlenül hagyja, miközben megtisztítja a bizalmas azonosítókat. Ez különösen hasznos, ha egy vázlatot kell megosztani külső partnerekkel, de el kell rejteni a belső projektkódokat, szállítói neveket vagy személyes azonosítókat.
+## Miért cseréljük a metaadatok szövegét?
+A metaadatok szövegének cseréje lehetővé teszi, hogy a dokumentum szerkezetét érintetlenül hagyva tisztítsd meg a bizalmas azonosítókat. Ez különösen hasznos, ha egy vázlatot kell megosztani külső partnerekkel, de el kell rejteni a belső projektkódokat, szállítói neveket vagy személyes azonosítókat.
 
 ## Előfeltételek
-- **GroupDocs.Redaction könyvtár** verzió 24.9 vagy újabb.  
+
+- **GroupDocs.Redaction library** verzió 24.9 vagy újabb.  
 - **Java Development Kit (JDK)** telepítve (lehetőleg JDK 11+).  
-- Egy IDE, például **IntelliJ IDEA** vagy **Eclipse**.  
-- Alapvető ismeretek a Java-val (hasznos, de nem kötelező).
+- Olyan IDE, mint a **IntelliJ IDEA** vagy az **Eclipse**.  
+- Alapvető ismeretek a Java-val (hasznos, de nem kötelező).  
 
 ## A GroupDocs.Redaction beállítása Java-hoz
 
 ### Maven konfiguráció
 
-Adja hozzá a GroupDocs tárolót és függőséget a `pom.xml` fájlhoz:
+Add the GroupDocs repository and dependency to your `pom.xml`:
 
 ```xml
 <repositories>
@@ -62,16 +63,16 @@ Adja hozzá a GroupDocs tárolót és függőséget a `pom.xml` fájlhoz:
 
 ### Közvetlen letöltés
 
-Alternatívaként töltse le a legújabb verziót a [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/) oldalról.
+Alternatívaként töltsd le a legújabb verziót a [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/) oldalról.
 
 #### Licenc beszerzési lépések
-- **Ingyenes próba:** Fedezze fel a fő funkciókat ingyen.  
-- **Ideiglenes licenc:** Használja fejlesztés során a teljes API hozzáféréshez.  
-- **Vásárlás:** Szerezzen termelési licencet a GroupDocs weboldaláról.
+- **Free Trial:** Fedezd fel a fő funkciókat ingyen.  
+- **Temporary License:** Használd fejlesztés közben a teljes API hozzáféréshez.  
+- **Purchase:** Szerezz termelési licencet a GroupDocs weboldaláról.  
 
-### Alapvető inicializálás és beállítás
+### Alap inicializálás és beállítás
 
-Hozzon létre egy `Redactor` példányt, amely a tisztítani kívánt dokumentumra mutat:
+Create a `Redactor` instance that points to the document you want to clean:
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -84,7 +85,7 @@ final Redactor redactor = new Redactor(inputFilePath);
 
 ### Metaadat szövegcsere funkció
 
-Célunk, hogy a „Company Ltd.” minden előfordulását bármely metaadat mezőben a „--company--” helyőrzővel cseréljük.
+Célunk, hogy a „Company Ltd.” minden előfordulását bármely metaadatmezőben a „--company--” helyőrzővel cseréljük.
 
 #### 1. lépés: Szükséges osztályok importálása
 
@@ -94,7 +95,7 @@ import com.groupdocs.redaction.options.SaveOptions;
 import com.groupdocs.redaction.redactions.MetadataSearchRedaction;
 ```
 
-#### 2. lépés: Redigálás és mentési beállítások konfigurálása
+#### 2. lépés: Redakció és mentési beállítások konfigurálása
 
 ```java
 String inputFilePath = "YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX";
@@ -118,63 +119,63 @@ try {
 ```
 
 #### Hibaelhárítási tippek
-- **Fájl nem található:** Ellenőrizze a bemeneti és kimeneti fájlok abszolút útvonalait.  
-- **Nem támogatott formátum:** Győződjön meg arról, hogy a dokumentumtípus szerepel a GroupDocs.Redaction által támogatott formátumok táblázatában.
+- **File Not Found:** Ellenőrizd kétszer a bemeneti és kimeneti fájlok abszolút útvonalát.  
+- **Unsupported Format:** Győződj meg róla, hogy a dokumentum típusa szerepel a GroupDocs.Redaction támogatott formátumok táblázatában.  
 
 ## Gyakorlati alkalmazások
 
-A metaadat szövegének cseréje sok helyzetben hasznos:
+A metaadatok szövegének cseréje sok helyzetben értékes:
 
-1. **Jogi dokumentumkezelés:** Tisztítsa meg a vázlatokat, mielőtt elküldené őket az ellenfél ügyvédjének.  
-2. **Megfelelés és adatvédelem:** Távolítsa el a személyes azonosítókat a GDPR vagy HIPAA követelményeknek való megfelelés érdekében.  
-3. **Sablonfeldolgozás:** Cserélje ki a helyőrző értékeket anélkül, hogy az eredeti vállalati márkát felfedné.
+1. **Legal Document Management:** Tisztítsd meg a vázlatokat, mielőtt elküldenéd őket az ellenfél ügyvédjének.  
+2. **Compliance & Privacy:** Távolítsd el a személyes azonosítókat a GDPR vagy HIPAA követelményeknek való megfelelés érdekében.  
+3. **Template Processing:** Cseréld ki a helyőrző értékeket anélkül, hogy felfednéd az eredeti vállalati márkát.  
 
 ## Teljesítménybeli megfontolások
 
-When processing large files or batches:
-- Zárja be minden `Redactor` példányt azonnal (`redactor.close()`), hogy felszabadítsa a memóriát.  
-- Ütemezze a kötegelt feladatokat csúcsidőn kívül, hogy csökkentse a szerver terhelését.  
-- Részesítse előnyben azokat a fájlformátumokat, amelyek hatékony metaadat-szerkesztést tesznek lehetővé (pl. DOCX a PDF helyett, ha lehetséges).
+Nagy fájlok vagy kötegek feldolgozásakor:
+- Zárd be minden `Redactor`-t gyorsan (`redactor.close()`), hogy felszabadítsd a memóriát.  
+- Ütemezd a kötegelt feladatokat csúcsidőn kívül, hogy csökkentsd a szerver terhelését.  
+- Részesítsd előnyben azokat a fájlformátumokat, amelyek hatékony metaadat-szerkesztést tesznek lehetővé (pl. DOCX a PDF helyett, ha lehetséges).  
 
 ## Gyakori problémák és megoldások
 
 | Probléma | Megoldás |
 |----------|----------|
-| **A redigálás nem alkalmazott** | Győződjön meg arról, hogy a pontos szöveg („Company Ltd.”) egyezik a kis- és nagybetű érzékenységgel; szükség esetén használjon regex opciókat. |
-| **A kimeneti fájl változatlan** | Ellenőrizze, hogy a `saveOptions.setAddSuffix(true)` új fájlt hoz-e létre; ellenőrizze a kimeneti könyvtár útvonalát. |
-| **Memória csúcsok** | Fájlokat sorosan dolgozza fel, és minden iteráció után szabadítsa fel a `Redactor` példányt. |
+| **Redaction not applied** | Győződj meg róla, hogy a pontos szöveg („Company Ltd.”) egyezik a kis- és nagybetű érzékenységgel; szükség esetén regex opciókat használj. |
+| **Output file unchanged** | Ellenőrizd, hogy a `saveOptions.setAddSuffix(true)` új fájlt hoz-e létre; nézd meg a kimeneti könyvtár útvonalát. |
+| **Memory spikes** | Fájlokat sorban dolgozz fel, és a `Redactor`-t minden iteráció után szabadítsd fel. |
 
 ## Gyakran feltett kérdések
 
-**K: Mi az a GroupDocs.Redaction for Java?**  
-V: Ez egy Java könyvtár, amely lehetővé teszi a fejlesztők számára, hogy szöveget, képeket és metaadatokat keressenek és redigáljanak több mint 100 dokumentumformátumban.
+**Q: Mi az a GroupDocs.Redaction for Java?**  
+A: Ez egy Java könyvtár, amely lehetővé teszi a fejlesztők számára, hogy szöveget, képeket és metaadatokat keressenek és redakcióval eltávolítsanak több mint 100 dokumentumformátumban.
 
-**K: Használhatom a GroupDocs.Redaction-t nem‑szöveges fájlokkal?**  
-V: Igen, a könyvtár támogatja a PDF-eket, Word dokumentumokat, táblázatokat és sok más formátumot.
+**Q: Használhatom a GroupDocs.Redaction-t nem‑szöveges fájlokkal?**  
+A: Igen, a könyvtár támogatja a PDF-eket, Word dokumentumokat, táblázatkezelőket és sok más formátumot.
 
-**K: Hogyan kezeljem hatékonyan a nagy dokumentumokat?**  
-V: Zárja be a `Redactor`-t minden fájl után, futtassa a kötegelt feladatokat alacsony forgalmú időszakokban, és válasszon könnyű fájltípusokat a metaadat műveletekhez.
+**Q: Hogyan kezeljem hatékonyan a nagy dokumentumokat?**  
+A: Zárd be a `Redactor`-t minden fájl után, futtass kötegelt feladatokat alacsony forgalmú időszakokban, és válassz könnyű metaadat-műveleteket lehetővé tevő fájltípusokat.
 
-**K: Melyek a tipikus felhasználási esetek a metaadat szöveg cseréjére?**  
-V: Jogi redigálás, adatvédelmi megfelelés és automatizált sablonfeldolgozás a leggyakoribb esetek.
+**Q: Mik a tipikus felhasználási esetek a metaadat szövegcserére?**  
+A: Jogszabályi redakció, adatvédelmi megfelelés és automatizált sablonfeldolgozás a leggyakoribbak.
 
-**K: Hol kaphatok segítséget, ha problémába ütközöm?**  
-V: A GroupDocs ingyenes támogatást nyújt a [forum](https://forum.groupdocs.com/c/redaction/33) oldalon keresztül.
+**Q: Hol kaphatok segítséget, ha problémába ütközöm?**  
+A: A GroupDocs ingyenes támogatást nyújt a [forum](https://forum.groupdocs.com/c/redaction/33) oldalon keresztül.
 
 ## Következtetés
 
-Most már rendelkezik egy teljes, termelésre kész módszerrel a **metaadatok redigálására** és a **metaadat szöveg cseréjére** Java dokumentumokban a GroupDocs.Redaction segítségével. A fenti lépések követésével megvédheti a dokumentumtulajdonságokban rejtett érzékeny információkat, miközben megőrzi az eredeti fájlformátumot.
+Most már rendelkezésedre áll egy teljes, termelésre kész módszer a **replace metadata text java**-hez, és a metaadatok biztonságos redakciójához Java dokumentumokban a GroupDocs.Redaction segítségével. A fenti lépések követésével megvédheted a dokumentumtulajdonságokban rejtett érzékeny információkat, miközben megőrzöd az eredeti fájlformátumot.
 
 **Erőforrások**  
-- **Dokumentáció:** További információk a [GroupDocs.Redaction Documentation](https://docs.groupdocs.com/redaction/java/) oldalon.  
-- **API referencia:** Részletes API információk a [API Reference](https://reference.groupdocs.com/redaction/java) oldalon érhetők el.  
-- **Letöltés:** Szerezze be a legújabb verziót a [Downloads](https://releases.groupdocs.com/redaction/java/) oldalról.  
+- **Documentation:** További információk a [GroupDocs.Redaction Documentation](https://docs.groupdocs.com/redaction/java/) oldalon.  
+- **API Reference:** Részletes API információk elérhetők a [API Reference](https://reference.groupdocs.com/redaction/java) oldalon.  
+- **Download:** Szerezd be a legújabb verziót a [Downloads](https://releases.groupdocs.com/redaction/java/) oldalról.  
 - **GitHub:** A forráskód elérhető a [GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java) oldalon.  
-- **Ingyenes támogatás:** Csatlakozzon a beszélgetésekhez a [Support Forum](https://forum.groupdocs.com/c/redaction/33) oldalon.  
-- **Ideiglenes licenc:** Szerezzen tesztelési célra licencet a [Temporary License](https://purchase.groupdocs.com/temporary-license/) oldalról.
+- **Free Support:** Csatlakozz a beszélgetésekhez a [Support Forum](https://forum.groupdocs.com/c/redaction/33) oldalon.  
+- **Temporary License:** Szerezz tesztelési licencet a [Temporary License](https://purchase.groupdocs.com/temporary-license/) oldalról.  
 
 ---
 
-**Utolsó frissítés:** 2026-01-08  
+**Legutóbb frissítve:** 2026-03-25  
 **Tesztelve ezzel:** GroupDocs.Redaction 24.9 for Java  
-**Szerző:** GroupDocs  
+**Szerző:** GroupDocs

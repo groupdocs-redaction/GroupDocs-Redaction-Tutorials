@@ -1,44 +1,44 @@
 ---
-date: '2026-01-08'
-description: Scopri come utilizzare MetadataSearchRedaction in Java con GroupDocs.Redaction
-  per redigere in modo sicuro i metadati sensibili dei documenti.
+date: '2026-03-22'
+description: Scopri come eseguire la redazione dei metadati con GroupDocs in Java,
+  rimuovendo in modo sicuro i metadati riservati dei documenti utilizzando GroupDocs.Redaction.
 keywords:
 - metadata redaction Java
 - GroupDocs Redaction tutorial
 - secure document metadata
-title: Come utilizzare MetadataSearchRedaction in Java con GroupDocs
+title: Come eseguire la redazione dei metadati con GroupDocs in Java
 type: docs
 url: /it/java/metadata-redaction/java-metadata-redaction-groupdocs-tutorial/
 weight: 1
 ---
 
-# Come utilizzare MetadataSearchRedaction in Java con GroupDocs
+# Come eseguire la redazione dei metadati con GroupDocs in Java
 
-In questa guida completa scoprirai **come utilizzare MetadataSearchRedaction** per rimuovere i metadati riservati — come i nomi delle aziende — da Word, PDF e altri formati di documento usando GroupDocs.Redaction per Java. Alla fine del tutorial sarai in grado di integrare la redazione dei metadati in qualsiasi flusso di lavoro basato su Java e mantenere al sicuro le informazioni sensibili.
+In questa guida completa scoprirai **come utilizzare la redazione dei metadati con GroupDocs** per rimuovere metadati riservati — come i nomi delle aziende — da Word, PDF e altri formati di documento usando GroupDocs.Redaction per Java. Alla fine del tutorial sarai in grado di integrare la redazione dei metadati in qualsiasi flusso di lavoro basato su Java e mantenere al sicuro le informazioni sensibili.
 
 ## Risposte rapide
 - **Cosa fa MetadataSearchRedaction?** Cerca campi di metadati specifici e ne sostituisce i valori con testo personalizzato.  
-- **Quale libreria è necessaria?** GroupDocs.Redaction for Java (v24.9 o successiva).  
+- **Quale libreria è necessaria?** GroupDocs.Redaction per Java (v24.9 o successiva).  
 - **È necessaria una licenza?** Una prova gratuita è sufficiente per la valutazione; è richiesta una licenza completa per la produzione.  
-- **Posso mantenere il formato originale del file?** Sì — usa `SaveOptions` per preservare il formato originale.  
-- **Questo approccio è thread‑safe?** Ogni istanza di `Redactor` è indipendente, quindi è possibile elaborare i documenti in parallelo.
+- **Posso mantenere il formato file originale?** Sì — usa `SaveOptions` per preservare il formato originale.  
+- **Questo approccio è thread‑safe?** Ogni istanza di `Redactor` è indipendente, quindi è possibile elaborare documenti in parallelo.
 
-## Cos'è MetadataSearchRedaction?
-`MetadataSearchRedaction` è una classe di redazione specializzata che consente di mirare a una proprietà di metadati specifica (ad es., *Company*, *Author*) e sostituirne il contenuto con un segnaposto. È ideale quando è necessario anonimizzare i dati aziendali prima di condividere i documenti con partner esterni.
+## Che cos’è la redazione dei metadati con GroupDocs?
+`MetadataSearchRedaction` è una classe specializzata che consente di mirare a una proprietà di metadati particolare (ad es., *Company*, *Author*) e sostituirne il contenuto con un segnaposto. È ideale quando è necessario anonimizzare dati aziendali prima di condividere i documenti con partner esterni.
 
-## Perché utilizzare MetadataSearchRedaction per la redazione dei metadati?
-- **Precisione** – Redigi solo i campi specificati, lasciando il resto del documento intatto.  
-- **Conformità** – Aiuta a soddisfare GDPR, HIPAA e altre normative sulla privacy rimuovendo gli identificatori nascosti.  
-- **Pronto per l'automazione** – Si integra perfettamente nei pipeline di elaborazione batch o nei micro‑servizi.
+## Perché usare la redazione dei metadati con GroupDocs?
+- **Precisione** – Redigi solo i campi che specifichi, lasciando intatto il resto del documento.  
+- **Conformità** – Aiuta a soddisfare GDPR, HIPAA e altre normative sulla privacy rimuovendo identificatori nascosti.  
+- **Pronta per l’automazione** – Si integra perfettamente in pipeline di elaborazione batch o micro‑servizi.
 
 ## Prerequisiti
-- **GroupDocs.Redaction for Java** ≥ 24.9.  
+- **GroupDocs.Redaction per Java** ≥ 24.9.  
 - Java 8 o successiva installata sulla tua macchina.  
 - Un IDE come IntelliJ IDEA o Eclipse (opzionale ma consigliato).  
-- Familiarità di base con Maven (o capacità di aggiungere JAR manualmente).  
+- Familiarità di base con Maven (o capacità di aggiungere manualmente i JAR).  
 
 ## Configurazione di GroupDocs.Redaction per Java
-Aggiungi il repository e la dipendenza al tuo `pom.xml`. Questo passaggio garantisce che Maven possa scaricare automaticamente la libreria.
+Aggiungi il repository e la dipendenza al tuo `pom.xml`. Questo passaggio garantisce a Maven di scaricare automaticamente la libreria.
 
 ```xml
 <repositories>
@@ -58,16 +58,16 @@ Aggiungi il repository e la dipendenza al tuo `pom.xml`. Questo passaggio garant
 </dependencies>
 ```
 
-*In alternativa, puoi scaricare il JAR direttamente dalla pagina ufficiale di rilascio:*  
+*In alternativa, puoi scaricare il JAR direttamente dalla pagina di rilascio ufficiale:*  
 [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/)
 
 ### Acquisizione della licenza
 - **Prova gratuita** – Scarica una licenza di prova per esplorare tutte le funzionalità.  
-- **Licenza temporanea** – Utilizza per test estesi.  
+- **Licenza temporanea** – Da utilizzare per test estesi.  
 - **Licenza completa** – Necessaria per le distribuzioni in produzione.
 
 ## Inizializzazione di base
-Crea un'istanza di `Redactor` che punta al documento da elaborare.
+Crea un'istanza `Redactor` puntando al documento che desideri elaborare.
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -76,10 +76,10 @@ import com.groupdocs.redaction.options.SaveOptions;
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX");
 ```
 
-## Guida all'implementazione
+## Guida all’implementazione
 
 ### Passo 1: Importare le classi necessarie
-Queste importazioni ti danno accesso al motore di redazione, alle opzioni di salvataggio e alle utility dei metadati.
+Questi import ti danno accesso al motore di redazione, alle opzioni di salvataggio e alle utility dei metadati.
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -96,7 +96,7 @@ final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX");
 ```
 
 ### Passo 3: Configurare la ricerca e la redazione dei metadati
-Crea un `MetadataSearchRedaction` che cerca la stringa esatta **"Company Ltd."** e la sostituisce con **"--company--"**. La chiamata `setFilter` limita l'operazione solo al campo di metadati *Company*.
+Crea un `MetadataSearchRedaction` che cerchi la stringa esatta **"Company Ltd."** e la sostituisca con **"--company--"**. La chiamata `setFilter` limita l’operazione al campo di metadati *Company* soltanto.
 
 ```java
 MetadataSearchRedaction redaction = new MetadataSearchRedaction("Company Ltd.", "--company--");
@@ -111,12 +111,12 @@ redactor.apply(redaction);
 ```
 
 ### Passo 5: Salvare con opzioni personalizzate
-Configura `SaveOptions` in modo che il file redatto riceva il suffisso “_Redacted” mantenendo il suo formato originale.
+Configura `SaveOptions` in modo che il file redatto riceva il suffisso “_Redacted” mantenendo il formato originale.
 
 ```java
 SaveOptions tmp0 = new SaveOptions();
 tmp0.setAddSuffix(true);  // Adds "_Redacted" to file name
-	tmp0.setRasterizeToPDF(false);  // Keeps original format
+tmp0.setRasterizeToPDF(false);  // Keeps original format
 
 redactor.save(tmp0);
 ```
@@ -131,58 +131,60 @@ finally {
 ```
 
 ## Problemi comuni e soluzioni
-- **FileNotFoundException** – Verifica nuovamente il percorso passato a `Redactor`. Usa percorsi assoluti o `Paths.get(...)` per maggiore affidabilità.  
-- **Nessuna modifica osservata** – Verifica che il campo di metadati mirato contenga effettivamente la stringa di ricerca; i metadati sono sensibili al maiuscolo/minuscolo per impostazione predefinita.  
+- **FileNotFoundException** – Verifica il percorso passato a `Redactor`. Usa percorsi assoluti o `Paths.get(...)` per maggiore affidabilità.  
+- **Nessuna modifica osservata** – Controlla che il campo di metadati mirato contenga effettivamente la stringa di ricerca; i metadati sono sensibili al maiuscolo/minuscolo per impostazione predefinita.  
 - **Errori di out‑of‑memory su file di grandi dimensioni** – Elabora i documenti in batch più piccoli e chiama `redactor.close()` subito dopo ogni file.
 
 ## Applicazioni pratiche
-1. **Documentazione legale** – Rimuovi i nomi delle aziende clienti prima di inviare i contratti a terze parti.  
+1. **Documentazione legale** – Rimuovi i nomi delle aziende clienti prima di inviare contratti a terze parti.  
 2. **Reporting finanziario** – Anonimizza gli identificatori interni nei file di audit.  
 3. **Progetti collaborativi** – Proteggi le informazioni proprietarie quando condividi bozze con fornitori esterni.
 
 ## Considerazioni sulle prestazioni
-- **Gestione della memoria** – La libreria mantiene l'intero documento in memoria; chiudere il `Redactor` dopo ogni file è essenziale.  
+- **Gestione della memoria** – La libreria carica l’intero documento in memoria; chiudere il `Redactor` dopo ogni file è fondamentale.  
 - **Elaborazione batch** – Per scenari ad alto volume, itera su una collezione di file e riutilizza una singola istanza di `SaveOptions`.  
-- **Rimani aggiornato** – Le nuove versioni introducono miglioramenti delle prestazioni e correzioni di bug; punta sempre all'ultima versione stabile.
+- **Rimani aggiornato** – Le nuove versioni introducono ottimizzazioni e correzioni; punta sempre all’ultima versione stabile.
 
 ## Conclusione
-Ora sai **come utilizzare MetadataSearchRedaction** per rimuovere in modo sicuro i metadati aziendali dai documenti usando GroupDocs.Redaction per Java. Integra questi passaggi nei tuoi pipeline di elaborazione dei documenti per rimanere conforme e proteggere le informazioni sensibili.
+Ora sai **come utilizzare la redazione dei metadati con GroupDocs** per rimuovere in modo sicuro i metadati aziendali dai documenti usando GroupDocs.Redaction per Java. Integra questi passaggi nei tuoi pipeline di elaborazione documenti per rimanere conforme e proteggere le informazioni sensibili.
 
 **Passi successivi**
 - Sperimenta con altri campi di metadati come *Author* o *Creator*.  
-- Combina la redazione dei metadati con la redazione di testo o immagini per una soluzione completa.  
+- Combina la redazione dei metadati con la redazione di testo o immagini per una soluzione a copertura completa.  
 
 ## Sezione FAQ
-1. **Cos'è GroupDocs.Redaction per Java?**  
-   - È una libreria potente che consente di redigere testo, metadati e immagini nei documenti usando applicazioni Java.  
+1. **Che cos’è GroupDocs.Redaction per Java?**  
+   - È una libreria potente che consente di redigere testo, metadati e immagini nei documenti tramite applicazioni Java.  
 2. **Posso usare GroupDocs.Redaction senza acquistare una licenza?**  
-   - Sì, ma con limitazioni. Una prova gratuita o una licenza temporanea consentono l'accesso completo per scopi di test.  
-3. **Come posso garantire che i formati dei documenti siano preservati durante la redazione?**  
-   - Usa `SaveOptions` per specificare i requisiti, ad esempio evitando la rasterizzazione in PDF.  
+   - Sì, ma con limitazioni. Una prova gratuita o una licenza temporanea consentono l’accesso completo per scopi di test.  
+3. **Come garantisco che i formati dei documenti siano preservati durante la redazione?**  
+   - Usa `SaveOptions` per specificare le tue esigenze, ad esempio evitando la rasterizzazione in PDF.  
 4. **Quali tipi di documenti possono essere redatti con GroupDocs.Redaction?**  
-   - Supporta un'ampia gamma, inclusi Word, Excel, PowerPoint, PDF e molti altri.  
+   - Supporta un’ampia gamma, inclusi Word, Excel, PowerPoint, PDF e molti altri.  
 5. **Dove posso trovare supporto se incontro problemi?**  
-   - Visita il [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33) per assistenza.  
+   - Visita il [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33) per assistenza.
 
 ## Domande frequenti
-**Q: MetadataSearchRedaction funziona con documenti crittografati?**  
-A: Sì. Carica il documento con la password appropriata usando il costruttore `Redactor` che accetta un parametro password.
+**D: Il MetadataSearchRedaction funziona con documenti crittografati?**  
+R: Sì. Carica il documento con la password appropriata usando il costruttore di `Redactor` che accetta un parametro password.
 
-**Q: Posso concatenare più redazioni di metadati in un'unica esecuzione?**  
-A: Assolutamente. Crea più oggetti `MetadataSearchRedaction`, imposta filtri diversi e applicali in sequenza prima del salvataggio.
+**D: Posso concatenare più redazioni di metadati in un’unica esecuzione?**  
+R: Assolutamente. Crea più oggetti `MetadataSearchRedaction`, imposta filtri diversi e applicali sequenzialmente prima di salvare.
 
-**Q: È possibile visualizzare in anteprima le redazioni prima del salvataggio?**  
-A: Puoi chiamare `redactor.getRedactions()` per ottenere un elenco delle redazioni in sospeso e ispezionarle programmaticamente.
+**D: È possibile visualizzare in anteprima le redazioni prima del salvataggio?**  
+R: Puoi chiamare `redactor.getRedactions()` per ottenere un elenco delle redazioni in sospeso e ispezionarle programmaticamente.
 
 ## Risorse
 - **Documentazione**: Esplora guide dettagliate su [GroupDocs Documentation](https://docs.groupdocs.com/redaction/java/).  
-- **Riferimento API**: Consulta il riferimento completo dell'API su [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java).  
-- **Scarica la libreria**: Accedi all'ultima versione su [GroupDocs Downloads](https://releases.groupdocs.com/redaction/java/).  
+- **Riferimento API**: Consulta il riferimento completo dell’API su [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java).  
+- **Download della libreria**: Accedi all’ultima versione su [GroupDocs Downloads](https://releases.groupdocs.com/redaction/java/).  
 - **Codice sorgente**: Visualizza e contribuisci su [GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java).  
 - **Supporto**: Ottieni aiuto tramite il canale di supporto gratuito su [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33).
 
 ---
 
-**Ultimo aggiornamento:** 2026-01-08  
+**Ultimo aggiornamento:** 2026-03-22  
 **Testato con:** GroupDocs.Redaction 24.9 per Java  
-**Autore:** GroupDocs
+**Autore:** GroupDocs  
+
+---

@@ -1,5 +1,5 @@
 ---
-date: '2025-12-20'
+date: '2026-03-20'
 description: 了解如何使用 GroupDocs.Redaction for Java 获取文件类型、获取文档大小以及检索 PDF 元数据。立即提升您的
   Java 应用的文档处理能力。
 keywords:
@@ -14,28 +14,29 @@ url: /zh/java/document-information/retrieve-document-info-using-groupdocs-redact
 weight: 1
 ---
 
-# 如何使用 GroupDocs.Redaction 获取文件类型（Java）
+# 如何使用 GroupDocs.Redaction 获取 Java 文件类型
 
-检索文档的关键细节——如 **文件类型**、页数和大小——是构建以文档为中心的 Java 应用程序时的常见需求。在本教程中，你将学习如何 **获取文件类型（Java）**，以及如何 **获取文档大小（Java）**、**获取页数（Java）**，甚至 **检索 PDF 元数据（Java）**，全部使用 GroupDocs.Redaction 库。
+检索文档的关键细节——例如 **file type**、页数和大小——是构建以文档为中心的 Java 应用程序时的常见需求。在本教程中，您将学习如何使用 GroupDocs.Redaction 库 **get file type java**，以及如何 **get document size java**、**get page count java**，甚至 **retrieve pdf metadata java**。提前了解文件类型可以帮助您决定采用哪种处理路径，而大小和页数信息则有助于高效管理资源。
 
-## 快速回答
+## 快速答案
 - **哪个方法返回文件类型？** `IDocumentInfo.getFileType()`
 - **如何获取页数？** `IDocumentInfo.getPageCount()`
 - **哪个调用返回文档大小（字节）？** `IDocumentInfo.getSize()`
-- **运行示例是否需要许可证？** 试用或临时许可证即可用于评估。
+- **运行示例是否需要许可证？** 试用版或临时许可证可用于评估。  
 - **需要哪个 Java 版本？** Java 8 或更高。
 
-## 什么是 “get file type java”？
-该短语指在 Java 中以编程方式从文档中提取文件格式（例如 DOCX、PDF）。GroupDocs.Redaction 通过 `IDocumentInfo` 接口公开此信息。
+## 什么是 “get file type java”
+该短语指在 Java 中以编程方式从文档中提取文件格式（例如 DOCX、PDF）。GroupDocs.Redaction 通过 `IDocumentInfo` 接口公开此信息，使其只需一行代码即可获取。
 
 ## 为什么使用 GroupDocs.Redaction 提取元数据？
-- **广泛的格式支持：** 支持 PDF、DOCX、XLSX、PPTX 等多种格式。  
+- **广泛的格式支持：** 处理 PDF、DOCX、XLSX、PPTX 等多种格式。  
 - **简洁的 API：** 一行调用即可返回文件类型、页数和大小。  
-- **性能优化：** 仅加载所需的元数据，保持内存占用低。
+- **性能优化：** 仅加载所需的元数据，保持低内存使用。  
+- **一致的结果：** 在所有受支持的文件扩展名上表现相同，因此您也可以在 **java get file extension** 场景中依赖它。
 
-## 前置条件
-- 已安装 Java 8 或更高版本。  
-- 支持 Maven 的 IDE（IntelliJ IDEA、Eclipse 等）。  
+## 前提条件
+- 已安装 Java 8 或更高版本。  
+- 兼容 Maven 的 IDE（IntelliJ IDEA、Eclipse 等）。  
 - 拥有 GroupDocs.Redaction 许可证（免费试用或临时许可证）。
 
 ## 为 Java 设置 GroupDocs.Redaction
@@ -44,7 +45,7 @@ weight: 1
 
 **Maven 安装**
 
-在 `pom.xml` 文件中添加以下仓库和依赖：
+在您的 `pom.xml` 文件中添加以下仓库和依赖：
 
 ```xml
 <repositories>
@@ -69,9 +70,9 @@ weight: 1
 或者，从 [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/) 下载最新版本。
 
 ### 许可证获取
-- **免费试用：** 开始免费试用以评估库。  
-- **临时许可证：** 获取临时许可证以进行更长时间的评估。  
-- **购买：** 如符合需求，可考虑购买正式许可证。
+- **Free Trial（免费试用）：** 先使用免费试用版评估库。  
+- **Temporary License（临时许可证）：** 获取临时许可证以进行更长时间的评估。  
+- **Purchase（购买）：** 如符合需求，可考虑购买。
 
 安装完成后，初始化并设置 GroupDocs.Redaction：
 
@@ -82,13 +83,16 @@ import com.groupdocs.redaction.Redactor;
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX");
 ```
 
-## 如何获取文件类型（Java）、文档大小（Java）和页数（Java）
+## 为什么在实际项目中获取文件类型（java）很重要
+提前了解文档的类型可以让您将文件路由到正确的处理流水线，例如将 PDF 发送到脱敏工作流，将 Word 文件发送到转换服务，或将图像发送到 OCR 引擎。它还帮助您执行安全策略（阻止可执行文件）并在文档管理系统中提供准确的 UI 图标。
 
-库准备就绪后，下面逐步演示如何检索所需信息。
+## 如何获取文件类型（java）、文档大小（java）和页数（java）
+
+库已准备就绪后，让我们逐步演示获取所需信息的具体步骤。
 
 ### 步骤 1：导入必要的类
 
-在 Java 文件顶部确保导入所需的类：
+确保在 Java 文件顶部导入所需的类：
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -97,7 +101,7 @@ import com.groupdocs.redaction.domain.IDocumentInfo;
 
 ### 步骤 2：初始化 Redactor
 
-创建 `Redactor` 实例，并指定文档路径。该对象使你能够与文件交互并提取元数据。
+创建一个 `Redactor` 实例，指定文档的路径。该对象使您能够与文件交互并提取元数据。
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX");
@@ -110,7 +114,7 @@ try {
 
 ### 步骤 3：检索并显示文档信息
 
-调用 `getDocumentInfo()` 获取 `IDocumentInfo` 对象。通过该对象即可 **获取文件类型（Java）**、**获取文档大小（Java）** 和 **获取页数（Java）**，一次调用即可完成。
+调用 `getDocumentInfo()` 获取 `IDocumentInfo` 对象。通过该对象，您可以在一次调用中 **get file type java**、**get document size java** 和 **get page count java**。
 
 ```java
 // Retrieve document information
@@ -122,74 +126,76 @@ System.out.println("Page Count: " + info.getPageCount());
 System.out.println("Size (Bytes): " + info.getSize());
 ```
 
-这三个 `System.out.println` 语句分别输出文件类型、页数以及字节大小——正是后续处理所需的全部信息。
+这三个 `System.out.println` 语句分别输出文件类型、页数和字节大小——正是下游处理所需的信息。
 
-## 如何检索 PDF 元数据（Java）
+## 如何检索 PDF 元数据（java）
 
-如果源文档是 PDF，`IDocumentInfo` 的相同调用会返回 PDF 特有的元数据（例如 PDF 版本、加密状态）。无需额外代码，只需使用相同的 `getDocumentInfo()` 方法即可。
+如果源文档是 PDF，使用相同的 `IDocumentInfo` 调用即可返回 PDF 特有的元数据（例如 PDF 版本、加密状态）。无需额外代码，只需使用相同的 `getDocumentInfo()` 方法。
+
+## 常见使用场景
+1. **文档管理系统：** 在存储之前自动按类型或大小对文件进行分类。  
+2. **内容处理流水线：** 根据页数选择不同的处理策略（例如，对大 PDF 批量脱敏，对小 Word 文档单独处理）。  
+3. **数字资产库：** 向用户展示文档属性的快速预览，无需打开文件。
 
 ## 常见问题及解决方案
-- **文件未找到：** 检查传递给 `Redactor` 的绝对或相对路径是否正确。  
-- **不受支持的格式：** 确认文档扩展名受 GroupDocs.Redaction 支持。  
-- **许可证错误：** 使用有效的试用或正式许可证，否则 API 将抛出许可证异常。  
+- **File not found（文件未找到）：** 检查传递给 `Redactor` 的绝对或相对路径。  
+- **Unsupported format（不支持的格式）：** 确认文档的扩展名受 GroupDocs.Redaction 支持。  
+- **License errors（许可证错误）：** 使用有效的试用或永久许可证，否则 API 将抛出许可证异常。
 
-## 实际应用
-
-了解如何 **获取文件类型（Java）** 以及相关元数据，可打开以下场景的大门：
-
-1. **文档管理系统：** 在存储前根据类型或大小自动分类文件。  
-2. **内容处理流水线：** 根据页数选择不同的处理策略。  
-3. **数字资产库：** 为用户提供文档属性的快速预览。
+## 故障排除技巧（读取文档元数据 java）
+- 在 `try‑catch` 块中包装元数据调用，以优雅地处理损坏的文件。  
+- 使用 `redactor.isEncrypted()`（如果可用）在读取元数据前检测加密的 PDF。  
+- 处理大量文件时，复用线程池并及时关闭每个 `Redactor` 实例，以避免文件句柄泄漏。
 
 ## 性能考虑
 
-处理大批量文件时：
+处理大批量时：
 
 - 在 `try‑with‑resources` 块中打开每个文档，以确保及时释放文件句柄。  
-- 仅缓存所需的元数据；除非必要，避免加载完整文档内容。  
+- 仅缓存所需的元数据；除非必要，避免加载完整文档内容。
 
 ## 结论
 
-现在，你已经掌握了使用 GroupDocs.Redaction **获取文件类型（Java）**、**获取文档大小（Java）**、**获取页数（Java）** 以及 **检索 PDF 元数据（Java）** 的方法。将这些代码片段集成到你的 Java 应用中，以实现更智能的文档处理决策。
+现在您已经了解如何使用 GroupDocs.Redaction **get file type java**、**get document size java**、**get page count java** 和 **retrieve pdf metadata java**。将这些代码片段集成到您的 Java 应用程序中，以便在文档处理上做出更智能的决策，提升性能，并提供更丰富的用户体验。
 
-## 常见问题解答
+## 常见问答
 
 **Q1: 什么是 GroupDocs.Redaction？**  
-A1: 它是一个用于在 Java 应用程序中进行文档脱敏和管理信息的库。
+A1: 它是一个用于在 Java 应用程序中脱敏和管理文档信息的库。
 
-**Q2: 我可以从 PDF 文件中检索元数据吗？**  
+**Q2: 我可以检索 PDF 文件的元数据吗？**  
 A2: 可以，库支持包括 PDF 在内的多种文件格式。
 
 **Q3: 检索文档信息时如何处理异常？**  
-A3: 使用 try‑catch 块来优雅地管理可能出现的错误。
+A3: 使用 try‑catch 块优雅地管理可能的错误。
 
-**Q4: 我可以获取哪些文档信息？**  
+**Q4: 我可以获取文档哪些信息？**  
 A4: 文件类型、页数以及字节大小等细节均可获取。
 
-**Q5: 除了 Word 文档外，还支持其他格式吗？**  
-A5: 支持，包括 PDF、Excel、PowerPoint 等多种文件类型。
+**Q5: 除了 Word 文档外，还支持其他文件格式吗？**  
+A5: 是的，GroupDocs.Redaction 支持包括 PDF、Excel 文件等多种文件类型。
 
 ## 其他常见问题
 
-**Q: API 是否会返回 PDF 版本（例如 1.7）作为元数据的一部分？**  
-A: `IDocumentInfo` 对象包含基本的 PDF 特性；如需详细的版本信息，可通过 Redactor API 查询 PDF‑specific 属性。
+**Q: API 是否在元数据中返回 PDF 版本（例如 1.7）？**  
+A: `IDocumentInfo` 对象包含基本的 PDF 特性；若需详细的版本信息，可通过 Redactor API 查询 PDF‑specific 属性。
 
-**Q: 能否在不加载整个文档到内存的情况下检索元数据？**  
-A: 可以，`getDocumentInfo()` 只读取所需的头部信息，从而保持低内存占用。
+**Q: 能否在不将整个文档加载到内存的情况下检索元数据？**  
+A: 可以，`getDocumentInfo()` 只读取获取元数据所需的头部信息，保持低内存占用。
 
 **Q: 是否可以高效地批量处理大量文档？**  
-A: 为每个文档创建独立的 `Redactor` 实例，并使用线程池并行处理，可实现高效批量操作。
+A: 为每个文档的处理创建独立的 `Redactor` 实例，并复用线程池以并行化工作负载。
 
-**资源**  
+**资源**
 - **文档：** [GroupDocs Redaction Java Documentation](https://docs.groupdocs.com/redaction/java/)  
 - **API 参考：** [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)  
 - **下载：** [GroupDocs.Redaction for Java Downloads](https://releases.groupdocs.com/redaction/java/)  
 - **GitHub：** [GroupDocs GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - **免费支持：** [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)  
-- **临时许可证：** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/)
+- **临时许可证：** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/)  
 
 ---
 
-**Last Updated:** 2025-12-20  
-**Tested With:** GroupDocs.Redaction 24.9 for Java  
-**Author:** GroupDocs  
+**最后更新：** 2026-03-20  
+**测试环境：** GroupDocs.Redaction 24.9 for Java  
+**作者：** GroupDocs

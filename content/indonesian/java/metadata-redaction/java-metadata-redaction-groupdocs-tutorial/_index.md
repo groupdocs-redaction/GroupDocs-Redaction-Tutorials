@@ -1,32 +1,32 @@
 ---
-date: '2026-01-08'
-description: Pelajari cara menggunakan MetadataSearchRedaction dalam Java dengan GroupDocs.Redaction
-  untuk menghapus secara aman metadata dokumen yang sensitif.
+date: '2026-03-22'
+description: Pelajari cara melakukan redaksi metadata dengan GroupDocs di Java, secara
+  aman menghapus metadata dokumen rahasia menggunakan GroupDocs.Redaction.
 keywords:
 - metadata redaction Java
 - GroupDocs Redaction tutorial
 - secure document metadata
-title: Cara Menggunakan MetadataSearchRedaction di Java dengan GroupDocs
+title: Cara Melakukan Redaksi Metadata dengan GroupDocs di Java
 type: docs
 url: /id/java/metadata-redaction/java-metadata-redaction-groupdocs-tutorial/
 weight: 1
 ---
 
-# Cara Menggunakan MetadataSearchRedaction di Java dengan GroupDocs
+# Cara Melakukan redaksi metadata dengan GroupDocs di Java
 
-Dalam panduan komprehensif ini Anda akan menemukan **cara menggunakan MetadataSearchRedaction** untuk menghapus metadata rahasia—seperti nama perusahaan—dari Word, PDF, dan format dokumen lainnya menggunakan GroupDocs.Redaction untuk Java. Pada akhir tutorial Anda akan dapat mengintegrasikan redaksi metadata ke dalam alur kerja berbasis Java apa pun dan menjaga informasi sensitif tetap aman.
+Dalam panduan komprehensif ini Anda akan menemukan **cara menggunakan redaksi metadata dengan GroupDocs** untuk menghapus metadata rahasia—seperti nama perusahaan—dari Word, PDF, dan format dokumen lainnya menggunakan GroupDocs.Redaction untuk Java. Pada akhir tutorial Anda akan dapat mengintegrasikan redaksi metadata ke dalam alur kerja berbasis Java apa pun dan menjaga informasi sensitif tetap aman.
 
 ## Quick Answers
 - **Apa yang dilakukan MetadataSearchRedaction?** Ia mencari bidang metadata tertentu dan mengganti nilainya dengan teks khusus.  
-- **Pustaka apa yang diperlukan?** GroupDocs.Redaction for Java (v24.9 atau lebih baru).  
+- **Perpustakaan apa yang diperlukan?** GroupDocs.Redaction for Java (v24.9 atau lebih baru).  
 - **Apakah saya memerlukan lisensi?** Versi percobaan gratis dapat digunakan untuk evaluasi; lisensi penuh diperlukan untuk produksi.  
-- **Bisakah saya mempertahankan format file asli?** Ya—gunakan `SaveOptions` untuk mempertahankan format asli.  
+- **Bisakah saya mempertahankan format file asli?** Ya—gunakan `SaveOptions` untuk menjaga format asli.  
 - **Apakah pendekatan ini thread‑safe?** Setiap instance `Redactor` bersifat independen, sehingga Anda dapat memproses dokumen secara paralel.
 
-## What is MetadataSearchRedaction?
-`MetadataSearchRedaction` adalah kelas redaksi khusus yang memungkinkan Anda menargetkan properti metadata tertentu (misalnya *Company*, *Author*) dan mengganti isinya dengan placeholder. Ini ideal ketika Anda perlu menganonimkan data perusahaan sebelum membagikan dokumen kepada mitra eksternal.
+## Apa itu redaksi metadata dengan GroupDocs?
+`MetadataSearchRedaction` adalah kelas khusus yang memungkinkan Anda menargetkan properti metadata tertentu (misalnya *Company*, *Author*) dan mengganti isinya dengan placeholder. Ini ideal ketika Anda perlu menganonimkan data perusahaan sebelum membagikan dokumen kepada mitra eksternal.
 
-## Why use MetadataSearchRedaction for metadata redaction?
+## Mengapa menggunakan redaksi metadata dengan GroupDocs?
 - **Presisi** – Redaksi hanya bidang yang Anda tentukan, meninggalkan sisanya tidak tersentuh.  
 - **Kepatuhan** – Membantu memenuhi GDPR, HIPAA, dan regulasi privasi lainnya dengan menghapus pengidentifikasi tersembunyi.  
 - **Siap Otomasi** – Terintegrasi mulus ke dalam pipeline pemrosesan batch atau micro‑services.
@@ -34,11 +34,11 @@ Dalam panduan komprehensif ini Anda akan menemukan **cara menggunakan MetadataSe
 ## Prerequisites
 - **GroupDocs.Redaction untuk Java** ≥ 24.9.  
 - Java 8 atau lebih baru terpasang di mesin Anda.  
-- IDE seperti IntelliJ IDEA atau Eclipse (opsional namun disarankan).  
+- IDE seperti IntelliJ IDEA atau Eclipse (opsional tetapi disarankan).  
 - Familiaritas dasar dengan Maven (atau kemampuan menambahkan JAR secara manual).  
 
-## Setting Up GroupDocs.Redaction for Java
-Tambahkan repositori dan dependensi ke `pom.xml` Anda. Langkah ini memastikan Maven dapat mengunduh pustaka secara otomatis.
+## Menyiapkan GroupDocs.Redaction untuk Java
+Tambahkan repositori dan dependensi ke `pom.xml` Anda. Langkah ini memastikan Maven dapat mengunduh perpustakaan secara otomatis.
 
 ```xml
 <repositories>
@@ -59,14 +59,14 @@ Tambahkan repositori dan dependensi ke `pom.xml` Anda. Langkah ini memastikan Ma
 ```
 
 *Alternatifnya, Anda dapat mengunduh JAR langsung dari halaman rilis resmi:*  
-[GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/)
+[GroupDocs.Redaction untuk Java releases](https://releases.groupdocs.com/redaction/java/)
 
-### License Acquisition
+### Akuisisi Lisensi
 - **Percobaan Gratis** – Unduh lisensi percobaan untuk menjelajahi semua fitur.  
 - **Lisensi Sementara** – Digunakan untuk pengujian lanjutan.  
 - **Lisensi Penuh** – Diperlukan untuk penerapan produksi.
 
-## Basic Initialization
+## Inisialisasi Dasar
 Buat instance `Redactor` yang menunjuk ke dokumen yang ingin Anda proses.
 
 ```java
@@ -76,10 +76,10 @@ import com.groupdocs.redaction.options.SaveOptions;
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX");
 ```
 
-## Implementation Guide
+## Panduan Implementasi
 
-### Step 1: Import Necessary Classes
-Import ini memberi Anda akses ke mesin redaksi, opsi penyimpanan, dan utilitas metadata.
+### Langkah 1: Impor Kelas yang Diperlukan
+Impor ini memberi Anda akses ke mesin redaksi, opsi penyimpanan, dan utilitas metadata.
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -88,14 +88,14 @@ import com.groupdocs.redaction.redactions.MetadataFilters;
 import com.groupdocs.redaction.redactions.MetadataSearchRedaction;
 ```
 
-### Step 2: Initialize Redactor
-Instansiasi `Redactor` dengan path ke file sumber Anda.
+### Langkah 2: Inisialisasi Redactor
+Instansiasi `Redactor` dengan jalur ke file sumber Anda.
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX");
 ```
 
-### Step 3: Configure Metadata Search and Redaction
+### Langkah 3: Konfigurasi Pencarian dan Redaksi Metadata
 Buat `MetadataSearchRedaction` yang mencari string tepat **"Company Ltd."** dan menggantinya dengan **"--company--"**. Pemanggilan `setFilter` membatasi operasi hanya pada bidang metadata *Company*.
 
 ```java
@@ -103,25 +103,25 @@ MetadataSearchRedaction redaction = new MetadataSearchRedaction("Company Ltd.", 
 redaction.setFilter(MetadataFilters.Company);
 ```
 
-### Step 4: Apply the Redaction
+### Langkah 4: Terapkan Redaksi
 Jalankan redaksi pada dokumen yang telah dibuka.
 
 ```java
 redactor.apply(redaction);
 ```
 
-### Step 5: Save with Custom Options
-Konfigurasikan `SaveOptions` sehingga file yang telah direduksi mendapatkan akhiran “_Redacted” sambil mempertahankan format aslinya.
+### Langkah 5: Simpan dengan Opsi Kustom
+Konfigurasikan `SaveOptions` sehingga file yang direduksi mendapatkan akhiran “_Redacted” sambil mempertahankan format aslinya.
 
 ```java
 SaveOptions tmp0 = new SaveOptions();
 tmp0.setAddSuffix(true);  // Adds "_Redacted" to file name
-	tmp0.setRasterizeToPDF(false);  // Keeps original format
+tmp0.setRasterizeToPDF(false);  // Keeps original format
 
 redactor.save(tmp0);
 ```
 
-### Step 6: Release Resources
+### Langkah 6: Lepaskan Sumber Daya
 Selalu tutup `Redactor` untuk membebaskan sumber daya native dan menghindari kebocoran memori.
 
 ```java
@@ -130,39 +130,39 @@ finally {
 }
 ```
 
-## Common Issues and Solutions
-- **FileNotFoundException** – Periksa kembali path yang Anda berikan ke `Redactor`. Gunakan path absolut atau `Paths.get(...)` untuk keandalan.  
-- **Tidak ada perubahan yang terlihat** – Pastikan bidang metadata yang Anda target memang berisi string pencarian; metadata bersifat case‑sensitive secara default.  
+## Masalah Umum dan Solusinya
+- **FileNotFoundException** – Periksa kembali jalur yang Anda berikan ke `Redactor`. Gunakan jalur absolut atau `Paths.get(...)` untuk keandalan.  
+- **Tidak ada perubahan yang terlihat** – Pastikan bidang metadata yang Anda targetkan memang berisi string pencarian; metadata bersifat sensitif huruf secara default.  
 - **Kesalahan out‑of‑memory pada file besar** – Proses dokumen dalam batch lebih kecil dan panggil `redactor.close()` segera setelah setiap file.  
 
-## Practical Applications
+## Aplikasi Praktis
 1. **Dokumentasi Hukum** – Hapus nama perusahaan klien sebelum mengirim kontrak ke pihak ketiga.  
 2. **Pelaporan Keuangan** – Anonimkan pengidentifikasi internal dalam file audit.  
 3. **Proyek Kolaboratif** – Lindungi informasi kepemilikan saat berbagi draf dengan vendor eksternal.  
 
-## Performance Considerations
-- **Manajemen Memori** – Pustaka menyimpan seluruh dokumen di memori; menutup `Redactor` setelah setiap file sangat penting.  
-- **Pemrosesan Batch** – Untuk skenario volume tinggi, iterasi melalui koleksi file dan gunakan kembali satu instance `SaveOptions`.  
+## Pertimbangan Kinerja
+- **Manajemen Memori** – Perpustakaan menyimpan seluruh dokumen di memori; menutup `Redactor` setelah setiap file sangat penting.  
+- **Pemrosesan Batch** – Untuk skenario volume tinggi, iterasi melalui kumpulan file dan gunakan kembali satu instance `SaveOptions`.  
 - **Tetap Terbaru** – Rilis baru membawa perbaikan kinerja dan perbaikan bug; selalu gunakan versi stabil terbaru.  
 
-## Conclusion
-Anda kini tahu **cara menggunakan MetadataSearchRedaction** untuk secara aman menghapus metadata perusahaan dari dokumen menggunakan GroupDocs.Redaction untuk Java. Gabungkan langkah‑langkah ini ke dalam pipeline pemrosesan dokumen Anda untuk tetap patuh dan melindungi informasi sensitif.
+## Kesimpulan
+Anda kini tahu **cara menggunakan redaksi metadata dengan GroupDocs** untuk secara aman menghapus metadata perusahaan dari dokumen menggunakan GroupDocs.Redaction untuk Java. Gabungkan langkah‑langkah ini ke dalam pipeline pemrosesan dokumen Anda untuk tetap mematuhi regulasi dan melindungi informasi sensitif.
 
 **Langkah Selanjutnya**
-- Eksperimen dengan bidang metadata lain seperti *Author* atau *Creator*.  
+- Bereksperimen dengan bidang metadata lain seperti *Author* atau *Creator*.  
 - Gabungkan redaksi metadata dengan redaksi teks atau gambar untuk solusi cakupan penuh.  
 
 ## Bagian FAQ
 1. **Apa itu GroupDocs.Redaction untuk Java?**  
-   - Ini adalah pustaka kuat yang memungkinkan Anda meredaksi teks, metadata, dan gambar dalam dokumen menggunakan aplikasi Java.  
-2. **Bisakah saya menggunakan GroupDocs.Redaction tanpa membeli lisensi?**  
-   - Ya, tetapi dengan batasan. Lisensi percobaan gratis atau lisensi sementara memungkinkan akses penuh untuk tujuan pengujian.  
-3. **Bagaimana cara memastikan format dokumen tetap terjaga selama redaksi?**  
+   - Ini adalah perpustakaan kuat yang memungkinkan Anda meredaksi teks, metadata, dan gambar dalam dokumen menggunakan aplikasi Java.  
+2. **Apakah saya dapat menggunakan GroupDocs.Redaction tanpa membeli lisensi?**  
+   - Ya, tetapi dengan batasan. Lisensi percobaan gratis atau lisensi sementara memberikan akses penuh untuk tujuan pengujian.  
+3. **Bagaimana saya memastikan format dokumen tetap terjaga selama redaksi?**  
    - Gunakan `SaveOptions` untuk menentukan kebutuhan Anda, seperti menghindari rasterisasi ke PDF.  
 4. **Jenis dokumen apa yang dapat direduksi menggunakan GroupDocs.Redaction?**  
-   - Ia mendukung berbagai jenis, termasuk Word, Excel, PowerPoint, PDF, dan banyak lagi.  
+   - Ini mendukung berbagai jenis, termasuk Word, Excel, PowerPoint, PDF, dan banyak lagi.  
 5. **Di mana saya dapat menemukan dukungan jika mengalami masalah?**  
-   - Kunjungi [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33) untuk bantuan.  
+   - Kunjungi [Forum Dukungan GroupDocs](https://forum.groupdocs.com/c/redaction/33) untuk bantuan.  
 
 ## Pertanyaan yang Sering Diajukan
 **Q: Apakah MetadataSearchRedaction bekerja dengan dokumen terenkripsi?**  
@@ -172,19 +172,19 @@ A: Ya. Muat dokumen dengan kata sandi yang sesuai menggunakan konstruktor `Redac
 A: Tentu saja. Buat beberapa objek `MetadataSearchRedaction`, atur filter yang berbeda, dan terapkan secara berurutan sebelum menyimpan.
 
 **Q: Apakah memungkinkan untuk melihat pratinjau redaksi sebelum menyimpan?**  
-A: Anda dapat memanggil `redactor.getRedactions()` untuk mendapatkan daftar redaksi yang tertunda dan memeriksanya secara programatik.
+A: Anda dapat memanggil `redactor.getRedactions()` untuk mendapatkan daftar redaksi yang menunggu dan memeriksanya secara programatik.
 
 ## Sumber Daya
-- **Documentation**: Jelajahi panduan detail di [GroupDocs Documentation](https://docs.groupdocs.com/redaction/java/).  
-- **API Reference**: Periksa referensi API lengkap di [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java).  
-- **Download Library**: Akses rilis terbaru dari [GroupDocs Downloads](https://releases.groupdocs.com/redaction/java/).  
-- **Source Code**: Lihat dan kontribusi di [GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java).  
-- **Support**: Dapatkan bantuan melalui saluran dukungan gratis di [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33).
+- **Dokumentasi**: Explore detailed guides at [Dokumentasi GroupDocs](https://docs.groupdocs.com/redaction/java/).  
+- **Referensi API**: Check the complete API reference on [Referensi API GroupDocs](https://reference.groupdocs.com/redaction/java).  
+- **Unduhan Library**: Access the latest release from [Unduhan GroupDocs](https://releases.groupdocs.com/redaction/java/).  
+- **Source Code**: View and contribute on [GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java).  
+- **Support**: Get help through the free support channel at [Forum Dukungan GroupDocs](https://forum.groupdocs.com/c/redaction/33).
 
 ---
 
-**Terakhir Diperbarui:** 2026-01-08  
-**Diuji Dengan:** GroupDocs.Redaction 24.9 untuk Java  
+**Terakhir Diperbarui:** 2026-03-22  
+**Diuji Dengan:** GroupDocs.Redaction 24.9 for Java  
 **Penulis:** GroupDocs  
 
 ---

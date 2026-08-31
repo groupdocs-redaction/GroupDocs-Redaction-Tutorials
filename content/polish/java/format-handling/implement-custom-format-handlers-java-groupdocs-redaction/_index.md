@@ -1,56 +1,55 @@
 ---
-date: '2025-12-21'
-description: Dowiedz się, jak zaimplementować własny obsługiwacz formatu Java i redagować
-  dokumenty tekstowe Java przy użyciu GroupDocs.Redaction. Skutecznie zabezpiecz wrażliwe
-  informacje.
+date: '2026-03-17'
+description: Dowiedz się, jak zaimplementować własny obsługiwacz formatu w Javie i
+  zapisać dokument z redakcją przy użyciu GroupDocs.Redaction, skutecznie chroniąc
+  wrażliwe dane.
 keywords:
 - implement custom format handlers Java
 - apply redactions GroupDocs Redaction
 - Java data protection
-title: 'Obsługa niestandardowego formatu w Java - Implementacja przy użyciu GroupDocs.Redaction'
+title: Implementacja własnej obsługi formatu w Javie przy użyciu GroupDocs.Redaction
 type: docs
 url: /pl/java/format-handling/implement-custom-format-handlers-java-groupdocs-redaction/
 weight: 1
 ---
 
-# Implementacja własnych obsług formatów w Javie przy użyciu GroupDocs.Redaction
+# Implement Custom Format Handler Java Using GroupDocs.Redaction
 
-## Wprowadzenie
-W dzisiejszym świecie napędzanym danymi ochrona wrażliwych informacji jest kluczowa, a **custom format handler java** daje Ci elastyczność pracy z każdym napotkanym typem pliku. Niezależnie od tego, czy obsługujesz dokumenty prawne, rekordy finansowe, czy dane osobowe, zapewnienie poufności może być wyzwaniem. Ten samouczek przeprowadzi Cię przez implementację własnego obsługiwacza formatu dla dokumentów tekstowych oraz zastosowanie redakcji przy użyciu GroupDocs.Redaction, abyś mógł skutecznie zabezpieczać pliki.
+W dzisiejszym świecie napędzanym danymi ochrona wrażliwych informacji jest kluczowa, a nauka, jak **implement custom format handler** w Javie, daje Ci elastyczność pracy z każdym napotkanym typem pliku. Niezależnie od tego, czy obsługujesz umowy prawne, sprawozdania finansowe, czy dane osobowe, ten samouczek przeprowadzi Cię przez rejestrację własnego obsługiwacza formatu dla plików tekstowych oraz zastosowanie redakcji przy użyciu GroupDocs.Redaction, abyś mógł bezpiecznie przetwarzać i **save redacted document**.
 
-## Szybkie odpowiedzi
-- **Czym jest custom format handler java?** Wtyczka, która informuje GroupDocs.Redaction, jak odczytywać i przetwarzać niestandardowe rozszerzenie pliku.  
-- **Dlaczego używać GroupDocs.Redaction do redakcji?** Dostarcza niezawodne, wysokowydajne API redakcji dla wielu typów dokumentów.  
-- **Jakiej wersji Javy wymaga?** Java 8 lub wyższa; JDK musi być zainstalowane na Twoim komputerze deweloperskim.  
-- **Czy potrzebna jest licencja?** Dostępna jest bezpłatna wersja próbna, ale do użytku produkcyjnego wymagana jest stała licencja.  
-- **Czy mogę przetwarzać pliki wsadowo?** Tak — zainicjalizuj Redactor dla każdego pliku w pętli lub użyj równoległych strumieni.
+## Quick Answers
+- **What is a custom format handler java?** Wtyczka, która informuje GroupDocs.Redaction, jak odczytywać i przetwarzać niestandardowe rozszerzenie pliku.  
+- **Why use GroupDocs.Redaction for redaction?** Dostarcza niezawodne, wysokowydajne API redakcji dla wielu typów dokumentów.  
+- **Which Java version is required?** Java 8 lub wyższa; JDK musi być zainstalowany na Twoim komputerze deweloperskim.  
+- **Do I need a license?** Dostępna jest bezpłatna wersja próbna, ale stała licencja jest wymagana do użytku produkcyjnego.  
+- **Can I batch‑process files?** Tak — zainicjuj Redactor dla każdego pliku w pętli lub użyj równoległych strumieni.
 
-## Czego się nauczysz
-- Zarejestrować **custom format handler java** dla określonych typów plików.  
-- **Redact text java documents** przy użyciu API GroupDocs.Redaction.  
-- Praktyczne zastosowania ochrony danych.  
-- Wskazówki dotyczące optymalizacji wydajności i efektywnego zarządzania zasobami.
+## What You’ll Learn
+- Zarejestruj **custom format handler** dla określonych typów plików.  
+- **Redact text java** dokumenty przy użyciu API GroupDocs.Redaction.  
+- Praktyczne zastosowania ochrony danych i **replace sensitive text** w sposób bezpieczny.  
+- Porady dotyczące optymalizacji wydajności dla efektywnego zarządzania zasobami.
 
-## Wymagania wstępne
+## Prerequisites
 Zanim zaczniemy, upewnij się, że masz następujące elementy:
 
-### Wymagane biblioteki i wersje
+### Required Libraries and Versions
 - **GroupDocs.Redaction**: wersja 24.9 lub wyższa.
 
-### Wymagania dotyczące środowiska
+### Environment Setup Requirements
 - Zainstalowany Java Development Kit (JDK).  
 - IDE, takie jak IntelliJ IDEA lub Eclipse, do tworzenia i uruchamiania kodu.
 
-### Wymagania wiedzy
+### Knowledge Prerequisites
 - Podstawowa znajomość programowania w Javie.  
-- Znajomość Maven w zakresie zarządzania zależnościami (przydatna, ale nieobowiązkowa).
+- Znajomość Maven do zarządzania zależnościami (przydatna, ale nieobowiązkowa).
 
-Mając spełnione te wymagania, przejdźmy do konfiguracji GroupDocs.Redaction w Twoim projekcie Java.
+Mając te wymagania spełnione, skonfigurujemy GroupDocs.Redaction dla Twojego projektu Java.
 
-## Konfiguracja GroupDocs.Redaction dla Javy
-Aby zintegrować GroupDocs.Redaction z aplikacją Java, masz dwie główne metody: użycie Maven lub bezpośrednie pobranie. Prowadzimy Cię przez obie opcje, aby zapewnić gotowość niezależnie od preferencji.
+## Setting Up GroupDocs.Redaction for Java
+Aby zintegrować GroupDocs.Redaction z aplikacją Java, masz dwie główne metody: użycie Maven lub bezpośrednie pobranie. Pokażemy Ci oba rozwiązania, abyś mógł przygotować się niezależnie od preferencji konfiguracji.
 
-### Użycie Maven
+### Using Maven
 Dodaj następującą konfigurację do pliku `pom.xml`:
 
 ```xml
@@ -71,16 +70,16 @@ Dodaj następującą konfigurację do pliku `pom.xml`:
 </dependencies>
 ```
 
-### Bezpośrednie pobranie
-Alternatywnie pobierz najnowszą wersję bezpośrednio z [Wydania GroupDocs.Redaction dla Javy](https://releases.groupdocs.com/redaction/java/).
+### Direct Download
+Alternatywnie, pobierz najnowszą wersję bezpośrednio z [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
-#### Kroki uzyskania licencji
-1. **Bezpłatna wersja próbna**: Rozpocznij od wersji próbnej, aby zapoznać się z funkcjami.  
-2. **Licencja tymczasowa**: Uzyskaj tymczasową licencję do rozszerzonego testowania.  
-3. **Zakup**: Kup licencję, aby uzyskać pełny dostęp.
+#### License Acquisition Steps
+1. **Free Trial**: Rozpocznij od bezpłatnej wersji próbnej, aby zapoznać się z funkcjami.  
+2. **Temporary License**: Uzyskaj tymczasową licencję do rozszerzonego testowania.  
+3. **Purchase**: Kup licencję, aby uzyskać pełny dostęp.
 
-### Podstawowa inicjalizacja i konfiguracja
-Po zainstalowaniu zainicjalizuj GroupDocs.Redaction w następujący sposób:
+### Basic Initialization and Setup
+Po instalacji zainicjuj GroupDocs.Redaction w następujący sposób:
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -95,19 +94,18 @@ public class InitializeRedaction {
 }
 ```
 
-Po skonfigurowaniu GroupDocs.Redaction przejdźmy do implementacji **custom format handler java** i zastosowania redakcji.
+Po skonfigurowaniu GroupDocs.Redaction możemy przejść do **how to implement custom format handler** i zastosować redakcje.
 
-## Przewodnik implementacji
-Ten rozdział podzielony jest na dwie główne funkcje: rejestrację własnego obsługiwacza formatu oraz zastosowanie redakcji. Postępuj zgodnie z poniższymi krokami, aby osiągnąć zamierzone cele.
+## How to Implement Custom Format Handler in Java
 
-### Funkcja 1: Rejestracja własnego obsługiwacza formatu
+### Feature 1: Custom Format Handler Registration
 
-#### Przegląd
-Rejesacja **custom format handler java** rozszerza możliwości GroupDocs.Redaction o obsługę konkretnych typów dokumentów, takich jak pliki tekstowe z unikalnymi rozszerzeniami.
+#### Overview
+Rejestracja **custom format handler** rozszerza możliwości GroupDocs.Redaction, umożliwiając obsługę konkretnych typów dokumentów, takich jak pliki tekstowe z unikalnymi rozszerzeniami.
 
-#### Kroki implementacji
+#### Steps for Implementation
 
-##### Krok 1: Import wymaganych klas
+##### Step 1: Import Required Classes
 Rozpocznij od zaimportowania niezbędnych klas konfiguracyjnych:
 
 ```java
@@ -116,8 +114,8 @@ import com.groupdocs.redaction.integration.DocumentFormatInstance;
 import com.groupdocs.redaction.examples.java.helper_classes.CustomTextualDocument;
 ```
 
-##### Krok 2: Konfiguracja formatu dokumentu
-Ustaw konfigurację formatu dokumentu, aby określić, które rozszerzenie pliku i klasa będą obsługiwać własny format:
+##### Step 2: Configure Document Format
+Skonfiguruj ustawienia formatu dokumentu, aby określić, które rozszerzenie pliku i klasa będą obsługiwać własny format:
 
 ```java
 class CustomFormatHandlerRegistration {
@@ -133,18 +131,18 @@ class CustomFormatHandlerRegistration {
 }
 ```
 
-#### Kluczowe opcje konfiguracji
+**Key Configuration Options**  
 - `setExtensionFilter`: Określa, które rozszerzenia plików będą obsługiwane przez handler.  
 - `setDocumentType`: Łączy klasę dokumentu z procesowaniem.
 
-### Funkcja 2: Zastosowanie redakcji
+### Feature 2: Redaction Application
 
-#### Przegląd
-Ta funkcja demonstruje, jak **redact text java documents** przy użyciu GroupDocs.Redaction, zapewniając skuteczne ukrycie wrażliwych informacji.
+#### Overview
+Ta funkcja pokazuje, jak **redact text java** dokumenty, zapewniając, że każda operacja **replace sensitive text** jest wykonywana bezpiecznie.
 
-#### Kroki implementacji
+#### Steps for Implementation
 
-##### Krok 1: Import wymaganych klas
+##### Step 1: Import Required Classes
 Zaimportuj klasy niezbędne do wykonywania redakcji:
 
 ```java
@@ -154,8 +152,8 @@ import com.groupdocs.redaction.redactions.ExactPhraseRedaction;
 import com.groupdocs.redaction.redactions.ReplacementOptions;
 ```
 
-##### Krok 2: Inicjalizacja Redactor i zastosowanie redakcji
-Zainicjalizuj redaktor z ścieżką do dokumentu, zastosuj żądane redakcje i zapisz zmodyfikowany plik:
+##### Step 2: Initialize Redactor and Apply Redactions
+Zainicjuj redaktor z ścieżką do dokumentu, zastosuj żądane redakcje i **save redacted document** pod nową nazwą:
 
 ```java
 class RedactionApplication {
@@ -173,58 +171,59 @@ class RedactionApplication {
 }
 ```
 
-#### Wskazówki rozwiązywania problemów
-- Upewnij się, że ścieżka do pliku jest poprawna i dostępna.  
-- Sprawdź ponownie ustawienia konfiguracji, jeśli własne obsługiwacze nie ładują się poprawnie.  
+#### Troubleshooting Tips
+- Zweryfikuj, czy ścieżka do pliku jest poprawna i dostępna.  
+- Sprawdź ponownie ustawienia konfiguracyjne, jeśli własne handlery nie ładują się.
 
-## Praktyczne zastosowania
-Oto kilka scenariuszy z życia wziętych, w których można zastosować te techniki:
+## Practical Applications
+Oto kilka rzeczywistych scenariuszy, w których można zastosować te techniki:
 
-1. **Ochrona dokumentów prawnych** – Redakcja wrażliwych szczegółów sprawy przed udostępnieniem dokumentów na zewnątrz.  
-2. **Bezpieczeństwo rekordów finansowych** – Bezpieczne przetwarzanie wyciągów bankowych poprzez ukrycie numerów kont i danych osobowych.  
-3. **Zarządzanie danymi HR** – Ochrona rekordów pracowników podczas audytów lub przeglądów zewnętrznych.  
-4. **Integracja z systemami CRM** – Automatyczna redakcja danych klientów przed eksportem raportów z platform CRM.  
-5. **Automatyczne raportowanie zgodności** – Zapewnienie, że dokumenty zgodności nie zawierają wycieków wrażliwych danych.
+1. **Legal Document Protection** – Redaguj wrażliwe szczegóły spraw przed udostępnieniem dokumentów na zewnątrz.  
+2. **Financial Records Security** – Bezpiecznie obsługuj wyciągi bankowe, maskując numery kont i dane osobowe.  
+3. **HR Data Management** – Chroń rekordy pracowników podczas audytów lub przeglądów zewnętrznych.  
+4. **Integration with CRM Systems** – Automatycznie redaguj dane klientów przed eksportem raportów z platform CRM.  
+5. **Automated Compliance Reporting** – Zapewnij, że dokumenty zgodności nie zawierają wycieków wrażliwych danych.
 
-## Rozważania dotyczące wydajności
-Podczas pracy z GroupDocs.Redaction weź pod uwagę następujące wskazówki, aby uzyskać optymalną wydajność:
+## Performance Considerations
+Pracując z GroupDocs.Redaction, weź pod uwagę następujące wskazówki dla optymalnej wydajności:
 
-- **Optymalizacja zużycia zasobów** – Efektywnie zarządzaj pamięcią, zamykając zasoby niezwłocznie po ich użyciu.  
-- **Przetwarzanie wsadowe** – Redaguj wiele dokumentów w partiach, aby skrócić czas ładowania.  
-- **Profilowanie i benchmarki** – Regularnie profiluj aplikację, aby identyfikować wąskie gardła.
+- **Optimize Resource Usage** – Zamykaj instancje Redactor niezwłocznie po przetworzeniu każdego pliku.  
+- **Batch Processing** – Redaguj wiele dokumentów w partiach, aby skrócić czas ładowania.  
+- **Profile and Benchmark** – Regularnie profiluj aplikację, aby wykrywać wąskie gardła.
 
-## Typowe problemy i rozwiązania
+## Common Issues and Solutions
 | Problem | Przyczyna | Rozwiązanie |
 |---------|-----------|-------------|
-| Handler not recognized | Niezgodność filtru rozszerzeń | Zweryfikuj, czy `setExtensionFilter` dokładnie odpowiada rozszerzeniu pliku (np. `.dump`). |
-| Redaction not applied | Rozróżnianie wielkości liter w frazie | Ustaw flagę `ignoreCase` na `true` w `ExactPhraseRedaction`. |
-| Out‑of‑memory errors | Ładowanie dużych plików jednocześnie | Przetwarzaj pliki sekwencyjnie lub używaj dostępnych API strumieniowych. |
+| Handler not recognized | Extension filter mismatch | Zweryfikuj, czy `setExtensionFilter` dokładnie odpowiada rozszerzeniu pliku (np. `.dump`). |
+| Redaction not applied | Phrase case‑sensitivity | Ustaw flagę `ignoreCase` na `true` w `ExactPhraseRedaction`. |
+| Out‑of‑memory errors | Large files loaded simultaneously | Przetwarzaj pliki kolejno lub używaj dostępnych API strumieniowych. |
 
-## Zakończenie
-Po przeczytaniu tego przewodnika powinieneś mieć solidne zrozumienie, jak zaimplementować **custom format handler java** oraz **redact text java documents** przy użyciu GroupDocs.Redaction dla Javy. Umiejętności te są nieocenione przy zabezpieczaniu wrażliwych informacji w różnych typach dokumentów. Aby dalej rozwijać swoją wiedzę, zapoznaj się z poniższymi zasobami i eksperymentuj z różnymi przypadkami użycia.
+## Conclusion
+Do tej pory powinieneś mieć solidne zrozumienie, jak **implement custom format handler** i **redact text java** dokumenty przy użyciu GroupDocs.Redaction dla Javy. Umiejętności te są nieocenione w zabezpieczaniu wrażliwych informacji w różnych typach dokumentów. Aby pogłębić wiedzę, eksploruj dodatkowe techniki redakcji, takie jak redakcja oparta na wzorcach, i rozważ integrację tego procesu w pipeline CI/CD w celu automatycznej kontroli zgodności.
 
-### Kolejne kroki
-- Poznaj dodatkowe techniki redakcji, takie jak redakcja oparta na wzorcach.  
-- Zintegruj przepływ pracy z pipeline’ami CI/CD w celu automatycznych kontroli zgodności.  
+### Next Steps
+- Eksperymentuj z redakcją opartą na wzorcach, aby automatycznie wykrywać i zamieniać wrażliwe dane.  
+- Zintegruj proces redakcji z pipeline budowania, aby wymuszać polityki ochrony danych przed wdrożeniem.  
 
-## Sekcja FAQ
-**P1: Jakie typy plików mogę obsługiwać przy użyciu własnych obsługiwaczy formatów?**  
-O1: Możesz skonfigurować obsługiwacze dla dowolnego typu pliku, określając rozszerzenie i odpowiadającą mu klasę dokumentu.
+## FAQ
 
-**P2: Jak uzyskać tymczasową licencję dla GroupDocs.Redaction?**  
-O2: Odwiedź [oficjalną stronę GroupDocs](https://products.groupdocs.com/redaction), aby poprosić o tymczasową licencję.
+**Q1: What file types can I handle with custom format handlers?**  
+A1: Możesz skonfigurować handlery dla dowolnego typu pliku, określając rozszerzenie i odpowiadającą klasę dokumentu.
 
-**P3: Czy mogę efektywnie przetwarzać duże partie dokumentów?**  
-O3: Tak — skorzystaj z wskazówek dotyczących przetwarzania wsadowego w sekcji Rozważania dotyczące wydajności i zamykaj każdą instancję Redactor niezwłocznie po zakończeniu.
+**Q2: How do I obtain a temporary license for GroupDocs.Redaction?**  
+A: Odwiedź [GroupDocs' official site](https://products.groupdocs.com/redaction), aby poprosić o tymczasową licencję.
 
-**P4: Czy istnieje możliwość redagowania plików PDF tym samym handlerem?**  
-O4: GroupDocs.Redaction już posiada natywną obsługę PDF; własne obsługiwacze są zazwyczaj używane dla formatów niestandardowych, takich jak `.dump`.
+**Q3: Can I process large batches of documents efficiently?**  
+A: Tak — użyj wskazówek dotyczących przetwarzania wsadowego w sekcji Performance Considerations i zamykaj każdą instancję Redactor niezwłocznie.
 
-**P5: Czy API obsługuje operacje asynchroniczne?**  
-O5: Chociaż podstawowe API jest synchroniczne, możesz opakować wywołania w `CompletableFuture` w Javie lub używać równoległych strumieni w celu uzyskania współbieżności.
+**Q4: Is it possible to redact PDF files with the same handler?**  
+A: GroupDocs.Redaction już zawiera natywną obsługę PDF; własne handlery są zazwyczaj używane dla formatów niestandardowych, takich jak `.dump`.
+
+**Q5: Does the API support asynchronous operations?**  
+A: Choć podstawowe API jest synchroniczne, możesz owinąć wywołania w `CompletableFuture` w Javie lub używać równoległych strumieni dla współbieżności.
 
 ---
 
-**Ostatnia aktualizacja:** 2025-12-21  
-**Testowane z:** GroupDocs.Redaction 24.9  
-**Autor:** GroupDocs
+**Last Updated:** 2026-03-17  
+**Tested With:** GroupDocs.Redaction 24.9  
+**Author:** GroupDocs

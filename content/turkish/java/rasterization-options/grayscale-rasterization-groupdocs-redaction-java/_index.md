@@ -1,62 +1,79 @@
 ---
-date: '2026-02-13'
-description: GroupDocs.Redaction for Java kullanarak gri tonlamalı PDF oluşturmayı
-  öğrenin, PDF'yi güvenli bir şekilde gri tonlamaya dönüştürün ve belge kalitesini
-  koruyun.
+date: '2026-05-17'
+description: GroupDocs.Redaction for Java kullanarak PDF'yi grayscale'e rasterize
+  etmeyi, bir grayscale filtresi uygulamayı ve belgelerinizi güvenli ve yüksek kalitede
+  tutmayı öğrenin.
 keywords:
-- GroupDocs.Redaction
-- Java
-- Document Processing
-title: GroupDocs.Redaction Java ile Gri Tonlamalı PDF Nasıl Oluşturulur – Belgelerinizi
+- how to rasterize pdf
+- java pdf to image
+- apply grayscale filter pdf
+schemas:
+- author: GroupDocs
+  dateModified: '2026-05-17'
+  description: Learn how to rasterize PDF to grayscale using GroupDocs.Redaction for
+    Java, apply a grayscale filter, and keep your documents secure and high‑quality.
+  headline: How to rasterize PDF to grayscale with GroupDocs.Redaction Java – Secure
+    and Optimize Your Documents
+  type: TechArticle
+- questions:
+  - answer: In GroupDocs.Redaction, the grayscale option is tied to rasterization,
+      which ensures consistent results and adds a security layer.
+    question: Can I convert documents to grayscale without rasterization?
+  - answer: All major formats supported by GroupDocs.Redaction—including DOCX, PDF,
+      XLSX, PPTX, RTF, and more than 100 others—can be rasterized and converted to
+      grayscale.
+    question: What document formats support grayscale rasterization?
+  - answer: Yes. Text‑heavy files may grow, while image‑heavy files might shrink.
+      DPI settings have the biggest impact.
+    question: Will rasterization affect the file size of my documents?
+  - answer: No. Rasterization is one‑way; keep a backup of the original if you need
+      to revert.
+    question: Is it possible to reverse the grayscale rasterization process?
+  - answer: Use a higher DPI (300 + for print quality) and choose PDF as the output
+      format for best archival results.
+    question: How can I optimize the quality of grayscale rasterized documents?
+  type: FAQPage
+title: GroupDocs.Redaction Java ile PDF'yi grayscale'e rasterize etme – Belgelerinizi
   Güvenli Hale Getirin ve Optimize Edin
 type: docs
 url: /tr/java/rasterization-options/grayscale-rasterization-groupdocs-redaction-java/
 weight: 1
 ---
 
-Docs.Redaction Java: Grayscale Rasterization Guide" => "# GroupDocs.Redaction Java: Gri Tonlu Rasterleştirme Kılavuzu"
+# GroupDocs.Redaction Java ile PDF'yi gri tonlamaya rasterleştirme
 
-Proceed.
+PDF'yi **rasterleştirmeniz** gerektiğinde, belgelerinizi güvende, profesyonel görünümlü ve arşivlemeye kolay tutmak istiyorsanız doğru yerdesiniz. Bu öğreticide, renkli DOCX, PDF veya diğer desteklenen dosyaları GroupDocs.Redaction for Java kullanarak temiz, gri tonlamalı rasterleştirilmiş bir sürüme dönüştürmek için tam adımları göstereceğiz. Rasterleştirmenin neden bir güvenlik katmanı eklediğini, kütüphaneyi nasıl yapılandıracağınızı ve kaynakları nasıl verimli yöneteceğinizi anlayacaksınız — hepsi dostane, adım adım bir tarzda sunulacak.
 
-Make sure to keep markdown.
-
-Let's craft translation.
-
-# GroupDocs.Redaction Java: Gri Tonlu Rasterleştirme Kılavuzu
-
-## Giriş
-
-Belgelerinizi güvenli ve profesyonel tutarken **gri tonlu pdf** dosyaları oluşturmanız gerekiyorsa doğru yerdesiniz. Bu öğreticide, renkli DOCX, PDF veya diğer desteklenen dosyaları GroupDocs.Redaction for Java kullanarak temiz, gri tonlu rasterleştirilmiş bir sürüme dönüştürmek için tam adımları göstereceğiz. Rasterleştirmenin ek bir güvenlik katmanı eklediğini, kütüphaneyi nasıl yapılandıracağınızı ve kaynakları nasıl verimli yöneteceğinizi, sohbet tarzında adım adım öğreneceksiniz.
-
-## Hızlı Yanıtlar
-- **Gri tonlu rasterleştirme ne yapar?** Belgenin her sayfasını yüksek çözünürlüklü bir görüntüye dönüştürür ve ardından bir gri ton filtresi uygular, tüm renk bilgilerini kaldırır.  
-- **Bunun için GroupDocs.Redaction neden kullanılmalı?** Kırpma güvenliğini güçlü rasterleştirme seçenekleriyle tek bir API'de birleştirir.  
-- **Hangi formatlar destekleniyor?** DOCX, PDF, XLSX, PPTX, RTF ve daha fazlası.  
-- **Lisans gerekli mi?** Üretim kullanımı için geçerli bir GroupDocs.Redaction lisansı gerekir; test için bir deneme sürümü mevcuttur.  
+## Hızlı Cevaplar
+- **Gri tonlamalı rasterleştirme ne yapar?** Her sayfayı yüksek çözünürlüklü bir görüntüye dönüştürür ve ardından bir gri tonlama filtresi uygular, tüm renk bilgilerini kaldırır.  
+- **Bunun için GroupDocs.Redaction neden kullanılmalı?** Kırpma güvenliğini rasterleştirme seçenekleriyle tek bir, kullanımı kolay API'de birleştirir.  
+- **Hangi formatlar destekleniyor?** DOCX, PDF, XLSX, PPTX, RTF ve 100'den fazla diğer format.  
+- **Lisans gerekiyor mu?** Üretim için geçerli bir GroupDocs.Redaction lisansı gereklidir; test için ücretsiz deneme sürümü mevcuttur.  
 - **Hangi Java sürümü gerekiyor?** JDK 8 veya üzeri.
+
+## PDF'yi gri tonlamaya nasıl rasterleştirirsiniz?
+
+`new Redactor("path/to/file")` ile kaynak belgenizi yükleyin, `RasterizationOptions` aracılığıyla rasterleştirmeyi etkinleştirin, gri tonlama gelişmiş seçeneğini ekleyin ve `save()` metodunu çağırın — dönüşüm birkaç kısa satırda gerçekleşir. Bu yaklaşım, her sayfanın görüntü tabanlı, siyah‑beyaz bir PDF olmasını sağlar, metin seçimini engeller ve tutarlı bir baskıya hazır görünüm sunar.
 
 ## **create grayscale pdf** nedir?
 
-Gri tonlu bir PDF oluşturmak, orijinal belgenin tüm görsel öğelerini gri tonlamalara dönüştürmek anlamına gelir. Sonuç, renk dikkatini ortadan kaldıran, daha küçük ve yazdırmaya uygun bir dosyadır; ayrıca içerik artık görüntü tabanlı olduğu için ince bir güvenlik faydası da sağlar.
+Gri tonlamalı bir PDF oluşturmak, orijinal belgenin tüm görsel öğelerini gri tonlara dönüştürmek anlamına gelir. Sonuç, renk kaynaklı dikkat dağıtıcıları ortadan kaldıran ve içeriğin artık görüntü tabanlı olması nedeniyle hafif bir güvenlik faydası ekleyen daha küçük, baskıya uygun bir dosyadır.
 
-## GroupDocs.Redaction ile gri tonlu rasterleştirme neden kullanılmalı?
+## GroupDocs.Redaction ile gri tonlamalı rasterleştirme neden kullanılmalı?
 
-- **Gelişmiş güvenlik** – rasterleştirilmiş sayfalar metin olarak seçilemez, kopyalanamaz veya düzenlenemez.  
-- **Tutarlı görünüm** – renkler kaldırılır, tekdüze ve profesyonel bir görünüm elde edilir.  
-- **Geniş format desteği** – aynı API DOCX, PDF, PPTX ve daha fazlası için çalışır.  
-- **İnce ayar kontrolü** – DPI, çıktı formatı ve gri ton dönüşümü gibi gelişmiş seçenekleri ayarlayabilirsiniz.
+Rasterleştirme, her sayfayı bir görüntüye dönüştürür; bu da metnin kopyalanamaması veya düzenlenememesi anlamına gelir ve görsel çıktı yazıcılar ve görüntüleyiciler arasında tutarlı kalır. GroupDocs.Redaction **100'den fazla giriş ve çıkış formatını** destekler — DOCX, XLSX, PPTX, HTML ve görüntü türleri dahil — böylece neredeyse her belgeye aynı iş akışını uygulayabilirsiniz.
 
 ## Önkoşullar
 
-- Java Development Kit (JDK) 8 veya daha yenisi. `java -version` komutuyla doğrulayın.  
-- Daha kolay kodlama ve hata ayıklama için bir IDE (IntelliJ IDEA, Eclipse veya NetBeans).  
-- Maven veya Gradle üzerinden eklenmiş GroupDocs.Redaction for Java.  
+- Java Development Kit (JDK) 8 veya daha yeni. `java -version` komutuyla doğrulayın.  
+- Kodlamayı ve hata ayıklamayı kolaylaştırmak için bir IDE (IntelliJ IDEA, Eclipse veya NetBeans).  
+- Maven veya Gradle aracılığıyla eklenmiş GroupDocs.Redaction for Java.  
 - Güvenle deneyebileceğiniz bir örnek belge (ör. çok sayfalı bir DOCX).  
 - Rasterleştirilmiş çıktı için yeterli disk alanı (raster dosyaları kaynak dosyadan daha büyük olabilir).
 
-## Paketleri İçe Aktarma
+## Paketleri İçe Aktar
 
-Doğru içe aktarmaları ayarlamak, bir projeye başlamadan önce alet kutunuzu düzenlemek gibidir. Aşağıdaki içe aktarmalar, temel Redactor sınıfına ve ihtiyacımız olan rasterleştirme seçeneklerine erişim sağlar.
+Aşağıdaki içe aktarmalar, örnek için gerekli temel Redactor ve rasterleştirme sınıflarını getirir.
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -65,66 +82,62 @@ import com.groupdocs.redaction.options.RasterizationOptions;
 import com.groupdocs.redaction.options.AdvancedRasterizationOptions;
 ```
 
-## Adım 1: Redactor Nesnesini Başlatma
+## Adım 1: Redactor Nesnesini Başlat
 
-Bir `Redactor` örneği oluşturmak, tüm belge‑işleme yeteneklerinin kapısını açar.
+`Redactor` sınıfı, GroupDocs.Redaction'daki tüm belge‑işleme işlemleri için giriş noktasıdır. Bir örnek oluşturmak, belgeleri yükleme, düzenleme ve kaydetme kapısını açar.
 
 ```java
 final Redactor redactor = new Redactor(Constants.MULTIPAGE_SAMPLE_DOCX);
 ```
 
-`Constants.MULTIPAGE_SAMPLE_DOCX` ifadesini, gri tonlu PDF’ye dönüştürmek istediğiniz dosyanın yolu ile değiştirin.
+`Constants.MULTIPAGE_SAMPLE_DOCX` ifadesini gri tonlamalı PDF'ye dönüştürmek istediğiniz dosyanın yolu ile değiştirin.
 
-## Adım 2: Kaydetme Seçeneklerini Yapılandırma
+## Adım 2: Kaydetme Seçeneklerini Yapılandır
 
-`SaveOptions`, son dosyanın nasıl yazılacağını tanımlar. Bir sonek eklemek, orijinal dosyayı bozulmadan tutmanıza yardımcı olur.
+`SaveOptions` sınıfı, işlenen belgenin diske nasıl yazılacağını, format ve dosya adı dahil, tanımlar.
 
 ```java
 SaveOptions so = new SaveOptions();
 so.setRedactedFileSuffix("_scan");
 ```
 
-Çıktı dosyası `yourfile_scan.docx` (veya daha sonra belirttiğiniz format) adıyla oluşturulacaktır.
+Çıktı `yourfile_scan.pdf` olarak adlandırılacak (veya daha sonra belirttiğiniz format).
 
-## Adım 3: Rasterleştirmeyi Etkinleştirme
+## Adım 3: Rasterleştirmeyi Etkinleştir
 
-Rasterleştirmeyi açmak, motorun her sayfayı kaydetmeden önce bir görüntü olarak render etmesini sağlar.
+`RasterizationOptions` nesnesi, kaydetmeden önce her sayfanın görüntü tabanlı oluşturulmasını sağlar.
 
 ```java
 so.getRasterization().setEnabled(true);
 ```
 
-Rasterleştirme, belgeyi görüntü‑tabanlı bir temsile dönüştürdüğü için gri tonlu PDF oluşturmanın temelidir.
+## Adım 4: Gri Tonlama Dönüşümünü Uygula
 
-## Adım 4: Gri Ton Dönüşümünü Uygulama
-
-Şimdi rasterleştirme hattına gri ton filtresini ekliyoruz.
+`AdvancedRasterizationOptions.Grayscale` rasterleştirilmiş görüntünün yalnızca gri tonları kullanmasını zorlayan bir bayraktır.
 
 ```java
 so.getRasterization().addAdvancedOption(AdvancedRasterizationOptions.Grayscale);
 ```
 
-Bu seçenek, her pikseli gri tonlarda render ederek istediğiniz **create grayscale pdf** sonucunu verir.
+## Adım 5: Belge Dönüşümünü Gerçekleştir
 
-## Adım 5: Belge Dönüşümünü Gerçekleştirme
-
-`save` çağrısı, tüm işleme zincirini çalıştırır.
+`save()` çağrısı, tam işleme hattını çalıştırır ve çıktı dosyasını yazar.
 
 ```java
 redactor.save(so);
 ```
 
-Bu satır çalıştıktan sonra, `_scan` soneki eklenmiş, tamamen rasterleştirilmiş, gri tonlu yeni bir dosya diskte bulunacaktır.
+Bu satır çalıştıktan sonra, tamamen rasterleştirilmiş, gri tonlamalı ve `_scan` ekiyle kaydedilmiş yeni bir dosyayı diskte bulacaksınız.
 
-## Adım 6: Kaynakları Doğru Yönetme
+## Adım 6: Doğru Kaynak Yönetimi
 
-Kaynakları temizlemek, dosya kilitlenmelerini ve bellek sızıntılarını önler.
+`close()` metodu, yerel kaynakları serbest bırakır ve geçici dosyaları siler.
 
 ```java
 finally { redactor.close(); }
 ```
 
-Modern Java’da, `Redactor`ı otomatik olarak kapatan try‑with‑resources desenini de kullanabilirsiniz:
+Modern Java için, `Redactor`ı otomatik olarak kapatan try‑with‑resources desenini de kullanabilirsiniz:
 
 ```java
 try (Redactor redactor = new Redactor(Constants.MULTIPAGE_SAMPLE_DOCX)) {
@@ -137,9 +150,9 @@ Her iki yaklaşım da güvenlidir; ikincisi daha özlüdür.
 
 ## Gelişmiş Yapılandırma Seçenekleri
 
-### Kalite veya Boyut İçin DPI Ayarlama
+### Kalite veya Boyut İçin DPI Ayarla
 
-Daha yüksek DPI, daha keskin görüntüler üretir (baskı için iyidir); daha düşük DPI ise dosya boyutunu küçültür.
+Daha yüksek DPI, daha keskin görüntüler sağlar (baskı için iyidir), düşük DPI ise dosya boyutunu azaltır. Yaygın bir denge, ekranda görüntüleme için 150 DPI ve baskıya hazır PDF'ler için 300 DPI'dir.
 
 ```java
 saveOptions.getRasterization().setDpi(300); // High quality for printing
@@ -147,9 +160,9 @@ saveOptions.getRasterization().setDpi(300); // High quality for printing
 saveOptions.getRasterization().setDpi(150); // Balanced quality and size
 ```
 
-### Çıktı Formatı Seçimi
+### Çıktı Formatı Seç
 
-Rasterleştirilmiş sonucu PDF gibi belirli bir kapsayıcı formata zorlayabilirsiniz.
+Rasterleştirilmiş sonucu PDF, TIFF veya PNG gibi belirli bir konteyner formatına zorlayabilirsiniz. PDF, en yaygın kullanılan arşiv formatıdır.
 
 ```java
 saveOptions.setRasterizationFormat(RasterizationFormat.PDF);
@@ -157,44 +170,56 @@ saveOptions.setRasterizationFormat(RasterizationFormat.PDF);
 
 ## Yaygın Kullanım Senaryoları
 
-- **Hukuki belge arşivleme** – düzenlenemez gri tonlu PDF’ler oluşturun.  
+- **Hukuki belge arşivleme** – düzenlenemeyen değiştirilemez gri tonlamalı PDF'ler oluşturun.  
 - **Baskıya hazır raporlar** – toplu baskı için tutarlı siyah‑beyaz çıktı sağlayın.  
-- **Uyumluluk iş akışları** – kırpma ile gri tonlu rasterleştirmeyi birleştirerek sıkı veri‑gizliliği düzenlemelerine uyun.
+- **Uyumluluk iş akışları** – sıkı veri gizliliği düzenlemelerine uymak için kırpma ile gri tonlamalı rasterleştirmeyi birleştirin.
 
 ## Yaygın Sorunlar ve Çözümler
 
 | Sorun | Neden Oluşur | Çözüm |
-|-------|--------------|------|
-| Çıktı dosyası beklenenden büyük | DPI çok yüksek veya görüntü sıkıştırması kapalı | DPI’yi (ör. 150) düşürün veya `RasterizationOptions` içinde sıkıştırmayı etkinleştirin. |
-| Metin bulanık görünüyor | Orijinal yazı tipi boyutu için DPI yetersiz | DPI’yi 300 veya daha yüksek bir değere çıkarın. |
-| Büyük belgelerde `OutOfMemoryError` oluşuyor | Tüm belge belleğe yükleniyor | Akış (streaming) API’lerini kullanın veya destekleniyorsa sayfaları toplu işleyin. |
-| Gri ton uygulanmadı | Gelişmiş seçenek doğru eklenmedi | `addAdvancedOption(AdvancedRasterizationOptions.Grayscale)` çağrısının `save()` öncesinde yapıldığını doğrulayın. |
+|-------|--------------|-------|
+| Çıktı dosyası beklenenden büyük | DPI çok yüksek ayarlandı veya görüntü sıkıştırması devre dışı | DPI'yi düşürün (ör. 150) veya `RasterizationOptions` içinde sıkıştırmayı etkinleştirin. |
+| Metin bulanık görünüyor | Orijinal yazı tipi boyutu için yetersiz DPI | DPI'yi 300 veya daha yüksek bir değere artırın. |
+| İşlem büyük belgelerde `OutOfMemoryError` hatası verir | Tüm belge belleğe yükleniyor | Destekleniyorsa akış API'lerini kullanın veya sayfaları toplu işleyin. |
+| Gri tonlama uygulanmadı | Gelişmiş seçenek doğru eklenmedi | `save()`'den önce `addAdvancedOption(AdvancedRasterizationOptions.Grayscale)` çağrıldığını doğrulayın. |
 
-## Sık Sorulan Sorular
+## Sıkça Sorulan Sorular
 
-**S: Belgeleri rasterleştirme olmadan gri tonlu olarak dönüştürebilir miyim?**  
-C: GroupDocs.Redaction’da gri ton seçeneği rasterleştirme ile bağlantılıdır; bu, tutarlı sonuçlar verir ve güvenlik ekler.
+**Q: Belgeleri rasterleştirme olmadan gri tonlamaya dönüştürebilir miyim?**  
+**A: GroupDocs.Redaction'da gri tonlama seçeneği rasterleştirmeye bağlıdır; bu, tutarlı sonuçlar sağlar ve bir güvenlik katmanı ekler.**
 
-**S: Hangi belge formatları gri tonlu rasterleştirmeyi destekler?**  
-C: GroupDocs.Redaction tarafından desteklenen tüm büyük formatlar—DOCX, PDF, XLSX, PPTX, RTF ve daha fazlası—rasterleştirilebilir ve gri tonlu hâle getirilebilir.
+**Q: Hangi belge formatları gri tonlamalı rasterleştirmeyi destekliyor?**  
+**A: GroupDocs.Redaction tarafından desteklenen tüm büyük formatlar — DOCX, PDF, XLSX, PPTX, RTF ve 100'den fazla diğer format — rasterleştirilebilir ve gri tonlamaya dönüştürülebilir.**
 
-**S: Rasterleştirme belge boyutunu etkiler mi?**  
-C: Evet. Metin ağırlıklı dosyalar büyüyebilir, görüntü ağırlıklı dosyalar ise küçülebilir. DPI ayarları en büyük etkiye sahiptir.
+**Q: Rasterleştirme belgelerimin dosya boyutunu etkileyecek mi?**  
+**A: Evet. Metin ağırlıklı dosyalar büyüyebilir, görüntü ağırlıklı dosyalar ise küçülebilir. DPI ayarları en büyük etkiye sahiptir.**
 
-**S: Gri tonlu rasterleştirme sürecini geri alabilir miyim?**  
-C: Hayır. Rasterleştirme tek yönlü bir işlemdir; geri dönmek isterseniz orijinal dosyanın bir yedeğini tutun.
+**Q: Gri tonlamalı rasterleştirme sürecini tersine çevirmek mümkün mü?**  
+**A: Hayır. Rasterleştirme tek yönlüdür; geri dönmeniz gerekirse orijinali yedekleyin.**
 
-**S: Gri tonlu rasterleştirilmiş belgelerin kalitesini nasıl optimize edebilirim?**  
-C: Daha yüksek DPI (baskı kalitesi için 300 +) kullanın ve uygun bir çıktı formatı seçin (PDF arşivleme için yaygındır).
+**Q: Gri tonlamalı rasterleştirilmiş belgelerin kalitesini nasıl optimize edebilirim?**  
+**A: Baskı kalitesi için daha yüksek DPI (300 +) kullanın ve en iyi arşiv sonuçları için PDF'yi çıktı formatı olarak seçin.**
 
 ## Sonuç
 
-Artık GroupDocs.Redaction for Java kullanarak **create grayscale pdf** dosyaları oluşturmak için eksiksiz, üretime hazır bir tarifiniz var. Rasterleştirmeyi etkinleştirerek, gri tonlu gelişmiş seçeneği ekleyerek ve kaynakları sorumlu bir şekilde yöneterek, güvenli, baskıya uygun ve uyumluluk standartlarını karşılayan belgeler üretebilirsiniz.
+Artık GroupDocs.Redaction for Java kullanarak **PDF'yi gri tonlamaya rasterleştirmek** için eksiksiz, üretim‑hazır bir tarifiniz var. Rasterleştirmeyi etkinleştirerek, gri tonlama gelişmiş seçeneğini ekleyerek ve kaynakları sorumlu bir şekilde yöneterek, uyumluluk standartlarını karşılayan ve herhangi bir görüntüleyicide tutarlı görünen güvenli, baskıya uygun belgeler üretebilirsiniz.
 
 ---
 
-**Son Güncelleme:** 2026-02-13  
-**Test Edilen Sürüm:** GroupDocs.Redaction 23.11 for Java  
+**Son Güncelleme:** 2026-05-17  
+**Test Edilen Versiyon:** GroupDocs.Redaction 23.11 for Java  
 **Yazar:** GroupDocs  
 
----
+## HEDEF ANAHTAR KELİMELER:
+
+**Birincil Anahtar Kelime (EN YÜKSEK ÖNCELİK):**
+how to rasterize pdf
+
+**İkincil Anahtar Kelimeler (DESTEKLEYİCİ):**
+java pdf to image, apply grayscale filter pdf
+
+## İlgili Öğreticiler
+
+- [GroupDocs.Redaction Java için Rasterleştirme Seçenekleri Öğreticileri](/redaction/java/rasterization-options/)
+- [GroupDocs Redaction for Java nasıl kullanılır: Word Belgelerinde Ön‑Rasterleştirme](/redaction/java/rasterization-options/groupdocs-redaction-java-pre-rasterization-word-docs/)
+- [Java'da Özel Gürültü Rasterleştirme: Hassas Bilgileri GroupDocs.Redaction ile Güvence Altına Alın](/redaction/java/rasterization-options/java-groupdocs-redaction-custom-noise-rasterization/)

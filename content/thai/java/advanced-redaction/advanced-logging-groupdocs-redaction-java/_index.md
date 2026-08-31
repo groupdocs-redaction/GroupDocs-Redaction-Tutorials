@@ -1,57 +1,56 @@
 ---
-date: '2025-12-17'
-description: เชี่ยวชาญเทคนิคการสร้าง logger แบบกำหนดเองใน Java ด้วย GroupDocs Redaction
-  for Java เรียนรู้การประมวลผลเอกสารเป็นชุด วิธีการตรวจสอบการลบข้อมูล และเพิ่มประสิทธิภาพการทำงานของการดีบักของคุณ
+date: '2026-03-14'
+description: เรียนรู้วิธีการสร้างตัวบันทึกแบบกำหนดเองใน Java สำหรับ GroupDocs Redaction
+  เพื่อให้สามารถตรวจสอบการลบข้อมูล การประมวลผลเป็นชุด และการดีบักได้อย่างละเอียด.
 keywords:
 - custom logger java
 - batch document processing
 - how to monitor redaction
-title: 'Logger แบบกำหนดเองใน Java - การใช้งานการบันทึกขั้นสูงด้วย GroupDocs Redaction
-  – คู่มือฉบับสมบูรณ์'
+title: 'Logger แบบกำหนดเอง Java: การบันทึกการทำลบข้อมูล GroupDocs ขั้นสูง'
 type: docs
 url: /th/java/advanced-redaction/advanced-logging-groupdocs-redaction-java/
 weight: 1
 ---
 
-# Custom Logger Java: การใช้งานการบันทึกขั้นสูงใน Java กับ GroupDocs Redaction
+9"
 
-## บทนำ
+**Author:** GroupDocs => "**ผู้เขียน:** GroupDocs"
 
-คุณกำลังประสบปัญหาในการติดตามการเปลี่ยนแปลงและข้อผิดพลาดขณะใช้ GroupDocs Redaction ในแอปพลิเคชัน Java ของคุณหรือไม่? ด้วยความสามารถของ **custom logger java** คุณสามารถทำให้กระบวนการดีบักเป็นระเบียบง่ายขึ้น, ได้รับข้อมูลเชิงลึกที่มีค่าเกี่ยวกับวิธีการทำการลบข้อมูลในเอกสาร, และแม้กระทั่งสนับสนุนการประมวลผลเอกสารเป็นชุด คู่มือนี้จะนำคุณผ่านการทำงานของ `ILogger` แบบกำหนดเองกับ GroupDocs Redaction สำหรับ Java, เพื่อเพิ่มความสามารถในการตรวจสอบการลบข้อมูล, ดีบักอย่างมีประสิทธิภาพ, และขยายขนาดการทำงานของคุณ
+Now produce final markdown with Thai translation, preserving placeholders.
 
-**What You'll Learn**
-- ตั้งค่า GroupDocs.Redaction ในโครงการ Java  
-- ใช้งาน **custom logger java** สำหรับการบันทึกขั้นสูง  
-- ทำการลบข้อมูลพร้อมกับการตรวจสอบข้อผิดพลาดและประสิทธิภาพ  
-- แนวปฏิบัติที่ดีที่สุดสำหรับการจัดการทรัพยากร, การประมวลผลเป็นชุด, และการเพิ่มประสิทธิภาพการทำงาน  
+Be careful with bold formatting.
 
-มาดำดิ่งเข้าไปตั้งค่าสภาพแวดล้อมของคุณเพื่อเริ่มใช้คุณสมบัติที่ทรงพลังนี้กันเถอะ
+Let's craft final answer.# Custom Logger Java: การบันทึกขั้นสูงของ GroupDocs Redaction
 
 ## คำตอบอย่างรวดเร็ว
-- **คลาสหลักสำหรับการบันทึกคืออะไร?** Implement `ILogger` and pass it to `RedactorSettings`.  
+- **อะไรคือคลาสหลักสำหรับการบันทึก?** Implement `ILogger` and pass it to `RedactorSettings`.  
 - **ฉันสามารถประมวลผลหลายไฟล์พร้อมกันได้หรือไม่?** Yes—combine the logger with batch document processing loops.  
 - **ฉันจะรู้ได้อย่างไรว่าการลบข้อมูลล้มเหลว?** Check `logger.hasErrors()` before saving.  
 - **ฉันต้องการใบอนุญาตแยกสำหรับการบันทึกหรือไม่?** No, the same GroupDocs Redaction license covers all features.  
 - **ต้องการเวอร์ชัน Maven ใด?** GroupDocs.Redaction 24.9 or later.
 
 ## Custom Logger Java คืออะไร?
-**custom logger java** คือการนำเสนอโดยผู้ใช้ของอินเทอร์เฟซ `ILogger` ที่จับข้อความบันทึก, ข้อผิดพลาด, และข้อมูลวินิจฉัยที่สร้างโดยเอนจิน GroupDocs Redaction โดยการปรับแต่ง logger คุณจะกำหนดว่าอะไรจะถูกบันทึก, เก็บไว้ที่ไหน, และวิธีการผสานรวมกับเฟรมเวิร์กการบันทึกที่มีอยู่เช่น Log4j หรือ SLF4J
+A **custom logger java** คือการนำไปใช้ที่กำหนดโดยผู้ใช้ของอินเทอร์เฟซ `ILogger` ที่จับข้อความบันทึก, ข้อผิดพลาด, และข้อมูลการวินิจฉัยที่สร้างโดยเอนจิน GroupDocs Redaction. ด้วยการปรับแต่ง logger, คุณสามารถกำหนดได้ว่าจะบันทึกอะไร, เก็บไว้ที่ไหน, และรวมกับเฟรมเวิร์กการบันทึกที่มีอยู่เช่น Log4j หรือ SLF4J.
 
 ## ทำไมต้องใช้ Custom Logger กับ GroupDocs Redaction?
-- **การตรวจสอบแบบละเอียด** – ดูได้อย่างชัดเจนว่าการลบข้อมูลใดสำเร็จหรือล้มเหลว  
-- **Compliance & audit trails** – Keep detailed records for regulatory requirements.  
-- **Performance insights** – Log timings and resource usage, especially useful for batch document processing.  
-- **Seamless integration** – Hook into your existing Java logging ecosystem.  
+- **การตรวจสอบแบบละเอียด** – ดูได้อย่างชัดเจนว่าการลบข้อมูลใดสำเร็จหรือล้มเหลว.  
+- **การปฏิบัติตามและบันทึกการตรวจสอบ** – เก็บบันทึกรายละเอียดสำหรับข้อกำหนดด้านกฎระเบียบ.  
+- **ข้อมูลเชิงประสิทธิภาพ** – บันทึกเวลาและการใช้ทรัพยากร, มีประโยชน์เป็นพิเศษสำหรับการประมวลผลเอกสารเป็นชุด.  
+- **การรวมอย่างราบรื่น** – เชื่อมต่อกับระบบบันทึก Java ที่คุณมีอยู่แล้ว.
+
+## กรณีการใช้งานทั่วไป
+1. **การตรวจสอบการปฏิบัติตาม** – ติดตามเหตุการณ์การลบข้อมูลทุกครั้งเพื่อให้สอดคล้องกับกฎหมายและมาตรฐานอุตสาหกรรม.  
+2. **การลบข้อมูลแบบชุดอัตโนมัติ** – ประมวลผลเอกสารหลายพันไฟล์ในลูปพร้อมบันทึกการตรวจสอบต่อไฟล์.  
+3. **กระบวนการทำงานที่ขับเคลื่อนด้วยข้อผิดพลาด** – หยุดหรือทำซ้ำชุดเมื่อ `logger.hasErrors()` แสดงปัญหา.  
 
 ## ข้อกำหนดเบื้องต้น
+- **ไลบรารีที่ต้องการ**: GroupDocs.Redaction for Java version 24.9 หรือใหม่กว่า.  
+- **สภาพแวดล้อม**: Java 8+ และ Maven ติดตั้งแล้ว.  
+- **ความรู้**: การเขียนโปรแกรม Java เบื้องต้นและความคุ้นเคยกับแนวคิดการบันทึก.  
 
-- **Required Libraries**: GroupDocs.Redaction for Java version 24.9 or later.  
-- **Environment**: Java 8+ and Maven installed.  
-- **Knowledge**: Basic Java programming and familiarity with logging concepts.  
+## การตั้งค่า GroupDocs.Redaction สำหรับ Java
 
-## Setting Up GroupDocs.Redaction for Java
-
-### Using Maven
+### การใช้ Maven
 
 Add the following configuration to your `pom.xml` file to include necessary dependencies and repositories:
 
@@ -73,13 +72,13 @@ Add the following configuration to your `pom.xml` file to include necessary depe
 </dependencies>
 ```
 
-### Direct Download
+### ดาวน์โหลดโดยตรง
 
-หรือดาวน์โหลดเวอร์ชันล่าสุดจาก [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+Alternatively, download the latest version from [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
-**License Acquisition**: เริ่มต้นด้วยการทดลองใช้ฟรีเพื่อสำรวจความสามารถของ GroupDocs Redaction. สำหรับการใช้งานในผลิตภัณฑ์, ขอรับใบอนุญาตชั่วคราวหรือเต็มรูปแบบ
+**License Acquisition**: Start with a free trial to explore GroupDocs Redaction's capabilities. For production use, obtain a temporary or full license.
 
-## Basic Initialization and Setup
+## การเริ่มต้นและตั้งค่าเบื้องต้น
 
 Initialize your project by creating an instance of `RedactorSettings` with a custom logger:
 
@@ -93,19 +92,19 @@ CustomLogger logger = new CustomLogger();
 RedactorSettings settings = new RedactorSettings(logger);
 ```
 
-## Implementation Guide
+## คู่มือการนำไปใช้
 
-### Advanced Logging with a Custom Logger
+### การบันทึกขั้นสูงด้วย Custom Logger
 
-#### Overview
+#### ภาพรวม
 
-การบันทึกขั้นสูงจับข้อมูลรายละเอียดเกี่ยวกับการดำเนินการบนเอกสาร, ทำให้การแก้ไขปัญหาและการปรับประสิทธิภาพง่ายขึ้น. การใช้ **custom logger java** ให้คุณควบคุมสิ่งที่บันทึกและวิธีการรายงานข้อผิดพลาดอย่างเต็มที่
+Advanced logging captures detailed information about operations performed on documents, making troubleshooting and optimization easier. Using a **custom logger java** gives you full control over what gets logged and how errors are reported.
 
-#### Step-by-Step Implementation
+#### การดำเนินการแบบขั้นตอน
 
-##### Step 1: Create a Custom Logger
+##### ขั้นตอนที่ 1: สร้าง Custom Logger
 
-เริ่มต้นด้วยการสร้างคลาสที่ implements `ILogger`:
+Start by implementing a class that implements `ILogger`:
 
 ```java
 public class CustomLogger implements ILogger {
@@ -113,30 +112,30 @@ public class CustomLogger implements ILogger {
 }
 ```
 
-Logger นี้จะจับและจัดการข้อความบันทึกระหว่างกระบวนการลบข้อมูล
+This custom logger captures and handles log messages during the redaction process.
 
-##### Step 2: Load Document with RedactorSettings
+##### ขั้นตอนที่ 2: โหลดเอกสารด้วย RedactorSettings
 
-โหลดเอกสารของคุณโดยใช้คลาส `Redactor` พร้อมส่ง logger ที่กำหนดเองเข้าไป:
+Load your document using the `Redactor` class, passing in your custom logger:
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX", 
     new LoadOptions(), new RedactorSettings(logger));
 ```
 
-การตั้งค่านี้ทำให้ทุกการดำเนินการถูกบันทึกผ่านการนำเสนอของคุณ
+This setup ensures that all operations are logged through your custom implementation.
 
-##### Step 3: Apply Redactions
+##### ขั้นตอนที่ 3: ใช้การลบข้อมูล
 
-ทำการลบข้อมูลตามที่ต้องการ. ตัวอย่างนี้แสดงการลบ annotation:
+Apply the desired redaction to your document. Here, we demonstrate deleting annotations:
 
 ```java
 redactor.apply(new com.groupdocs.redaction.redactions.DeleteAnnotationRedaction());
 ```
 
-##### Step 4: Save Changes Conditionally
+##### ขั้นตอนที่ 4: บันทึกการเปลี่ยนแปลงตามเงื่อนไข
 
-บันทึกการเปลี่ยนแปลงเฉพาะเมื่อไม่มีข้อผิดพลาดบันทึกไว้:
+Save changes only if no errors were logged:
 
 ```java
 if (!logger.hasErrors()) {
@@ -144,11 +143,11 @@ if (!logger.hasErrors()) {
 }
 ```
 
-วิธีนี้ทำให้คุณได้รับการแจ้งเตือนหากมีปัญหาระหว่างการประมวลผล
+This approach ensures that you are alerted to any issues during processing.
 
-##### Step 5: Clean Up Resources
+##### ขั้นตอนที่ 5: ทำความสะอาดทรัพยากร
 
-ปิดทรัพยากรอย่างถูกต้องโดยปิดอินสแตนซ์ `Redactor` ในบล็อก `finally`:
+Always release resources properly by closing the `Redactor` instance in a `finally` block:
 
 ```java
 finally {
@@ -156,64 +155,59 @@ finally {
 }
 ```
 
-## How to Monitor Redaction with Custom Logger Java
-โดยการตรวจสอบ `logger.hasErrors()` และตรวจสอบข้อความที่ `ILogger` ของคุณบันทึก, คุณสามารถ **how to monitor redaction** แบบเรียลไทม์ได้. สำหรับโครงการขนาดใหญ่, คุณอาจเขียนบันทึกลงฐานข้อมูลหรือบริการบันทึกศูนย์กลาง (เช่น ELK stack) เพื่อวิเคราะห์แนวโน้มในหลายเอกสาร
+## วิธีการตรวจสอบการลบข้อมูลด้วย Custom Logger Java
 
-## Practical Applications
+By checking `logger.hasErrors()` and reviewing the messages captured by your `ILogger` implementation, you can **how to monitor redaction** in real time. For large‑scale projects, you might write log entries to a database or a centralized logging service (e.g., ELK stack) to analyze trends across many documents.
 
-การบันทึกขั้นสูงมีความสำคัญในหลายสถานการณ์จริง, เช่น:
+## ข้อควรพิจารณาด้านประสิทธิภาพ
 
-1. **Compliance Auditing** – ติดตามการเปลี่ยนแปลงในเอกสารที่สำคัญเพื่อให้เป็นไปตามข้อกำหนดกฎระเบียบ  
-2. **Data Security** – ตรวจสอบการพยายามเข้าถึงหรือแก้ไขเอกสารโดยไม่ได้รับอนุญาต  
-3. **Workflow Automation** – ผสานกับการประมวลผลเอกสารเป็นชุดเพื่อทำการลบข้อมูลหลายพันไฟล์โดยยังคงรักษา audit trail อย่างละเอียด  
+- **การจัดการทรัพยากร** – Properly close `Redactor` instances to prevent memory leaks.  
+- **ระดับการบันทึก** – Use `info`, `debug`, and `error` levels to control verbosity and reduce overhead.  
+- **การประมวลผลชุด** – Process documents in groups and reuse a single logger instance to minimize object creation.  
 
-กรณีการใช้งานเหล่านี้แสดงถึงพลังและความหลากหลายของ **custom logger java** ที่ผสานกับ GroupDocs Redaction
+## เคล็ดลับและแนวทางปฏิบัติที่ดีที่สุด
 
-## Performance Considerations
+- **Pro tip:** Wrap your logger calls in try‑catch blocks to avoid unexpected exceptions from bubbling up.  
+- **Avoid over‑logging** in production; switch to `info` level unless you’re troubleshooting.  
+- **Persist logs** to a durable store (file, DB, or cloud) when you need an audit trail for compliance.  
 
-เพื่อให้แอปพลิเคชันของคุณเร็วและตอบสนองได้ดี, โดยเฉพาะเมื่อจัดการ batch document processing, ปฏิบัติตามเคล็ดลับต่อไปนี้:
+## ปัญหาทั่วไปและวิธีแก้
 
-- **Resource Management** – ปิดอินสแตนซ์ `Redactor` อย่างถูกต้องเพื่อป้องกัน memory leaks  
-- **Logging Levels** – ใช้ระดับ `info`, `debug`, และ `error` เพื่อควบคุมความละเอียดและลดภาระการทำงาน  
-- **Batch Processing** – ประมวลผลเอกสารเป็นกลุ่มและใช้ logger ตัวเดียวซ้ำเพื่อจำกัดการสร้างอ็อบเจ็กต์  
-
-## Common Issues and Solutions
-
-| Issue | Solution |
+| ปัญหา | วิธีแก้ |
 |-------|----------|
-| No logs appear | Ensure your `CustomLogger` implements all required `ILogger` methods and that the logger instance is passed to `RedactorSettings`. |
-| Application slows down during large batches | Reduce log detail (e.g., switch from `debug` to `info`) or write logs asynchronously. |
-| Errors are swallowed | Verify `logger.hasErrors()` is checked before calling `save()`. |
+| ไม่มีบันทึกปรากฏ | Ensure your `CustomLogger` implements all required `ILogger` methods and that the logger instance is passed to `RedactorSettings`. |
+| แอปพลิเคชันช้าลงระหว่างการประมวลผลชุดขนาดใหญ่ | Reduce log detail (e.g., switch from `debug` to `info`) or write logs asynchronously. |
+| ข้อผิดพลาดถูกละเลย | Verify `logger.hasErrors()` is checked before calling `save()`. |
 
-## Frequently Asked Questions
+## คำถามที่พบบ่อย
 
-**Q: How do I set up a custom logger for GroupDocs Redaction?**  
-A: Implement the `ILogger` interface, create an instance (e.g., `CustomLogger logger = new CustomLogger();`), and pass it to `RedactorSettings`.
+**ถาม: ฉันจะตั้งค่า custom logger สำหรับ GroupDocs Redaction อย่างไร?**  
+ตอบ: Implement the `ILogger` interface, create an instance (e.g., `CustomLogger logger = new CustomLogger();`), and pass it to `RedactorSettings`.
 
-**Q: Can I use GroupDocs Redaction with other Java logging frameworks?**  
-A: Yes. Your custom logger can delegate to Log4j, SLF4J, or java.util.logging, allowing seamless integration.
+**ถาม: ฉันสามารถใช้ GroupDocs Redaction กับเฟรมเวิร์กการบันทึก Java อื่นได้หรือไม่?**  
+ตอบ: Yes. Your custom logger can delegate to Log4j, SLF4J, or `java.util.logging`, allowing seamless integration.
 
-**Q: What types of redactions are supported by GroupDocs Redaction?**  
-A: Supported redactions include text replacement, annotation deletion, image removal, and more.
+**ถาม: GroupDocs Redaction รองรับการลบข้อมูลประเภทใดบ้าง?**  
+ตอบ: Supported redactions include text replacement, annotation deletion, image removal, and more.
 
-**Q: How do I handle errors during the redaction process?**  
-A: Use `logger.hasErrors()` after applying redactions; if true, skip `save()` and investigate the logged messages.
+**ถาม: ฉันจะจัดการข้อผิดพลาดระหว่างกระบวนการลบข้อมูลอย่างไร?**  
+ตอบ: Use `logger.hasErrors()` after applying redactions; if true, skip `save()` and investigate the logged messages.
 
-**Q: Is it possible to integrate GroupDocs Redaction with other systems?**  
-A: Absolutely. You can connect it to document management platforms, workflow engines, or cloud storage services for end‑to‑end automation.
+**ถาม: สามารถรวม GroupDocs Redaction กับระบบอื่นได้หรือไม่?**  
+ตอบ: Absolutely. You can connect it to document management platforms, workflow engines, or cloud storage services for end‑to‑end automation.
 
-## Resources
+## แหล่งข้อมูล
 - **เอกสาร**: [GroupDocs Redaction Java Docs](https://docs.groupdocs.com/redaction/java/)
-- **อ้างอิง API**: [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)
-- **ดาวน์โหลด**: [Latest Releases](https://releases.groupdocs.com/redaction/java/)
-- **Repository บน GitHub**: [GroupDocs.Redaction for Java on GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
-- **ฟอรั่มสนับสนุนฟรี**: [GroupDocs Redaction Forum](https://forum.groupdocs.com/c/redaction/33)
-- **ใบอนุญาตชั่วคราว**: [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/) 
+- **API Reference**: [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)
+- **Download**: [Latest Releases](https://releases.groupdocs.com/redaction/java/)
+- **GitHub Repository**: [GroupDocs.Redaction for Java on GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
+- **Free Support Forum**: [GroupDocs Redaction Forum](https://forum.groupdocs.com/c/redaction/33)
+- **Temporary License**: [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
-โดยทำตามคู่มือนี้, คุณจะก้าวสู่การเชี่ยวชาญ **custom logger java** กับ GroupDocs Redaction สำหรับ Java อย่างมั่นใจ. Happy coding!
+By following this guide, you're well on your way to mastering **custom logger java** with GroupDocs Redaction for Java. Happy coding!
 
 ---
 
-**Last Updated:** 2025-12-17  
-**Tested With:** GroupDocs Redaction 24.9  
-**Author:** GroupDocs
+**อัปเดตล่าสุด:** 2026-03-14  
+**ทดสอบกับ:** GroupDocs Redaction 24.9  
+**ผู้เขียน:** GroupDocs

@@ -1,35 +1,33 @@
 ---
-date: '2026-01-08'
-description: Scopri come redigere i metadati e sostituire il testo dei metadati nei
-  documenti Java utilizzando GroupDocs.Redaction. Guida passo‑passo con le migliori
-  pratiche.
+date: '2026-03-25'
+description: Scopri come sostituire il testo dei metadati in Java usando GroupDocs.Redaction.
+  Questa guida passo passo mostra la redazione sicura dei metadati e le migliori pratiche.
 keywords:
 - Java metadata redaction
 - GroupDocs.Redaction for Java
 - metadata text replacement
-title: 'Come censurare i metadati in Java - sostituire in modo sicuro il testo nei
-  documenti'
+title: Sostituisci il testo dei metadati Java – Redazione sicura con GroupDocs
 type: docs
 url: /it/java/metadata-redaction/java-redaction-metadata-text-replacement-guide/
 weight: 1
 ---
 
-# Come censurare i metadati in Java
+# replace metadata text java – Redazione Sicura con GroupDocs
 
-Nell'attuale panorama digitale, **come censurare i metadati** è una competenza fondamentale per proteggere le informazioni riservate nascoste nelle proprietà dei documenti. Che tu stia proteggendo contratti, registri personali o report interni, rimuovere o sostituire i metadati sensibili previene perdite accidentali di dati. In questo tutorial imparerai a censurare i metadati e **sostituire il testo dei metadati** usando GroupDocs.Redaction per Java, dalla configurazione al salvataggio del documento pulito.
+Nel panorama digitale odierno, apprendere **replace metadata text java** è una competenza fondamentale per proteggere le informazioni riservate nascoste nelle proprietà dei documenti. Che tu stia salvaguardando contratti, registri personali o report interni, rimuovere o sostituire i metadati sensibili previene perdite accidentali di dati. In questo tutorial scoprirai come redigere i metadati e sostituire il testo dei metadati usando GroupDocs.Redaction per Java, dalla configurazione dell'ambiente al salvataggio del documento pulito.
 
-## Risposte rapide
-- **Quale libreria gestisce la censura dei metadati in Java?** GroupDocs.Redaction for Java.  
+## Risposte Rapide
+- **Quale libreria gestisce la redazione dei metadati in Java?** GroupDocs.Redaction for Java.  
 - **Quale metodo principale sostituisce il testo nei metadati?** `MetadataSearchRedaction`.  
 - **È necessaria una licenza per lo sviluppo?** Una licenza temporanea funziona per i test; è richiesta una licenza completa per la produzione.  
-- **Posso mantenere il formato file originale dopo la censura?** Sì—imposta `saveOptions.setRasterizeToPDF(false)`.  
-- **Il batch processing è supportato?** Assolutamente; basta iterare sui file e riutilizzare lo stesso modello di istanza Redactor.  
+- **Posso mantenere il formato file originale dopo la redazione?** Sì—imposta `saveOptions.setRasterizeToPDF(false)`.  
+- **È supportata l'elaborazione batch?** Assolutamente; basta iterare sui file e riutilizzare lo stesso modello di istanza Redactor.  
 
-## Cos'è “come censurare i metadati”?
-Censurare i metadati significa analizzare le proprietà nascoste di un documento (autore, nome dell'azienda, campi personalizzati, ecc.) e rimuovere o sostituire i valori sensibili. A differenza del contenuto visibile, i metadati viaggiano spesso inosservati, quindi una censura esplicita è essenziale per la conformità a GDPR, HIPAA e altre normative sulla privacy.
+## Cos'è replace metadata text java?
+Redigere i metadati significa scansionare le proprietà nascoste di un documento (autore, nome dell'azienda, campi personalizzati, ecc.) e rimuovere o sostituire i valori sensibili. A differenza del contenuto visibile, i metadati spesso passano inosservati, quindi una redazione esplicita è essenziale per la conformità a GDPR, HIPAA e altre normative sulla privacy.
 
 ## Perché sostituire il testo dei metadati?
-Sostituire il testo dei metadati consente di mantenere intatta la struttura del documento mentre si sanificano gli identificatori riservati. Questo è particolarmente utile quando è necessario condividere una bozza con partner esterni ma si devono nascondere codici di progetto interni, nomi dei fornitori o identificatori personali.
+Sostituire il testo dei metadati consente di mantenere intatta la struttura del documento mentre si sanificano gli identificatori riservati. Questo è particolarmente utile quando è necessario condividere una bozza con partner esterni ma occorre nascondere codici di progetto interni, nomi dei fornitori o identificatori personali.
 
 ## Prerequisiti
 
@@ -62,18 +60,18 @@ Aggiungi il repository GroupDocs e la dipendenza al tuo `pom.xml`:
 </dependencies>
 ```
 
-### Download diretto
+### Download Diretto
 
-In alternativa, scarica l'ultima versione da [GroupDocs.Redaction per Java releases](https://releases.groupdocs.com/redaction/java/).
+In alternativa, scarica l'ultima versione da [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
-#### Passaggi per l'acquisizione della licenza
+#### Passaggi per Ottenere la Licenza
 - **Prova gratuita:** Esplora le funzionalità principali senza costi.  
 - **Licenza temporanea:** Utilizzala durante lo sviluppo per l'accesso completo all'API.  
 - **Acquisto:** Ottieni una licenza di produzione dal sito web di GroupDocs.
 
-### Inizializzazione e configurazione di base
+### Inizializzazione e Configurazione di Base
 
-Crea un'istanza `Redactor` che punti al documento che desideri pulire:
+Crea un'istanza `Redactor` che punti al documento da pulire:
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -82,13 +80,13 @@ String inputFilePath = "YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX";
 final Redactor redactor = new Redactor(inputFilePath);
 ```
 
-## Guida all'implementazione
+## Guida all'Implementazione
 
-### Funzionalità di sostituzione del testo dei metadati
+### Funzionalità di Sostituzione del Testo dei Metadati
 
 Il nostro obiettivo è sostituire ogni occorrenza di “Company Ltd.” in qualsiasi campo dei metadati con il segnaposto “--company--”.
 
-#### Passo 1: Importare le classi necessarie
+#### Passo 1: Importare le Classi Necessarie
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -96,7 +94,7 @@ import com.groupdocs.redaction.options.SaveOptions;
 import com.groupdocs.redaction.redactions.MetadataSearchRedaction;
 ```
 
-#### Passo 2: Configurare la censura e le opzioni di salvataggio
+#### Passo 2: Configurare la Redazione e le Opzioni di Salvataggio
 
 ```java
 String inputFilePath = "YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX";
@@ -119,65 +117,64 @@ try {
 }
 ```
 
-#### Suggerimenti per la risoluzione dei problemi
+#### Suggerimenti per la Risoluzione dei Problemi
 - **File non trovato:** Verifica nuovamente i percorsi assoluti sia per i file di input che di output.  
 - **Formato non supportato:** Verifica che il tipo di documento sia elencato nella tabella dei formati supportati da GroupDocs.Redaction.  
 
-## Applicazioni pratiche
+## Applicazioni Pratiche
 
 Sostituire il testo dei metadati è utile in molti scenari:
 
-1. **Gestione dei documenti legali:** Pulire le bozze prima di inviarle alla controparte.  
-2. **Conformità e privacy:** Rimuovere gli identificatori personali per soddisfare i requisiti di GDPR o HIPAA.  
-3. **Elaborazione di template:** Sostituire i valori dei segnaposto senza esporre il branding aziendale originale.
+1. **Gestione Documenti Legali:** Pulire le bozze prima di inviarle alla controparte.  
+2. **Conformità e Privacy:** Rimuovere gli identificatori personali per soddisfare i requisiti di GDPR o HIPAA.  
+3. **Elaborazione di Template:** Sostituire i valori dei segnaposto senza esporre il branding aziendale originale.
 
-## Considerazioni sulle prestazioni
+## Considerazioni sulle Prestazioni
 
-Durante l'elaborazione di file di grandi dimensioni o batch:
-
+Durante l'elaborazione di file o batch di grandi dimensioni:
 - Chiudi prontamente ogni `Redactor` (`redactor.close()`) per liberare memoria.  
-- Pianifica i job batch durante le ore di bassa attività per ridurre il carico del server.  
-- Preferisci formati di file che consentono una modifica efficiente dei metadati (ad esempio, DOCX rispetto a PDF quando possibile).
+- Pianifica i job batch nelle ore di bassa attività per ridurre il carico del server.  
+- Preferisci formati di file che consentono una modifica efficiente dei metadati (ad es., DOCX rispetto a PDF quando possibile).
 
-## Problemi comuni e soluzioni
+## Problemi Comuni e Soluzioni
 
 | Problema | Soluzione |
 |----------|-----------|
-| **Censura non applicata** | Assicurati che il testo esatto (“Company Ltd.”) corrisponda al case‑sensitivity; usa le opzioni regex se necessario. |
+| **Redazione non applicata** | Assicurati che il testo esatto (“Company Ltd.”) corrisponda al case‑sensitivity; usa le opzioni regex se necessario. |
 | **File di output invariato** | Verifica che `saveOptions.setAddSuffix(true)` aggiunga un nuovo file; controlla il percorso della directory di output. |
-| **Picchi di memoria** | Elabora i file in sequenza e elimina il `Redactor` dopo ogni iterazione. |
+| **Picchi di memoria** | Elabora i file in modo sequenziale e rilascia il `Redactor` dopo ogni iterazione. |
 
-## Domande frequenti
+## Domande Frequenti
 
 **D: Cos'è GroupDocs.Redaction per Java?**  
-R: È una libreria Java che consente agli sviluppatori di individuare e censurare testo, immagini e metadati in oltre 100 formati di documento.
+R: È una libreria Java che consente agli sviluppatori di individuare e redigere testo, immagini e metadati su più di 100 formati di documento.
 
 **D: Posso usare GroupDocs.Redaction con file non di testo?**  
 R: Sì, la libreria supporta PDF, documenti Word, fogli di calcolo e molti altri formati.
 
 **D: Come gestire documenti di grandi dimensioni in modo efficiente?**  
-R: Chiudi il `Redactor` dopo ogni file, esegui job batch durante i periodi di bassa attività e scegli tipi di file leggeri per le operazioni sui metadati.
+R: Chiudi il `Redactor` dopo ogni file, esegui job batch durante periodi di basso traffico e scegli tipi di file leggeri per le operazioni sui metadati.
 
 **D: Quali sono i casi d'uso tipici per la sostituzione del testo dei metadati?**  
-R: Censura legale, conformità alla privacy e elaborazione automatica di template sono gli scenari più comuni.
+R: Redazione legale, conformità alla privacy e elaborazione automatizzata di template sono gli scenari più comuni.
 
-**D: Dove posso ottenere aiuto se incontro problemi?**  
+**D: Dove posso ottenere assistenza se incontro problemi?**  
 R: GroupDocs offre supporto gratuito tramite il loro [forum](https://forum.groupdocs.com/c/redaction/33).
 
 ## Conclusione
 
-Ora disponi di un metodo completo, pronto per la produzione, per **censurare i metadati** e **sostituire il testo dei metadati** nei documenti Java usando GroupDocs.Redaction. Seguendo i passaggi sopra, puoi proteggere le informazioni sensibili nascoste nelle proprietà dei documenti mantenendo il formato file originale.
+Ora disponi di un metodo completo, pronto per la produzione, per **replace metadata text java** e per redigere in modo sicuro i metadati nei documenti Java usando GroupDocs.Redaction. Seguendo i passaggi sopra, potrai proteggere le informazioni sensibili nascoste nelle proprietà dei documenti mantenendo il formato file originale.
 
 **Risorse**  
-- **Documentazione:** Scopri di più su [Documentazione GroupDocs.Redaction](https://docs.groupdocs.com/redaction/java/)  
-- **Riferimento API:** Informazioni dettagliate sull'API sono disponibili su [Riferimento API](https://reference.groupdocs.com/redaction/java)  
-- **Download:** Ottieni l'ultima versione da [Download](https://releases.groupdocs.com/redaction/java/)  
+- **Documentazione:** Scopri di più su [GroupDocs.Redaction Documentation](https://docs.groupdocs.com/redaction/java/)  
+- **Riferimento API:** Informazioni dettagliate sull'API sono disponibili su [API Reference](https://reference.groupdocs.com/redaction/java)  
+- **Download:** Ottieni l'ultima versione da [Downloads](https://releases.groupdocs.com/redaction/java/)  
 - **GitHub:** Accedi al codice sorgente su [GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
-- **Supporto gratuito:** Partecipa alle discussioni su [Forum di supporto](https://forum.groupdocs.com/c/redaction/33)  
-- **Licenza temporanea:** Ottieni una licenza per scopi di test da [Licenza temporanea](https://purchase.groupdocs.com/temporary-license/)
+- **Supporto Gratuito:** Partecipa alle discussioni su [Support Forum](https://forum.groupdocs.com/c/redaction/33)  
+- **Licenza Temporanea:** Ottieni una licenza per scopi di test da [Temporary License](https://purchase.groupdocs.com/temporary-license/)  
 
 ---
 
-**Last Updated:** 2026-01-08  
-**Tested With:** GroupDocs.Redaction 24.9 for Java  
-**Author:** GroupDocs  
+**Ultimo Aggiornamento:** 2026-03-25  
+**Testato Con:** GroupDocs.Redaction 24.9 for Java  
+**Autore:** GroupDocs

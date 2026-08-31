@@ -1,41 +1,41 @@
 ---
-date: '2026-01-08'
-description: Pelajari cara menghapus metadata dan mengganti teks metadata dalam dokumen
-  Java menggunakan GroupDocs.Redaction. Panduan langkah demi langkah dengan praktik
+date: '2026-03-25'
+description: Pelajari cara mengganti teks metadata Java menggunakan GroupDocs.Redaction.
+  Panduan langkah demi langkah ini menunjukkan redaksi metadata yang aman dan praktik
   terbaik.
 keywords:
 - Java metadata redaction
 - GroupDocs.Redaction for Java
 - metadata text replacement
-title: 'Cara Menyensor Metadata di Java - Mengganti Teks dalam Dokumen Secara Aman'
+title: ganti teks metadata java – Redaksi Aman dengan GroupDocs
 type: docs
 url: /id/java/metadata-redaction/java-redaction-metadata-text-replacement-guide/
 weight: 1
 ---
 
-# Cara Redact Metadata di Java
+# replace metadata text java – Redaksi Aman dengan GroupDocs
 
-Di lanskap digital saat ini, **cara menghapus metadata** adalah keterampilan penting untuk melindungi informasi rahasia yang tersembunyi di dalam properti dokumen. Baik Anda melindungi kontrak, catatan pribadi, atau laporan internal, menghapus atau mengganti metadata sensitif mencegah kebocoran data yang tidak disengaja. Dalam tutorial ini Anda akan belajar cara menghapus metadata dan **ganti teks metadata** menggunakan GroupDocs.Redaction untuk Java, mulai dari penyiapan hingga menyimpan dokumen yang telah dibersihkan.
+Dalam lanskap digital saat ini, mempelajari **replace metadata text java** adalah keterampilan penting untuk melindungi informasi rahasia yang tersembunyi di dalam properti dokumen. Baik Anda melindungi kontrak, catatan pribadi, atau laporan internal, menghapus atau mengganti metadata sensitif mencegah kebocoran data yang tidak disengaja. Dalam tutorial ini Anda akan menemukan cara meredaksi metadata dan mengganti teks metadata menggunakan GroupDocs.Redaction untuk Java, mulai dari penyiapan lingkungan hingga menyimpan dokumen yang telah dibersihkan.
 
-## Jawaban Cepat
-- **Perpustakaan apa yang menangani redaksi metadata di Java?** GroupDocs.Redaction for Java.  
+## Quick Answers
+- **Library apa yang menangani redaksi metadata di Java?** GroupDocs.Redaction for Java.  
 - **Metode utama mana yang mengganti teks dalam metadata?** `MetadataSearchRedaction`.  
 - **Apakah saya memerlukan lisensi untuk pengembangan?** Lisensi sementara dapat digunakan untuk pengujian; lisensi penuh diperlukan untuk produksi.  
-- **Bisakah saya mempertahankan format file asli setelah redaksi?** Ya—atur `saveOptions.setRasterizeToPDF(false)`.  
-- **Apakah pemrosesan batch didukung?** Tentu saja; cukup lakukan loop pada file dan gunakan kembali pola instance Redactor yang sama.
+- **Apakah saya dapat mempertahankan format file asli setelah redaksi?** Ya—atur `saveOptions.setRasterizeToPDF(false)`.  
+- **Apakah pemrosesan batch didukung?** Tentu saja; cukup lakukan loop pada file dan gunakan kembali pola instance Redactor yang sama.  
 
-## Apa itu “cara menghapus metadata”?
-Redaksi metadata berarti memindai properti tersembunyi dokumen (penulis, nama perusahaan, bidang khusus, dll.) dan menghapus atau mengganti nilai sensitif. Tidak seperti konten yang terlihat, metadata sering beredar tanpa disadari, sehingga redaksi eksplisit penting untuk kepatuhan terhadap GDPR, HIPAA, dan regulasi privasi lainnya.
+## Apa itu replace metadata text java?
+Meredaksi metadata berarti memindai properti tersembunyi dokumen (penulis, nama perusahaan, bidang khusus, dll.) dan menghapus atau mengganti nilai sensitif. Tidak seperti konten yang terlihat, metadata sering beredar tanpa disadari, sehingga redaksi eksplisit sangat penting untuk kepatuhan terhadap GDPR, HIPAA, dan regulasi privasi lainnya.
 
 ## Mengapa mengganti teks metadata?
-Mengganti teks metadata memungkinkan Anda menjaga struktur dokumen tetap utuh sambil membersihkan pengidentifikasi rahasia. Ini sangat berguna ketika Anda perlu membagikan draf kepada mitra eksternal tetapi harus menyembunyikan kode proyek internal, nama vendor, atau pengidentifikasi pribadi.
+Mengganti teks metadata memungkinkan Anda mempertahankan struktur dokumen tetap utuh sambil membersihkan pengidentifikasi rahasia. Ini sangat berguna ketika Anda perlu membagikan draf kepada mitra eksternal tetapi harus menyembunyikan kode proyek internal, nama vendor, atau pengidentifikasi pribadi.
 
 ## Prasyarat
 
 - **Perpustakaan GroupDocs.Redaction** versi 24.9 atau lebih baru.  
 - **Java Development Kit (JDK)** terpasang (sebaiknya JDK 11+).  
-- Sebuah IDE seperti **IntelliJ IDEA** atau **Eclipse**.  
-- Familiaritas dasar dengan Java (bermanfaat tetapi tidak wajib).
+- IDE seperti **IntelliJ IDEA** atau **Eclipse**.  
+- Pemahaman dasar tentang Java (bermanfaat tetapi tidak wajib).
 
 ## Menyiapkan GroupDocs.Redaction untuk Java
 
@@ -67,7 +67,7 @@ Alternatively, download the latest version from [GroupDocs.Redaction for Java re
 
 #### Langkah-langkah Akuisisi Lisensi
 - **Uji Coba Gratis:** Jelajahi fitur inti tanpa biaya.  
-- **Lisensi Sementara:** Gunakan selama pengembangan untuk akses penuh API.  
+- **Lisensi Sementara:** Gunakan selama pengembangan untuk akses API penuh.  
 - **Pembelian:** Dapatkan lisensi produksi dari situs web GroupDocs.
 
 ### Inisialisasi dan Penyiapan Dasar
@@ -124,18 +124,19 @@ try {
 
 ## Aplikasi Praktis
 
-Mengganti teks metadata bernilai dalam banyak skenario:
+Replacing metadata text is valuable in many scenarios:
 
-1. **Manajemen Dokumen Hukum:** Bersihkan draf sebelum mengirimkannya ke pengacara lawan.  
+1. **Manajemen Dokumen Hukum:** Bersihkan draf sebelum mengirimkannya ke penasihat lawan.  
 2. **Kepatuhan & Privasi:** Hapus pengidentifikasi pribadi untuk memenuhi persyaratan GDPR atau HIPAA.  
-3. **Pemrosesan Template:** Ganti nilai placeholder tanpa mengungkapkan merek perusahaan asli.
+3. **Pemrosesan Template:** Tukar nilai placeholder tanpa mengungkapkan merek perusahaan asli.  
 
 ## Pertimbangan Kinerja
 
 When processing large files or batches:
-- Tutup setiap `Redactor` segera (`redactor.close()`) untuk membebaskan memori.  
-- Jadwalkan pekerjaan batch pada jam tidak sibuk untuk mengurangi beban server.  
-- Pilih format file yang memungkinkan pengeditan metadata yang efisien (mis., DOCX dibanding PDF bila memungkinkan).
+
+- • Tutup setiap `Redactor` dengan cepat (`redactor.close()`) untuk membebaskan memori.  
+- • Jadwalkan pekerjaan batch pada jam tidak sibuk untuk mengurangi beban server.  
+- • Pilih format file yang memungkinkan pengeditan metadata yang efisien (mis., DOCX daripada PDF bila memungkinkan).  
 
 ## Masalah Umum dan Solusinya
 
@@ -147,35 +148,35 @@ When processing large files or batches:
 
 ## Pertanyaan yang Sering Diajukan
 
-**T: Apa itu GroupDocs.Redaction untuk Java?**  
-J: Ini adalah perpustakaan Java yang memungkinkan pengembang menemukan dan meredaksi teks, gambar, dan metadata di lebih dari 100 format dokumen.
+**Q: Apa itu GroupDocs.Redaction untuk Java?**  
+A: Ini adalah perpustakaan Java yang memungkinkan pengembang menemukan dan meredaksi teks, gambar, dan metadata di lebih dari 100 format dokumen.
 
-**T: Bisakah saya menggunakan GroupDocs.Redaction dengan file non‑teks?**  
-J: Ya, perpustakaan ini mendukung PDF, dokumen Word, spreadsheet, dan banyak format lainnya.
+**Q: Bisakah saya menggunakan GroupDocs.Redaction dengan file non‑teks?**  
+A: Ya, perpustakaan ini mendukung PDF, dokumen Word, spreadsheet, dan banyak format lainnya.
 
-**T: Bagaimana cara menangani dokumen besar secara efisien?**  
-J: Tutup `Redactor` setelah setiap file, jalankan pekerjaan batch selama periode lalu lintas rendah, dan pilih tipe file yang ringan untuk operasi metadata.
+**Q: Bagaimana cara menangani dokumen besar secara efisien?**  
+A: Tutup `Redactor` setelah setiap file, jalankan pekerjaan batch pada periode lalu lintas rendah, dan pilih tipe file yang ringan untuk operasi metadata.
 
-**T: Apa saja contoh penggunaan umum untuk mengganti teks metadata?**  
-J: Redaksi hukum, kepatuhan privasi, dan pemrosesan template otomatis adalah skenario paling umum.
+**Q: Apa saja contoh penggunaan umum untuk mengganti teks metadata?**  
+A: Redaksi hukum, kepatuhan privasi, dan pemrosesan template otomatis adalah skenario paling umum.
 
-**T: Di mana saya dapat mendapatkan bantuan jika mengalami masalah?**  
-J: GroupDocs menawarkan dukungan gratis melalui [forum](https://forum.groupdocs.com/c/redaction/33) mereka.
+**Q: Di mana saya dapat mendapatkan bantuan jika mengalami masalah?**  
+A: GroupDocs menawarkan dukungan gratis melalui [forum](https://forum.groupdocs.com/c/redaction/33) mereka.
 
 ## Kesimpulan
 
-Anda kini memiliki metode lengkap dan siap produksi untuk **cara menghapus metadata** dan **ganti teks metadata** dalam dokumen Java menggunakan GroupDocs.Redaction. Dengan mengikuti langkah-langkah di atas, Anda dapat melindungi informasi sensitif yang tersembunyi dalam properti dokumen sambil mempertahankan format file asli.
+Anda kini memiliki metode lengkap yang siap produksi untuk **replace metadata text java** dan meredaksi metadata secara aman dalam dokumen Java menggunakan GroupDocs.Redaction. Dengan mengikuti langkah-langkah di atas, Anda dapat melindungi informasi sensitif yang tersembunyi di properti dokumen sambil mempertahankan format file asli.
 
-**Resources**  
-- **Documentation:** Explore more at [GroupDocs.Redaction Documentation](https://docs.groupdocs.com/redaction/java/)  
-- **API Reference:** Detailed API information is available at [API Reference](https://reference.groupdocs.com/redaction/java)  
-- **Download:** Get the latest version from [Downloads](https://releases.groupdocs.com/redaction/java/)  
-- **GitHub:** Access source code on [GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
-- **Free Support:** Join discussions at [Support Forum](https://forum.groupdocs.com/c/redaction/33)  
-- **Temporary License:** Obtain a license for testing purposes from [Temporary License](https://purchase.groupdocs.com/temporary-license/)
+**Sumber Daya**  
+- **Dokumentasi:** Jelajahi lebih lanjut di [GroupDocs.Redaction Documentation](https://docs.groupdocs.com/redaction/java/)  
+- **Referensi API:** Informasi API detail tersedia di [API Reference](https://reference.groupdocs.com/redaction/java)  
+- **Unduhan:** Dapatkan versi terbaru dari [Downloads](https://releases.groupdocs.com/redaction/java/)  
+- **GitHub:** Akses kode sumber di [GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
+- **Dukungan Gratis:** Bergabung dalam diskusi di [Support Forum](https://forum.groupdocs.com/c/redaction/33)  
+- **Lisensi Sementara:** Dapatkan lisensi untuk tujuan pengujian dari [Temporary License](https://purchase.groupdocs.com/temporary-license/)  
 
 ---
 
-**Last Updated:** 2026-01-08  
-**Tested With:** GroupDocs.Redaction 24.9 for Java  
-**Author:** GroupDocs  
+**Terakhir Diperbarui:** 2026-03-25  
+**Diuji Dengan:** GroupDocs.Redaction 24.9 untuk Java  
+**Penulis:** GroupDocs

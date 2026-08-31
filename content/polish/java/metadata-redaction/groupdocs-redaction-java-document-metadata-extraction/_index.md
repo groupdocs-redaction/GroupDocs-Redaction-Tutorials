@@ -1,45 +1,48 @@
 ---
-date: '2026-01-06'
-description: Dowiedz się, jak uzyskać typ pliku w Javie, odczytać właściwości dokumentu
-  i pobrać liczbę stron w Javie przy użyciu GroupDocs.Redaction dla Javy. Przewodnik
-  krok po kroku z kodem.
+date: '2026-03-22'
+description: Dowiedz się, jak w Javie odczytywać metadane pliku, uzyskać typ pliku
+  oraz liczbę stron przy użyciu GroupDocs.Redaction dla Javy. Przewodnik krok po kroku
+  z przykładami kodu.
 keywords:
 - GroupDocs.Redaction Java
 - document metadata extraction
 - Java stream APIs
-title: Pobierz typ pliku Java przy użyciu GroupDocs.Redaction – Ekstrakcja metadanych
+title: java odczyt metadanych pliku – typ pliku z GroupDocs.Redaction
 type: docs
 url: /pl/java/metadata-redaction/groupdocs-redaction-java-document-metadata-extraction/
 weight: 1
 ---
 
-# Pobierz typ pliku java i wyodrębnij metadane dokumentu przy użyciu GroupDocs.Redaction w Javie
+# java read file metadata – Pobieranie typu pliku przy użyciu GroupDocs.Redaction w Javie
 
-W nowoczesnych aplikacjach Java możliwość **get file type java** szybko — oraz pobrania innych przydatnych właściwości dokumentu, takich jak liczba stron, rozmiar i własne metadane — jest niezbędna do budowania solidnych systemów zarządzania dokumentami lub przepływów analizy danych. Ten samouczek dokładnie pokazuje, jak odczytać właściwości dokumentu przy użyciu GroupDocs.Redaction, dlaczego jest to biblioteka numer jeden do tego zadania oraz jak czysto zintegrować rozwiązanie z bazą kodu.
+W nowoczesnych aplikacjach Java **java read file metadata** szybko — zwłaszcza typ pliku, liczba stron, rozmiar i wszelkie własne właściwości — jest niezbędne do budowania niezawodnych potoków zarządzania dokumentami lub analizy danych. Ten samouczek przeprowadzi Cię przez odczyt tych właściwości przy użyciu GroupDocs.Redaction, wyjaśni **jak uzyskać typ pliku w Javie**, oraz pokaże, jak **java get page count** i **read file size java** w czysty, przyjazny strumieniom sposób.
 
-## Szybkie odpowiedzi
-- **Jak mogę uzyskać typ pliku dokumentu w Javie?** Użyj `redactor.getDocumentInfo().getFileType()`.
-- **Która biblioteka obsługuje jednocześnie wyodrębnianie metadanych i redakcję?** GroupDocs.Redaction for Java.
-- **Czy potrzebuję licencji do rozwoju?** Darmowa wersja próbna działa w ocenie; stała licencja jest wymagana w produkcji.
-- **Czy mogę również pobrać liczbę stron?** Tak, wywołaj `getPageCount()` na obiekcie `IDocumentInfo`.
-- **Czy to podejście jest kompatybilne z Java 8+?** Absolutnie — GroupDocs.Redaction obsługuje Java 8 i nowsze.
+## Quick Answers
+- **Jak mogę uzyskać typ pliku dokumentu w Javie?** Użyj `redactor.getDocumentInfo().getFileType()`.  
+- **Która biblioteka obsługuje jednocześnie ekstrakcję metadanych i redakcję?** GroupDocs.Redaction dla Javy.  
+- **Czy potrzebna jest licencja do rozwoju?** Darmowa wersja próbna wystarczy do oceny; stała licencja jest wymagana w produkcji.  
+- **Czy mogę również pobrać liczbę stron?** Tak, wywołaj `getPageCount()` na obiekcie `IDocumentInfo`.  
+- **Czy to podejście jest kompatybilne z Java 8+?** Absolutnie — GroupDocs.Redaction wspiera Java 8 i nowsze.
 
-## Co to jest „get file type java” i dlaczego ma to znaczenie?
-Kiedy wywołujesz `getFileType()` na dokumencie, biblioteka analizuje nagłówek pliku i zwraca przyjazny enum (np. **DOCX**, **PDF**, **XLSX**). Znajomość dokładnego typu pozwala skierować plik do właściwego potoku przetwarzania, egzekwować polityki bezpieczeństwa lub po prostu wyświetlić dokładne informacje użytkownikom końcowym.
+## How to java read file metadata with GroupDocs.Redaction
+Zrozumienie kroków **java read file metadata** pomaga zdecydować, gdzie umieścić logikę w aplikacji — czy to mikroserwis walidujący przesyłane pliki, czy zadanie wsadowe indeksujące duże kolekcje dokumentów.
 
-## Dlaczego używać GroupDocs.Redaction do odczytu właściwości dokumentu w Javie?
-- **Rozwiązanie all‑in‑one:** Redakcja, wyodrębnianie metadanych i konwersja formatów działają pod jednym API.  
-- **Przyjazny dla strumieni:** Działa bezpośrednio z `InputStream`, dzięki czemu możesz przetwarzać pliki z dysku, sieci lub chmury bez plików tymczasowych.  
-- **Dostosowany pod wydajność:** Minimalny zużycie pamięci i automatyczne czyszczenie zasobów po zamknięciu instancji `Redactor`.
+### What is “get file type java” and why does it matter?
+Kiedy wywołujesz `getFileType()` na dokumencie, biblioteka analizuje nagłówek pliku i zwraca przyjazny enum (np. **DOCX**, **PDF**, **XLSX**). Znajomość dokładnego typu pozwala skierować plik do właściwego potoku przetwarzania, wymusić zasady bezpieczeństwa lub po prostu wyświetlić prawidłowe informacje użytkownikom końcowym.
 
-## Wymagania wstępne
+### Why use GroupDocs.Redaction for java read document properties?
+- **All‑in‑one solution:** Redakcja, ekstrakcja metadanych i konwersja formatów działają pod jednym API.  
+- **Stream‑friendly:** Działa bezpośrednio z `InputStream`, więc możesz przetwarzać pliki z dysku, sieci lub chmury bez plików tymczasowych.  
+- **Performance‑tuned:** Minimalny ślad pamięci i automatyczne czyszczenie zasobów po zamknięciu instancji `Redactor`.  
+
+## Prerequisites
 1. **GroupDocs.Redaction for Java** (wersja 24.9 lub nowsza).  
 2. JDK 8 lub nowszy.  
-3. Podstawowa znajomość Javy oraz obeznanie z strumieniami I/O plików.
+3. Podstawowa znajomość Javy oraz strumieni I/O.
 
-## Konfiguracja GroupDocs.Redaction dla Javy
+## Setting Up GroupDocs.Redaction for Java
 
-### Instalacja Maven
+### Maven Installation
 Dodaj repozytorium i zależność do swojego `pom.xml`:
 
 ```xml
@@ -60,15 +63,15 @@ Dodaj repozytorium i zależność do swojego `pom.xml`:
 </dependencies>
 ```
 
-### Bezpośrednie pobranie
-Alternatywnie, pobierz najnowszą wersję bezpośrednio z [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+### Direct Download
+Alternatywnie pobierz najnowszą wersję bezpośrednio z [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
-### Uzyskanie licencji
-- **Free Trial:** Idealna do oceny API.  
-- **Temporary License:** Dostępna na oficjalnej stronie do krótkoterminowego testowania.  
-- **Full License:** Należy zakupić, gdy jesteś gotowy do użycia w produkcji.
+### License Acquisition
+- **Free Trial:** Idealny do oceny API.  
+- **Temporary License:** Dostępna na oficjalnej stronie do krótkoterminowych testów.  
+- **Full License:** Zakup, gdy jesteś gotowy do użycia w produkcji.
 
-## Podstawowa inicjalizacja (Java)
+## Basic Initialization (Java)
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -79,24 +82,24 @@ final Redactor redactor = new Redactor(stream);
 // Proceed with document operations...
 ```
 
-## Jak uzyskać typ pliku java przy użyciu GroupDocs.Redaction
+## Step‑by‑step guide to retrieve metadata
 
-### Krok 1: Otwórz strumień pliku
-Zacznij od utworzenia `InputStream` dla docelowego dokumentu:
+### Step 1: Open a File Stream
+Rozpocznij od utworzenia `InputStream` dla docelowego dokumentu:
 
 ```java
 FileInputStream stream = new FileInputStream("YOUR_DOCUMENT_DIRECTORY/Sample.docx");
 ```
 
-### Krok 2: Zainicjalizuj Redactor
+### Step 2: Initialize the Redactor
 Utwórz instancję `Redactor` używając strumienia. Ten obiekt daje dostęp do metadanych dokumentu.
 
 ```java
 final Redactor redactor = new Redactor(stream);
 ```
 
-### Krok 3: Pobierz informacje o dokumencie
-Wywołaj `getDocumentInfo()`, aby uzyskać obiekt `IDocumentInfo`. To tutaj **get file type java**, odczytujesz inne właściwości i nawet **retrieve page count java**.
+### Step 3: Retrieve Document Information
+Wywołaj `getDocumentInfo()`, aby uzyskać obiekt `IDocumentInfo`. To tutaj **java read file metadata**, **java get document type**, **java get page count**, a nawet **read file size java**.
 
 ```java
 try {
@@ -115,64 +118,64 @@ Document size: " + info.getSize() + " bytes");
 }
 ```
 
-> **Pro tip:** Odkomentuj linie `System.out.println` tylko wtedy, gdy potrzebujesz wyjścia na konsolę; pozostawienie ich zakomentowanych w produkcji zmniejsza obciążenie I/O.
+> **Wskazówka:** Odkomentuj linie `System.out.println` tylko wtedy, gdy potrzebujesz wyjścia na konsolę; pozostawienie ich zakomentowanych w produkcji zmniejsza obciążenie I/O.
 
-### Krok 4: Zamknij zasoby
+### Step 4: Close Resources
 Zawsze zamykaj `Redactor` i strumień w bloku `finally` (jak pokazano), aby uniknąć wycieków pamięci, szczególnie przy przetwarzaniu wielu dokumentów równocześnie.
 
-## Praktyczne zastosowania (java read document properties)
+## Practical Applications (java read document properties)
 
-1. **Document Management Systems:** Automatycznie kataloguj pliki według typu, liczby stron i rozmiaru.  
-2. **Data‑Analytics Pipelines:** Przekazuj metadane do pulpitów nawigacyjnych w celu raportowania.  
-3. **Content‑Creation Platforms:** Pokaż użytkownikom szczegóły pliku przed pobraniem lub podglądem.
+1. **Document Management Systems:** Automatyczne katalogowanie plików według typu, liczby stron i rozmiaru.  
+2. **Data‑Analytics Pipelines:** Przekazywanie metadanych do pulpitów nawigacyjnych w raportach.  
+3. **Content‑Creation Platforms:** Wyświetlanie użytkownikom szczegółów pliku przed pobraniem lub podglądem.  
 
-## Rozważania dotyczące wydajności
-- Używaj **buffered streams** (`BufferedInputStream`) dla dużych plików, aby poprawić szybkość I/O.  
-- Zwolnij zasoby niezwłocznie (`close()` zarówno na `Redactor`, jak i na strumieniu).  
-- Przy przetwarzaniu partii rozważ ponowne użycie jednej instancji `Redactor` na wątek, aby zmniejszyć narzut tworzenia obiektów.
+## Performance Considerations
+- Używaj **buforowanych strumieni** (`BufferedInputStream`) dla dużych plików, aby zwiększyć prędkość I/O.  
+- Szybko zwalniaj zasoby (`close()`) zarówno w `Redactor`, jak i w strumieniu.  
+- Przy przetwarzaniu wsadowym rozważ ponowne użycie jednej instancji `Redactor` na wątek, aby zmniejszyć narzut tworzenia obiektów.
 
-## Typowe problemy i rozwiązania
-
-| Objaw | Prawdopodobna przyczyna | Rozwiązanie |
-|-------|--------------------------|-------------|
-| `FileNotFoundException` | Nieprawidłowa ścieżka lub brak pliku | Zweryfikuj ścieżkę bezwzględną/względną oraz uprawnienia do pliku. |
+## Common Issues & Solutions
+| Symptom | Likely Cause | Fix |
+|---------|--------------|-----|
+| `FileNotFoundException` | Nieprawidłowa ścieżka lub brak pliku | Sprawdź ścieżkę bezwzględną/względną oraz uprawnienia do pliku. |
 | `LicenseException` | Brak ważnej licencji | Załaduj wersję próbną lub zakupioną licencję przed utworzeniem `Redactor`. |
-| `OutOfMemoryError` on large PDFs | Niebuforowany strumień lub przetwarzanie wielu plików jednocześnie | Przejdź na `BufferedInputStream` i ogranicz liczbę jednoczesnych wątków. |
+| `OutOfMemoryError` on large PDFs | Niebuforowany strumień lub jednoczesne przetwarzanie wielu plików | Przejdź na `BufferedInputStream` i ogranicz liczbę równoległych wątków. |
 
-## Najczęściej zadawane pytania
+## Frequently Asked Questions
 
-**Q: Do czego służy GroupDocs.Redaction?**  
-A: Głównie do redagowania wrażliwych treści, zapewnia również solidne API do **java read document properties**, takich jak typ pliku i liczba stron.
+**Q: What is GroupDocs.Redaction used for?**  
+A: Primarily for redacting sensitive content, it also provides robust APIs to **java read document properties** such as file type and page count.
 
-**Q: Czy mogę używać Groupaction z innymi frameworkami Java?**  
-A: Tak, biblioteka współpracuje płynnie ze Spring, Jakarta EE oraz nawet czystymi projektami Java SE.
+**Q: Can I use GroupDocs.Redaction with other Java frameworks?**  
+A: Yes, the library works seamlessly with Spring, Jakarta EE, and even plain Java SE projects.
 
-**Q: Jak efektywnie obsługiwać bardzo duże dokumenty?**  
-A: Otocz strumień pliku w `BufferedInputStream`, niezwłocznie zamykaj zasoby i rozważ przetwarzanie plików w trybie strumieniowym zamiast ładowania całego dokumentu do pamięci.
+**Q: How do I handle very large documents efficiently?**  
+A: Wrap the file stream in a `BufferedInputStream`, close resources promptly, and consider processing files in a streaming fashion rather than loading the whole document into memory.
 
-**Q: Czy biblioteka obsługuje dokumenty nie‑angielskie?**  
-A: Absolutnie — GroupDocs.Redaction obsługuje wiele języków i zestawów znaków od razu po instalacji.
+**Q: Does the library support non‑English documents?**  
+A: Absolutely—GroupDocs.Redaction handles multiple languages and character sets out of the box.
 
-**Q: Jakie są typowe pułapki przy wyodrębnianiu metadanych?**  
-A: Brak licencji, nieprawidłowe ścieżki plików oraz zapomnienie o zamknięciu strumieni to najczęstsze. Zawsze stosuj przedstawiony wyżej wzorzec czyszczenia zasobów.
+**Q: What are typical pitfalls when extracting metadata?**  
+A: Missing licenses, incorrect file paths, and forgetting to close streams are the most common. Always follow the resource‑cleanup pattern shown above.
 
-## Wnioski
-Masz teraz kompletny, gotowy do produkcji przepis na **getting file type java**, odczyt innych właściwości dokumentu oraz **retrieving page count java** przy użyciu GroupDocs.Redaction. Zintegruj te fragmenty kodu z istniejącymi usługami, a uzyskasz natychmiastową widoczność każdego dokumentu przepływającego przez Twój system.
+## Conclusion
+Masz teraz kompletny, gotowy do produkcji przepis na **java read file metadata**, odczyt innych właściwości dokumentu oraz **java get page count** przy użyciu GroupDocs.Redaction. Włącz te fragmenty kodu do istniejących usług i zyskasz natychmiastową widoczność każdego dokumentu przepływającego przez Twój system.
 
-**Kolejne kroki**
+**Next Steps**  
 - Eksperymentuj z innymi polami metadanych udostępnianymi przez `IDocumentInfo`.  
-- Połącz wyodrębnianie metadanych z procesami redakcji, aby uzyskać kompleksowe zabezpieczenie dokumentów.  
-- Zbadaj wzorce przetwarzania wsadowego dla środowisk o dużej przepustowości.
+- Połącz ekstrakcję metadanych z przepływami redakcji, aby uzyskać kompleksowe zabezpieczenie dokumentów.  
+- Zbadaj wzorce przetwarzania wsadowego dla środowisk o wysokim wolumenie.
 
-**Zasoby**
-- [Dokumentacja](https://docs.groupdocs.com/redaction/java/)  
-- [Referencja API](https://reference.groupdocs.com/redaction/java)  
-- [Pobierz GroupDocs.Redaction dla Javy](https://releases.groupdocs.com/redaction/java/)  
-- [Repozytorium GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
-- [Bezpłatne forum wsparcia](https://forum.groupdocs.com/c/redaction/33)  
-- [Informacje o licencji tymczasowej](https://purchase.groupdocs.com/temporary-license/)
+**Resources**  
+- [Documentation](https://docs.groupdocs.com/redaction/java/)  
+- [API Reference](https://reference.groupdocs.com/redaction/java)  
+- [Download GroupDocs.Redaction for Java](https://releases.groupdocs.com/redaction/java/)  
+- [GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
+- [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)  
+- [Temporary License Information](https://purchase.groupdocs.com/temporary-license/)  
 
----  
-**Ostatnia aktualizacja:** 2026-01-06  
-**Testowano z:** GroupDocs.Redaction 24.9 for Java  
-**Autor:** GroupDocs  
+---
+
+**Last Updated:** 2026-03-22  
+**Tested With:** GroupDocs.Redaction 24.9 for Java  
+**Author:** GroupDocs

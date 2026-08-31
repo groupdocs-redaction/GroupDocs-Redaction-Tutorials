@@ -1,59 +1,52 @@
 ---
-date: '2025-12-17'
-description: GroupDocs.Redaction for Java를 사용하여 PDF 파일을 편집하는 방법을 배우고, 주석 제거 Java 기술을
-  포함합니다. 이 가이드는 구성, 정책 관리 및 실용적인 적용 사례를 다룹니다.
+date: '2026-03-14'
+description: 레드액션 정책을 만들고 PDF Java 문서를 레드액션하는 방법을 배우세요. 여기에는 Java에서 주석을 제거하고 PDF 메타데이터를
+  삭제하는 것이 포함됩니다. 완전한 가이드.
 keywords:
 - redact sensitive information
 - GroupDocs.Redaction Java
 - document redaction
-title: 'Java용 GroupDocs.Redaction을 사용한 PDF 문서 가리기 - 단계별 가이드'
+title: GroupDocs.Redaction Java를 사용하여 PDF 편집 정책 만들기
 type: docs
 url: /ko/java/advanced-redaction/master-redaction-groupdocs-java-guide/
 weight: 1
 ---
 
-#GroupDocs.Redaction for Java를 활용한 레드액션 기술 마스터하기: 안내 가이드
+# Create Redaction Policy for PDF with GroupDocs.Redaction for Java
 
-결국 디지털 환경에서 정보를 관리하는 것입니다. **PDF를 수정하는 방법** 파일을 신뢰할 수 있도록 처리하는 것은 계약서, 제안 또는 개인 데이터를 활용하는 개발자에게 도움이 되는 것입니다. GroupDocs.Redaction for Java를 사용하면 다양한 레드 섹션을 보호할 수 있으며, **주석 제거 java** 방법도 배울 수 있습니다. 이 가이드는 레드액션 제한을 생성하고 저장하는 동안 도구를 사용하여 잠시 동안 안내합니다.
+오늘날 디지털 환경에서는 민감한 정보를 관리하는 것이 필수이며, **redaction policy를 생성**하는 것이 PDF 파일에서 기밀 데이터가 유출되지 않도록 보장하는 가장 빠른 방법입니다. **PDF Java** 문서를 **redact**하거나 **remove annotations java**, **erase metadata pdf**가 필요할 때, GroupDocs.Redaction for Java는 모든 주요 플랫폼에서 작동하는 깔끔한 프로그래밍 방식을 제공합니다.
 
-**배우가 될 내용:**
--다양한 레드액션 구성
-- 재사용을 위해 레드액션 분야를 XML 파일로 저장
-- GroupDocs.Redaction Java의 실용적인 적용 운동
+## Quick Answers
+- **What is the primary purpose of GroupDocs.Redaction?** To programmatically redact sensitive content from PDFs and other document formats.  
+- **Can I remove annotations with Java?** Yes—use the `DeleteAnnotationRedaction` class (remove annotations java).  
+- **Do I need a license for development?** A free trial or temporary license works for testing; a full license is required for production.  
+- **Which Java version is supported?** JDK 8 or later.  
+- **Where can I find the XML policy file?** You define the output path in your code and call `policy.save(...)`.
 
-이제 이러한 기능을 구현하기 위해 환경을 설정해 보겠습니다.
+## What is a redaction policy and how to **create redaction policy**?
+Redaction policy는 문서 내부에서 숨기거나 삭제하거나 교체해야 할 내용을 GroupDocs.Redaction에 정확히 알려주는 재사용 가능한 규칙 집합입니다. 정책을 한 번 정의하고 XML 파일로 저장하면 코드를 다시 작성하지 않고도 여러 PDF에 동일한 **redact sensitive info**를 적용할 수 있습니다.
 
-## 빠른 답변
-- **GroupDocs.Redaction의 주요 목적은 무엇입니까?**PDF 및 기타 문서 형식에서 고정 내용을 프로그래밍 방식으로 레드액션하는 것입니다.
-- **Java로 주석을 제거할 수 없습니까?**예—`DeleteAnnotationRedaction` 클래스를 사용합니다(Java 주석 제거).
-- **개발에 힘이 필요합니까?** 테스트용으로 무료 체험 또는 임시 볼륨으로 충분하지만, 운영 환경에서는 볼륨이 필요합니다.
-- **지원되는 Java 버전은 무엇입니까?**JDK8이상.
-- **XML 파일은 어디에서 찾을 수 있나요?**코드에서 출력을 정의하고 `policy.save(...)`를 호출하면 됩니다.
+## Why use GroupDocs.Redaction for Java?
+- **Compliance‑ready** – GDPR, HIPAA 등 다양한 규정을 충족합니다.  
+- **Fine‑grained control** – 정확한 구문, 정규식, 주석 제거, **erase metadata pdf** 등을 선택할 수 있습니다.  
+- **Reusable policies** – 설정을 XML로 저장하고 프로젝트 전반에 재사용합니다.  
+- **Performance‑optimized** – 대용량 PDF도 최소 메모리 사용량으로 효율적으로 처리합니다.
 
-## “PDF를 수정하는 방법”란?
-PDF를 레드액션이라고 한다는 것은 텍스트, 이미지, 보고 데이터 또는 사실을 알지 못하여 제거하거나 복구할 수 있다는 것을 의미합니다. GroupDocs.Redaction은 어쩔 수 없이, 표준식, 임시 데이터 레드액션을 정의하고 한 번에 적용할 수 있는 고수준 API를 제공합니다.
-
-## 왜 GroupDocs.Redaction for Java를 사용하시겠습니까?
-- **규정 준수 준비** – GDPR, HIPAA 등 다양한 규정을 정리합니다.
-- **세밀한 제어** – 그럼에도 불구하고 삽입, 표준식, 주석 제거, 메모 데이터 선택 중 삭제가 가능합니다.
-- **재사용 가능한 정책** – 구성을 XML로 작성하여 프로젝트를 재사용할 수 있습니다.
-- **성능 최적화** – 노트북 PDF도 최소 메모리 사용으로 처리합니다.
-
-## 전제 조건
+## Prerequisites
 
 GroupDocs.Redaction for Java를 시작하려면 다음이 필요합니다:
 
-- **라이브러리 및 종속성**: Maven 또는 직접 다운로드 방식으로 프로젝트에 GroupDocs.Redaction을 포함합니다.
-- **환경 설정**: JDK8 문제로 인해 Java 개발 환경을 준비합니다.
-- **지식 전제 조건**: Java 프로그래밍 기본 개념과 표준식에 대한 기본 지식이 있으면 도움이 됩니다.
+- **Libraries and Dependencies**: Maven 또는 직접 다운로드를 통해 프로젝트에 GroupDocs.Redaction을 포함합니다.
+- **Environment Setup**: JDK 8 이상이 설치된 Java 개발 환경을 준비합니다.
+- **Knowledge Prerequisites**: Java 프로그래밍 기본 개념과 정규식에 대한 기본 지식이 있으면 도움이 됩니다.
 
-## Java용 GroupDocs.Redaction 설정
+## Setting Up GroupDocs.Redaction for Java
 
-### 설치 정보
+### Installation Information
 
-**메이븐:**
+**Maven:**
 
-GroupDocs.Redaction을 Maven에 통합하려면 `pom.xml`에 다음을 추가합니다:
+Maven을 사용해 GroupDocs.Redaction을 통합하려면 `pom.xml`에 다음을 추가합니다:
 
 ```xml
 <repositories>
@@ -73,17 +66,17 @@ GroupDocs.Redaction을 Maven에 통합하려면 `pom.xml`에 다음을 추가합
 </dependencies>
 ```
 
-**직접 다운로드:**
+**Direct Download:**
 
-또는 [Java 릴리스용 GroupDocs.Redaction](https://releases.groupdocs.com/redaction/java/)에서 최신 버전을 다운로드합니다.
+또는 최신 버전을 [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/)에서 다운로드합니다.
 
-### 라이선스 취득
+### License Acquisition
 
-무료로 체험해 보세요. 장기적인 사용을 위해 구매를 고려하십시오.
+무료 체험판으로 시작하거나 임시 라이선스를 받아 모든 기능을 살펴볼 수 있습니다. 장기 사용을 위해서는 정식 라이선스 구매를 고려하세요.
 
-**기본 초기화:**
+**Basic Initialization:**
 
-프로젝트에서 GroupDocs.Redaction을 사용하려면 다음 코드를 사용하세요:
+프로젝트에서 GroupDocs.Redaction을 초기화하려면 다음을 사용합니다:
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -98,19 +91,19 @@ public class RedactionSetup {
 }
 ```
 
-## 구현 가이드
+## Implementation Guide
 
-특성을 여러 역할로 나눠보겠습니다.
+구현을 구체적인 기능별로 나누어 살펴보겠습니다.
 
-### PDF를 수정하는 방법: 수정 정책 생성 및 저장
+### How to **create redaction policy**: Create and Save Redaction Policy
 
-#### 개요
+#### Overview
 
-이 내용을 사용하면, 표준식, 임시 데이터 삭제 등 다양한 유형의 레드액션을 구성하고, 사용하기 위해 XML 파일로 디버깅할 수 있습니다.
+이 기능을 사용하면 정확한 구문, 정규식, 메타데이터 삭제 등 여러 유형의 redaction을 구성할 수 있습니다. 구성한 내용을 XML 파일로 저장해 나중에 재사용할 수 있습니다.
 
-##### 1단계: 수정 구성
+##### Step 1: Configure Redactions
 
-다양한 클래스를 이용해 레드액션을 구성합니다:
+다양한 클래스를 이용해 redaction을 구성합니다:
 
 ```java
 import com.groupdocs.redaction.RedactionPolicy;
@@ -137,9 +130,9 @@ RedactionPolicy policy = new RedactionPolicy(new Redaction[] {
 });
 ```
 
-##### 2단계: 수정 정책 저장
+##### Step 2: Save Redaction Policy
 
-구성한 기술을 XML 파일로 저장합니다:
+구성한 정책을 XML 파일로 저장합니다:
 
 ```java
 // Define your output directory path
@@ -147,15 +140,15 @@ String outputPath = YOUR_DOCUMENT_DIRECTORY + "YOUR_OUTPUT_DIRECTORY/POLICY_SAVE
 policy.save(outputPath);
 ```
 
-### 주석을 제거하는 방법 java: 정확한 구문 편집 구성
+### How to **remove annotations java**: Configure Exact Phrase Redaction
 
-#### 개요
+#### Overview
 
-특정 풍선을 빨간색 액션 대상으로 선거하고, 미리 정의된 텍스트로 교체합니다.
+특정 구문을 대상으로 redaction을 수행하고, 미리 정의된 텍스트로 교체합니다.
 
-##### 1단계: 정확한 구문 교정 만들기
+##### Step 1: Create Exact Phrase Redaction
 
-정확한 구문 레드액션을 구현합니다:
+정확한 구문 redaction을 구현합니다:
 
 ```java
 import com.groupdocs.redaction.Redaction;
@@ -169,15 +162,15 @@ Redaction exactPhraseRedaction = new ExactPhraseRedaction(
 );
 ```
 
-### 주석을 제거하는 방법 java: 정규식 수정 구성
+### How to **remove annotations java**: Configure Regex Redaction
 
-#### 개요
+#### Overview
 
-숙련된 문서 관리 방식을 사용하여 식별하고 교체합니다.
+정규식을 사용해 문서 내 패턴을 식별하고 교체합니다.
 
-##### 1단계: 정규식 수정 만들기
+##### Step 1: Create Regex Redaction
 
-정규식 기반 레드액션을 정의합니다:
+정규식 기반 redaction을 정의합니다:
 
 ```java
 import com.groupdocs.redaction.Redaction;
@@ -192,55 +185,54 @@ Redaction regexRedaction = new RegexRedaction(
 );
 ```
 
-## 실제 적용
+## Practical Applications
 
-1. **기밀 문서 관리**: 법무인사 문서의 이름, 주민등록번호, 그리고 데이터 등의 감성 정보를 자동으로 레드액션합니다.
-2. **규정 준수 자동화**: 고객 커뮤니케이션에서 개인 혐오를 레드액션해 GDPR, HIPAA 등 규정 준수를 준수합니다.
-3. **테스트를 위한 데이터 익명화**: 테스트 데이터셋을 구성하는 유지 관리 방식 레드액션으로 익명화합니다.
+1. **Confidential Document Management**: 법무·인사 문서에서 이름, 사회보장번호, 재무 데이터 등 **redact sensitive info**를 자동으로 제거합니다.  
+2. **Compliance Automation**: 고객 커뮤니케이션에서 개인 식별자를 redaction하여 GDPR, HIPAA 등 규정을 준수합니다.  
+3. **Data Anonymization for Testing**: 테스트 데이터셋을 구조는 유지하면서 정규식 기반 redaction으로 익명화합니다.
 
-## 성능 고려 사항
+## Performance Considerations
 
-- **수정 최적화**: 필요한 레드액션만 적용해 처리 속도를 높입니다.
-- **메모리 관리**: 특히 주제 문서에서는 Java 메모리 모델링을 관찰하고 나를 관리합니다.
-- **효율적인 Regex 패턴**: 기능성 보호 장치를 교정하는 방식을 최적화합니다.
+- **Optimize Redaction**: 필요한 redaction만 적용해 처리 속도를 높입니다.  
+- **Memory Management**: 특히 대용량 문서에서는 Java 메모리 사용량을 모니터링하고 효율적으로 관리합니다.  
+- **Efficient Regex Patterns**: 성능 저하를 방지하려 정규식 패턴을 최적화합니다.
 
-## 일반적인 문제 및 해결 방법
+## Common Issues and Solutions
 
-| 이슈 | 원인 | 수정 |
-|-------|-------|------|
-| 수정이 적용되지 않음 | 잘못된 구문/대소문자 구분 | 대소문자를 구분하지 않는 옵션을 사용하거나 정확한 텍스트를 확인하세요 |
-| 주석이 남아 있음 | `DeleteAnnotationRedaction`이 정책에 추가되지 않음 | 정책 배열에 `new DeleteAnnotationRedaction()`을 추가하세요 |
+| Issue | Cause | Fix |
+|-------|-------|-----|
+| Redaction not applied | Wrong phrase/case sensitivity | Use case‑insensitive options or verify exact text |
+| Annotations remain | `DeleteAnnotationRedaction` not added to policy | Add `new DeleteAnnotationRedaction()` to the policy array |
+| Slow processing on large PDFs | Unnecessary regex scans | Limit regex scope or pre‑filter pages |
 
-| 대용량 PDF에서 처리 속도가 느림 | 불필요한 정규 표현식 스캔 | 정규 표현식 범위를 제한하거나 페이지를 미리 필터링하세요 |
+## Frequently Asked Questions
 
-## 자주 묻는 질문
+**Q: What is GroupDocs.Redaction?**  
+A: A powerful library for redacting sensitive information from various document formats using Java.
 
-**Q: GroupDocs.Redaction이란 무엇인가요?**
-A: Java를 사용하여 다양한 문서 형식에서 민감한 정보를 삭제하는 강력한 라이브러리입니다.
+**Q: How do I get started with GroupDocs.Redaction?**  
+A: Set up your environment, include the Maven dependency, and follow the initialization guide above.
 
-**Q: GroupDocs.Redaction을 어떻게 시작하나요?**
-A: 개발 환경을 설정하고 Maven 종속성을 추가한 다음 위의 초기화 가이드를 따르세요.
+**Q: Can I customize redaction patterns in GroupDocs.Redaction?**  
+A: Yes—use exact phrases, regular expressions, or built‑in metadata removal classes.
 
-**Q: GroupDocs.Redaction에서 삭제 패턴을 사용자 지정할 수 있나요?**
-A: 네, 정확한 구문, 정규 표현식 또는 내장 메타데이터 제거 클래스를 사용할 수 있습니다.
+**Q: Is it possible to save and reuse redaction configurations?**  
+A: Absolutely—save your `RedactionPolicy` as an XML file and load it later.
 
-**질문: 수정 설정을 저장하고 재사용할 수 있나요?**
-답변: 네, 가능합니다. `RedactionPolicy`를 XML 파일로 저장하고 나중에 불러올 수 있습니다.
+**Q: What are the best practices for optimizing performance with GroupDocs.Redaction?**  
+A: Apply only needed redactions, manage Java heap size, and write efficient regex patterns.
 
-**질문: GroupDocs.Redaction을 사용하여 성능을 최적화하는 모범 사례는 무엇인가요?**
-답변: 필요한 수정만 적용하고, Java 힙 크기를 관리하며, 효율적인 정규 표현식 패턴을 작성하세요.
+## Resources
 
-## 리소스
-
-- [문서](https://docs.groupdocs.com/redaction/java/)
-- [API 참조](https://reference.groupdocs.com/redaction/java)
-- [다운로드](releases.groupdocs.com/redaction/java/)
-- [GitHub 저장소](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
-- [무료 지원 포럼](https://forum.groupdocs.com/c/redaction/33)
-- [임시 라이선스](https://purchase.groupdocs.com/temporary-license/)
+- [Documentation](https://docs.groupdocs.com/redaction/java/)
+- [API Reference](https://reference.groupdocs.com/redaction/java)
+- [Download](https://releases.groupdocs.com/redaction/java/)
+- [GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
+- [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)
+- [Temporary License](https://purchase.groupdocs.com/temporary-license/)
 
 ---
 
-**최종 업데이트:** 2025년 12월 17일
-**테스트 환경:** GroupDocs.Redaction 24.9 for Java
-**개발자:** GroupDocs
+**Last Updated:** 2026-03-14  
+**Tested With:** GroupDocs.Redaction 24.9 for Java  
+**Author:** GroupDocs

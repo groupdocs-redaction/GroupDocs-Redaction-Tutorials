@@ -1,56 +1,50 @@
 ---
-date: '2025-12-21'
-description: เรียนรู้วิธีแปลงไฟล์ docx เป็นภาพและทำการบังข้อมูลไฟล์ Word ด้วย GroupDocs Redaction สำหรับ Java คู่มือขั้นตอนโดยละเอียดที่ครอบคลุมการเรสเตอร์ไลเซชัน
-  การบังข้อมูลในพื้นที่ภาพ และการตั้งค่า Maven.
+date: '2026-02-21'
+description: เรียนรู้วิธีแปลงไฟล์ docx เป็นภาพและทำการลบข้อมูลในไฟล์ Word ด้วย GroupDocs Redaction สำหรับ Java คู่มือแบบขั้นตอนที่ครอบคลุมการเรสเตอร์ไลเซชัน
+  การลบข้อมูลในพื้นที่ภาพ และการตั้งค่า Maven.
 keywords:
 - GroupDocs Redaction Java
 - Word document rasterization
 - secure redaction
-title: วิธีแปลง DOCX เป็นภาพและลบข้อมูลในเอกสาร Word ด้วย GroupDocs Redaction Java
+title: วิธีแปลง DOCX เป็นภาพและทำการลบข้อมูลในเอกสาร Word ด้วย GroupDocs Redaction
+  Java
 type: docs
 url: /th/java/document-saving/groupdocs-redaction-java-rasterize-word-docs/
 weight: 1
 ---
 
-# แปลง DOCX เป็น Image และ Redact Word Documents ด้วย GroupDocs Redaction Java
+ final answer.# แปลง DOCX เป็นภาพและลบข้อมูลในเอกสาร Word ด้วย GroupDocs Redaction Java
 
-การปกป้องข้อมูลที่ละเอียดอ่อนในไฟล์ Microsoft Word เป็นความท้าทายประจำวันสำหรับนักพัฒนาที่สร้างแอปพลิเคชันที่เน้นเอกสาร ไม่ว่าคุณจะต้องการซ่อนข้อมูลส่วนบุคคล ปฏิบัติตาม GDPR หรือเตรียมสัญญากฎหมายเพื่อการตรวจสอบจากภายนอก การ **แปลง docx เป็น image** ก่อนทำการลบข้อมูลจะรับประกันว่าเลย์เอาต์เดิมยังคงอยู่ครบถ้วนในขณะที่เนื้อหาถูกปกปิดอย่างปลอดภัย
-
-ในบทเรียนนี้คุณจะได้เรียนรู้วิธี:
-
-- **Convert DOCX to image** โดยทำการ rasterize เอกสาร Word ด้วย GroupDocs Redaction for Java.  
-- ใช้ **image area redaction** บน PDF ที่ rasterized เพื่อซ่อนข้อความหรือกราฟิก  
-- ตั้งค่า **GroupDocs Maven dependency** และจัดการการให้สิทธิ์ใช้งาน  
-
-มาดำเนินการผ่านกระบวนการทั้งหมด ตั้งแต่การเตรียมสภาพแวดล้อมจนถึงการบันทึกเอกสารขั้นสุดท้าย
+การปกป้องข้อมูลที่ละเอียดอ่อนในไฟล์ Microsoft Word เป็นความท้าทายประจำวันสำหรับนักพัฒนาที่สร้างแอปพลิเคชันที่เน้นเอกสาร ไม่ว่าคุณจะต้องการซ่อนข้อมูลส่วนบุคคล ปฏิบัติตาม GDPR หรือเตรียมสัญญากฎหมายสำหรับการตรวจสอบจากภายนอก การ **convert docx to image** ก่อนทำการลบข้อมูลรับประกันว่าการจัดวางต้นฉบับจะคงเดิมในขณะที่เนื้อหาถูกปกปิดอย่างปลอดภัย ในคู่มือนี้คุณจะได้เห็นว่ากระบวนการนี้ยังทำ **convert word to pdf** อย่างมีประสิทธิภาพ ทำให้คุณได้ PDF ที่แรสเตอร์ไลซ์ซึ่งเหมาะสำหรับการลบข้อมูลที่ละเอียดอ่อน
 
 ## คำตอบอย่างรวดเร็ว
-- **What does “convert docx to image” mean?** มันทำการ rasterize แต่ละหน้าของไฟล์ Word เป็น bitmap เพื่อรักษาเลย์เอาต์สำหรับการลบข้อมูลที่เชื่อถือได้.  
-- **Which Maven artifact is required?** `com.groupdocs:groupdocs-redaction` (ดูส่วน *groupdocs maven dependency*)  
-- **Can I hide text in Java?** ใช่—ใช้ `ImageAreaRedaction` พร้อม `RegionReplacementOptions` เพื่อวางสีทับแบบทึบ.  
-- **Do I need a license?** ใบอนุญาตทดลองใช้งานทำงานได้สำหรับการประเมิน; จำเป็นต้องมีใบอนุญาตเชิงพาณิชย์สำหรับการใช้งานจริง.  
-- **Is the output a PDF or an image file?** ขั้นตอน rasterization จะสร้าง PDF ที่แต่ละหน้ามีรูปภาพ พร้อมสำหรับการลบข้อมูล.  
+- **“convert docx to image” หมายความว่าอะไร?** It rasterizes each page of a Word file into a bitmap, preserving layout for reliable redaction.  
+- **Maven artifact ที่ต้องการคืออะไร?** `com.groupdocs:groupdocs-redaction` (see the *groupdocs maven dependency* section).  
+- **ฉันสามารถซ่อนข้อความใน Java ได้หรือไม่?** Yes—use `ImageAreaRedaction` with `RegionReplacementOptions` to overlay a solid color.  
+- **ฉันต้องการใบอนุญาตหรือไม่?** ใบอนุญาตทดลองใช้งานทำงานได้สำหรับการประเมิน; ใบอนุญาตเชิงพาณิชย์จำเป็นสำหรับการใช้งานจริง.  
+- **ผลลัพธ์เป็น PDF หรือไฟล์ภาพ?** The rasterization step produces a PDF where each page is an image, ready for redaction.
 
 ## “convert docx to image” คืออะไร?
-การ rasterize ไฟล์ DOCX จะเปลี่ยนทุกหน้าให้เป็นภาพ (โดยปกติฝังอยู่ใน PDF) การแปลงนี้ทำให้ข้อความไม่สามารถเลือกได้ ทำให้การลบข้อมูลต่อไปเป็นแบบถาวรและป้องกันการปลอมแปลง
+Rasterizing a DOCX file transforms every page into an image (usually embedded in a PDF). This conversion eliminates selectable text, making subsequent redactions irreversible and tamper‑proof.
 
-## ทำไมต้องใช้ GroupDocs Redaction for Java?
-- **Accurate layout preservation** – การจัดรูปแบบ Word ดั้งเดิมจะคงอยู่อย่างแม่นยำ  
-- **Fine‑grained redaction** – คุณสามารถกำหนดเป้าหมายเป็นพื้นที่เฉพาะ ภาพ หรือทั้งหน้าได้  
-- **Seamless Maven integration** – *groupdocs maven dependency* มีน้ำหนักเบาและอัปเดตเป็นประจำ  
-- **Cross‑platform support** – ทำงานบน OS ใดก็ได้ที่รัน Java 8+
+## ทำไมต้องใช้ GroupDocs Redaction สำหรับ Java?
+- **Accurate layout preservation** – the original Word formatting stays exactly the same.  
+- **Fine‑grained redaction** – you can target specific regions, images, or whole pages.  
+- **Seamless Maven integration** – the *groupdocs maven dependency* is lightweight and regularly updated.  
+- **Cross‑platform support** – works on any OS that runs Java 8+.  
+- **Redact sensitive data** – the library is built to securely remove personal or confidential information.
 
 ## ข้อกำหนดเบื้องต้น
-- ติดตั้ง JDK 8 หรือใหม่กว่า  
-- IDE เช่น IntelliJ IDEA, Eclipse หรือ NetBeans  
-- การเชื่อมต่ออินเทอร์เน็ตเพื่อดาวน์โหลด Maven artifacts หรือ JAR โดยตรง  
-- ความรู้พื้นฐานของ Java และความคุ้นเคยกับ Maven  
+- JDK 8 หรือใหม่กว่า ติดตั้งแล้ว.  
+- IDE เช่น IntelliJ IDEA, Eclipse หรือ NetBeans.  
+- การเข้าถึงอินเทอร์เน็ตเพื่อดาวน์โหลด Maven artifacts หรือ JAR โดยตรง.  
+- ความรู้พื้นฐานของ Java และความคุ้นเคยกับ Maven.
 
 ## การตั้งค่า GroupDocs.Redaction สำหรับ Java
 
 ### Maven Dependency (groupdocs maven dependency)
 
-เพิ่มรีโพสิตอรีของ GroupDocs อย่างเป็นทางการและไลบรารี Redaction ลงใน `pom.xml` ของคุณ:
+Add the official GroupDocs repository and the Redaction library to your `pom.xml`:
 
 ```xml
 <repositories>
@@ -73,10 +67,11 @@ weight: 1
 **Direct Download** – หากคุณไม่ต้องการใช้ Maven ให้ดาวน์โหลด JAR ล่าสุดจากหน้าอย่างเป็นทางการ: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
 ### การรับใบอนุญาต
-1. ขอ **free trial license** จากพอร์ทัลของ GroupDocs  
-2. สำหรับการใช้งานในสภาพแวดล้อมการผลิต ให้ซื้อ **commercial license** และแทนที่คีย์ทดลองด้วยคีย์ถาวรของคุณ  
 
-## คู่มือขั้นตอนต่อขั้นตอน
+1. ขอ **free trial license** จากพอร์ทัลของ GroupDocs.  
+2. สำหรับการใช้งานในสภาพแวดล้อมการผลิต ให้ซื้อ **commercial license** และแทนที่คีย์ทดลองด้วยคีย์ถาวรของคุณ.
+
+## คู่มือแบบขั้นตอน
 
 ### ขั้นตอนที่ 1: นำเข้าคลาสที่จำเป็น (how to rasterize word)
 
@@ -89,7 +84,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 ```
 
-### ขั้นตอนที่ 2: โหลดและ rasterize DOCX (convert docx to image)
+### ขั้นตอนที่ 2: โหลดและแรสเตอร์ไลซ์ DOCX (convert docx to image)
 
 ```java
 String inputFilePath = "YOUR_DOCUMENT_DIRECTORY/sample.docx";
@@ -105,15 +100,15 @@ try (Redactor rasterizer = new Redactor(inputFilePath)) {
 }
 ```
 
-**Explanation:** `RasterizationOptions` บอก GroupDocs ให้เรนเดอร์แต่ละหน้าเป็นภาพ `ByteArrayOutputStream` เก็บผลลัพธ์ในหน่วยความจำ พร้อมสำหรับขั้นตอนต่อไปโดยไม่ต้องเขียนไฟล์ชั่วคราว
+**Explanation:** `RasterizationOptions` tells GroupDocs to render each page as an image. The `ByteArrayOutputStream` keeps the result in memory, ready for the next step without writing intermediate files. This step also **convert word to pdf** behind the scenes—each rasterized page is stored inside a PDF container.
 
-### ขั้นตอนที่ 3: เตรียมผลลัพธ์ที่ rasterized สำหรับการลบข้อมูล
+### ขั้นตอนที่ 3: เตรียมผลลัพธ์ที่แรสเตอร์ไลซ์สำหรับการลบข้อมูล
 
 ```java
 ByteArrayInputStream inputStream = new ByteArrayInputStream(stream.toByteArray());
 ```
 
-ขณะนี้ PDF ที่ rasterized พร้อมใช้งานเป็น `InputStream` ซึ่งคุณสามารถส่งตรงเข้าไปยังเอนจินการลบข้อมูลได้
+Now the rasterized PDF is available as an `InputStream`, which you can feed directly into the redaction engine.
 
 ### ขั้นตอนที่ 4: ใช้ Image Area Redaction (how to redact word)
 
@@ -151,50 +146,57 @@ try (Redactor redactor = new Redactor(inputStream)) {
 ```
 
 **Explanation:**  
-- `ImageAreaRedaction` กำหนดเป้าหมายเป็นพื้นที่สี่เหลี่ยมที่ระบุโดย `startPoint` และ `size`  
-- `RegionReplacementOptions` ให้คุณเลือกสีทับ (สีฟ้าในตัวอย่างนี้) และขนาดของสี่เหลี่ยมทดแทน  
-- หลังจากทำการลบข้อมูล เอกสารจะถูกบันทึกเป็น PDF ที่ rasterized พร้อมกับพื้นที่ที่สำคัญถูกซ่อนอย่างปลอดภัย  
+- `ImageAreaRedaction` targets a rectangular region defined by `startPoint` and `size`.  
+- `RegionReplacementOptions` lets you choose the overlay color (blue in this example) and the size of the replacement rectangle.  
+- After applying the redaction, the document is saved as a rasterized PDF with the sensitive area securely hidden. This is the core way to **hide text java** developers need when dealing with confidential Word content.
 
-## การประยุกต์ใช้ (how to redact word)
+## วิธีแปลง Word เป็น PDF และลบข้อมูลที่ละเอียดอ่อน
 
-| Scenario | Why Rasterize & Redact? |
-|----------|--------------------------|
-| **Legal contracts** | รับประกันความลับของลูกค้าก่อนแชร์ร่าง |
-| **Medical records** | ลบ PHI ขณะคงรูปแบบรายงานต้นฉบับ |
-| **Financial statements** | ปิดบังหมายเลขบัญชีหรือตัวเลขสำคัญสำหรับการตรวจสอบภายนอก |
+The rasterization process automatically **convert word to pdf**, embedding each page as an image inside a PDF file. Once in this format, you can use GroupDocs Redaction to **redact sensitive data** such as personal identifiers, financial numbers, or proprietary graphics. Because the text is no longer selectable, the redaction becomes tamper‑proof.
 
-## ข้อควรพิจารณาด้านประสิทธิภาพ
-- **Memory Management:** ใช้สตรีม (`ByteArrayOutputStream` / `ByteArrayInputStream`) เพื่อหลีกเลี่ยงการโหลดไฟล์ทั้งหมดเข้าสู่หน่วยความจำ  
-- **CPU Usage:** การ rasterization ใช้ CPU มาก; พิจารณาเพิ่ม heap ของ JVM (`-Xmx2g`) สำหรับไฟล์ DOCX ขนาดใหญ่  
-- **Version Updates:** รักษาไลบรารี GroupDocs ให้เป็นเวอร์ชันล่าสุด (เช่น 24.9) เพื่อรับประโยชน์จากการปรับปรุงประสิทธิภาพและการแก้บั๊ก  
+## วิธีซ่อนข้อความใน Java ด้วย GroupDocs
+
+If your use case is simply to mask portions of a document, the `ImageAreaRedaction` class provides a straightforward API. By specifying the coordinates and a replacement color, you can **hide text in Java** without dealing with low‑level PDF manipulation.
+
+## การประยุกต์ใช้จริง (how to redact word)
+
+| สถานการณ์ | ทำไมต้องแรสเตอร์ไลซ์และลบข้อมูล? |
+|----------|-----------------------------------|
+| **Legal contracts** | รับประกันความลับของลูกค้าก่อนแชร์ร่าง. |
+| **Medical records** | ลบ PHI ขณะยังคงรูปแบบรายงานต้นฉบับ. |
+| **Financial statements** | ปิดบังหมายเลขบัญชีหรือข้อมูลเชิงพาณิชย์สำหรับการตรวจสอบจากภายนอก. |
+
+## พิจารณาด้านประสิทธิภาพ
+
+- **Memory Management:** Use streams (`ByteArrayOutputStream` / `ByteArrayInputStream`) เพื่อหลีกเลี่ยงการโหลดไฟล์ทั้งหมดเข้าสู่หน่วยความจำ.  
+- **CPU Usage:** การแรสเตอร์ไลซ์ใช้ CPU อย่างหนัก; พิจารณาเพิ่ม heap ของ JVM (`-Xmx2g`) สำหรับไฟล์ DOCX ขนาดใหญ่.  
+- **Version Updates:** รักษาไลบรารี GroupDocs ให้เป็นเวอร์ชันล่าสุด (เช่น 24.9) เพื่อรับประโยชน์จากการปรับปรุงประสิทธิภาพและการแก้ไขบั๊ก.
 
 ## ปัญหาทั่วไปและวิธีแก้ (hide text java)
 
-| Issue | Solution |
+| ปัญหา | วิธีแก้ |
 |-------|----------|
-| **OutOfMemoryError** when processing large DOCX | ประมวลผลเอกสารเป็นส่วน ๆ หรือเพิ่มขนาด heap ของ JVM |
-| **Redaction not applied** | ตรวจสอบว่า `result.getStatus()` ไม่เป็น `Failed` และพิกัดอยู่ในขอบเขตของหน้า |
-| **Output PDF blank** | ตรวจสอบว่า `RasterizationOptions.setEnabled(false)` ถูกตั้งค่าเฉพาะหลังการลบข้อมูล; ควรเป็น `true` ในระหว่าง rasterization เริ่มต้น |
+| **OutOfMemoryError** เมื่อประมวลผล DOCX ขนาดใหญ่ | ประมวลผลเอกสารเป็นส่วน ๆ หรือเพิ่มขนาด heap ของ JVM. |
+| **Redaction not applied** | ตรวจสอบว่า `result.getStatus()` ไม่เป็น `Failed` และพิกัดอยู่ในขอบเขตของหน้า. |
+| **Output PDF blank** | Ensure `RasterizationOptions.setEnabled(false)` only after redaction; keep it `true` during initial rasterization. |
 
 ## คำถามที่พบบ่อย
 
-**Q: What does “convert docx to image” actually produce?**  
-A: กระบวนการสร้าง PDF ที่แต่ละหน้ามี bitmap ฝังอยู่ ทำให้ข้อความไม่สามารถเลือกได้และปลอดภัยสำหรับการลบข้อมูล  
+**Q: “convert docx to image” จริง ๆ แล้วสร้างอะไรขึ้นมา?**  
+A: กระบวนการสร้าง PDF ที่แต่ละหน้าถูกฝังเป็น bitmap ทำให้ข้อความไม่สามารถเลือกได้และปลอดภัยสำหรับการลบข้อมูล.
 
-**Q: Can I use GroupDocs Redaction for other file types?**  
-A: ใช่, รองรับ PDF, ภาพ, และรูปแบบเอกสารอื่น ๆ มากมาย  
+**Q: ฉันสามารถใช้ GroupDocs Redaction กับไฟล์ประเภทอื่นได้หรือไม่?**  
+A: ใช่, รองรับ PDF, ภาพ, และรูปแบบเอกสารอื่น ๆ อีกหลายประเภท.
 
-**Q: How does the temporary license work?**  
-A: ใบอนุญาตทดลองใช้งานเปิดใช้งานทุกฟีเจอร์เป็นระยะเวลาจำกัด ให้คุณประเมินการ rasterization และการลบข้อมูลโดยไม่มีข้อจำกัด  
+**Q: ใบอนุญาตชั่วคราวทำงานอย่างไร?**  
+A: ใบอนุญาตทดลองเปิดใช้งานฟีเจอร์ทั้งหมดเป็นระยะเวลาจำกัด ให้คุณประเมินการแรสเตอร์ไลซ์และการลบข้อมูลโดยไม่มีข้อจำกัด.
 
-**Q: Is there a way to redact multiple regions at once?**  
-A: แน่นอน—เรียก `redactor.apply()` หลายครั้งหรือส่งคอลเลกชันของอ็อบเจ็กต์ `ImageAreaRedaction`  
+**Q: มีวิธีลบหลายพื้นที่พร้อมกันหรือไม่?**  
+A: แน่นอน—เรียก `redactor.apply()` หลายครั้งหรือส่งคอลเลกชันของอ็อบเจกต์ `ImageAreaRedaction`.
 
-**Q: Do I need to convert the DOCX to PDF first?**  
-A: ไม่จำเป็น Redactor สามารถ rasterize DOCX โดยตรงและส่งออกเป็น PDF ในขั้นตอนเดียวตามที่แสดงด้านบน  
+**Q: จำเป็นต้องแปลง DOCX เป็น PDF ก่อนหรือไม่?**  
+A: ไม่จำเป็น. Redactor สามารถแรสเตอร์ไลซ์ DOCX โดยตรงและส่งออกเป็น PDF ในขั้นตอนเดียวตามที่แสดงด้านบน.
 
----
-
-**อัปเดตล่าสุด:** 2025-12-21  
-**ทดสอบด้วย:** GroupDocs.Redaction 24.9 (Java)  
-**ผู้เขียน:** GroupDocs
+**Last Updated:** 2026-02-21  
+**Tested With:** GroupDocs.Redaction 24.9 (Java)  
+**Author:** GroupDocs

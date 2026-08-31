@@ -1,5 +1,5 @@
 ---
-date: '2025-12-21'
+date: '2026-02-21'
 description: Scopri come convertire i file docx in immagine e redigere i file Word
   con GroupDocs Redaction per Java. Guida passo‑passo che copre la rasterizzazione,
   la redazione di aree immagine e la configurazione di Maven.
@@ -14,24 +14,18 @@ url: /it/java/document-saving/groupdocs-redaction-java-rasterize-word-docs/
 weight: 1
 ---
 
-# Converti DOCX in Immagine e Redigi Documenti Word con GroupDocs Redaction Java
+ formatting.
 
-Proteggere le informazioni sensibili nei file Microsoft Word è una sfida quotidiana per gli sviluppatori che creano applicazioni incentrate sui documenti. Che tu debba nascondere dati personali, rispettare il GDPR o preparare contratti legali per una revisione esterna, **convertire docx in immagine** prima della redazione garantisce che il layout originale rimanga intatto mentre il contenuto è oscurato in modo sicuro.
+Now produce final content.# Converti DOCX in Immagine e Redigi Documenti Word con GroupDocs Redaction Java
 
-In questo tutorial imparerai a:
-
-- **Converti DOCX in immagine** rasterizzando un documento Word con GroupDocs Redaction per Java.  
-- Applica **image area redaction** sul PDF rasterizzato per nascondere testo o grafica.  
-- Configura la **GroupDocs Maven dependency** e gestisci la licenza.  
-
-Procediamo passo passo attraverso l'intero processo, dalla preparazione dell'ambiente al salvataggio finale del documento.
+Proteggere le informazioni sensibili nei file Microsoft Word è una sfida quotidiana per gli sviluppatori che creano applicazioni incentrate sui documenti. Che tu debba nascondere dati personali, rispettare il GDPR o preparare contratti legali per una revisione esterna, **convert docx to image** prima della redazione garantisce che il layout originale rimanga intatto mentre il contenuto è oscurato in modo sicuro. In questa guida vedrai anche come il processo **convert word to pdf** in modo efficace, fornendoti un PDF rasterizzato perfetto per redigere dati sensibili.
 
 ## Risposte Rapide
-- **Cosa significa “convert docx to image”?** Rasterizza ogni pagina di un file Word in una bitmap, preservando il layout per una redazione affidabile.  
+- **Che cosa significa “convert docx to image”?** Rasterizza ogni pagina di un file Word in una bitmap, preservando il layout per una redazione affidabile.  
 - **Quale artefatto Maven è richiesto?** `com.groupdocs:groupdocs-redaction` (vedi la sezione *groupdocs maven dependency*).  
 - **Posso nascondere testo in Java?** Sì—usa `ImageAreaRedaction` con `RegionReplacementOptions` per sovrapporre un colore solido.  
-- **È necessaria una licenza?** Una licenza di prova funziona per la valutazione; è necessaria una licenza commerciale per la produzione.  
-- **L'output è un PDF o un file immagine?** La fase di rasterizzazione produce un PDF in cui ogni pagina è un'immagine, pronta per la redazione.
+- **Ho bisogno di una licenza?** Una licenza di prova funziona per la valutazione; è necessaria una licenza commerciale per la produzione.  
+- **L'output è un PDF o un file immagine?** Il passaggio di rasterizzazione produce un PDF in cui ogni pagina è un'immagine, pronta per la redazione.
 
 ## Cos'è “convert docx to image”?
 Rasterizzare un file DOCX trasforma ogni pagina in un'immagine (di solito incorporata in un PDF). Questa conversione elimina il testo selezionabile, rendendo le successive redazioni irreversibili e a prova di manomissione.
@@ -40,11 +34,12 @@ Rasterizzare un file DOCX trasforma ogni pagina in un'immagine (di solito incorp
 - **Preservazione accurata del layout** – la formattazione originale di Word rimane esattamente la stessa.  
 - **Redazione fine‑grained** – puoi mirare a regioni specifiche, immagini o pagine intere.  
 - **Integrazione Maven senza soluzione di continuità** – la *groupdocs maven dependency* è leggera e regolarmente aggiornata.  
-- **Supporto cross‑platform** – funziona su qualsiasi OS che esegue Java 8+.
+- **Supporto cross‑platform** – funziona su qualsiasi OS che esegue Java 8+.  
+- **Redigere dati sensibili** – la libreria è progettata per rimuovere in modo sicuro informazioni personali o riservate.
 
 ## Prerequisiti
-- JDK 8 o versioni successive installate.  
-- Un IDE come IntelliJ IDEA, Eclipse o NetBeans.  
+- JDK 8 o superiore installato.  
+- Un IDE come IntelliJ IDEA, Eclipse o NetBeans.  
 - Accesso a Internet per scaricare gli artefatti Maven o il JAR diretto.  
 - Conoscenze di base di Java e familiarità con Maven.
 
@@ -78,9 +73,9 @@ Aggiungi il repository ufficiale GroupDocs e la libreria Redaction al tuo `pom.x
 1. Richiedi una **licenza di prova gratuita** dal portale GroupDocs.  
 2. Per le distribuzioni in produzione, acquista una **licenza commerciale** e sostituisci la chiave di prova con la tua chiave permanente.
 
-## Guida Passo‑Passo
+## Guida passo‑passo
 
-### Passo 1: Importa le Classi Necessarie (come rasterizzare word)
+### Passo 1: Importa le classi necessarie (come rasterizzare word)
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -91,7 +86,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 ```
 
-### Passo 2: Carica e Rasterizza il DOCX (convert docx to image)
+### Passo 2: Carica e rasterizza il DOCX (convert docx to image)
 
 ```java
 String inputFilePath = "YOUR_DOCUMENT_DIRECTORY/sample.docx";
@@ -107,9 +102,9 @@ try (Redactor rasterizer = new Redactor(inputFilePath)) {
 }
 ```
 
-**Spiegazione:** `RasterizationOptions` indica a GroupDocs di renderizzare ogni pagina come immagine. Il `ByteArrayOutputStream` mantiene il risultato in memoria, pronto per il passo successivo senza scrivere file intermedi.
+**Spiegazione:** `RasterizationOptions` indica a GroupDocs di renderizzare ogni pagina come immagine. Il `ByteArrayOutputStream` mantiene il risultato in memoria, pronto per il passaggio successivo senza scrivere file intermedi. Questo passaggio esegue anche **convert word to pdf** in background—ogni pagina rasterizzata è memorizzata all'interno di un contenitore PDF.
 
-### Passo 3: Prepara l'Output Rasterizzato per la Redazione
+### Passo 3: Prepara l'output rasterizzato per la redazione
 
 ```java
 ByteArrayInputStream inputStream = new ByteArrayInputStream(stream.toByteArray());
@@ -153,50 +148,59 @@ try (Redactor redactor = new Redactor(inputStream)) {
 ```
 
 **Spiegazione:**  
-- `ImageAreaRedaction` individua una regione rettangolare definita da `startPoint` e `size`.  
-- `RegionReplacementOptions` ti consente di scegliere il colore di sovrapposizione (blu in questo esempio) e le dimensioni del rettangolo di sostituzione.  
-- Dopo aver applicato la redazione, il documento viene salvato come PDF rasterizzato con l'area sensibile nascosta in modo sicuro.
+- `ImageAreaRedaction` mira a una regione rettangolare definita da `startPoint` e `size`.  
+- `RegionReplacementOptions` ti permette di scegliere il colore di sovrapposizione (blu in questo esempio) e le dimensioni del rettangolo di sostituzione.  
+- Dopo aver applicato la redazione, il documento viene salvato come PDF rasterizzato con l'area sensibile nascosta in modo sicuro. Questo è il modo principale per **hide text java** di cui hanno bisogno gli sviluppatori quando trattano contenuti Word riservati.
 
-## Applicazioni Pratiche (come redigere word)
+## Come convertire Word in PDF e redigere dati sensibili
+
+Il processo di rasterizzazione converte automaticamente **convert word to pdf**, incorporando ogni pagina come immagine all'interno di un file PDF. Una volta in questo formato, puoi usare GroupDocs Redaction per **redact sensitive data** come identificatori personali, numeri finanziari o grafiche proprietarie. Poiché il testo non è più selezionabile, la redazione diventa a prova di manomissione.
+
+## Come nascondere testo in Java con GroupDocs
+
+Se il tuo caso d'uso è semplicemente mascherare parti di un documento, la classe `ImageAreaRedaction` offre un'API semplice. Specificando le coordinate e un colore di sostituzione, puoi **hide text in Java** senza dover gestire la manipolazione PDF a basso livello.
+
+## Applicazioni pratiche (how to redact word)
 
 | Scenario | Perché rasterizzare e redigere? |
-|----------|---------------------------------|
-| **Legal contracts** | Garantisce la riservatezza del cliente prima di condividere le bozze. |
-| **Medical records** | Rimuove le informazioni sanitarie (PHI) mantenendo il layout originale del rapporto. |
-| **Financial statements** | Maschera i numeri di conto o le cifre proprietarie per audit esterni. |
+|----------|-------------------------------|
+| **Contratti legali** | Garantisce la riservatezza del cliente prima di condividere le bozze. |
+| **Cartelle cliniche** | Rimuove le PHI mantenendo il layout originale del rapporto. |
+| **Bilanci finanziari** | Maschera i numeri di conto o le cifre proprietarie per audit esterni. |
 
-## Considerazioni sulle Prestazioni
+## Considerazioni sulle prestazioni
+
 - **Gestione della memoria:** Usa stream (`ByteArrayOutputStream` / `ByteArrayInputStream`) per evitare di caricare interi file in memoria.  
-- **Utilizzo della CPU:** La rasterizzazione è intensiva per la CPU; considera di aumentare l'heap JVM (`-Xmx2g`) per file DOCX di grandi dimensioni.  
-- **Aggiornamenti di versione:** Mantieni la libreria GroupDocs aggiornata (es. 24.9) per beneficiare di ottimizzazioni delle prestazioni e correzioni di bug.
+- **Utilizzo CPU:** La rasterizzazione è intensiva per la CPU; considera di aumentare l'heap JVM (`-Xmx2g`) per file DOCX di grandi dimensioni.  
+- **Aggiornamenti di versione:** Mantieni la libreria GroupDocs aggiornata (es. 24.9) per beneficiare di ottimizzazioni delle prestazioni e correzioni di bug.
 
-## Problemi Comuni e Soluzioni (hide text java)
+## Problemi comuni e soluzioni (hide text java)
 
 | Problema | Soluzione |
-|----------|----------|
+|----------|-----------|
 | **OutOfMemoryError** durante l'elaborazione di grandi DOCX | Elabora il documento a blocchi o aumenta la dimensione dell'heap JVM. |
 | **Redaction not applied** | Verifica che `result.getStatus()` non sia `Failed` e che le coordinate siano entro i limiti della pagina. |
 | **Output PDF blank** | Assicurati che `RasterizationOptions.setEnabled(false)` sia impostato solo dopo la redazione; mantienilo `true` durante la rasterizzazione iniziale. |
 
-## Domande Frequenti
+## Domande frequenti
 
-**D: Cosa produce realmente “convert docx to image”?**  
-R: Il processo crea un PDF in cui ogni pagina è una bitmap incorporata, rendendo il testo non selezionabile e sicuro per la redazione.
+**Q: Cosa produce realmente “convert docx to image”?**  
+A: Il processo crea un PDF in cui ogni pagina è una bitmap incorporata, rendendo il testo non selezionabile e sicuro per la redazione.
 
-**D: Posso usare GroupDocs Redaction per altri tipi di file?**  
-R: Sì, supporta PDF, immagini e molti altri formati di documento.
+**Q: Posso usare GroupDocs Redaction per altri tipi di file?**  
+A: Sì, supporta PDF, immagini e molti altri formati di documento.
 
-**D: Come funziona la licenza temporanea?**  
-R: La licenza di prova sblocca tutte le funzionalità per un periodo limitato, permettendoti di valutare rasterizzazione e redazione senza restrizioni.
+**Q: Come funziona la licenza temporanea?**  
+A: La licenza di prova sblocca tutte le funzionalità per un periodo limitato, permettendoti di valutare rasterizzazione e redazione senza restrizioni.
 
-**D: Esiste un modo per redigere più regioni contemporaneamente?**  
-R: Assolutamente—chiama `redactor.apply()` più volte o passa una collezione di oggetti `ImageAreaRedaction`.
+**Q: Esiste un modo per redigere più regioni contemporaneamente?**  
+A: Assolutamente—chiama `redactor.apply()` più volte o passa una collezione di oggetti `ImageAreaRedaction`.
 
-**D: Devo convertire il DOCX in PDF prima?**  
-R: No. Il Redactor può rasterizzare direttamente il DOCX e produrre un PDF in un unico passaggio, come mostrato sopra.
+**Q: Devo convertire il DOCX in PDF prima?**  
+A: No. Il Redactor può rasterizzare direttamente il DOCX e produrre un PDF in un unico passaggio, come mostrato sopra.
 
 ---
 
-**Ultimo aggiornamento:** 2025-12-21  
+**Ultimo aggiornamento:** 2026-02-21  
 **Testato con:** GroupDocs.Redaction 24.9 (Java)  
 **Autore:** GroupDocs

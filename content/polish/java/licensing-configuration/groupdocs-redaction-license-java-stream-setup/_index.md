@@ -1,56 +1,66 @@
 ---
-date: '2026-01-03'
-description: Dowiedz się, jak ustawić licencję dla GroupDocs.Redaction w Javie przy
-  użyciu InputStream, zapewniając płynną zgodność licencyjną.
+date: '2026-03-06'
+description: Dowiedz się, jak ustawić licencję GroupDocs w Javie przy użyciu InputStream,
+  aby zapewnić płynną zgodność licencyjną.
 keywords:
 - set GroupDocs.Redaction license Java
 - Java input stream licensing
 - configure GroupDocs.Redaction
-title: Jak ustawić licencję dla GroupDocs.Redaction w Javie (InputStream)
+title: Jak ustawić licencję GroupDocs w Javie przy użyciu InputStream
 type: docs
 url: /pl/java/licensing-configuration/groupdocs-redaction-license-java-stream-setup/
 weight: 1
 ---
 
-# Jak ustawić licencję dla GroupDocs.Redaction w Javie przy użyciu InputStream
+# Jak ustawić licencję GroupDocs w Javie przy użyciu InputStream
 
-W tym samouczku dowiesz się **jak ustawić licencję** dla GroupDocs.Redaction w aplikacji Java, ładując plik licencji z `InputStream`. Użycie strumienia wejściowego sprawia, że logika licencjonowania jest elastyczna i przenośna, szczególnie gdy plik licencji jest pakowany wewnątrz pliku JAR lub pobierany z bezpiecznej lokalizacji w czasie wykonywania.
+Jeśli potrzebujesz **ustawić licencję groupdocs java** w elastyczny sposób, wczytanie pliku licencji z `InputStream` jest najczystszym rozwiązaniem. To podejście działa niezależnie od tego, czy licencja znajduje się wewnątrz Twojego JAR‑a, na udziale sieciowym, czy w bezpiecznym magazynie, dając pełną kontrolę nad wdrożeniem bez twardo zakodowanych ścieżek.
 
-## Quick Answers
-- **Jaki jest podstawowy sposób ustawienia licencji GroupDocs.Redaction?** Załaduj plik `.lic` do `FileInputStream` i wywołaj `license.setLicense(stream)`.  
-- **Czy potrzebne jest połączenie internetowe?** Nie, biblioteka działa całkowicie offline po zastosowaniu licencji.  
-- **Jaka wersja Javy jest wymagana?** Obsługiwana jest Java 8 lub nowsza.  
-- **Czy mogę przechowywać licencję w classpath?** Tak, możesz ją załadować jako strumień zasobów.  
-- **Co się stanie, jeśli plik licencji jest nieobecny?** API zgłosi wyjątek; należy go obsłużyć w odpowiedni sposób.
+## Szybkie odpowiedzi
+- **Jaki jest podstawowy sposób ustawienia licencji GroupDocs.Redaction?** Wczytaj plik `.lic` do `FileInputStream` i wywołaj `license.setLicense(stream)`.  
+- **Czy potrzebne jest połączenie z internetem?** Nie, biblioteka działa całkowicie offline po zastosowaniu licencji.  
+- **Jakiej wersji Javy wymaga?** Obsługiwana jest Java 8 lub nowsza.  
+- **Czy mogę przechowywać licencję w classpath?** Tak, możesz wczytać ją jako strumień zasobu.  
+- **Co się stanie, jeśli plik licencji będzie brakował?** API zgłosi wyjątek; należy go obsłużyć w sposób elegancki.
 
-## Introduction
+## Wprowadzenie
 
-Czy chcesz w pełni wykorzystać możliwości GroupDocs.Redaction dla Javy, ale nie wiesz, jak prawidłowo **ustawić licencję**? Ten przewodnik wyjaśnia proces, pokazując, jak użyć `InputStream` do skonfigurowania licencji. Postępuj zgodnie z poniższymi krokami, aby pozostać zgodnym i odblokować wszystkie funkcje oferowane przez GroupDocs.Redaction.
+W tym samouczku dowiesz się **jak ustawić licencję groupdocs java** dla GroupDocs.Redaction, wczytując plik licencji z `InputStream`. Użycie strumienia sprawia, że logika licencjonowania jest przenośna, szczególnie gdy plik licencji jest pakowany wewnątrz JAR‑a lub pobierany z bezpiecznej lokalizacji w czasie działania.
 
-## Prerequisites
-Before you start, make sure you have:
+## Co to jest „set groupdocs license java”?
+
+Ustawienie licencji informuje SDK GroupDocs.Redaction, że posiadasz ważne uprawnienie, odblokowując wszystkie funkcje premium, takie jak zaawansowane wzorce redakcji, przetwarzanie wsadowe i wydajne renderowanie. Bez ważnej licencji SDK działa w ograniczonym trybie ewaluacyjnym.
+
+## Dlaczego używać InputStream do licencjonowania?
+
+- **Przenośność:** Działa tak samo na lokalnych maszynach, kontenerach Docker i maszynach w chmurze.  
+- **Bezpieczeństwo:** Możesz przechowywać licencję w zaszyfrowanym zasobie lub menedżerze sekretów i strumieniować ją w czasie działania.  
+- **Brak twardo zakodowanych ścieżek:** Eliminujesz zależności od systemu plików, które mogą się psuć przy przenoszeniu aplikacji.
+
+## Wymagania wstępne
+Zanim rozpoczniesz, upewnij się, że masz:
 
 - **GroupDocs.Redaction for Java** (wersja 24.9 lub nowsza)  
 - **Java Development Kit (JDK)** 8+  
 - IDE, takie jak IntelliJ IDEA, Eclipse lub NetBeans  
-- Zainstalowany Maven do zarządzania zależnościami  
+- Maven zainstalowany do zarządzania zależnościami  
 
-### Required Libraries and Dependencies
+### Wymagane biblioteki i zależności
 - GroupDocs.Redaction for Java  
-- Maven (opcjonalnie, ale zalecane)
+- Maven (opcjonalny, ale zalecany)
 
-### Environment Setup Requirements
+### Wymagania dotyczące konfiguracji środowiska
 - Odpowiednie IDE  
-- Zainstalowany Maven  
+- Maven zainstalowany  
 
-### Knowledge Prerequisites
+### Wymagania wiedzy
 - Podstawy programowania w Javie  
 - Znajomość strumieni I/O  
 
-## Setting Up GroupDocs.Redaction for Java
+## Konfiguracja GroupDocs.Redaction for Java
 Aby rozpocząć, dodaj bibliotekę do swojego projektu.
 
-### Using Maven
+### Korzystanie z Maven
 Dodaj następującą konfigurację do pliku `pom.xml`:
 
 ```xml
@@ -71,15 +81,15 @@ Dodaj następującą konfigurację do pliku `pom.xml`:
 </dependencies>
 ```
 
-### Direct Download
-Alternatywnie możesz pobrać najnowszy plik JAR z [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+### Bezpośrednie pobranie
+Alternatywnie możesz pobrać najnowszy JAR z [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
-#### License Acquisition Steps
-1. **Free Trial:** Rozpocznij od wersji próbnej, aby wypróbować podstawowe funkcje.  
-2. **Temporary License:** Uzyskaj tymczasowy klucz ze strony GroupDocs.  
-3. **Purchase:** Nabyj pełną subskrypcję do użytku produkcyjnego.
+#### Kroki pozyskiwania licencji
+1. **Bezpłatna wersja próbna:** Rozpocznij od wersji próbnej, aby wypróbować podstawowe funkcje.  
+2. **Licencja tymczasowa:** Uzyskaj tymczasowy klucz ze strony GroupDocs.  
+3. **Zakup:** Nabyj pełną subskrypcję do użytku produkcyjnego.
 
-### Basic Initialization
+### Podstawowa inicjalizacja
 Poniżej znajduje się szkielet, którego użyjesz przed zastosowaniem licencji:
 
 ```java
@@ -95,15 +105,12 @@ class InitializeGroupDocs {
 }
 ```
 
-## Implementation Guide
-Teraz skupmy się na ładowaniu licencji z `InputStream`.
+## Jak ustawić licencję GroupDocs w Javie przy użyciu InputStream
+Wczytywanie licencji za pomocą strumienia odłącza Twój kod od twardo zakodowanych ścieżek plików, co ułatwia wdrażanie w kontenerach lub środowiskach chmurowych.
 
-### Setting License from Stream
-Ładowanie licencji za pomocą strumienia odłącza kod od sztywno zakodowanych ścieżek plików, co ułatwia wdrażanie w kontenerach lub środowiskach chmurowych.
-
-#### Step-by-Step Implementation
+### Implementacja krok po kroku
 **1. Zdefiniuj ścieżkę katalogu dokumentów**  
-Określ, gdzie znajduje się plik licencji (lub gdzie spodziewasz się go znaleźć).
+Określ, gdzie znajduje się plik licencji (lub gdzie go oczekujesz).
 
 ```java
 String YOUR_DOCUMENT_DIRECTORY = "YOUR_DOCUMENT_DIRECTORY";
@@ -115,7 +122,7 @@ String YOUR_DOCUMENT_DIRECTORY = "YOUR_DOCUMENT_DIRECTORY";
 File licenseFile = new File(YOUR_DOCUMENT_DIRECTORY + "/path/to/license.lic");
 ```
 
-**3. Sprawdź, czy plik licencji istnieje**  
+**3. Sprawdź, czy plik licencji istnieje i zastosuj go**  
 
 ```java
 if (licenseFile.exists()) {
@@ -133,57 +140,57 @@ if (licenseFile.exists()) {
 }
 ```
 
-#### Explanation
+#### Wyjaśnienie
 - **FileInputStream** odczytuje plik `.lic` jako strumień.  
 - **com.groupdocs.redaction.licensing.License** to klasa, która stosuje licencję do SDK.  
 
-### Troubleshooting Tips
-- **License File Not Found:** Zweryfikuj ścieżkę katalogu i nazwę pliku.  
+### Porady dotyczące rozwiązywania problemów
+- **Plik licencji nie został znaleziony:** Zweryfikuj ścieżkę katalogu i nazwę pliku.  
 - **IOException:** Zawsze otaczaj operacje I/O blokiem try‑with‑resources, aby zapewnić prawidłowe zamknięcie strumieni.  
 
-## Practical Applications
-GroupDocs.Redaction wyróżnia się w następujących scenariuszach:
+## Praktyczne zastosowania
+GroupDocs.Redaction błyszczy w scenariuszach takich jak:
 
-1. **Legal Document Redaction:** Automatyczne usuwanie danych osobowych przed udostępnieniem.  
-2. **Content Moderation:** Usuwanie poufnych informacji z PDF‑ów przesyłanych przez użytkowników.  
-3. **Public Release Preparation:** Zapewnienie, że informacje własnościowe nigdy nie opuszczą Twojej organizacji.
+1. **Redakcja dokumentów prawnych:** Automatyczne usuwanie danych osobowych przed udostępnieniem.  
+2. **Moderacja treści:** Usuwanie poufnych szczegółów z PDF‑ów przesyłanych przez użytkowników.  
+3. **Przygotowanie do publikacji publicznej:** Zapewnienie, że informacje własnościowe nigdy nie opuszczą Twojej organizacji.
 
-## Performance Considerations
-- **Batch Processing:** Grupuj dokumenty, aby zmniejszyć narzut I/O.  
-- **Memory Management:** Używaj strumieni i szybko zwalniaj obiekty przy dużych plikach.  
-- **Optimization Settings:** Zbadaj opcje SDK dotyczące przetwarzania równoległego, jeśli to konieczne.
+## Rozważania wydajnościowe
+- **Przetwarzanie wsadowe:** Grupuj dokumenty, aby zmniejszyć narzut I/O.  
+- **Zarządzanie pamięcią:** Używaj strumieni i niezwłocznie zwalniaj obiekty przy dużych plikach.  
+- **Ustawienia optymalizacji:** Zbadaj opcje SDK dotyczące przetwarzania równoległego, jeśli jest to potrzebne.
 
-## Conclusion
-Teraz wiesz **jak ustawić licencję** dla GroupDocs.Redaction w Javie przy użyciu `InputStream`. Ta metoda zapewnia elastyczność wdrożenia, jednocześnie utrzymując aplikację w pełni licencjonowaną.
+## Typowe problemy i rozwiązania
+| Problem | Prawdopodobna przyczyna | Rozwiązanie |
+|-------|--------------|-----|
+| “License file not found.” | Nieprawidłowa ścieżka lub brak pliku w classpath. | Sprawdź `YOUR_DOCUMENT_DIRECTORY` i upewnij się, że plik `.lic` jest wdrożony razem z aplikacją. |
+| `NullPointerException` przy wywołaniu `setLicense`. | Strumień jest `null`, ponieważ pliku nie udało się otworzyć. | Użyj try‑with‑resources i zweryfikuj uprawnienia do pliku. |
+| Licencja nie została zastosowana mimo braku wyjątków. | Plik licencji jest uszkodzony lub wersja niezgodna. | Pobierz ponownie licencję z portalu GroupDocs i zamień plik. |
 
-### Next Steps
-- Eksperymentuj z innymi funkcjami SDK, takimi jak wzorce redakcji i zadania wsadowe.  
-- Zintegruj kod licencjonowania z procedurą uruchamiania aplikacji, aby zapewnić płynne działanie.
+## Najczęściej zadawane pytania
 
-## Frequently Asked Questions
+**P: Jak uzyskać tymczasową licencję dla GroupDocs.Redaction?**  
+O: Odwiedź [stronę GroupDocs](https://purchase.groupdocs.com/temporary-license/) i poproś o klucz próbny.
 
-**Q: Jak uzyskać tymczasową licencję dla GroupDocs.Redaction?**  
-A: Odwiedź [GroupDocs website](https://purchase.groupdocs.com/temporary-license/) i poproś o klucz próbny.
+**P: Czy mogę używać GroupDocs.Redaction offline po zastosowaniu licencji?**  
+O: Tak, po umieszczeniu biblioteki i licencji na lokalnym komputerze nie jest wymagane połączenie z internetem.
 
-**Q: Czy mogę używać GroupDocs.Redaction offline po zastosowaniu licencji?**  
-A: Tak, po umieszczeniu biblioteki i licencji na lokalnym komputerze nie jest wymagane połączenie internetowe.
+**P: Jakie formaty dokumentów są obsługiwane przez GroupDocs.Redaction?**  
+O: PDF, Word, Excel, PowerPoint oraz popularne formaty graficzne, takie jak JPEG i PNG.
 
-**Q: Jakie formaty dokumentów są obsługiwane przez GroupDocs.Redaction?**  
-A: PDF, Word, Excel, PowerPoint oraz popularne formaty obrazów, takie jak JPEG i PNG.
+**P: Jaki jest najlepszy sposób obsługi wyjątków przy ustawianiu licencji?**  
+O: Otocz kod licencjonowania blokiem try‑catch i zaloguj szczegóły wyjątku w celu diagnostyki.
 
-**Q: Jaki jest najlepszy sposób obsługi wyjątków przy ustawianiu licencji?**  
-A: Otocz kod licencjonowania blokiem try‑catch i zaloguj szczegóły wyjątku w celu diagnostyki.
+**P: Dlaczego wybrać InputStream zamiast bezpośredniej ścieżki do pliku?**  
+O: InputStream pozwala wczytać licencję z zasobów, przechowywania w chmurze lub zaszyfrowanych kontenerów bez ujawniania absolutnych ścieżek.
 
-**Q: Dlaczego wybrać InputStream zamiast bezpośredniej ścieżki do pliku?**  
-A: InputStream umożliwia ładowanie licencji z zasobów, przechowywania w chmurze lub zaszyfrowanych kontenerów bez ujawniania bezwzględnych ścieżek.
-
-## Resources
-- **Documentation:** [GroupDocs.Redaction Documentation](https://docs.groupdocs.com/redaction/java/)  
-- **Support Forums:** [GroupDocs Support Forums](https://forum.groupdocs.com/c/redaction/33)
+## Zasoby
+- **Dokumentacja:** [GroupDocs.Redaction Documentation](https://docs.groupdocs.com/redaction/java/)  
+- **Forum wsparcia:** [GroupDocs Support Forums](https://forum.groupdocs.com/c/redaction/33)
 
 ---
 
-**Ostatnia aktualizacja:** 2026-01-03  
+**Ostatnia aktualizacja:** 2026-03-06  
 **Testowano z:** GroupDocs.Redaction 24.9 for Java  
 **Autor:** GroupDocs  
 

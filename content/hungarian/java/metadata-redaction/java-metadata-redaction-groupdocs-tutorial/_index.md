@@ -1,45 +1,45 @@
 ---
-date: '2026-01-08'
-description: Tanulja meg, hogyan használja a MetadataSearchRedaction-t Java-ban a
-  GroupDocs.Redaction segítségével, hogy biztonságosan eltávolítsa a dokumentum érzékeny
-  metaadatait.
+date: '2026-03-22'
+description: Tanulja meg, hogyan végezhet metaadat‑redakciót a GroupDocs segítségével
+  Java‑ban, biztonságosan eltávolítva a bizalmas dokumentum metaadatait a GroupDocs.Redaction
+  használatával.
 keywords:
 - metadata redaction Java
 - GroupDocs Redaction tutorial
 - secure document metadata
-title: Hogyan használjuk a MetadataSearchRedaction-t Java-ban a GroupDocs-szal
+title: Hogyan hajtsuk végre a metaadatok redakcióját a GroupDocs-szal Java-ban
 type: docs
 url: /hu/java/metadata-redaction/java-metadata-redaction-groupdocs-tutorial/
 weight: 1
 ---
 
-# Hogyan használjuk a MetadataSearchRedaction-t Java-ban a
+# Hogyan hajtsunk végre metaadat-redakciót a GroupDocs-szal Java-ban
 
-Ebben az átfogó útmutatóban megtudja, **hogyan használja a MetadataSearchRedaction-t**, hogy eltávolítsa a bizalmas metaadatokat – például a cégneveket – a Word, PDF és egyéb dokumentumformátumokból a GroupDocs.Redaction for Java segítségével. A tutorial végére képes lesz a metaadat‑redakciót bármely Java‑alapú munkafolyamatba integrálni, és megvédeni az érzékeny információkat.
+Ebben az átfogó útmutatóban megtudja, **hogyan használja a metaadat-redakciót a GroupDocs-szal**, hogy eltávolítsa a bizalmas metaadatokat – például a cégneveket – a Word, PDF és egyéb dokumentumformátumokból a GroupDocs.Redaction for Java segítségével. A tutorial végére képes lesz a metaadat-redakciót bármely Java‑alapú munkafolyamatba integrálni, és megőrizni az érzékeny információkat.
 
 ## Gyors válaszok
-- **Mit csinál a MetadataSearchRedaction?** Keres specifikus metaadatmezőket, és helyettesíti azok értékét egyedi szöveggel.  
-- **Melyik könyvtár szükséges?** GroupDocs.Redaction for Java (v24.9 vagy újabb).  
-- **Szükségem van licencre?** Egy ingyenes próba a kiértékeléshez elegendő; a teljes licenc a termeléshez kötelező.  
-- **Megőrizhetem az eredeti fájlformátumot?** Igen – használja a `SaveOptions`‑t az eredeti formátum megőrzéséhez.  
-- **Ez a megközelítés szálbiztos?** Minden `Redactor` példány független, így a dokumentumok párhuzamosan feldolgozhatók.
+- **What does MetadataSearchRedaction do?** Keres specifikus metaadatmezőket, és a értéküket egyedi szöveggel helyettesíti.  
+- **Which library is required?** GroupDocs.Redaction for Java (v24.9 or newer).  
+- **Do I need a license?** Egy ingyenes próba a kiértékeléshez működik; a teljes licenc a termeléshez szükséges.  
+- **Can I keep the original file format?** Igen—használja a `SaveOptions`-t az eredeti formátum megőrzéséhez.  
+- **Is this approach thread‑safe?** Minden `Redactor` példány független, így a dokumentumokat párhuzamosan is feldolgozhatja.
 
-## Mi az a MetadataSearchRedaction?
-`MetadataSearchRedaction` egy speciális redakciós osztály, amely lehetővé teszi egy adott metaadat‑tulajdonság (pl. *Company*, *Author*) célzását, és a tartalmát helyettesítő szöveggel való cseréjét. Ideális, ha vállalati adatokat kell anonimizálni, mielőtt a dokumentumokat külső partnerekkel osztaná meg.
+## Mi az a metaadat-redakció a GroupDocs-szal?
+`MetadataSearchRedaction` egy speciális osztály, amely lehetővé teszi egy adott metaadat-tulajdonság (például *Company*, *Author*) célzását, és a tartalmát egy helyettesítő szöveggel cseréli. Ideális, ha vállalati adatokat kell anonimizálni a dokumentumok külső partnerekkel való megosztása előtt.
 
-## Miért használjuk a MetadataSearchRedaction‑t metaadat‑redakcióra?
-- **Pontosság** – Csak a megadott mezőket redakálja, a dokumentum többi részét érintetlenül hagyja.  
-- **Megfelelőség** – Segít megfelelni a GDPR, HIPAA és egyéb adatvédelmi szabályozásoknak a rejtett azonosítók eltávolításával.  
-- **Automatizálásra kész** – Zökkenőmentesen illeszkedik kötegelt feldolgozási csővezetékekbe vagy mikro‑szolgáltatásokba.
+## Miért használjuk a metaadat-redakciót a GroupDocs-szal?
+- **Precision** – Csak a megadott mezőket redakálja, a dokumentum többi részét érintetlenül hagyja.  
+- **Compliance** – Segít megfelelni a GDPR, HIPAA és egyéb adatvédelmi szabályozásoknak azáltal, hogy eltávolítja a rejtett azonosítókat.  
+- **Automation‑ready** – Zökkenőmentesen illeszkedik kötegelt feldolgozási csővezetékekbe vagy mikro‑szolgáltatásokba.
 
 ## Előfeltételek
 - **GroupDocs.Redaction for Java** ≥ 24.9.  
-- Java 8 vagy újabb telepítve a gépén.  
+- Java 8 vagy újabb telepítve a gépen.  
 - Egy IDE, például IntelliJ IDEA vagy Eclipse (opcionális, de ajánlott).  
-- Alapvető ismeretek Maven‑ról (vagy a JAR‑ok kézi hozzáadásának képessége).
+- Alapvető ismeretek a Maven‑ról (vagy a JAR‑ok kézi hozzáadásának képessége).
 
 ## A GroupDocs.Redaction for Java beállítása
-Adja hozzá a tárolót és a függőséget a `pom.xml` fájlhoz. Ez a lépés biztosítja, hogy a Maven automatikusan letölthesse a könyvtárat.
+Adja hozzá a tárolót és a függőséget a `pom.xml`-hez. Ez a lépés biztosítja, hogy a Maven automatikusan letölthesse a könyvtárat.
 
 ```xml
 <repositories>
@@ -59,13 +59,13 @@ Adja hozzá a tárolót és a függőséget a `pom.xml` fájlhoz. Ez a lépés b
 </dependencies>
 ```
 
-*Alternatívaként a JAR‑t közvetlenül letöltheti a hivatalos kiadási oldalról:*  
+*Alternatívaként letöltheti a JAR‑t közvetlenül a hivatalos kiadási oldalról:*  
 [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/)
 
 ### Licenc beszerzése
-- **Ingyenes próba** – Töltse le a próba licencet, hogy felfedezze az összes funkciót.  
-- **Ideiglenes licenc** – Használja kiterjesztett teszteléshez.  
-- **Teljes licenc** – Szükséges a termelési környezethez.
+- **Free Trial** – Töltse le a próba licencet, hogy felfedezze az összes funkciót.  
+- **Temporary License** – Használja kiterjesztett teszteléshez.  
+- **Full License** – Szükséges a termelési környezethez.
 
 ## Alapvető inicializálás
 Hozzon létre egy `Redactor` példányt, amely a feldolgozni kívánt dokumentumra mutat.
@@ -90,14 +90,14 @@ import com.groupdocs.redaction.redactions.MetadataSearchRedaction;
 ```
 
 ### 2. lépés: Redactor inicializálása
-Példányosítsa a `Redactor`‑t a forrásfájl elérési útjával.
+Példányosítsa a `Redactor`-t a forrásfájl elérési útjával.
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX");
 ```
 
-### 3. lépés: Metaadat keresés és redakció konfigurálása
-Hozzon létre egy `MetadataSearchRedaction`‑t, amely a pontos **"Company Ltd."** szöveget keresi, és **"--company--"**‑ra cseréli. A `setFilter` hívás korlátozza a műveletet kizárólag a *Company* metaadatmezőre.
+### 3. lépés: Metaadat-keresés és redakció konfigurálása
+Hozzon létre egy `MetadataSearchRedaction`-t, amely a pontos **"Company Ltd."** szöveget keresi, és **"--company--"**-ra cseréli. A `setFilter` hívás a műveletet csak a *Company* metaadatmezőre korlátozza.
 
 ```java
 MetadataSearchRedaction redaction = new MetadataSearchRedaction("Company Ltd.", "--company--");
@@ -112,18 +112,18 @@ redactor.apply(redaction);
 ```
 
 ### 5. lépés: Mentés egyedi beállításokkal
-Állítsa be a `SaveOptions`‑t úgy, hogy a redakciózott fájl a “_Redacted” utótagot kapja, miközben megőrzi az eredeti formátumát.
+Állítsa be a `SaveOptions`-t úgy, hogy a redakciózott fájl a „_Redacted” utótagot kapja, miközben megőrzi az eredeti formátumát.
 
 ```java
 SaveOptions tmp0 = new SaveOptions();
 tmp0.setAddSuffix(true);  // Adds "_Redacted" to file name
-	tmp0.setRasterizeToPDF(false);  // Keeps original format
+tmp0.setRasterizeToPDF(false);  // Keeps original format
 
 redactor.save(tmp0);
 ```
 
 ### 6. lépés: Erőforrások felszabadítása
-Mindig zárja le a `Redactor`‑t a natív erőforrások felszabadításához és a memória szivárgások elkerüléséhez.
+Mindig zárja be a `Redactor`-t a natív erőforrások felszabadításához és a memória szivárgások elkerüléséhez.
 
 ```java
 finally {
@@ -132,60 +132,58 @@ finally {
 ```
 
 ## Gyakori problémák és megoldások
-- **FileNotFoundException** – Ellenőrizze újra a `Redactor`‑nak átadott útvonalat. Használjon abszolút útvonalakat vagy `Paths.get(...)`‑t a megbízhatóság érdekében.  
-- **Nincs változás** – Győződjön meg arról, hogy a célzott metaadatmező valóban tartalmazza a keresett szöveget; a metaadat alapértelmezés szerint kis- és nagybetű érzékeny.  
-- **Memóriahiány hibák nagy fájloknál** – Feldolgozza a dokumentumokat kisebb kötegekben, és minden fájl után azonnal hívja a `redactor.close()`‑t.
+- **FileNotFoundException** – Ellenőrizze újra a `Redactor`‑nak átadott útvonalat. Használjon abszolút útvonalakat vagy `Paths.get(...)`-t a megbízhatóság érdekében.  
+- **No changes observed** – Győződjön meg róla, hogy a célzott metaadatmező valóban tartalmazza a keresett szöveget; a metaadat alapértelmezés szerint kis- és nagybetű érzékeny.  
+- **Out‑of‑memory errors on large files** – Feldolgozza a dokumentumokat kisebb kötegekben, és minden fájl után azonnal hívja a `redactor.close()`-t.
 
 ## Gyakorlati alkalmazások
-1. **Jogi dokumentáció** – Távolítsa el az ügyfél cégneveit, mielőtt a szerződéseket harmadik félnek küldené.  
-2. **Pénzügyi jelentés** – Anonimizálja a belső azonosítókat az audit fájlokban.  
-3. **Együttműködő projektek** – Védje a tulajdonosi információkat, amikor vázlatokat oszt meg külső beszállítókkal.
+1. **Legal Documentation** – Távolítsa el az ügyfél cégneveit, mielőtt a szerződéseket harmadik feleknek küldené.  
+2. **Financial Reporting** – Anonimizálja a belső azonosítókat az audit fájlokban.  
+3. **Collaborative Projects** – Védje a szellemi tulajdont, amikor vázlatokat oszt meg külső beszállítókkal.
 
 ## Teljesítményfontosságú szempontok
-- **Memóriakezelés** – A könyvtár a teljes dokumentumot memóriában tartja; minden fájl után a `Redactor` lezárása elengedhetetlen.  
--elt feldolgozás** – Nagy mennyiségű esetben iteráljon a fájlok gyűjteményén, és használja újra egyetlen `SaveOptions` példányt.  
-- **Maradjon naprakész** – Az új kiadások teljesítményjavításokat és hibajavításokat hoznak; mindig a legújabb stabil verziót célozza meg.
+- **Memory Management** – A könyvtár a teljes dokumentumot memóriában tartja; minden fájl után a `Redactor` bezárása elengedhetetlen.  
+- **Batch Processing** – Nagy mennyiségű esetben iteráljon a fájlok gyűjteményén, és használja újra egyetlen `SaveOptions` példányt.  
+- **Stay Updated** – Az új kiadások teljesítményjavításokat és hibajavításokat hoznak; mindig a legújabb stabil verziót célozza meg.
 
 ## Következtetés
-Most már tudja, **hogyan használja a MetadataSearchRedaction‑t**, hogy biztonságosan eltávolítsa a vállalati metaadatokat a dokumentumokból a GroupDocs.Redaction for Java segítségével. Integrálja ezeket a lépéseket a dokumentumfeldolgozó csővezetékekbe, hogy megfeleljen a szabályozásoknak és megvédje az érzékeny információkat.
+Most már tudja, **hogyan használja a metaadat-redakciót a GroupDocs-szal**, hogy biztonságosan eltávolítsa a cégmetaadatokat a dokumentumokból a GroupDocs.Redaction for Java segítségével. Építse be ezeket a lépéseket a dokumentumfeldolgozó csővezetékekbe, hogy megfeleljen a szabályozásoknak és megvédje az érzékeny információkat.
 
 **Következő lépések**
-- Kísérletezzen más metaadatmezőkkel, például *Author* vagy *Creator*.  
-- Kombinálja a metaadat‑redakciót szöveg‑ vagy képredakcióval egy teljes körű megoldás érdekében.  
+- Kísérletezzen más metaadatmezőkkel, például *Author* vagy *Creator*.
+- Kombinálja a metaadat-redakciót szöveg- vagy képredakcióval a teljes körű megoldás érdekében.
 
-## GyIK szekció
-1. **Mi az a GroupDocs.Redaction for Java?**  
-   - Ez egy erőteljes könyvtár, amely lehetővé teszi a szöveg, metaadat és képek redakcióját a dokumentumokban Java alkalmazások segítségével.  
-2. **Használhatom a GroupDocs.Redaction‑t licenc vásárlása nélkül?**  
-   - Igen, de korlátozásokkal. Egy ingyenes próba vagy ideiglenes licenc teljes hozzáférést biztosít a teszteléshez.  
-3. **Hogyan biztosíthatom, hogy a dokumentumformátumok megmaradnak a redakció során?**  
-   - Használja a `SaveOptions`‑t a követelmények megadásához, például a PDF rasterizálásának elkerüléséhez.  
-4. **Milyen típusú dokumentumok redakciójára használható a GroupDocs.Redaction?**  
-   - Széles körű formátumot támogat, beleértve a Word, Excel, PowerPoint, PDF és sok más formátumot.  
-5. **Hol találok támogatást, ha problémáim vannak?**  
-   - Látogassa meg a [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33) oldalt segítségért.  
+## GyIK szakasz
+1. **What is GroupDocs.Redaction for Java?**  
+   - Ez egy erőteljes könyvtár, amely lehetővé teszi szöveg, metaadat és képek redakcióját dokumentumokban Java alkalmazások segítségével.  
+2. **Can I use GroupDocs.Redaction without purchasing a license?**  
+   - Igen, de korlátozásokkal. Egy ingyenes próba vagy ideiglenes licenc teljes hozzáférést biztosít tesztelési célokra.  
+3. **How do I ensure document formats are preserved during redaction?**  
+   - Használja a `SaveOptions`-t a követelmények megadásához, például a PDF-re történő rasterizálás elkerüléséhez.  
+4. **What types of documents can be redacted using GroupDocs.Redaction?**  
+   - Széles körű formátumot támogat, beleértve a Word, Excel, PowerPoint, PDF és még sok más fájlt.  
+5. **Where can I find support if I run into issues?**  
+   - Látogassa meg a [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33) oldalt segítségért.
 
 ## Gyakran Ismételt Kérdések
-**K: A MetadataSearchRedaction működik titkosított dokumentumokkal?**  
-V: Igen. Töltse be a dokumentumot a megfelelő jelszóval a `Redactor` olyan konstruktorával, amely jelszó paramétert fogad.
+**Q: Does MetadataSearchRedaction work with encrypted documents?**  
+A: Igen. Töltse be a dokumentumot a megfelelő jelszóval a `Redactor` konstruktor segítségével, amely jelszó paramétert fogad.
 
-**K: Láncolhatok több metaadat‑redakciót egyetlen futtatásban?**  
-V: Teljesen. Hozzon létre több `MetadataSearchRedaction` objektumot, állítson be különböző szűrőket, és mentés előtt sorban alkalmazza őket.
+**Q: Can I chain multiple metadata redactions in a single run?**  
+A: Teljesen. Hozzon létre több `MetadataSearchRedaction` objektumot, állítson be különböző szűrőket, és mentés előtt sorban alkalmazza őket.
 
-**K: Lehetséges a redakciók előnézete mentés előtt?**  
-V: Meghívhatja a `redactor.getRedactions()`‑t, hogy lekérje a függőben lévő redakciók listáját, és programozottan ellenőrizze őket.
+**Q: Is it possible to preview redactions before saving?**  
+A: Meghívhatja a `redactor.getRedactions()`-t, hogy lekérje a függőben lévő redakciók listáját, és programozottan ellenőrizze őket.
 
 ## Erőforrások
-- **Dokumentáció**: Tekintse meg a részletes útmutatókat a [GroupDocs Documentation](https://docs.groupdocs.com/redaction/java/) oldalon.  
-- **API referencia**: Nézze meg a teljes API referenciát a [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java) oldalon.  
-- **Könyvtár letöltése**: Szerezze be a legújabb kiadást a [GroupDocs Downloads](https://releases.groupdocs.com/redaction/java/) oldalról.  
-- **Forráskód**: Tekintse meg és járuljon hozzá a [GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java) oldalon.  
-- **Támogatás**: Kérjen segítséget az ingyenes támogatási csatornán a [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33) oldalon.  
+- **Documentation**: Részletes útmutatókat talál a [GroupDocs Documentation](https://docs.groupdocs.com/redaction/java/) oldalon.  
+- **API Reference**: Tekintse meg a teljes API referenciát a [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java) oldalon.  
+- **Download Library**: A legújabb kiadást a [GroupDocs Downloads](https://releases.groupdocs.com/redaction/java/) oldalról érheti el.  
+- **Source Code**: Megtekintheti és hozzájárulhat a [GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java) oldalon.  
+- **Support**: Segítséget kaphat az ingyenes támogatási csatornán a [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33) oldalon.
 
 ---
 
-**Utolsó frissítés:** 2026-01-08  
+**Legutóbb frissítve:** 2026-03-22  
 **Tesztelve ezzel:** GroupDocs.Redaction 24.9 for Java  
-**Szerző:** GroupDocs  
-
----
+**Szerző:** GroupDocs
