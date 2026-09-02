@@ -1,66 +1,108 @@
 ---
-date: '2026-02-11'
-description: Apprenez à supprimer la dernière page d’un PDF et à effacer la dernière
-  page d’un PDF efficacement avec GroupDocs.Redaction pour Java. Suivez notre guide
-  étape par étape avec des exemples de code.
+date: '2026-06-01'
+description: Apprenez comment supprimer la dernière page PDF avec GroupDocs.Redaction
+  pour Java. Guide étape par étape, extraits de code et meilleures pratiques pour
+  pdf page count java et remove final pdf page.
 keywords:
-- remove last page PDF
-- GroupDocs.Redaction Java
-- PDF redaction
+- delete last pdf page
+- pdf page count java
+- remove final pdf page
+schemas:
+- author: GroupDocs
+  dateModified: '2026-06-01'
+  description: Learn how to delete the last PDF page with GroupDocs.Redaction for
+    Java. Step‑by‑step guide, code snippets, and best practices for pdf page count
+    java and remove final pdf page.
+  headline: How to Delete the Last PDF Page Using GroupDocs.Redaction in Java
+  type: TechArticle
+- description: Learn how to delete the last PDF page with GroupDocs.Redaction for
+    Java. Step‑by‑step guide, code snippets, and best practices for pdf page count
+    java and remove final pdf page.
+  name: How to Delete the Last PDF Page Using GroupDocs.Redaction in Java
+  steps:
+  - name: '**Maven Setup**'
+    text: '**Maven Setup**'
+  - name: '**Direct Download**'
+    text: '**Direct Download**'
+  - name: '**Maven Configuration**'
+    text: '**Maven Configuration**'
+  - name: '**Direct Download Setup**'
+    text: '**Direct Download Setup**'
+  - name: '**Pre‑Publication Editing** – Remove draft or placeholder pages before
+      releasing a report.'
+    text: '**Pre‑Publication Editing** – Remove draft or placeholder pages before
+      releasing a report.'
+  - name: '**Archival Optimization** – Trim trailing blank pages to reduce storage
+      costs for large document archives.'
+    text: '**Archival Optimization** – Trim trailing blank pages to reduce storage
+      costs for large document archives.'
+  - name: '**Confidentiality** – Strip out a cover page that contains sensitive metadata
+      before distribution.'
+    text: '**Confidentiality** – Strip out a cover page that contains sensitive metadata
+      before distribution.'
+  - name: '**Automated Report Generation** – Generate PDFs programmatically and drop
+      the automatically added summary page.'
+    text: '**Automated Report Generation** – Generate PDFs programmatically and drop
+      the automatically added summary page.'
+  - name: '**Workflow Integration** – Embed the deletion step into CI/CD pipelines
+      that handle document generation.'
+    text: '**Workflow Integration** – Embed the deletion step into CI/CD pipelines
+      that handle document generation.'
+  type: HowTo
+- questions:
+  - answer: It provides a programmatic way to redact, edit, and manipulate sensitive
+      content in PDFs and many other document formats without needing Microsoft Office
+      installed.
+    question: What is the primary use case for GroupDocs.Redaction?
+  - answer: Yes—use `RemovePageRedaction` with a range (e.g., `new RemovePageRedaction(5,
+      2)`) to delete two pages starting from page 5.
+    question: Can I delete multiple pages at once?
+  - answer: Absolutely. Pass the password to the `Redactor` constructor or set it
+      via `redactor.setPassword("yourPassword")` before performing any operations.
+    question: Does the library support password‑protected PDFs?
+  - answer: It streams pages, allowing you to process PDFs with hundreds of pages
+      while keeping memory usage low; typical processing of a 500‑page file uses under
+      200 MB of RAM.
+    question: How does GroupDocs.Redaction handle large files?
+  - answer: Visit the [GroupDocs website](https://purchase.groupdocs.com/temporary-license/)
+      to request a trial license that unlocks all API features for 30 days.
+    question: Where can I obtain a temporary license for testing?
+  type: FAQPage
 title: Comment supprimer la dernière page PDF à l'aide de GroupDocs.Redaction en Java
 type: docs
 url: /fr/java/page-redaction/remove-last-page-pdf-groupdocs-redaction-java/
 weight: 1
 ---
 
-02-11  
-**Tested With:** GroupDocs.Redaction 24.9 for Java  
-**Author:** GroupDocs  
+# Comment supprimer la dernière page PDF à l'aide de GroupDocs.Redaction en Java
 
-Translate:
-
----  
-**Dernière mise à jour :** 2026-02-11  
-**Testé avec :** GroupDocs.Redaction 24.9 pour Java  
-**Auteur :** GroupDocs  
-
-Now produce final markdown with all translations.
-
-Check that we kept code block placeholders as {{CODE_BLOCK_X}} not inside code fences. They are just placeholders; they appear as separate lines. Should we keep them as is. Yes.
-
-Make sure we didn't accidentally translate any URLs.
-
-Now produce final output.# Comment supprimer la dernière page d'un document PDF à l'aide de GroupDocs.Redaction en Java
-
-## Introduction
-Supprimer une **dernière page pdf** indésirable d'un PDF peut être fastidieux sans les bons outils. Avec GroupDocs.Redaction pour Java, cette tâche est simplifiée et efficace. Dans ce tutoriel, vous apprendrez comment **supprimer la dernière page pdf** rapidement, pourquoi cela est important, et comment intégrer la solution dans vos applications Java.
+Supprimer une **dernière page PDF** indésirable d'un document peut être un processus manuel fastidieux, surtout lorsque vous devez gérer des dizaines de fichiers dans un pipeline automatisé. Avec **GroupDocs.Redaction for Java**, vous pouvez supprimer la dernière page PDF en quelques lignes de code seulement, conserver le reste du document intact et maintenir l'éditabilité si nécessaire. Ce tutoriel vous guide à travers tout ce dont vous avez besoin — pourquoi l'opération est importante, les appels d'API exacts et des conseils pratiques pour éviter les pièges courants.
 
 ## Réponses rapides
-- **Quelle bibliothèque peut supprimer la dernière page pdf ?** GroupDocs.Redaction for Java.  
-- **Ai-je besoin d'une licence ?** Un essai fonctionne pour les tests de base ; une licence complète est requise pour la production.  
-- **Puis-je vérifier le nombre de pages pdf avant la suppression ?** Oui—utilisez `redactor.getDocumentInfo().getPageCount()`.  
-- **Le PDF original reste-t-il modifiable après la suppression ?** Définissez `saveOptions.setRasterizeToPDF(false)` pour conserver la possibilité d'édition.  
-- **Quelle version de Java est prise en charge ?** JDK 8 ou ultérieure.
+- **Quelle bibliothèque peut supprimer la dernière page PDF ?** GroupDocs.Redaction for Java.  
+- **Ai-je besoin d'une licence ?** Un essai fonctionne pour les tests de base ; une licence complète est requise pour la production.  
+- **Puis-je vérifier le nombre de pages PDF avant la suppression ?** Oui — utilisez `redactor.getDocumentInfo().getPageCount()`.  
+- **Le PDF original reste-t-il éditable après la suppression ?** Définissez `saveOptions.setRasterizeToPDF(false)` pour conserver l'éditabilité.  
+- **Quelle version de Java est prise en charge ?** JDK 8 ou ultérieure.
 
-## Comment supprimer la dernière page pdf à l'aide de GroupDocs.Redaction
-Voici un aperçu concis du processus avant de plonger dans l'implémentation détaillée :
+## Qu’est‑ce que « supprimer la dernière page pdf » ?
+*Supprimer la dernière page PDF* signifie retirer programmatiquement la page finale d'un fichier PDF tout en préservant le contenu restant, les métadonnées et l'éditabilité optionnelle. Cette opération est utile lorsque la dernière page contient des notes de brouillon, un espace réservé ou des informations confidentielles qui ne doivent pas faire partie de la distribution finale. En la supprimant programmatiquement, vous évitez les erreurs manuelles, accélérez le traitement par lots et maintenez la taille du fichier optimale pour le stockage et la transmission.
 
-1. **Configurer** la bibliothèque GroupDocs.Redaction dans votre projet Maven (ou via le téléchargement direct du JAR).  
-2. **Charger** le PDF cible avec une instance `Redactor`.  
-3. **Valider** que le document contient au moins une page (`check pdf page count`).  
-4. **Appliquer** `RemovePageRedaction` ciblant la dernière page.  
-5. **Configurer** `SaveOptions` (ajouter un suffixe, conserver l'édition).  
-6. **Enregistrer** le fichier modifié et **fermer** les ressources.
-
-Passons maintenant en revue chaque étape avec le contexte complet.
+## Pourquoi utiliser GroupDocs.Redaction pour cette tâche ?
+GroupDocs.Redaction prend en charge **plus de 50 formats d'entrée et de sortie**, peut traiter des **PDF de plusieurs centaines de pages** sans charger le fichier complet en mémoire, et fournit une API dédiée `RemovePageRedaction` qui garantit une suppression précise de la page avec des contrôles de sécurité intégrés. De plus, la bibliothèque offre une licence robuste, une documentation exhaustive et la capacité de garder les PDF recherchables et éditables après la rédaction, ce qui en fait un choix fiable pour les pipelines de documents de niveau entreprise.
 
 ## Prérequis
-Avant de commencer, assurez-vous que votre configuration peut prendre en charge la bibliothèque GroupDocs.Redaction. Voici ce dont vous avez besoin :
+Avant de commencer, assurez‑vous d'avoir les éléments suivants :
+
+- **Java Development Kit (JDK) 8 ou ultérieur** installé sur votre machine.  
+- **Maven** (ou la possibilité d'ajouter des fichiers JAR manuellement) pour la gestion des dépendances.  
+- Une **licence GroupDocs.Redaction** (l'essai suffit pour l'expérimentation).  
+- Une familiarité de base avec la syntaxe Java et la structure du projet.
 
 ### Bibliothèques et dépendances requises
-1. **Maven Setup**  
-   - Assurez-vous que Maven est installé sur votre machine.  
-   - Ajoutez la configuration suivante dans votre fichier `pom.xml` pour inclure GroupDocs.Redaction:
+1. **Configuration Maven**  
+   - Assurez‑vous que Maven est installé sur votre machine.  
+   - Ajoutez la configuration suivante dans votre fichier `pom.xml` pour inclure GroupDocs.Redaction :
 
 ```xml
 <repositories>
@@ -80,52 +122,55 @@ Avant de commencer, assurez-vous que votre configuration peut prendre en charge 
 </dependencies>
 ```
 
+Pour une utilisation détaillée de l'API, consultez la [Documentation Java de GroupDocs Redaction](https://docs.groupdocs.com/redaction/java/) et la [Référence API GroupDocs](https://reference.groupdocs.com/redaction/java). Vérifiez les [Dernières versions](https://releases.groupdocs.com/redaction/java/) pour des versions plus récentes.
+
 2. **Téléchargement direct**  
-   - Sinon, téléchargez la dernière version depuis [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+   - Sinon, téléchargez la dernière version depuis [GroupDocs.Redaction pour les versions Java](https://releases.groupdocs.com/redaction/java/).  
+   - Vous pouvez également consulter le code source sur [GroupDocs Redaction for Java](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java) et poser des questions sur le [Forum de support GroupDocs](https://forum.groupdocs.com/c/redaction/33).
 
 ### Exigences de configuration de l'environnement
-- Assurez-vous d'avoir un Java Development Kit (JDK) installé, de préférence JDK 8 ou ultérieur.  
-- Votre environnement doit être configuré pour compiler et exécuter des applications Java.
+- Vérifiez que `JAVA_HOME` pointe vers une installation JDK 8+.  
+- Votre IDE (IntelliJ, Eclipse, VS Code) doit être configuré pour utiliser la même version de JDK.
 
 ### Prérequis de connaissances
-- Compréhension de base de la programmation Java  
-- La familiarité avec Maven pour la gestion des dépendances est bénéfique mais pas obligatoire si vous utilisez des téléchargements directs.
+- Concepts de base de la programmation Java (classes, objets, gestion des exceptions).  
+- La compréhension du `pom.xml` de Maven est utile mais pas obligatoire si vous préférez l'approche JAR directe.
 
 ## Configuration de GroupDocs.Redaction pour Java
-Configurer votre projet pour utiliser GroupDocs.Redaction implique d'ajouter des dépendances et de configurer votre environnement.
+Configurer votre projet pour utiliser GroupDocs.Redaction implique d'ajouter la bibliothèque et de configurer une licence.
 
 ### Informations d'installation
 1. **Configuration Maven**  
-   - Ajoutez le dépôt Maven ci-dessus ainsi que le fragment de dépendance dans votre `pom.xml`.
+   - Ajoutez le dépôt et l'extrait de dépendance de la section précédente à votre `pom.xml`.
 
 2. **Configuration du téléchargement direct**  
-   - Téléchargez le fichier JAR depuis [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).  
-   - Incluez-le dans le chemin de construction de votre projet.
+   - Téléchargez le fichier JAR depuis [GroupDocs.Redaction pour les versions Java](https://releases.groupdocs.com/redaction/java/).  
+   - Ajoutez le JAR au chemin de construction de votre projet (par ex., dossier `libs/`).
 
 ### Acquisition de licence
 - GroupDocs propose un essai gratuit avec des fonctionnalités limitées.  
-- Obtenez une licence temporaire ou achetez-en une pour débloquer toutes les fonctionnalités. Visitez le [site Web de GroupDocs](https://purchase.groupdocs.com/temporary-license/) pour plus de détails.
+- Obtenez une licence temporaire ou achetez une licence complète sur le [site Web de GroupDocs](https://purchase.groupdocs.com/temporary-license/).  
+- Pour les détails de licence, consultez la [page de licence de GroupDocs](https://purchase.groupdocs.com/temporary-license/) ou directement [Obtenir une licence temporaire](https://purchase.groupdocs.com/temporary-license/).
 
 ## Guide d'implémentation
-Maintenant que tout est configuré, implémentons la fonctionnalité pour **supprimer la dernière page pdf** d'un document PDF à l'aide de GroupDocs.Redaction.
+Maintenant que tout est prêt, implémentons la fonctionnalité de **suppression de la dernière page PDF** à l'aide de GroupDocs.Redaction.
 
-### Suppression de la dernière page d'un document
-#### Vue d'ensemble
-La fonctionnalité `RemovePageRedaction` vous permet de cibler et d'éliminer des pages spécifiques dans un fichier PDF. Nous nous concentrerons sur la suppression facile de la dernière page de votre document.
+### Comment supprimer la dernière page PDF avec GroupDocs.Redaction ?
+Chargez le PDF avec une instance `Redactor`, vérifiez que le document contient au moins une page, appliquez un `RemovePageRedaction` ciblant la page finale, configurez `SaveOptions`, puis enregistrez le fichier modifié. Ce flux complet peut être réalisé en moins de dix lignes de code Java.
 
 #### Implémentation étape par étape
 
-##### **Étape 1 : Initialiser le Redactor**
-Créez une instance `Redactor` pointant vers votre document PDF :
+##### **Étape 1 : Initialiser le Redactor**
+`Redactor` est la classe principale qui représente un document PDF et fournit des méthodes pour la rédaction et la manipulation des pages.
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/multipage.pdf");
 ```
 
-Cela charge le fichier PDF spécifié, prêt à être édité.
+Cette ligne ouvre le PDF et le prépare pour les opérations ultérieures.
 
-##### **Étape 2 : Vérifier le nombre de pages**
-Assurez-vous que le document contient au moins une page avant de continuer :
+##### **Étape 2 : Vérifier le nombre de pages PDF**
+`DocumentInfo.getPageCount()` renvoie le nombre total de pages, vous permettant de vérifier en toute sécurité qu'une dernière page existe avant d'essayer de la supprimer.
 
 ```java
 if (redactor.getDocumentInfo().getPageCount() >= 1) {
@@ -133,20 +178,20 @@ if (redactor.getDocumentInfo().getPageCount() >= 1) {
 }
 ```
 
-Cette vérification évite les erreurs lors de la tentative de suppression de pages d'un document vide.
+Si le compte est zéro, vous devez interrompre l'opération pour éviter une `IndexOutOfBoundsException`.
 
-##### **Étape 3 : Appliquer RemovePageRedaction**
-Utilisez `RemovePageRedaction` pour cibler et éliminer la dernière page :
+##### **Étape 3 : Appliquer RemovePageRedaction**
+`RemovePageRedaction` est une classe qui supprime des pages en fonction d'un indice basé sur zéro ou d'une référence d'origine.
 
 ```java
 redactor.apply(new RemovePageRedaction(PageSeekOrigin.End, -1));
 ```
 
-- `PageSeekOrigin.End` : indique que nous ciblons depuis la fin du document.  
-- Le paramètre `-1` indique la suppression d'une page à partir de la dernière.
+- `PageSeekOrigin.End` indique que l'indice de page est compté depuis la fin du document.  
+- Le décalage `-1` supprime exactement une page — la dernière.
 
-##### **Étape 4 : Configurer SaveOptions**
-Définissez comment le document modifié doit être enregistré :
+##### **Étape 4 : Configurer SaveOptions**
+`SaveOptions` contrôle la façon dont le PDF modifié est écrit sur le disque et vous permet de préserver l'éditabilité.
 
 ```java
 SaveOptions saveOptions = new SaveOptions();
@@ -154,15 +199,17 @@ saveOptions.setAddSuffix(true); // Adds a suffix to the filename
 saveOptions.setRasterizeToPDF(false); // Retains PDF editability
 ```
 
-##### **Étape 5 : Enregistrer le document modifié**
-Enregistrez les modifications en sauvegardant le document avec les options configurées :
+Vous pouvez également ajouter un suffixe au nom de fichier de sortie (par ex., `_trimmed`) pour éviter d'écraser le fichier original.
+
+##### **Étape 5 : Enregistrer le document modifié**
+Persistez les modifications en appelant `redactor.save(outputPath, saveOptions)`. Cela crée un nouveau PDF qui ne contient plus la dernière page.
 
 ```java
 redactor.save(saveOptions);
 ```
 
-##### **Étape 6 : Fermer les ressources**
-Fermez toujours le `Redactor` pour libérer les ressources :
+##### **Étape 6 : Fermer les ressources**
+Fermez toujours l'instance `Redactor` pour libérer les ressources natives et éviter les fuites de mémoire.
 
 ```java
 finally {
@@ -171,55 +218,78 @@ finally {
 ```
 
 #### Conseils de dépannage
-- Assurez-vous que le chemin du fichier est correct.  
-- Vérifiez que le document possède plus d'une page avant d'essayer de le supprimer.
+- **Chemin de fichier incorrect** – Vérifiez que le chemin du PDF d'entrée est absolu ou correctement relatif à votre répertoire de travail.  
+- **Document à zéro page** – La vérification du nombre de pages empêche une erreur d'exécution ; si elle renvoie `0`, consignez un avertissement et sautez l'étape de suppression.  
+- **Erreurs de licence** – Assurez‑vous que le fichier de licence est placé dans le classpath ou fourni via `License.setLicense("path/to/license")`.
 
 ## Applications pratiques
-Supprimer les pages inutiles des PDF peut être essentiel dans divers scénarios, tels que :
+Supprimer la page finale est utile dans de nombreux scénarios réels :
 
-1. **Édition pré-publication** – Finaliser les documents en supprimant les sections de brouillon.  
-2. **Objectifs d'archivage** – Rationaliser les dossiers pour une efficacité de stockage.  
-3. **Confidentialité** – Éliminer les informations sensibles avant le partage.  
-4. **Génération de rapports** – Adapter les rapports pour exclure les données redondantes.  
-5. **Intégration aux systèmes de flux de travail** – Automatiser les pipelines de traitement de documents.
+1. **Édition pré‑publication** – Supprimez les pages de brouillon ou d'espace réservé avant de publier un rapport.  
+2. **Optimisation d'archivage** – Coupez les pages blanches de fin pour réduire les coûts de stockage des grandes archives de documents.  
+3. **Confidentialité** – Retirez une page de garde contenant des métadonnées sensibles avant la distribution.  
+4. **Génération de rapports automatisée** – Générez des PDF programmatiquement et supprimez la page de résumé ajoutée automatiquement.  
+5. **Intégration de workflow** – Intégrez l'étape de suppression dans les pipelines CI/CD qui gèrent la génération de documents.
 
 ## Considérations de performance
-Lors de l'utilisation de GroupDocs.Redaction en Java, prenez en compte ces conseils de performance :
+Lors du traitement de gros PDF avec GroupDocs.Redaction, gardez ces conseils à l'esprit :
 
-- Optimisez l'utilisation de la mémoire en fermant rapidement les ressources.  
-- Utilisez `RasterizeToPDF(false)` lorsque l'éditabilité est requise après la rédaction.  
-- Pour les gros documents, assurez-vous que votre JVM dispose d'une mémoire heap suffisante.
+- **Gestion de la mémoire** – Fermez le `Redactor` rapidement ; la bibliothèque diffuse les pages plutôt que de charger le fichier complet en mémoire.  
+- **Rasterisation** – Désactivez la rasterisation (`setRasterizeToPDF(false)`) si vous avez besoin que la sortie reste recherchable et éditable.  
+- **Tas JVM** – Pour les PDF dépassant 200 Mo, allouez au moins **2 Go** de tas (`-Xmx2g`) pour éviter `OutOfMemoryError`.  
+- **Traitement par lots** – Réutilisez une seule instance `Redactor` pour plusieurs fichiers lorsque c'est possible afin de réduire la surcharge d'initialisation.  
+- Consultez les [Dernières versions](https://releases.groupdocs.com/redaction/java/) pour les mises à jour liées aux performances.
 
 ## Conclusion
-Dans ce tutoriel, vous avez appris comment supprimer efficacement **la dernière page pdf** d'un document PDF à l'aide de GroupDocs.Redaction en Java. En suivant notre guide étape par étape, vous pouvez intégrer cette fonctionnalité dans vos applications ou flux de travail sans problème.
+Vous disposez maintenant d'une solution complète, prête pour la production, pour **supprimer la dernière page PDF** à l'aide de GroupDocs.Redaction en Java. En suivant les étapes ci‑dessus, vous pouvez intégrer cette fonctionnalité dans n'importe quel service backend, tâche par lots ou application de bureau, garantissant des PDF propres et optimisés en taille à chaque fois.
 
-Les prochaines étapes pourraient inclure l'exploration d'autres capacités de rédaction offertes par GroupDocs ou l'intégration avec des systèmes de gestion de documents pour un traitement automatisé.
+Ensuite, explorez d'autres fonctionnalités de rédaction telles que la rédaction de texte, la suppression d'images et la désinfection des métadonnées pour créer un pipeline complet de confidentialité des documents.
 
-## Section FAQ
-**1. Quelle est l'utilisation principale de GroupDocs.Redaction ?**  
-   - Il offre un moyen d'éditer et de gérer les informations sensibles au sein des documents, tels que les PDF, en utilisant Java.
+## Questions fréquentes
 
-**2. Comment supprimer plusieurs pages d'un PDF ?**  
-   - Étendez `RemovePageRedaction` en spécifiant des plages de pages supplémentaires ou itérez avec plusieurs applications de rédaction.
+**Q : Quel est le cas d'utilisation principal de GroupDocs.Redaction ?**  
+R : Il fournit un moyen programmatique de rédiger, modifier et manipuler le contenu sensible dans les PDF et de nombreux autres formats de documents sans nécessiter l'installation de Microsoft Office.
 
-**3. GroupDocs.Redaction peut-il être utilisé pour d'autres types de fichiers ?**  
-   - Oui, il prend en charge divers formats de documents, y compris Word, Excel, et plus encore.
+**Q : Puis‑je supprimer plusieurs pages à la fois ?**  
+R : Oui — utilisez `RemovePageRedaction` avec une plage (par ex., `new RemovePageRedaction(5, 2)`) pour supprimer deux pages à partir de la page 5.
 
-**4. Que se passe-t-il si j'essaie de supprimer une page d'un document vide ?**  
-   - Une erreur se produira car il n'y a aucun contenu à modifier. Vérifiez toujours le nombre de pages d'abord.
+**Q : La bibliothèque prend‑elle en charge les PDF protégés par mot de passe ?**  
+R : Absolument. Transmettez le mot de passe au constructeur `Redactor` ou définissez‑le via `redactor.setPassword("yourPassword")` avant d'effectuer toute opération.
 
-**5. Comment demander une licence temporaire ?**  
-   - Visitez la [page de licence de GroupDocs](https://purchase.groupdocs.com/temporary-license/) pour obtenir des détails sur l'obtention d'un essai ou d'une licence complète.
+**Q : Comment GroupDocs.Redaction gère‑t‑il les gros fichiers ?**  
+R : Il diffuse les pages, vous permettant de traiter des PDF de plusieurs centaines de pages tout en maintenant une faible utilisation de la mémoire ; le traitement typique d'un fichier de 500 pages utilise moins de 200 Mo de RAM.
 
-## Ressources
-- **Documentation** : [GroupDocs.Redaction Java Documentation](https://docs.groupdocs.com/redaction/java/)  
-- **Référence API** : [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)  
-- **Téléchargement** : [Latest Releases](https://releases.groupdocs.com/redaction/java/)  
-- **Dépôt GitHub** : [GroupDocs Redaction for Java](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
-- **Forum d'assistance gratuit** : [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33)  
-- **Informations sur la licence temporaire** : [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/) 
+**Q : Où puis‑je obtenir une licence temporaire pour les tests ?**  
+R : Visitez le [site Web de GroupDocs](https://purchase.groupdocs.com/temporary-license/) pour demander une licence d'essai qui débloque toutes les fonctionnalités de l'API pendant 30 jours.
 
----  
-**Dernière mise à jour :** 2026-02-11  
-**Testé avec :** GroupDocs.Redaction 24.9 pour Java  
-**Auteur :** GroupDocs
+---
+
+**Dernière mise à jour** : 2026-06-01  
+**Testé avec** : GroupDocs.Redaction 24.9 for Java  
+**Auteur** : GroupDocs  
+
+---
+
+```xml
+<repositories>
+    <repository>
+        <id>repository.groupdocs.com</id>
+        <name>GroupDocs Repository</name>
+        <url>https://releases.groupdocs.com/redaction/java/</url>
+    </repository>
+</repositories>
+
+<dependencies>
+    <dependency>
+        <groupId>com.groupdocs</groupId>
+        <artifactId>groupdocs-redaction</artifactId>
+        <version>24.9</version>
+    </dependency>
+</dependencies>
+```
+
+## Tutoriels associés
+
+- [Suppression efficace d'une plage de pages PDF Java avec GroupDocs.Redaction](/redaction/java/page-redaction/java-pdf-page-range-deletion-groupdocs-redaction/)
+- [Comment prévisualiser une page avec GroupDocs.Redaction Java – Guide complet](/redaction/java/document-loading/load-preview-document-pages-groupdocs-redaction-java/)
+- [Comment rédiger des documents PDF avec GroupDocs.Redaction pour Java - Guide étape par étape](/redaction/java/advanced-redaction/master-redaction-groupdocs-java-guide/)

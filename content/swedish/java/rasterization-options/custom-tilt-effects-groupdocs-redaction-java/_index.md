@@ -1,53 +1,89 @@
 ---
-date: '2026-02-11'
-description: Lär dig hur du applicerar en anpassad lutningseffekt på dokument med
-  GroupDocs.Redaction för Java, med steg‑för‑steg‑kod och prestandatips.
+date: '2026-06-01'
+description: Lär dig hur du använder tilt effect med GroupDocs.Redaction för Java,
+  inklusive steg‑för‑steg‑kod, prestandatips och anpassningsalternativ.
 keywords:
+- how to use tilt
 - custom tilt effects
 - GroupDocs.Redaction Java
 - document rasterization
-title: Tillämpa anpassad lutningseffekt med GroupDocs.Redaction Java
+schemas:
+- author: GroupDocs
+  dateModified: '2026-06-01'
+  description: Learn how to use tilt effect with GroupDocs.Redaction for Java, including
+    step‑by‑step code, performance tips, and customization options.
+  headline: How to Use Tilt Effect with GroupDocs.Redaction Java
+  type: TechArticle
+- description: Learn how to use tilt effect with GroupDocs.Redaction for Java, including
+    step‑by‑step code, performance tips, and customization options.
+  name: How to Use Tilt Effect with GroupDocs.Redaction Java
+  steps:
+  - name: Initialize Redactor and Save Options
+    text: First, create a `Redactor` instance pointing at your source file, then prepare
+      `SaveOptions` that will hold the rasterization configuration.
+  - name: Configure Tilt Effect Settings
+    text: Enable rasterization and define the tilt angle boundaries. The `AdvancedRasterizationOptions.Tilt`
+      object lets you set `minAngle` and `maxAngle` in degrees, controlling how much
+      each page can rotate.
+  - name: Save Document with Tilt Effect
+    text: Run the redaction process and output the rasterized, tilted document. The
+      `save` call writes each page as an image (PNG by default) while applying the
+      random tilt you specified.
+  type: HowTo
+- questions:
+  - answer: It redacts sensitive content while preserving document layout and also
+      supports advanced rasterization features like the tilt effect.
+    question: What is GroupDocs.Redaction Java used for?
+  - answer: By enabling rasterization and adding the `Tilt` advanced option with `minAngle`
+      and `maxAngle` parameters, as shown in the code samples.
+    question: How do I apply a tilt effect in my document using GroupDocs?
+  - answer: Yes, a free trial is available. For production use, obtain a temporary
+      or permanent license.
+    question: Can I use GroupDocs.Redaction for free?
+  - answer: It enhances visual appeal, adds a creative touch, and can help differentiate
+      marketing or presentation materials.
+    question: What are the benefits of using a tilt effect in documents?
+  - answer: Very large files may increase processing time and memory usage; proper
+      resource allocation mitigates this.
+    question: Are there any limitations to applying custom effects with GroupDocs.Redaction
+      Java?
+  type: FAQPage
+title: Hur man använder tilt effect med GroupDocs.Redaction Java
 type: docs
 url: /sv/java/rasterization-options/custom-tilt-effects-groupdocs-redaction-java/
 weight: 1
 ---
 
- för Java"
+# Hur man använder tilt‑effekt med GroupDocs.Redaction Java
 
-"**Author:** GroupDocs" => "Författare: GroupDocs"
-
-Now ensure we keep markdown formatting.
-
-Also note rule: "For Swedish, ensure proper RTL formatting if needed" - Swedish is LTR, ignore.
-
-Now produce final content.# Applicera anpassad lutningseffekt med GroupDocs.Redaction Java
-
-Att förbättra ett dokuments visuella attraktionskraft genom att **tillämpa en anpassad lutningseffekt** under rasterisering kan få rapporter, marknadsföringsmaterial eller arkivskanningar att sticka ut. I den här handledningen kommer du att upptäcka varför denna effekt är viktig, hur du konfigurerar den med GroupDocs.Redaction för Java, och praktiska tips för att hålla prestandan smidig.
+I den här handledningen kommer du att upptäcka **hur man använder tilt** för att ge dina rasteriserade dokument ett dynamiskt, handhållt utseende, varför effekten är viktig för moderna presentationer, och exakt vilka inställningar du behöver i GroupDocs.Redaction för Java. Vi går igenom hela processen—från installation av biblioteket till finjustering av prestanda—så att du kan tillämpa tilt‑effekten med självförtroende i riktiga projekt.
 
 ## Snabba svar
-- **Vad gör lutningseffekten?** Den roterar varje rasteriserad sida med en slumpmässig vinkel inom ett definierat intervall, vilket skapar ett dynamiskt, lätt snedvridet utseende.  
+- **Vad gör tilt‑effekten?** Den roterar varje rasteriserad sida med en slumpmässig vinkel inom ett definierat intervall, vilket skapar ett dynamiskt, lätt snedvridet utseende.  
 - **Vilket bibliotek tillhandahåller denna funktion?** GroupDocs.Redaction för Java (version 24.9 eller nyare).  
-- **Behöver jag en licens?** En gratis provperiod fungerar för utvärdering; en permanent eller tillfällig licens krävs för produktion.  
-- **Är den minnesintensiv?** Den tillför viss CPU‑belastning, men rätt minnesinställningar håller den effektiv även för stora filer.  
-- **Kan jag anpassa vinkelintervallet?** Ja – använd `minAngle` och `maxAngle` parametrarna i rasteriseringsalternativen.
+- **Behöver jag en licens?** En gratis provversion fungerar för utvärdering; en permanent eller tillfällig licens krävs för produktion.  
+- **Är den minnesintensiv?** Den lägger till viss CPU‑belastning, men rätt minnesinställningar håller den effektiv även för stora filer.  
+- **Kan jag anpassa vinkelintervallet?** Ja – använd `minAngle` och `maxAngle`‑parametrarna i rasteriseringsalternativen.
 
-## Vad är en anpassad lutningseffekt?
+## Vad är en anpassad tilt‑effekt?
 
-En anpassad lutningseffekt är en visuell transformation som tillämpas när varje sida i ett dokument konverteras till en bild. Genom att ange minsta och största vinklar lutrar rasteriseraren sidor slumpmässigt, vilket ger det slutliga resultatet en konstnärlig, “handhållen” känsla.
+En anpassad tilt‑effekt är en visuell transformation som appliceras medan varje sida i ett dokument konverteras till en bild. Genom att ange minsta och största vinklar låter rasteriseraren sidorna rotera slumpmässigt, vilket ger det slutliga resultatet en konstnärlig, “hand‑hållt” känsla. Denna effekt är särskilt användbar när du vill bryta den stela, perfekt inriktade looken hos standard‑PDF‑filer och lägga till en personlig touch.
 
-## Varför applicera anpassad lutningseffekt med GroupDocs.Redaction?
+## Varför använda anpassad tilt‑effekt med GroupDocs.Redaction?
 
-- **Engagemang:** Lutande sidor fångar läsarens uppmärksamhet, perfekt för presentationer eller marknadsföringsbroschyrer.  
-- **Varumärkesbyggande:** Lägger till en unik visuell signatur utan att ändra originalinnehållet.  
-- **Flexibilitet:** Du styr vinkelintervallet, vilket möjliggör subtila eller dramatiska lutningar.  
-- **Integration:** Effekten är inbyggd i GroupDocs.Redaction:s rasteriseringspipeline, så du behöver inga externa bildbehandlingsverktyg.
+GroupDocs.Redaction stöder rasterisering för **70+ in‑ och utdataformat** och kan bearbeta PDF‑filer upp till **2 000 sidor** utan att ladda hela filen i minnet. Genom att utnyttja den inbyggda tilt‑optionen undviker du tredjeparts‑bildbibliotek, minskar integrationskomplexiteten och håller hela arbetsflödet inom ett enda, vältestat SDK.
+
+- **Engagemang:** Tilta sidor fångar läsarens uppmärksamhet, perfekt för presentationer eller marknadsföringsbroschyrer.  
+- **Varumärkesprofil:** Lägger till en unik visuell signatur utan att ändra originalinnehållet.  
+- **Flexibilitet:** Du styr vinkelintervallet, vilket möjliggör subtila eller dramatiska tilt‑effekter.  
+- **Integration:** Effekten är inbyggd i GroupDocs.Redaction‑s rasteriseringspipeline, så du behöver inga externa bildbehandlingsverktyg.
 
 ## Förutsättningar
 
 - Java 8 eller senare installerat.  
 - Maven (eller annat byggverktyg) för att hantera beroenden.  
-- GroupDocs.Redaction 24.9 eller nyare (handledningen använder den senaste versionen).  
-- Grundläggande kunskap om Java filhantering.
+- GroupDocs.Redaction 24.9 eller nyare (handledningen använder den senaste releasen).  
+- Grundläggande kunskap om Java‑filhantering.
 
 ## Konfigurera GroupDocs.Redaction för Java
 
@@ -55,7 +91,7 @@ En anpassad lutningseffekt är en visuell transformation som tillämpas när var
 
 **Maven**
 
-Inkludera GroupDocs.Redaction i ditt Maven‑projekt genom att lägga till följande repository och beroende i din `pom.xml`‑fil:
+Include GroupDocs.Redaction in your Maven project by adding the following repository and dependency to your `pom.xml` file:
 
 ```xml
 <repositories>
@@ -75,21 +111,21 @@ Inkludera GroupDocs.Redaction i ditt Maven‑projekt genom att lägga till följ
 </dependencies>
 ```
 
-**Direktnedladdning**
+**Direct Download**
 
-Alternativt kan du ladda ner den senaste versionen direkt från [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+Alternatively, download the latest version directly from [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
-#### Licensanskaffning
+#### Licensförvärv
 
-För att fullt utnyttja GroupDocs.Redaction:
+To fully utilize GroupDocs.Redaction:
 
-- **Gratis provperiod** – utforska kärnfunktionerna utan kostnad.  
-- **Tillfällig licens** – begär en tidsbegränsad nyckel för full utvärdering via [GroupDocs Temporary License](https://purchase.groupdocs.com/temporary-license/).  
-- **Köp** – skaffa en permanent licens för produktionsanvändning.
+- **Free Trial** – explore core features at no cost.  
+- **Temporary License** – request a time‑limited key for full evaluation via [GroupDocs Temporary License](https://purchase.groupdocs.com/temporary-license/).  
+- **Purchase** – obtain a permanent license for production use.
 
 ### Grundläggande initiering och konfiguration
 
-För att börja, importera de nödvändiga klasserna och skapa en `Redactor`‑instans som pekar på ditt källdokument:
+The `Redactor` class is the entry point for all redaction and rasterization operations in GroupDocs.Redaction. It manages document loading, processing, and saving, ensuring resources are released automatically.
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -102,15 +138,15 @@ String documentPath = "YOUR_DOCUMENT_DIRECTORY/MULTIPAGE_SAMPLE_DOCX";
 Redactor redactor = new Redactor(documentPath);
 ```
 
-## Hur man applicerar anpassad lutningseffekt under rasterisering
+## Hur man tillämpar anpassad tilt‑effekt under rasterisering
 
-### Översikt av funktionen
-
-GroupDocs.Redaction låter dig aktivera rasterisering och injicera avancerade alternativ såsom en lutningseffekt. Genom att konfigurera `AdvancedRasterizationOptions.Tilt` styr du vinkelintervallet som tillämpas på varje sida.
+Load your source file, enable rasterization, set the desired tilt range, and then save the transformed document—all in a few concise steps. This overview explains the complete workflow, so you know exactly which objects to create, which options to configure, and how to invoke the save operation before examining the detailed code.
 
 ### Steg‑för‑steg-implementering
 
-#### Steg 1: Initiera Redactor och spara alternativ
+#### Steg 1: Initiera Redactor och Save‑alternativ
+
+First, create a `Redactor` instance pointing at your source file, then prepare `SaveOptions` that will hold the rasterization configuration.
 
 ```java
 import com.groupdocs.redaction.options.AdvancedRasterizationOptions;
@@ -120,9 +156,9 @@ Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/MULTIPAGE_SAMPLE_DOCX"
 SaveOptions saveOptions = new SaveOptions();
 ```
 
-#### Steg 2: Konfigurera lutningseffektinställningar
+#### Steg 2: Konfigurera tilt‑effektinställningar
 
-Aktivera rasterisering och definiera lutningsvinkelgränserna:
+Enable rasterization and define the tilt angle boundaries. The `AdvancedRasterizationOptions.Tilt` object lets you set `minAngle` and `maxAngle` in degrees, controlling how much each page can rotate.
 
 ```java
 saveOptions.getRasterization().setEnabled(true);
@@ -136,9 +172,9 @@ saveOptions.getRasterization().addAdvancedOption(
 );
 ```
 
-#### Steg 3: Spara dokument med lutningseffekt
+#### Steg 3: Spara dokument med tilt‑effekt
 
-Kör redigeringsprocessen och skriv ut det rasteriserade, lutade dokumentet:
+Run the redaction process and output the rasterized, tilted document. The `save` call writes each page as an image (PNG by default) while applying the random tilt you specified.
 
 ```java
 redactor.save("OUTPUT_DIRECTORY/MULTIPAGE_SAMPLE_DOCX_scan", saveOptions);
@@ -146,38 +182,37 @@ redactor.save("OUTPUT_DIRECTORY/MULTIPAGE_SAMPLE_DOCX_scan", saveOptions);
 
 ### Förklaring av parametrar
 
-- **minAngle** – den minsta rotationen (i grader) som kan tillämpas på en sida.  
-- **maxAngle** – den största rotationen (i grader) som tillåts.  
-
-Justera dessa värden för att uppnå subtila eller uttalade lutningar.
+- **minAngle** – den minsta rotationen (i grader) som kan appliceras på en sida.  
+- **maxAngle** – den största rotationen (i grader) som är tillåten.  
+Justera dessa värden för att uppnå subtila eller uttalade tilt‑effekter.
 
 #### Felsökningstips
 
-- Verifiera att käll- och målmapparna är skrivbara för JVM.  
-- Bekräfta att du använder GroupDocs.Redaction 24.9 eller nyare; äldre versioner saknar `Tilt`‑alternativet.  
-- Om utdata ser alltför förvrängda ut, minska `maxAngle`‑värdet.
+- Verify that the source and output directories are writable by the JVM.  
+- Confirm you are using GroupDocs.Redaction 24.9 or newer; older versions lack the `Tilt` option.  
+- If the output looks overly distorted, reduce the `maxAngle` value.
 
 ## Praktiska tillämpningar
 
-1. **Kreativ dokumentpresentation** – lägg till ett dynamiskt utseende till bildspel eller kundförslag.  
-2. **Marknadsföringsmaterial** – få broschyrer och flyers att kännas mer handgjorda.  
-3. **Digitala arkiv** – ge historiska skanningar ett subtilt, stiliserat utseende för onlineutställningar.
+1. **Creative Document Presentation** – add a dynamic look to slide decks or client proposals.  
+2. **Marketing Materials** – make brochures and flyers feel more hand‑crafted.  
+3. **Digital Archives** – give historical scans a subtle, stylized appearance for online exhibitions.
 
 ## Prestandaöverväganden
 
 ### Optimera prestanda
 
-- **Minneshantering:** Tilldela tillräckligt heaputrymme (`-Xmx2g` eller högre) när du bearbetar flersidiga PDF‑filer.  
-- **I/O‑effektivitet:** Batch‑processa filer och återanvänd en enda `Redactor`‑instans där det är möjligt.
+- **Memory Management:** Allocate sufficient heap space (`-Xmx2g` or higher) when processing multi‑page PDFs.  
+- **I/O Efficiency:** Batch process files and reuse a single `Redactor` instance where possible.
 
 ### Bästa praxis för Java‑minneshantering
 
-- Anropa `System.gc()` sparsamt; förlita dig på JVM:s skräpsamlare.  
-- Stäng strömmar omedelbart (GroupDocs.Redaction hanterar de flesta rensningar internt).
+- Invoke `System.gc()` sparingly; rely on the JVM’s garbage collector.  
+- Close streams promptly (GroupDocs.Redaction handles most cleanup internally).
 
 ## Vanliga problem och lösningar
 
-| Problem | Trolig orsak | Lösning |
+| Issue | Likely Cause | Solution |
 |-------|--------------|----------|
 | Tilt not applied | Rasterization disabled | Ensure `saveOptions.getRasterization().setEnabled(true);` |
 | Output file empty | Incorrect output path | Verify the directory exists and has write permissions |
@@ -185,31 +220,39 @@ Justera dessa värden för att uppnå subtila eller uttalade lutningar.
 
 ## Vanliga frågor
 
-**Q: Vad används GroupDocs.Redaction Java för?**  
-A: Den redigerar känsligt innehåll samtidigt som den bevarar dokumentlayout och stöder även avancerade rasteriseringsfunktioner som lutningseffekten.
+**Q: What is GroupDocs.Redaction Java used for?**  
+A: It redacts sensitive content while preserving document layout and also supports advanced rasterization features like the tilt effect.
 
-**Q: Hur applicerar jag en lutningseffekt i mitt dokument med GroupDocs?**  
-A: Genom att aktivera rasterisering och lägga till `Tilt`‑alternativet med parametrarna `minAngle` och `maxAngle`, som visas i kodexemplen.
+**Q: How do I apply a tilt effect in my document using GroupDocs?**  
+A: By enabling rasterization and adding the `Tilt` advanced option with `minAngle` and `maxAngle` parameters, as shown in the code samples.
 
-**Q: Kan jag använda GroupDocs.Redaction gratis?**  
-A: Ja, en gratis provperiod är tillgänglig. För produktionsbruk, skaffa en tillfällig eller permanent licens.
+**Q: Can I use GroupDocs.Redaction for free?**  
+A: Yes, a free trial is available. For production use, obtain a temporary or permanent license.
 
-**Q: Vilka är fördelarna med att använda en lutningseffekt i dokument?**  
-A: Den förbättrar det visuella intrycket, ger en kreativ touch och kan hjälpa till att särskilja marknadsförings- eller presentationsmaterial.
+**Q: What are the benefits of using a tilt effect in documents?**  
+A: It enhances visual appeal, adds a creative touch, and can help differentiate marketing or presentation materials.
 
-**Q: Finns det några begränsningar för att applicera anpassade effekter med GroupDocs.Redaction Java?**  
-A: Mycket stora filer kan öka behandlingstid och minnesanvändning; korrekt resursallokering minskar detta.
+**Q: Are there any limitations to applying custom effects with GroupDocs.Redaction Java?**  
+A: Very large files may increase processing time and memory usage; proper resource allocation mitigates this.
 
 ## Resurser
-- [GroupDocs Redaction-dokumentation](https://docs.groupdocs.com/redaction/java/)
-- [API‑referens](https://reference.groupdocs.com/redaction/java)
-- [Ladda ner GroupDocs.Redaction för Java](https://releases.groupdocs.com/redaction/java/)
-- [GitHub‑arkiv](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
-- [Gratis supportforum](https://forum.groupdocs.com/c/redaction/33)
-- [Ansökan om tillfällig licens](https://purchase.groupdocs.com/temporary-license/)
+- [GroupDocs Redaction Documentation](https://docs.groupdocs.com/redaction/java/)
+- [API Reference](https://reference.groupdocs.com/redaction/java)
+- [Download GroupDocs.Redaction for Java](https://releases.groupdocs.com/redaction/java/)
+- [GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
+- [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)
+- [Temporary License Application](https://purchase.groupdocs.com/temporary-license/)
 
 ---
 
-**Senast uppdaterad:** 2026-02-11  
-**Testad med:** GroupDocs.Redaction 24.9 för Java  
-**Författare:** GroupDocs
+**Last Updated:** 2026-06-01  
+**Tested With:** GroupDocs.Redaction 24.9 for Java  
+**Author:** GroupDocs  
+
+---
+
+## Relaterade handledningar
+
+- [Rasterization Options Tutorials for GroupDocs.Redaction Java](/redaction/java/rasterization-options/)
+- [Custom Noise Rasterization in Java: Secure Sensitive Information with GroupDocs.Redaction](/redaction/java/rasterization-options/java-groupdocs-redaction-custom-noise-rasterization/)
+- [How to use groupdocs redaction for Java: Pre‑Rasterization in Word Documents](/redaction/java/rasterization-options/groupdocs-redaction-java-pre-rasterization-word-docs/)
