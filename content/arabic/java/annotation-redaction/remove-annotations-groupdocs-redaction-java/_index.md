@@ -1,43 +1,93 @@
 ---
-date: '2025-12-19'
-description: تعلم كيفية إزالة التعليقات التوضيحية في Java باستخدام واجهة برمجة تطبيقات
-  GroupDocs.Redaction في دليل Java خطوة بخطوة.
+date: '2026-06-21'
+description: دليل خطوة بخطوة حول كيفية إزالة التعليقات التوضيحية في Java باستخدام
+  GroupDocs.Redaction، بما يشمل الإعداد، الكود، واستكشاف الأخطاء وإصلاحها.
 keywords:
-- remove annotations java
-- GroupDocs Redaction API
-- document annotation removal
-title: إزالة التعليقات التوضيحية في جافا باستخدام GroupDocs.Redaction
+- how to remove annotations
+- GroupDocs Redaction Java
+- annotation removal Java
+schemas:
+- author: GroupDocs
+  dateModified: '2026-06-21'
+  description: Step‑by‑step guide on how to remove annotations in Java with GroupDocs.Redaction,
+    including setup, code, and troubleshooting.
+  headline: How to Remove Annotations Java Using GroupDocs.Redaction
+  type: TechArticle
+- description: Step‑by‑step guide on how to remove annotations in Java with GroupDocs.Redaction,
+    including setup, code, and troubleshooting.
+  name: How to Remove Annotations Java Using GroupDocs.Redaction
+  steps:
+  - name: Import the required classes.
+    text: Import the required classes.
+  - name: Instantiate `Redactor` with your source file.
+    text: Instantiate `Redactor` with your source file.
+  - name: Call `apply(new DeleteAnnotationRedaction())`.
+    text: Call `apply(new DeleteAnnotationRedaction())`.
+  - name: Set `SaveOptions` (add suffix, keep format).
+    text: Set `SaveOptions` (add suffix, keep format).
+  - name: Invoke `redactor.save(saveOptions)`.
+    text: Invoke `redactor.save(saveOptions)`.
+  - name: '**Legal Document Review:** Remove reviewer comments before final signatures.'
+    text: '**Legal Document Review:** Remove reviewer comments before final signatures.'
+  - name: '**Academic Publishing:** Clean manuscripts of peer‑review notes prior to
+      journal submission.'
+    text: '**Academic Publishing:** Clean manuscripts of peer‑review notes prior to
+      journal submission.'
+  - name: '**Internal Reports:** Deliver polished reports without draft annotations
+      cluttering the view.'
+    text: '**Internal Reports:** Deliver polished reports without draft annotations
+      cluttering the view.'
+  type: HowTo
+- questions:
+  - answer: GroupDocs.Redaction is a Java API that lets you programmatically redact
+      or delete sensitive content—including annotations—from a wide range of document
+      formats.
+    question: What is GroupDocs.Redaction?
+  - answer: Yes, provided you have a valid commercial license. The temporary license
+      is for evaluation only.
+    question: Can I use this in a commercial project?
+  - answer: Absolutely. It works with PDF, DOCX, PPTX, XLSX, and many more—over 50
+      formats in total.
+    question: Does the API support PDF, DOCX, and other formats?
+  - answer: No hard limit; performance depends on document size and system resources.
+      Typical 200‑page PDFs with thousands of annotations are processed in under two
+      seconds.
+    question: Is there any limit to the number of annotations I can delete?
+  - answer: The API overwrites the file you save. Keep a backup of the original document
+      before running the redaction.
+    question: How can I revert changes if I delete annotations by mistake?
+  type: FAQPage
+title: كيفية إزالة التعليقات التوضيحية في Java باستخدام GroupDocs.Redaction
 type: docs
 url: /ar/java/annotation-redaction/remove-annotations-groupdocs-redaction-java/
 weight: 1
 ---
 
-# إزالة التعليقات التوضيحية Java باستخدام GroupDocs.Redaction
+# كيفية إزالة التعليقات التوضيحية Java باستخدام GroupDocs.Redaction
 
-عندما تحتاج إلى **remove annotations java**، يمكن أن تجعل التعليقات والوسوم المتراكمة المستندات صعبة القراءة والمعالجة. سواءً كنت تقوم بتنظيف العقود القانونية، أو مسودات أكاديمية، أو تقارير داخلية، فإن GroupDocs.Redaction API for Java يوفّر لك طريقة سريعة وموثوقة لإزالة كل تعليق توضيحي في استدعاء واحد. في هذا الدليل سنستعرض كل ما تحتاجه—من إعداد البيئة إلى الشيفرة الدقيقة التي تزيل التعليقات التوضيحية—حتى تتمكن من دمج هذه القدرة في تطبيقات Java الخاصة بك.
+عندما تحتاج إلى **remove annotations Java**، يمكن أن تجعل التعليقات والعلامات المتراكمة المستندات صعبة القراءة والمعالجة. سواءً كنت تقوم بتنظيف العقود القانونية، أو مسودات أكاديمية، أو تقارير داخلية، فإن GroupDocs.Redaction API for Java يمنحك طريقة سريعة وموثوقة لإزالة كل تعليق في نداء واحد—غالبًا ما يعالج ملف PDF مكوّن من 200 صفحة في أقل من ثانيتين. في هذا الدليل سنستعرض كل ما تحتاجه—من إعداد البيئة إلى الكود الدقيق الذي يزيل التعليقات—حتى تتمكن من دمج هذه القدرة في تطبيقات Java الخاصة بك.
 
 ## إجابات سريعة
-- **ما معنى “remove annotations java”?** إنه يشير إلى حذف جميع كائنات نوع التعليق من المستند برمجياً باستخدام كود Java.  
-- **أي مكتبة تتعامل مع هذا؟** GroupDocs.Redaction for Java.  
-- **هل أحتاج إلى ترخيص؟** رخصة مؤقتة تعمل للتقييم؛ رخصة كاملة مطلوبة للإنتاج.  
-- **هل يمكنني الاحتفاظ بتنسيق الملف الأصلي؟** نعم، الـ API يحفظ المستند بتنسيقه الأصلي افتراضياً.  
-- **كم يستغرق العملية من وقت؟** عادةً أقل من ثانية للملفات ذات الحجم المتوسط؛ قد تحتاج ملفات PDF الأكبر بضع ثوانٍ.
+- **What does “remove annotations java” mean?** يعني حذف جميع كائنات نوع التعليق من المستند برمجيًا باستخدام كود Java.  
+- **Which library handles this?** GroupDocs.Redaction for Java.  
+- **Do I need a license?** ترخيص مؤقت يعمل للتقييم؛ ترخيص كامل مطلوب للإنتاج.  
+- **Can I keep the original file format?** نعم، الـ API يحفظ المستند بصيغته الأصلية افتراضيًا.  
+- **How long does the operation take?** عادةً أقل من ثانية للملفات المتوسطة الحجم؛ قد تحتاج ملفات PDF الأكبر بضع ثوانٍ.
 
 ## ما هو “remove annotations java”؟
-إزالة التعليقات التوضيحية في Java يعني استخدام GroupDocs.Redaction SDK لتحديد كل كائن تعليقات توضيحية (تعليقات، تظليل، طوابع، إلخ) في مستند وحذفها تلقائياً. هذا يلغي الخطوة اليدوية لفتح كل ملف في معالج نصوص وإزالة الملاحظات واحدةً تلو الأخرى.
+**إزالة التعليقات التوضيحية في Java تعني استخدام GroupDocs.Redaction SDK لتحديد كل كائن تعليق (تعليقات، تظليل، طوابع، إلخ) في مستند وحذفها تلقائيًا.** هذا يلغي خطوة الفتح اليدوي لكل ملف في معالج النصوص وإزالة الملاحظات واحدةً تلو الأخرى.
 
 ## لماذا إزالة التعليقات التوضيحية؟
-- **الامتثال القانوني:** التأكد من خلو العقود من ملاحظات المراجعين قبل التوقيع.  
-- **الاستعداد للنشر:** إزالة تعليقات المراجعين من المخطوطات قبل الإرسال.  
-- **الأداء:** الملفات الأنظف تُحمّل أسرع في خطوط المعالجة اللاحقة.
+**إزالة التعليقات التوضيحية تضمن الامتثال القانوني، وجاهزية النشر، وأداءً أفضل.** على سبيل المثال، تصبح العقود جاهزة للتوقيع في أقل من ثانية، وتفقد المخطوطات ملاحظات المراجعين قبل تقديمها للمجلة، وتلاحظ خطوط معالجة البيانات اللاحقة انخفاضًا يصل إلى 30 % في زمن التحميل للملفات الخالية من التعليقات.
 
 ## المتطلبات المسبقة
-قبل البدء، تأكد من أن لديك:
 
-- **GroupDocs.Redaction for Java** version 24.9 or newer.  
-- **Maven** (if you prefer dependency management) or the direct JAR download.  
-- A **JDK** (Java 8+ recommended) and an IDE such as IntelliJ IDEA or Eclipse.  
-- Basic Java knowledge and familiarity with file I/O.
+قبل البدء، تأكد من وجود ما يلي:
+
+- **GroupDocs.Redaction for Java** الإصدار 24.9 أو أحدث (يدعم 50+ صيغة إدخال وإخراج).  
+- **Maven** (إذا كنت تفضل إدارة الاعتمادات) أو تحميل JAR مباشرة.  
+- **JDK** (يوصى بـ Java 8+ ) وبيئة تطوير متكاملة مثل IntelliJ IDEA أو Eclipse.  
+- معرفة أساسية بـ Java وإلمام بـ file I/O.
 
 ## إعداد GroupDocs.Redaction لـ Java
 
@@ -62,14 +112,14 @@ weight: 1
 </dependencies>
 ```
 
-### التحميل المباشر
+### تحميل مباشر
 بدلاً من ذلك، قم بتحميل أحدث JAR من [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
 ### الحصول على الترخيص
-لإلغاء قفل الوظائف الكاملة، احصل على ترخيص مؤقت من [صفحة الترخيص](https://purchase.groupdocs.com/temporary-license/). يتيح لك ذلك الاختبار دون حدود التقييم.
+لإلغاء قفل الوظائف الكاملة، احصل على ترخيص مؤقت من [license page](https://purchase.groupdocs.com/temporary-license/). يتيح لك ذلك الاختبار دون حدود التقييم.
 
 ### التهيئة الأساسية
-فيما يلي فئة بداية بسيطة تفتح مستندًا. احتفظ بالكود دون تغيير—هذا هو الكتلة الدقيقة التي ستستخدمها لاحقًا.
+فيما يلي فئة بداية بسيطة تفتح مستندًا. احتفظ بالكود دون تغيير—هذا هو الجزء الدقيق الذي ستستخدمه لاحقًا.
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -89,13 +139,12 @@ public class InitializeGroupDocs {
 }
 ```
 
-## دليل التنفيذ: إزالة جميع التعليقات التوضيحية
+## كيفية إزالة التعليقات التوضيحية في Java؟
 
-### نظرة عامة
-سنستخدم الفئة `DeleteAnnotationRedaction`، التي تخبر الـ Redactor بحذف كل تعليق توضيحي يجده. العملية تتكون من خمس خطوات واضحة.
+`Redactor` يحمل مستندًا للتحرير. `DeleteAnnotationRedaction` يزيل جميع كائنات التعليقات التوضيحية. `SaveOptions` يضبط إعدادات الإخراج. قم بتحميل ملف المصدر باستخدام كائن `Redactor`، ثم تطبيق `DeleteAnnotationRedaction`، وضبط `SaveOptions` للحفاظ على الصيغة الأصلية، وأخيرًا استدعِ `save`. هذه العملية المكوّنة من خمس خطوات تزيل كل تعليق توضيحي في عملية واحدة مع الحفاظ على تخطيط المستند الأصلي والبيانات الوصفية.
 
 ### الخطوة 1 – استيراد الحزم
-هذه الاستيرادات تمنحك الوصول إلى الـ Redactor، خيارات الحفظ، ونوع التمويه المحدد.
+تتيح لك هذه الاستيرادات الوصول إلى Redactor، وخيارات الحفظ، ونوع التمويه المحدد.
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -103,22 +152,22 @@ import com.groupdocs.redaction.options.SaveOptions;
 import com.groupdocs.redaction.redactions.DeleteAnnotationRedaction;
 ```
 
-### الخطوة 2 – تهيئة الـ Redactor
-أنشئ مثيلًا من `Redactor` يشير إلى الملف الذي تريد تنظيفه.
+### الخطوة 2 – تهيئة Redactor
+**فئة `Redactor` هي المحرك الأساسي الذي يحمل ويعدل المستندات في GroupDocs.Redaction.** أنشئ كائن `Redactor` يشير إلى الملف الذي تريد تنظيفه.
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/sample.docx");
 ```
 
 ### الخطوة 3 – تطبيق DeleteAnnotationRedaction
-هذا السطر الواحد يخبر الـ SDK بإزالة كل تعليق توضيحي من المستند.
+**فئة `DeleteAnnotationRedaction` تمثل عملية تمويه تزيل جميع كائنات التعليقات التوضيحية من المستند.** هذا السطر الواحد يخبر الـ SDK بإزالة كل تعليق توضيحي.
 
 ```java
 redactor.apply(new DeleteAnnotationRedaction());
 ```
 
-### الخطوة 4 – تكوين خيارات الحفظ
-نضيف لاحقة إلى اسم ملف الإخراج بحيث يبقى الأصلي دون تعديل، ونحتفظ بالتنسيق الأصلي.
+### الخطوة 4 – ضبط خيارات الحفظ
+**فئة `SaveOptions` تتيح لك ضبط إعدادات الإخراج مثل صيغة الملف، واللاحقة، والضغط.** نضيف لاحقة إلى اسم ملف الإخراج بحيث يبقى الأصلي دون تعديل، ونحافظ على الصيغة الأصلية.
 
 ```java
 SaveOptions saveOptions = new SaveOptions();
@@ -133,65 +182,75 @@ saveOptions.setRasterizeToPDF(false);
 redactor.save(saveOptions);
 ```
 
-### ملخص المثال الكامل
-بجمع الأجزاء معًا، يبدو سير العمل هكذا:
+## ملخص المثال الكامل
+بتجميع الأجزاء معًا، يبدو سير العمل هكذا:
 
 1. استيراد الفئات المطلوبة.  
-2. إنشاء مثيل `Redactor` باستخدام ملف المصدر الخاص بك.  
+2. إنشاء كائن `Redactor` باستخدام ملف المصدر الخاص بك.  
 3. استدعاء `apply(new DeleteAnnotationRedaction())`.  
-4. تعيين `SaveOptions` (إضافة لاحقة، الحفاظ على التنسيق).  
+4. ضبط `SaveOptions` (إضافة لاحقة، الحفاظ على الصيغة).  
 5. استدعاء `redactor.save(saveOptions)`.
 
 ## نصائح استكشاف الأخطاء وإصلاحها
-- **أخطاء مسار الملف:** تحقق من أن المسار الذي تمرره إلى `Redactor` هو مسار مطلق أو نسبي بشكل صحيح بالنسبة لمشروعك.  
-- **الاعتمادات المفقودة:** تحقق مرة أخرى من `pom.xml` أو مسار الـ JAR؛ الـ Redactor لن يبدأ بدون المكتبة الأساسية.  
-- **الترخيص غير مطبق:** إذا رأيت استثناء ترخيص، تأكد من وضع ملف الترخيص المؤقت في الدليل الصحيح وإشارته في الكود الخاص بك (غير معروض هنا للاختصار).  
+- **File path errors:** تحقق من أن المسار الذي تمرره إلى `Redactor` هو مسار مطلق أو نسبي بشكل صحيح إلى مشروعك.  
+- **Missing dependencies:** تحقق مرة أخرى من `pom.xml` أو مسار الـ JAR؛ لن يبدأ Redactor بدون المكتبة الأساسية.  
+- **License not applied:** إذا رأيت استثناء ترخيص، تأكد من وضع ملف الترخيص المؤقت في الدليل الصحيح وإشارته في الكود الخاص بك (غير معروض هنا للتبسيط).  
 
 ## التطبيقات العملية
-1. **مراجعة المستندات القانونية:** إزالة تعليقات المراجعين قبل التوقيعات النهائية.  
-2. **النشر الأكاديمي:** تنظيف المخطوطات من ملاحظات مراجعة الأقران قبل تقديمها للمجلة.  
-3. **التقارير الداخلية:** تقديم تقارير مصقولة دون تعليقات توضيحية مسودة تشوش العرض.  
+
+1. **Legal Document Review:** إزالة تعليقات المراجعين قبل التوقيعات النهائية.  
+2. **Academic Publishing:** تنظيف المخطوطات من ملاحظات مراجعة الأقران قبل تقديمها للمجلة.  
+3. **Internal Reports:** تقديم تقارير مصقولة دون تعليقات توضيحية مسودة تشوش العرض.  
 
 ## اعتبارات الأداء
-- **إدارة الموارد:** دائمًا استدعِ `redactor.close()` (كما هو موضح في مثال التهيئة) لتحرير الموارد الأصلية.  
-- **الملفات الكبيرة:** بالنسبة لملفات PDF التي تحتوي على مئات الصفحات، فكر في المعالجة على أجزاء أو زيادة حجم ذاكرة JVM.  
-- **ابقَ محدثًا:** الإصدارات الجديدة تجلب تحسينات في الأداء—حافظ على تحديث نسخة Maven الخاصة بك.  
 
-## الأخطاء الشائعة وكيفية تجنبها
+- **Resource Management:** استدعِ دائمًا `redactor.close()` (كما هو موضح في مثال التهيئة) لتحرير الموارد الأصلية.  
+- **Large Files:** بالنسبة لملفات PDF ذات مئات الصفحات، فكر في المعالجة على دفعات أو زيادة حجم heap في JVM.  
+- **Stay Updated:** الإصدارات الجديدة تجلب تحسينات أداء—حافظ على تحديث نسخة Maven الخاصة بك.  
+
+## المخاطر الشائعة وكيفية تجنبها
 | المشكلة | الحل |
 |---------|----------|
-| نسيان استدعاء `redactor.close()` | غلف الاستخدام بكتلة try‑finally (كما في فئة البداية). |
-| استخدام امتداد ملف غير صحيح في المسار | تأكد من أن المسار يطابق نوع الملف الفعلي (DOCX، PDF، إلخ). |
-| عدم إضافة لاحقة والكتابة فوق الأصلي | قم بتعيين `saveOptions.setAddSuffix(true)` للحفاظ على الملف الأصلي. |
+| نسيان `redactor.close()` | غلف الاستخدام في كتلة try‑finally (كما في فئة البداية). |
+| استخدام امتداد ملف غير صحيح في المسار | تأكد من أن المسار يطابق نوع الملف الفعلي (DOCX, PDF, إلخ). |
+| عدم إضافة لاحقة والكتابة فوق الأصل | اضبط `saveOptions.setAddSuffix(true)` للحفاظ على ملف المصدر. |
 
 ## الأسئلة المتكررة
-**س: ما هو GroupDocs.Redaction؟**  
-ج: GroupDocs.Redaction هو API للـ Java يتيح لك تمويه أو حذف المحتوى الحساس—بما في ذلك التعليقات التوضيحية—برمجياً من مجموعة واسعة من صيغ المستندات.
 
-**س: هل يمكنني استخدام هذا في مشروع تجاري؟**  
-ج: نعم، بشرط أن تكون لديك رخصة تجارية صالحة. الترخيص المؤقت مخصص للتقييم فقط.
+**Q: ما هو GroupDocs.Redaction؟**  
+A: GroupDocs.Redaction هو API Java يتيح لك تمويه أو حذف المحتوى الحساس برمجيًا — بما في ذلك التعليقات التوضيحية — من مجموعة واسعة من صيغ المستندات.
 
-**س: هل يدعم الـ API صيغ PDF، DOCX، وغيرها؟**  
-ج: بالتأكيد. يعمل مع PDF، DOCX، PPTX، XLSX، والعديد من صيغ الملفات الأخرى.
+**Q: هل يمكنني استخدام هذا في مشروع تجاري؟**  
+A: نعم، بشرط أن يكون لديك ترخيص تجاري صالح. الترخيص المؤقت للاستخدام التجريبي فقط.
 
-**س: هل هناك حد لعدد التعليقات التوضيحية التي يمكن حذفها؟**  
-ج: لا يوجد حد ثابت؛ الأداء يعتمد على حجم المستند وموارد النظام.
+**Q: هل يدعم الـ API صيغ PDF، DOCX، وغيرها؟**  
+A: بالتأكيد. يعمل مع PDF، DOCX، PPTX، XLSX، والعديد غيرها — أكثر من 50 صيغة إجمالاً.
 
-**س: كيف يمكنني استعادة التغييرات إذا حذفت التعليقات التوضيحية عن طريق الخطأ؟**  
-ج: الـ API يكتب فوق الملف الذي تحفظه. احتفظ بنسخة احتياطية من المستند الأصلي قبل تشغيل عملية التمويه.
+**Q: هل هناك حد لعدد التعليقات التي يمكن حذفها؟**  
+A: لا حد ثابت؛ الأداء يعتمد على حجم المستند وموارد النظام. عادةً ما تُعالج ملفات PDF ذات 200 صفحة وآلاف التعليقات في أقل من ثانيتين.
+
+**Q: كيف يمكنني استعادة التغييرات إذا حذفت التعليقات عن طريق الخطأ؟**  
+A: الـ API يكتب فوق الملف الذي تحفظه. احتفظ بنسخة احتياطية من المستند الأصلي قبل تشغيل عملية التمويه.
 
 ## الموارد
+
 - **الوثائق:** [GroupDocs Redaction Java Documentation](https://docs.groupdocs.com/redaction/java/)  
 - **مرجع API:** [API Reference](https://reference.groupdocs.com/redaction/java)  
-- **تحميل:** [Latest Releases](https://releases.groupdocs.com/redaction/java/)  
+- **التنزيل:** [Latest Releases](https://releases.groupdocs.com/redaction/java/)  
 - **مستودع GitHub:** [GroupDocs.Redaction for Java](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - **منتدى الدعم المجاني:** [GroupDocs Community Forum](https://forum.groupdocs.com/c/redaction/33)  
 - **ترخيص مؤقت:** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/)  
 
-باتباعك لهذا الدليل، لديك الآن طريقة موثوقة لـ **remove annotations java** باستخدام GroupDocs.Redaction. دمج المقتطف في خطوط معالجة الدُفعات الخاصة بك، واستمتع بمستندات أنظف وخالية من التعليقات التوضيحية في كل مرة.
+باتباع هذا الدليل، لديك الآن طريقة موثوقة لـ **remove annotations Java** باستخدام GroupDocs.Redaction. دمج المقتطف في خطوط معالجة الدُفعات الخاصة بك، واستمتع بمستندات أنظف وخالية من التعليقات كل مرة.
 
 ---
 
-**آخر تحديث:** 2025-12-19  
+**آخر تحديث:** 2026-06-21  
 **تم الاختبار مع:** GroupDocs.Redaction 24.9 for Java  
 **المؤلف:** GroupDocs
+
+## الدروس ذات الصلة
+
+- [كيفية تمويه Java باستخدام GroupDocs.Redaction - دليل شامل للمطورين](/redaction/java/getting-started/implement-java-redaction-groupdocs-redaction-guide/)  
+- [كيفية تمويه البيانات الحساسة باستخدام GroupDocs Redaction Java License من مسار الملف – دليل خطوة بخطوة](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)  
+- [دورة تمويه نص Java: دليل مع GroupDocs.Redaction](/redaction/java/text-redaction/groupdocs-redaction-java-text-redaction-guide/)

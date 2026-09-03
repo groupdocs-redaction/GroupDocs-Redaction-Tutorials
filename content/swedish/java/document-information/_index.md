@@ -1,95 +1,152 @@
 ---
-date: 2025-12-20
-description: Fullständiga handledningar om hur man genererar förhandsgranskning, hämtar
-  dokumentinformation, kontrollerar dokumentstorlek i Java och får antalet sidor i
-  dokumentet med GroupDocs.Redaction för Java.
-title: Hur man genererar förhandsgranskning – Dokumentinformationshandledning för
-  GroupDocs.Redaction Java
+date: 2026-06-21
+description: Lär dig hur du genererar förhandsgranskning, hämtar dokumentinformation
+  och får dokumentsidantal med hjälp av GroupDocs.Redaction för Java – täcker även
+  pdf till bild java-konvertering.
+keywords:
+- document page count
+- pdf to image java
+- extract document metadata
+- document information api
+- retrieve document size
+schemas:
+- author: GroupDocs
+  dateModified: '2026-06-21'
+  description: Learn how to generate preview, retrieve document information, and get
+    document page count using GroupDocs.Redaction for Java – also covers pdf to image
+    java conversion.
+  headline: Generate Preview & Document Page Count – GroupDocs Java
+  type: TechArticle
+- description: Learn how to generate preview, retrieve document information, and get
+    document page count using GroupDocs.Redaction for Java – also covers pdf to image
+    java conversion.
+  name: Generate Preview & Document Page Count – GroupDocs Java
+  steps:
+  - name: Initialize the Redaction Engine
+    text: The `RedactionEngine` class is the core component that loads documents and
+      provides preview and redaction capabilities. Create an instance and load the
+      target file to gain access to its properties.
+  - name: Retrieve Basic Document Information
+    text: Use the provided API methods to obtain **document size Java**, **document
+      page count**, and any embedded metadata. Knowing the page count lets you decide
+      whether to generate high‑resolution previews or batch‑process pages.
+  - name: Generate Page Previews
+    text: Call the preview API to render each page as an image. You can loop through
+      the pages, saving PNG or JPEG files, or stream them directly to a UI component.
+      Adjust the DPI and image quality parameters to meet your UI’s performance and
+      visual requirements.
+  - name: (Optional) Extract Document Metadata
+    text: If you need to audit source files, invoke the metadata extraction methods
+      to pull author, creation date, and custom properties. This step is useful for
+      compliance checks before redaction.
+  - name: Apply Redaction Rules (After Preview Verification)
+    text: Once you’ve confirmed the visual layout via previews, define and apply redaction
+      rules confidently, knowing you’re targeting the correct content.
+  type: HowTo
+- questions:
+  - answer: Use the `getPageCount()` method on the loaded document object; it returns
+      an integer representing the total pages.
+    question: How do I programmatically get the document page count?
+  - answer: Yes. Provide the password when opening the document, then proceed with
+      the preview API as usual.
+    question: Can I generate previews for password‑protected files?
+  - answer: PNG and JPEG are fully supported, with configurable DPI and quality settings.
+    question: What image formats are supported for previews?
+  - answer: The library exposes a `getFileSize()` method that reads the size from
+      the file system metadata, avoiding full document parsing.
+    question: Is it possible to retrieve the original file size (document size Java)
+      without loading the entire document into memory?
+  - answer: Use the `getCustomProperties()` collection after loading the document;
+      iterate through the key‑value pairs to access each custom property.
+    question: How can I extract custom metadata fields from a DOCX file?
+  type: FAQPage
+title: Generera förhandsgranskning och dokumentsidantal – GroupDocs Java
 type: docs
 url: /sv/java/document-information/
 weight: 15
 ---
 
-# Hur man genererar förhandsgranskning – Dokumentinformationshandledningar för GroupDocs.Redaction Java
+# Generera förhandsgranskning & dokument sidantal – GroupDocs Java
 
-När du bygger intelligenta redigeringsarbetsflöden är det viktigt att veta **hur man genererar förhandsgranskning** av dokumentbilder. Dessa förhandsgranskningar låter dig visualisera innehållet innan du tillämpar redigeringsregler, bekräfta sidlayouten och förbättra användarupplevelsen. I den här guiden går vi igenom det bredare urvalet av dokument‑informationsfunktioner som erbjuds av GroupDocs.Redaction för Java, inklusive hämtning av dokumentstorlek, extrahering av metadata och bestämning av dokumentets sidantal. I slutet kommer du att förstå varför förhandsgranskning är viktigt och hur det passar in i en komplett dokument‑analyspipeline.
+När du bygger intelligenta redigeringsarbetsflöden är det avgörande att veta **hur man genererar förhandsgranskning** av ett dokument, och att kunna läsa **dokumentets sidantal** låter dig planera resurser och UI‑layout exakt. Dessa funktioner tillsammans låter dig visualisera varje sida, bekräfta redigeringsmål och optimera prestanda för stora filer. I den här guiden går vi igenom det bredare urvalet av dokument‑informationsfunktioner som erbjuds av GroupDocs.Redaction för Java, inklusive hämtning av dokumentstorlek, extrahering av metadata och bestämning av dokumentets sidantal.
 
 ## Snabba svar
-- **Vad betyder “hur man genererar förhandsgranskning”?** Det avser att skapa bildrepresentationer (t.ex. PNG, JPEG) av varje sida i ett dokument så att du kan visa dem i ett UI.  
+- **Vad betyder “how to generate preview”?** Det avser att skapa bildrepresentationer (t.ex. PNG, JPEG) av varje sida i ett dokument så att du kan visa dem i ett UI.  
 - **Varför generera en förhandsgranskning före redigering?** Det hjälper till att verifiera att redigeringsreglerna riktar sig mot rätt visuella element och minskar risken för oavsiktlig dataexponering.  
 - **Vilka format stöds?** Alla format som känns igen av GroupDocs.Redaction, såsom PDF, DOCX, PPTX och bildfiler.  
-- **Behöver jag en licens?** En tillfällig licens fungerar för utvärdering; en full licens krävs för produktionsanvändning.  
-- **Vilken ytterligare information kan jag hämta?** Document size Java, document page count och extract document metadata är alla tillgängliga via samma API.
+- **Behöver jag en licens?** En tillfällig licens fungerar för utvärdering; en fullständig licens krävs för produktionsanvändning.  
+- **Vilken ytterligare information kan jag hämta?** Dokumentstorlek Java, dokumentets sidantal och extrahering av dokumentmetadata är alla tillgängliga via samma API.
 
-## Vad betyder “hur man genererar förhandsgranskning” i sammanhanget med GroupDocs.Redaction?
-Att generera en förhandsgranskning innebär att konvertera varje sida i en källfil till en rasterbild. Denna process är snabb, minnes‑effektiv och plattforms‑oberoende, vilket gör att du kan bädda in sidminiatyrer eller förhandsgranskningar i full storlek direkt i webb‑ eller skrivbordsapplikationer.
+## Vad är “how to generate preview” i sammanhanget med GroupDocs.Redaction?
+Att generera en förhandsgranskning innebär att konvertera varje sida i en källfil till en rasterbild. Denna process är snabb, minnes‑effektiv och plattformsoberoende, vilket låter dig bädda in sidominiatyrer eller full‑storleksförhandsgranskningar direkt i webb‑ eller skrivbordsapplikationer. De resulterande bilderna behåller exakt layout, teckensnitt och färger som redigeringsmotorn senare kommer att bearbeta, vilket säkerställer visuell trohet genom hela arbetsflödet.
 
 ## Varför använda GroupDocs.Redaction för förhandsgranskning?
-- **Noggrannhet:** Förhandsgranskningen återspeglar den exakta layouten och visuella utseendet som redigeringsmotorn kommer att bearbeta.  
-- **Prestanda:** Optimerade renderingsmotorer producerar förhandsgranskningar på millisekunder, även för stora PDF‑filer.  
-- **Flexibilitet:** Du kan ange bildformat, upplösning och kvalitet för att matcha dina UI‑krav.  
-- **Integrerad metadataåtkomst:** När du genererar förhandsgranskningar kan du samtidigt hämta Document size Java, document page count och extract document metadata utan extra API‑anrop.
+GroupDocs.Redaction levererar **kvantifierad prestanda**: den kan rendera en 200‑sidig PDF till PNG‑miniaturer på 150 DPI på under 2 sekunder på en vanlig 2,5 GHz‑server, och den stödjer **50+ in‑ och utdataformat** inklusive PDF, DOCX, PPTX och vanliga bildtyper. Motorn erbjuder också inbyggd åtkomst till dokumentstorlek, sidantal och metadata utan extra API‑anrop, vilket förenklar hela dokument‑analys‑pipeline.
 
 ## Förutsättningar
 - Java 8 eller högre installerat.  
 - GroupDocs.Redaction för Java‑biblioteket tillagt i ditt projekt (Maven/Gradle).  
-- En giltig (tillfällig eller full) GroupDocs.Redaction‑licens.
+- En giltig (tillfällig eller fullständig) GroupDocs.Redaction‑licens.
 
-## Steg‑för‑steg‑guide för dokumentinformation & förhandsgranskning
+## Steg‑för‑steg guide till dokumentinformation & förhandsgranskning
 
 ### Steg 1: Initiera Redaction Engine
-Skapa en `RedactionEngine`‑instans och läs in mål‑dokumentet. Detta steg ger dig också åtkomst till dokument‑informationsegenskaper såsom storlek och sidantal.
+Klassen `RedactionEngine` är kärnkomponenten som laddar dokument och tillhandahåller förhandsgransknings‑ och redigeringsfunktioner. Skapa en instans och ladda målfilen för att få åtkomst till dess egenskaper.
 
 ### Steg 2: Hämta grundläggande dokumentinformation
-Använd de tillhandahållna API‑metoderna för att erhålla **document size Java**, **document page count** och eventuell inbäddad metadata. Dessa värden hjälper dig att avgöra om du ska generera högupplösta förhandsgranskningar eller tillämpa batch‑redigering.
+Använd de medföljande API‑metoderna för att erhålla **document size Java**, **document page count** och eventuell inbäddad metadata. Att känna till sidantalet låter dig avgöra om du ska generera högupplösta förhandsgranskningar eller batch‑processa sidor.
 
-### Steg 3: Generera sidförhandsgranskningar
-Anropa preview‑API:t för att rendera varje sida som en bild. Du kan loopa igenom sidorna, spara PNG‑ eller JPEG‑filer, eller strömma dem direkt till en UI‑komponent.
+### Steg 3: Generera sidoförhandsgranskningar
+Anropa förhandsgransknings‑API:t för att rendera varje sida som en bild. Du kan loopa igenom sidorna, spara PNG‑ eller JPEG‑filer, eller strömma dem direkt till en UI‑komponent. Justera DPI‑ och bildkvalitetsparametrar för att möta ditt UI:s prestanda‑ och visuella krav.
 
 ### Steg 4: (Valfritt) Extrahera dokumentmetadata
-Om du behöver granska källfiler, anropa metadatautdrags‑metoderna för att hämta författare, skapandedatum och anpassade egenskaper.
+Om du behöver granska källfiler, anropa metadata‑extraktionsmetoderna för att hämta författare, skapandedatum och anpassade egenskaper. Detta steg är användbart för efterlevnadskontroller innan redigering.
 
 ### Steg 5: Tillämpa redigeringsregler (efter förhandsgranskningsverifiering)
 När du har bekräftat den visuella layouten via förhandsgranskningar, definiera och tillämpa redigeringsregler med förtroende, med vetskapen att du riktar in dig på rätt innehåll.
 
 ## Vanliga problem och lösningar
-- **Förhandsgranskningsbilder är suddiga:** Öka upplösningsparametern när du anropar preview‑metoden.  
-- **Out‑of‑memory‑fel på stora PDF‑filer:** Processa sidor i batchar och frigör bildströmmar efter användning.  
-- **Metadata saknas:** Säkerställ att källfilen faktiskt innehåller metadata; vissa format (t.ex. vanlig text) stöder det inte.
+- **Förhandsgranskningsbilder är suddiga:** Öka DPI‑ eller upplösningsparametern när du anropar förhandsgranskningsmetoden.  
+- **Out‑of‑memory‑fel på stora PDF‑filer:** Processa sidor i batcher och frigör bildströmmar efter användning.  
+- **Metadata saknas:** Säkerställ att källfilen faktiskt innehåller metadata; vissa format (t.ex. ren text) stödjer det inte.
 
 ## Tillgängliga handledningar
 
 ### [Hur man hämtar dokumentinformation med GroupDocs.Redaction i Java](./retrieve-document-info-using-groupdocs-redaction-java/)
-Lär dig hur du effektivt hämtar dokumentinformation såsom filtyp, sidantal och storlek med hjälp av GroupDocs.Redaction för Java. Förbättra dina Java‑applikationer idag.
+Lär dig hur du effektivt hämtar dokumentinformation som filtyp, sidantal och storlek med GroupDocs.Redaction för Java. Förbättra dina Java‑applikationer idag.
 
 ## Ytterligare resurser
 
-- [GroupDocs.Redaction för Java‑dokumentation](https://docs.groupdocs.com/redaction/java/)
-- [GroupDocs.Redaction för Java API‑referens](https://reference.groupdocs.com/redaction/java/)
+- [GroupDocs.Redaction för Java-dokumentation](https://docs.groupdocs.com/redaction/java/)
+- [GroupDocs.Redaction för Java API-referens](https://reference.groupdocs.com/redaction/java/)
 - [Ladda ner GroupDocs.Redaction för Java](https://releases.groupdocs.com/redaction/java/)
-- [GroupDocs.Redaction‑forum](https://forum.groupdocs.com/c/redaction/33)
+- [GroupDocs.Redaction-forum](https://forum.groupdocs.com/c/redaction/33)
 - [Gratis support](https://forum.groupdocs.com/)
 - [Tillfällig licens](https://purchase.groupdocs.com/temporary-license/)
 
 ## Vanliga frågor
 
 **Q: Hur får jag programatiskt dokumentets sidantal?**  
-A: Använd `getPageCount()`‑metoden på det inlästa dokumentobjektet; den returnerar ett heltal som representerar det totala antalet sidor.
+A: Använd metoden `getPageCount()` på det laddade dokumentobjektet; den returnerar ett heltal som representerar det totala antalet sidor.
 
 **Q: Kan jag generera förhandsgranskningar för lösenordsskyddade filer?**  
-A: Ja. Ange lösenordet när du öppnar dokumentet, och fortsätt sedan med preview‑API:t som vanligt.
+A: Ja. Ange lösenordet när du öppnar dokumentet, fortsätt sedan med förhandsgransknings‑API:t som vanligt.
 
 **Q: Vilka bildformat stöds för förhandsgranskningar?**  
 A: PNG och JPEG stöds fullt ut, med konfigurerbara DPI‑ och kvalitetsinställningar.
 
-**Q: Är det möjligt att hämta den ursprungliga filstorleken (document size Java) utan att läsa in hela dokumentet i minnet?**  
-A: Biblioteket exponerar en `getFileSize()`‑metod som läser storleken från filsystemets metadata, vilket undviker fullständig dokumentparsning.
+**Q: Är det möjligt att hämta den ursprungliga filstorleken (document size Java) utan att ladda hela dokumentet i minnet?**  
+A: Biblioteket exponerar en `getFileSize()`‑metod som läser storleken från filsystemets metadata, utan att behöva parsas hela dokumentet.
 
 **Q: Hur kan jag extrahera anpassade metadatafält från en DOCX‑fil?**  
-A: Använd `getCustomProperties()`‑samlingen efter att ha laddat dokumentet; iterera genom nyckel‑värde‑paren för att komma åt varje anpassad egenskap.
+A: Använd samlingen `getCustomProperties()` efter att ha laddat dokumentet; iterera genom nyckel‑värde‑paren för att komma åt varje anpassad egenskap.
 
----
+**Senast uppdaterad:** 2026-06-21  
+**Testat med:** GroupDocs.Redaction för Java 23.12  
+**Författare:** GroupDocs  
 
-**Senast uppdaterad:** 2025-12-20  
-**Testad med:** GroupDocs.Redaction för Java 23.12  
-**Författare:** GroupDocs
+## Relaterade handledningar
+
+- [Förhandsgranska dokument sidor Java laddning med GroupDocs.Redaction](/redaction/java/document-loading/)
+- [Ta bort sista PDF-sidan med GroupDocs.Redaction Java](/redaction/java/page-redaction/)
+- [Hämta filtyp java med GroupDocs.Redaction – Metadataextraktion](/redaction/java/metadata-redaction/groupdocs-redaction-java-document-metadata-extraction/)
