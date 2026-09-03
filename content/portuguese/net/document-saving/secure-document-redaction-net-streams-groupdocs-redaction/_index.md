@@ -1,27 +1,24 @@
 ---
-title: "Redact documents .net using Streams – GroupDocs.Redaction Guide"
-description: "Learn how to redact documents .net using streams with GroupDocs.Redaction. This tutorial covers setup, load document from stream, applying redactions, and saving securely."
-date: "2026-07-06"
-weight: 1
-url: "/net/document-saving/secure-document-redaction-net-streams-groupdocs-redaction/"
+date: '2026-07-06'
+description: Aprenda como redigir documentos .net usando streams com GroupDocs.Redaction.
+  Este tutorial cobre setup, load document from stream, applying redactions e saving
+  securely.
 keywords:
 - redact documents .net
 - load document from stream
 - GroupDocs.Redaction streams
-type: docs
 schemas:
-- type: TechArticle
-  headline: Redact documents .net using Streams – GroupDocs.Redaction Guide
-  description: Learn how to redact documents .net using streams with GroupDocs.Redaction.
-    This tutorial covers setup, load document from stream, applying redactions, and
-    saving securely.
+- author: GroupDocs
   dateModified: '2026-07-06'
-  author: GroupDocs
-- type: HowTo
-  name: Redact documents .net using Streams – GroupDocs.Redaction Guide
   description: Learn how to redact documents .net using streams with GroupDocs.Redaction.
     This tutorial covers setup, load document from stream, applying redactions, and
     saving securely.
+  headline: Redact documents .net using Streams – GroupDocs.Redaction Guide
+  type: TechArticle
+- description: Learn how to redact documents .net using streams with GroupDocs.Redaction.
+    This tutorial covers setup, load document from stream, applying redactions, and
+    saving securely.
+  name: Redact documents .net using Streams – GroupDocs.Redaction Guide
   steps:
   - name: '**Free Trial** – download a trial from [GroupDocs](https://purchase.groupdocs.com/temporary-license/).'
     text: '**Free Trial** – download a trial from [GroupDocs](https://purchase.groupdocs.com/temporary-license/).'
@@ -47,51 +44,57 @@ schemas:
     text: '**Redaction not applied** – Ensure the redaction type you chose is compatible
       with the document format (e.g., `DeleteAnnotationRedaction` works for PDF and
       DOCX).'
-- type: FAQPage
-  questions:
-  - question: Which file formats can be processed with streams?
-    answer: GroupDocs.Redaction supports over 70 formats—including PDF, DOCX, XLSX,
+  type: HowTo
+- questions:
+  - answer: GroupDocs.Redaction supports over 70 formats—including PDF, DOCX, XLSX,
       PPTX, and HTML—when using stream‑based APIs.
-  - question: Can I preview redactions before saving?
-    answer: Yes, call `redactor.GetRedactedDocument()` to obtain an in‑memory representation
+    question: Which file formats can be processed with streams?
+  - answer: Yes, call `redactor.GetRedactedDocument()` to obtain an in‑memory representation
       that you can render or inspect programmatically.
-  - question: How does the library handle password‑protected files?
-    answer: Supply the password when opening the stream via `Redactor` overloads that
+    question: Can I preview redactions before saving?
+  - answer: Supply the password when opening the stream via `Redactor` overloads that
       accept `LoadOptions` containing the password.
-  - question: Is there a limit on document size?
-    answer: The engine can process files up to 2 GB; larger files should be split
+    question: How does the library handle password‑protected files?
+  - answer: The engine can process files up to 2 GB; larger files should be split
       or processed in chunks to stay within memory limits.
-  - question: Do I need a separate license for each deployment environment?
-    answer: A single license key can be used across multiple environments as long
+    question: Is there a limit on document size?
+  - answer: A single license key can be used across multiple environments as long
       as the usage complies with the licensing agreement.
+    question: Do I need a separate license for each deployment environment?
+  type: FAQPage
+title: Redigir documentos .net usando Streams – Guia GroupDocs.Redaction
+type: docs
+url: /pt/net/document-saving/secure-document-redaction-net-streams-groupdocs-redaction/
+weight: 1
 ---
-# Redact documents .net using Streams – A Comprehensive Guide
+
+# Redigir documentos .net usando Streams – Um Guia Abrangente
 
 Welcome! In this tutorial you’ll discover how to **redact documents .net** securely by leveraging streams with GroupDocs.Redaction. We’ll walk through everything you need—from installing the library, loading a document from stream, applying precise redactions, to saving the result without leaving temporary files on disk.
 
-## Quick Answers
-- **What library handles redaction in .NET?** GroupDocs.Redaction for .NET.  
-- **Can I load a file directly from a stream?** Yes—use `FileStream` with the Redactor constructor.  
-- **Which formats are supported?** Over 70 input and output formats, including PDF, DOCX, XLSX, PPTX.  
-- **Do I need a license for production?** A valid GroupDocs.Redaction license is required for non‑trial use.  
-- **Is it safe for large files?** Stream‑based processing avoids loading the whole file into memory, enabling handling of multi‑gigabyte documents.
+## Respostas Rápidas
+- **Qual biblioteca lida com a redação em .NET?** GroupDocs.Redaction for .NET.  
+- **Posso carregar um arquivo diretamente de um stream?** Sim—use `FileStream` com o construtor do Redactor.  
+- **Quais formatos são suportados?** Mais de 70 formatos de entrada e saída, incluindo PDF, DOCX, XLSX, PPTX.  
+- **Preciso de uma licença para produção?** Uma licença válida do GroupDocs.Redaction é necessária para uso não‑trial.  
+- **É seguro para arquivos grandes?** O processamento baseado em stream evita carregar o arquivo inteiro na memória, permitindo o manuseio de documentos de vários gigabytes.
 
-## What is “redact documents .net”?
-**“Redact documents .net”** refers to the process of permanently removing or masking sensitive content from files using .NET libraries such as GroupDocs.Redaction. This ensures that confidential data never leaves your system in clear text. It is commonly used in legal, financial, and healthcare sectors to comply with privacy regulations such as GDPR and HIPAA, ensuring that sensitive data cannot be recovered after processing.
+## O que é “redact documents .net”?
+**“Redact documents .net”** refere‑se ao processo de remover ou mascarar permanentemente conteúdo sensível de arquivos usando bibliotecas .NET como o GroupDocs.Redaction. Isso garante que dados confidenciais nunca deixem seu sistema em texto claro. É amplamente usado nos setores jurídico, financeiro e de saúde para cumprir regulamentos de privacidade como GDPR e HIPAA, assegurando que dados sensíveis não possam ser recuperados após o processamento.
 
-## Why use streams for redaction?
-GroupDocs.Redaction supports **70+ file formats** and can process files up to **2 GB** without fully loading them into memory. Streaming reduces I/O overhead, improves performance, and aligns with security best practices by keeping data in‑memory only for the short time needed for transformation.
+## Por que usar streams para redação?
+GroupDocs.Redaction suporta **mais de 70 formatos de arquivo** e pode processar arquivos de até **2 GB** sem carregá‑los completamente na memória. O streaming reduz a sobrecarga de I/O, melhora o desempenho e segue as melhores práticas de segurança ao manter os dados em memória apenas pelo tempo necessário para a transformação.
 
-## Prerequisites
+## Pré‑requisitos
 
-- **GroupDocs.Redaction for .NET** – install via NuGet (see below).  
-- **.NET 6+** (or .NET Framework 4.6.1+).  
-- Visual Studio 2022 or any compatible IDE.  
-- Basic C# knowledge and familiarity with .NET streams.
+- **GroupDocs.Redaction for .NET** – instale via NuGet (veja abaixo).  
+- **.NET 6+** (ou .NET Framework 4.6.1+).  
+- Visual Studio 2022 ou qualquer IDE compatível.  
+- Conhecimento básico de C# e familiaridade com streams .NET.
 
-## Installing GroupDocs.Redaction
+## Instalando GroupDocs.Redaction
 
-You can add the package with any of these commands:
+Você pode adicionar o pacote com qualquer um destes comandos:
 
 **.NET CLI**  
 ```shell
@@ -103,32 +106,32 @@ dotnet add package GroupDocs.Redaction
 Install-Package GroupDocs.Redaction
 ```  
 
-Or locate “GroupDocs.Redaction” in the NuGet Package Manager UI and click **Install**.
+Ou localize “GroupDocs.Redaction” no UI do NuGet Package Manager e clique em **Install**.
 
-### License Acquisition Steps
-1. **Free Trial** – download a trial from [GroupDocs](https://purchase.groupdocs.com/temporary-license/).  
-2. **Temporary License** – request a short‑term key for evaluation.  
-3. **Full Purchase** – obtain a permanent license for production workloads.
+### Etapas para Aquisição de Licença
+1. **Teste Gratuito** – baixe um trial em [GroupDocs](https://purchase.groupdocs.com/temporary-license/).  
+2. **Licença Temporária** – solicite uma chave de curto prazo para avaliação.  
+3. **Compra Completa** – obtenha uma licença permanente para cargas de produção.
 
-Once installed, initialize the library in your code:
+Uma vez instalado, inicialize a biblioteca no seu código:
 
 ```csharp
 using GroupDocs.Redaction;
 // Initialization code here...
 ```  
 
-## How to load a document from stream?
+## Como carregar um documento a partir de um stream?
 
-A `FileStream` provides a stream for reading from and writing to a file on disk. The `Redactor` class processes the document and applies redaction rules. Load your source file into a `FileStream`, then pass the stream to the `Redactor` constructor. This approach avoids writing the original file to a temporary location and keeps the data in memory only for the duration of processing. This method works for any supported format, including PDFs and Office documents.
+Um `FileStream` fornece um stream para leitura e escrita de um arquivo no disco. A classe `Redactor` processa o documento e aplica regras de redação. Carregue seu arquivo fonte em um `FileStream`, então passe o stream ao construtor do `Redactor`. Essa abordagem evita gravar o arquivo original em um local temporário e mantém os dados na memória apenas durante o processamento. Esse método funciona para qualquer formato suportado, incluindo PDFs e documentos Office.
 
 ```csharp
 // Directly open the source file as a read‑only stream
 using var inputStream = new FileStream(inputPath, FileMode.Open, FileAccess.Read);
 ```
 
-## How to initialize the Redactor with the stream?
+## Como inicializar o Redactor com o stream?
 
-The `Redactor` class is the core engine that manipulates document content. By supplying the input stream, you enable in‑memory redaction without intermediate files. After creating the instance, you can chain redaction rules, preview changes, and configure options such as rasterization or encryption before committing the final document.
+A classe `Redactor` é o motor central que manipula o conteúdo do documento. Ao fornecer o stream de entrada, você habilita a redação em memória sem arquivos intermediários. Após criar a instância, pode encadear regras de redação, visualizar alterações e configurar opções como rasterização ou criptografia antes de confirmar o documento final.
 
 ```csharp
 // Initialise the Redactor with the input stream
@@ -137,9 +140,9 @@ using var redactor = new GroupDocs.Redaction.Redactor(inputStream);
 
 **Definition anchor:** `GroupDocs.Redaction.Redactor` is the primary class that provides methods to apply, preview, and commit redaction operations on a document loaded from a stream.
 
-## How to apply redactions?
+## Como aplicar redações?
 
-You can add multiple redaction actions; the example below deletes all annotations, which is a common requirement for removing hidden comments or reviewer notes. Additional redaction types like `DeleteTextRedaction` or `ReplaceTextRedaction` can be combined to remove or mask specific strings, dates, or patterns across the document.
+Você pode adicionar múltiplas ações de redação; o exemplo abaixo exclui todas as anotações, que é um requisito comum para remover comentários ocultos ou notas de revisores. Tipos adicionais de redação como `DeleteTextRedaction` ou `ReplaceTextRedaction` podem ser combinados para remover ou mascarar strings, datas ou padrões específicos ao longo do documento.
 
 ```csharp
 // Apply a predefined redaction that removes every annotation
@@ -148,9 +151,9 @@ redactor.Apply(new DeleteAnnotationRedaction());
 
 **Definition anchor:** `DeleteAnnotationRedaction` is a built‑in redaction rule that permanently erases annotation objects such as comments, highlights, and stamps from the document.
 
-## How to save the redacted document?
+## Como salvar o documento redactado?
 
-Saving directly to a `FileStream` ensures the output is written in a single pass, eliminating unnecessary temporary files. You may also specify output format, compression level, and optional password protection through the `SaveOptions` object to meet security requirements. Finally, close the output stream to release file handles and ensure the file is fully written to disk.
+Salvar diretamente em um `FileStream` garante que a saída seja escrita em uma única passagem, eliminando arquivos temporários desnecessários. Você também pode especificar o formato de saída, nível de compressão e proteção opcional por senha através do objeto `SaveOptions` para atender aos requisitos de segurança. Por fim, feche o stream de saída para liberar os manipuladores de arquivo e assegurar que o arquivo seja gravado completamente no disco.
 
 ```csharp
 // Prepare the output stream for the redacted file
@@ -162,38 +165,38 @@ redactor.Save(outputStream, new SaveOptions { RasterizationOptions = null });
 
 **Definition anchor:** `SaveOptions` lets you control how the document is persisted, including rasterization, encryption, and format selection.
 
-## Common Use Cases
-- **Legal document handling:** Strip confidential annotations before sharing drafts with clients.  
-- **GDPR compliance:** Remove personal identifiers from contracts or employee records.  
-- **Internal audit reports:** Hide reviewer notes while preserving the core content for distribution.
+## Casos de Uso Comuns
+- **Manipulação de documentos legais:** Remova anotações confidenciais antes de compartilhar rascunhos com clientes.  
+- **Conformidade GDPR:** Elimine identificadores pessoais de contratos ou registros de funcionários.  
+- **Relatórios de auditoria interna:** Oculte notas de revisores enquanto preserva o conteúdo principal para distribuição.
 
-## Performance Tips for Large Files
+## Dicas de Performance para Arquivos Grandes
 1. **Dispose streams promptly** – `using` statements automatically close streams, freeing memory.  
 2. **Batch processing** – Loop through a collection of files and reuse a single `Redactor` instance when format permits, reducing allocation overhead.  
 
-## Troubleshooting
+## Solução de Problemas
 
 1. **File access denied** – Verify the application’s account has read/write permissions on the target folders.  
 2. **Redaction not applied** – Ensure the redaction type you chose is compatible with the document format (e.g., `DeleteAnnotationRedaction` works for PDF and DOCX).  
 
-## Frequently Asked Questions
+## Perguntas Frequentes
 
-**Q: Which file formats can be processed with streams?**  
+**Q: Quais formatos de arquivo podem ser processados com streams?**  
 A: GroupDocs.Redaction supports over 70 formats—including PDF, DOCX, XLSX, PPTX, and HTML—when using stream‑based APIs.
 
-**Q: Can I preview redactions before saving?**  
+**Q: Posso visualizar as redações antes de salvar?**  
 A: Yes, call `redactor.GetRedactedDocument()` to obtain an in‑memory representation that you can render or inspect programmatically.
 
-**Q: How does the library handle password‑protected files?**  
+**Q: Como a biblioteca lida com arquivos protegidos por senha?**  
 A: Supply the password when opening the stream via `Redactor` overloads that accept `LoadOptions` containing the password.
 
-**Q: Is there a limit on document size?**  
+**Q: Existe um limite de tamanho de documento?**  
 A: The engine can process files up to 2 GB; larger files should be split or processed in chunks to stay within memory limits.
 
-**Q: Do I need a separate license for each deployment environment?**  
+**Q: Preciso de uma licença separada para cada ambiente de implantação?**  
 A: A single license key can be used across multiple environments as long as the usage complies with the licensing agreement.
 
-## Conclusion
+## Conclusão
 You now have a complete, step‑by‑step solution for **redact documents .net** using streams with GroupDocs.Redaction. By loading files directly from streams, applying targeted redactions, and saving without intermediate artifacts, you achieve both security and performance. Explore additional redaction types—such as text replacement or metadata removal—to tailor the process to your specific compliance needs.
 
 ---
@@ -202,7 +205,7 @@ You now have a complete, step‑by‑step solution for **redact documents .net**
 **Tested With:** GroupDocs.Redaction 5.0 for .NET  
 **Author:** GroupDocs  
 
-## Resources
+## Recursos
 - [Documentation](https://docs.groupdocs.com/redaction/net/)
 - [API Reference](https://reference.groupdocs.com/redaction/net)
 - [Download](https://releases.groupdocs.com/redaction/net/)
@@ -236,7 +239,7 @@ using (Stream streamOut = File.Open(outputFile, FileMode.Create, FileAccess.Writ
 }
 ```
 
-## Related Tutorials
+## Tutoriais Relacionados
 
 - [How to Load and Redact Documents Using GroupDocs.Redaction .NET&#58; A Complete Guide](/redaction/net/document-loading/groupdocs-redaction-net-load-redact-documents/)
 - [Redact and Save Documents with GroupDocs.Redaction for .NET&#58; A Complete Guide](/redaction/net/document-saving/redact-save-documents-groupdocs-redaction-net/)
