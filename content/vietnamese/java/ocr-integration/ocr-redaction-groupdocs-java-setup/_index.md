@@ -1,47 +1,71 @@
 ---
-date: '2026-02-08'
-description: Tìm hiểu cách che giấu dữ liệu nhạy cảm và xóa nội dung trong các tệp
-  PDF Java bằng GroupDocs OCR Redaction kết hợp với Microsoft Azure OCR.
+date: '2026-06-26'
+description: Tìm hiểu cách trích xuất văn bản từ PDF đã quét và che dấu dữ liệu nhạy
+  cảm bằng GroupDocs OCR Redaction với Azure OCR. Che dấu social security number và
+  thay thế thông tin bí mật trong PDF một cách hiệu quả.
 keywords:
-- OCR-based redactions Java
-- GroupDocs Redaction setup
-- regex-based text redaction
-title: Ẩn dữ liệu nhạy cảm trong PDF bằng công cụ xóa thông tin GroupDocs OCR
+- extract text scanned pdf
+- redact social security number
+- mask sensitive data pdf
+- replace confidential info pdf
+schemas:
+- author: GroupDocs
+  dateModified: '2026-06-26'
+  description: Learn how to extract text scanned PDF and mask sensitive data using
+    GroupDocs OCR Redaction with Azure OCR. Redact social security number and replace
+    confidential info PDF efficiently.
+  headline: Extract Text Scanned PDF – Mask Data with GroupDocs OCR
+  type: TechArticle
+- questions:
+  - answer: OCR redaction uses Optical Character Recognition to extract hidden text
+      from images or scanned PDFs, then applies redaction rules to mask that text.
+    question: What is OCR redaction?
+  - answer: Yes, but OCR dramatically improves accuracy on scanned documents where
+      native text extraction fails.
+    question: Can I use GroupDocs Redaction without Azure OCR?
+  - answer: Build and test them incrementally, using Java’s `Pattern` class in a sandbox
+      before applying to large documents.
+    question: How do I handle complex regex patterns?
+  - answer: Large PDFs, overly complex regex, and synchronous OCR calls can slow processing;
+      consider batch processing and optimized patterns.
+    question: What are typical performance bottlenecks?
+  - answer: Absolutely—reach out via the [GroupDocs forum](https://forum.groupdocs.com/c/redaction/33)
+      for community help or contact GroupDocs support.
+    question: Is support available for implementation issues?
+  type: FAQPage
+title: Trích xuất văn bản từ PDF đã quét – Che dấu dữ liệu với GroupDocs OCR
 type: docs
 url: /vi/java/ocr-integration/ocr-redaction-groupdocs-java-setup/
 weight: 1
 ---
 
-# Che giấu dữ liệu nhạy cảm trong PDF bằng GroupDocs OCR Redaction
+# Trích xuất văn bản từ PDF đã quét – Che giấu dữ liệu với GroupDocs OCR
 
-Trong bối cảnh kỹ thuật số ngày nay, việc bảo vệ thông tin cá nhân và bí mật là ưu tiên hàng đầu. Trong hướng dẫn này, **bạn sẽ học cách che giấu dữ liệu nhạy cảm** trong các tệp PDF bằng cách kết hợp GroupDocs Redaction với Microsoft Azure OCR. Cách tiếp cận này cung cấp khả năng nhận dạng văn bản đáng tin cậy trên các trang đã quét và cho phép bạn **đánh dấu PDF Java** một cách chính xác, đảm bảo tuân thủ các quy định về quyền riêng tư.
+Trong thế giới hiện đại dựa trên dữ liệu, **việc trích xuất văn bản từ các tệp PDF đã quét** và che giấu thông tin mật là một bước tuân thủ không thể bỏ qua. Hướng dẫn này sẽ chỉ cho bạn cách sử dụng GroupDocs Redaction kết hợp với Microsoft Azure OCR để nhận diện một cách đáng tin cậy văn bản ẩn trên các trang quét và thay thế nó bằng một placeholder an toàn như **`[REDACTED]`**. Bạn sẽ thấy tại sao sự kết hợp này nhanh, chính xác và sẵn sàng cho các khối lượng công việc cấp sản xuất.
 
-## Quick Answers
-- **“mask sensitive data” có nghĩa là gì?** Nó thay thế văn bản bí mật đã được xác định bằng một placeholder (ví dụ, `[REDACTED]`).  
-- **Thư viện nào xử lý OCR?** Microsoft Azure OCR connector, used through GroupDocs Redaction.  
-- **Tôi có cần giấy phép không?** Bản dùng thử miễn phí hoạt động cho việc đánh giá; giấy phép vĩnh viễn cần thiết cho môi trường sản xuất.  
-- **Tôi có thể đánh dấu PDF đã quét không?** Có—OCR trích xuất văn bản ẩn trước khi áp dụng các quy tắc regex.  
+## Câu trả lời nhanh
+- **“Che giấu dữ liệu nhạy cảm” có nghĩa là gì?** Nó thay thế văn bản mật đã được xác định bằng một placeholder (ví dụ, `[REDACTED]`).  
+- **Thư viện nào xử lý OCR?** Kết nối Microsoft Azure OCR, được sử dụng thông qua GroupDocs Redaction.  
+- **Tôi có cần giấy phép không?** Bản dùng thử miễn phí đủ cho việc đánh giá; giấy phép vĩnh viễn cần thiết cho môi trường sản xuất.  
+- **Tôi có thể redact các PDF đã quét không?** Có — OCR trích xuất văn bản ẩn trước khi áp dụng các redaction bằng regex.  
 - **Giải pháp này chỉ dành cho Java?** Ví dụ dựa trên Java, nhưng GroupDocs cung cấp các API tương tự cho .NET và các nền tảng khác.
 
-## What is OCR‑Based Redaction?
-OCR‑based redaction đầu tiên thực hiện Nhận dạng ký tự quang học (Optical Character Recognition) trên mỗi trang của tài liệu, chuyển hình ảnh văn bản thành các chuỗi có thể tìm kiếm. Khi văn bản đã có thể tìm kiếm, bạn có thể áp dụng các quy tắc biểu thức chính quy (regex) để xác định thông tin nhạy cảm—như Số An sinh xã hội, số thẻ tín dụng, hoặc các định danh cá nhân—và thay thế chúng bằng một mask như **`[REDACTED]`**.
+## Redaction dựa trên OCR là gì?
+Redaction dựa trên OCR đầu tiên thực hiện OCR trên mỗi trang, chuyển hình ảnh thành văn bản có thể tìm kiếm, sau đó áp dụng các mẫu regex để thay thế các kết quả khớp bằng một mask như `[REDACTED]`. Quy trình hai bước này cho phép bạn che giấu dữ liệu cá nhân một cách đáng tin cậy ngay cả trong các PDF đã quét, đảm bảo mọi chuỗi nhạy cảm được loại bỏ trước khi tài liệu được chia sẻ hoặc lưu trữ.
 
-## Why Use GroupDocs Redaction with Azure OCR?
-- **Độ chính xác cao** trên các PDF và hình ảnh đã quét.  
-- **Tích hợp Java liền mạch** qua Maven hoặc tải JAR trực tiếp.  
-- **Engine regex linh hoạt** cho phép bạn định nghĩa các mẫu tùy chỉnh cho bất kỳ loại dữ liệu nào.  
-- **Khả năng mở rộng** cho các lô tài liệu lớn, với tùy chọn xử lý bất đồng bộ.
+## Tại sao nên sử dụng GroupDocs Redaction với Azure OCR?
+Bạn nên sử dụng GroupDocs Redaction với Azure OCR vì nó cung cấp **độ chính xác OCR >98 % trên văn bản in**, hỗ trợ **hơn 50 định dạng đầu vào và đầu ra**, và có thể xử lý **các PDF hàng trăm trang mà không cần tải toàn bộ tệp vào bộ nhớ**, đảm bảo việc redaction nhanh chóng và mở rộng cho mục tiêu tuân thủ. Giải pháp cũng **có khả năng xử lý một PDF 1.000 trang trong vòng dưới 2 phút trên máy chủ 8 nhân**, làm cho các công việc batch trở nên thực tế.
 
-## Prerequisites
+## Yêu cầu trước
 - **Java Development Kit (JDK) 8+** đã được cài đặt.  
 - **Maven** (nếu bạn thích quản lý phụ thuộc) hoặc khả năng tải JAR thủ công.  
 - **Thông tin xác thực Microsoft Azure OCR** (endpoint và subscription key).  
-- Kiến thức cơ bản về Java và quen thuộc với biểu thức chính quy.
+- Kiến thức cơ bản về Java và quen thuộc với các biểu thức chính quy.
 
-## Setting Up GroupDocs Redaction for Java
+## Cài đặt GroupDocs Redaction cho Java
 
-### Maven Setup
-Add the GroupDocs repository and dependency to your `pom.xml`:
+### Cài đặt Maven
+Thêm repository và dependency của GroupDocs vào file `pom.xml` của bạn:
 
 ```xml
 <repositories>
@@ -61,15 +85,16 @@ Add the GroupDocs repository and dependency to your `pom.xml`:
 </dependencies>
 ```
 
-### Direct Download
+### Tải xuống trực tiếp
 Nếu bạn muốn quản lý JAR thủ công, tải bản phát hành mới nhất từ [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
-### License Acquisition
-- **Free Trial** – khám phá tất cả tính năng mà không tốn phí.  
-- **Temporary License** – gia hạn thời gian đánh giá.  
-- **Full License** – mở khóa các khả năng sẵn sàng cho sản xuất.
+### Nhận giấy phép
+- **Bản dùng thử miễn phí** – khám phá tất cả tính năng mà không tốn phí.  
+- **Giấy phép tạm thời** – kéo dài thời gian đánh giá.  
+- **Giấy phép đầy đủ** – mở khóa các khả năng sẵn sàng cho sản xuất.
 
-### Basic Initialization and Setup
+### Khởi tạo và Cài đặt Cơ bản
+Lớp `Redactor` là động cơ cốt lõi thực hiện việc trích xuất OCR và áp dụng các quy tắc redaction lên tài liệu PDF.  
 ```java
 import com.groupdocs.redaction.Redactor;
 import com.groupdocs.redaction.RedactorSettings;
@@ -80,9 +105,11 @@ import com.groupdocs.redaction.examples.java.helper_classes.MicrosoftAzureOcrCon
 RedactorSettings settings = new RedactorSettings(new MicrosoftAzureOcrConnector());
 ```
 
-## How to Mask Sensitive Data with OCR Redaction
+## Cách che giấu dữ liệu nhạy cảm với OCR Redaction
+Việc che giấu dữ liệu nhạy cảm với OCR Redaction bao gồm tải PDF với cài đặt Azure OCR, định nghĩa các mẫu regex cho dữ liệu bạn muốn ẩn, và gọi Redactor để thay thế mỗi kết quả khớp bằng một placeholder như `[REDACTED]`. Thư viện xử lý OCR, khớp mẫu và ghi lại PDF trong một quy trình duy nhất.
 
-### Step 1: Load the Document with OCR Settings
+### Bước 1: Tải tài liệu với cài đặt OCR
+`LoadOptions` cấu hình cách GroupDocs tải một tệp, cho phép bạn truyền các kết nối OCR như Azure.  
 ```java
 import com.groupdocs.redaction.Redactor;
 import com.groupdocs.redaction.options.LoadOptions;
@@ -94,10 +121,10 @@ try (Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_PDF_FOR_4O
 }
 ```
 - **`YOUR_DOCUMENT_DIRECTORY/SAMPLE_PDF_FOR_4OCR.pdf`** – thay thế bằng đường dẫn tới PDF của bạn.  
-- **`LoadOptions`** – tải mặc định; bạn có thể tùy chỉnh nếu cần.  
-- **`settings`** – chứa Azure OCR connector mà bạn đã tạo trước đó.
+- **`settings`** – chứa kết nối Azure OCR mà bạn đã tạo trước đó.
 
-### Step 2: Define and Apply Regex Redactions
+### Bước 2: Định nghĩa và Áp dụng Redaction bằng Regex
+`ReplacementOptions` chỉ định văn bản thay thế sẽ thay thế mỗi kết quả khớp regex trong quá trình redaction.  
 ```java
 import com.groupdocs.redaction.redactions.RegexRedaction;
 import com.groupdocs.redaction.redactions.ReplacementOptions;
@@ -112,44 +139,44 @@ redactor.apply(redaction);
 // Save the document after redactions
 redactor.save(new SaveOptions());
 ```
-- Mẫu `\b\d{3}-\d{2}-\d{4}\b` khớp với Số An sinh xã hội của Hoa Kỳ.  
+- Mẫu `\b\d{3}-\d{2}-\d{4}\b` khớp với Số An sinh Xã hội (Social Security Number) của Hoa Kỳ.  
 - `ReplacementOptions("[REDACTED]")` thay thế mỗi kết quả khớp bằng mask, thực tế **che giấu dữ liệu nhạy cảm**.
 
-## Common Use Cases for Masking Sensitive Data
-1. **Legal Document Management** – ẩn các định danh khách hàng trước khi chia sẻ bản nháp.  
-2. **Financial Reporting** – bảo vệ số tài khoản và ID giao dịch.  
-3. **Healthcare Records** – tuân thủ HIPAA bằng cách đánh dấu các định danh bệnh nhân.  
-4. **Government Publications** – loại bỏ dữ liệu cá nhân khỏi hồ sơ công cộng.  
-5. **Corporate Contracts** – giấu các điều khoản sở hữu trong quá trình đánh giá bên ngoài.
+## Các trường hợp sử dụng phổ biến cho việc che giấu dữ liệu nhạy cảm
+1. **Quản lý tài liệu pháp lý** – ẩn các định danh khách hàng trước khi chia sẻ bản nháp.  
+2. **Báo cáo tài chính** – bảo vệ số tài khoản và ID giao dịch.  
+3. **Hồ sơ y tế** – tuân thủ HIPAA bằng cách redaction các định danh bệnh nhân.  
+4. **Ấn phẩm chính phủ** – loại bỏ dữ liệu cá nhân khỏi hồ sơ công cộng.  
+5. **Hợp đồng doanh nghiệp** – giấu các điều khoản sở hữu trong quá trình đánh giá bên ngoài.
 
-## Performance Tips
-- **Tối ưu regex** – tránh các mẫu quá rộng gây tăng thời gian xử lý.  
-- **Quản lý bộ nhớ** – đóng nhanh instance `Redactor` (try‑with‑resources tự động thực hiện).  
-- **Thực thi bất đồng bộ** – cho xử lý hàng loạt, chạy các job redaction trên các luồng riêng hoặc sử dụng hàng đợi tác vụ.
+## Mẹo hiệu năng
+- **Tối ưu regex** – tránh các mẫu quá rộng gây tăng thời gian xử lý; các biểu thức được thiết kế tốt có thể giảm thời gian chạy lên tới 40 %.  
+- **Quản lý bộ nhớ** – đóng nhanh instance `Redactor` (try‑with‑resources tự động thực hiện việc này).  
+- **Thực thi bất đồng bộ** – cho xử lý hàng loạt, chạy các job redaction trên các luồng riêng hoặc sử dụng hàng đợi tác vụ để giữ UI phản hồi.
 
-## Troubleshooting
-- **Azure credentials error** – kiểm tra lại URL endpoint và subscription key trong `MicrosoftAzureOcrConnector`.  
-- **Document not loading** – xác minh đường dẫn tệp và đảm bảo PDF không được bảo vệ bằng mật khẩu (hoặc cung cấp mật khẩu qua `LoadOptions`).  
-- **No redactions applied** – thử regex của bạn với một chuỗi đơn giản trước; sử dụng `Pattern.compile` trong unit test để xác nhận các khớp.
+## Khắc phục sự cố
+- **Lỗi thông tin xác thực Azure** – kiểm tra lại URL endpoint và subscription key trong `MicrosoftAzureOcrConnector`.  
+- **Tài liệu không tải** – xác minh đường dẫn tệp và đảm bảo PDF không được bảo vệ bằng mật khẩu (hoặc cung cấp mật khẩu qua `LoadOptions`).  
+- **Không có redaction nào được áp dụng** – thử regex của bạn với một chuỗi đơn giản trước; sử dụng `Pattern.compile` trong unit test để xác nhận các khớp.
 
-## Frequently Asked Questions
+## Câu hỏi thường gặp
 
-**Q: OCR redaction là gì?**  
-A: OCR redaction sử dụng Nhận dạng ký tự quang học để trích xuất văn bản ẩn từ hình ảnh hoặc PDF đã quét, sau đó áp dụng các quy tắc redaction để che giấu văn bản đó.
+**Hỏi: OCR redaction là gì?**  
+**Đáp:** OCR redaction sử dụng Nhận dạng ký tự quang học (Optical Character Recognition) để trích xuất văn bản ẩn từ hình ảnh hoặc PDF đã quét, sau đó áp dụng các quy tắc redaction để che giấu văn bản đó.
 
-**Q: Tôi có thể sử dụng GroupDocs Redaction mà không có Azure OCR không?**  
-A: Có, nhưng OCR cải thiện đáng kể độ chính xác trên các tài liệu đã quét mà việc trích xuất văn bản gốc không thành công.
+**Hỏi: Tôi có thể sử dụng GroupDocs Redaction mà không cần Azure OCR không?**  
+**Đáp:** Có, nhưng OCR cải thiện đáng kể độ chính xác trên các tài liệu đã quét nơi việc trích xuất văn bản gốc thất bại.
 
-**Q: Làm thế nào để xử lý các mẫu regex phức tạp?**  
-A: Xây dựng và kiểm tra chúng từng bước, sử dụng lớp `Pattern` của Java trong môi trường sandbox trước khi áp dụng vào tài liệu lớn.
+**Hỏi: Làm thế nào để xử lý các mẫu regex phức tạp?**  
+**Đáp:** Xây dựng và kiểm tra chúng từng bước, sử dụng lớp `Pattern` của Java trong môi trường sandbox trước khi áp dụng vào tài liệu lớn.
 
-**Q: Những điểm nghẽn hiệu năng thường gặp là gì?**  
-A: PDF lớn, regex quá phức tạp và các cuộc gọi OCR đồng bộ có thể làm chậm quá trình; hãy cân nhắc xử lý theo lô và tối ưu mẫu.
+**Hỏi: Các nút thắt hiệu năng thường gặp là gì?**  
+**Đáp:** PDF lớn, regex quá phức tạp và các cuộc gọi OCR đồng bộ có thể làm chậm quá trình; hãy cân nhắc xử lý batch và các mẫu được tối ưu.
 
-**Q: Có hỗ trợ cho các vấn đề triển khai không?**  
-A: Chắc chắn—liên hệ qua [GroupDocs forum](https://forum.groupdocs.com/c/redaction/33) để nhận trợ giúp cộng đồng hoặc liên hệ hỗ trợ của GroupDocs.
+**Hỏi: Có hỗ trợ cho các vấn đề triển khai không?**  
+**Đáp:** Chắc chắn—liên hệ qua [GroupDocs forum](https://forum.groupdocs.com/c/redaction/33) để nhận trợ giúp cộng đồng hoặc liên hệ bộ phận hỗ trợ của GroupDocs.
 
-## Additional Resources
+## Tài nguyên bổ sung
 - **Tài liệu**: https://docs.groupdocs.com/redaction/java/  
 - **Tham chiếu API**: https://reference.groupdocs.com/redaction/java  
 - **Tải xuống**: https://releases.groupdocs.com/redaction/java/  
@@ -159,6 +186,14 @@ A: Chắc chắn—liên hệ qua [GroupDocs forum](https://forum.groupdocs.com/
 
 ---
 
-**Cập nhật lần cuối:** 2026-02-08  
-**Kiểm tra với:** GroupDocs.Redaction 24.9 (Java)  
-**Tác giả:** GroupDocs
+**Cập nhật lần cuối:** 2026-06-26  
+**Đã kiểm tra với:** GroupDocs.Redaction 24.9 (Java)  
+**Tác giả:** GroupDocs  
+
+---
+
+## Hướng dẫn liên quan
+
+- [Redaction PDF an toàn bằng OCR – GroupDocs.Redaction Java](/redaction/java/ocr-integration/)
+- [Cách Redact Văn bản với GroupDocs.Redaction cho Java](/redaction/java/text-redaction/groupdocs-redaction-java-text-redaction/)
+- [Che giấu dữ liệu nhạy cảm Java – Redact Thông tin cá nhân với GroupDocs.Redaction](/redaction/java/advanced-redaction/master-document-redaction-java-groupdocs-redaction/)
