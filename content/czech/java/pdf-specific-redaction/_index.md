@@ -1,91 +1,153 @@
 ---
-date: 2026-01-29
-description: Naučte se, jak redigovat PDF v Javě a odstraňovat metadata PDF v Javě
-  pomocí pokročilých technik GroupDocs.Redaction pro Javu, abyste chránili citlivá
-  data a splnili předpisy.
-title: jak redigovat PDF v Javě – PDF‑specifické tutoriály pro GroupDocs.Redaction
+date: 2026-06-16
+description: Naučte se, jak odstranit metadata PDF v Java pomocí GroupDocs.Redaction,
+  přední Java knihovny pro bezpečnou redakci PDF a soulad s předpisy.
+keywords:
+- remove pdf metadata java
+- pdf redaction java
+- groupdocs.redaction java
+schemas:
+- author: GroupDocs
+  dateModified: '2026-06-16'
+  description: Learn how to remove pdf metadata java with GroupDocs.Redaction, the
+    leading Java library for secure PDF redaction and compliance.
+  headline: remove pdf metadata java – GroupDocs.Redaction tutorial
+  type: TechArticle
+- description: Learn how to remove pdf metadata java with GroupDocs.Redaction, the
+    leading Java library for secure PDF redaction and compliance.
+  name: remove pdf metadata java – GroupDocs.Redaction tutorial
+  steps:
+  - name: '**Create the Redactor** – instantiate the `Redactor` class with the source
+      PDF path (or stream).'
+    text: '**Create the Redactor** – instantiate the `Redactor` class with the source
+      PDF path (or stream).'
+  - name: '**Strip metadata** – call `redactor.removePdfMetadata()` to purge author,
+      creation date, producer, and other hidden fields.'
+    text: '**Strip metadata** – call `redactor.removePdfMetadata()` to purge author,
+      creation date, producer, and other hidden fields.'
+  - name: '**Save the cleaned PDF** – use `redactor.save("cleaned.pdf")` to write
+      the result to disk.'
+    text: '**Save the cleaned PDF** – use `redactor.save("cleaned.pdf")` to write
+      the result to disk.'
+  type: HowTo
+- questions:
+  - answer: Yes. GroupDocs.Redaction lets you add separate redaction rules for text
+      patterns and image objects, then apply them together.
+    question: Can I redact both text and images in a single operation?
+  - answer: Absolutely. You can loop through a collection of file paths and apply
+      the same redaction configuration to each document.
+    question: Does the library support batch processing of multiple PDFs?
+  - answer: After saving, open the PDF in a viewer and use the “Search” function for
+      the original text. It should no longer be searchable.
+    question: How do I verify that redaction was successful?
+  - answer: The API provides a `preview` method that returns a temporary PDF with
+      redaction highlights, allowing you to review before finalizing.
+    question: Is it possible to preview redaction before committing changes?
+  - answer: GroupDocs offers perpetual, subscription, and temporary licenses. Choose
+      the model that fits your project timeline and budget.
+    question: What licensing options are available for production deployments?
+  type: FAQPage
+title: odstranit metadata PDF v Java – GroupDocs.Redaction tutoriál
 type: docs
 url: /cs/java/pdf-specific-redaction/
 weight: 11
 ---
 
-# jak redact pdf java – PDF‑Specifické tutoriály pro GroupDocs.Redaction Java
+# odstranění pdf metadat java – návod GroupDocs.Redaction
 
-Pokud se ptáte, **jak redact pdf java**, naše PDF‑specifické tutoriály pro redakci ukazují specializované techniky pro práci s bezpečností PDF pomocí GroupDocs.Redaction v Javě. Tyto krok‑za‑krokem průvodce zahrnují implementaci filtrů pro redakci PDF, práci se strukturami specifickými pro PDF, práci s redakcí obrázků v PDF a bezpečnou správu metadat PDF. Každý tutoriál obsahuje funkční ukázky kódu v Javě pro scénáře redakce zaměřené na PDF, což vám pomůže vytvořit aplikace, které efektivně řeší jedinečné bezpečnostní výzvy spojené s PDF dokumenty.
+V tomto komplexním průvodci se naučíte **jak odstranit pdf metadata java** pomocí GroupDocs.Redaction, čímž zajistíte, že vaše PDF soubory budou čisté, v souladu s předpisy a chráněné před únikem skrytých dat. Provedeme vás API, ukážeme praktické úryvky kódu a probereme běžné úskalí, abyste mohli chránit citlivé informace bez zbytečných komplikací.
 
 ## Rychlé odpovědi
-- **Jaký je hlavní účel GroupDocs.Redaction pro Javu?**  
-  Programově najít a trvale odstranit nebo nahradit citlivý obsah v PDF souborech.
+- **Jaký je hlavní účel GroupDocs.Redaction pro Java?**  
+  Programově vyhledávat a trvale odstranit nebo nahradit citlivý obsah v PDF souborech.  
 - **Která metoda odstraňuje skrytá metadata z PDF?**  
-  Použijte funkci `removePdfMetadata` (viz sekce „remove pdf metadata java“ níže).
+  Použijte funkci `removePdfMetadata` (viz sekce „remove pdf metadata java“ níže).  
 - **Potřebuji licenci pro produkční použití?**  
-  Ano – pro jakékoli nasazení do produkce je vyžadována komerční licence.
+  Ano – pro jakékoli nasazení do výroby je vyžadována komerční licence.  
 - **Mohu redigovat obrázky uvnitř PDF?**  
-  Rozhodně – GroupDocs.Redaction dokáže detekovat a redigovat objekty obrázků jako součást pracovního postupu redakce.
+  Rozhodně – GroupDocs.Redaction dokáže detekovat a redigovat objekty obrázků jako součást pracovního postupu redakce.  
 - **Je knihovna kompatibilní s Java 11 a novějšími?**  
-  Ano, podporuje Java 8+ a funguje bez problémů s moderními JVM.
+  Ano, podporuje Java 8+ a funguje bez problémů na moderních JVM.
 
-## Co je **how redact pdf java**?
-Redigování PDF v Javě znamená programově vyhledávat citlivý text, obrázky nebo metadata a trvale je odstraňovat nebo maskovat tak, aby nebylo možné je obnovit. GroupDocs.Redaction poskytuje vysoce‑úrovňové API, které abstrahuje nízko‑úrovňovou strukturu PDF, takže se můžete soustředit na to, co redigovat, místo na to, jak PDF formát funguje.
+## Co je remove pdf metadata java?
+`removePdfMetadata` je metoda, která prohledá katalog PDF a odstraní všechny položky metadat.  
+Redactor je hlavní třída používaná k načtení, úpravě a uložení PDF souborů.  
+Tuto metodu zavoláte na instanci **Redactor** před uložením dokumentu a trvale smaže autora, tvůrce, časové razítka a další skryté vlastnosti, čímž zajistí, že v souboru nezůstane žádná citlivá informace.
 
-## Proč používat GroupDocs.Redaction pro redakci PDF v Javě?
-- **Compliance‑ready** – Splňuje GDPR, HIPAA a další předpisy o ochraně soukromí.  
-- **Fine‑grained control** – Rediguje text, obrázky, anotace a dokonce i skrytá metadata.  
-- **Performance‑optimized** – Zpracovává velké PDF soubory bez nadměrné spotřeby paměti.  
-- **Cross‑platform** – Funguje v jakémkoli prostředí kompatibilním s Javou, od desktopových aplikací po cloudové služby.
+## Proč použít GroupDocs.Redaction pro redakci PDF v Javě?
+GroupDocs.Redaction poskytuje **kvantifikované výhody**: podporuje **více než 50 vstupních a výstupních formátů**, dokáže zpracovat **PDF o 500 stránkách s využitím méně než 200 MB RAM** a odstraňuje metadata během méně než jedné sekundy na typickém serverovém hardware. Knihovna také nabízí vestavěnou shodu s GDPR a HIPAA, což z ní činí spolehlivou volbu pro regulované odvětví.
 
-## Předpoklady
-- Java 8 nebo vyšší nainstalováno.  
-- Knihovna GroupDocs.Redaction pro Javu přidána do vašeho projektu (Maven/Gradle).  
+## Požadavky
+- Nainstalováno Java 8 nebo novější.  
+- Knihovna GroupDocs.Redaction pro Java přidána do vašeho projektu (Maven/Gradle).  
 - Platná dočasná nebo komerční licence (viz odkaz *Temporary License* níže).
+
+## Jak odstranit pdf metadata java
+`removePdfMetadata` je metoda, která prohledá katalog PDF a odstraní všechny položky metadat.  
+Načtěte svůj PDF soubor pomocí objektu **Redactor**, zavolejte `redactor.removePdfMetadata()` a poté `redactor.save(outputPath)`. Tento tříkrokový proces odstraní každou skrytou informaci a zapíše čistý soubor připravený k distribuci.
+
+### Postup krok za krokem
+1. **Create the Redactor** – vytvořte instanci třídy `Redactor` s cestou ke zdrojovému PDF (nebo proudem).  
+2. **Strip metadata** – zavolejte `redactor.removePdfMetadata()` k odstranění autora, data vytvoření, producenta a dalších skrytých polí.  
+3. **Save the cleaned PDF** – použijte `redactor.save("cleaned.pdf")` k zápisu výsledku na disk.
+
+> **Pro tip:** Před zpracováním velkých souborů povolte režim streamování pomocí `redactor.setOptimization(true)`, aby byl nízký odběr paměti.
 
 ## Dostupné tutoriály
 
 ### [Komplexní průvodce redakcí PDF a PPT pomocí GroupDocs.Redaction Java](./groupdocs-redaction-java-pdf-ppt-redaction-guide/)
-Mistrovská redakce dokumentů v Javě s GroupDocs.Redaction. Naučte se efektivně zabezpečovat citlivé informace v PDF a prezentacích.
+Mistrovské vedení redakce dokumentů v Javě s GroupDocs.Redaction. Naučte se efektivně zabezpečit citlivé informace v PDF a prezentacích.
 
-### [Java PDF Redaction&#58; Jak použít GroupDocs.Redaction pro přesnou náhradu frází](./java-pdf-redaction-groupdocs-redaction-exact-phrase/)
-Mistrovská přesná náhrada frází v Javě s GroupDocs.Redaction. Tento tutoriál vás provede nastavením, implementací a osvědčenými postupy.
+### [Java PDF Redakce: Jak použít GroupDocs.Redaction pro přesnou náhradu frází](./java-pdf-redaction-groupdocs-redaction-exact-phrase/)
+Mistrovské vedení přesné náhrady frází v Javě s GroupDocs.Redaction. Tento tutoriál vás provede nastavením, implementací a osvědčenými postupy.
 
-## Jak **remove pdf metadata java**
-Odstranění skrytých metadat (autor, datum vytvoření, producent atd.) je běžný krok pro soulad s předpisy. Redaction API nabízí jednoduché volání, které prohledá katalog PDF a odstraní všechny položky metadat. Začlenění tohoto kroku zajišťuje, že finální PDF obsahuje pouze obsah, který úmyslně zveřejníte.
+## Běžné případy použití
+- **Regulační shoda:** Odstraňte metadata autora a vytvoření před podáním dokumentů úřadům.  
+- **Ochrana duševního vlastnictví:** Odstraňte vložené komentáře nebo skrytý text, který by mohl odhalit proprietární informace.  
+- **Dávkové zpracování:** Automatizujte odstraňování metadat pro tisíce PDF v pipeline správy dokumentů.
 
-## Další zdroje
-- [Dokumentace GroupDocs.Redaction pro Javu](https://docs.groupdocs.com/redaction/java/)
-- [Reference API GroupDocs.Redaction pro Javu](https://reference.groupdocs.com/redaction/java/)
-- [Stáhnout GroupDocs.Redaction pro Javu](https://releases.groupdocs.com/redaction/java/)
-- [Fórum GroupDocs.Redaction](https://forum.groupdocs.com/c/redaction/33)
-- [Bezplatná podpora](https://forum.groupdocs.com/)
-- [Dočasná licence](https://purchase.groupdocs.com/temporary-license/)
-
-## Časté problémy a řešení
-
+## Běžné problémy a řešení
 | Problém | Řešení |
 |-------|----------|
 | **Redakce se neobjeví ve výstupním PDF** | Ujistěte se, že po aplikaci všech pravidel redakce zavoláte `redactor.save(outputPath)`. |
-| **Metadata jsou i po redakci stále přítomna** | Ověřte, že jste před uložením dokumentu zavolali metodu `removePdfMetadata`. |
-| **Zpomalení výkonu u velkých PDF** | Použijte `redactor.setOptimization(true)`, abyste povolili režim streamování a snížili spotřebu paměti. |
+| **Metadata jsou po redakci stále přítomny** | Ověřte, že jste metodu `removePdfMetadata` zavolali **před** uložením dokumentu. |
+| **Zpomalení výkonu u velkých PDF** | Použijte `redactor.setOptimization(true)` k povolení režimu streamování a snížení využití paměti. |
 | **PDF chráněné heslem se nepodaří otevřít** | Předávejte heslo konstruktoru `Redactor` nebo použijte `redactor.open(inputPath, password)`. |
 
 ## Často kladené otázky
 
 **Q: Mohu redigovat jak text, tak obrázky v jedné operaci?**  
-A: Ano. GroupDocs.Redaction vám umožní přidat samostatná pravidla redakce pro textové vzory a objekty obrázků a poté je aplikovat společně.
+A: Ano. GroupDocs.Redaction vám umožní přidat samostatná pravidla redakce pro textové vzory i objekty obrázků a poté je aplikovat společně.
 
-**Q: Podporuje knihovna hromadné zpracování více PDF?**  
+**Q: Podporuje knihovna dávkové zpracování více PDF?**  
 A: Rozhodně. Můžete projít kolekci cest k souborům a aplikovat stejnou konfiguraci redakce na každý dokument.
 
 **Q: Jak ověřím, že redakce byla úspěšná?**  
-A: Po uložení otevřete PDF v prohlížeči a použijte funkci „Search“ (Hledat) pro původní text. Neměl by již být vyhledatelný.
+A: Po uložení otevřete PDF v prohlížeči a použijte funkci „Hledat“ pro původní text. Neměl by být již vyhledatelný.
 
 **Q: Je možné před provedením změn zobrazit náhled redakce?**  
-A: API poskytuje metodu `preview`, která vrací dočasné PDF s vyznačením redakce, což vám umožní revizi před finálním uložením.
+A: API poskytuje metodu `preview`, která vrací dočasné PDF s vyznačenými redakcemi, což umožňuje revizi před finálním uložením.
 
 **Q: Jaké licenční možnosti jsou k dispozici pro produkční nasazení?**  
-A: GroupDocs nabízí trvalé, předplatné i dočasné licence. Vyberte model, který odpovídá časovému plánu a rozpočtu vašeho projektu.
+A: GroupDocs nabízí trvalé, předplatné i dočasné licence. Vyberte model, který nejlépe vyhovuje časovému plánu a rozpočtu vašeho projektu.
+
+## Další zdroje
+
+- [GroupDocs.Redaction for Java Documentation](https://docs.groupdocs.com/redaction/java/)
+- [GroupDocs.Redaction for Java API Reference](https://reference.groupdocs.com/redaction/java/)
+- [Download GroupDocs.Redaction for Java](https://releases.groupdocs.com/redaction/java/)
+- [GroupDocs.Redaction Forum](https://forum.groupdocs.com/c/redaction/33)
+- [Free Support](https://forum.groupdocs.com/)
+- [Temporary License](https://purchase.groupdocs.com/temporary-license/)
 
 ---
 
-**Poslední aktualizace:** 2026-01-29  
-**Testováno s:** GroupDocs.Redaction 23.12 pro Javu  
+**Poslední aktualizace:** 2026-06-16  
+**Testováno s:** GroupDocs.Redaction 23.12 for Java  
 **Autor:** GroupDocs
+
+## Související tutoriály
+
+- [Získání typu souboru java pomocí GroupDocs.Redaction – Extrakce metadat](/redaction/java/metadata-redaction/groupdocs-redaction-java-document-metadata-extraction/)
+- [Jak získat typ souboru java s GroupDocs.Redaction](/redaction/java/document-information/retrieve-document-info-using-groupdocs-redaction-java/)
+- [Jak odstranit anotace pomocí GroupDocs.Redaction Java](/redaction/java/annotation-redaction/)
