@@ -1,45 +1,82 @@
 ---
-date: '2026-01-29'
-description: Dowiedz się, jak przeprowadzać redakcję tekstu w plikach PDF w Javie
-  przy użyciu GroupDocs.Redaction i odkryj, jak efektywnie redagować dokumenty PDF
-  w Javie.
+date: '2026-07-01'
+description: Dowiedz się, jak cenzurować pliki PDF i PowerPoint w Java przy użyciu
+  GroupDocs.Redaction. Przewodnik krok po kroku dla pdf redaction java, jak cenzurować
+  ppt oraz batch processing.
 keywords:
-- PDF Redaction Java
-- PPT Redaction Java
-- GroupDocs.Redaction
-title: Redakcja tekstu w PDF i PPT przy użyciu GroupDocs.Redaction dla Javy
+- how to redact pdf
+- pdf redaction java
+- how to redact ppt
+- redact confidential data
+- batch pdf redaction
+schemas:
+- author: GroupDocs
+  dateModified: '2026-07-01'
+  description: Learn how to redact PDF and PowerPoint files in Java using GroupDocs.Redaction.
+    Step‑by‑step guide for pdf redaction java, how to redact ppt, and batch processing.
+  headline: How to Redact PDF and PPT Text with GroupDocs for Java
+  type: TechArticle
+- description: Learn how to redact PDF and PowerPoint files in Java using GroupDocs.Redaction.
+    Step‑by‑step guide for pdf redaction java, how to redact ppt, and batch processing.
+  name: How to Redact PDF and PPT Text with GroupDocs for Java
+  steps:
+  - name: Configure Replacement Options
+    text: '- **Text Redaction** – replace the matched word with a placeholder such
+      as “█”. - **Image Redaction** – overlay a solid red rectangle on image areas
+      to obscure visual data.'
+  - name: Apply Redactions
+    text: '`PageAreaRedaction` is an operation that applies redaction to specified
+      page areas. Run the `PageAreaRedaction` operation to perform both text and image
+      redactions in one pass:'
+  - name: Cleanup Resources
+    text: 'Always close the `Redactor` to free native resources and avoid memory leaks:'
+  type: HowTo
+- questions:
+  - answer: Redaction permanently removes the data from the file structure, while
+      hiding only changes the visual layer.
+    question: What is the difference between pdf text redaction and simply hiding
+      text?
+  - answer: Yes – provide the password when constructing the `Redactor` instance.
+    question: Can I use GroupDocs.Redaction to redact password‑protected PDFs?
+  - answer: Use `redactor.save("output.pdf")` to a temporary location and open the
+      file for review.
+    question: Is there a way to preview redaction results before saving?
+  - answer: Absolutely – the same API works across 20+ supported document types.
+    question: Does the library support other formats like DOCX or XLSX?
+  - answer: Visit the community forum at [GroupDocs Free Support](https://forum.groupdocs.com/c/redaction/33)
+      for assistance.
+    question: Where can I get help if I run into problems?
+  type: FAQPage
+title: Jak cenzurować tekst w plikach PDF i PPT przy użyciu GroupDocs dla Java
 type: docs
 url: /pl/java/pdf-specific-redaction/groupdocs-redaction-java-pdf-ppt-redaction-guide/
 weight: 1
 ---
 
-# Redakcja tekstu PDF i redakcja obszaru strony PPT przy użyciu GroupDocs.Redaction dla Javy
+# Jak zredagować tekst PDF i PPT przy użyciu GroupDocs dla Javy
 
-W dzisiejszym szybko zmieniającym się świecie cyfrowym **pdf text redaction** jest niezbędnym krokiem w ochronie poufnych danych. Niezależnie od tego, czy pracujesz z umową prawną, sprawozdaniem finansowym, czy firmową prezentacją PowerPoint, potrzebujesz niezawodnego sposobu na ukrycie wrażliwych informacji przed udostępnieniem. Ten samouczek przeprowadzi Cię przez użycie **GroupDocs.Redaction for Java** do redagowania tekstu i obrazów na ostatniej stronie lub slajdzie plików PDF i PPT.
+W dzisiejszym szybkim świecie cyfrowym, **jak zredagować pdf** jest niezbędnym krokiem w ochronie poufnych danych. Niezależnie od tego, czy obsługujesz umowę prawną, sprawozdanie finansowe, czy firmową prezentację PowerPoint, potrzebujesz niezawodnego sposobu na ukrycie wrażliwych informacji przed udostępnieniem. Ten samouczek przeprowadzi Cię przez użycie **GroupDocs.Redaction for Java** do redagowania tekstu i obrazów na ostatniej stronie lub slajdzie plików PDF i PPT oraz pokaże, jak skalować proces dla operacji wsadowych.
 
 ## Szybkie odpowiedzi
-- **Co to jest pdf text redaction?** Usuwanie lub zaciemnianie poufnego tekstu i obrazów z plików PDF.  
-- **Która biblioteka wspiera to w Javie?** GroupDocs.Redaction for Java.  
-- **Czy potrzebna jest licencja?** Darmowa wersja próbna wystarcza do oceny; pełna licencja jest wymagana w środowisku produkcyjnym.  
-- **Czy mogę redagować zarówno PDF, jak i PPT tym samym kodem?** Tak – API używa tej samej klasy Redactor dla obu formatów.  
-- **Jakiej wersji Javy wymaga?** JDK 8 lub wyższej.
+- **Czym jest redakcja tekstu pdf?** Trwale usuwa lub maskuje poufny tekst i obrazy, tak aby nie mogły zostać odzyskane.  
+- **Która biblioteka wspiera to w Javie?** GroupDocs.Redaction for Java zapewnia jednolite API dla PDF, PPT, DOCX, XLSX i innych.  
+- **Czy potrzebna jest licencja?** Bezpłatna wersja próbna działa w celach ewaluacyjnych; pełna licencja jest wymagana do użytku produkcyjnego.  
+- **Czy mogę redagować zarówno PDF, jak i PPT przy użyciu tego samego kodu?** Tak – ta sama klasa `Redactor` obsługuje oba formaty.  
+- **Jaka wersja Javy jest wymagana?** JDK 8 lub wyższa.
 
-## Co to jest PDF Text Redaction?
-PDF text redaction jest procesem trwałego usuwania lub maskowania wybranego contentu w dokumencie PDF, tak aby nie mógł być odzyskany ani wyświetlony. W przeciwieństwie do prostego ukrywania, redakcja usuwa dane ze struktury pliku.
+## Czym jest redakcja tekstu PDF?
+**Redakcja tekstu PDF trwale usuwa lub zaciemnia wybraną treść w dokumencie PDF, tak aby nie mogła zostać odzyskana ani wyświetlona.** W przeciwieństwie do prostego ukrywania, redakcja usuwa dane ze struktury pliku, zapewniając zgodność z przepisami o ochronie prywatności, takimi jak GDPR i HIPAA.
 
-## Dlaczego używać GroupDocs.Redaction for Java?
-- **Obsługa wielu formatów** – działa z PDF‑ami, PowerPointami, Wordem, Excelem i innymi.  
-- **Precyzyjna kontrola obszaru** – umożliwia wybór dokładnych regionów strony, nie tylko całych stron.  
-- **Wbudowany silnik regex** – automatycznie znajduje wrażliwe frazy.  
-- **Wątkowo‑bezpieczne API** – idealne do przetwarzania wsadowego w dużych aplikacjach.
+## Dlaczego warto używać GroupDocs.Redaction dla Javy?
+GroupDocs.Redaction obsługuje **ponad 20 formatów wejściowych i wyjściowych** – w tym PDF, PPT, DOCX, XLSX oraz popularne typy obrazów – i może przetwarzać dokumenty liczące setki stron bez ładowania całego pliku do pamięci. API oferuje precyzyjną kontrolę obszarów, wbudowany silnik regex do automatycznego wykrywania fraz oraz projektowanie wątkowo‑bezpieczne, które skaluje się do zadań wsadowych na serwerach wielordzeniowych.
 
-## Prerequisites
-- **GroupDocs.Redaction for Java** (do pobrania przez Maven lub bezpośredni link).  
-- **JDK 8+** zainstalowane i skonfigurowane.  
-- **Maven** (lub możliwość ręcznego dodania plików JAR).  
+## Wymagania wstępne
+- **GroupDocs.Redaction for Java** (dostępny przez Maven lub bezpośrednie pobranie).  
+- **JDK 8+** zainstalowany i skonfigurowany na Twojej maszynie deweloperskiej.  
+- **Maven** (lub możliwość ręcznego dodania plików JAR do classpath).  
 - Podstawowa znajomość Java I/O oraz wyrażeń regularnych.
 
-## Konfiguracja GroupDocs.Redaction for Java
+## Konfiguracja GroupDocs.Redaction dla Javy
 ### Konfiguracja Maven
 Add the GroupDocs repository and dependency to your `pom.xml`:
 
@@ -67,10 +104,10 @@ Jeśli wolisz nie używać Maven, pobierz najnowszy JAR z [GroupDocs.Redaction f
 ### Uzyskanie licencji
 - **Free Trial** – przetestuj podstawowe funkcje bez kosztów.  
 - **Temporary License** – wydłuż testowanie poza okres próbny.  
-- **Full License** – wymagana przy wdrożeniu komercyjnym.
+- **Full License** – wymagana do wdrożeń komercyjnych.
 
 ### Podstawowa inicjalizacja
-Create a `Redactor` instance that points to the document you want to process:
+`Redactor` is the core class that represents a document and exposes all redaction operations. Create a `Redactor` instance that points to the document you want to process:
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -79,8 +116,8 @@ final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/YOUR_FILE.pdf");
 ```
 
 ## Przewodnik implementacji
-### Jak redagować dokumenty PDF w Javie przy użyciu GroupDocs.Redaction?
-Poniżej znajduje się krok po kroku przewodnik dla **pdf text redaction** na prawej połowie ostatniej strony pliku PDF.
+### Jak zredagować dokumenty PDF w Javie przy użyciu GroupDocs.Redaction?
+Załaduj PDF, zdefiniuj wzorzec regex, skonfiguruj opcje zamiany i zastosuj redakcję w jednym płynnym przepływie pracy. To podejście pozwala zredagować tekst w prawej połowie ostatniej strony oraz nałożyć solidny prostokąt na wykryte obrazy.
 
 #### Krok 1: Załaduj dokument
 ```java
@@ -94,8 +131,8 @@ java.util.regex.Pattern rx = java.util.regex.Pattern.compile("urna");
 ```
 
 #### Krok 3: Skonfiguruj opcje zamiany
-- **Text Redaction** – zamień dopasowane słowo na symbol zastępczy.  
-- **Image Redaction** – nałóż solidny czerwony prostokąt na obszary obrazu.
+- **Text Redaction** – zamień dopasowane słowo na znak zastępczy, np. „█”.  
+- **Image Redaction** – nałóż solidny czerwony prostokąt na obszary obrazu, aby ukryć dane wizualne.
 
 ```java
 ReplacementOptions optionsText = new ReplacementOptions("[redarea]");
@@ -110,7 +147,8 @@ RegionReplacementOptions optionsImg = new RegionReplacementOptions(java.awt.Colo
 ```
 
 #### Krok 4: Zastosuj redakcje
-Run the `PageAreaRedaction` operation to perform both text and image redactions:
+`PageAreaRedaction` is an operation that applies redaction to specified page areas.  
+Run the `PageAreaRedaction` operation to perform both text and image redactions in one pass:
 
 ```java
 RedactorChangeLog result = redactor.apply(new PageAreaRedaction(rx, optionsText, optionsImg));
@@ -120,8 +158,8 @@ if (result.getStatus() != RedactionStatus.Failed) {
 }
 ```
 
-#### Krok 5: Oczyść zasoby
-Always close the `Redactor` to free native resources:
+#### Krok 5: Oczyszczenie zasobów
+Always close the `Redactor` to free native resources and avoid memory leaks:
 
 ```java
 finally {
@@ -129,54 +167,57 @@ finally {
 }
 ```
 
-### Jak redagować slajdy PPT tym samym podejściem?
-The workflow mirrors the PDF steps; only the file extension changes.
+### Jak zredagować slajdy PPT przy użyciu tego samego podejścia?
+Przebieg pracy odzwierciedla kroki PDF; jedynie zmienia się rozszerzenie pliku. Załaduj PPTX, zastosuj ten sam regex i filtry obszarów, a następnie zapisz zredagowaną prezentację.
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/LOREMIPSUM_PPT");
 ```
 
-Postępuj zgodnie z tym samym definiowaniem wzorca, konfiguracją opcji i krokami zastosowania przedstawionymi powyżej, dostosowując nazwę pliku wyjściowego w razie potrzeby.
-
 ## Praktyczne zastosowania
-- **Przygotowanie dokumentów prawnych** – redaguj nazwiska klientów, numery spraw lub poufne klauzule przed złożeniem.  
-- **Raportowanie finansowe** – ukryj numery kont, marże zysku lub własne formuły w PDF‑ach i slajdach.  
-- **Audyt HR** – usuń identyfikatory pracowników z masowych eksportów dokumentów.
+- **Legal Document Preparation** – zredaguj nazwy klientów, numery spraw lub poufne klauzule przed złożeniem w sądzie.  
+- **Financial Reporting** – ukryj numery kont, marże zysku lub własne formuły w PDF i slajdach.  
+- **HR Audits** – usuń identyfikatory pracowników z masowych eksportów dokumentów, aby zachować zgodność z przepisami o prywatności.
 
-## Wskazówki dotyczące wydajności
-- **Zamykaj zasoby niezwłocznie** aby utrzymać niskie zużycie pamięci.  
-- **Optymalizuj regex** – unikaj zbyt szerokich wzorców, które skanują cały dokument niepotrzebnie.  
-- **Przetwarzanie wsadowe** – używaj puli wątków przy redagowaniu wielu plików, aby zwiększyć przepustowość.
+## Względy wydajnościowe
+- **Close resources promptly** – zamykaj zasoby niezwłocznie, aby utrzymać niskie zużycie pamięci, szczególnie przy przetwarzaniu dużych partii.  
+- **Optimize regex patterns** – unikaj zbyt ogólnych wyrażeń, które skanują cały dokument niepotrzebnie.  
+- **Batch processing** – użyj puli wątków i ponownie wykorzystaj pojedynczą instancję `Redactor` na plik, aby zwiększyć przepustowość na serwerach wielordzeniowych.
 
 ## Typowe problemy i rozwiązania
+Filtry takie jak `PageRangeFilter` i `PageAreaFilter` ograniczają redakcję do określonych stron lub regionów.
+
 | Problem | Przyczyna | Rozwiązanie |
 |-------|-------|-----|
-| *Redakcja nie zastosowana* | Filtry wskazują niewłaściwą stronę/obszar | Sprawdź współrzędne `PageRangeFilter` i `PageAreaFilter`. |
-| *OutOfMemoryError* | Duże pliki pozostają otwarte | Przetwarzaj pliki kolejno lub zwiększ pamięć JVM (`-Xmx`). |
+| *Redakcja nie zastosowana* | Filtry skierowane na niewłaściwą stronę/obszar | Sprawdź współrzędne `PageRangeFilter` i `PageAreaFilter`. |
+| *OutOfMemoryError* | Duże pliki pozostają otwarte | Przetwarzaj pliki kolejno lub zwiększ przydział pamięci JVM (`-Xmx`). |
 | *Regex dopasowuje niepożądany tekst* | Wzorzec zbyt ogólny | Udoskonal regex lub użyj granic słów (`\b`). |
 
 ## Najczęściej zadawane pytania
 
-**P:** Jaka jest różnica między `pdf text redaction` a po prostu ukrywaniem tekstu?  
-**O:** Redakcja trwale usuwa dane z struktury pliku, podczas gdy ukrywanie zmienia tylko warstwę wizualną.
+**Q: Jaka jest różnica między redakcją tekstu pdf a prostym ukrywaniem tekstu?**  
+A: Redakcja trwale usuwa dane ze struktury pliku, podczas gdy ukrywanie zmienia tylko warstwę wizualną.
 
-**P:** Czy mogę używać GroupDocs.Redaction do redagowania PDF‑ów zabezpieczonych hasłem?  
-**O:** Tak – podaj hasło przy tworzeniu instancji `Redactor`.
+**Q: Czy mogę używać GroupDocs.Redaction do redagowania PDF‑ów chronionych hasłem?**  
+A: Tak – podaj hasło przy tworzeniu instancji `Redactor`.
 
-**P:** Czy istnieje sposób podglądu wyników redakcji przed zapisaniem?  
-**O:** Użyj `redactor.save("output.pdf")` w lokalizacji tymczasowej i otwórz plik w celu weryfikacji.
+**Q: Czy istnieje sposób podglądu wyników redakcji przed zapisaniem?**  
+A: Użyj `redactor.save("output.pdf")` do tymczasowej lokalizacji i otwórz plik w celu przeglądu.
 
-**P:** Czy biblioteka obsługuje inne formaty, takie jak DOCX lub XLSX?  
-**O:** Absolutnie – to samo API działa we wszystkich obsługiwanych typach dokumentów.
+**Q: Czy biblioteka obsługuje inne formaty, takie jak DOCX lub XLSX?**  
+A: Oczywiście – to samo API działa na ponad 20 obsługiwanych typów dokumentów.
 
-**P:** Gdzie mogę uzyskać pomoc, jeśli napotkam problemy?  
-**O:** Odwiedź forum społecznościowe pod adresem [GroupDocs Free Support](https://forum.groupdocs.com/c/redaction/33).
-
-## Podsumowanie
-Masz teraz kompletny, gotowy do produkcji przepis na **pdf text redaction** oraz redakcję slajdów PPT przy użyciu GroupDocs.Redaction for Java. Postępując zgodnie z powyższymi krokami, możesz zabezpieczyć wrażliwe informacje, spełnić wymogi regulacji prywatności i zautomatyzować procesy redakcji w dużych zestawach dokumentów.
+**Q: Gdzie mogę uzyskać pomoc, jeśli napotkam problemy?**  
+A: Odwiedź forum społecznościowe pod adresem [GroupDocs Free Support](https://forum.groupdocs.com/c/redaction/33) po pomoc.
 
 ---
 
-**Ostatnia aktualizacja:** 2026-01-29  
+**Ostatnia aktualizacja:** 2026-07-01  
 **Testowano z:** GroupDocs.Redaction 24.9 for Java  
 **Autor:** GroupDocs
+
+## Powiązane samouczki
+
+- [Jak zredagować tekst w Javie przy użyciu GroupDocs.Redaction: Kompletny przewodnik](/redaction/java/text-redaction/master-text-redaction-java-groupdocs-redaction-guide/)
+- [jak zredagować pdf java – Specyficzne tutoriale redakcji PDF dla GroupDocs.Redaction](/redaction/java/pdf-specific-redaction/)
+- [Maskowanie wrażliwych danych Java – Redagowanie danych osobowych przy użyciu GroupDocs.Redaction](/redaction/java/advanced-redaction/master-document-redaction-java-groupdocs-redaction/)

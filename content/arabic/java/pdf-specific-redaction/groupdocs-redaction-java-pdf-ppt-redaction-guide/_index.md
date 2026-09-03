@@ -1,47 +1,83 @@
 ---
-date: '2026-01-29'
-description: تعلم كيفية إجراء إخفاء نص PDF في Java باستخدام GroupDocs.Redaction، واكتشف
-  كيفية إخفاء مستندات PDF Java بفعالية.
+date: '2026-07-01'
+description: تعلم كيفية حذف النص من ملفات PDF و PowerPoint في Java باستخدام GroupDocs.Redaction.
+  دليل خطوة بخطوة لتقنية حذف النص من PDF باستخدام Java، كيفية حذف النص من PPT، ومعالجة
+  الدفعات.
 keywords:
-- PDF Redaction Java
-- PPT Redaction Java
-- GroupDocs.Redaction
-title: إزالة النص من ملفات PDF و PPT باستخدام GroupDocs.Redaction للـ Java
+- how to redact pdf
+- pdf redaction java
+- how to redact ppt
+- redact confidential data
+- batch pdf redaction
+schemas:
+- author: GroupDocs
+  dateModified: '2026-07-01'
+  description: Learn how to redact PDF and PowerPoint files in Java using GroupDocs.Redaction.
+    Step‑by‑step guide for pdf redaction java, how to redact ppt, and batch processing.
+  headline: How to Redact PDF and PPT Text with GroupDocs for Java
+  type: TechArticle
+- description: Learn how to redact PDF and PowerPoint files in Java using GroupDocs.Redaction.
+    Step‑by‑step guide for pdf redaction java, how to redact ppt, and batch processing.
+  name: How to Redact PDF and PPT Text with GroupDocs for Java
+  steps:
+  - name: Configure Replacement Options
+    text: '- **Text Redaction** – replace the matched word with a placeholder such
+      as “█”. - **Image Redaction** – overlay a solid red rectangle on image areas
+      to obscure visual data.'
+  - name: Apply Redactions
+    text: '`PageAreaRedaction` is an operation that applies redaction to specified
+      page areas. Run the `PageAreaRedaction` operation to perform both text and image
+      redactions in one pass:'
+  - name: Cleanup Resources
+    text: 'Always close the `Redactor` to free native resources and avoid memory leaks:'
+  type: HowTo
+- questions:
+  - answer: Redaction permanently removes the data from the file structure, while
+      hiding only changes the visual layer.
+    question: What is the difference between pdf text redaction and simply hiding
+      text?
+  - answer: Yes – provide the password when constructing the `Redactor` instance.
+    question: Can I use GroupDocs.Redaction to redact password‑protected PDFs?
+  - answer: Use `redactor.save("output.pdf")` to a temporary location and open the
+      file for review.
+    question: Is there a way to preview redaction results before saving?
+  - answer: Absolutely – the same API works across 20+ supported document types.
+    question: Does the library support other formats like DOCX or XLSX?
+  - answer: Visit the community forum at [GroupDocs Free Support](https://forum.groupdocs.com/c/redaction/33)
+      for assistance.
+    question: Where can I get help if I run into problems?
+  type: FAQPage
+title: كيفية حذف النص من ملفات PDF و PPT باستخدام GroupDocs للـ Java
 type: docs
 url: /ar/java/pdf-specific-redaction/groupdocs-redaction-java-pdf-ppt-redaction-guide/
 weight: 1
 ---
 
-# PDF Text Redaction and PPT Page Area Redaction Using GroupDocs.Redaction for Java
+# كيفية إخفاء نص PDF و PPT باستخدام GroupDocs للـ Java
 
-في عالمنا الرقمي السريع اليوم، **إزالة النص من ملفات PDF** خطوة لا يمكن التفاوض عليها لحماية البيانات السرية. سواءً كنت تتعامل مع عقد قانوني، بيان مالي، أو عرض PowerPoint للشركة، تحتاج إلى طريقة موثوقة لإخفاء المعلومات الحساسة قبل المشاركة. يوضح هذا الدليل كيفية استخدام **GroupDocs.Redaction for Java** لإزالة النصوص والصور من الصفحة أو الشريحة الأخيرة لملفات PDF وPPT.
+في عالمنا الرقمي سريع الحركة اليوم، **how to redact pdf** ملفات هي خطوة لا يمكن التفاوض عليها لحماية البيانات السرية. سواء كنت تتعامل مع عقد قانوني، أو بيان مالي، أو عرض PowerPoint للشركة، فأنت بحاجة إلى طريقة موثوقة لإخفاء المعلومات الحساسة قبل المشاركة. يوضح هذا الدليل كيفية استخدام **GroupDocs.Redaction for Java** لإخفاء النصوص والصور في الصفحة أو الشريحة الأخيرة من ملفات PDF و PPT، ويظهر لك كيفية توسيع العملية لتشغيل دفعات متعددة.
 
-## Quick Answers
-- **ما هو إخفاء النص من ملفات PDF؟** إزالة أو إخفاء النصوص والصور السرية من ملفات PDF.  
-- **أي مكتبة تدعم ذلك في Java؟** GroupDocs.Redaction for Java.  
-- **هل أحتاج إلى ترخيص؟** النسخة التجريبية المجانية كافية للتقييم؛ الترخيص الكامل مطلوب للإنتاج.  
-- **هل يمكنني إخفاء كل من PDF وPPT باستخدام نفس الكود؟** نعم – يستخدم الـ API نفس فئة `Redactor` لكلا الصيغتين.  
-- **ما نسخة Java المطلوبة؟** JDK 8 أو أعلى.
+## إجابات سريعة
+- **What is pdf text redaction?** إنه يزيل أو يغطي النصوص والصور السرية بشكل دائم بحيث لا يمكن استعادتها.  
+- **Which library supports this in Java?** توفر GroupDocs.Redaction for Java واجهة برمجة تطبيقات موحدة لـ PDF و PPT و DOCX و XLSX وأكثر.  
+- **Do I need a license?** نسخة تجريبية مجانية للتقييم؛ يتطلب الاستخدام في الإنتاج ترخيصًا كاملاً.  
+- **Can I redact both PDF and PPT with the same code?** نعم – تتعامل فئة `Redactor` نفسها مع كلا الصيغتين.  
+- **What Java version is required?** JDK 8 أو أعلى.
 
-## What is PDF Text Redaction?
-إزالة النص من ملفات PDF هي عملية حذف أو إخفاء المحتوى المحدد في مستند PDF بشكل دائم بحيث لا يمكن استعادته أو عرضه. على عكس الإخفاء البسيط، تقوم الإزالة بحذف البيانات من بنية الملف.
+## ما هو إخفاء نص PDF
+**PDF text redaction permanently deletes or obscures selected content in a PDF document so it cannot be recovered or viewed.** على عكس الإخفاء البسيط، يزيل الإخفاء البيانات من بنية الملف، مما يضمن الامتثال للوائح الخصوصية مثل GDPR و HIPAA.
 
-## Why Use GroupDocs.Redaction for Java?
-- **دعم متعدد الصيغ** – يعمل مع PDFs، PowerPoints، Word، Excel، وأكثر.  
-- **تحكم دقيق في المنطقة** – استهداف مناطق الصفحة المحددة، وليس الصفحات بالكامل.  
-- **محرك regex مدمج** – تحديد العبارات الحساسة تلقائيًا.  
-- **API آمن للـ Thread** – مثالي للمعالجة الدفعية في التطبيقات الكبيرة.
+## لماذا تستخدم GroupDocs.Redaction للـ Java؟
+تدعم GroupDocs.Redaction **20+ input and output formats** – بما في ذلك PDF و PPT و DOCX و XLSX وأنواع الصور الشائعة – ويمكنها معالجة مستندات مئات الصفحات دون تحميل الملف بالكامل في الذاكرة. توفر الواجهة تحكمًا دقيقًا في المناطق، ومحرك regex مدمج لاكتشاف العبارات تلقائيًا، وتصميمًا آمنًا للخطوط يتيح تشغيل دفعات على خوادم متعددة النوى.
 
-## Prerequisites
-قبل البدء، تأكد من وجود:
+## المتطلبات المسبقة
+- **GroupDocs.Redaction for Java** (متاح عبر Maven أو تحميل مباشر).  
+- **JDK 8+** مثبت ومُعد على جهاز التطوير الخاص بك.  
+- **Maven** (أو القدرة على إضافة ملفات JAR يدويًا إلى classpath).  
+- إلمام أساسي بـ Java I/O والتعابير النمطية.
 
-- **GroupDocs.Redaction for Java** (متاح للتحميل عبر Maven أو الرابط المباشر).  
-- **JDK 8+** مثبت ومُعد.  
-- **Maven** (أو القدرة على إضافة ملفات JAR يدويًا).  
-- إلمام أساسي بـ Java I/O والعبارات النمطية (regular expressions).
-
-## Setting Up GroupDocs.Redaction for Java
-### Maven Setup
+## إعداد GroupDocs.Redaction للـ Java
+### إعداد Maven
 أضف مستودع GroupDocs والاعتماد إلى ملف `pom.xml` الخاص بك:
 
 ```xml
@@ -62,16 +98,16 @@ weight: 1
 </dependencies>
 ```
 
-### Direct Download
-إذا كنت لا تريد استخدام Maven، احصل على أحدث JAR من [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+### تحميل مباشر
+إذا كنت تفضل عدم استخدام Maven، احصل على أحدث JAR من [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
-### License Acquisition
-- **نسخة تجريبية مجانية** – استكشف الميزات الأساسية دون تكلفة.  
-- **ترخيص مؤقت** – تمديد الاختبار بعد انتهاء الفترة التجريبية.  
-- **ترخيص كامل** – مطلوب للنشر التجاري.
+### الحصول على الترخيص
+- **Free Trial** – استكشاف الميزات الأساسية دون تكلفة.  
+- **Temporary License** – تمديد الاختبار بعد فترة التجربة.  
+- **Full License** – مطلوب للنشر التجاري.
 
-### Basic Initialization
-أنشئ كائن `Redactor` يشير إلى المستند الذي تريد معالجته:
+### التهيئة الأساسية
+`Redactor` هي الفئة الأساسية التي تمثل مستندًا وتوفر جميع عمليات الإخفاء. أنشئ مثيل `Redactor` يشير إلى المستند الذي تريد معالجته:
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -79,24 +115,24 @@ import com.groupdocs.redaction.Redactor;
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/YOUR_FILE.pdf");
 ```
 
-## Implementation Guide
-### How to redact PDF Java documents using GroupDocs.Redaction?
-فيما يلي شرح خطوة بخطوة لـ **إزالة النص من ملفات PDF** على النصف الأيمن من الصفحة الأخيرة لملف PDF.
+## دليل التنفيذ
+### كيفية إخفاء مستندات PDF Java باستخدام GroupDocs.Redaction؟
+حمّل ملف PDF، عرّف نمط regex، اضبط خيارات الاستبدال، وطبق الإخفاء في سير عمل واحد متسلسل. يتيح لك هذا النهج إخفاء النص في النصف الأيمن من الصفحة الأخيرة وتغطية أي صور مكتشفة بمستطيل صلب.
 
-#### Step 1: Load the Document
+#### الخطوة 1: تحميل المستند
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/LOREMIPSUM_PDF");
 ```
 
-#### Step 2: Define a Regex Pattern for Text Matching
+#### الخطوة 2: تعريف نمط Regex لمطابقة النص
 ```java
 // Compile regex pattern to match specific text
 java.util.regex.Pattern rx = java.util.regex.Pattern.compile("urna");
 ```
 
-#### Step 3: Configure Replacement Options
-- **إزالة النص** – استبدال الكلمة المطابقة ببديل.  
-- **إزالة الصورة** – وضع مستطيل أحمر صلب فوق مناطق الصورة.
+#### الخطوة 3: تكوين خيارات الاستبدال
+- **Text Redaction** – استبدال الكلمة المطابقة ببديل مثل “█”.  
+- **Image Redaction** – تغطية منطقة الصورة بمستطيل أحمر صلب لإخفاء البيانات البصرية.
 
 ```java
 ReplacementOptions optionsText = new ReplacementOptions("[redarea]");
@@ -110,8 +146,9 @@ optionsText.setFilters(new RedactionFilter[] {
 RegionReplacementOptions optionsImg = new RegionReplacementOptions(java.awt.Color.RED, new java.awt.Dimension(100, 100));
 ```
 
-#### Step 4: Apply Redactions
-نفّذ عملية `PageAreaRedaction` لإجراء كل من إزالة النص والصورة:
+#### الخطوة 4: تطبيق الإخفاءات
+`PageAreaRedaction` هي عملية تطبق الإخفاء على مناطق صفحات محددة.  
+قم بتشغيل عملية `PageAreaRedaction` لتنفيذ كل من إخفاءات النص والصورة في خطوة واحدة:
 
 ```java
 RedactorChangeLog result = redactor.apply(new PageAreaRedaction(rx, optionsText, optionsImg));
@@ -121,8 +158,8 @@ if (result.getStatus() != RedactionStatus.Failed) {
 }
 ```
 
-#### Step 5: Cleanup Resources
-دائمًا أغلق كائن `Redactor` لتحرير الموارد الأصلية:
+#### الخطوة 5: تنظيف الموارد
+دائمًا أغلق كائن `Redactor` لتحرير الموارد الأصلية وتجنب تسرب الذاكرة:
 
 ```java
 finally {
@@ -130,54 +167,53 @@ finally {
 }
 ```
 
-### How to redact PPT slides with the same approach?
-تتبع نفس خطوات PDF؛ فقط يتغير امتداد الملف.
+### كيفية إخفاء شرائح PPT باستخدام نفس النهج؟
+يتطابق سير العمل مع خطوات PDF؛ فقط يتغير امتداد الملف. حمّل ملف PPTX، طبّق نفس regex ومرشحات المناطق، ثم احفظ العرض المجهول.
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/LOREMIPSUM_PPT");
 ```
 
-اتبع نفس تعريف النمط، وتكوين الخيارات، وخطوات التطبيق الموضحة أعلاه، مع تعديل اسم ملف الإخراج حسب الحاجة.
+## التطبيقات العملية
+- **Legal Document Preparation** – إخفاء أسماء العملاء، أرقام القضايا، أو البنود السرية قبل تقديمها للمحاكم.  
+- **Financial Reporting** – إخفاء أرقام الحسابات، هوامش الأرباح، أو الصيغ المملوكة في ملفات PDF والعروض.  
+- **HR Audits** – إزالة معرفات الموظفين من تصديرات المستندات الجماعية للامتثال لقوانين الخصوصية.
 
-## Practical Applications
-- **إعداد المستندات القانونية** – إزالة أسماء العملاء، أرقام القضايا، أو البنود السرية قبل تقديمها.  
-- **التقارير المالية** – إخفاء أرقام الحسابات، هوامش الأرباح، أو الصيغ المملوكة في ملفات PDF والعروض.  
-- **تدقيق الموارد البشرية** – حذف معرفات الموظفين من تصديرات المستندات الجماعية.
+## اعتبارات الأداء
+- **Close resources promptly** للحفاظ على انخفاض استهلاك الذاكرة، خاصة عند معالجة دفعات كبيرة.  
+- **Optimize regex patterns** – تجنّب التعبيرات العامة الواسعة التي تفحص المستند بأكمله دون حاجة.  
+- **Batch processing** – استخدم مجموعة من الخيوط وأعد استخدام مثيل `Redactor` واحد لكل ملف لتحسين الإنتاجية على الخوادم متعددة النوى.
 
-## Performance Considerations
-- **إغلاق الموارد بسرعة** لتقليل استهلاك الذاكرة.  
-- **تحسين regex** – تجنّب الأنماط العامة التي تفحص المستند بأكمله دون ضرورة.  
-- **المعالجة الدفعية** – استخدم مجموعة خيوط (thread pool) عند إخفاء العديد من الملفات لتحسين الإنتاجية.
-
-## Common Issues & Solutions
-| Issue | Cause | Fix |
+## المشكلات الشائعة والحلول
+| المشكلة | السبب | الحل |
 |-------|-------|-----|
-| *Redaction not applied* | الفلاتر تستهدف الصفحة/المنطقة الخاطئة | تحقق من إحداثيات `PageRangeFilter` و `PageAreaFilter`. |
-| *OutOfMemoryError* | ملفات كبيرة تبقى مفتوحة | عالج الملفات تسلسليًا أو زد حجم heap في JVM (`-Xmx`). |
-| *Regex matches unwanted text* | النمط عام جدًا | صقّ النمط أو استخدم حدود الكلمات (`\b`). |
+| *Redaction not applied* | Filters target the wrong page/area | Verify `PageRangeFilter` and `PageAreaFilter` coordinates. |
+| *OutOfMemoryError* | Large files kept open | Process files sequentially or increase JVM heap (`-Xmx`). |
+| *Regex matches unwanted text* | Pattern too generic | Refine the regex or use word boundaries (`\b`). |
 
-## Frequently Asked Questions
+## الأسئلة المتكررة
 
-**س: ما الفرق بين `pdf text redaction` وإخفاء النص فقط؟**  
-ج: الإزالة تحذف البيانات نهائيًا من بنية الملف، بينما الإخفاء يغيّر الطبقة البصرية فقط.
+**س: ما الفرق بين إخفاء نص PDF وإخفاء النص ببساطة؟**  
+ج: الإخفاء يزيل البيانات من بنية الملف بشكل دائم، بينما الإخفاء البسيط يغيّر الطبقة البصرية فقط.
 
-**س: هل يمكنني استخدام GroupDocs.Redaction لإزالة النص من ملفات PDF محمية بكلمة مرور؟**  
-ج: نعم – قدّم كلمة المرور عند إنشاء كائن `Redactor`.
+**س: هل يمكنني استخدام GroupDocs.Redaction لإخفاء ملفات PDF محمية بكلمة مرور؟**  
+ج: نعم – قدم كلمة المرور عند إنشاء مثيل `Redactor`.
 
-**س: هل هناك طريقة لمعاينة نتائج الإزالة قبل الحفظ؟**  
+**س: هل هناك طريقة لمعاينة نتائج الإخفاء قبل الحفظ؟**  
 ج: استخدم `redactor.save("output.pdf")` إلى موقع مؤقت وافتح الملف للمراجعة.
 
-**س: هل تدعم المكتبة صيغ أخرى مثل DOCX أو XLSX؟**  
-ج: بالتأكيد – نفس الـ API يعمل عبر جميع صيغ المستندات المدعومة.
+**س: هل تدعم المكتبة صيغًا أخرى مثل DOCX أو XLSX؟**  
+ج: بالتأكيد – تعمل الواجهة نفسها عبر أكثر من 20 نوع مستند مدعوم.
 
-**س: أين يمكنني الحصول على مساعدة إذا واجهت مشاكل؟**  
+**س: أين يمكنني الحصول على المساعدة إذا واجهت مشاكل؟**  
 ج: زر منتدى المجتمع على [GroupDocs Free Support](https://forum.groupdocs.com/c/redaction/33) للحصول على المساعدة.
 
-## Conclusion
-أصبحت الآن تمتلك وصفة كاملة وجاهزة للإنتاج لـ **إزالة النص من ملفات PDF** وإزالة الشرائح من PPT باستخدام GroupDocs.Redaction for Java. باتباع الخطوات أعلاه، يمكنك حماية المعلومات الحساسة، الالتزام باللوائح التنظيمية للخصوصية، وأتمتة عمليات الإزالة عبر مجموعات كبيرة من المستندات.
-
----
-
-**آخر تحديث:** 2026-01-29  
-**تم الاختبار مع:** GroupDocs.Redaction 24.9 for Java  
+**آخر تحديث:** 2026-07-01  
+**تم الاختبار مع:** GroupDocs.Redaction 24.9 للـ Java  
 **المؤلف:** GroupDocs
+
+## دروس ذات صلة
+
+- [How to Redact Text in Java with GroupDocs.Redaction: A Complete Guide](/redaction/java/text-redaction/master-text-redaction-java-groupdocs-redaction-guide/)
+- [how redact pdf java – PDF-Specific Redaction Tutorials for GroupDocs.Redaction](/redaction/java/pdf-specific-redaction/)
+- [Mask Sensitive Data Java – Redact Personal Info with GroupDocs.Redaction](/redaction/java/advanced-redaction/master-document-redaction-java-groupdocs-redaction/)

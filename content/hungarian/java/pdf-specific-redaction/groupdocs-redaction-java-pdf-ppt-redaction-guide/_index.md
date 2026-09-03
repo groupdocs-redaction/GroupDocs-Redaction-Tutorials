@@ -1,46 +1,84 @@
 ---
-date: '2026-01-29'
-description: Ismerje meg, hogyan végezhet PDF-szöveg kitakarást Java-ban a GroupDocs.Redaction
-  segítségével, és fedezze fel, hogyan lehet hatékonyan kitakarni PDF Java dokumentumokat.
+date: '2026-07-01'
+description: Ismerje meg, hogyan pirosíthatja a PDF és PowerPoint fájlokat Java-ban
+  a GroupDocs.Redaction segítségével. Lépésről‑lépésre útmutató a pdf redaction java,
+  how to redact ppt, és kötegelt feldolgozás.
 keywords:
-- PDF Redaction Java
-- PPT Redaction Java
-- GroupDocs.Redaction
-title: PDF és PPT szövegkitakarás a GroupDocs.Redaction for Java-val
+- how to redact pdf
+- pdf redaction java
+- how to redact ppt
+- redact confidential data
+- batch pdf redaction
+schemas:
+- author: GroupDocs
+  dateModified: '2026-07-01'
+  description: Learn how to redact PDF and PowerPoint files in Java using GroupDocs.Redaction.
+    Step‑by‑step guide for pdf redaction java, how to redact ppt, and batch processing.
+  headline: How to Redact PDF and PPT Text with GroupDocs for Java
+  type: TechArticle
+- description: Learn how to redact PDF and PowerPoint files in Java using GroupDocs.Redaction.
+    Step‑by‑step guide for pdf redaction java, how to redact ppt, and batch processing.
+  name: How to Redact PDF and PPT Text with GroupDocs for Java
+  steps:
+  - name: Configure Replacement Options
+    text: '- **Text Redaction** – replace the matched word with a placeholder such
+      as “█”. - **Image Redaction** – overlay a solid red rectangle on image areas
+      to obscure visual data.'
+  - name: Apply Redactions
+    text: '`PageAreaRedaction` is an operation that applies redaction to specified
+      page areas. Run the `PageAreaRedaction` operation to perform both text and image
+      redactions in one pass:'
+  - name: Cleanup Resources
+    text: 'Always close the `Redactor` to free native resources and avoid memory leaks:'
+  type: HowTo
+- questions:
+  - answer: Redaction permanently removes the data from the file structure, while
+      hiding only changes the visual layer.
+    question: What is the difference between pdf text redaction and simply hiding
+      text?
+  - answer: Yes – provide the password when constructing the `Redactor` instance.
+    question: Can I use GroupDocs.Redaction to redact password‑protected PDFs?
+  - answer: Use `redactor.save("output.pdf")` to a temporary location and open the
+      file for review.
+    question: Is there a way to preview redaction results before saving?
+  - answer: Absolutely – the same API works across 20+ supported document types.
+    question: Does the library support other formats like DOCX or XLSX?
+  - answer: Visit the community forum at [GroupDocs Free Support](https://forum.groupdocs.com/c/redaction/33)
+      for assistance.
+    question: Where can I get help if I run into problems?
+  type: FAQPage
+title: Hogyan pirosítsuk a PDF és PPT szöveget a GroupDocs for Java használatával
 type: docs
 url: /hu/java/pdf-specific-redaction/groupdocs-redaction-java-pdf-ppt-redaction-guide/
 weight: 1
 ---
 
-# PDF szöveg redakció és PPT oldal terület redakció a GroupDocs.Redaction for Java használatával
+# Hogyan redigáljunk PDF és PPT szöveget a GroupDocs for Java segítségével
 
-A mai gyorsan változó digitális világban a **pdf text redaction** elengedhetetlen lépés a bizalmas adatok védelmében. Akár jogi szerződést, pénzügyi kimutatást vagy vállalati PowerPoint bemutatót kezel, megbízható módra van szüksége az érzékeny információk elrejtéséhez a megosztás előtt. Ez az útmutató végigvezet a **GroupDocs.Redaction for Java** használatán, hogy szöveget és képeket redakciózzon a PDF és PPT fájlok utolsó oldalán vagy diáján.
+A mai gyorsan változó digitális világban a **hogyan redigáljunk pdf** fájlok védelme elengedhetetlen a bizalmas adatok védelme érdekében. Akár jogi szerződést, pénzügyi kimutatást vagy vállalati PowerPoint bemutatót kezel, megbízható módra van szüksége a érzékeny információk elrejtéséhez a megosztás előtt. Ez a bemutató végigvezet a **GroupDocs.Redaction for Java** használatán, hogy szöveget és képeket redigáljunk a PDF és PPT fájlok utolsó oldalán vagy diáján, és megmutatja, hogyan méretezhető a folyamat kötegelt műveletekre.
 
 ## Gyors válaszok
-- **Mi az a pdf text redaction?** A bizalmas szöveg és képek eltávolítása vagy eltakítása PDF fájlokból.  
-- **Melyik könyvtár támogatja ezt Java-ban?** GroupDocs.Redaction for Java.  
-- **Szükségem van licencre?** Az ingyenes próba a kiértékeléshez használható; a teljes licenc a termeléshez szükséges.  
-- **Redakciózhatok mind PDF-et, mind PPT-t ugyanazzal a kóddal?** Igen – az API ugyanazt a Redactor osztályt használja mindkét formátumhoz.  
+- **Mi a pdf szöveg redigálása?** Tartósan eltávolítja vagy maszkolja a bizalmas szöveget és képeket, hogy ne legyenek helyreállíthatók.  
+- **Melyik könyvtár támogatja ezt Java-ban?** A GroupDocs.Redaction for Java egységes API-t biztosít PDF, PPT, DOCX, XLSX és egyéb formátumokhoz.  
+- **Szükségem van licencre?** Egy ingyenes próba a kiértékeléshez elegendő; a teljes licenc a termeléshez kötelező.  
+- **Redigálhatok PDF-et és PPT-t ugyanazzal a kóddal?** Igen – ugyanaz a `Redactor` osztály kezeli mindkét formátumot.  
 - **Milyen Java verzió szükséges?** JDK 8 vagy újabb.
 
-## Mi az a PDF Text Redaction?
-A PDF text redaction a folyamat, amely során véglegesen törlik vagy maszkolják a kiválasztott tartalmat egy PDF dokumentumban, hogy az ne legyen visszaállítható vagy megtekinthető. Az egyszerű elrejtéssel szemben a redakció eltávolítja az adatot a fájlstruktúrából.
+## Mi a PDF szöveg redigálása?
+**A PDF szöveg redigálása tartósan törli vagy eltakarja a kiválasztott tartalmat egy PDF dokumentumban, így az nem állítható helyre vagy tekinthető meg.** A egyszerű elrejtéssel ellentétben a redigálás eltávolítja az adatot a fájlstruktúrából, biztosítva a GDPR és HIPAA-szerű adatvédelmi szabályozásoknak való megfelelést.
 
 ## Miért használjuk a GroupDocs.Redaction for Java-t?
-- **Cross‑format support** – PDF-ekkel, PowerPointokkal, Word‑del, Excel‑lel és egyebekkel működik.  
-- **Fine‑grained area control** – pontos oldalterületeket céloz meg, nem csak egész oldalakat.  
-- **Built‑in regex engine** – érzékeny kifejezéseket automatikusan talál.  
-- **Thread‑safe API** – ideális kötegelt feldolgozáshoz nagy léptékű alkalmazásokban.
+A GroupDocs.Redaction **20+ bemeneti és kimeneti formátumot** támogat – beleértve a PDF, PPT, DOCX, XLSX és gyakori képformátumokat – és több száz oldalas dokumentumokat képes feldolgozni anélkül, hogy az egész fájlt memóriába töltené. Az API finom területvezérlést, beépített regex motorral automatikus kifejezésfelismerést, valamint szálbiztos tervezést kínál, amely a többmagos szervereken kötegelt feladatokra skálázható.
 
 ## Előfeltételek
-- **GroupDocs.Redaction for Java** (letölthető Maven‑on vagy közvetlen linkről).  
-- **JDK 8+** telepítve és konfigurálva.  
-- **Maven** (vagy a JAR‑ok manuális hozzáadásának lehetősége).  
-- Alapvető ismeretek a Java I/O‑ról és a reguláris kifejezésekről.
+- **GroupDocs.Redaction for Java** (elérhető Maven-en vagy közvetlen letöltésen keresztül).  
+- **JDK 8+** telepítve és konfigurálva a fejlesztői gépen.  
+- **Maven** (vagy a JAR-ok kézi hozzáadása a classpath-hez).  
+- Alapvető ismeretek a Java I/O-val és a reguláris kifejezésekkel.
 
 ## A GroupDocs.Redaction for Java beállítása
 ### Maven beállítás
-Adja hozzá a GroupDocs tárolót és függőséget a `pom.xml` fájlhoz:
+Adja hozzá a GroupDocs tárolót és függőséget a `pom.xml`-hez:
 
 ```xml
 <repositories>
@@ -61,15 +99,15 @@ Adja hozzá a GroupDocs tárolót és függőséget a `pom.xml` fájlhoz:
 ```
 
 ### Közvetlen letöltés
-Ha nem szeretne Maven‑t használni, töltse le a legújabb JAR‑t a [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/) oldalról.
+Ha nem szeretne Maven-t használni, töltse le a legújabb JAR-t a [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/) címről.
 
 ### Licenc beszerzése
-- **Free Trial** – felfedezheti a fő funkciókat költség nélkül.  
-- **Temporary License** – meghosszabbíthatja a tesztelést a próbaidőn túl.  
-- **Full License** – szükséges a kereskedelmi bevetéshez.
+- **Free Trial** – fedezze fel a fő funkciókat költség nélkül.  
+- **Temporary License** – a próbaidőszak meghosszabbítása.  
+- **Full License** – szükséges a kereskedelmi üzembe helyezéshez.
 
-### Alapvető inicializálás
-Hozzon létre egy `Redactor` példányt, amely a feldolgozni kívánt dokumentumra mutat:
+### Alap inicializálás
+`Redactor` a fő osztály, amely egy dokumentumot képvisel és minden redigálási műveletet elérhetővé tesz. Hozzon létre egy `Redactor` példányt, amely a feldolgozni kívánt dokumentumra mutat:
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -78,23 +116,23 @@ final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/YOUR_FILE.pdf");
 ```
 
 ## Implementációs útmutató
-### Hogyan redakciózzuk a PDF Java dokumentumokat a GroupDocs.Redaction használatával?
-Az alábbi lépésről‑lépésre útmutató a **pdf text redaction**-ra a PDF fájl utolsó oldalának jobb felén.
+### Hogyan redigáljunk PDF Java dokumentumokat a GroupDocs.Redaction segítségével?
+Töltse be a PDF-et, határozzon meg egy regex mintát, konfigurálja a helyettesítési beállításokat, és alkalmazza a redigálást egyetlen folyékony munkafolyamatban. Ez a megközelítés lehetővé teszi, hogy a legutolsó oldal jobb felén lévő szöveget redigálja, és szilárd téglalapot helyezzen el a felismert képeken.
 
 #### 1. lépés: Dokumentum betöltése
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/LOREMIPSUM_PDF");
 ```
 
-#### 2. lépés: Regex minta definiálása a szöveg egyezéshez
+#### 2. lépés: Regex minta meghatározása a szöveg egyezéshez
 ```java
 // Compile regex pattern to match specific text
 java.util.regex.Pattern rx = java.util.regex.Pattern.compile("urna");
 ```
 
 #### 3. lépés: Helyettesítési beállítások konfigurálása
-- **Text Redaction** – a megtalált szót egy helyettesítő karakterrel cseréli.  
-- **Image Redaction** – egy szilárd piros téglalapot helyez a képtartományokra.
+- **Text Redaction** – cserélje le a megtalált szót egy helyőrzőre, például “█”.  
+- **Image Redaction** – szilárd piros téglalapot helyezzen a képterületekre a vizuális adatok eltakarássá.
 
 ```java
 ReplacementOptions optionsText = new ReplacementOptions("[redarea]");
@@ -108,8 +146,9 @@ optionsText.setFilters(new RedactionFilter[] {
 RegionReplacementOptions optionsImg = new RegionReplacementOptions(java.awt.Color.RED, new java.awt.Dimension(100, 100));
 ```
 
-#### 4. lépés: Redakciók alkalmazása
-Futtassa a `PageAreaRedaction` műveletet a szöveg és kép redakciók végrehajtásához:
+#### 4. lépés: Redigálások alkalmazása
+`PageAreaRedaction` egy művelet, amely a megadott oldalterületekre alkalmaz redigálást.  
+Futtassa a `PageAreaRedaction` műveletet, hogy egy lépésben hajtsa végre a szöveg- és képredigálásokat:
 
 ```java
 RedactorChangeLog result = redactor.apply(new PageAreaRedaction(rx, optionsText, optionsImg));
@@ -120,7 +159,7 @@ if (result.getStatus() != RedactionStatus.Failed) {
 ```
 
 #### 5. lépés: Erőforrások tisztítása
-Mindig zárja be a `Redactor`-t a natív erőforrások felszabadításához:
+Mindig zárja le a `Redactor`-t a natív erőforrások felszabadításához és a memória szivárgások elkerüléséhez:
 
 ```java
 finally {
@@ -128,54 +167,57 @@ finally {
 }
 ```
 
-### Hogyan redakciózzuk a PPT diákot ugyanazzal a megközelítéssel?
-A munkafolyamat tükrözi a PDF lépéseket; csak a fájlkiterjesztés változik.
+### Hogyan redigáljunk PPT diákat ugyanazzal a megközelítéssel?
+A munkafolyamat tükrözi a PDF lépéseket; csak a fájlkiterjesztés változik. Töltse be a PPTX-et, alkalmazza ugyanazt a regex-et és terület-szűrőket, majd mentse a redigált prezentációt.
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/LOREMIPSUM_PPT");
 ```
 
-Kövesse a fenti mintadefiníciót, opciókonfigurációt és alkalmazási lépéseket, a kimeneti fájl nevét szükség szerint módosítva.
-
 ## Gyakorlati alkalmazások
-- **Legal Document Preparation** – ügyfélneveket, ügyszámokat vagy bizalmas záradékokat redakciózzon a benyújtás előtt.  
-- **Financial Reporting** – fiókszámokat, profitmarginokat vagy szabadalmi képleteket rejt el PDF‑ekben és diákon.  
-- **HR Audits** – eltávolítja a munkavállaló azonosítókat a tömeges dokumentum exportokból.
+- **Legal Document Preparation** – ügyfélnevek, ügyszámok vagy bizalmas záradékok redigálása a bíróságokhoz való benyújtás előtt.  
+- **Financial Reporting** – számlaszámok, nyereségmarzsok vagy szabadalmi képletek elrejtése PDF-ekben és diákon.  
+- **HR Audits** – alkalmazotti azonosítók eltávolítása tömeges dokumentumexportokból a adatvédelmi törvényeknek való megfelelés érdekében.
 
-## Teljesítménybeli megfontolások
-- **Close resources promptly** – hogy alacsony maradjon a memóriahasználat.  
-- **Optimize regex** – kerüljön el túl általános mintákat, amelyek feleslegesen átvizsgálják az egész dokumentumot.  
-- **Batch processing** – használjon szálkészletet, ha sok fájlt redakcióz, a teljesítmény növelése érdekében.
+## Teljesítményfontosságú szempontok
+- **Close resources promptly** – zárja le az erőforrásokat időben a memóriahasználat alacsonyan tartásához, különösen nagy kötegek feldolgozásakor.  
+- **Optimize regex patterns** – kerülje a túl általános kifejezéseket, amelyek feleslegesen átvizsgálják az egész dokumentumot.  
+- **Batch processing** – használjon szálkészletet és egyetlen `Redactor` példányt újrahasznosítson fájlonként a többmagos szervereken a teljesítmény növelése érdekében.
 
 ## Gyakori problémák és megoldások
-| Issue | Cause | Fix |
-|-------|-------|-----|
-| *Redakció nem alkalmazott* | A szűrők a rossz oldalra/területre céloznak | Ellenőrizze a `PageRangeFilter` és `PageAreaFilter` koordinátákat. |
+A `PageRangeFilter` és `PageAreaFilter` szűrők a redigálást meghatározott oldalakra vagy területekre korlátozzák.
+
+| Probléma | Ok | Megoldás |
+|----------|----|----------|
+| *Redigálás nem történt* | A szűrők a rossz oldalra/területre céloznak | Ellenőrizze a `PageRangeFilter` és `PageAreaFilter` koordinátákat. |
 | *OutOfMemoryError* | Nagy fájlok nyitva maradnak | Fájlokat sorban dolgozza fel, vagy növelje a JVM heap méretét (`-Xmx`). |
-| *Regex nem kívánt szöveget egyeztet* | A minta túl általános | Finomítsa a regex‑et vagy használjon szóhatárokat (`\b`). |
+| *Regex nem kívánt szöveget egyeztet* | A minta túl általános | Finomítsa a regex-et vagy használjon szóhatárokat (`\b`). |
 
 ## Gyakran feltett kérdések
 
-**Q: Mi a különbség a `pdf text redaction` és a szöveg egyszerű elrejtése között?**  
-A: A redakció véglegesen eltávolítja az adatot a fájlstruktúrából, míg az elrejtés csak a vizuális réteget módosítja.
+**Q: Mi a különbség a pdf szöveg redigálása és a szöveg egyszerű elrejtése között?**  
+A: A redigálás tartósan eltávolítja az adatot a fájlstruktúrából, míg az elrejtés csak a vizuális réteget módosítja.
 
-**Q: Használhatom a GroupDocs.Redaction‑t jelszóval védett PDF-ek redakciójához?**  
+**Q: Használhatom a GroupDocs.Redaction-t jelszóval védett PDF-ek redigálására?**  
 A: Igen – adja meg a jelszót a `Redactor` példány létrehozásakor.
 
-**Q: Van mód a redakció eredményének előnézetére mentés előtt?**  
+**Q: Van mód a redigálás eredményének előnézetére mentés előtt?**  
 A: Használja a `redactor.save("output.pdf")` parancsot egy ideiglenes helyre, majd nyissa meg a fájlt ellenőrzés céljából.
 
 **Q: Támogatja a könyvtár más formátumokat, például DOCX vagy XLSX?**  
-A: Teljes mértékben – ugyanaz az API működik az összes támogatott dokumentumtípuson.
+A: Teljes mértékben – ugyanaz az API 20+ támogatott dokumentumtípusra működik.
 
-**Q: Hol kaphatok segítséget, ha problémákba ütközöm?**  
-A: Látogassa meg a közösségi fórumot a [GroupDocs Free Support](https://forum.groupdocs.com/c/redaction/33) oldalon.
-
-## Következtetés
-Most már rendelkezik egy teljes, termelésre kész megoldással a **pdf text redaction** és a PPT dia redakcióhoz a GroupDocs.Redaction for Java használatával. A fenti lépések követésével védheti az érzékeny információkat, megfelelhet az adatvédelmi szabályozásoknak, és automatizálhatja a redakciós munkafolyamatokat nagy dokumentumkészleteken.
+**Q: Hol kaphatok segítséget, ha problémába ütközöm?**  
+A: Látogassa meg a közösségi fórumot a [GroupDocs Free Support](https://forum.groupdocs.com/c/redaction/33) oldalon segítségért.
 
 ---
 
-**Utolsó frissítés:** 2026-01-29  
-**Tesztelt verzió:** GroupDocs.Redaction 24.9 for Java  
+**Legutóbb frissítve:** 2026-07-01  
+**Tesztelve:** GroupDocs.Redaction 24.9 for Java  
 **Szerző:** GroupDocs
+
+## Kapcsolódó bemutatók
+
+- [Hogyan redigáljunk szöveget Java-ban a GroupDocs.Redaction segítségével: Teljes útmutató](/redaction/java/text-redaction/master-text-redaction-java-groupdocs-redaction-guide/)
+- [hogyan redigáljunk pdf java – PDF-specifikus redigálási bemutatók a GroupDocs.Redaction számára](/redaction/java/pdf-specific-redaction/)
+- [Érzékeny adatok maszkolása Java – Személyes információk redigálása a GroupDocs.Redaction segítségével](/redaction/java/advanced-redaction/master-document-redaction-java-groupdocs-redaction/)

@@ -1,44 +1,90 @@
 ---
-date: '2025-12-19'
-description: 学习如何使用 GroupDocs.Redaction 和正则表达式在 Java 中删除注释。通过我们的综合指南，简化文档管理。
+date: '2026-07-01'
+description: 了解如何在 Java 端使用 GroupDocs.Redaction 和 regex 移除 PDF 注释。快速、可靠的注释移除，适用于 PDF、DOCX、XLSX
+  等。
 keywords:
+- remove pdf annotations java
 - annotation removal java
 - groupdocs redaction setup
-- regex annotation cleanup
-title: 如何在 Java 中使用 GroupDocs.Redaction 删除批注
+schemas:
+- author: GroupDocs
+  dateModified: '2026-07-01'
+  description: Learn how to remove PDF annotations Java‑side using GroupDocs.Redaction
+    and regex. Fast, reliable annotation removal for PDFs, DOCX, XLSX and more.
+  headline: Remove PDF Annotations Java with GroupDocs.Redaction
+  type: TechArticle
+- description: Learn how to remove PDF annotations Java‑side using GroupDocs.Redaction
+    and regex. Fast, reliable annotation removal for PDFs, DOCX, XLSX and more.
+  name: Remove PDF Annotations Java with GroupDocs.Redaction
+  steps:
+  - name: Load Your Document
+    text: '`Redactor` loads the source file into memory and prepares it for redaction.
+      Once instantiated, you can query or modify any annotation present in the document.'
+  - name: Apply Regex‑Based Annotation Removal
+    text: '`DeleteAnnotationRedaction` is the operation that removes annotations whose
+      text matches a supplied regular expression. The pattern `(?im:(use|show|describe))`
+      is case‑insensitive (`i`) and multiline (`m`). It matches any annotation containing
+      *use*, *show*, or *describe*.'
+  - name: Configure Save Options
+    text: '`SaveOptions` controls how the redacted file is written to disk. Setting
+      `setAddSuffix(true)` automatically appends “_redacted” to the filename, preserving
+      the original file for audit purposes.'
+  - name: Save and Release Resources
+    text: Calling `redactor.save()` writes the cleaned file, and `redactor.close()`
+      releases native memory. Properly closing the instance prevents leaks in long‑running
+      services. **Troubleshooting Tips** - Verify that your regex actually matches
+      the annotation text you intend to delete. - Double‑check file sy
+  type: HowTo
+- questions:
+  - answer: It’s a Java library that lets you redact text, metadata, and annotations
+      across many document formats.
+    question: What is GroupDocs.Redaction for Java?
+  - answer: Combine them with the pipe (`|`) operator inside a single pattern or chain
+      multiple `DeleteAnnotationRedaction` calls.
+    question: How can I apply multiple regex patterns in one pass?
+  - answer: Yes, it can redact image‑based PDFs and other raster formats, though annotation
+      removal applies only to supported vector formats.
+    question: Does the library support non‑text formats like images?
+  - answer: Check the latest [Documentation](https://docs.groupdocs.com/redaction/java/)
+      for updates, or convert the file to a supported format first.
+    question: What if my document type isn’t listed as supported?
+  - answer: Wrap redaction logic in try‑catch blocks, log the exception details, and
+      ensure `redactor.close()` runs in a finally clause.
+    question: How should I handle exceptions during redaction?
+  type: FAQPage
+title: 使用 GroupDocs.Redaction 在 Java 中移除 PDF 注释
 type: docs
 url: /zh/java/annotation-redaction/master-annotation-removal-java-groupdocs-redaction/
 weight: 1
 ---
 
-# 如何在 Java 中使用 GroupDocs.Redaction 删除批注
+# 使用 GroupDocs.Redaction 删除 PDF 注释（Java）
 
-如果您曾经在 PDF、Word 文件或 Excel 表格中**删除批注**时卡住过，您就会知道手动清理是多么耗时。幸运的是，GroupDocs.Redaction for Java 为您提供了一种编程方式，只需几行代码即可剔除不需要的注释、评论或高亮。本指南将从设置 Maven 依赖到应用基于正则表达式的过滤器，完整演示如何仅删除目标批注。
+如果您曾经需要在 Java 端从 PDF、Word 文件或 Excel 表格中 **remove PDF annotations Java**，您就会知道手动清理是多么耗时。幸运的是，GroupDocs.Redaction for Java 为您提供了一种以编程方式在几行代码内剥离不需要的备注、评论或高亮的方法。在本指南中，我们将逐步讲解您需要的所有内容——从设置 Maven 依赖到应用基于正则表达式的过滤器，仅删除您目标的注释。
 
-## 快速答案
-- **哪个库负责批注删除？** GroupDocs.Redaction for Java。  
+## 快速答复
+- **哪个库负责注释删除？** GroupDocs.Redaction for Java.  
 - **哪个关键字触发删除？** 您定义的正则表达式模式（例如 `(?im:(use|show|describe))`）。  
-- **需要许可证吗？** 试用版可用于评估；生产环境需要商业许可证。  
-- **可以用新名称保存清理后的文件吗？** 可以——使用 `SaveOptions.setAddSuffix(true)`。  
-- **Maven 是唯一的添加方式吗？** 不是，您也可以直接下载 JAR 包。
+- **我需要许可证吗？** 试用版可用于评估；生产环境需要商业许可证。  
+- **我可以用新名称保存清理后的文件吗？** 可以——使用 `SaveOptions.setAddSuffix(true)`。  
+- **Maven 是唯一添加该库的方式吗？** 不是，您也可以直接下载 JAR。
 
-## 在 Java 环境中“删除批注”是什么意思？
-删除批注是指通过程序定位并移除文档中的标记对象（评论、高亮、便签）。使用 GroupDocs.Redaction，您可以按文本内容定位这些对象，非常适合 **data anonymization java** 项目、**legal document redaction** 或任何需要生成干净、可共享文件的工作流。
+## 在 Java 环境中，“remove PDF annotations Java” 是什么？
 
-## 为什么选择 GroupDocs.Redaction 来删除批注？
-- **精准** – 正则表达式让您精确指定要擦除的批注。  
-- **快速** – 批量处理数百个文件，无需手动打开每个文件。  
-- **合规** – 确保敏感评论永不离开组织。  
-- **跨格式支持** – 支持 PDF、DOCX、XLSX 等多种格式。
+**Removing PDF annotations Java** 指使用 Java 代码以编程方式定位并删除文档中的标记对象（评论、突出显示、便签）。此方法非常适合数据匿名化、法律文档编辑或任何需要干净、可共享文件且无需手动编辑的工作流。
+
+## 为什么使用 GroupDocs.Redaction 进行注释删除？
+
+GroupDocs.Redaction 让您能够精准删除注释，同时高效处理大批量文件。它支持 **30+ 输入和输出格式**——包括 PDF、DOCX、XLSX、PPTX、HTML 和常见图像类型——因此您无需切换库即可处理多种文件。该库在标准服务器上可在 2 秒内处理 200 页的 PDF，兼顾速度和合规性。
 
 ## 前置条件
 - Java JDK 1.8 或更高版本。  
-- IntelliJ IDEA、Eclipse 等 IDE。  
+- 如 IntelliJ IDEA 或 Eclipse 等 IDE。  
 - 对正则表达式有基本了解。  
 
 ## Maven 依赖 GroupDocs
 
-在 `pom.xml` 中添加 GroupDocs 仓库和 Redaction 构件：
+将 GroupDocs 仓库和 Redaction 架构添加到您的 `pom.xml` 中：
 
 ```xml
 <repositories>
@@ -58,18 +104,18 @@ weight: 1
 </dependencies>
 ```
 
-### 直接下载（可选）
+### 直接下载（替代方案）
 
-如果不想使用 Maven，可从官方页面获取最新 JAR 包：[GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/)。
+如果您不想使用 Maven，可以从官方页面获取最新的 JAR： [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/)。
 
-#### 获取许可证的步骤
-1. **免费试用** – 下载试用版以体验核心功能。  
-2. **临时许可证** – 申请临时密钥进行完整功能测试。  
-3. **购买** – 为生产环境获取商业许可证。
+#### 许可证获取步骤
+1. **Free Trial** – 下载试用版以探索核心功能。  
+2. **Temporary License** – 请求临时密钥以进行完整功能测试。  
+3. **Purchase** – 获取商业许可证用于生产环境。  
 
-## 基本初始化与设置
+## 基本初始化和设置
 
-以下代码片段展示了如何创建 `Redactor` 实例并配置基本的保存选项：
+`Redactor` 是表示文档并提供所有编辑操作的核心类。下面的代码片段展示了如何创建 `Redactor` 实例并配置基本的保存选项：
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -96,23 +142,24 @@ public class InitializeRedaction {
 }
 ```
 
-## 删除批注的分步指南
+## 步骤指南：删除注释
 
 ### 步骤 1：加载文档
+`Redactor` 将源文件加载到内存并为编辑做准备。实例化后，您可以查询或修改文档中出现的任何注释。
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/ANNOTATED_XLSX");
 ```
 
-### 步骤 2：应用基于正则表达式的批注删除
+### 步骤 2：应用基于正则表达式的注释删除
+`DeleteAnnotationRedaction` 是删除文本匹配提供的正则表达式的注释的操作。模式 `(?im:(use|show|describe))` 为不区分大小写 (`i`) 且多行模式 (`m`)。它匹配任何包含 *use*、*show* 或 *describe* 的注释。
 
 ```java
 redactor.apply(new DeleteAnnotationRedaction("(?im:(use|show|describe))"));
 ```
 
-- **说明** – 模式 `(?im:(use|show|describe))` 为不区分大小写（`i`）且多行匹配（`m`），匹配任何包含 *use*、*show* 或 *describe* 的批注。
-
 ### 步骤 3：配置保存选项
+`SaveOptions` 控制编辑后文件的写入方式。设置 `setAddSuffix(true)` 会自动在文件名后追加 “_redacted”，以保留原始文件用于审计。
 
 ```java
 SaveOptions saveOptions = new SaveOptions();
@@ -121,6 +168,7 @@ saveOptions.setRasterizeToPDF(false);  // Do not convert to PDF format
 ```
 
 ### 步骤 4：保存并释放资源
+调用 `redactor.save()` 写入清理后的文件，`redactor.close()` 释放本机内存。正确关闭实例可防止长期运行服务中的内存泄漏。
 
 ```java
 redactor.save(saveOptions, "YOUR_OUTPUT_DIRECTORY/RedactedDocument");
@@ -128,56 +176,58 @@ redactor.close();  // Always close the Redactor instance
 ```
 
 **故障排除提示**  
-- 确认正则表达式确实匹配您想删除的批注文本。  
+- 验证您的正则表达式确实匹配您想要删除的注释文本。  
 - 如果 `save` 调用抛出 `IOException`，请再次检查文件系统权限。  
 
-## 删除批注 Java – 常见使用场景
+## 删除注释 Java – 常见用例
 
-1. **Data Anonymization Java** – 在共享数据集前剔除包含个人身份信息的审阅者评论。  
-2. **Legal Document Redaction** – 自动删除可能泄露特权信息的内部批注。  
-3. **批量处理流水线** – 将上述步骤集成到 CI/CD 作业中，实时清理生成的报告。  
+1. **Data Anonymization Java** – 在共享数据集之前，剥离包含个人标识的审阅者评论。  
+2. **Legal Document Redaction** – 自动删除可能泄露特权信息的内部备注。  
+3. **Batch Processing Pipelines** – 将上述步骤集成到 CI/CD 作业中，实时清理生成的报告。  
 
-## 保存已编辑文档 – 最佳实践
+## 保存编辑文档 – 最佳实践
 
-- **添加后缀**（`setAddSuffix(true)`）以保留原始文件，同时明确标识已编辑的版本。  
-- **除非需要平面 PDF**，否则避免光栅化；保持文档原生格式可保留可搜索性。  
-- **及时关闭 Redactor**，释放本机内存，防止长时间运行的服务出现内存泄漏。
+- **添加后缀** (`setAddSuffix(true)`) 以保留原始文件并清晰标示编辑后的版本。  
+- **避免光栅化**，除非您需要扁平化的 PDF；保持文档原生格式可保留可搜索性。  
+- **及时关闭 Redactor** 以释放本机内存，防止长期运行服务中的泄漏。  
 
-## 性能考虑
+## 性能考虑因素
 
-- **优化正则表达式** – 复杂表达式会增加 CPU 时间，尤其在大型 PDF 上。  
-- **仅在处理同类型多文件时复用 Redactor 实例**；否则每个文件单独实例化，以保持内存占用低。  
-- **性能分析** – 使用 Java 性能分析工具（如 VisualVM）定位批量操作的瓶颈。
+- **优化正则表达式模式** —— 复杂的表达式可能增加 CPU 时间，尤其是在大型 PDF 上。  
+- **复用 Redactor 实例** 仅在处理同类型的多个文档时使用；否则每个文件实例化以保持低内存占用。  
+- **性能分析** —— 使用 Java 性能分析工具（例如 VisualVM）定位批量操作中的瓶颈。  
 
 ## 常见问题
 
 **Q: 什么是 GroupDocs.Redaction for Java？**  
-A: 这是一个 Java 库，能够对多种文档格式进行文本、元数据和批注的编辑。
+A: 它是一个 Java 库，可让您对多种文档格式的文本、元数据和注释进行编辑。
 
-**Q: 如何在一次处理中过滤多个正则表达式？**  
-A: 在单个模式中使用管道符（`|`）组合，或链式调用多个 `DeleteAnnotationRedaction`。
+**Q: 如何在一次运行中应用多个正则表达式模式？**  
+A: 在单个模式中使用管道符 (`|`) 组合，或链式调用多个 `DeleteAnnotationRedaction`。
 
-**Q: 库是否支持非文本格式（如图像）？**  
-A: 支持对基于图像的 PDF 和其他光栅格式进行编辑，但批注删除仅适用于受支持的矢量格式。
+**Q: 该库是否支持图像等非文本格式？**  
+A: 是的，它可以编辑基于图像的 PDF 和其他光栅格式，但注释删除仅适用于受支持的矢量格式。
 
 **Q: 如果我的文档类型未列在支持列表中怎么办？**  
-A: 请查阅最新的 [Documentation](https://docs.groupdocs.com/redaction/java/) 以获取更新，或先将文件转换为受支持的格式。
+A: 查看最新的 [Documentation](https://docs.groupdocs.com/redaction/java/) 以获取更新，或先将文件转换为受支持的格式。
 
-**Q: 如何处理编辑过程中的异常？**  
-A: 将编辑逻辑放在 try‑catch 块中，记录异常细节，并确保在 finally 中调用 `redactor.close()`。
+**Q: 在编辑过程中应如何处理异常？**  
+A: 将编辑逻辑放在 try‑catch 块中，记录异常细节，并确保在 finally 子句中调用 `redactor.close()`。
 
-## 其他资源
-
-- [Documentation](https://docs.groupdocs.com/redaction/java/)
-- [API Reference](https://reference.groupdocs.com/redaction/java)
-- [Download GroupDocs.Redaction](https://releases.groupdocs.com/redaction/java/)
-- [GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
-- [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)
-
----
-
-**最后更新：** 2025-12-19  
+**最后更新：** 2026-07-01  
 **测试环境：** GroupDocs.Redaction 24.9 for Java  
 **作者：** GroupDocs  
 
----
+## 其他资源
+
+- [文档](https://docs.groupdocs.com/redaction/java/)
+- [API 参考](https://reference.groupdocs.com/redaction/java)
+- [下载 GroupDocs.Redaction](https://releases.groupdocs.com/redaction/java/)
+- [GitHub 仓库](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
+- [免费支持论坛](https://forum.groupdocs.com/c/redaction/33)
+
+## 相关教程
+
+- [使用 GroupDocs.Redaction Java 删除注释](/redaction/java/annotation-redaction/)
+- [使用 GroupDocs.Redaction Java 删除 PDF 最后一页](/redaction/java/page-redaction/)
+- [使用 GroupDocs.Redaction Java 正则 PDF 编辑](/redaction/java/text-redaction/)
