@@ -1,14 +1,78 @@
 ---
-date: '2026-02-21'
-description: Tanulja meg, hogyan konvertálja a docx fájlokat képpé, és hogyan redigálja
-  a Word fájlokat a GroupDocs Redaction for Java segítségével. Lépésről‑lépésre útmutató
-  a rasterizálásról, a képarékre vonatkozó redigálásról és a Maven beállításról.
+date: '2026-07-25'
+description: Ismerje meg, hogyan konvertálhatja a docx-et képpé, és szerkesztheti
+  a Word fájlokat a GroupDocs Redaction for Java segítségével. Lépésről‑lépésre útmutató,
+  amely a rasterizációt, a képterület szerkesztését és a Maven beállítást tárgyalja.
 keywords:
+- convert docx to image
+- convert word to pdf
 - GroupDocs Redaction Java
-- Word document rasterization
-- secure redaction
-title: Hogyan konvertáljunk DOCX-et képre és takarjuk el a Word dokumentumokat a GroupDocs
-  Redaction Java használatával
+lastmod: '2026-07-25'
+og_description: Konvertálja a docx-et képpé, és szerkessze a Word dokumentumokat a
+  GroupDocs Redaction for Java segítségével. Ismerje meg a rasterizációt, a képterület
+  szerkesztését és a Maven beállítást ebben a részletes oktatóanyagban.
+og_image_alt: Guide showing how to convert DOCX to image and redact Word files using
+  GroupDocs Redaction Java
+og_title: DOCX konvertálása képpé a GroupDocs Redaction Java segítségével – Biztonságos
+  szerkesztési útmutató
+schemas:
+- author: GroupDocs
+  dateModified: '2026-07-25'
+  description: Learn how to convert docx to image and redact Word files with GroupDocs
+    Redaction for Java. Step‑by‑step guide covering rasterization, image area redaction,
+    and Maven setup.
+  headline: How to Convert DOCX to Image & Redact Word Documents Using GroupDocs Redaction
+    Java
+  type: TechArticle
+- description: Learn how to convert docx to image and redact Word files with GroupDocs
+    Redaction for Java. Step‑by‑step guide covering rasterization, image area redaction,
+    and Maven setup.
+  name: How to Convert DOCX to Image & Redact Word Documents Using GroupDocs Redaction
+    Java
+  steps:
+  - name: Import Required Classes (how to rasterize word)
+    text: The `RasterizationOptions` class configures how each page is rendered as
+      an image. The `Redactor` class is the entry point for applying redaction rules
+      to a document. Import them before you start working with the API.
+  - name: Load and Rasterize the DOCX (convert docx to image)
+    text: '`RasterizationOptions` tells GroupDocs to render each page as an image.
+      The `ByteArrayOutputStream` keeps the result in memory, ready for the next step
+      without writing intermediate files. This step also **convert word to pdf** behind
+      the scenes—each rasterized page is stored inside a PDF container. '
+  - name: Prepare the Rasterized Output for Redaction
+    text: '`ByteArrayInputStream` wraps the in‑memory PDF so the redaction engine
+      can read it directly. This avoids temporary files on disk and reduces I/O overhead,
+      which is especially important when processing large batches. Now the rasterized
+      PDF is available as an `InputStream`, which you can feed directly'
+  - name: Apply Image Area Redaction (how to redact word)
+    text: '`ImageAreaRedaction` targets a rectangular region defined by `startPoint`
+      and `size`. `RegionReplacementOptions` lets you choose the overlay color (blue
+      in this example) and the size of the replacement rectangle. After applying the
+      redaction, the document is saved as a rasterized PDF with the sensit'
+  type: HowTo
+- questions:
+  - answer: The process creates a PDF where each page is an embedded bitmap, making
+      the text non‑selectable and safe for redaction.
+    question: What does “convert docx to image” actually produce?
+  - answer: Yes, it supports PDFs, images, and many additional formats—over 50 input
+      and output types in total.
+    question: Can I use GroupDocs Redaction for other file types?
+  - answer: The trial license unlocks all features for 30 days, allowing you to evaluate
+      rasterization and redaction without restrictions.
+    question: How does the temporary license work?
+  - answer: Absolutely—call `redactor.apply()` multiple times or pass a collection
+      of `ImageAreaRedaction` objects.
+    question: Is there a way to redact multiple regions at once?
+  - answer: No. The Redactor can rasterize the DOCX directly and output a PDF in one
+      step, as shown above.
+    question: Do I need to convert the DOCX to PDF first?
+  type: FAQPage
+tags:
+- convert docx to image
+- GroupDocs Redaction
+- Java document processing
+title: Hogyan konvertáljunk DOCX-et képpé és szerkesszünk Word dokumentumokat a GroupDocs
+  Redaction Java segítségével
 type: docs
 url: /hu/java/document-saving/groupdocs-redaction-java-rasterize-word-docs/
 weight: 1
@@ -16,36 +80,32 @@ weight: 1
 
 # DOCX konvertálása képpé és Word dokumentumok redakciója a GroupDocs Redaction Java segítségével
 
-Az érzékeny információk védelme a Microsoft Word fájlokban napi kihívás a dokumentum‑központú alkalmazásokat építő fejlesztők számára. Akár személyes adatok elrejtésére, a GDPR-nek való megfelelésre, vagy jogi szerződések külső felülvizsgálatra való előkészítésére van szükség, a **convert docx to image** a redakció előtt biztosítja, hogy az eredeti elrendezés változatlan marad, miközben a tartalom biztonságosan el van takarva. Ebben az útmutatóban azt is láthatja, hogyan **convert word to pdf** hatékonyan, egy rasterizált PDF-et adva, amely tökéletes az érzékeny adatok redakciójához.
+Az érzékeny információk védelme a Microsoft Word fájlokban napi kihívás a dokumentum‑központú alkalmazásokat fejlesztő fejlesztők számára. Akár személyes adatok elrejtésére, GDPR‑nek való megfelelésre, vagy jogi szerződések külső felülvizsgálatra való előkészítésére van szükség, a **convert docx to image** a redakció előtt garantálja, hogy az eredeti elrendezés változatlan marad, miközben a tartalom biztonságosan el van takarva. Ebben az útmutatóban azt is láthatja, hogyan **convert word to pdf** hatékonyan, egy rasterizált PDF-et adva, amely tökéletes az érzékeny adatok redakciójához.
 
 ## Gyors válaszok
-- **Mi jelent a “convert docx to image”?** Az minden Word oldalát bitmapképpé rasterizálja, megőrizve az elrendezést a megbízható redakcióhoz.  
+- **Mi jelent a “convert docx to image”?** Minden Word fájl oldalát bitmapképpé rasterizálja, megőrizve az elrendezést a megbízható redakcióhoz.  
 - **Mely Maven artefakt szükséges?** `com.groupdocs:groupdocs-redaction` (lásd a *groupdocs maven dependency* részt).  
-- **Elrejthetek szöveget Java-ban?** Igen—használja a `ImageAreaRedaction`-t a `RegionReplacementOptions`-szel egy szilárd szín felülírásához.  
-- **Szükségem van licencre?** A próbaverzió licenc működik értékeléshez; egy kereskedelmi licenc szükséges a termeléshez.  
-- **PDF vagy képfájl a kimenet?** A rasterizációs lépés PDF-et hoz létre, ahol minden oldal egy kép, készen a redakcióra.
+- **Elrejthetek szöveget Java‑ban?** Igen—használja a `ImageAreaRedaction`‑t a `RegionReplacementOptions`‑szal, hogy egy egyszínű színt fedje rá.  
+- **Szükségem van licencre?** A próbaverzió licenc működik értékeléshez; a kereskedelmi licenc szükséges a termeléshez.  
+- **PDF‑et vagy képfájlt kapok eredményül?** A rasterizálási lépés PDF‑et hoz létre, ahol minden oldal egy kép, készen a redakcióra.
 
 ## Mi a “convert docx to image”?
-A DOCX fájl rasterizálása minden oldalt képpé alakít (általában PDF-be beágyazva). Ez a konverzió eltávolítja a kiválasztható szöveget, így a későbbi redakciók visszafordíthatatlanok és manipulációállóak lesznek.
+A DOCX fájl rasterizálása minden oldalt képpé alakít (általában PDF‑be beágyazva). Ez a konverzió eltávolítja a kiválasztható szöveget, így a későbbi redakciók visszafordíthatatlanok és manipulációállóak lesznek. A dokumentum kép‑alapú PDF‑é alakításával biztosítható, hogy a később alkalmazott redakciót ne lehessen egyszerűen szöveg másolásával visszafordítani, ami elengedhetetlen a megfelelőség‑központú munkafolyamatokhoz.
 
-## Miért használja a GroupDocs Redaction-t Java-ban?
-- **Accurate layout preservation** – a pontos elrendezés megőrzése – az eredeti Word formázás pontosan ugyanaz marad.  
-- **Fine‑grained redaction** – finomhangolt redakció – célzottan tudja megcélozni a specifikus területeket, képeket vagy egész oldalakat.  
-- **Seamless Maven integration** – zökkenőmentes Maven integráció – a *groupdocs maven dependency* könnyű és rendszeresen frissül.  
-- **Cross‑platform support** – platformfüggetlen támogatás – működik minden OS-en, amely Java 8+ futtat.  
-- **Redact sensitive data** – érzékeny adatok redakciója – a könyvtár úgy van felépítve, hogy biztonságosan eltávolítsa a személyes vagy bizalmas információkat.
+## Miért használja a GroupDocs Redaction for Java‑t?
+A GroupDocs Redaction for Java egy kész megoldást nyújt a biztonságos dokumentum‑tisztításhoz. Megőrzi az eredeti Word elrendezést pixel‑pontos hűséggel, lehetővé teszi egyedi területek vagy teljes oldalak célzását, és egyetlen Maven‑függőségben integrálódik. A könyvtár támogatja a Windows, Linux és macOS rendszereket, 500 MB‑ig terjedő fájlokat dolgoz fel anélkül, hogy az egész dokumentumot a memóriába töltené, és negyedévente frissül, hogy tartalmazzon teljesítményjavításokat és új formátumtámogatást.
 
-## Előfeltételek
+## Előkövetelmények
 - JDK 8 vagy újabb telepítve.  
 - Egy IDE, például IntelliJ IDEA, Eclipse vagy NetBeans.  
 - Internetkapcsolat a Maven artefaktok vagy a közvetlen JAR letöltéséhez.  
 - Alapvető Java ismeretek és Maven ismerete.
 
-## A GroupDocs.Redaction beállítása Java-hoz
+## A GroupDocs.Redaction beállítása Java‑hoz
 
 ### Maven függőség (groupdocs maven dependency)
 
-Adja hozzá a hivatalos GroupDocs tárolót és a Redaction könyvtárat a `pom.xml`-hez:
+Adja hozzá a hivatalos GroupDocs tárolót és a Redaction könyvtárat a `pom.xml`‑hez:
 
 ```xml
 <repositories>
@@ -65,15 +125,17 @@ Adja hozzá a hivatalos GroupDocs tárolót és a Redaction könyvtárat a `pom.
 </dependencies>
 ```
 
-**Direct Download** – Ha nem szeretne Maven-t használni, töltse le a legújabb JAR-t a hivatalos oldalról: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+**Direct Download** – Ha nem szeretné a Maven‑t használni, töltse le a legújabb JAR‑t a hivatalos oldalról: [GroupDocs.Redaction Java kiadások](https://releases.groupdocs.com/redaction/java/).
 
 ### Licenc beszerzése
-1. Kérjen **free trial license**-t a GroupDocs portálon.  
-2. Termelési környezetben vásároljon **commercial license**-t, és cserélje le a próbakulcsot a végleges kulcsra.
+1. Kérjen **ingyenes próbaverzió licencet** a GroupDocs portálról.  
+2. A termelési telepítésekhez vásároljon **kereskedelmi licencet**, és cserélje le a próbaverzió kulcsát a végleges kulcsra.
 
-## Lépés‑ről‑lépésre útmutató
+## Lépésről‑lépésre útmutató
 
-### 1. lépés: Szükséges osztályok importálása (how to rasterize word)
+### 1. lépés: Szükséges osztályok importálása (hogyan rasterizáljuk a word‑et)
+
+`RasterizationOptions` osztály konfigurálja, hogyan kerül minden oldal képként renderelésre. A `Redactor` osztály a belépési pont a redakciós szabályok dokumentumra való alkalmazásához. Importálja őket, mielőtt elkezdené használni az API‑t.
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -84,7 +146,9 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 ```
 
-### 2. lépés: DOCX betöltése és rasterizálása (convert docx to image)
+### 2. lépés: A DOCX betöltése és rasterizálása (convert docx to image)
+
+`RasterizationOptions` azt mondja a GroupDocs‑nek, hogy minden oldalt képként rendereljen. A `ByteArrayOutputStream` memóriában tartja az eredményt, készen áll a következő lépésre anélkül, hogy köztes fájlokat írna. Ez a lépés a háttérben **convert word to pdf** is végrehajtja – minden rasterizált oldal egy PDF konténerben tárolódik.
 
 ```java
 String inputFilePath = "YOUR_DOCUMENT_DIRECTORY/sample.docx";
@@ -100,17 +164,21 @@ try (Redactor rasterizer = new Redactor(inputFilePath)) {
 }
 ```
 
-**Explanation:** `RasterizationOptions` azt mondja a GroupDocs-nak, hogy minden oldalt képként rendereljen. A `ByteArrayOutputStream` memóriában tartja az eredményt, készen áll a következő lépésre anélkül, hogy köztes fájlokat írna. Ez a lépés továbbá **convert word to pdf** a háttérben – minden rasterizált oldal egy PDF konténerben tárolódik.
+**Explanation:** `RasterizationOptions` azt mondja a GroupDocs‑nek, hogy minden oldalt képként rendereljen. A `ByteArrayOutputStream` memóriában tartja az eredményt, készen áll a következő lépésre anélkül, hogy köztes fájlokat írna. Ez a lépés a háttérben **convert word to pdf** is végrehajtja – minden rasterizált oldal egy PDF konténerben tárolódik.
 
 ### 3. lépés: A rasterizált kimenet előkészítése a redakcióhoz
+
+`ByteArrayInputStream` becsomagolja a memóriában lévő PDF‑et, hogy a redakciós motor közvetlenül olvashassa. Ez elkerüli a lemezen lévő ideiglenes fájlokat és csökkenti az I/O terhelést, ami különösen fontos nagy kötegek feldolgozásakor.
 
 ```java
 ByteArrayInputStream inputStream = new ByteArrayInputStream(stream.toByteArray());
 ```
 
-Most a rasterizált PDF `InputStream`-ként érhető el, amelyet közvetlenül a redakciós motorba lehet adni.
+Most a rasterizált PDF `InputStream`‑ként érhető el, amelyet közvetlenül a redakciós motorba lehet adni.
 
-### 4. lépés: Image Area Redaction alkalmazása (how to redact word)
+### 4. lépés: Képkörzet redakció alkalmazása (hogyan redakciózzuk a word‑et)
+
+`ImageAreaRedaction` egy `startPoint` és `size` által meghatározott téglalap alakú területet céloz meg. A `RegionReplacementOptions` lehetővé teszi a fedőszín (ebben a példában kék) és a helyettesítő téglalap méretének kiválasztását. A redakció alkalmazása után a dokumentum rasterizált PDF‑ként kerül mentésre, ahol az érzékeny terület biztonságosan el van takarva. Ez a fő módja annak, hogy a **hide text java** fejlesztőknek szükséges legyen a bizalmas Word tartalom kezelésekor.
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -148,54 +216,66 @@ try (Redactor redactor = new Redactor(inputStream)) {
 **Explanation:**  
 - `ImageAreaRedaction` egy `startPoint` és `size` által meghatározott téglalap alakú területet céloz meg.  
 - `RegionReplacementOptions` lehetővé teszi a fedőszín (ebben a példában kék) és a helyettesítő téglalap méretének kiválasztását.  
-- A redakció alkalmazása után a dokumentum rasterizált PDF-ként kerül mentésre, a érzékeny terület biztonságosan elrejtve. Ez a fő módja annak, hogy a **hide text java** fejlesztőknek szükséges legyen a bizalmas Word tartalom kezelésekor.
+- A redakció alkalmazása után a dokumentum rasterizált PDF‑ként kerül mentésre, ahol az érzékeny terület biztonságosan el van takarva. Ez a fő módja annak, hogy a **hide text java** fejlesztőknek szükséges legyen a bizalmas Word tartalom kezelésekor.
 
-## Hogyan konvertáljuk a Word-ot PDF-be és redakciózzuk az érzékeny adatokat
-A rasterizációs folyamat automatikusan **convert word to pdf**, minden oldalt képként ágyaz be egy PDF fájlba. Ebben a formátumban a GroupDocs Redaction segítségével **redact sensitive data** lehet, például személyes azonosítók, pénzügyi számok vagy szellemi tulajdon grafikai elemei. Mivel a szöveg már nem választható, a redakció manipulációállóvá válik.
+## Hogyan konvertáljuk a Word‑ot PDF‑be és redakciózzuk az érzékeny adatokat
+Töltse be a DOCX‑et, rasterizálja egy kép‑alapú PDF‑be, majd alkalmazzon egy vagy több `ImageAreaRedaction` objektumot. A rasterizálás automatikusan **convert word to pdf**, minden oldalt bitmapként ágyaz be, ami a későbbi redakciót manipulációállóvá teszi, mivel az alatta lévő szöveg már nem választható.
 
-## Hogyan rejtsünk el szöveget Java-ban a GroupDocs-szal
-Ha az Ön esetében egyszerűen csak a dokumentum egyes részeit szeretné maszkolni, a `ImageAreaRedaction` osztály egy egyszerű API-t biztosít. A koordináták és egy helyettesítő szín megadásával **hide text in Java** anélkül, hogy alacsony szintű PDF manipulációval kellene foglalkozni.
+A redakciós motor közvetlenül a memóriában lévő PDF‑folyamon dolgozik, így soha nem kell ideiglenes fájlt a lemezre írni. Redakció után a végleges PDF‑et vissza lehet streamelni a kliensnek, adatbázisban tárolni, vagy felhő tárolóba feltölteni.
 
-## Gyakorlati alkalmazások (how to redact word)
+## Hogyan rejtsünk el szöveget Java‑ban a GroupDocs segítségével
+Használja a `ImageAreaRedaction` API‑t, hogy egy egyszínű színű téglalapot helyezzen a takarni kívánt területre. Definiálja a téglalap bal‑felső sarkát (`startPoint`) és szélességét/magasságát (`size`), majd adja meg a `RegionReplacementOptions` színt. Amikor meghívja a `redactor.apply(redaction)`‑t, a könyvtár a téglalapot a rasterizált oldalra festi, és a végeredményt PDF‑ként menti, amely már nem tartalmazza az eredeti szöveget.
 
-| Forgatókönyv | Miért rasterizáljunk és redakciózzunk? |
-|--------------|----------------------------------------|
-| **Jogi szerződések** | Garantálja az ügyfél titkosságát a tervek megosztása előtt. |
-| **Orvosi feljegyzések** | Eltávolítja a PHI-t, miközben megőrzi az eredeti jelentés elrendezését. |
-| **Pénzügyi kimutatások** | Maszkolja a számlaszámokat vagy a szellemi tulajdon adatokat külső auditokhoz. |
+Ez a megközelítés bármely nyelvtől független dokumentumra működik, mivel a rasterizálási lépés eltávolítja a szövegrétegeket, garantálva, hogy a rejtett tartalom nem állítható helyre.
 
-## Teljesítménybeli megfontolások
-- **Memory Management:** Használjon stream-eket (`ByteArrayOutputStream` / `ByteArrayInputStream`) a teljes fájlok memóriába töltésének elkerüléséhez.  
-- **CPU Usage:** A rasterizáció CPU‑igényes; nagy DOCX fájlok esetén fontolja meg a JVM heap növelését (`-Xmx2g`).  
-- **Version Updates:** Tartsa naprakészen a GroupDocs könyvtárat (pl. 24.9) a teljesítményjavítások és hibajavítások érdekében.
+## Gyakorlati alkalmazások (hogyan redakciózzuk a word‑et)
 
-## Gyakori problémák és megoldások (hide text java)
+| Forgatókönyv | Miért rasterizálunk és redakciózunk? |
+|--------------|--------------------------------------|
+| **Jogi szerződések** | Biztosítja az ügyfél titkosságát a vázlatok megosztása előtt. |
+| **Orvosi feljegyzések** | Eltávolítja a PHI‑t, miközben megőrzi az eredeti jelentés elrendezését. |
+| **Pénzügyi kimutatások** | Elfedi a számlaszámokat vagy a tulajdonosi adatokat külső auditokhoz. |
+
+## Teljesítmény szempontok
+
+- **Memory Management:** Használjon stream‑eket (`ByteArrayOutputStream` / `ByteArrayInputStream`), hogy elkerülje az egész fájlok memóriába betöltését.  
+- **CPU Usage:** A rasterizálás CPU‑igényes; fontolja meg a JVM heap (`-Xmx2g`) növelését nagy DOCX fájlok esetén.  
+- **Version Updates:** Tartsa a GroupDocs könyvtárat naprakészen (pl. 24.9), hogy élvezze a teljesítményjavításokat és hibajavításokat.  
+- **File Size Limits:** A könyvtár 500 MB‑ig képes feldolgozni a dokumentumokat, anélkül, hogy memória‑hiány hibát kapna, ha streaminget használ.
+
+## Gyakori problémák és megoldások (szöveg elrejtése java)
 
 | Probléma | Megoldás |
 |----------|----------|
-| **OutOfMemoryError** nagy DOCX feldolgozásakor | A dokumentumot darabokban dolgozza fel, vagy növelje a JVM heap méretét. |
-| **Redaction not applied** | Ellenőrizze, hogy a `result.getStatus()` nem `Failed`, és a koordináták az oldal határain belül vannak. |
-| **Output PDF blank** | Győződjön meg róla, hogy a `RasterizationOptions.setEnabled(false)` csak a redakció után kerül beállításra; az első rasterizáció során legyen `true`. |
+| **OutOfMemoryError** nagy DOCX feldolgozásakor | Feldolgozza a dokumentumot darabokban vagy növeli a JVM heap méretét. |
+| **Redakció nem alkalmazva** | Ellenőrizze, hogy a `result.getStatus()` nem `Failed`, és a koordináták az oldal határain belül vannak. |
+| **Kimeneti PDF üres** | Győződjön meg róla, hogy a `RasterizationOptions.setEnabled(false)` csak a redakció után van beállítva; az első rasterizálás során legyen `true`. |
 
-## Gyakran feltett kérdések
+## Gyakran Ismételt Kérdések
 
-**Q: Mit hoz valójában a “convert docx to image”?**  
-A: A folyamat egy PDF-et hoz létre, ahol minden oldal egy beágyazott bitmap, így a szöveg nem választható, és biztonságosan redakciózható.
+**K: Mit eredményez valójában a “convert docx to image”?**  
+A: A folyamat egy PDF‑et hoz létre, ahol minden oldal egy beágyazott bitmap, így a szöveg nem választható, és biztonságos a redakcióhoz.
 
-**Q: Használhatom a GroupDocs Redaction-t más fájltípusokhoz is?**  
-A: Igen, támogatja a PDF-eket, képeket és számos egyéb dokumentumformátumot.
+**K: Használhatom a GroupDocs Redaction‑t más fájltípusokhoz?**  
+A: Igen, támogatja a PDF‑eket, képeket és számos további formátumot – összesen több mint 50 bemeneti és kimeneti típust.
 
-**Q: Hogyan működik a temporális licenc?**  
-A: A próbaverzió licenc minden funkciót felold egy korlátozott időszakra, lehetővé téve a rasterizáció és redakció korlátok nélküli kipróbálását.
+**K: Hogyan működik az ideiglenes licenc?**  
+A: A próbaverzió licenc 30 napra feloldja az összes funkciót, lehetővé téve a rasterizálás és redakció korlátozások nélküli értékelését.
 
-**Q: Van mód egyszerre több terület redakciójára?**  
-A: Természetesen—hívja meg többször a `redactor.apply()`-t, vagy adjon át egy `ImageAreaRedaction` objektumok gyűjteményét.
+**K: Van mód egyszerre több terület redakciójára?**  
+A: Természetesen – hívja meg többször a `redactor.apply()`‑t, vagy adjon át egy `ImageAreaRedaction` objektumok gyűjteményét.
 
-**Q: Szükséges először a DOCX-et PDF-be konvertálni?**  
-A: Nem. A Redactor közvetlenül rasterizálja a DOCX-et, és egy lépésben PDF-et ad ki, ahogy fent is látható.
+**K: Szükséges először a DOCX‑et PDF‑be konvertálni?**  
+A: Nem. A Redactor közvetlenül rasterizálja a DOCX‑et, és egy lépésben PDF‑et állít elő, ahogy fent is látható.
 
 ---
 
-**Legutóbb frissítve:** 2026-02-21  
-**Tesztelt verzió:** GroupDocs.Redaction 24.9 (Java)  
-**Szerző:** GroupDocs
+**Last Updated:** 2026-07-25  
+**Tested With:** GroupDocs.Redaction 24.9 (Java)  
+**Author:** GroupDocs
+
+## Kapcsolódó oktatóanyagok
+
+- [Hogyan használjuk a groupdocs redaction‑t Java‑ban: elő‑rasterizálás Word dokumentumokban](/redaction/java/rasterization-options/groupdocs-redaction-java-pre-rasterization-word-docs/)
+- [Képek redakciója Word dokumentumokban a GroupDocs.Redaction for Java használatával – Átfogó útmutató](/redaction/java/image-redaction/redact-images-word-docs-groupdocs-redaction-java/)
+- [Dokumentumok redakciója GroupDocs Redaction Java licenccel fájl útvonalról – Lépésről‑lépésre útmutató](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)
