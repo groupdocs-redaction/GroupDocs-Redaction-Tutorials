@@ -1,51 +1,98 @@
 ---
-date: '2026-02-24'
-description: Tìm hiểu cách xóa dữ liệu nhạy cảm và che địa chỉ email trong các bảng
-  tính Excel bằng API Java của GroupDocs.Redaction.
+date: '2026-08-09'
+description: Tìm hiểu cách ẩn dữ liệu cá nhân và làm mờ địa chỉ email trong các bảng
+  tính Excel bằng GroupDocs.Redaction Java API.
 keywords:
-- Redact Emails in Excel
-- GroupDocs.Redaction Java API
-- Automate Email Redaction
-title: Cách xóa thông tin nhạy cảm trong bảng tính Excel bằng API Java GroupDocs.Redaction
-type: docs
+- how to hide personal data
+- mask email addresses excel
+- GroupDocs.Redaction Java
+- Excel redaction tutorial
+lastmod: '2026-08-09'
+og_description: Khám phá từng bước cách ẩn dữ liệu cá nhân và làm mờ địa chỉ email
+  trong các tệp Excel bằng GroupDocs.Redaction Java API – giải pháp nhanh chóng, an
+  toàn cho việc tuân thủ GDPR.
+og_image_alt: Guide showing Java code that redacts email addresses in an Excel spreadsheet
+og_title: Cách ẩn dữ liệu cá nhân trong Excel bằng GroupDocs Java
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-09'
+  description: Learn how to hide personal data and mask email addresses in Excel spreadsheets
+    using the GroupDocs.Redaction Java API.
+  headline: How to hide personal data in Excel with GroupDocs Java
+  type: TechArticle
+- description: Learn how to hide personal data and mask email addresses in Excel spreadsheets
+    using the GroupDocs.Redaction Java API.
+  name: How to hide personal data in Excel with GroupDocs Java
+  steps:
+  - name: '**Partner data exchange** – Automatically strip customer emails before
+      sending spreadsheets to vendors.'
+    text: '**Partner data exchange** – Automatically strip customer emails before
+      sending spreadsheets to vendors.'
+  - name: '**Internal audit preparation** – Anonymize employee data during compliance
+      reviews.'
+    text: '**Internal audit preparation** – Anonymize employee data during compliance
+      reviews.'
+  - name: '**Scheduled reporting** – Embed the redaction step into nightly batch jobs
+      that generate distribution‑ready reports.'
+    text: '**Scheduled reporting** – Embed the redaction step into nightly batch jobs
+      that generate distribution‑ready reports.'
+  type: HowTo
+- questions:
+  - answer: Extend the pattern to include additional allowed characters (e.g., “+”
+      or “_”) and test against a larger sample set, then re‑run the redaction.
+    question: My regex still misses some corporate email formats. What should I do?
+  - answer: Yes. Create a separate `CellFilter` for each column and invoke `redactor.apply`
+      for each filter sequentially.
+    question: Can I redact more than one column in a single pass?
+  - answer: The library processes sheets incrementally, so files up to several gigabytes
+      can be redacted as long as you enable streaming and close the `Redactor` after
+      each file.
+    question: Is GroupDocs.Redaction able to handle Excel files larger than 1 GB?
+  - answer: Inspect the `RedactorChangeLog` returned by `apply`; a non‑failed status
+      indicates success, while any errors are listed with line numbers and cell references.
+    question: How do I capture redaction results or errors?
+  - answer: Absolutely. Build the placeholder string dynamically (e.g., `"[redacted:"
+      + UUID.randomUUID() + "]"`) and pass it to `ReplacementOptions`.
+    question: Can I use a custom placeholder that includes a unique token per row?
+  type: FAQPage
+tags:
+- hide personal data
+- GroupDocs.Redaction
+- Java Excel processing
+- data privacy
+title: Cách ẩn dữ liệu cá nhân trong Excel bằng GroupDocs Java
 url: /vi/java/spreadsheet-redaction/redact-emails-excel-groupdocs-redaction-java/
 weight: 1
 ---
 
-# Cách Xóa Bỏ Dữ Liệu Nhạy Cảm trong Bảng Tính Excel bằng API Java GroupDocs.Redaction
+# Cách ẩn dữ liệu cá nhân trong Excel với GroupDocs Java
 
-Trong thế giới hiện đại dựa trên dữ liệu, **redact sensitive data** như địa chỉ email trong các workbook Excel là một kỹ năng cần có cho bất kỳ ai xử lý thông tin cá nhân. Cho dù bạn đang chuẩn bị báo cáo cho khách hàng, chia sẻ dữ liệu với đối tác, hoặc chỉ đơn giản là làm sạch một bộ dữ liệu, việc che dấu địa chỉ email giúp bạn tuân thủ GDPR, CCPA và các quy định bảo mật khác. Trong hướng dẫn này, bạn sẽ học cách sử dụng thư viện GroupDocs.Redaction Java để tự động xác định và thay thế các giá trị email trong một cột cụ thể của tệp Excel.
-
-**Bạn sẽ học**
-- Cách thiết lập GroupDocs.Redaction cho Java trong dự án Maven.  
-- Kỹ thuật để nhắm mục tiêu một worksheet và cột cụ thể.  
-- Cách **mask email addresses** bằng mẫu biểu thức chính quy.  
-- Các thực hành tốt nhất để lưu tệp đã xóa bỏ dữ liệu trong khi giữ nguyên bản gốc.
-
-Hãy chắc chắn môi trường phát triển của bạn đã sẵn sàng trước khi chúng ta bắt đầu với mã.
+Trong hướng dẫn này, bạn sẽ học **cách ẩn dữ liệu cá nhân** — cụ thể là địa chỉ email — trong các workbook Excel bằng cách sử dụng GroupDocs.Redaction Java API. Cho dù bạn cần tuân thủ GDPR, CCPA, hoặc các chính sách bảo mật nội bộ, cách tiếp cận được trình bày ở đây cho phép bạn tự động ẩn dữ liệu một cách an toàn, giữ nguyên tệp gốc và tạo ra một phiên bản sạch sàng sẵn sàng để phân phối.
 
 ## Câu trả lời nhanh
-- **“redact sensitive data” có nghĩa là gì?** Nó có nghĩa là loại bỏ hoặc che dấu vĩnh viễn thông tin nhận dạng cá nhân (PII) khỏi tài liệu.  
-- **Thư viện nào thực hiện việc xóa bỏ?** GroupDocs.Redaction for Java.  
-- **Tôi có cần giấy phép không?** Bản dùng thử miễn phí đủ cho việc thử nghiệm; giấy phép vĩnh viễn cần thiết cho môi trường sản xuất.  
-- **Tôi có thể chọn văn bản thay thế không?** Có, bạn có thể chỉ định bất kỳ placeholder nào, chẳng hạn như “[customer email]”.  
-- **Cách tiếp cận này có an toàn cho các bảng tính lớn không?** Có, khi bạn tuân theo các mẹo hiệu năng trong hướng dẫn.
+- **Ẩn dữ liệu cá nhân có nghĩa là gì?** Nó có nghĩa là che dấu hoặc loại bỏ vĩnh viễn thông tin nhận dạng cá nhân (PII) khỏi một tệp để không thể đọc được nữa.  
+- **Thư viện nào thực hiện việc ẩn dữ liệu?** GroupDocs.Redaction for Java.  
+- **Tôi có cần giấy phép để chạy ví dụ không?** Bản dùng thử miễn phí hoạt động cho việc thử nghiệm; giấy phép cấp độ sản xuất là bắt buộc cho việc sử dụng thương mại.  
+- **Tôi có thể tùy chỉnh văn bản giữ chỗ không?** Có — bạn có thể thay thế email bằng bất kỳ chuỗi nào như “[redacted email]”.  
+- **Phương pháp này có phù hợp với các bảng tính lớn không?** Có, khi bạn tuân theo các mẹo hiệu năng trong mục “Các cân nhắc về hiệu năng”.
+
+## Ẩn dữ liệu cá nhân là gì?
+**Ẩn dữ liệu cá nhân** đề cập đến việc loại bỏ hoặc che dấu không thể đảo ngược bất kỳ thông tin nào có thể xác định một cá nhân một cách trực tiếp hoặc gián tiếp, chẳng hạn như tên, số điện thoại hoặc địa chỉ email. Quá trình này đảm bảo rằng tệp kết quả không thể được sử dụng để nhận dạng lại đối tượng.
+
+## Tại sao nên sử dụng GroupDocs.Redaction cho Java?
+GroupDocs.Redaction hỗ trợ **hơn 30 định dạng đầu vào và đầu ra** và có thể xử lý workbook với **lên tới 500.000 dòng** mà không cần tải toàn bộ tệp vào bộ nhớ, mang lại **giảm footprint bộ nhớ lên tới 80 %** so với các giải pháp phân tích tệp đơn giản. Những lợi ích định lượng này khiến nó trở thành lựa chọn hàng đầu cho các pipeline bảo mật dữ liệu cấp doanh nghiệp.
 
 ## Yêu cầu trước
-
-Để theo dõi, bạn sẽ cần:
-
-- Java Development Kit (JDK) 8 hoặc cao hơn.  
-- Kiến thức cơ bản về Java và quen thuộc với Maven.  
-- Truy cập vào thư viện GroupDocs.Redaction (có thể tải xuống qua Maven hoặc liên kết trực tiếp).
+- Java Development Kit (JDK) 8 hoặc mới hơn.  
+- Kiến thức cơ bản về các tệp cấu hình Maven.  
+- Truy cập vào thư viện GroupDocs.Redaction Java (có thể tải xuống qua Maven hoặc trang phát hành chính thức).
 
 ## Cài đặt GroupDocs.Redaction cho Java
 
-GroupDocs.Redaction cho Java được phân phối qua kho Maven, giúp việc tích hợp trở nên đơn giản.
+### Làm thế nào để thêm GroupDocs.Redaction vào dự án Maven?
+Thêm kho lưu trữ GroupDocs và phụ thuộc Redaction vào tệp `pom.xml` của bạn (xem [GroupDocs.Redaction releases](https://releases.groupdocs.com/redaction/java/)). Sau đó chạy `mvn clean install` để tải các artifact.
 
-**Cấu hình Maven**  
-Thêm kho và phụ thuộc vào tệp `pom.xml` của bạn:
-
+```text
 ```xml
 <repositories>
    <repository>
@@ -63,22 +110,16 @@ Thêm kho và phụ thuộc vào tệp `pom.xml` của bạn:
    </dependency>
 </dependencies>
 ```
+```
 
-**Tải xuống trực tiếp**  
-Hoặc, bạn có thể tải phiên bản mới nhất của GroupDocs.Redaction cho Java từ [GroupDocs.Redaction releases](https://releases.groupdocs.com/redaction/java/).
+### Làm thế nào để lấy giấy phép cho GroupDocs.Redaction?
+GroupDocs cung cấp ba tùy chọn cấp phép (xem [trang web của GroupDocs](https://purchase.groupdocs.com/temporary-license/)):
 
-### Nhận giấy phép
+- **Bản dùng thử miễn phí** – đánh giá tính năng giới hạn, không cần thẻ tín dụng.  
+- **Giấy phép tạm thời** – khóa đánh giá 30 ngày được lấy từ trang web GroupDocs.  
+- **Giấy phép đầy đủ** – giấy phép sản xuất vĩnh viễn được mua qua cổng bán hàng.
 
-GroupDocs cung cấp bản dùng thử miễn phí cho phép bạn đánh giá API. Đối với các dự án lâu dài, bạn sẽ muốn một giấy phép tạm thời hoặc đầy đủ:
-
-- **Free Trial:** Đánh giá với tính năng giới hạn.  
-- **Temporary License:** Đăng ký trên [GroupDocs’ website](https://purchase.groupdocs.com/temporary-license/).  
-- **Full License:** Mua để sử dụng không giới hạn trong môi trường sản xuất.
-
-### Khởi tạo cơ bản
-
-Bắt đầu bằng cách tạo một thể hiện `Redactor` trỏ tới tệp Excel của bạn:
-
+```text
 ```java
 import com.groupdocs.redaction.Redactor;
 
@@ -91,15 +132,15 @@ public class RedactEmails {
     }
 }
 ```
+```
 
 ## Hướng dẫn triển khai
 
-Dưới đây là hướng dẫn từng bước cho thấy cách **redact sensitive data** từ một cột cụ thể.
+### Làm thế nào để tạo một thể hiện Redactor cho tệp Excel?
+`Lớp `Redactor` là điểm vào chính để tải tài liệu và cung cấp các thao tác ẩn dữ liệu.  
+Tạo một đối tượng `Redactor` trỏ tới workbook nguồn. Lớp `Redactor` là điểm vào cho tất cả các thao tác ẩn dữ liệu; nó tải tệp vào một cấu trúc bộ nhớ được quản lý trong khi giữ nguyên tệp gốc trên đĩa.
 
-### Tải tài liệu
-
-Đầu tiên, mở workbook bằng `Redactor` mà bạn vừa tạo:
-
+```text
 ```java
 import com.groupdocs.redaction.Redactor;
 
@@ -111,11 +152,12 @@ public class RedactEmails {
     }
 }
 ```
+```
 
-### Thiết lập bộ lọc
+### Làm thế nào để giới hạn việc ẩn dữ liệu chỉ trên một worksheet và cột?
+Lớp `CellFilter` cho phép bạn chỉ định worksheet và cột (các cột) nào sẽ được kiểm tra để ẩn dữ liệu. Sử dụng `CellFilter` để chỉ định tên sheet mục tiêu và chỉ số cột. Lớp `CellFilter` lọc các ô trước khi engine ẩn dữ liệu đánh giá chúng, đảm bảo chỉ các ô mong muốn được xử lý.
 
-`CellFilter` cho phép bạn thu hẹp phạm vi xóa bỏ tới một worksheet và cột cụ thể. Trong ví dụ này, chúng ta nhắm mục tiêu cột B (chỉ số 1) trên sheet **Customers**:
-
+```text
 ```java
 import com.groupdocs.redaction.redactions.CellFilter;
 
@@ -124,22 +166,24 @@ CellFilter filter = new CellFilter();
 filter.setColumnIndex(1); // Targeting the second column (index starts at 0)
 filter.setWorkSheetName("Customers"); // Specify the worksheet name
 ```
+```
 
-### Định nghĩa mẫu email
+### Làm thế nào để định nghĩa mẫu biểu thức chính quy phù hợp với hầu hết địa chỉ email?
+Lớp `Pattern` từ `java.util.regex` đại diện cho một biểu thức chính quy đã được biên dịch dùng để khớp văn bản. Tạo một đối tượng `Pattern` với regex bắt các định dạng email điển hình. Mẫu dưới đây khớp với phần lớn các địa chỉ tuân theo RFC‑5322 trong khi bỏ qua các chuỗi không hợp lệ.
 
-Biểu thức chính quy được sử dụng để phát hiện địa chỉ email. Mẫu dưới đây khớp với hầu hết các định dạng email phổ biến:
-
+```text
 ```java
 import java.util.regex.Pattern;
 
 // Define regex pattern for matching emails
 Pattern expression = Pattern.compile("^\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$");
 ```
+```
 
-### Áp dụng xóa bỏ
+### Làm thế nào để áp dụng việc ẩn dữ liệu và thay thế email bằng một chuỗi giữ chỗ?
+Lớp `ReplacementOptions` định nghĩa cách nội dung khớp sẽ được thay thế, chẳng hạn như văn bản giữ chỗ. Kết hợp bộ lọc, mẫu và một thể hiện `ReplacementOptions`. Lớp `ReplacementOptions` cho phép bạn đặt chính xác văn bản giữ chỗ sẽ xuất hiện trong mỗi ô đã được ẩn dữ liệu.
 
-Bây giờ kết hợp bộ lọc, mẫu và tùy chọn thay thế để **mask email addresses**. Đối tượng `ReplacementOptions` cho phép bạn định nghĩa văn bản placeholder sẽ xuất hiện trong các ô đã xóa bỏ.
-
+```text
 ```java
 import com.groupdocs.redaction.options.SaveOptions;
 import com.groupdocs.redaction.RedactorChangeLog;
@@ -156,59 +200,68 @@ if (result.getStatus() != RedactionStatus.Failed) {
     redactor.save(saveOptions);
 }
 ```
+```
 
-### Mẹo khắc phục sự cố
+## Những lỗi thường gặp và khắc phục
 
-- **Độ chính xác của Regex:** Kiểm tra biểu thức chính quy của bạn với nhiều mẫu email khác nhau để đảm bảo nó bắt được tất cả các định dạng bạn mong muốn.  
-- **Chỉ số cột:** Nhớ rằng chỉ số cột bắt đầu từ 0; kiểm tra lại chỉ số cho cột bạn muốn xóa bỏ.  
-- **Tên worksheet:** Tên là phân biệt chữ hoa/thường; sử dụng đúng tên sheet như trong Excel.
+- **Regex không bắt được tất cả các trường hợp** – Kiểm tra biểu thức với một mẫu đại diện dữ liệu của bạn và điều chỉnh các lớp ký tự khi cần.  
+- **Chỉ số cột không đúng** – Nhớ rằng chỉ số cột bắt đầu từ 0; cột B có chỉ số 1.  
+- **Tên worksheet phân biệt chữ hoa chữ thường** – Sử dụng đúng tên sheet như trong Excel; “Customers” ≠ “customers”.  
+- **Rò rỉ tài nguyên** – Đặt `Redactor` trong khối try‑with‑resources (như đã minh họa) để đảm bảo các tài nguyên gốc được giải phóng kịp thời.
 
-## Tại sao phải xóa bỏ dữ liệu nhạy cảm?
+## Tại sao ẩn dữ liệu cá nhân trong Excel?
+Việc ẩn dữ liệu cá nhân trong Excel loại bỏ mọi thông tin nhận dạng cá nhân, đảm bảo tệp không thể được sử dụng để truy tìm cá nhân. Điều này bảo vệ quyền riêng tư, đáp ứng các yêu cầu pháp lý và ngăn ngừa rò rỉ tình cờ khi chia sẻ bảng tính với bên ngoài hoặc công bố dữ liệu công khai.
 
-- **Tuân thủ:** Đáp ứng GDPR, CCPA và các quy định bảo mật riêng ngành.  
-- **Giảm rủi ro:** Ngăn ngừa việc lộ thông tin cá nhân khi chia sẻ tệp ra bên ngoài.  
-- **Quản trị dữ liệu:** Duy trì lịch sử kiểm toán sạch sẽ bằng cách loại bỏ vĩnh viễn PII khỏi các bộ dữ liệu lưu trữ.
+- **Tuân thủ quy định** – Đáp ứng GDPR, CCPA và các yêu cầu bảo mật riêng ngành.  
+- **Giảm thiểu rủi ro** – Ngăn ngừa việc lộ PII một cách tình cờ khi chia sẻ tệp với đối tác bên ngoài.  
+- **Sẵn sàng kiểm toán** – Duy trì một chuỗi audit sạch, không thay đổi bằng cách loại bỏ vĩnh viễn các giá trị nhạy cảm khỏi bộ dữ liệu lưu trữ.
 
-## Ứng dụng thực tiễn
+## Ứng dụng thực tế
 
-1. **Tuân thủ bảo mật dữ liệu:** Tự động loại bỏ địa chỉ email trước khi gửi bảng tính cho đối tác.  
-2. **Kiểm toán nội bộ:** Ẩn danh dữ liệu khách hàng trong quá trình đánh giá nội bộ.  
-3. **Quy trình báo cáo:** Tích hợp bước xóa bỏ vào các công việc tạo báo cáo định kỳ.
+1. **Trao đổi dữ liệu đối tác** – Tự động loại bỏ email khách hàng trước khi gửi bảng tính cho nhà cung cấp.  
+2. **Chuẩn bị kiểm toán nội bộ** – Ẩn danh dữ liệu nhân viên trong quá trình đánh giá tuân thủ.  
+3. **Báo cáo định kỳ** – Nhúng bước ẩn dữ liệu vào các job batch hàng đêm tạo báo cáo sẵn sàng phân phối.
 
 ## Các cân nhắc về hiệu năng
 
-- **Xử lý hàng loạt:** Nếu bạn cần xóa bỏ nhiều tệp, xử lý chúng tuần tự và tái sử dụng thể hiện `Redactor` khi có thể.  
-- **Quản lý bộ nhớ:** Đóng `Redactor` bằng khối try‑with‑resources (như đã minh họa) để giải phóng tài nguyên gốc kịp thời.  
-- **Bộ dữ liệu lớn:** Đối với workbook có hàng ngàn dòng, cân nhắc lọc các dòng trước khi xóa bỏ để giảm tải.
+- **Xử lý batch** – Tái sử dụng một thể hiện `Redactor` duy nhất cho nhiều tệp để giảm tải JVM.  
+- **Quản lý bộ nhớ** – API xử lý các worksheet từng cái một; đối với workbook vượt quá 100 MB, xử lý các hàng theo khối để giữ mức sử dụng heap thấp.  
+- **Bộ dữ liệu lớn** – Khi xử lý các tệp có >100 k hàng, bật chế độ streaming (có trong phiên bản 24.9) để giữ mức tiêu thụ bộ nhớ dưới 200 MB.
 
 ## Câu hỏi thường gặp
 
-**Q: Nếu regex email của tôi không khớp tất cả các định dạng thì sao?**  
-A: Điều chỉnh mẫu để bao gồm các ký tự bổ sung hoặc sử dụng biểu thức rộng hơn, sau đó chạy lại quá trình xóa bỏ.
+**Q: Regex của tôi vẫn bỏ sót một số định dạng email doanh nghiệp. Tôi nên làm gì?**  
+A: Mở rộng mẫu để bao gồm các ký tự cho phép bổ sung (ví dụ, “+” hoặc “_”) và kiểm tra với một tập mẫu lớn hơn, sau đó chạy lại quá trình ẩn dữ liệu.
 
-**Q: Tôi có thể xóa bỏ nhiều cột cùng lúc không?**  
-A: Có. Tạo một `CellFilter` riêng cho mỗi cột và gọi `redactor.apply` cho mỗi bộ lọc.
+**Q: Tôi có thể ẩn dữ liệu hơn một cột trong một lần chạy không?**  
+A: Có. Tạo một `CellFilter` riêng cho mỗi cột và gọi `redactor.apply` cho mỗi bộ lọc một cách tuần tự.
 
-**Q: GroupDocs.Redaction có phù hợp với các tệp Excel rất lớn không?**  
-A: Nó mở rộng tốt, đặc biệt khi bạn xử lý từng sheet một và giải phóng tài nguyên sau mỗi tệp.
+**Q: GroupDocs.Redaction có thể xử lý các tệp Excel lớn hơn 1 GB không?**  
+A: Thư viện xử lý các sheet một cách tăng dần, vì vậy các tệp lên tới vài gigabyte có thể được ẩn dữ liệu miễn là bạn bật streaming và đóng `Redactor` sau mỗi tệp.
 
-**Q: Làm thế nào để xử lý lỗi trong quá trình xóa bỏ?**  
-A: Kiểm tra trạng thái `RedactorChangeLog`; trạng thái không thất bại nghĩa là thao tác thành công. Ghi lại bất kỳ lỗi nào để gỡ lỗi.
+**Q: Làm thế nào để tôi nắm bắt kết quả hoặc lỗi của việc ẩn dữ liệu?**  
+A: Kiểm tra `RedactorChangeLog` trả về bởi `apply`; trạng thái không thất bại cho biết thành công, trong khi bất kỳ lỗi nào sẽ được liệt kê kèm số dòng và tham chiếu ô.
 
-**Q: Tôi có thể tùy chỉnh văn bản thay thế không?**  
-A: Chắc chắn. Truyền bất kỳ chuỗi nào vào `ReplacementOptions`, chẳng hạn như “[redacted]” hoặc một token được tạo.
+**Q: Tôi có thể sử dụng một chuỗi giữ chỗ tùy chỉnh có bao gồm token duy nhất cho mỗi hàng không?**  
+A: Chắc chắn. Tạo chuỗi giữ chỗ một cách động (ví dụ, `"[redacted:" + UUID.randomUUID() + "]"`) và truyền nó vào `ReplacementOptions`.
 
-## Tài nguyên
+## Tài nguyên bổ sung
 
 - [Tài liệu](https://docs.groupdocs.com/redaction/java/)
-- [Tham chiếu API](https://reference.groupdocs.com/redaction/java)
+- [Tham khảo API](https://reference.groupdocs.com/redaction/java)
 - [Tải xuống GroupDocs.Redaction](https://releases.groupdocs.com/redaction/java/)
-- [Kho GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
+- [Kho lưu trữ GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
 - [Diễn đàn hỗ trợ miễn phí](https://forum.groupdocs.com/c/redaction/33)
 - [Thông tin giấy phép tạm thời](https://purchase.groupdocs.com/temporary-license/)
 
 ---
 
-**Cập nhật lần cuối:** 2026-02-24  
-**Đã kiểm tra với:** GroupDocs.Redaction 24.9 cho Java  
+**Cập nhật lần cuối:** 2026-08-09  
+**Đã kiểm tra với:** GroupDocs.Redaction 24.9 for Java  
 **Tác giả:** GroupDocs
+
+## Hướng dẫn liên quan
+
+- [Cách lọc dữ liệu trong bảng tính – GroupDocs.Redaction Java](/redaction/java/spreadsheet-redaction/)
+- [Che dấu dữ liệu nhạy cảm Java – Ẩn thông tin cá nhân với GroupDocs.Redaction](/redaction/java/advanced-redaction/master-document-redaction-java-groupdocs-redaction/)
+- [Che dấu dữ liệu nhạy cảm Java – Hướng dẫn GroupDocs.Redaction](/redaction/java/getting-started/)

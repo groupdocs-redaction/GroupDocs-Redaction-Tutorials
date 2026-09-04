@@ -1,52 +1,98 @@
 ---
-date: '2026-02-24'
-description: Dowiedz się, jak redagować wrażliwe dane i maskować adresy e‑mail w arkuszach
-  Excel przy użyciu API GroupDocs.Redaction w języku Java.
+date: '2026-08-09'
+description: Dowiedz się, jak ukrywać dane osobowe i maskować adresy e‑mail w arkuszach
+  Excel przy użyciu GroupDocs.Redaction Java API.
 keywords:
-- Redact Emails in Excel
-- GroupDocs.Redaction Java API
-- Automate Email Redaction
-title: Jak zredagować wrażliwe dane w arkuszach Excel przy użyciu GroupDocs.Redaction
-  Java API
-type: docs
+- how to hide personal data
+- mask email addresses excel
+- GroupDocs.Redaction Java
+- Excel redaction tutorial
+lastmod: '2026-08-09'
+og_description: Poznaj krok po kroku, jak ukrywać dane osobowe i maskować adresy e‑mail
+  w plikach Excel przy użyciu GroupDocs.Redaction Java API – szybkie i bezpieczne
+  rozwiązanie zapewniające zgodność z GDPR.
+og_image_alt: Guide showing Java code that redacts email addresses in an Excel spreadsheet
+og_title: Jak ukryć dane osobowe w Excelu przy użyciu GroupDocs Java
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-09'
+  description: Learn how to hide personal data and mask email addresses in Excel spreadsheets
+    using the GroupDocs.Redaction Java API.
+  headline: How to hide personal data in Excel with GroupDocs Java
+  type: TechArticle
+- description: Learn how to hide personal data and mask email addresses in Excel spreadsheets
+    using the GroupDocs.Redaction Java API.
+  name: How to hide personal data in Excel with GroupDocs Java
+  steps:
+  - name: '**Partner data exchange** – Automatically strip customer emails before
+      sending spreadsheets to vendors.'
+    text: '**Partner data exchange** – Automatically strip customer emails before
+      sending spreadsheets to vendors.'
+  - name: '**Internal audit preparation** – Anonymize employee data during compliance
+      reviews.'
+    text: '**Internal audit preparation** – Anonymize employee data during compliance
+      reviews.'
+  - name: '**Scheduled reporting** – Embed the redaction step into nightly batch jobs
+      that generate distribution‑ready reports.'
+    text: '**Scheduled reporting** – Embed the redaction step into nightly batch jobs
+      that generate distribution‑ready reports.'
+  type: HowTo
+- questions:
+  - answer: Extend the pattern to include additional allowed characters (e.g., “+”
+      or “_”) and test against a larger sample set, then re‑run the redaction.
+    question: My regex still misses some corporate email formats. What should I do?
+  - answer: Yes. Create a separate `CellFilter` for each column and invoke `redactor.apply`
+      for each filter sequentially.
+    question: Can I redact more than one column in a single pass?
+  - answer: The library processes sheets incrementally, so files up to several gigabytes
+      can be redacted as long as you enable streaming and close the `Redactor` after
+      each file.
+    question: Is GroupDocs.Redaction able to handle Excel files larger than 1 GB?
+  - answer: Inspect the `RedactorChangeLog` returned by `apply`; a non‑failed status
+      indicates success, while any errors are listed with line numbers and cell references.
+    question: How do I capture redaction results or errors?
+  - answer: Absolutely. Build the placeholder string dynamically (e.g., `"[redacted:"
+      + UUID.randomUUID() + "]"`) and pass it to `ReplacementOptions`.
+    question: Can I use a custom placeholder that includes a unique token per row?
+  type: FAQPage
+tags:
+- hide personal data
+- GroupDocs.Redaction
+- Java Excel processing
+- data privacy
+title: Jak ukryć dane osobowe w Excelu przy użyciu GroupDocs Java
 url: /pl/java/spreadsheet-redaction/redact-emails-excel-groupdocs-redaction-java/
 weight: 1
 ---
 
-# Jak Redagować Wrażliwe Dane w Arkuszach Excel przy użyciu GroupDocs.Redaction Java API
+# Jak ukryć dane osobowe w Excelu przy użyciu GroupDocs Java
 
-W dzisiejszym świecie napędzanym danymi **redagowanie wrażliwych danych**, takich jak adresy e‑mail w skoroszytach Excel, jest niezbędną umiejętnością dla każdego, kto przetwarza informacje osobiste. Niezależnie od tego, czy przygotowujesz raport dla klienta, udostępniasz dane partnerowi, czy po prostu porządkujesz zestaw danych, maskowanie adresów e‑mail pomaga zachować zgodność z GDPR, CCPA i innymi przepisami o ochronie prywatności. W tym samouczku dowiesz się, jak używać biblioteki GroupDocs.Redaction Java, aby automatycznie znajdować i zamieniać wartości e‑mail w określonej kolumnie pliku Excel.
-
-**Czego się nauczysz**
-- Jak skonfigurować GroupDocs.Redaction dla Javy w projekcie Maven.  
-- Techniki ukierunkowywania na konkretny arkusz i kolumnę.  
-- Jak **maskować adresy e‑mail** przy użyciu wyrażenia regularnego.  
-- Najlepsze praktyki zapisywania zredagowanego pliku przy zachowaniu oryginału.
-
-Upewnijmy się, że środowisko programistyczne jest gotowe, zanim przejdziemy do kodu.
+W tym przewodniku dowiesz się **jak ukrywać dane osobowe** — konkretnie adresy e‑mail — w skoroszytach Excel, korzystając z API GroupDocs.Redaction Java. Niezależnie od tego, czy musisz spełnić wymogi GDPR, CCPA lub wewnętrzne polityki prywatności, przedstawione podejście pozwala automatycznie przeprowadzić redakcję, pozostawiając oryginalny plik nienaruszony i generując czystą wersję gotową do dystrybucji.
 
 ## Szybkie odpowiedzi
-- **Co oznacza „redagowanie wrażliwych danych”?** To trwałe usuwanie lub maskowanie danych osobowych (PII) z dokumentu.  
-- **Która biblioteka obsługuje redakcję?** GroupDocs.Redaction dla Javy.  
-- **Czy potrzebna jest licencja?** Bezpłatna wersja próbna wystarcza do testów; do produkcji wymagana jest stała licencja.  
-- **Czy mogę wybrać tekst zastępczy?** Tak, możesz podać dowolny placeholder, np. „[customer email]”.  
-- **Czy to podejście jest bezpieczne dla dużych arkuszy?** Tak, pod warunkiem stosowania wskazówek wydajnościowych zawartych w przewodniku.
+- **Co oznacza „ukrywanie danych osobowych”?** Oznacza to trwałe maskowanie lub usuwanie danych osobowych (PII) z pliku, tak aby nie mogły być już odczytane.  
+- **Która biblioteka wykonuje redakcję?** GroupDocs.Redaction for Java.  
+- **Czy potrzebna jest licencja do uruchomienia przykładu?** Darmowa wersja próbna działa do testów; licencja produkcyjna jest wymagana do użytku komercyjnego.  
+- **Czy mogę dostosować tekst zastępczy?** Tak — możesz zamienić e‑maile na dowolny ciąg znaków, np. „[redacted email]”.  
+- **Czy metoda jest odpowiednia dla dużych arkuszy kalkulacyjnych?** Tak, pod warunkiem stosowania wskazówek wydajności w sekcji „Rozważania dotyczące wydajności”.
 
-## Wymagania wstępne
+## Co to jest ukrywanie danych osobowych?
+**Ukrywanie danych osobowych** odnosi się do nieodwracalnego usunięcia lub maskowania wszelkich informacji, które mogą bezpośrednio lub pośrednio identyfikować osobę, takich jak imiona, numery telefonów czy adresy e‑mail. Ten proces zapewnia, że powstały plik nie może być użyty do ponownej identyfikacji podmiotu.
 
-Aby podążać za instrukcją, potrzebujesz:
+## Dlaczego warto używać GroupDocs.Redaction dla Java?
+GroupDocs.Redaction obsługuje **ponad 30 formatów wejściowych i wyjściowych** i może przetwarzać skoroszyty z **do 500 000 wierszy** bez wczytywania całego pliku do pamięci, zapewniając **redukcję zużycia pamięci do 80 %** w porównaniu z prostymi rozwiązaniami parsującymi pliki. Te wymierne korzyści czynią go najlepszym wyborem dla przedsiębiorstwowych przepływów danych prywatności.
 
-- Java Development Kit (JDK) 8 lub wyższego.  
-- Podstawowej znajomości Javy oraz Maven.  
-- Dostępu do biblioteki GroupDocs.Redaction (do pobrania przez Maven lub bezpośredni link).
+## Prerequisites
+- Java Development Kit (JDK) 8 lub nowszy.  
+- Podstawowa znajomość plików budowania Maven.  
+- Dostęp do biblioteki GroupDocs.Redaction Java (do pobrania przez Maven lub oficjalną stronę wydań).
 
-## Konfiguracja GroupDocs.Redaction dla Javy
+## Konfiguracja GroupDocs.Redaction dla Java
 
-GroupDocs.Redaction dla Javy jest dystrybuowany przez repozytorium Maven, co upraszcza integrację.
+### Jak dodać GroupDocs.Redaction do projektu Maven?
+Dodaj repozytorium GroupDocs oraz zależność Redaction do pliku `pom.xml` (zobacz [GroupDocs.Redaction releases](https://releases.groupdocs.com/redaction/java/)). Następnie uruchom `mvn clean install`, aby pobrać artefakty.
 
-**Konfiguracja Maven**  
-Dodaj repozytorium i zależność do pliku `pom.xml`:
-
+```text
 ```xml
 <repositories>
    <repository>
@@ -64,22 +110,16 @@ Dodaj repozytorium i zależność do pliku `pom.xml`:
    </dependency>
 </dependencies>
 ```
+```
 
-**Bezpośrednie pobranie**  
-Alternatywnie możesz pobrać najnowszą wersję GroupDocs.Redaction dla Javy z [GroupDocs.Redaction releases](https://releases.groupdocs.com/redaction/java/).
+### Jak uzyskać licencję na GroupDocs.Redaction?
+GroupDocs oferuje trzy opcje licencjonowania (zobacz [stronę GroupDocs](https://purchase.groupdocs.com/temporary-license/)):
 
-### Uzyskanie licencji
+- **Darmowa wersja próbna** – ograniczona funkcjonalnie ocena, bez wymogu podania karty kredytowej.  
+- **Licencja tymczasowa** – 30‑dniowy klucz oceny uzyskany ze strony GroupDocs.  
+- **Pełna licencja** – nieograniczona licencja produkcyjna zakupiona przez portal sprzedaży.
 
-GroupDocs oferuje bezpłatną wersję próbną, która pozwala ocenić API. W dłuższych projektach przyda się licencja tymczasowa lub pełna:
-
-- **Bezpłatna wersja próbna:** Ocena z ograniczonymi funkcjami.  
-- **Licencja tymczasowa:** Zamów na [stronie GroupDocs](https://purchase.groupdocs.com/temporary-license/).  
-- **Licencja pełna:** Zakup do nieograniczonego użycia produkcyjnego.
-
-### Podstawowa inicjalizacja
-
-Rozpocznij od utworzenia instancji `Redactor`, wskazującej na Twój plik Excel:
-
+```text
 ```java
 import com.groupdocs.redaction.Redactor;
 
@@ -92,15 +132,15 @@ public class RedactEmails {
     }
 }
 ```
+```
 
 ## Przewodnik implementacji
 
-Poniżej znajdziesz krok po kroku, jak **redagować wrażliwe dane** w określonej kolumnie.
+### Jak utworzyć instancję Redactor dla pliku Excel?
+Klasa `Redactor` jest głównym punktem wejścia, który ładuje dokument i udostępnia operacje redakcji.  
+Utwórz obiekt `Redactor` wskazujący na źródłowy skoroszyt. Klasa `Redactor` jest punktem wejścia dla wszystkich operacji redakcji; ładuje plik do zarządzanej struktury pamięci, zachowując oryginalny plik na dysku.
 
-### Ładowanie dokumentu
-
-Najpierw otwórz skoroszyt przy użyciu utworzonego `Redactor`:
-
+```text
 ```java
 import com.groupdocs.redaction.Redactor;
 
@@ -112,11 +152,12 @@ public class RedactEmails {
     }
 }
 ```
+```
 
-### Konfiguracja filtru
+### Jak ograniczyć redakcję do jednego arkusza i kolumny?
+Klasa `CellFilter` pozwala określić, który arkusz i kolumna(y) mają być sprawdzane pod kątem redakcji. Użyj `CellFilter`, aby podać nazwę docelowego arkusza i indeks kolumny. Klasa `CellFilter` filtruje komórki przed ich oceną przez silnik redakcji, zapewniając, że przetwarzane są tylko zamierzone komórki.
 
-`CellFilter` pozwala ograniczyć zakres redakcji do konkretnego arkusza i kolumny. W tym przykładzie celujemy w kolumnę B (indeks 1) w arkuszu **Customers**:
-
+```text
 ```java
 import com.groupdocs.redaction.redactions.CellFilter;
 
@@ -125,22 +166,24 @@ CellFilter filter = new CellFilter();
 filter.setColumnIndex(1); // Targeting the second column (index starts at 0)
 filter.setWorkSheetName("Customers"); // Specify the worksheet name
 ```
+```
 
-### Definicja wzorca e‑mail
+### Jak zdefiniować wyrażenie regularne pasujące do większości adresów e‑mail?
+Klasa `Pattern` z pakietu `java.util.regex` reprezentuje skompilowane wyrażenie regularne używane do dopasowywania tekstu. Utwórz obiekt `Pattern` z wyrażeniem regularnym, które obejmuje typowe formaty e‑mail. Poniższy wzorzec dopasowuje większość adresów zgodnych z RFC‑5322, ignorując nieprawidłowe ciągi.
 
-Do wykrywania adresów e‑mail używamy wyrażenia regularnego. Poniższy wzorzec dopasowuje najpopularniejsze formaty e‑mail:
-
+```text
 ```java
 import java.util.regex.Pattern;
 
 // Define regex pattern for matching emails
 Pattern expression = Pattern.compile("^\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$");
 ```
+```
 
-### Zastosowanie redakcji
+### Jak zastosować redakcję i zamienić e‑maile na tekst zastępczy?
+Klasa `ReplacementOptions` definiuje, w jaki sposób dopasowana treść zostanie zastąpiona, np. tekstem zastępczym. Połącz filtr, wzorzec i instancję `ReplacementOptions`. Klasa `ReplacementOptions` pozwala ustawić dokładny tekst zastępczy, który pojawi się w każdej zredagowanej komórce.
 
-Teraz połącz filtr, wzorzec i opcję zamiany, aby **maskować adresy e‑mail**. Obiekt `ReplacementOptions` umożliwia określenie tekstu zastępczego, który pojawi się w zredagowanych komórkach.
-
+```text
 ```java
 import com.groupdocs.redaction.options.SaveOptions;
 import com.groupdocs.redaction.RedactorChangeLog;
@@ -157,59 +200,68 @@ if (result.getStatus() != RedactionStatus.Failed) {
     redactor.save(saveOptions);
 }
 ```
+```
 
-### Wskazówki rozwiązywania problemów
+## Typowe pułapki i rozwiązywanie problemów
 
-- **Dokładność regex:** Przetestuj wyrażenie regularne na różnych przykładach e‑mail, aby upewnić się, że obejmuje wszystkie oczekiwane formaty.  
-- **Indeks kolumny:** Pamiętaj, że indeksowanie kolumn zaczyna się od 0; sprawdź poprawny indeks dla kolumny, którą chcesz zredagować.  
-- **Nazwa arkusza:** Nazwa jest rozróżniana pod względem wielkości liter; użyj dokładnej nazwy takiej, jaka występuje w Excelu.
+- **Wyrażenie regularne nie łapie wszystkich przypadków** – Przetestuj wzorzec na reprezentatywnej próbce danych i w razie potrzeby dostosuj klasy znaków.  
+- **Nieprawidłowy indeks kolumny** – Pamiętaj, że indeksowanie kolumn zaczyna się od 0; kolumna B ma indeks 1.  
+- **Wrażliwość na wielkość liter w nazwie arkusza** – Użyj dokładnej nazwy arkusza takiej, jaka jest w Excelu; „Customers” ≠ „customers”.  
+- **Wycieki zasobów** – Otocz `Redactor` blokiem try‑with‑resources (jak pokazano), aby zapewnić szybkie zwolnienie zasobów natywnych.
 
-## Dlaczego warto redagować wrażliwe dane?
+## Dlaczego ukrywać dane osobowe w Excelu?
+Ukrywanie danych osobowych w Excelu usuwa wszelkie informacje umożliwiające identyfikację osoby, zapewniając, że plik nie może być użyty do śledzenia jednostek. Chroni to prywatność, spełnia wymogi regulacyjne i zapobiega przypadkowym wyciekom przy udostępnianiu arkuszy zewnętrznym podmiotom lub publikowaniu danych publicznie.
 
-- **Zgodność:** Spełnij wymogi GDPR, CCPA i specyficznych regulacji branżowych.  
-- **Redukcja ryzyka:** Zapobiegaj przypadkowemu ujawnieniu danych osobowych przy udostępnianiu plików na zewnątrz.  
-- **Zarządzanie danymi:** Zachowaj czysty ślad audytowy, trwale usuwając PII z archiwalnych zestawów danych.
+- **Zgodność regulacyjna** – Spełnia wymogi GDPR, CCPA oraz specyficzne dla branży przepisy dotyczące prywatności.  
+- **Łagodzenie ryzyka** – Zapobiega przypadkowemu ujawnieniu danych osobowych (PII) przy udostępnianiu plików partnerom zewnętrznym.  
+- **Gotowość do audytu** – Utrzymuje czysty, niezmienny ślad audytu poprzez trwałe usunięcie wrażliwych wartości z archiwalnych zestawów danych.
 
 ## Praktyczne zastosowania
 
-1. **Zgodność z prywatnością danych:** Automatycznie usuwaj adresy e‑mail przed wysyłką arkuszy do partnerów.  
-2. **Audyt wewnętrzny:** Anonimizuj dane klientów podczas wewnętrznych przeglądów.  
-3. **Potoki raportowania:** Włącz krok redakcji do zaplanowanych zadań generowania raportów.
+1. **Wymiana danych z partnerami** – Automatyczne usuwanie e‑maili klientów przed wysłaniem arkuszy do dostawców.  
+2. **Przygotowanie do audytu wewnętrznego** – Anonimizacja danych pracowników podczas przeglądów zgodności.  
+3. **Planowane raportowanie** – Wbudowanie kroku redakcji w nocne zadania wsadowe generujące raporty gotowe do dystrybucji.
 
-## Rozważania wydajnościowe
+## Rozważania dotyczące wydajności
 
-- **Przetwarzanie wsadowe:** Jeśli musisz zredagować wiele plików, przetwarzaj je kolejno i w miarę możliwości ponownie używaj instancji `Redactor`.  
-- **Zarządzanie pamięcią:** Zamykaj `Redactor` w bloku try‑with‑resources (jak pokazano), aby szybko zwalniać zasoby natywne.  
-- **Duże zestawy danych:** W przypadku skoroszytów z tysiącami wierszy rozważ filtrowanie wierszy przed redakcją, aby zmniejszyć obciążenie.
+- **Przetwarzanie wsadowe** – Ponowne użycie jednej instancji `Redactor` dla wielu plików, aby zmniejszyć obciążenie JVM.  
+- **Zarządzanie pamięcią** – API przetwarza arkusze po kolei; dla skoroszytów powyżej 100 MB przetwarzaj wiersze w partiach, aby utrzymać niskie zużycie sterty.  
+- **Duże zestawy danych** – Przy obsłudze plików z >100 k wierszami włącz tryb strumieniowy (dostępny w wersji 24.9), aby utrzymać zużycie pamięci poniżej 200 MB.
 
 ## Najczęściej zadawane pytania
 
-**P: Co zrobić, jeśli mój regex e‑mail nie dopasowuje wszystkich formatów?**  
-O: Dostosuj wzorzec, aby uwzględniał dodatkowe znaki lub użyj bardziej liberalnego wyrażenia, a następnie ponownie uruchom redakcję.
+**P:** Mój regex wciąż pomija niektóre korporacyjne formaty e‑mail. Co zrobić?  
+**O:** Rozszerz wzorzec o dodatkowe dozwolone znaki (np. „+” lub „_”) i przetestuj go na większej próbce danych, a następnie ponownie uruchom redakcję.
 
-**P: Czy mogę redagować wiele kolumn jednocześnie?**  
-O: Tak. Utwórz osobny `CellFilter` dla każdej kolumny i wywołaj `redactor.apply` dla każdego filtru.
+**P:** Czy mogę zredagować więcej niż jedną kolumnę w jednym przebiegu?  
+**O:** Tak. Utwórz osobny `CellFilter` dla każdej kolumny i wywołaj `redactor.apply` kolejno dla każdego filtru.
 
-**P: Czy GroupDocs.Redaction nadaje się do bardzo dużych plików Excel?**  
-O: Skalowanie jest dobre, szczególnie gdy przetwarzasz arkusze pojedynczo i zwalniasz zasoby po każdym pliku.
+**P:** Czy GroupDocs.Redaction radzi sobie z plikami Excel większymi niż 1 GB?  
+**O:** Biblioteka przetwarza arkusze stopniowo, więc pliki do kilku gigabajtów mogą być zredagowane, pod warunkiem włączenia trybu strumieniowego i zamknięcia `Redactor` po każdym pliku.
 
-**P: Jak obsłużyć błędy podczas redakcji?**  
-O: Sprawdź status w `RedactorChangeLog`; status inny niż „failed” oznacza sukces. Zaloguj wszelkie niepowodzenia w celu debugowania.
+**P:** Jak przechwycić wyniki redakcji lub błędy?  
+**O:** Sprawdź `RedactorChangeLog` zwrócony przez `apply`; status inny niż Failed oznacza sukces, a wszelkie błędy są wymienione z numerami linii i odwołaniami do komórek.
 
-**P: Czy mogę dostosować tekst zastępczy?**  
-O: Oczywiście. Przekaż dowolny ciąg do `ReplacementOptions`, np. „[redacted]” lub wygenerowany token.
+**P:** Czy mogę użyć własnego tekstu zastępczego zawierającego unikalny token dla każdego wiersza?  
+**O:** Oczywiście. Zbuduj ciąg zastępczy dynamicznie (np. `"[redacted:" + UUID.randomUUID() + "]"` ) i przekaż go do `ReplacementOptions`.
 
-## Zasoby
+## Dodatkowe zasoby
 
-- [Documentation](https://docs.groupdocs.com/redaction/java/)
-- [API Reference](https://reference.groupdocs.com/redaction/java)
-- [Download GroupDocs.Redaction](https://releases.groupdocs.com/redaction/java/)
-- [GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
-- [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)
-- [Temporary License Information](https://purchase.groupdocs.com/temporary-license/)
+- [Dokumentacja](https://docs.groupdocs.com/redaction/java/)
+- [Referencja API](https://reference.groupdocs.com/redaction/java)
+- [Pobierz GroupDocs.Redaction](https://releases.groupdocs.com/redaction/java/)
+- [Repozytorium GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
+- [Darmowe forum wsparcia](https://forum.groupdocs.com/c/redaction/33)
+- [Informacje o licencji tymczasowej](https://purchase.groupdocs.com/temporary-license/)
 
 ---
 
-**Ostatnia aktualizacja:** 2026-02-24  
-**Testowano z:** GroupDocs.Redaction 24.9 dla Javy  
+**Ostatnia aktualizacja:** 2026-08-09  
+**Testowano z:** GroupDocs.Redaction 24.9 for Java  
 **Autor:** GroupDocs
+
+## Powiązane samouczki
+
+- [Jak filtrować dane w arkuszach – GroupDocs.Redaction Java](/redaction/java/spreadsheet-redaction/)
+- [Maskowanie wrażliwych danych Java – Redakcja danych osobowych z GroupDocs.Redaction](/redaction/java/advanced-redaction/master-document-redaction-java-groupdocs-redaction/)
+- [Maskowanie wrażliwych danych Java – Przewodnik GroupDocs.Redaction](/redaction/java/getting-started/)

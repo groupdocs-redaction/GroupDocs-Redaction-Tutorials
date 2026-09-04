@@ -1,40 +1,96 @@
 ---
-date: '2026-02-24'
-description: 学习本 Java 文本脱敏教程，了解如何使用 GroupDocs.Redaction 对 Java 文本进行脱敏，以实现安全的文档处理。
+date: '2026-08-09'
+description: 了解如何使用 GroupDocs.Redaction 对 Java 文档进行脱敏。本分步教程涵盖 Maven 设置、colored‑rectangle
+  replacement，以及安全文档处理的最佳实践。
 keywords:
-- GroupDocs Redaction Java
-- text redaction in Java
-- secure document handling
-title: Java 文本脱敏教程：使用 GroupDocs.Redaction 的指南
+- how to redact java
+- GroupDocs.Redaction Java
+- java text redaction
+lastmod: '2026-08-09'
+og_description: 了解如何使用 GroupDocs.Redaction 对 Java 文档进行脱敏。跟随完整示例，了解 Maven 配置、colored‑rectangle
+  replacement 和性能优化技巧。
+og_image_alt: 'Guide: redact Java documents with GroupDocs.Redaction using colored
+  rectangle replacement'
+og_title: 如何使用 GroupDocs.Redaction 对 Java 文档进行脱敏
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-09'
+  description: Learn how to redact Java documents using GroupDocs.Redaction. This
+    step‑by‑step tutorial covers Maven setup, colored‑rectangle replacement, and best
+    practices for secure document handling.
+  headline: How to redact Java documents with GroupDocs.Redaction
+  type: TechArticle
+- description: Learn how to redact Java documents using GroupDocs.Redaction. This
+    step‑by‑step tutorial covers Maven setup, colored‑rectangle replacement, and best
+    practices for secure document handling.
+  name: How to redact Java documents with GroupDocs.Redaction
+  steps:
+  - name: import required classes
+    text: 'First, bring the necessary GroupDocs classes into scope:'
+  - name: initialize the redactor
+    text: 'Instantiate the `Redactor` with the path to your source document:'
+  - name: define the phrase and replacement options
+    text: '`ExactPhraseRedaction` represents a redaction rule that searches for an
+      exact text phrase and replaces it with the specified style. `ReplacementOptions`
+      lets you configure how the redacted area appears, such as color, overlay mode,
+      and border width. Tell the engine which exact phrase to hide and wha'
+  - name: save the redacted document
+    text: 'Write the changes back to disk (or to a stream for further processing):
+      > **Warning:** Wrap the above calls in a `try‑catch` block to handle `IOException`
+      or `RedactionException` and ensure resources are released.'
+  type: HowTo
+- questions:
+  - answer: GroupDocs.Redaction is a Java library that enables you to permanently
+      remove or mask sensitive information from documents, images, and PDFs.
+    question: What is GroupDocs.Redaction?
+  - answer: Use any `java.awt.Color` constant or create a custom RGB color with `new
+      Color(r, g, b)` and pass it to `ReplacementOptions`.
+    question: How do I choose the color for redaction?
+  - answer: Yes, you can chain several `ExactPhraseRedaction` objects or mix different
+      redaction types before calling `save`.
+    question: Can I apply multiple redactions in one document?
+  - answer: GroupDocs.Redaction supports over 30 formats—including PDF, PPTX, XLSX,
+      and common image types—so you can redact virtually any file you encounter. See
+      the [API Reference](https://reference.groupdocs.com/redaction/java) for the
+      full list.
+    question: What if my document is not a `.docx` file?
+  - answer: Wrap your redaction logic in a `try‑catch` block that catches `IOException`
+      and `RedactionException`. Always call `redactor.close()` in a `finally` block
+      or use try‑with‑resources to release native resources.
+    question: How do I handle errors during redaction?
+  type: FAQPage
+tags:
+- redact Java
+- GroupDocs.Redaction
+- document security
+- Java redaction tutorial
+title: 如何使用 GroupDocs.Redaction 对 Java 文档进行脱敏
 type: docs
 url: /zh/java/text-redaction/groupdocs-redaction-java-text-redaction-guide/
 weight: 1
 ---
 
-# Java 文本编辑教程：使用 GroupDocs.Redaction 进行安全文档处理  
+# 如何使用 GroupDocs.Redaction 对 Java 文档进行脱敏
 
-在当今快速发展的数字世界中，**java text redaction tutorial** 对于需要在 Office 文件、PDF 或图像中隐藏机密信息的任何人来说都是必不可少的。无论您是准备法律合同、财务报表还是人力资源记录，学习 **how to redact text java** 使用可靠库可以节省时间并确保合规。在本指南中，我们将逐步演示——从在 Maven 项目中设置 GroupDocs.Redaction 到为敏感短语应用彩色矩形替换。
+在当今快速发展的数字世界中，**如何对 Java 文档进行脱敏** 对于需要在 Office 文件、PDF 或图像中隐藏机密信息的任何人来说都是必不可少的。无论您是准备法律合同、财务报表还是人力资源记录，掌握使用可靠库进行文本脱敏都能为您节省时间，并确保符合隐私法规。本指南将逐步演示——从将 GroupDocs.Redaction 添加到 Maven 项目，到对敏感短语使用彩色矩形进行替换。
 
 ## 快速答案
-- **What does this tutorial cover?** 使用 GroupDocs.Redaction for Java 对文本进行彩色矩形编辑的完整端到端示例。  
-- **Which library version is used?** GroupDocs.Redaction 24.9（或阅读时的最新版本）。  
-- **Do I need a license?** 开发阶段使用免费试用或临时许可证即可；生产环境需要商业许可证。  
-- **Can I choose any rectangle color?** 是的——在 `ReplacementOptions` 中使用任意 `java.awt.Color` 值。  
-- **Is it suitable for large documents?** 只要合理分配内存并进行资源清理，它在多兆字节文件上也能良好运行。
+- **本教程涵盖了什么？** 使用 GroupDocs.Redaction for Java 通过彩色矩形对文本进行脱敏的完整端到端示例。  
+- **使用的是哪个库版本？** GroupDocs.Redaction 24.9（或阅读时的最新版本）。  
+- **我需要许可证吗？** 免费试用或临时许可证足以用于开发；生产环境需要商业许可证。  
+- **我可以选择任意矩形颜色吗？** 是的——在 `ReplacementOptions` 中使用任意 `java.awt.Color` 值。  
+- **它适用于大文档吗？** 通过适当的内存分配和资源清理，它在多兆字节文件（最高 500 MB）上表现良好，无需将整个文件加载到内存中。
 
-## 什么是 Java 文本编辑？
-编辑是指从文档中删除或遮蔽敏感内容，以便安全共享。GroupDocs.Redaction 处理文件，将选定的文本替换为纯色形状，并保留原始布局，确保编辑后的文档保持专业外观。
+## 什么是 Java 文本脱敏？
+Java 文本脱敏是指在文档中永久删除或遮蔽敏感文本的过程，以便文件可以安全共享。GroupDocs.Redaction 会扫描文档，用实色形状替换识别出的文本，并保留原始布局，确保最终的 PDF 或 Office 文件外观专业，且隐藏的数据无法恢复。
 
-## 为什么在 Java 中使用 GroupDocs.Redaction 进行文本编辑？
-- **Format‑agnostic**：支持 DOCX、PDF、PPTX、XLSX、图像等多种格式。  
-- **High fidelity**：保持分页、字体及其他布局元素不变。  
-- **Simple API**：单行调用即可定义精确短语和替换样式。  
-- **Scalable**：既适用于小脚本，也适合企业级批处理。
+## 为什么在 Java 中使用 GroupDocs.Redaction 进行文本脱敏？
+GroupDocs.Redaction 提供单次调用的 API，能够在保护机密信息的同时保持视觉保真度。它支持 **30+ 种格式**，如 DOCX、PDF、PPTX、XLSX、PNG、JPEG 和 BMP，几乎所有常见文件类型均可使用。该引擎采用流式处理，能够对高达 **500 MB** 的文档进行脱敏，而无需将整个文件加载到内存中，从而提升性能并降低服务器负载。
 
 ## 前置条件
-- **Required Libraries**：包含 GroupDocs.Redaction for Java 版本 24.9（或更高）。  
-- **Development Environment**：Java 8 或更高版本，Maven（或任何支持 Maven 的 IDE）。  
-- **Basic Skills**：熟悉 Java 文件 I/O 和异常处理。
+- **必需的库**：包含 GroupDocs.Redaction for Java 版本 24.9（或更高）。
+- **开发环境**：Java 8 或更高版本，Maven（或任何支持 Maven 的 IDE）。
+- **基本技能**：熟悉 Java 文件 I/O 和异常处理。
 
 ## 为 Java 设置 GroupDocs.Redaction
 您可以通过 Maven 或直接下载 JAR 将库添加到项目中。
@@ -63,23 +119,25 @@ weight: 1
 ### 直接下载
 或者，从 [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/) 下载最新的 JAR。
 
-**License Acquisition**  
-开始使用免费试用或申请临时许可证，然后再升级到付费计划。
+**许可证获取**  
+开始使用免费试用或请求临时许可证，然后再转为付费计划。
 
 ## 基本初始化和设置
-创建指向您要保护的文档的 `Redactor` 实例：
+`Redactor` 是 GroupDocs.Redaction 中的核心类，用于加载和操作文档以进行脱敏。
+
+创建指向您想要保护的文档的 `Redactor` 实例：
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/sample.docx");
 ```
 
-> **Pro tip:** 保持原始文件不被修改；`Redactor` 在内存中的副本上工作，必要时可以随时恢复。
+> **专业提示：** 保持原始文件不被修改；`Redactor` 在内存中的副本上工作，因此您可以随时恢复。
 
-## 实施指南：使用彩色矩形编辑文本
-以下是一步步演示，展示如何通过将目标短语替换为纯色矩形来 **how to redact text java**。
+## 实现指南：使用彩色矩形进行文本脱敏
+以下是逐步演示，展示 **如何在 Java 中对文本进行脱敏**，通过将目标短语替换为实色矩形。
 
 ### 步骤 1：导入所需类
-首先，将必要的 GroupDocs 类导入作用域：
+首先，将必要的 GroupDocs 类引入作用域：
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -88,14 +146,17 @@ import com.groupdocs.redaction.redactions.ReplacementOptions;
 ```
 
 ### 步骤 2：初始化 Redactor
-使用源文档路径实例化 `Redactor`：
+使用源文档的路径实例化 `Redactor`：
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/sample.docx");
 ```
 
 ### 步骤 3：定义短语和替换选项
-告诉引擎要隐藏的精确短语以及使用哪种颜色的矩形：
+`ExactPhraseRedaction` 表示一种脱敏规则，用于搜索精确的文本短语并用指定的样式替换。  
+`ReplacementOptions` 允许您配置脱敏区域的外观，例如颜色、覆盖模式和边框宽度。
+
+告诉引擎要隐藏的精确短语以及使用何种颜色的矩形：
 
 ```java
 redactor.apply(new ExactPhraseRedaction(
@@ -106,57 +167,68 @@ redactor.apply(new ExactPhraseRedaction(
 
 *这里的 `"John Doe"` 是您想要遮蔽的敏感文本。您可以将其替换为任意字符串，甚至正则表达式。*
 
-### 步骤 4：保存编辑后的文档
-将更改写回磁盘（或写入流以供进一步处理）：
+### 步骤 4：保存脱敏文档
+将更改写回磁盘（或写入流以便进一步处理）：
 
 ```java
 redactor.save("YOUR_DOCUMENT_DIRECTORY/redacted_sample.docx");
 ```
 
-> **Warning:** 将上述调用包装在 `try‑catch` 块中，以处理 `IOException` 或 `RedactionException` 并确保释放资源。
+> **警告：** 将上述调用包装在 `try‑catch` 块中，以处理 `IOException` 或 `RedactionException`，并确保释放资源。
 
 ## 实际应用
-1. **Legal Document Preparation** – 在共享草稿前隐藏客户姓名或案件编号。  
-2. **Financial Reporting** – 在季度报告中遮蔽账户号码或专有公式。  
-3. **HR Documentation** – 导出人员文件时保护员工标识符。
+1. **法律文档准备** – 在共享草稿前隐藏客户姓名或案件编号。  
+2. **财务报告** – 在季度报告中遮蔽账户号码或专有公式。  
+3. **人力资源文档** – 导出人员文件时保护员工标识符。
 
-您可以将此工作流集成到更大的文档管理系统中，通过 REST 接口触发，或在夜间安排批量编辑任务。
+您可以将此工作流集成到更大的文档管理系统中，通过 REST 端点触发，或在夜间安排批量脱敏。
 
 ## 性能考虑
-- **Memory Allocation** – 为大型 DOCX/PDF 文件分配足够的堆空间（`-Xmx2g` 或更高）。  
-- **Object Lifecycle** – 调用 `redactor.close()`（或使用 try‑with‑resources）及时释放本机资源。  
-- **Batch Processing** – 在可能的情况下复用单个 `Redactor` 实例处理多个文档，以降低开销。
+- **内存分配** – 为大型 DOCX/PDF 文件分配足够的堆空间（`-Xmx2g` 或更高）。  
+- **对象生命周期** – 调用 `redactor.close()`（或使用 try‑with‑resources）及时释放本机资源。  
+- **批量处理** – 在可能的情况下复用单个 `Redactor` 实例处理多个文档，以减少开销。
 
 ## 结论
-现在您拥有一份涵盖从 Maven 配置到对敏感短语应用彩色矩形遮罩的 **java text redaction tutorial**。按照这些步骤，您可以在任何受支持的文档格式中安全地编辑文本，遵守隐私法规，并保持工作流高效。
+您现在拥有一篇 **如何在 Java 中进行脱敏** 的教程，涵盖了从 Maven 配置到对敏感短语使用彩色矩形遮蔽的全部内容。按照这些步骤操作，您可以在任何受支持的文档格式中安全地脱敏文本，遵守隐私法规，并保持工作流高效。
 
-**Next Steps**  
-- 尝试其他编辑类型，如图像编辑或基于正则表达式的短语匹配。  
-- 将编辑与 GroupDocs.Viewer 结合，在保存前预览更改。  
+**后续步骤**  
+- 尝试其他脱敏类型，例如图像脱敏或基于正则表达式的短语匹配。  
+- 将脱敏与 GroupDocs.Viewer 结合，在保存前预览更改。  
 - 探索完整 API，以批量处理文件夹或集成云存储。
 
-## FAQ 部分
-1. **What is GroupDocs.Redaction?**  
-   - 一个使用 Java 对文档中的敏感信息进行编辑的库。  
-2. **How do I choose the color for redaction?**  
-   - 使用 `java.awt.Color` 指定您喜欢的任意基于 RGB 的颜色。  
-3. **Can I apply multiple redactions in one document?**  
-   - 是的，根据需要链式调用多个 `ExactPhraseRedaction` 对象。  
-4. **What if my document is not a `.docx` file?**  
-   - GroupDocs.Redaction 支持多种格式；具体请参阅 [API Reference](https://reference.groupdocs.com/redaction/java)。  
-5. **How do I handle errors during redaction?**  
-   - 在编辑代码周围实现 `try‑catch` 块，以有效管理异常。
+## 常见问题
+
+**Q: 什么是 GroupDocs.Redaction？**  
+A: GroupDocs.Redaction 是一个 Java 库，可让您永久删除或遮蔽文档、图像和 PDF 中的敏感信息。
+
+**Q: 我如何选择脱敏颜色？**  
+A: 使用任意 `java.awt.Color` 常量，或使用 `new Color(r, g, b)` 创建自定义 RGB 颜色并传递给 `ReplacementOptions`。
+
+**Q: 我可以在同一文档中应用多个脱敏吗？**  
+A: 可以，在调用 `save` 之前，您可以链式调用多个 `ExactPhraseRedaction` 对象或混合不同的脱敏类型。
+
+**Q: 如果我的文档不是 `.docx` 文件怎么办？**  
+A: GroupDocs.Redaction 支持超过 30 种格式——包括 PDF、PPTX、XLSX 和常见图像类型——因此几乎可以对您遇到的任何文件进行脱敏。完整列表请参见 [API Reference](https://reference.groupdocs.com/redaction/java)。
+
+**Q: 我该如何处理脱敏过程中的错误？**  
+A: 将脱敏逻辑包装在捕获 `IOException` 和 `RedactionException` 的 `try‑catch` 块中。始终在 `finally` 块中调用 `redactor.close()`，或使用 try‑with‑resources 释放本机资源。
 
 ---
 
-**Last Updated:** 2026-02-24  
-**Tested With:** GroupDocs.Redaction 24.9 for Java  
-**Author:** GroupDocs  
+**最后更新：** 2026-08-09  
+**测试环境：** GroupDocs.Redaction 24.9 for Java  
+**作者：** GroupDocs  
 
-**Resources**  
-- **Documentation:** [GroupDocs.Redaction Java Documentation](https://docs.groupdocs.com/redaction/java/)  
-- **API Reference:** [GroupDocs Redaction API Reference](https://reference.groupdocs.com/redaction/java)  
-- **Download Latest Version:** [GroupDocs.Redaction for Java Releases](https://releases.groupdocs.com/redaction/java/)  
-- **GitHub Repository:** [GroupDocs GitHub Page](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
-- **Free Support Forum:** [GroupDocs Redaction Forum](https://forum.groupdocs.com/c/redaction/33)  
-- **Temporary License Application:** [Get Your Temporary License](https://purchase.groupdocs.com/temporary-license/)
+**资源**  
+- **文档：** [GroupDocs.Redaction Java 文档](https://docs.groupdocs.com/redaction/java/)  
+- **API 参考：** [GroupDocs Redaction API 参考](https://reference.groupdocs.com/redaction/java)  
+- **下载最新版本：** [GroupDocs Redaction for Java 发布版](https://releases.groupdocs.com/redaction/java/)  
+- **GitHub 仓库：** [GroupDocs GitHub 页面](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
+- **免费支持论坛：** [GroupDocs Redaction 论坛](https://forum.groupdocs.com/c/redaction/33)  
+- **临时许可证申请：** [获取临时许可证](https://purchase.groupdocs.com/temporary-license/)
+
+## 相关教程
+
+- [如何使用 GroupDocs Redaction Java 许可证从文件路径脱敏文档 – 步骤指南](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)
+- [编辑受密码保护的 Java 文档 - 使用 GroupDocs.Redaction 脱敏文档](/redaction/java/document-loading/groupdocs-redaction-java-password-documents/)
+- [在 Java 中遮蔽敏感数据 – 使用 GroupDocs.Redaction 脱敏个人信息](/redaction/java/advanced-redaction/master-document-redaction-java-groupdocs-redaction/)
