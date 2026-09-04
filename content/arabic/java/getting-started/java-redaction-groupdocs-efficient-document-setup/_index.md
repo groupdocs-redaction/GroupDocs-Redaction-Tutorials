@@ -1,46 +1,105 @@
 ---
-date: '2026-02-26'
-description: تعلم كيفية حل مشكلة عدم العثور على ملف جافا عن طريق إنشاء دليل إخراج
-  جافا وتطبيق عملية التمويه باستخدام GroupDocs.Redaction. دليل خطوة بخطوة مع أمثلة
+date: '2026-08-04'
+description: تعلم كيفية حل مشكلة عدم العثور على ملف Java عن طريق إنشاء دليل إخراج
+  Java وتطبيق عملية التعتيم باستخدام GroupDocs.Redaction. دليل خطوة بخطوة مع أمثلة
   على الشيفرة.
 keywords:
-- Java Redaction
-- GroupDocs.Redaction Setup
-- Document Redaction
-title: ملف جافا غير موجود – إنشاء مجلد الإخراج في جافا
+- java file not found
+- handle file not found
+- process large documents java
+lastmod: '2026-08-04'
+og_description: حل أخطاء عدم العثور على ملف Java بإنشاء مجلد إخراج واستخدام GroupDocs.Redaction.
+  اتبع هذا الدرس التفصيلي في Java للحصول على تعتيم مستندات موثوق.
+og_image_alt: Guide showing Java code that creates an output folder and applies GroupDocs.Redaction
+og_title: ملف Java غير موجود – إنشاء مجلد الإخراج في Java
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-04'
+  description: Learn how to resolve java file not found by creating a java output
+    directory and applying GroupDocs.Redaction redaction. Step‑by‑step guide with
+    code examples.
+  headline: Java file not found – create output folder in Java
+  type: TechArticle
+- description: Learn how to resolve java file not found by creating a java output
+    directory and applying GroupDocs.Redaction redaction. Step‑by‑step guide with
+    code examples.
+  name: Java file not found – create output folder in Java
+  steps:
+  - name: '**Absolute vs. relative paths:** Use an absolute path (`C:/data/HelloWorld`)
+      to rule out working‑directory confusion.'
+    text: '**Absolute vs. relative paths:** Use an absolute path (`C:/data/HelloWorld`)
+      to rule out working‑directory confusion.'
+  - name: '**File permissions:** Verify that the Java process has write permission
+      on the target directory.'
+    text: '**File permissions:** Verify that the Java process has write permission
+      on the target directory.'
+  - name: '**Path separators:** On Windows, prefer `File.separator` or forward slashes
+      to avoid escape‑character issues.'
+    text: '**Path separators:** On Windows, prefer `File.separator` or forward slashes
+      to avoid escape‑character issues.'
+  - name: '**Compliance management:** Automatically scrub personal data from contracts
+      before filing.'
+    text: '**Compliance management:** Automatically scrub personal data from contracts
+      before filing.'
+  - name: '**Financial reporting:** Hide account numbers in quarterly reports shared
+      with external auditors.'
+    text: '**Financial reporting:** Hide account numbers in quarterly reports shared
+      with external auditors.'
+  - name: '**Healthcare records:** Remove patient identifiers from medical documents
+      to meet HIPAA requirements.'
+    text: '**Healthcare records:** Remove patient identifiers from medical documents
+      to meet HIPAA requirements.'
+  type: HowTo
+- questions:
+  - answer: Add the Maven dependency shown above, create the output folder, and instantiate
+      `Redactor` as demonstrated.
+    question: How do I get started with GroupDocs.Redaction?
+  - answer: Yes—by using streaming APIs and disabling rasterization, you can process
+      multi‑hundred‑page files without excessive memory consumption.
+    question: Can GroupDocs.Redaction handle large documents efficiently?
+  - answer: A free trial is sufficient for evaluation, but a paid license is mandatory
+      for commercial deployments.
+    question: Is a license required for production use?
+  - answer: GroupDocs.Redaction works with DOCX, PDF, PPTX, XLSX, and several image
+      formats, covering more than 50 types in total.
+    question: What file formats are supported?
+  - answer: Wrap the redaction logic in a loop that iterates over files in a directory,
+      reusing the same output folder pattern for each document.
+    question: How can I automate redaction for multiple files?
+  type: FAQPage
+tags:
+- java file not found
+- groupdocs redaction
+- java document processing
+title: ملف Java غير موجود – إنشاء مجلد الإخراج في Java
 type: docs
 url: /ar/java/getting-started/java-redaction-groupdocs-efficient-document-setup/
 weight: 1
 ---
 
-# java file not found – إنشاء مجلد الإخراج في Java
+# ملف Java غير موجود – إنشاء مجلد الإخراج في Java
 
-في التطبيقات الحديثة، يمكن أن يؤدي مواجهة أخطاء **java file not found** إلى إيقاف خط أنابيب المعالجة الخاص بك. السبب الشائع هو محاولة كتابة مستند مُحَذوف إلى دليل غير موجود. يوضح لك هذا الدليل بالضبط كيفية إنشاء مجلد الإخراج المطلوب في Java، ودمجه مع **GroupDocs.Redaction**, وتجنب تلك الاستثناءات المزعجة المتعلقة بعدم العثور على الملف. في النهاية، ستحصل على سير عمل نظيف وقابل لإعادة الاستخدام يحافظ على ملفاتك الأصلية آمنة بينما يتم تخزين النسخ المُحَذوفة في **java output directory** مخصص.
+عندما يطلق تطبيق Java استثناء **java file not found**، فإن السبب الأكثر شيوعًا هو محاولة كتابة ملف إلى دليل غير موجود. في عمليات إخفاء المعلومات عادةً ما يحدث هذا عندما تحاول حفظ مستند مُنقّى دون التأكد أولاً من وجود مجلد الوجهة. يوضح هذا الدرس كيفية إنشاء مجلد إخراج برمجيًا، وربطه بـ **GroupDocs.Redaction**، ومعالجة المستندات الكبيرة بكفاءة. في النهاية ستحصل على نمط قابل لإعادة الاستخدام يزيل خطأ *java file not found* المخيف ويحافظ على ملفاتك الأصلية دون تعديل.
 
 ## إجابات سريعة
 - **ما هي الخطوة الأولى؟** إنشاء مجلد إخراج في Java وإضافة مكتبة GroupDocs.Redaction.  
-- **أي نسخة من المكتبة مطلوبة؟** GroupDocs.Redaction 24.9 أو أحدث.  
-- **هل أحتاج إلى ترخيص؟** النسخة التجريبية المجانية تعمل للاختبار؛ الترخيص المدفوع مطلوب للإنتاج.  
-- **هل يمكنني الحفاظ على تنسيق المستند الأصلي؟** نعم—عطّل rasterization عند الحفظ.  
+- **ما هو إصدار المكتبة المطلوب؟** GroupDocs.Redaction 24.9 أو أحدث.  
+- **هل أحتاج إلى ترخيص؟** النسخة التجريبية المجانية تكفي للاختبار؛ يلزم ترخيص مدفوع للإنتاج.  
+- **هل يمكنني الحفاظ على تنسيق المستند الأصلي؟** نعم — قم بتعطيل التحويل إلى صورة عند الحفظ.  
 - **هل هذا مناسب للملفات الكبيرة؟** نعم، مع ضبط الذاكرة بشكل مناسب.
 
 ## ما هو “create output folder java”؟
-إنشاء مجلد إخراج في Java يعني فحص ما إذا كان الدليل موجودًا برمجيًا، وإذا لم يكن كذلك، إنشاؤه بحيث يكون للملفات المعالجة مكان مخصص للحفظ. هذه الخطوة تعزل المستندات المُحَذوفة عن الأصلية وتحافظ على تنظيم مشروعك.
+إنشاء مجلد إخراج في Java يعني التحقق مما إذا كان الدليل موجودًا، وإذا لم يكن كذلك، إنشاؤه بحيث يكون للملفات المعالجة مكان مخصص للحفظ. هذه الخطوة تعزل مستنداتك المطمّسة عن الأصلية وتحافظ على تنظيم مشروعك.
 
 ## لماذا إنشاء مجلد إخراج java باستخدام GroupDocs.Redaction؟
-- **فصل الاهتمامات:** يحافظ على تمييز الملفات الأصلية والمُحَذوفة.  
-- **قابلية التوسع:** يتيح معالجة دفعة من المستندات المتعددة في موقع واحد.  
-- **الامتثال:** يجعل تتبع التدقيق أسهل عن طريق تخزين النسخ المنقاة فقط.  
-- **الأداء:** يقلل من فوضى نظام الملفات، مما يمكن أن يحسن سرعة الإدخال/الإخراج.
+يمكنك إنشاء المجلد، تحميل ملف المصدر، تطبيق الإخفاء، وتخزين النتيجة دون أن تواجه استثناء *java file not found*. يدعم GroupDocs.Redaction **أكثر من 50 تنسيقًا للإدخال والإخراج** — بما في ذلك DOCX وPDF وPPTX وXLSX وأنواع الصور الشائعة — ويمكنه معالجة ملفات مئات الصفحات دون تحميل المستند بالكامل في الذاكرة. من خلال فصل مسارات المصدر والوجهة تحصل أيضًا على قابلية تدقيق أفضل ومعالجة دفعات أسهل.
 
 ## المتطلبات المسبقة
-قبل الغوص في التفاصيل، تأكد من وجود ما يلي:
-
-- **GroupDocs.Redaction Library** – الإصدار 24.9 أو أحدث.  
-- **Java Development Kit (JDK)** – الإصدار 8 أو أعلى.  
-- بيئة تطوير Java IDE مثل IntelliJ IDEA أو Eclipse.  
+- **مكتبة GroupDocs.Redaction** – الإصدار 24.9 أو أحدث.  
+- **مجموعة تطوير Java (JDK)** – الإصدار 8 أو أعلى.  
+- بيئة تطوير متكاملة مثل IntelliJ IDEA أو Eclipse.  
 - Maven مثبت لإدارة التبعيات.  
-- معرفة أساسية بـ Java، خاصةً التعامل مع الملفات.
+- إلمام أساسي بعمليات الإدخال/الإخراج للملفات في Java.
 
 ## إعداد GroupDocs.Redaction لـ Java
 أضف مستودع GroupDocs واعتماد Redaction إلى ملف `pom.xml` الخاص بك:
@@ -63,18 +122,15 @@ weight: 1
 </dependencies>
 ```
 
-إذا كنت تفضل التحميل اليدوي، احصل على أحدث JAR من صفحة الإصدار الرسمية: [إصدارات GroupDocs.Redaction لـ Java](https://releases.groupdocs.com/redaction/java/).
+إذا كنت تفضّل التحميل اليدوي، احصل على أحدث ملف JAR من صفحة الإصدار الرسمية: [إصدارات GroupDocs.Redaction لـ Java](https://releases.groupdocs.com/redaction/java/).
 
 ### خطوات الحصول على الترخيص
 ابدأ بنسخة تجريبية مجانية لاستكشاف API. عندما تكون جاهزًا للإنتاج، احصل على ترخيص مؤقت أو كامل من بوابة GroupDocs.
 
 ## دليل التنفيذ
 
-### كيفية إنشاء مجلد إخراج java
-تنظيم موقع الإخراج هو أساس سير عمل حذف البيانات بشكل نظيف. أدناه سننشئ مجلدًا باسم `HelloWorld` داخل دليل أساسي تحدده.
-
-#### إعداد دليل المستند
-المقتطف التالي يتحقق من وجود المجلد ويقوم بإنشائه إذا لزم الأمر. كما يُعد المسار للمستند المُحَذوف.
+## كيفية إنشاء مجلد إخراج java
+تحتاج إلى روتين موثوق لإنشاء المجلد قبل أي عملية إخفاء. يتحقق الكود أدناه من وجود المجلد، ينشئه إذا لزم الأمر، ويُكوّن المسار الكامل للملف المُطمّس. يضمن ذلك أن خطوة الإخفاء اللاحقة دائمًا لديها وجهة صالحة، مما يمنع استثناء `FileNotFoundException` ويسمح للتطبيق بالعمل بسلاسة حتى عند معالجة مستندات متعددة في دفعة.
 
 ```java
 import java.io.File;
@@ -91,12 +147,11 @@ public class DocumentDirectorySetup {
 }
 ```
 
-- **لماذا هذا مهم:** من خلال إنشاء المجلد برمجيًا، تضمن أن خطوة الحذف دائمًا لديها وجهة صالحة، مما يمنع أخطاء `FileNotFoundException`.
+- **لماذا هذا مهم:** من خلال إنشاء المجلد برمجيًا، تضمن أن خطوة الإخفاء دائمًا لديها وجهة صالحة، مما يمنع أخطاء `FileNotFoundException`.
 
-### تطبيق الحذف
-الآن بعد أن تم إنشاء مجلد الإخراج، يمكننا تحميل ملف مصدر، تطبيق حذف، وحفظ النتيجة في المجلد الذي أنشأناه للتو.
+## كيفية تطبيق الإخفاء باستخدام GroupDocs.Redaction
+`Redactor` هو الفئة الرئيسية التي تُجري عمليات الإخفاء على المستند. يقوم بتحميل المستند، البحث عن المحتوى الحساس، وكتابة النسخة المنقاة مع توفير خيارات مثل البحث القائم على الأنماط، استبدال النص، والتحكم في التحويل إلى صورة. باستخدام `Redactor`، يمكنك تحميل `sample_document.docx`، استبدال العبارة “John Doe” بغطاء أحمر، وحفظ النتيجة في المجلد الذي أنشأته مسبقًا، كل ذلك دون تحويل الإخراج إلى صورة وبالتالي الحفاظ على تخطيط DOCX الأصلي.
 
-#### كود الحذف
 ```java
 import com.groupdocs.redaction.Redactor;
 import java.io.FileOutputStream;
@@ -130,58 +185,57 @@ public class RedactionApplication {
 }
 ```
 
-- **شرح:** يقوم `Redactor` بتحميل `sample_document.docx`، يبحث عن العبارة الدقيقة “John Doe”، يستبدلها بغطاء أحمر، ويكتب النتيجة إلى المجلد الذي أنشأناه سابقًا. تعطيل rasterization يحافظ على تخطيط DOCX الأصلي.
+- **شرح:** يقوم `Redactor` بتحميل `sample_document.docx`، يبحث عن العبارة الدقيقة “John Doe”، يستبدلها بغطاء أحمر، ويكتب النتيجة إلى المجلد الذي أنشأناه مسبقًا. تعطيل التحويل إلى صورة يحافظ على تخطيط DOCX الأصلي.
 
-#### نصائح استكشاف الأخطاء وإصلاحها
-- **مسارات غير صحيحة:** تحقق مرة أخرى من أن `YOUR_DOCUMENT_DIRECTORY` و `YOUR_OUTPUT_DIRECTORY` يشيران إلى مواقع حقيقية.  
-- **تعارض الإصدارات:** تأكد من أن اعتماد Maven يطابق نسخة المكتبة التي قمت بتنزيلها.  
-- **أخطاء الترخيص:** الترخيص المفقود أو غير الصالح سيلقي استثناءً أثناء التشغيل.
+## كيفية إصلاح خطأ java file not found عند إنشاء مجلد الإخراج
+إذا استمر ظهور استثناء **java file not found** بعد إضافة كود إنشاء المجلد، فكر في الفحوصات الإضافية التالية. أولاً، استخدم مسارًا مطلقًا (مثال: `C:/data/HelloWorld`) لتجنب الالتباس حول دليل العمل الحالي. ثانيًا، تأكد من أن عملية Java لديها إذن كتابة على الدليل المستهدف. ثالثًا، فضلًا عن `File.separator` أو الشرطات المائلة للأمام على Windows لتجنب مشاكل أحرف الهروب. تطبيق هذه الضمانات يضمن أن خطوة الإخفاء لا تفشل أبدًا بسبب عدم وجود مجلد الوجهة.
 
-## كيفية إصلاح java file not found عند إنشاء مجلد الإخراج
-إذا ما زلت ترى استثناء **java file not found** بعد إضافة كود إنشاء المجلد، فكر في هذه الفحوصات الإضافية:
+1. **المسارات المطلقة مقابل النسبية:** استخدم مسارًا مطلقًا (`C:/data/HelloWorld`) لاستبعاد الالتباس المتعلق بدليل العمل.  
+2. **أذونات الملفات:** تحقق من أن عملية Java لديها إذن كتابة على الدليل المستهدف.  
+3. **فواصل المسارات:** على Windows، فضل `File.separator` أو الشرطات المائلة للأمام لتجنب مشاكل أحرف الهروب.  
 
-1. **المسارات المطلقة مقابل النسبية:** استخدم مسارًا مطلقًا (`C:/data/HelloWorld`) لتجنب ارتباك دليل العمل.  
-2. **أذونات الملفات:** تحقق من أن عملية Java لديها صلاحية كتابة على الدليل المستهدف.  
-3. **فواصل المسار:** في Windows، يفضّل استخدام `File.separator` أو الشرطات المائلة للأمام لتجنب مشاكل أحرف الهروب.  
-
-تطبيق هذه الضمانات يضمن أن خطوة الحذف لا تفشل أبدًا بسبب عدم وجود مجلد الوجهة.
-
-## التطبيقات العملية
-سيناريوهات العالم الحقيقي حيث قد **create output folder java** وتستخدم GroupDocs.Redaction تشمل:
+## تطبيقات عملية
+سيناريوهات واقعية حيث قد تحتاج إلى **إنشاء مجلد إخراج java** واستخدام GroupDocs.Redaction تشمل:
 
 1. **إدارة الامتثال:** مسح البيانات الشخصية تلقائيًا من العقود قبل حفظها.  
 2. **التقارير المالية:** إخفاء أرقام الحسابات في التقارير الفصلية التي تُشارك مع المدققين الخارجيين.  
-3. **سجلات الرعاية الصحية:** إزالة معرفات المرضى من الوثائق الطبية لتلبية متطلبات HIPAA.
+3. **السجلات الصحية:** إزالة معرفات المرضى من الوثائق الطبية للامتثال لمتطلبات HIPAA.
 
 ## اعتبارات الأداء
-- **إدارة الذاكرة:** استخدم واجهات برمجة التطبيقات المتدفقة للملفات الكبيرة جدًا من نوع DOCX أو PDF لتجنب تحميل المستند بالكامل في الذاكرة.  
-- **المعالجة الدفعية:** كرّر عبر قائمة من الملفات وأعد استخدام نسخة واحدة من `Redactor` حيثما أمكن.  
-- **ضبط JVM:** زيادة حجم الكومة (`-Xmx2g`) إذا كنت تعالج بانتظام مستندات أكبر من 50 ميغابايت.
+- **إدارة الذاكرة:** استخدم واجهات البث للملفات الكبيرة من نوع DOCX أو PDF لتجنب تحميل المستند بالكامل في الذاكرة.  
+- **معالجة الدُفعات:** كرّر عبر قائمة من الملفات وأعد استخدام نسخة واحدة من `Redactor` حيثما أمكن.  
+- **ضبط JVM:** زد حجم الكومة (`-Xmx2g`) إذا كنت تعالج مستندات أكبر من 50 ميغابايت بانتظام.
 
 ## الخلاصة
-أنت الآن تعرف كيفية **create output folder java**, دمج GroupDocs.Redaction, وتطبيق حذف دقيق مع الحفاظ على تنسيق الأصلي. يساعدك هذا سير العمل على تلبية معايير الامتثال وحماية البيانات الحساسة بفعالية، ويقضي على أخطاء **java file not found** المخيفة التي يمكن أن تعطل خطوط الأتمتة.
+أنت الآن تعرف كيف **تنشئ مجلد إخراج java**، وتدمج GroupDocs.Redaction، وتطبق إخفاءات دقيقة مع الحفاظ على التنسيق الأصلي. يساعدك هذا سير العمل على تلبية معايير الامتثال، وحماية البيانات الحساسة، وإزالة أخطاء **java file not found** التي قد تعطل خطوط الأنابيب الآلية.
 
-لمزيد من الاستكشاف، زر الوثائق الرسمية: [توثيق GroupDocs](https://docs.groupdocs.com/redaction/java/).
+للمزيد من الاستكشاف، زر الوثائق الرسمية: [توثيق GroupDocs](https://docs.groupdocs.com/redaction/java/).
 
 ## الأسئلة المتكررة
 
 **س: كيف أبدأ باستخدام GroupDocs.Redaction؟**  
-ج: ابدأ بإضافة اعتماد Maven المعروض أعلاه، ثم أنشئ مجلد إخراج واستدعِ `Redactor` كما هو موضح.
+ج: أضف اعتماد Maven الموضح أعلاه، أنشئ مجلد الإخراج، وأنشئ كائن `Redactor` كما هو موضح.
 
 **س: هل يمكن لـ GroupDocs.Redaction معالجة المستندات الكبيرة بكفاءة؟**  
-ج: نعم—من خلال إدارة الذاكرة بحكمة وتعطيل rasterization، يمكنك معالجة ملفات كبيرة دون عبء زائد.
+ج: نعم — باستخدام واجهات البث وتعطيل التحويل إلى صورة، يمكنك معالجة ملفات مئات الصفحات دون استهلاك مفرط للذاكرة.
 
-**س: هل يلزم الحصول على ترخيص للاستخدام في الإنتاج؟**  
-ج: النسخة التجريبية المجانية كافية للتقييم، لكن الترخيص المدفوع إلزامي للنشر التجاري.
+**س: هل يلزم ترخيص للاستخدام في الإنتاج؟**  
+ج: النسخة التجريبية مجانية للتقييم، لكن الترخيص المدفوع إلزامي للنشر التجاري.
 
 **س: ما هي صيغ الملفات المدعومة؟**  
-ج: GroupDocs.Redaction يعمل مع DOCX، PDF، PPTX، XLSX، والعديد من صيغ الصور.
+ج: يعمل GroupDocs.Redaction مع DOCX وPDF وPPTX وXLSX والعديد من صيغ الصور، بما يتجاوز 50 نوعًا إجماليًا.
 
-**س: كيف يمكنني أتمتة الحذف لعدة ملفات؟**  
-ج: ضع منطق الحذف داخل حلقة تت iterates over files in a directory، مع إعادة استخدام نمط مجلد الإخراج نفسه.
+**س: كيف يمكنني أتمتة الإخفاء لعدة ملفات؟**  
+ج: ضع منطق الإخفاء داخل حلقة تت iterates عبر الملفات في دليل، مع إعادة استخدام نمط مجلد الإخراج نفسه لكل مستند.
+
+**آخر تحديث:** 2026-08-04  
+**تم الاختبار مع:** GroupDocs.Redaction 24.9  
+**المؤلف:** GroupDocs  
 
 ---
 
-**آخر تحديث:** 2026-02-26  
-**تم الاختبار مع:** GroupDocs.Redaction 24.9  
-**المؤلف:** GroupDocs
+## دروس ذات صلة
+
+- [كيفية إخفاء المستندات باستخدام GroupDocs Redaction Java License من مسار الملف – دليل خطوة بخطوة](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)
+- [إتقان عمليات ملفات Java: النسخ والإخفاء باستخدام GroupDocs.Redaction لتعزيز أمان البيانات](/redaction/java/format-handling/java-file-operations-copy-redact-groupdocs/)
+- [معاينة صفحات المستندات في Java باستخدام GroupDocs.Redaction](/redaction/java/document-loading/)

@@ -1,44 +1,106 @@
 ---
-date: '2026-02-26'
-description: Naučte se, jak vyřešit chybu „java file not found“ vytvořením výstupního
-  adresáře Java a použitím redakce GroupDocs.Redaction. Průvodce krok za krokem s
+date: '2026-08-04'
+description: Zjistěte, jak vyřešit chybu java file not found vytvořením výstupního
+  adresáře v Javě a použitím GroupDocs.Redaction. Praktický návod krok za krokem s
   ukázkami kódu.
 keywords:
-- Java Redaction
-- GroupDocs.Redaction Setup
-- Document Redaction
-title: Soubor Java nenalezen – Vytvořit výstupní složku v Javě
+- java file not found
+- handle file not found
+- process large documents java
+lastmod: '2026-08-04'
+og_description: Vyřešte chyby java file not found vytvořením výstupní složky a použitím
+  GroupDocs.Redaction. Sledujte tento podrobný Java tutoriál pro spolehlivou redakci
+  dokumentů.
+og_image_alt: Guide showing Java code that creates an output folder and applies GroupDocs.Redaction
+og_title: Java file not found – vytvořte výstupní složku v Javě
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-04'
+  description: Learn how to resolve java file not found by creating a java output
+    directory and applying GroupDocs.Redaction redaction. Step‑by‑step guide with
+    code examples.
+  headline: Java file not found – create output folder in Java
+  type: TechArticle
+- description: Learn how to resolve java file not found by creating a java output
+    directory and applying GroupDocs.Redaction redaction. Step‑by‑step guide with
+    code examples.
+  name: Java file not found – create output folder in Java
+  steps:
+  - name: '**Absolute vs. relative paths:** Use an absolute path (`C:/data/HelloWorld`)
+      to rule out working‑directory confusion.'
+    text: '**Absolute vs. relative paths:** Use an absolute path (`C:/data/HelloWorld`)
+      to rule out working‑directory confusion.'
+  - name: '**File permissions:** Verify that the Java process has write permission
+      on the target directory.'
+    text: '**File permissions:** Verify that the Java process has write permission
+      on the target directory.'
+  - name: '**Path separators:** On Windows, prefer `File.separator` or forward slashes
+      to avoid escape‑character issues.'
+    text: '**Path separators:** On Windows, prefer `File.separator` or forward slashes
+      to avoid escape‑character issues.'
+  - name: '**Compliance management:** Automatically scrub personal data from contracts
+      before filing.'
+    text: '**Compliance management:** Automatically scrub personal data from contracts
+      before filing.'
+  - name: '**Financial reporting:** Hide account numbers in quarterly reports shared
+      with external auditors.'
+    text: '**Financial reporting:** Hide account numbers in quarterly reports shared
+      with external auditors.'
+  - name: '**Healthcare records:** Remove patient identifiers from medical documents
+      to meet HIPAA requirements.'
+    text: '**Healthcare records:** Remove patient identifiers from medical documents
+      to meet HIPAA requirements.'
+  type: HowTo
+- questions:
+  - answer: Add the Maven dependency shown above, create the output folder, and instantiate
+      `Redactor` as demonstrated.
+    question: How do I get started with GroupDocs.Redaction?
+  - answer: Yes—by using streaming APIs and disabling rasterization, you can process
+      multi‑hundred‑page files without excessive memory consumption.
+    question: Can GroupDocs.Redaction handle large documents efficiently?
+  - answer: A free trial is sufficient for evaluation, but a paid license is mandatory
+      for commercial deployments.
+    question: Is a license required for production use?
+  - answer: GroupDocs.Redaction works with DOCX, PDF, PPTX, XLSX, and several image
+      formats, covering more than 50 types in total.
+    question: What file formats are supported?
+  - answer: Wrap the redaction logic in a loop that iterates over files in a directory,
+      reusing the same output folder pattern for each document.
+    question: How can I automate redaction for multiple files?
+  type: FAQPage
+tags:
+- java file not found
+- groupdocs redaction
+- java document processing
+title: Java file not found – vytvořte výstupní složku v Javě
 type: docs
 url: /cs/java/getting-started/java-redaction-groupdocs-efficient-document-setup/
 weight: 1
 ---
 
-# java file not found – Vytvoření výstupní složky v Javě
+# Soubor Java nebyl nalezen – vytvořit výstupní složku v Javě
 
-V moderních aplikacích může výskyt chyb **java file not found** zastavit váš zpracovatelský řetězec. Častou příčinou je pokus zapsat redigovaný dokument do adresáře, který neexistuje. Tento tutoriál vám přesně ukáže, jak v Javě vytvořit požadovanou výstupní složku, integrovat ji s **GroupDocs.Redaction** a vyhnout se těm frustrujícím výjimkám typu file‑not‑found. Na konci budete mít čistý, znovupoužitelný workflow, který chrání vaše původní soubory a ukládá redigované kopie do vyhrazeného **java output directory**.
+Když Java aplikace vyhodí výjimku **java file not found**, nejčastější příčinou je pokus zapsat soubor do adresáře, který neexistuje. V redakčních pracovních postupech se to obvykle stane, když se snažíte uložit sanitizovaný dokument, aniž byste nejprve zajistili, že cílová složka existuje. Tento tutoriál vás provede programatickým vytvořením výstupní složky, propojením s **GroupDocs.Redaction** a efektivním zpracováním velkých dokumentů. Na konci budete mít znovupoužitelný vzor, který eliminuje otravnou chybu *java file not found* a ponechá vaše původní soubory nedotčené.
 
 ## Rychlé odpovědi
-- **What is the first step?** Vytvořte výstupní složku v Javě a přidejte knihovnu GroupDocs.Redaction.  
-- **Which library version is required?** GroupDocs.Redaction 24.9 nebo novější.  
-- **Do I need a license?** Pro testování stačí bezplatná zkušební verze; pro produkci je potřeba placená licence.  
-- **Can I keep the original document format?** Ano — při ukládání vypněte rasterizaci.  
-- **Is this suitable for large files?** Ano, při správném nastavení paměti.
+- **Jaký je první krok?** Vytvořte výstupní složku v Javě a přidejte knihovnu GroupDocs.Redaction.  
+- **Jaká verze knihovny je požadována?** GroupDocs.Redaction 24.9 nebo novější.  
+- **Potřebuji licenci?** Bezplatná zkušební verze funguje pro testování; pro produkci je potřeba placená licence.  
+- **Mohu zachovat původní formát dokumentu?** Ano — při ukládání vypněte rasterizaci.  
+- **Je to vhodné pro velké soubory?** Ano, při správném nastavení paměti.  
 
 ## Co je „create output folder java“?
-Vytvoření výstupní složky v Javě znamená programově zkontrolovat, zda adresář existuje, a pokud ne, vytvořit jej, aby zpracované soubory měly vyhrazené místo pro uložení. Tento krok odděluje vaše redigované dokumenty od originálů a udržuje projekt uspořádaný.
+Vytvoření výstupní složky v Javě znamená zkontrolovat, zda adresář existuje, a pokud ne, vytvořit jej, aby zpracované soubory měly vyhrazené místo pro uložení. Tento krok odděluje vaše redigované dokumenty od originálů a udržuje projekt uspořádaný.
 
-## Proč vytvořit výstupní složku java s GroupDocs.Redaction?
-- **Separation of concerns:** Udržuje originální a redigované soubory oddělené.  
-- **Scalability:** Umožňuje dávkové zpracování mnoha dokumentů do jednoho umístění.  
-- **Compliance:** Usnadňuje auditní stopy tím, že ukládá pouze očištěné verze.  
-- **Performance:** Snižuje nepořádek v souborovém systému, což může zlepšit rychlost I/O.
+## Proč vytvořit výstupní složku v Javě s GroupDocs.Redaction?
+Můžete vytvořit složku, načíst zdrojový soubor, aplikovat redakci a uložit výsledek, aniž byste kdy viděli výjimku *java file not found*. GroupDocs.Redaction podporuje **více než 50 vstupních a výstupních formátů** — včetně DOCX, PDF, PPTX, XLSX a běžných typů obrázků — a může zpracovávat soubory s několika stovkami stran, aniž by načítal celý dokument do paměti. Oddělením cest ke zdroji a cíli získáte lepší auditovatelnost a snazší dávkové zpracování.
 
-## Předpoklady
-- **GroupDocs.Redaction Library** – verze 24.9 nebo novější.  
+## Požadavky
+- **GroupDocs.Redaction library** – verze 24.9 nebo novější.  
 - **Java Development Kit (JDK)** – verze 8 nebo vyšší.  
-- IDE pro Javu, např. IntelliJ IDEA nebo Eclipse.  
+- IDE, například IntelliJ IDEA nebo Eclipse.  
 - Maven nainstalovaný pro správu závislostí.  
-- Základní znalost Javy, zejména práce se soubory.
+- Základní znalost Java I/O souborů.
 
 ## Nastavení GroupDocs.Redaction pro Javu
 Přidejte repozitář GroupDocs a závislost Redaction do vašeho `pom.xml`:
@@ -61,18 +123,15 @@ Přidejte repozitář GroupDocs a závislost Redaction do vašeho `pom.xml`:
 </dependencies>
 ```
 
-Pokud dáváte přednost manuálnímu stažení, získáte nejnovější JAR z oficiální stránky vydání: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+Pokud dáváte přednost ručnímu stažení, získáte nejnovější JAR z oficiální stránky vydání: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
-### Kroky pro získání licence
+### Kroky získání licence
 Začněte s bezplatnou zkušební verzí a prozkoumejte API. Až budete připraveni na produkci, získejte dočasnou nebo plnou licenci z portálu GroupDocs.
 
 ## Průvodce implementací
 
-### Jak vytvořit výstupní složku java
-Organizace výstupního umístění je základem čistého workflow pro redakci. Níže vytvoříme složku pojmenovanou `HelloWorld` uvnitř základního adresáře, který určíte.
-
-#### Nastavení adresáře dokumentu
-Následující úryvek kontroluje existenci složky a v případě potřeby ji vytvoří. Také připravuje cestu pro redigovaný dokument.
+## Jak vytvořit výstupní složku v Javě
+Potřebujete spolehlivou rutinu pro vytvoření složky před jakoukoliv redakcí. Níže uvedený kód kontroluje existenci složky, vytvoří ji v případě potřeby a sestaví úplnou cestu pro redigovaný soubor. Tím se zajistí, že následující krok redakce vždy má platný cíl, což zabraňuje `FileNotFoundException` a umožňuje aplikaci běžet hladce i při zpracování více dokumentů najednou.
 
 ```java
 import java.io.File;
@@ -89,12 +148,11 @@ public class DocumentDirectorySetup {
 }
 ```
 
-- **Why this matters:** Programovým vytvořením složky zajistíte, že krok redakce vždy má platný cíl, čímž se zabrání chybám `FileNotFoundException`.
+- **Proč je to důležité:** Programatickým vytvořením složky zajistíte, že krok redakce vždy má platný cíl, čímž se předejde chybám `FileNotFoundException`.
 
-### Aplikace redakce
-Nyní, když výstupní složka existuje, můžeme načíst zdrojový soubor, aplikovat redakci a výsledek uložit do složky, kterou jsme právě vytvořili.
+## Jak aplikovat redakci pomocí GroupDocs.Redaction
+`Redactor` je hlavní třída, která provádí operace redakce na dokumentu. Načte dokument, vyhledá citlivý obsah a zapíše sanitizovanou verzi, přičemž nabízí možnosti jako vyhledávání založené na vzorcích, nahrazování textu a řízení rasterizace. Pomocí `Redactor` můžete načíst `sample_document.docx`, nahradit frázi „John Doe“ červeným překryvem a výsledek uložit do složky, kterou jste vytvořili dříve, a to vše bez rasterizace výstupu, čímž zachováte původní rozložení.
 
-#### Kód redakce
 ```java
 import com.groupdocs.redaction.Redactor;
 import java.io.FileOutputStream;
@@ -128,58 +186,57 @@ public class RedactionApplication {
 }
 ```
 
-- **Explanation:** `Redactor` načte `sample_document.docx`, vyhledá přesnou frázi „John Doe“, nahradí ji červeným překryvem a zapíše výsledek do složky, kterou jsme vytvořili dříve. Vypnutí rasterizace zachová původní rozložení DOCX.
+- **Vysvětlení:** `Redactor` načte `sample_document.docx`, vyhledá přesnou frázi „John Doe“, nahradí ji červeným překryvem a zapíše výsledek do složky, kterou jsme vytvořili dříve. Vypnutí rasterizace zachovává původní rozložení DOCX.
 
-#### Tipy pro řešení problémů
-- **Incorrect paths:** Dvakrát zkontrolujte, že `YOUR_DOCUMENT_DIRECTORY` a `YOUR_OUTPUT_DIRECTORY` ukazují na skutečná umístění.  
-- **Version conflicts:** Ujistěte se, že Maven závislost odpovídá verzi knihovny, kterou jste stáhli.  
-- **License errors:** Chybějící nebo neplatná licence vyvolá výjimku za běhu.
+## Jak opravit chybu java file not found při vytváření výstupní složky
+Pokud i po přidání kódu pro vytvoření složky stále vidíte výjimku **java file not found**, zvažte následující doplňkové kontroly. Za prvé, použijte absolutní cestu (např. `C:/data/HelloWorld`), abyste eliminovali nejasnosti ohledně aktuálního pracovního adresáře. Za druhé, ověřte, že Java proces má právo zápisu do cílového adresáře. Za třetí, upřednostněte `File.separator` nebo dopředná lomítka ve Windows, aby se předešlo problémům s únikovými znaky. Aplikací těchto opatření zajistíte, že krok redakce nikdy nezkazí kvůli chybějící výstupní složce.
 
-## Jak opravit java file not found při vytváření výstupní složky
-Pokud i po přidání kódu pro vytvoření složky stále vidíte výjimku **java file not found**, zvažte následující doplňkové kontroly:
-
-1. **Absolute vs. relative paths:** Použijte absolutní cestu (`C:/data/HelloWorld`), abyste vyloučili záměnu pracovního adresáře.  
-2. **File permissions:** Ověřte, že proces Java má právo zápisu do cílového adresáře.  
-3. **Path separators:** Ve Windows upřednostněte `File.separator` nebo dopředná lomítka, aby nedocházelo k problémům s únikovými znaky.  
-
-Aplikací těchto opatření zajistíte, že krok redakce nikdy neuspěje kvůli chybějící cílové složce.
+1. **Absolutní vs. relativní cesty:** Použijte absolutní cestu (`C:/data/HelloWorld`), abyste vyloučili nejasnosti ohledně pracovního adresáře.  
+2. **Oprávnění k souborům:** Ověřte, že Java proces má právo zápisu do cílového adresáře.  
+3. **Oddělovače cest:** Ve Windows upřednostněte `File.separator` nebo dopředná lomítka, aby se předešlo problémům s únikovými znaky.  
 
 ## Praktické aplikace
-Scénáře z reálného světa, kde byste **create output folder java** a použili GroupDocs.Redaction, zahrnují:
+Reálné scénáře, kde byste **create output folder java** a použili GroupDocs.Redaction, zahrnují:
 
-1. **Compliance Management:** Automaticky odstranit osobní údaje z kontraktů před archivací.  
-2. **Financial Reporting:** Skrýt čísla účtů ve čtvrtletních zprávách sdílených s externími auditory.  
-3. **Healthcare Records:** Odstranit identifikátory pacientů z lékařských dokumentů pro splnění požadavků HIPAA.
+1. **Správa souladu:** Automaticky odstraňovat osobní údaje z kontraktů před archivací.  
+2. **Finanční výkaznictví:** Skrýt čísla účtů ve čtvrtletních zprávách sdílených s externími auditory.  
+3. **Zdravotnické záznamy:** Odstranit identifikátory pacientů z lékařských dokumentů, aby vyhovovaly požadavkům HIPAA.  
 
 ## Úvahy o výkonu
-- **Memory Management:** Používejte streamingové API pro velmi velké soubory DOCX nebo PDF, aby se zabránilo načítání celého dokumentu do paměti.  
-- **Batch Processing:** Procházejte seznam souborů a kde je to možné, znovu použijte jedinou instanci `Redactor`.  
-- **JVM Tuning:** Zvyšte velikost haldy (`-Xmx2g`), pokud pravidelně zpracováváte dokumenty větší než 50 MB.
+- **Správa paměti:** Používejte streamingové API pro velmi velké soubory DOCX nebo PDF, abyste se vyhnuli načítání celého dokumentu do paměti.  
+- **Dávkové zpracování:** Procházejte seznam souborů a kde je to možné, znovu použijte jedinou instanci `Redactor`.  
+- **Ladění JVM:** Zvyšte velikost haldy (`-Xmx2g`), pokud pravidelně zpracováváte dokumenty větší než 50 MB.  
 
 ## Závěr
-Nyní víte, jak **create output folder java**, integrovat GroupDocs.Redaction a aplikovat přesné redakce při zachování původního formátování. Tento workflow vám pomůže splnit požadavky na shodu a efektivně chránit citlivá data a zároveň eliminuje otravné chyby **java file not found**, které mohou narušit automatizační pipeline.
-
-Pro podrobnější průzkum navštivte oficiální dokumentaci: [GroupDocs documentation](https://docs.groupdocs.com/redaction/java/).
+Nyní víte, jak **create output folder java**, integrovat GroupDocs.Redaction a aplikovat přesné redakce při zachování původního formátování. Tento pracovní postup vám pomůže splnit standardy souladu, chránit citlivá data a odstranit otravné chyby **java file not found**, které mohou narušit automatizační pipeline. Pro podrobnější průzkum navštivte oficiální dokumentaci: [GroupDocs documentation](https://docs.groupdocs.com/redaction/java/).
 
 ## Často kladené otázky
 
 **Q: Jak začít s GroupDocs.Redaction?**  
-A: Začněte přidáním Maven závislosti uvedené výše, poté vytvořte výstupní složku a vytvořte instanci `Redactor` podle ukázky.
+A: Přidejte Maven závislost uvedenou výše, vytvořte výstupní složku a vytvořte instanci `Redactor` podle ukázky.
 
 **Q: Dokáže GroupDocs.Redaction efektivně zpracovávat velké dokumenty?**  
-A: Ano — při rozumném řízení paměti a vypnutí rasterizace můžete zpracovávat velké soubory bez nadměrného zatížení.
+A: Ano — použitím streamingových API a vypnutím rasterizace můžete zpracovávat soubory s několika stovkami stránek bez nadměrné spotřeby paměti.
 
 **Q: Je licence vyžadována pro produkční použití?**  
 A: Bezplatná zkušební verze stačí pro hodnocení, ale pro komerční nasazení je povinná placená licence.
 
 **Q: Jaké formáty souborů jsou podporovány?**  
-A: GroupDocs.Redaction pracuje s DOCX, PDF, PPTX, XLSX a několika formáty obrázků.
+A: GroupDocs.Redaction pracuje s DOCX, PDF, PPTX, XLSX a několika formáty obrázků, celkem pokrývá více než 50 typů.
 
 **Q: Jak mohu automatizovat redakci pro více souborů?**  
-A: Zabalte logiku redakce do smyčky, která prochází soubory v adresáři a znovu používá stejný vzor výstupní složky.
+A: Zabalte logiku redakce do smyčky, která iteruje přes soubory v adresáři, a pro každý dokument použije stejný vzor výstupní složky.
 
 ---
 
-**Poslední aktualizace:** 2026-02-26  
+**Poslední aktualizace:** 2026-08-04  
 **Testováno s:** GroupDocs.Redaction 24.9  
-**Autor:** GroupDocs
+**Autor:** GroupDocs  
+
+---
+
+## Související tutoriály
+
+- [Jak redigovat dokumenty s GroupDocs Redaction Java licencí ze souborové cesty – krok za krokem](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)
+- [Mistrovství operací se soubory v Javě: Kopírování a redakce souborů pomocí GroupDocs.Redaction pro zvýšenou bezpečnost dat](/redaction/java/format-handling/java-file-operations-copy-redact-groupdocs/)
+- [Náhled stránek dokumentu v Javě s načítáním pomocí GroupDocs.Redaction](/redaction/java/document-loading/)

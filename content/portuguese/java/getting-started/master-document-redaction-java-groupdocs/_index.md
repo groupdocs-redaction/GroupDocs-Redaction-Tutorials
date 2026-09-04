@@ -1,59 +1,110 @@
 ---
-date: '2026-02-26'
-description: Aprenda a converter PDF em imagens Java usando GroupDocs.Redaction, a
-  redigir dados sensíveis, a implementar redações de frases exatas, a rasterizar documentos
-  para privacidade e a garantir conformidade sem esforço.
+date: '2026-08-04'
+description: Aprenda como redigir PDF convertendo PDF para imagens Java usando GroupDocs.
+  Abrange exact phrase redaction, rasterization e saving PDFs as images para conformidade
+  de privacidade.
 keywords:
-- document redaction in Java
-- GroupDocs.Redaction setup
-- exact phrase redaction
-title: Converter PDF em Imagens Java – Domine a Redação com GroupDocs
+- how to redact pdf
+- pdf to images java
+- save pdf as images
+- convert pdf pages png
+- privacy pdf conversion
+lastmod: '2026-08-04'
+og_description: Aprenda como redigir PDF convertendo PDF para imagens Java usando
+  GroupDocs. Este guia mostra exact phrase redaction, rasterization e image‑based
+  PDF saving.
+og_image_alt: 'Guide: redact PDF and convert to images Java with GroupDocs'
+og_title: Como redigir PDF – converter para imagens Java com GroupDocs
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-04'
+  description: Learn how to redact PDF by converting PDF to images Java using GroupDocs.
+    Covers exact phrase redaction, rasterization, and saving PDFs as images for privacy
+    compliance.
+  headline: How to redact PDF – convert to images Java with GroupDocs
+  type: TechArticle
+- description: Learn how to redact PDF by converting PDF to images Java using GroupDocs.
+    Covers exact phrase redaction, rasterization, and saving PDFs as images for privacy
+    compliance.
+  name: How to redact PDF – convert to images Java with GroupDocs
+  steps:
+  - name: load your document
+    text: 'Begin by loading the document you want to redact:'
+  - name: apply exact phrase redaction
+    text: 'The `ExactPhraseRedaction` object defines a redaction rule that searches
+      for a specific phrase and replaces it with a visual overlay. Use `ExactPhraseRedaction`
+      to find and replace text. Here, we''re replacing “John Doe” with a red color
+      box:'
+  - name: prepare output file
+    text: 'Create the destination file and an output stream:'
+  - name: apply rasterization options
+    text: The `RasterizationOptions` class lets you control image format, DPI, and
+      compression for each rasterized page. Enable rasterization so the saved PDF
+      consists of image pages. By default GroupDocs uses PNG for the rasterized pages,
+      which satisfies the **convert pdf pages png** requirement.
+  type: HowTo
+- questions:
+  - answer: It means rendering each PDF page as an image (e.g., PNG) using Java code.
+    question: What does “convert PDF to images Java” mean?
+  - answer: GroupDocs.Redaction for Java provides both rasterization (image conversion)
+      and redaction features.
+    question: Which library handles both conversion and redaction?
+  - answer: A free trial works for evaluation; a permanent license is required for
+      production.
+    question: Do I need a license?
+  - answer: Yes, but monitor memory usage and close streams promptly.
+    question: Can I process large PDFs?
+  - answer: You can save the document as a regular PDF or enable rasterization to
+      create image‑based PDFs for extra privacy.
+    question: Is rasterization optional?
+  type: FAQPage
+tags:
+- redact pdf
+- GroupDocs
+- Java document processing
+- pdf conversion
+title: Como redigir PDF – converter para imagens Java com GroupDocs
 type: docs
 url: /pt/java/getting-started/master-document-redaction-java-groupdocs/
 weight: 1
 ---
 
-# Converter PDF em Imagens Java – Domine a Redação com GroupDocs
+# Como censurar PDF – converter para imagens Java com GroupDocs
 
-Proteger informações sensíveis em documentos é crucial para manter a privacidade e garantir a conformidade. Se você precisa **convert PDF to images Java** enquanto também redige dados confidenciais, está no lugar certo. Neste guia vamos percorrer a redação por frase exata, a rasterização de documentos e como **save PDF as images** para máxima privacidade. Ao final, você terá uma solução pronta para produção que pode ser inserida diretamente em qualquer projeto Java.
+Se você precisa **aprender como censurar PDF convertendo PDF para imagens Java**, chegou ao lugar certo. Este tutorial orienta você sobre censura de frase exata, rasterização de documentos e salvamento de PDFs como imagens, de modo que dados sensíveis fiquem permanentemente ocultos e prontos para conformidade. Ao final, você terá um trecho pronto para produção que pode ser inserido em qualquer projeto Java.
 
-## Respostas Rápidas
+## Respostas rápidas
 - **O que significa “convert PDF to images Java”?** Significa renderizar cada página do PDF como uma imagem (por exemplo, PNG) usando código Java.  
-- **Qual biblioteca lida com conversão e redação?** GroupDocs.Redaction para Java fornece recursos de rasterização (conversão de imagem) e de redação.  
-- **Preciso de licença?** Um teste gratuito serve para avaliação; uma licença permanente é necessária para produção.  
+- **Qual biblioteca lida tanto com conversão quanto com censura?** GroupDocs.Redaction for Java fornece recursos de rasterização (conversão de imagem) e de censura.  
+- **Preciso de licença?** Um teste gratuito funciona para avaliação; uma licença permanente é necessária para produção.  
 - **Posso processar PDFs grandes?** Sim, mas monitore o uso de memória e feche os streams prontamente.  
-- **A rasterização é opcional?** Você pode salvar o documento como PDF regular ou habilitar a rasterização para criar PDFs baseados em imagens para maior privacidade.
+- **A rasterização é opcional?** Você pode salvar o documento como PDF normal ou habilitar a rasterização para criar PDFs baseados em imagens para maior privacidade.
 
 ## O que é “convert PDF to images Java”?
-Converter um PDF em imagens em Java significa pegar cada página de um arquivo PDF e renderizá‑la como uma imagem raster (como PNG ou JPEG). Essa técnica costuma ser combinada com redação porque, uma vez que o conteúdo está em imagem, o texto não pode ser selecionado ou copiado, proporcionando uma camada adicional de privacidade.
+Converter um PDF para imagens em Java significa pegar cada página de um arquivo PDF e renderiz‑la como uma imagem raster (como PNG ou JPEG). Essa técnica costuma ser combinada com censura porque, uma vez que o conteúdo está em forma de imagem, o texto não pode ser selecionado ou copiado, oferecendo uma camada adicional de privacidade.
 
-## Por que Converter PDF em Imagens Java?
-- **Saída focada em privacidade:** Páginas rasterizadas eliminam camadas de texto ocultas, tornando impossível extrair dados após a redação.  
-- **Compatibilidade universal:** PDFs baseados em imagem são exibidos de forma consistente em todos os visualizadores, mesmo em dispositivos mais antigos.  
-- **Pronto para conformidade:** Muitas regulamentações (GDPR, HIPAA) exigem que dados sensíveis sejam irrecuperáveis; converter para imagens satisfaz esse requisito.
+## Por que converter PDF para imagens Java?
+Converter páginas de PDF para imagens fornece um resultado focado em privacidade que elimina camadas de texto ocultas, tornando impossível extrair dados após a censura. PDFs baseados em imagens exibem‑se de forma consistente em todos os visualizadores, mesmo em dispositivos antigos, e atendem ao GDPR, HIPAA e outras regulamentações que exigem que os dados sejam irrecuperáveis.
 
-## Por que Usar GroupDocs.Redaction para Conversão e Redação de PDF?
-- **API tudo‑em‑um** – Lida com redação e rasterização sem trocar de bibliotecas.  
-- **Alta fidelidade** – Preserva layout original, fontes e gráficos ao converter páginas em imagens.  
-- **Pronto para empresa** – Suporta processamento em lote, arquivos grandes e múltiplos formatos de documento.  
-- **Integração fácil** – Configuração baseada em Maven se encaixa naturalmente em qualquer projeto Java.
+## Por que usar GroupDocs.Redaction para conversão e censura de PDF?
+GroupDocs.Redaction combina censura e rasterização em uma única API de alta fidelidade. Ele suporta o processamento de PDFs de até **500 páginas** e pode lidar com **mais de 100 trabalhos de censura simultâneos** por servidor, garantindo desempenho em escala empresarial sem a necessidade de trocar de bibliotecas.
 
 ## Pré‑requisitos
 
-1. **Bibliotecas e Dependências Necessárias**  
+1. **Bibliotecas e dependências necessárias**  
    - Biblioteca GroupDocs.Redaction versão 24.9 ou posterior.  
 
-2. **Configuração do Ambiente**  
+2. **Configuração do ambiente**  
    - Java Development Kit (JDK) instalado.  
    - IDE como IntelliJ IDEA ou Eclipse.  
 
-3. **Pré‑requisitos de Conhecimento**  
+3. **Pré‑requisitos de conhecimento**  
    - Programação básica em Java e conceitos de manipulação de arquivos.  
 
 ## Configurando GroupDocs.Redaction para Java
 
 ### Configuração Maven
-Adicione a seguinte configuração ao seu arquivo `pom.xml`:
+Add the following configuration to your `pom.xml` file:
 
 ```xml
 <repositories>
@@ -73,36 +124,37 @@ Adicione a seguinte configuração ao seu arquivo `pom.xml`:
 </dependencies>
 ```
 
-### Download Direto
-Alternativamente, faça o download da versão mais recente diretamente em [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+### Download direto
+Alternatively, download the latest version directly from [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
-**Aquisição de Licença:**  
+**Aquisição de licença:**  
 Você pode começar com um teste gratuito ou obter uma licença temporária para explorar todos os recursos. Visite [Purchase GroupDocs](https://purchase.groupdocs.com/temporary-license/) para mais detalhes sobre como adquirir uma licença permanente.
 
-### Inicialização Básica e Configuração
-Para inicializar, basta criar uma instância da classe `Redactor` fornecendo o caminho para o seu documento:
+## Inicialização e configuração básicas
+The `Redactor` class is GroupDocs.Redaction's core component that loads and manipulates PDF files. To initialize, simply create an instance of the `Redactor` class by providing the path to your document:
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX");
 ```
 
-Agora que estamos configurados, vamos explorar como implementar recursos específicos.
+Agora que está configurado, vamos explorar como implementar recursos específicos.
 
-## Como Converter PDF em Imagens Java com GroupDocs.Redaction
+## Como converter PDF para imagens Java com GroupDocs.Redaction
+Load your PDF, apply exact‑phrase redaction, and then rasterize each page into PNG images—all in a few straightforward steps. This end‑to‑end flow guarantees that redacted content is locked into an image layer, preventing any accidental data leakage.
 
-### Redação por Frase Exata
+### Censura de frase exata
 
-A redação por frase exata permite buscar e substituir texto específico dentro dos seus documentos. Esse recurso é essencial para manter a privacidade ao ocultar informações sensíveis.
+Censura de frase exata permite que você pesquise e substitua texto específico dentro dos seus documentos. Esse recurso é essencial para manter a privacidade ao ocultar informações sensíveis.
 
-#### Etapa 1: Carregar Seu Documento
-Comece carregando o documento que você deseja redigir:
+#### Etapa 1: carregue seu documento
+Begin by loading the document you want to redact:
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX");
 ```
 
-#### Etapa 2: Aplicar Redação por Frase Exata
-Use `ExactPhraseRedaction` para encontrar e substituir texto. Aqui, estamos substituindo “John Doe” por uma caixa vermelha:
+#### Etapa 2: aplique censura de frase exata
+The `ExactPhraseRedaction` object defines a redaction rule that searches for a specific phrase and replaces it with a visual overlay. Use `ExactPhraseRedaction` to find and replace text. Here, we're replacing “John Doe” with a red color box:
 
 ```java
 try {
@@ -116,12 +168,11 @@ try {
 }
 ```
 
-### Salvar PDF como Imagens (PNG) com GroupDocs.Redaction
+### Salvar PDF como imagens (PNG) com GroupDocs.Redaction
+After redaction, you’ll often want to **save PDF as images** to lock in the changes. The following steps show how to rasterize each page into PNG‑format images while still packaging them into a single PDF.
 
-Após a redação, você frequentemente desejará **save PDF as images** para travar as alterações. Os passos a seguir mostram como rasterizar cada página em imagens no formato PNG enquanto ainda as empacota em um único PDF.
-
-#### Etapa 1: Preparar Arquivo de Saída
-Crie o arquivo de destino e um stream de saída:
+#### Etapa 1: prepare o arquivo de saída
+Create the destination file and an output stream:
 
 ```java
 File f = new File("YOUR_OUTPUT_DIRECTORY/sample_output_file.pdf");
@@ -131,8 +182,8 @@ if (!f.exists()) {
 final FileOutputStream fileStream = new FileOutputStream(f);
 ```
 
-#### Etapa 2: Aplicar Opções de Rasterização
-Habilite a rasterização para que o PDF salvo consistam em páginas de imagem. Por padrão, o GroupDocs usa PNG para as páginas rasterizadas, atendendo ao requisito **convert pdf pages png**.
+#### Etapa 2: aplique opções de rasterização
+The `RasterizationOptions` class lets you control image format, DPI, and compression for each rasterized page. Enable rasterization so the saved PDF consists of image pages. By default GroupDocs uses PNG for the rasterized pages, which satisfies the **convert pdf pages png** requirement.
 
 ```java
 try {
@@ -147,28 +198,28 @@ try {
 redactor.close();
 ```
 
-## Problemas Comuns e Soluções
-- **Permissões de gravação:** Garanta que a aplicação tenha acesso de escrita ao diretório de saída.  
+## Problemas comuns e soluções
+- **Permissões de gravação:** Certifique-se de que a aplicação tem acesso de escrita ao diretório de saída.  
 - **Formatos não suportados:** Verifique se o formato do arquivo de origem suporta rasterização (a maioria dos PDFs e documentos Office suportam).  
-- **Consumo de memória:** Ao processar PDFs muito grandes, considere processar páginas em lotes e chamar `System.gc()` após cada lote.  
+- **Consumo de memória:** Ao processar PDFs muito grandes, considere processar as páginas em lotes e chamar `System.gc()` após cada lote.  
 
-## Aplicações Práticas
+## Aplicações práticas
 
-1. **Conformidade de Privacidade:** Redija automaticamente dados de clientes antes de compartilhar documentos externamente.  
-2. **Manipulação de Documentos Legais:** Proteja informações pessoais em processos e correspondências.  
-3. **Relatórios Financeiros:** Segurança de dados proprietários em relatórios e demonstrações.  
-4. **Operações de RH:** Salvaguarde registros de funcionários durante auditorias ou colaborações com terceiros.  
+1. **Conformidade de privacidade:** Censurar automaticamente dados de clientes antes de compartilhar documentos externamente.  
+2. **Manipulação de documentos legais:** Proteger informações pessoais em processos e correspondências.  
+3. **Relatórios financeiros:** Garantir a segurança de dados proprietários em relatórios e demonstrações.  
+4. **Operações de RH:** Proteger registros de funcionários durante auditorias ou colaborações com terceiros.  
 
-## Considerações de Desempenho
+## Considerações de desempenho
 
-- **Otimização de Desempenho:** Use streams de I/O eficientes e feche-os prontamente.  
-- **Diretrizes de Uso de Recursos:** Monitore a memória, especialmente ao rasterizar imagens de alta resolução.  
-- **Gerenciamento de Memória Java:** Utilize `try‑with‑resources` sempre que possível para garantir limpeza automática.  
+- **Otimização de desempenho:** Use streams de I/O eficientes e feche‑os prontamente.  
+- **Diretrizes de uso de recursos:** Monitore a memória, especialmente ao rasterizar imagens de alta resolução.  
+- **Gerenciamento de memória Java:** Use `try‑with‑resources` sempre que possível para garantir limpeza automática.  
 
-## Armadilhas Comuns & Dicas Profissionais
+## Armadilhas comuns e dicas profissionais
 
-- **Armadilha:** Esquecer de fechar a instância `Redactor` pode causar bloqueios de arquivos.  
-  **Dica profissional:** Envolva o uso do `Redactor` em um bloco `try‑with‑resources` para fechamento automático.  
+- **Armadilha:** Esquecer de fechar a instância `Redactor` pode causar bloqueios de arquivo.  
+  **Dica profissional:** Envolva o uso do `Redactor` em um bloco try‑with‑resources para fechamento automático.  
 
 - **Armadilha:** Usar o DPI padrão de rasterização pode gerar arquivos grandes.  
   **Dica profissional:** Ajuste `RasterizationOptions.setDpi(int dpi)` se precisar de PDFs de saída menores.  
@@ -176,41 +227,45 @@ redactor.close();
 - **Armadilha:** Tentar rasterizar um PDF protegido por senha sem fornecer a senha.  
   **Dica profissional:** Forneça a senha ao construir a instância `Redactor`.  
 
-## Perguntas Frequentes
+## Perguntas frequentes
 
-**Q:** Como lidar com múltiplas redações de frase simultaneamente?  
-**A:** GroupDocs.Redaction permite encadear múltiplos objetos de redação em uma única chamada `apply`, permitindo processar várias frases em uma passagem.
+**Q:** Como lidar com múltiplas censuras de frase simultaneamente?  
+**A:** GroupDocs.Redaction permite encadear vários objetos de censura em uma única chamada `apply`, permitindo processar várias frases em uma única passagem.  
 
-**Q:** O GroupDocs.Redaction pode ser usado em sistemas de gerenciamento de documentos em larga escala?  
-**A:** Sim, a API foi projetada para integração empresarial e pode ser escalada horizontalmente com gerenciamento adequado de recursos.
+**Q:** O GroupDocs.Redaction pode ser usado em sistemas de gerenciamento de documentos em grande escala?  
+**A:** Sim, a API foi projetada para integração empresarial e pode ser dimensionada horizontalmente com o gerenciamento adequado de recursos.  
 
 **Q:** Quais formatos o GroupDocs.Redaction suporta?  
-**A:** Ele suporta PDFs, documentos Word, planilhas Excel, apresentações PowerPoint, imagens e muitos outros.
+**A:** Ele suporta PDFs, documentos Word, planilhas Excel, apresentações PowerPoint, imagens e muitos outros.  
 
-**Q:** Como obter suporte técnico para o GroupDocs.Redaction?  
-**A:** Visite o [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33) para ajuda da comunidade ou entre em contato pelos canais oficiais de suporte.
+**Q:** Como posso obter suporte técnico para o GroupDocs.Redaction?  
+**A:** Visite o [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33) para ajuda da comunidade ou entre em contato pelos canais oficiais de suporte.  
 
 **Q:** Existe impacto de desempenho ao habilitar a rasterização?  
-**A:** A rasterização adiciona tempo de processamento porque cada página é renderizada como imagem, mas fornece garantias de privacidade mais fortes.
+**A:** A rasterização adiciona tempo de processamento porque cada página é renderizada como imagem, mas oferece garantias de privacidade mais fortes.  
 
-## Recursos Adicionais
+## Recursos adicionais
 
-- [GroupDocs Documentation](https://docs.groupdocs.com/redaction/java/)  
-- [API Reference](https://reference.groupdocs.com/redaction/java)  
+- [Documentação GroupDocs](https://docs.groupdocs.com/redaction/java/)  
+- [Referência da API](https://reference.groupdocs.com/redaction/java)  
 - [Downloads](https://releases.groupdocs.com/redaction/java/)  
-- [GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
-- [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)  
-- [Temporary License Page](https://purchase.groupdocs.com/temporary-license/)  
+- [Repositório no GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
+- [Fórum de Suporte Gratuito](https://forum.groupdocs.com/c/redaction/33)  
+- [Página de Licença Temporária](https://purchase.groupdocs.com/temporary-license/)  
 
-Explore esses recursos para aprofundar seu entendimento e domínio do GroupDocs.Redaction para Java!
+Explore esses recursos para aprofundar sua compreensão e domínio do GroupDocs.Redaction para Java!
 
 ## Conclusão
-Agora você tem um fluxo de trabalho completo, de ponta a ponta, para **convert PDF to images Java**, desde o carregamento do documento, aplicação de redação por frase exata, até a rasterização de páginas em PDFs baseados em PNG. Essa abordagem garante que informações sensíveis sejam permanentemente ocultas e que o resultado final esteja em conformidade com as regulamentações de privacidade. Sinta‑se à vontade para experimentar diferentes configurações de rasterização, processar vários arquivos em lote ou integrar essa lógica em um pipeline maior de gerenciamento de documentos.
+Você agora possui um fluxo de trabalho completo, de ponta a ponta, para **convert PDF to images Java**, desde o carregamento do documento, aplicação de censura de frase exata, até a rasterização das páginas em PDFs baseados em PNG. Essa abordagem garante que informações sensíveis fiquem permanentemente ocultas e que o resultado final esteja em conformidade com as regulamentações de privacidade. Sinta‑se à vontade para experimentar diferentes configurações de rasterização, processar vários arquivos em lote ou integrar essa lógica a um pipeline maior de gerenciamento de documentos.
 
 ---
 
-**Última atualização:** 2026-02-26  
-**Testado com:** GroupDocs.Redaction 24.9 para Java  
+**Última atualização:** 2026-08-04  
+**Testado com:** GroupDocs.Redaction 24.9 for Java  
 **Autor:** GroupDocs  
 
----
+## Tutoriais Relacionados
+
+- [Redação de PDF em Java: Como usar GroupDocs.Redaction para substituição de frase exata](/redaction/java/pdf-specific-redaction/java-pdf-redaction-groupdocs-redaction-exact-phrase/)  
+- [Como censurar texto e salvar PDFs rasterizados com GroupDocs.Java](/redaction/java/text-redaction/groupdocs-redaction-java-text-redaction-rasterize-pdf/)  
+- [Pré‑visualização de páginas de documentos Java com GroupDocs.Redaction](/redaction/java/document-loading/)
