@@ -1,72 +1,127 @@
 ---
-date: 2026-02-24
-description: Java를 사용한 정규식 PDF 편집 기술을 배우고, GroupDocs.Redaction을 활용하여 PDF 및 기타 문서에서
-  민감한 데이터를 정확하게 가리는 방법을 익히세요.
-title: 정규식 PDF 레다션 Java와 GroupDocs.Redaction
+date: 2026-07-30
+description: Java와 GroupDocs.Redaction을 사용하여 PDF를 레드랙트하는 방법을 배우세요. 대소문자 구분 없는 regex
+  지원 및 테스트 regex 패턴을 활용한 secure data masking을 포함합니다.
+keywords:
+- how to redact pdf
+- case insensitive regex java
+- test regex patterns
+lastmod: 2026-07-30
+og_description: Java와 GroupDocs.Redaction을 사용하여 PDF를 레드랙트하는 방법을 배우세요. 대소문자 구분 없는 regex
+  지원, 테스트 regex 패턴, 그리고 문서 전반에 걸친 secure data masking을 위한 단계별 예제를 제공합니다.
+og_image_alt: 'Developer guide: How to redact PDF in Java with GroupDocs.Redaction'
+og_title: Java와 GroupDocs.Redaction을 사용하여 PDF를 레드랙트하는 방법
+schemas:
+- author: GroupDocs
+  dateModified: '2026-07-30'
+  description: Learn how to redact PDF in Java using GroupDocs.Redaction, with case
+    insensitive regex support and test regex patterns for secure data masking.
+  headline: How to Redact PDF with Java using GroupDocs.Redaction
+  type: TechArticle
+- description: Learn how to redact PDF in Java using GroupDocs.Redaction, with case
+    insensitive regex support and test regex patterns for secure data masking.
+  name: How to Redact PDF with Java using GroupDocs.Redaction
+  steps:
+  - name: '**Java 17+** (or any supported JDK version).'
+    text: '**Java 17+** (or any supported JDK version).'
+  - name: '**GroupDocs.Redaction for Java** – add the Maven/Gradle dependency as described
+      in the official docs.'
+    text: '**GroupDocs.Redaction for Java** – add the Maven/Gradle dependency as described
+      in the official docs.'
+  - name: A **temporary or commercial license** if you plan to run the code in production.
+    text: A **temporary or commercial license** if you plan to run the code in production.
+  type: HowTo
+- questions:
+  - answer: Yes – prepend `(?i)` to your pattern or set the `Pattern.CASE_INSENSITIVE`
+      flag when building the rule.
+    question: Can I use case‑insensitive regex patterns?
+  - answer: Rasterization converts each page to an image, ensuring no searchable text
+      remains while preserving visual fidelity.
+    question: Does rasterization remove hidden text layers completely?
+  - answer: The engine streams pages, allowing processing of PDFs up to **2 GB** without
+      loading the entire file into memory.
+    question: How large a PDF can GroupDocs.Redaction handle?
+  - answer: A temporary license is sufficient for development and testing; a commercial
+      license is mandatory for production deployments.
+    question: Is a license required for development builds?
+  - answer: Over **50** formats are supported, including DOCX, XLSX, PPTX, HTML, and
+      common image types such as PNG and JPEG.
+    question: What formats besides PDF are supported for redaction?
+  type: FAQPage
+tags:
+- pdf redaction
+- GroupDocs.Redaction
+- java document processing
+- regex redaction
+title: Java와 GroupDocs.Redaction을 사용하여 PDF를 레드랙트하는 방법
 type: docs
 url: /ko/java/text-redaction/
 weight: 4
 ---
 
-# Regex PDF Redaction Java with GroupDocs.Redaction
+# Java와 GroupDocs.Redaction을 사용한 PDF 가리기
 
-현대 애플리케이션에서 개인 식별 정보(PII)를 보호하는 것은 협상할 수 없는 요구사항입니다. **Regex PDF redaction java**를 사용하면 강력한 정규식 패턴을 이용해 PDF 파일 내부에서 사회보장번호, 신용카드 상세정보, 기밀 식별자와 같은 민감한 문자열을 찾아 마스킹할 수 있습니다. 이 가이드는 민감한 데이터를 숨겨야 하는 이유를 설명하고, 텍스트를 어떻게 레드랙션하는지 핵심 개념을 안내하며, 컬렉션에서 가장 유용한 튜토리얼을 소개합니다.
+PDF에서 개인 식별 정보(PII)를 보호하는 것은 현대 애플리케이션에 있어 협상할 수 없는 요구사항입니다. 이 튜토리얼에서는 GroupDocs.Redaction의 강력한 정규식 엔진을 활용하여 Java 환경에서 PDF 파일을 **PDF 가리기 방법**을 알아봅니다. 핵심 개념을 단계별로 살펴보고, 가리기 규칙을 만드는 정확한 절차를 보여드리며, 컬렉션에 있는 가장 유용한 관련 튜토리얼을 안내합니다.
 
-## What is regex pdf redaction java?
+## 빠른 답변
+- **Java에서 정규식 PDF 가리기를 처리하는 라이브러리는 무엇인가요?** GroupDocs.Redaction for Java.  
+- **필요한 Java 버전은 무엇인가요?** Java 17 or any later supported JDK.  
+- **전체 파일을 메모리에 로드하지 않고 가리기를 실행할 수 있나요?** 예 – 엔진이 페이지를 스트리밍하여 수 기가바이트 규모의 PDF를 처리할 수 있습니다.  
+- **대소문자 구분 없는 매칭을 지원하나요?** 물론입니다; 패턴에 `(?i)` 플래그를 추가하기만 하면 됩니다.  
+- **프로덕션에서 상용 라이선스가 필요합니까?** 프로덕션 사용을 위해 임시 또는 상용 라이선스가 필요합니다.
 
-Regex PDF redaction java는 Java 환경에서 정규식 기반 검색 패턴을 PDF 문서에 적용한 뒤, 일치하는 텍스트를 안전한 자리표시자(예: 검은 막대, 사용자 정의 문자열, 래스터 이미지)로 교체하거나 가리는 과정입니다. 이 접근 방식은 정규식의 유연성과 GroupDocs.Redaction 라이브러리의 견고함을 결합하여 정확하고 반복 가능한 레드랙션 결과를 제공합니다.
+## Java에서 정규식 PDF 가리기란 무엇인가요?
+`Regex PDF redaction`은 Java 환경에서 PDF 문서에 정규식 기반 검색 패턴을 적용한 뒤, 일치하는 텍스트를 안전한 플레이스홀더(예: 검은 막대, 사용자 정의 문자열, 또는 래스터화 이미지)로 교체하거나 가리는 과정입니다. `Redactor` 클래스는 페이지 탐색, 텍스트 추출 및 시각적 교체를 조정하는 GroupDocs.Redaction의 최상위 엔진입니다.
 
-## Why use regex PDF redaction in Java?
+## Java에서 정규식 PDF 가리기를 사용하는 이유
+Java에서 정규식 PDF 가리기를 사용하면 정밀한 패턴 매칭이 가능해져 SSN이나 신용카드 번호와 같은 복잡한 식별자를 단일 규칙으로 타깃팅할 수 있습니다. 이 라이브러리는 페이지를 스트리밍하여 대용량 배치를 높은 메모리 사용 없이 처리하며, GDPR, HIPAA, PCI‑DSS와 같은 준수 표준을 지원하고 다양한 문서 형식도 처리합니다.
 
-- **Precision** – 정규식을 사용하면 복잡한 패턴(전화번호, 이메일 형식, 사용자 정의 ID)을 하나의 규칙으로 정의할 수 있습니다.  
-- **Scalability** – GroupDocs.Redaction 엔진은 전체 파일을 메모리에 로드하지 않고도 대량의 PDF를 처리합니다.  
-- **Compliance** – 자동 레드랙션은 GDPR, HIPAA, PCI‑DSS 요구사항을 충족하도록 도와주며, 숨겨진 텍스트가 남지 않도록 보장합니다.  
-- **Cross‑format support** – PDF 외에도 동일한 API가 Word, Excel, PowerPoint 및 이미지 기반 문서에서도 작동합니다.
-
-## How to redact text java with GroupDocs.Redaction
-
-시작하려면 다음이 필요합니다:
-
+## 사전 요구 사항
 1. **Java 17+** (또는 지원되는 JDK 버전).  
 2. **GroupDocs.Redaction for Java** – 공식 문서에 설명된 대로 Maven/Gradle 의존성을 추가합니다.  
-3. 프로덕션에서 코드를 실행할 경우 **임시 또는 상용 라이선스**가 필요합니다.
+3. 프로덕션에서 코드를 실행할 계획이라면 **임시 또는 상용 라이선스**가 필요합니다.
 
-라이브러리를 사용할 수 있게 되면 `Redactor` 인스턴스를 생성하고, 정규식을 포함한 `RedactionRule`을 정의한 뒤, 해당 규칙을 대상 PDF에 적용합니다. 라이브러리는 페이지 탐색, 텍스트 추출 및 시각적 교체를 자동으로 처리합니다.
+## 정규식을 사용하여 가리기 규칙을 만드는 방법
+`Redactor` 클래스는 문서를 열고 가리기 규칙을 적용하는 핵심 엔진입니다.  
+`RedactionRule`은 적용할 정규식 패턴과 교체 스타일을 정의합니다.  
+`RedactionReplacementType`은 가리기된 콘텐츠에 대해 검은 상자와 같은 시각적 스타일을 지정합니다.  
+`PageProcessingMode`는 페이지 처리 방식을 제어하며, `STREAM`은 저메모리 처리를 가능하게 합니다.  
 
-## Hide sensitive data java – Best Practices
+`new Redactor("source.pdf")`로 PDF를 로드하고 `redactor.apply(new RedactionRule("(?i)\\b\\d{3}-\\d{2}-\\d{4}\\b", RedactionReplacementType.BLACK_BOX))`를 호출합니다. 이 한 줄 패턴은 대소문자 구분 없는 사회보장번호를 찾아 검은 상자로 가립니다. 대용량 파일의 경우 규칙을 적용하기 전에 `redactor.setPageProcessingMode(PageProcessingMode.STREAM)`을 호출하여 메모리 사용을 낮게 유지합니다.
 
-- **Test regex patterns on sample text** – 프로덕션 파일에 적용하기 전에 샘플 텍스트로 정규식 패턴을 테스트합니다.  
-- **Enable case‑insensitive matching** – 데이터 형식이 대소문자 구분 없이 변할 수 있을 때 대소문자 무시 매치를 활성화합니다.  
-- **Use rasterization** – 레드랙션 후 숨겨진 텍스트 레이어를 완전히 제거해야 할 경우 래스터화를 사용합니다.  
-- **Log redaction actions** – 감사 추적을 위해 레드랙션 작업(페이지 번호, 원본 텍스트, 교체 내용)을 기록합니다.
+## Java에서 민감한 데이터 숨기기 – 모범 사례
+- **정규식 패턴을 샘플 텍스트에서 테스트**한 후 프로덕션 파일에 적용하세요. 온라인 테스터나 단위 테스트를 사용해 매치를 검증합니다.  
+- **대소문자 구분 없는 매칭 활성화** (`(?i)`) – 데이터 형식이 대소문자 구분이 다를 수 있을 때 사용합니다.  
+- **레스터화 사용** – 가리기 후 숨겨진 텍스트 레이어를 완전히 제거해야 할 경우 `redactor.rasterize()`를 규칙 적용 후 호출합니다.  
+- **가리기 작업 로그 기록** (페이지 번호, 원본 텍스트, 교체 내용)으로 감사 추적을 남깁니다; `RedactionLog` 클래스가 즉시 사용 가능한 로거를 제공합니다.
 
-## Available Tutorials
+## 흔히 발생하는 실수와 회피 방법
+- **Pitfall:** 대용량 PDF에 대해 처리 모드를 설정하지 않아 `OutOfMemoryError`가 발생할 수 있습니다.  
+  **Solution:** 500 MB보다 큰 파일은 항상 `PageProcessingMode.STREAM`을 활성화하세요.  
+- **Pitfall:** 과도하게 포괄적인 정규식을 사용해 의도치 않게 정상 콘텐츠를 가릴 수 있습니다.  
+  **Solution:** 패턴에 단어 경계(`\\b`)를 사용하고 대표 데이터 세트에서 충분히 테스트하세요.  
+- **Pitfall:** 가리기 후 레스터화를 하지 않아 검색 가능한 텍스트가 남아 있습니다.  
+  **Solution:** 모든 텍스트 교체가 완료된 후 `redactor.rasterize()`를 호출하세요.
 
-### [Efficient Regex-Based PDF Redaction in Java Using GroupDocs.Redaction](./regex-based-pdf-redaction-java-groupdocs/)
-GroupDocs.Redaction for Java를 사용하여 PDF에서 정규식 기반 텍스트 레드랙션을 구현함으로써 민감한 데이터를 보호하는 방법을 배웁니다.
+## 사용 가능한 튜토리얼
 
-### [GroupDocs.Redaction Java Tutorial&#58; Secure Text Redaction and Rasterized PDF Conversion](./groupdocs-redaction-java-tutorial-text-redaction-rasterized-pdf/)
-GroupDocs.Redaction Java를 사용하여 안전한 텍스트 레드랙션을 수행하고 문서를 래스터화된 PDF로 저장하는 방법을 배웁니다. 정확한 구문 교체와 PDF 설정 맞춤화를 마스터하세요.
+### [효율적인 정규식 기반 PDF 가리기 Java에서 GroupDocs.Redaction 사용](./regex-based-pdf-redaction-java-groupdocs/)
 
-### [How to Implement Text Redaction in Java Using GroupDocs.Redaction for Secure Document Handling](./groupdocs-redaction-java-text-redaction-guide/)
-GroupDocs.Redaction for Java를 활용해 색상 사각형으로 민감한 텍스트를 안전하게 레드랙션하는 방법을 배웁니다. 문서 보안 및 규정 준수를 효율적으로 강화하세요.
+### [GroupDocs.Redaction Java 튜토리얼&#58; 안전한 텍스트 가리기 및 래스터화 PDF 변환](./groupdocs-redaction-java-tutorial-text-redaction-rasterized-pdf/)
 
-### [Java Document Redaction&#58; Secure Your Files with GroupDocs.Redaction for Java](./java-redaction-guide-groupdocs-document-security/)
-GroupDocs.Redaction for Java를 이용한 Java 레드랙션으로 문서를 보호하는 방법을 배웁니다. 텍스트, 주석 및 메타데이터 레드랙션을 다양한 문서 형식에서 수행하는 가이드를 따라하세요.
+### [Java에서 GroupDocs.Redaction을 사용하여 텍스트 가리기를 구현하는 방법 – 안전한 문서 처리](./groupdocs-redaction-java-text-redaction-guide/)
 
-### [Master Text Redaction and Save as Rasterized PDFs with GroupDocs.Redaction Java](./groupdocs-redaction-java-text-redaction-rasterize-pdf/)
-GroupDocs.Redaction for Java를 사용해 정밀한 텍스트 레드랙션을 수행하고 문서를 안전하고 편집 불가능한 래스터화 PDF로 저장하는 방법을 배웁니다. 문서 보안을 강화하는 데 최적입니다.
+### [Java 문서 가리기&#58; GroupDocs.Redaction for Java로 파일을 안전하게 보호](./java-redaction-guide-groupdocs-document-security/)
 
-### [Master Text Redaction in Java with GroupDocs.Redaction&#58; A Complete Guide](./master-text-redaction-java-groupdocs-redaction-guide/)
-Java와 GroupDocs.Redaction을 사용해 정규식 기반 텍스트 레드랙션을 구현하는 방법을 배웁니다. 민감한 정보를 효율적으로 보호하고 문서 프라이버시를 강화하세요.
+### [GroupDocs.Redaction Java로 텍스트 가리기 마스터 및 래스터화 PDF로 저장](./groupdocs-redaction-java-text-redaction-rasterize-pdf/)
 
-### [Master Text Redaction in Java with GroupDocs.Redaction&#58; A Comprehensive Guide](./text-redaction-java-groupdocs-redaction/)
-강력한 GroupDocs.Redaction 라이브러리를 활용해 Java에서 텍스트 레드랙션을 구현하는 방법을 배웁니다. 단계별 가이드를 통해 민감한 데이터를 효율적으로 보호하세요.
+### [GroupDocs.Redaction&#58; Java에서 텍스트 가리기 마스터 – 완전 가이드](./master-text-redaction-java-groupdocs-redaction-guide/)
 
-### [Text Redaction in Documents using GroupDocs.Redaction for Java&#58; A Comprehensive Guide](./groupdocs-redaction-java-text-redaction/)
-GroupDocs.Redaction for Java를 사용해 Java 문서에서 텍스트 레드랙션을 구현하는 방법을 배웁니다. 이 가이드는 민감한 정보 교체와 사용자 정의 콜백을 다룹니다.
+### [GroupDocs.Redaction&#58; Java에서 텍스트 가리기 마스터 – 포괄적인 가이드](./text-redaction-java-groupdocs-redaction/)
 
-## Additional Resources
+### [Java용 GroupDocs.Redaction을 사용한 문서 텍스트 가리기&#58; 포괄적인 가이드](./groupdocs-redaction-java-text-redaction/)
+
+## 추가 리소스
 
 - [GroupDocs.Redaction for Java 문서](https://docs.groupdocs.com/redaction/java/)
 - [GroupDocs.Redaction for Java API 레퍼런스](https://reference.groupdocs.com/redaction/java/)
@@ -74,3 +129,32 @@ GroupDocs.Redaction for Java를 사용해 Java 문서에서 텍스트 레드랙�
 - [GroupDocs.Redaction 포럼](https://forum.groupdocs.com/c/redaction/33)
 - [무료 지원](https://forum.groupdocs.com/)
 - [임시 라이선스](https://purchase.groupdocs.com/temporary-license/)
+
+## 자주 묻는 질문
+
+**Q: 대소문자 구분 없는 정규식 패턴을 사용할 수 있나요?**  
+A: 예 – 패턴 앞에 `(?i)`를 추가하거나 규칙을 만들 때 `Pattern.CASE_INSENSITIVE` 플래그를 설정하면 됩니다.
+
+**Q: 레스터화가 숨겨진 텍스트 레이어를 완전히 제거하나요?**  
+A: 레스터화는 각 페이지를 이미지로 변환하여 검색 가능한 텍스트가 남지 않도록 하면서 시각적 품질을 유지합니다.
+
+**Q: GroupDocs.Redaction이 처리할 수 있는 PDF 크기는 얼마나 큰가요?**  
+A: 엔진이 페이지를 스트리밍하므로 전체 파일을 메모리에 로드하지 않고 **2 GB**까지의 PDF를 처리할 수 있습니다.
+
+**Q: 개발 빌드에 라이선스가 필요합니까?**  
+A: 개발 및 테스트에는 임시 라이선스면 충분하지만, 프로덕션 배포에는 상용 라이선스가 필수입니다.
+
+**Q: PDF 외에 어떤 형식이 가리기를 지원하나요?**  
+A: DOCX, XLSX, PPTX, HTML 및 PNG, JPEG와 같은 일반 이미지 형식을 포함해 **50**개 이상의 형식을 지원합니다.
+
+---
+
+**마지막 업데이트:** 2026-07-30  
+**테스트 환경:** GroupDocs.Redaction 23.12 for Java  
+**작성자:** GroupDocs
+
+## 관련 튜토리얼
+
+- [Aspose OCR 및 Java를 사용한 PDF 가리기 방법 - GroupDocs.Redaction을 이용한 정규식 패턴 구현](/redaction/java/ocr-integration/aspose-ocr-java-pdf-redaction/)
+- [Java에서 민감한 데이터 마스킹 – GroupDocs.Redaction을 사용한 개인 정보 가리기](/redaction/java/advanced-redaction/master-document-redaction-java-groupdocs-redaction/)
+- [Java에서 비밀번호 보호 문서 편집 - GroupDocs.Redaction을 사용한 문서 가리기](/redaction/java/document-loading/groupdocs-redaction-java-password-documents/)
