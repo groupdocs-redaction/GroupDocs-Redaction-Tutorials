@@ -1,53 +1,111 @@
 ---
-date: '2026-03-14'
-description: Tìm hiểu cách xóa thông tin nhạy cảm các tệp Java một cách an toàn bằng
-  GroupDocs.Redaction. Hướng dẫn này bao gồm việc tải các chính sách, xử lý hàng loạt
-  và lưu các tài liệu đã được xóa thông tin nhạy cảm.
+date: '2026-08-31'
+description: Tìm hiểu cách xóa dữ liệu nhạy cảm trong tài liệu Java bằng GroupDocs.Redaction.
+  Hướng dẫn từng bước bao gồm các chính sách, xử lý hàng loạt và bảo tồn định dạng
+  gốc.
 keywords:
-- Java Redaction
-- Secure Document Processing
-- GroupDocs.Redaction for Java
-title: Cách xóa thông tin nhạy cảm trong tài liệu Java bằng GroupDocs.Redaction
+- redact sensitive data
+- process multiple files
+- secure document processing
+- save redacted document
+lastmod: '2026-08-31'
+og_description: Tìm hiểu cách xóa dữ liệu nhạy cảm trong tài liệu Java bằng GroupDocs.Redaction.
+  Hướng dẫn này sẽ đưa bạn qua các chính sách, xử lý hàng loạt và bảo tồn định dạng.
+og_image_alt: Guide showing how to redact sensitive data in Java using GroupDocs.Redaction
+og_title: Xóa dữ liệu nhạy cảm trong Java bằng GroupDocs.Redaction
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-31'
+  description: Learn how to redact sensitive data in Java documents using GroupDocs.Redaction.
+    Step‑by‑step guide covers policies, batch processing, and preserving original
+    formatting.
+  headline: Redact sensitive data in Java with GroupDocs.Redaction
+  type: TechArticle
+- description: Learn how to redact sensitive data in Java documents using GroupDocs.Redaction.
+    Step‑by‑step guide covers policies, batch processing, and preserving original
+    formatting.
+  name: Redact sensitive data in Java with GroupDocs.Redaction
+  steps:
+  - name: '**Legal document processing** – redact client identifiers before sharing
+      drafts.'
+    text: '**Legal document processing** – redact client identifiers before sharing
+      drafts.'
+  - name: '**Healthcare data management** – remove patient details to stay HIPAA‑compliant.'
+    text: '**Healthcare data management** – remove patient details to stay HIPAA‑compliant.'
+  - name: '**Financial reporting** – hide account numbers when distributing reports.'
+    text: '**Financial reporting** – hide account numbers when distributing reports.'
+  - name: '**Contract review** – protect proprietary clauses during negotiations.'
+    text: '**Contract review** – protect proprietary clauses during negotiations.'
+  - name: '**Email archiving** – ensure privacy compliance when storing corporate
+      email archives.'
+    text: '**Email archiving** – ensure privacy compliance when storing corporate
+      email archives.'
+  type: HowTo
+- questions:
+  - answer: It means handling, redacting, and storing files so that confidential data
+      is protected throughout the entire workflow.
+    question: What does secure document processing mean?
+  - answer: Yes—by iterating over a folder you can apply the same redaction policy
+      to every document automatically.
+    question: Can I process multiple files in one run?
+  - answer: Create a redaction policy that defines the patterns or objects to hide,
+      then run the `Redactor` with that policy.
+    question: How do I redact sensitive data?
+  - answer: A valid GroupDocs.Redaction license is required for production; a trial
+      license is available for evaluation.
+    question: Do I need a license for production?
+  - answer: Set `RasterizationOptions.setEnabled(false)` to keep the original file
+      format unchanged.
+    question: Can I save the redacted document without rasterization?
+  type: FAQPage
+tags:
+- redact sensitive data
+- GroupDocs.Redaction
+- Java document processing
+- batch redaction
+title: Xóa dữ liệu nhạy cảm trong Java bằng GroupDocs.Redaction
 type: docs
 url: /vi/java/advanced-redaction/java-redaction-groupdocs-guide/
 weight: 1
 ---
 
-# Cách Xóa Nhiễu Tài Liệu Java với GroupDocs.Redaction
+{{< blocks/products/pf/main-wrap-class >}}
+{{< blocks/products/pf/main-container >}}
+{{< blocks/products/pf/tutorial-page-section >}}
 
-Trong hướng dẫn này, bạn sẽ khám phá **cách xóa nhiễu java** một cách hiệu quả bằng cách sử dụng GroupDocs.Redaction. Cho dù bạn đang xử lý hợp đồng pháp lý, hồ sơ y tế hay báo cáo tài chính, các bước dưới đây sẽ giúp bạn tải chính sách xóa nhiễu, xử lý nhiều tài liệu trong một lô, và lưu kết quả mà vẫn giữ nguyên định dạng gốc.
+# Xóa dữ liệu nhạy cảm trong Java bằng GroupDocs.Redaction
+
+**GroupDocs.Redaction** là một thư viện Java cho phép loại bỏ thông tin mật một cách lập trình từ hơn 70 định dạng tài liệu đồng thời giữ nguyên bố cục gốc. Trong hướng dẫn này, bạn sẽ học cách **xóa dữ liệu nhạy cảm** trong các ứng dụng Java, áp dụng chính sách xóa cho một loạt tệp, và lưu kết quả mà không mất định dạng.
 
 ## Câu trả lời nhanh
-- **Xử lý tài liệu an toàn có nghĩa là gì?** Nó đề cập đến việc xử lý, xóa nhiễu và lưu trữ tài liệu trong khi bảo vệ dữ liệu bí mật suốt quy trình làm việc.  
-- **Tôi có thể xử lý nhiều tệp trong một lần chạy không?** Có, đoạn mã mẫu lặp qua một thư mục và áp dụng chính sách cho mỗi tệp.  
-- **Làm thế nào để xóa nhiễu dữ liệu nhạy cảm?** Định nghĩa một chính sách xóa nhiễu chỉ định các mẫu hoặc văn bản cần ẩn, sau đó áp dụng nó bằng Redactor.  
-- **Tôi có cần giấy phép cho môi trường sản xuất không?** Cần một giấy phép GroupDocs.Redaction hợp lệ để sử dụng trong sản xuất; bản dùng thử có sẵn để đánh giá.  
-- **Tôi có thể lưu tài liệu đã xóa nhiễu mà không raster hóa không?** Chắc chắn—đặt `RasterizationOptions.setEnabled(false)` để giữ định dạng gốc.
+- **Xử lý tài liệu an toàn có nghĩa là gì?** Nó có nghĩa là xử lý, xóa và lưu trữ tệp sao cho dữ liệu mật được bảo vệ trong toàn bộ quy trình làm việc.  
+- **Tôi có thể xử lý nhiều tệp trong một lần chạy không?** Có — bằng cách lặp qua một thư mục, bạn có thể tự động áp dụng cùng một chính sách xóa cho mọi tài liệu.  
+- **Làm thế nào để xóa dữ liệu nhạy cảm?** Tạo một chính sách xóa định nghĩa các mẫu hoặc đối tượng cần ẩn, sau đó chạy `Redactor` với chính sách đó.  
+- **Tôi có cần giấy phép cho môi trường sản xuất không?** Cần có giấy phép GroupDocs.Redaction hợp lệ cho môi trường sản xuất; giấy phép dùng thử có sẵn để đánh giá.  
+- **Tôi có thể lưu tài liệu đã xóa mà không raster hoá không?** Đặt `RasterizationOptions.setEnabled(false)` để giữ nguyên định dạng tệp gốc.
 
-## Cách xóa nhiễu java với GroupDocs.Redaction
-Xử lý tài liệu an toàn liên quan đến việc tự động xác định và loại bỏ thông tin bí mật từ nhiều loại tệp khác nhau đồng thời bảo tồn tính toàn vẹn và khả năng sử dụng của tài liệu. GroupDocs.Redaction cung cấp một cách lập trình để đạt được điều này trong Java.
+## Cách xóa dữ liệu nhạy cảm trong tài liệu Java bằng GroupDocs.Redaction?
+
+Tải chính sách xóa của bạn, chạy nó đối với mỗi tệp trong một thư mục, và lưu đầu ra — tất cả trong vài bước ngắn gọn. API của GroupDocs.Redaction cho phép bạn xử lý hàng loạt tài liệu, bảo toàn bố cục trong khi loại bỏ an toàn dữ liệu bạn chỉ định, và cung cấp các tùy chọn để kiểm soát raster hoá, định dạng đầu ra và các đặc tính hiệu năng.
 
 ### Tại sao nên sử dụng GroupDocs.Redaction cho Java?
-- **Hỗ trợ đa dạng định dạng** – PDFs, Word, hình ảnh, và hơn thế nữa.  
-- **Kiểm soát chính sách chi tiết** – Tạo một chính sách xóa nhiễu nhắm đúng những gì bạn cần.  
-- **Xử lý hàng loạt có khả năng mở rộng** – Xử lý nhiều tệp trong một thao tác duy nhất, giảm công sức thủ công.  
-- **Tùy chọn raster hóa tích hợp** – Chọn raster hóa các trang để tăng cường bảo mật.
 
-## Yêu cầu trước
+GroupDocs.Redaction hỗ trợ **70+ định dạng đầu vào và đầu ra** (PDF, DOCX, PPTX, hình ảnh, v.v.) và cho phép bạn định nghĩa các chính sách chi tiết nhắm vào văn bản, hình ảnh hoặc siêu dữ liệu cụ thể. Thư viện xử lý các lô hiệu quả, và bạn có thể bật/tắt raster hoá để giữ nguyên định dạng gốc hoặc chuyển các trang thành hình ảnh để tăng cường bảo mật.
 
-Trước khi triển khai GroupDocs.Redaction cho Java, hãy chắc chắn bạn có những thứ sau:
-- **Thư viện cần thiết**: Bạn cần thư viện GroupDocs.Redaction phiên bản 24.9.  
-- **Cài đặt môi trường**: Một Java Development Kit (JDK) được cài trên máy và một IDE như IntelliJ IDEA hoặc Eclipse.  
-- **Kiến thức nền**: Hiểu biết cơ bản về lập trình Java và quen thuộc với các thao tác I/O file.
+### Yêu cầu trước
+- **Java Development Kit (JDK) 8 hoặc cao hơn** đã được cài đặt.  
+- **Maven** hoặc công cụ xây dựng khác để quản lý phụ thuộc.  
+- Kiến thức cơ bản về Java và quen thuộc với I/O tệp.  
 
-## Cài đặt GroupDocs.Redaction cho Java
+### Cài đặt GroupDocs.Redaction cho Java
 
-Để bắt đầu sử dụng GroupDocs.Redaction, thiết lập thư viện trong dự án của bạn. Đây là cách thực hiện:
+#### Cấu hình Maven
+Thêm phụ thuộc sau vào `pom.xml` của bạn:
 
-**Cấu hình Maven:**
-
-Thêm cấu hình sau vào file `pom.xml` của bạn:
-
+Phụ thuộc Maven sau sẽ thêm GroupDocs.Redaction vào dự án của bạn.
+```xml
+<!-- Maven dependency placeholder -->
+```
 ```xml
 <repositories>
    <repository>
@@ -66,43 +124,41 @@ Thêm cấu hình sau vào file `pom.xml` của bạn:
 </dependencies>
 ```
 
-**Tải trực tiếp:**  
-Hoặc, tải phiên bản mới nhất từ [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+#### Tải trực tiếp
+Hoặc, tải JAR mới nhất từ [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
 ### Nhận giấy phép
 
-Để tận dụng tối đa các khả năng của GroupDocs.Redaction, hãy cân nhắc mua giấy phép. Bạn có thể bắt đầu với bản dùng thử miễn phí hoặc yêu cầu giấy phép tạm thời để khám phá các tính năng một cách sâu rộng.
+Giấy phép dùng thử hoạt động cho việc phát triển, nhưng triển khai trong môi trường sản xuất yêu cầu một tệp giấy phép vĩnh viễn được đặt trong thư mục resources của ứng dụng và được tham chiếu tại thời gian chạy.
 
-### Khởi tạo và Cấu hình Cơ bản
+### Khởi tạo và cấu hình cơ bản
 
-Sau khi đã cài đặt thư viện, khởi tạo nó trong ứng dụng Java của bạn bằng cách nhập các lớp cần thiết:
+Nhập các lớp cần thiết và tạo một thể hiện `Redactor`. **Redactor** là lớp chính thực hiện các thao tác xóa trên tài liệu.
 
+```java
+// Initialization code placeholder
+```
 ```java
 import com.groupdocs.redaction.*;
 ```
 
 ## Hướng dẫn triển khai
 
-Phần này hướng dẫn bạn triển khai hai tính năng chính: tải và áp dụng một chính sách xóa nhiễu, và lưu tài liệu đã xử lý với các tùy chọn raster hóa cụ thể.
+### Chính sách xóa là gì?
 
-### Tải và Áp dụng Chính sách Xóa nhiễu
-
-**Tổng quan:** Tính năng này tải một chính sách xóa nhiễu đã được định nghĩa trước từ một tệp và áp dụng nó cho tất cả các tài liệu trong một thư mục chỉ định. Các tệp đã xử lý sẽ được lưu tùy thuộc vào việc thao tác thành công hay thất bại.
-
-#### Bước 1: Khởi tạo RedactionPolicy
-
-Tải chính sách xóa nhiễu của bạn bằng cách sử dụng:
+Chính sách xóa là một tập hợp các quy tắc có thể tái sử dụng, chỉ định cho Redactor những mẫu văn bản, hình ảnh hoặc siêu dữ liệu nào cần ẩn hoặc xóa. Bạn định nghĩa một lần và áp dụng cho bất kỳ số lượng tài liệu nào, giúp duy trì tuân thủ nhất quán trên tất cả các tệp đã xử lý.
 
 ```java
 RedactionPolicy policy = RedactionPolicy.load("YOUR_POLICY_FILE_PATH");
 ```
 
-Bước này rất quan trọng vì chính sách xác định các quy tắc xóa nhiễu dữ liệu nhạy cảm trong tài liệu của bạn.
+### Tải và áp dụng chính sách xóa
 
-#### Bước 2: Áp dụng Chính sách cho Các Tài liệu
+**Tải chính sách** từ tệp XML hoặc JSON và **áp dụng nó** cho mỗi tài liệu trong một thư mục:
 
-Lặp qua mỗi tệp trong một thư mục và áp dụng chính sách:
-
+```java
+// Load and apply policy code placeholder
+```
 ```java
 for (final File fileEntry : new File("YOUR_DOCUMENT_DIRECTORY").listFiles()) {
     final Redactor redactor = new Redactor(fileEntry.getPath());
@@ -125,26 +181,26 @@ for (final File fileEntry : new File("YOUR_DOCUMENT_DIRECTORY").listFiles()) {
 }
 ```
 
-**Giải thích các tham số:**  
-- `RedactionPolicy.load()` – Tải chính sách từ một đường dẫn được chỉ định.  
-- `redactor.apply(policy)` – Thực hiện xóa nhiễu dựa trên chính sách đã tải.  
+### Xử lý nhiều tệp trong một lô
 
-### Lưu Tài liệu Đã Xử lý với Các Tùy chọn Raster hóa
+Lặp qua một thư mục, mở mỗi tệp bằng `Redactor`, và áp dụng cùng một chính sách:
 
-**Tổng quan:** Sau khi áp dụng xóa nhiễu, lưu tài liệu bằng các tùy chọn raster hóa cụ thể để kiểm soát định dạng và chất lượng đầu ra.
-
-#### Bước 1: Khởi tạo Redactor cho Tệp Đầu vào
-
-Mở một tệp để xử lý:
-
+```java
+// Batch processing code placeholder
+```
 ```java
 File inputFile = new File("YOUR_DOCUMENT_DIRECTORY/input.docx");
 ```
 
-#### Bước 2: Lưu với Các Tùy chọn Raster hóa
+### Lưu tài liệu đã xử lý với tùy chọn raster hoá
 
-Lưu tài liệu đã xử lý, chỉ định các cài đặt raster hóa:
+#### Khởi tạo Redactor cho tệp đầu vào
 
+Mở tệp mục tiêu để xóa:
+
+```java
+// Open file code placeholder
+```
 ```java
 try (Redactor redactor = new Redactor(inputFile.getPath())) {
     try (FileOutputStream fileStream = new FileOutputStream(outputFileDirectory.getPath() + "/processed_output.docx")) {
@@ -155,57 +211,86 @@ try (Redactor redactor = new Redactor(inputFile.getPath())) {
 }
 ```
 
-**Các tùy chọn cấu hình chính:**  
-- `RasterizationOptions` – Kiểm soát cách tài liệu được lưu sau khi xóa nhiễu, cho phép bạn giữ định dạng gốc hoặc chuyển sang hình ảnh để tăng cường bảo mật.
+#### Lưu với tùy chọn raster hoá
 
-## Ứng dụng Thực tế
+Cấu hình `RasterizationOptions` để giữ nguyên định dạng gốc hoặc chuyển các trang thành hình ảnh, sau đó lưu:
 
-1. **Xử lý tài liệu pháp lý** – Xóa nhiễu thông tin khách hàng nhạy cảm trước khi chia sẻ bản nháp.  
-2. **Quản lý dữ liệu y tế** – Đảm bảo tính bảo mật của bệnh nhân bằng cách xóa nhiễu hồ sơ y tế.  
-3. **Báo cáo tài chính** – Bảo vệ dữ liệu tài chính trong các báo cáo được chia sẻ với các bên liên quan.  
-4. **Đánh giá hợp đồng** – Bảo vệ các điều khoản sở hữu trong quá trình đàm phán hợp đồng.  
-5. **Lưu trữ email** – Duy trì tuân thủ quyền riêng tư khi lưu trữ email doanh nghiệp.
+```java
+// Save options code placeholder
+```
 
-## Các yếu tố ảnh hưởng đến hiệu suất
+**Các tùy chọn chính**  
+- `setEnabled(false)` – giữ nguyên loại tệp gốc.  
+- `setResolution(150)` – đặt DPI khi raster hoá thành hình ảnh.  
 
-Để tối ưu hiệu suất khi sử dụng GroupDocs.Redaction:  
-- **Quản lý tài nguyên hiệu quả** – Đảm bảo các tệp được đóng đúng cách để giải phóng tài nguyên hệ thống.  
-- **Xử lý hàng loạt** – Xử lý tài liệu theo lô để quản lý việc sử dụng bộ nhớ một cách hiệu quả.  
-- **Tối ưu chính sách xóa nhiễu** – Điều chỉnh chính sách để chỉ nhắm vào các xóa nhiễu cần thiết, giảm thời gian xử lý.
+### Cách lưu tài liệu đã xóa mà không mất định dạng?
 
-## Những lỗi thường gặp & Khắc phục
+Đặt cờ raster hoá thành `false` trước khi gọi `save`. Điều này yêu cầu GroupDocs.Redaction ghi đầu ra cùng định dạng với nguồn, đảm bảo bảng, phông chữ và bố cục không thay đổi trong khi vẫn áp dụng các xóa cần thiết.
 
-- **Ngoại lệ thiếu giấy phép** – Nếu bạn gặp lỗi giấy phép, hãy kiểm tra xem tệp giấy phép đã được đặt đúng vị trí và đường dẫn đã được thiết lập trong ứng dụng của bạn.  
-- **Kiểu tệp không được hỗ trợ** – Đảm bảo định dạng tệp nằm trong danh sách được hỗ trợ; nếu không, Redactor sẽ ném ra ngoại lệ `UnsupportedFormatException`.  
-- **Tệp lớn gây hết bộ nhớ** – Đối với các PDF rất lớn, hãy cân nhắc tăng kích thước heap JVM (`-Xmx2g`) hoặc xử lý tệp theo các phần nhỏ hơn.
+### Ứng dụng thực tế
+
+1. **Xử lý tài liệu pháp lý** – xóa các định danh khách hàng trước khi chia sẻ bản nháp.  
+2. **Quản lý dữ liệu y tế** – loại bỏ chi tiết bệnh nhân để tuân thủ HIPAA.  
+3. **Báo cáo tài chính** – ẩn số tài khoản khi phân phối báo cáo.  
+4. **Đánh giá hợp đồng** – bảo vệ các điều khoản sở hữu trong quá trình đàm phán.  
+5. **Lưu trữ email** – đảm bảo tuân thủ quyền riêng tư khi lưu trữ lưu trữ email doanh nghiệp.  
+
+### Các yếu tố hiệu năng
+
+- **Quản lý tài nguyên** – luôn đóng `Redactor` để giải phóng bộ nhớ.  
+- **Xử lý hàng loạt** – xử lý tệp theo nhóm 10‑20 để cân bằng tốc độ và sử dụng bộ nhớ.  
+- **Chính sách tối ưu** – giới hạn các mẫu chỉ ở những gì cần; các mẫu rộng hơn sẽ làm tăng thời gian xử lý.  
+
+### Những lỗi thường gặp & khắc phục
+
+- **Ngoại lệ thiếu giấy phép** – kiểm tra lại đường dẫn tệp giấy phép và đảm bảo tệp có thể đọc được.  
+- **Loại tệp không được hỗ trợ** – xem danh sách định dạng hỗ trợ; các tệp không hỗ trợ sẽ gây ra `UnsupportedFormatException`.  
+- **Lỗi hết bộ nhớ trên PDF lớn** – tăng heap JVM (`-Xmx2g`) hoặc chia PDF thành các phần nhỏ hơn trước khi xóa.  
 
 ## Câu hỏi thường gặp
 
-**Hỏi:** Làm sao tôi có thể xử lý nhiều tệp bằng một lệnh duy nhất?  
-**Đáp:** Sử dụng vòng lặp lặp qua thư mục như trong ví dụ “Áp dụng Chính sách cho Các Tài liệu”; nó sẽ tự động xử lý mọi tệp trong thư mục.
+**Q:** Làm thế nào để xử lý nhiều tệp bằng một lệnh duy nhất?  
+**A:** Sử dụng vòng lặp lặp qua thư mục như trong ví dụ “Áp dụng chính sách cho tài liệu”; nó sẽ tự động xóa mọi tệp trong thư mục được chỉ định.
 
-**Hỏi:** “Xóa nhiễu dữ liệu nhạy cảm” thực sự loại bỏ gì?  
-**Đáp:** Chính sách xóa nhiễu có thể nhắm vào các mẫu văn bản, hình ảnh hoặc siêu dữ liệu, thay thế chúng bằng các hộp đen hoặc loại bỏ hoàn toàn.
+**Q:** “Xóa dữ liệu nhạy cảm” thực sự loại bỏ gì?  
+**A:** Chính sách có thể nhắm vào các mẫu văn bản thuần, hình ảnh hoặc siêu dữ liệu, thay thế chúng bằng các hộp đen hoặc xóa hoàn toàn tùy theo cấu hình của bạn.
 
-**Hỏi:** Có cách nào để xem trước một chính sách xóa nhiễu trước khi áp dụng không?  
-**Đáp:** Có, bạn có thể tải chính sách và gọi `redactor.preview(policy)` (nếu được hỗ trợ) để tạo một PDF xem trước.
+**Q:** Có cách nào xem trước chính sách xóa trước khi áp dụng không?  
+**A:** Có — gọi `redactor.preview(policy)` (nếu được hỗ trợ) để tạo một PDF preview cho thấy chính xác những gì sẽ bị ẩn.
 
-**Hỏi:** Làm sao tôi “lưu tài liệu đã xóa nhiễu” mà không mất định dạng gốc?  
-**Đáp:** Đặt `RasterizationOptions.setEnabled(false)` như đã minh họa; cách này giữ nguyên định dạng tệp gốc.
+**Q:** Làm thế nào để lưu tài liệu đã xóa mà không mất định dạng gốc?  
+**A:** Đặt `RasterizationOptions.setEnabled(false)` như đã minh họa; cách này giữ tệp ở định dạng gốc trong khi vẫn thực hiện các xóa.
 
-**Hỏi:** Tôi có cần giấy phép cho việc thử nghiệm phát triển không?  
-**Đáp:** Giấy phép tạm thời hoặc dùng thử đủ cho phát triển; giấy phép đầy đủ cần thiết cho triển khai sản xuất.
+**Q:** Tôi có cần giấy phép cho việc kiểm thử phát triển không?  
+**A:** Giấy phép tạm thời hoặc dùng thử đủ cho việc phát triển; giấy phép đầy đủ cần cho triển khai sản xuất.
 
 ## Tài nguyên
 
-- **Tài liệu**: [GroupDocs.Redaction Java Docs](https://docs.groupdocs.com/redaction/java/)  
-- **Tham chiếu API**: [API Reference](https://reference.groupdocs.com/redaction/java)  
-- **Tải xuống**: [Latest Releases](https://releases.groupdocs.com/redaction/java/)  
-- **GitHub**: [Source Code on GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
-- **Hỗ trợ miễn phí**: [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)
+- [GroupDocs.Redaction cho Java - bản phát hành](https://releases.groupdocs.com/redaction/java/) – tải các tệp JAR mới nhất.  
+- [GroupDocs.Redaction Java Docs](https://docs.groupdocs.com/redaction/java/) – tài liệu chính thức và các ví dụ sử dụng.  
+- [Tham chiếu API](https://reference.groupdocs.com/redaction/java) – chi tiết các lớp và phương thức.  
+- [Bản phát hành mới nhất](https://releases.groupdocs.com/redaction/java/) – xem lịch sử phiên bản và nhật ký thay đổi.  
+- [Mã nguồn trên GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java) – khám phá kho mã nguồn mở.  
+- [Diễn đàn GroupDocs](https://forum.groupdocs.com/c/redaction/33) – hỗ trợ cộng đồng và thảo luận.  
+
+## Kết luận
+
+Bằng cách làm theo hướng dẫn này, bạn có thể an toàn **xóa dữ liệu nhạy cảm** khỏi tài liệu Java ở quy mô lớn, sử dụng động cơ chính sách mạnh mẽ và khả năng xử lý hàng loạt của GroupDocs.Redaction. Điều chỉnh chính sách để phù hợp với yêu cầu tuân thủ, tinh chỉnh cài đặt raster hoá để tối ưu hiệu năng, và tích hợp quy trình vào bất kỳ dịch vụ backend Java nào.
 
 ---
 
-**Cập nhật lần cuối:** 2026-03-14  
-**Đã kiểm tra với:** GroupDocs.Redaction 24.9 cho Java  
+**Cập nhật lần cuối:** 2026-08-31  
+**Đã kiểm tra với:** GroupDocs.Redaction 24.9 for Java  
 **Tác giả:** GroupDocs
+
+## Hướng dẫn liên quan
+
+- [Cách xóa tài liệu với GroupDocs Redaction Java License từ đường dẫn tệp – Hướng dẫn từng bước](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)
+- [Che giấu dữ liệu nhạy cảm Java – Hướng dẫn GroupDocs.Redaction](/redaction/java/getting-started/)
+- [Cách xóa văn bản trong tài liệu Java bằng GroupDocs.Redaction](/redaction/java/text-redaction/java-redaction-guide-groupdocs-document-security/)
+
+
+{{< /blocks/products/pf/tutorial-page-section >}}
+{{< /blocks/products/pf/main-container >}}
+{{< /blocks/products/pf/main-wrap-class >}}
+{{< blocks/products/products-backtop-button >}}

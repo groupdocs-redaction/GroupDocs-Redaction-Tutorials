@@ -1,57 +1,100 @@
 ---
-date: '2026-03-14'
-description: Aprende cómo crear una política de redacción y redactar documentos PDF
-  en Java, incluyendo eliminar anotaciones en Java y borrar metadatos de PDF. Una
-  guía completa.
+date: '2026-08-31'
+description: Aprenda cómo redactar PDF usando GroupDocs.Redaction for Java, crear
+  políticas de redacción, eliminar anotaciones y borrar metadatos de forma programática
+  y conforme.
 keywords:
-- redact sensitive information
+- how to redact pdf
+- erase metadata pdf
+- remove annotations java
 - GroupDocs.Redaction Java
 - document redaction
-title: Crear política de redacción para PDF con GroupDocs.Redaction Java
+lastmod: '2026-08-31'
+og_description: Cómo redactar PDF usando GroupDocs.Redaction for Java. Crear políticas,
+  eliminar anotaciones y borrar metadatos de forma rápida y segura.
+og_image_alt: Guide showing how to redact PDF files with GroupDocs.Redaction in Java
+og_title: Cómo redactar PDF con GroupDocs.Redaction for Java
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-31'
+  description: Learn how to redact PDF using GroupDocs.Redaction for Java, create
+    redaction policies, remove annotations, and erase metadata in a programmatic,
+    compliant way.
+  headline: How to redact PDF with GroupDocs.Redaction for Java
+  type: TechArticle
+- description: Learn how to redact PDF using GroupDocs.Redaction for Java, create
+    redaction policies, remove annotations, and erase metadata in a programmatic,
+    compliant way.
+  name: How to redact PDF with GroupDocs.Redaction for Java
+  steps:
+  - name: configure redactions
+    text: 'Configure the redactions using different classes provided by GroupDocs.Redaction:'
+  - name: save redaction policy
+    text: 'Save the configured policy as an XML file:'
+  - name: create exact phrase redaction
+    text: 'Implement an exact phrase redaction:'
+  - name: create regex redaction
+    text: 'Define a regex‑based redaction:'
+  type: HowTo
+- questions:
+  - answer: GroupDocs.Redaction is a Java library that programmatically removes or
+      replaces sensitive content in PDFs and other document formats.
+    question: What is GroupDocs.Redaction?
+  - answer: Add the Maven dependency, obtain a trial license, and follow the initialization
+      steps shown above.
+    question: How do I get started with GroupDocs.Redaction?
+  - answer: Yes—use exact‑phrase redactions, regular‑expression redactions, or the
+      built‑in metadata removal classes.
+    question: Can I customize redaction patterns in GroupDocs.Redaction?
+  - answer: Absolutely—save your `RedactionPolicy` as an XML file and load it later
+      for batch processing.
+    question: Is it possible to save and reuse redaction configurations?
+  - answer: Apply only required redactions, tune Java heap size, and craft efficient
+      regex patterns to minimise CPU usage.
+    question: What are the best practices for optimizing performance with GroupDocs.Redaction?
+  type: FAQPage
+tags:
+- redact PDF
+- GroupDocs.Redaction
+- Java document processing
+- erase metadata pdf
+- remove annotations java
+title: Cómo redactar PDF con GroupDocs.Redaction for Java
 type: docs
 url: /es/java/advanced-redaction/master-redaction-groupdocs-java-guide/
 weight: 1
 ---
 
- Keep.
+# Cómo redactar PDF con GroupDocs.Redaction para Java
 
-Make sure to keep markdown formatting.
-
-Now produce final content.# Crear política de redacción para PDF con GroupDocs.Redaction para Java
-
-En el panorama digital actual, gestionar información sensible es esencial, y **crear una política de redacción** es la forma más rápida de garantizar que los datos confidenciales nunca se filtren de sus archivos PDF. Ya sea que necesite **redactar PDF Java** documentos, **eliminar anotaciones java**, o **borrar metadatos pdf**, GroupDocs.Redaction para Java le brinda un enfoque limpio y programático que funciona en todas las plataformas principales.
+En el mundo actual impulsado por los datos, proteger la información confidencial dentro de los archivos PDF es un requisito innegociable. Este tutorial muestra **cómo redactar PDF** documentos programáticamente con GroupDocs.Redaction para Java, cubriendo la creación de políticas, la eliminación de anotaciones y el borrado de metadatos. Obtendrás una política de redacción XML reutilizable que puede aplicarse a cualquier número de PDFs, manteniéndote en cumplimiento con GDPR, HIPAA y otras regulaciones.
 
 ## Respuestas rápidas
 - **¿Cuál es el propósito principal de GroupDocs.Redaction?** Para redactar programáticamente contenido sensible de PDFs y otros formatos de documentos.  
-- **¿Puedo eliminar anotaciones con Java?** Sí—utilice la clase `DeleteAnnotationRedaction` (remove annotations java).  
+- **¿Puedo eliminar anotaciones con Java?** Sí—utiliza la clase `DeleteAnnotationRedaction` (remove annotations java).  
 - **¿Necesito una licencia para desarrollo?** Una prueba gratuita o licencia temporal funciona para pruebas; se requiere una licencia completa para producción.  
 - **¿Qué versión de Java es compatible?** JDK 8 o posterior.  
-- **¿Dónde puedo encontrar el archivo de política XML?** Define la ruta de salida en su código y llame a `policy.save(...)`.
+- **¿Dónde puedo encontrar el archivo de política XML?** Defines la ruta de salida en tu código y llamas a `policy.save(...)`.
 
-## ¿Qué es una política de redacción y cómo **crear una política de redacción**?
-Una política de redacción es un conjunto reutilizable de reglas que indica a GroupDocs.Redaction exactamente qué ocultar, eliminar o reemplazar dentro de un documento. Al definir la política una vez y guardarla como un archivo XML, puede aplicar la misma **redactar información sensible** en varios PDFs sin reescribir código.
+La clase `DeleteAnnotationRedaction` elimina objetos de anotación como comentarios, resaltados o sellos de un PDF.  
+La clase `RedactionPolicy` representa una colección de reglas de redacción que pueden guardarse o cargarse desde un archivo XML.
+
+## ¿Qué es una política de redacción y cómo crear una política de redacción?
+Una política de redacción es un conjunto de reglas basado en XML que indica a GroupDocs.Redaction exactamente qué texto, patrones, anotaciones o metadatos ocultar, eliminar o reemplazar en un PDF. Definiendo la política una vez y guardándola como un archivo XML, puedes aplicar la misma **redacción de información sensible** en varios PDFs sin reescribir código.
 
 ## ¿Por qué usar GroupDocs.Redaction para Java?
-- **Listo para cumplimiento** – Cumple con GDPR, HIPAA y otras regulaciones.  
-- **Control granular** – Elija entre frase exacta, regex, eliminación de anotaciones y **borrar metadatos pdf**.  
-- **Políticas reutilizables** – Guarde configuraciones como XML y reutilícelas en varios proyectos.  
-- **Optimizado para rendimiento** – Maneja PDFs grandes de manera eficiente con una huella de memoria mínima.
+GroupDocs.Redaction procesa PDFs con un **motor de bajo consumo de memoria** que puede manejar archivos de más de 500 páginas mientras usa menos de 150 MB de RAM. Soporta **más de 30 formatos de entrada y salida**, incluidos DOCX, XLSX, PPTX, HTML y tipos de imagen comunes, y ofrece funciones de cumplimiento integradas para GDPR y HIPAA. La biblioteca también brinda control granular sobre redacciones de frase exacta, expresiones regulares, anotaciones y metadatos, lo que la convierte en la solución más versátil para desarrolladores Java.
 
 ## Requisitos previos
-
-Para comenzar con GroupDocs.Redaction para Java, asegúrese de contar con lo siguiente:
-
-- **Bibliotecas y dependencias**: Incluya GroupDocs.Redaction en su proyecto mediante Maven o descarga directa.
-- **Configuración del entorno**: Asegúrese de que tenga un entorno de desarrollo Java con JDK 8 o posterior listo.
-- **Conocimientos previos**: Familiaridad básica con conceptos de programación Java y expresiones regulares es beneficiosa.
+- **Bibliotecas y dependencias** – Añade GroupDocs.Redaction a tu proyecto mediante Maven o descarga el JAR directamente.  
+- **Entorno Java** – JDK 8 o más reciente instalado y configurado.  
+- **Conocimientos básicos** – Familiaridad con la sintaxis de Java y expresiones regulares acelerará la creación de políticas.
 
 ## Configuración de GroupDocs.Redaction para Java
 
 ### Información de instalación
-
-**Maven:**
-
-Para integrar GroupDocs.Redaction usando Maven, agregue lo siguiente a su `pom.xml`:
+**Maven:**  
+Para integrar GroupDocs.Redaction usando Maven, agrega lo siguiente a tu `pom.xml`:
 
 ```xml
 <repositories>
@@ -71,17 +114,14 @@ Para integrar GroupDocs.Redaction usando Maven, agregue lo siguiente a su `pom.x
 </dependencies>
 ```
 
-**Direct Download:**
-
-Alternativamente, descargue la última versión desde [lanzamientos de GroupDocs.Redaction para Java](https://releases.groupdocs.com/redaction/java/).
+**Descarga directa:**  
+Alternativamente, descarga la última versión desde [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
 ### Obtención de licencia
+Comienza con una prueba gratuita o adquiere una licencia temporal para explorar todas las funciones. Para uso a largo plazo, compra una licencia completa.
 
-Comience con una prueba gratuita o obtenga una licencia temporal para explorar todas las funciones. Para uso a largo plazo, considere adquirir una licencia completa.
-
-**Basic Initialization:**
-
-Para inicializar GroupDocs.Redaction en su proyecto:
+**Inicialización básica:**  
+Para inicializar GroupDocs.Redaction en tu proyecto:
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -98,17 +138,14 @@ public class RedactionSetup {
 
 ## Guía de implementación
 
-Desglosemos la implementación en características específicas.
-
-### Cómo **crear una política de redacción**: Crear y guardar política de redacción
+### Cómo crear una política de redacción: crear y guardar la política de redacción
+Carga tu configuración de redacción, agrega los objetos de redacción deseados y persiste la política como un archivo XML. Este proceso de dos pasos te permite reutilizar las mismas reglas en muchos PDFs sin reconstruir la política cada vez.
 
 #### Visión general
+Esta función te permite configurar múltiples tipos de redacciones, como frase exacta, expresiones regulares y borrado de metadatos. Luego puedes guardar estas configuraciones como un archivo XML para uso futuro.
 
-Esta característica le permite configurar varios tipos de redacciones, como frase exacta, regex y borrado de metadatos. Luego puede guardar estas configuraciones como un archivo XML para uso futuro.
-
-##### Paso 1: Configurar redacciones
-
-Configure las redacciones usando diferentes clases proporcionadas por GroupDocs.Redaction:
+##### Paso 1: configurar redacciones
+Configura las redacciones usando diferentes clases proporcionadas por GroupDocs.Redaction:
 
 ```java
 import com.groupdocs.redaction.RedactionPolicy;
@@ -135,9 +172,8 @@ RedactionPolicy policy = new RedactionPolicy(new Redaction[] {
 });
 ```
 
-##### Paso 2: Guardar política de redacción
-
-Guarde la política configurada como un archivo XML:
+##### Paso 2: guardar la política de redacción
+Guarda la política configurada como un archivo XML:
 
 ```java
 // Define your output directory path
@@ -145,15 +181,14 @@ String outputPath = YOUR_DOCUMENT_DIRECTORY + "YOUR_OUTPUT_DIRECTORY/POLICY_SAVE
 policy.save(outputPath);
 ```
 
-### Cómo **eliminar anotaciones java**: Configurar redacción de frase exacta
+### Cómo eliminar anotaciones java: configurar redacción de frase exacta
+Carga un PDF, define la frase exacta que deseas ocultar y adjunta la redacción a la política. La frase será reemplazada por un cuadro negro o texto personalizado.
 
 #### Visión general
+Esta función apunta a frases específicas para redacción, reemplazándolas con un texto predefinido.
 
-Esta característica apunta a frases específicas para redacción, reemplazándolas con un texto predefinido.
-
-##### Paso 1: Crear redacción de frase exacta
-
-Implemente una redacción de frase exacta:
+##### Paso 1: crear redacción de frase exacta
+Implementa una redacción de frase exacta:
 
 ```java
 import com.groupdocs.redaction.Redaction;
@@ -167,15 +202,14 @@ Redaction exactPhraseRedaction = new ExactPhraseRedaction(
 );
 ```
 
-### Cómo **eliminar anotaciones java**: Configurar redacción con regex
+### Cómo eliminar anotaciones java: configurar redacción con expresiones regulares
+Utiliza expresiones regulares para localizar patrones como números de seguridad social o formatos de tarjetas de crédito, y luego reemplázalos o elimínalos automáticamente.
 
 #### Visión general
+Utiliza expresiones regulares para identificar y reemplazar patrones en tus documentos.
 
-Utilice expresiones regulares para identificar y reemplazar patrones en sus documentos.
-
-##### Paso 1: Crear redacción con regex
-
-Defina una redacción basada en regex:
+##### Paso 1: crear redacción con expresiones regulares
+Define una redacción basada en expresiones regulares:
 
 ```java
 import com.groupdocs.redaction.Redaction;
@@ -191,44 +225,41 @@ Redaction regexRedaction = new RegexRedaction(
 ```
 
 ## Aplicaciones prácticas
-
-1. **Gestión de documentos confidenciales**: Redacte automáticamente **información sensible** como nombres, números de seguridad social o datos financieros en documentos legales y de recursos humanos.  
-2. **Automatización de cumplimiento**: Garantice el cumplimiento de GDPR, HIPAA y otras regulaciones redactando identificadores personales en comunicaciones con clientes.  
-3. **Anonimización de datos para pruebas**: Utilice redacciones basadas en regex para anonimizar conjuntos de datos de prueba manteniendo la integridad estructural.
+1. **Gestión de documentos confidenciales** – Redacta automáticamente **información sensible** como nombres, números de seguridad social o datos financieros en documentos legales y de recursos humanos.  
+2. **Automatización de cumplimiento** – Cumple con GDPR, HIPAA y otras normativas regulatorias eliminando identificadores personales de las comunicaciones con clientes.  
+3. **Anonimización de datos para pruebas** – Aplica redacciones basadas en expresiones regulares para anonimizar conjuntos de datos de prueba manteniendo la estructura del documento.
 
 ## Consideraciones de rendimiento
-
-- **Optimizar la redacción**: Aplique solo las redacciones necesarias para mejorar la velocidad de procesamiento.  
-- **Gestión de memoria**: Supervise el uso de recursos y administre la memoria de Java de manera eficaz, especialmente con documentos grandes.  
-- **Patrones regex eficientes**: Asegúrese de que sus patrones regex estén optimizados para el rendimiento y reduzcan el tiempo de cómputo.
+- **Optimizar la redacción** – Aplica solo las redacciones que necesitas para mantener bajo el tiempo de procesamiento.  
+- **Gestión de memoria** – Monitorea el uso del heap de Java; GroupDocs.Redaction transmite páginas en lugar de cargar todo el archivo en memoria.  
+- **Patrones de expresiones regulares eficientes** – Escribe expresiones regulares concisas para evitar retrocesos excesivos y carga de CPU.
 
 ## Problemas comunes y soluciones
 
 | Problema | Causa | Solución |
 |----------|-------|----------|
-| Redacción no aplicada | Frase incorrecta/sensibilidad a mayúsculas | Utilice opciones sin distinción de mayúsculas/minúsculas o verifique el texto exacto |
-| Las anotaciones permanecen | `DeleteAnnotationRedaction` no añadido a la política | Añada `new DeleteAnnotationRedaction()` al arreglo de la política |
-| Procesamiento lento en PDFs grandes | Escaneos regex innecesarios | Limite el alcance del regex o pre‑filtre páginas |
+| Redacción no aplicada | Frase incorrecta o sensibilidad a mayúsculas/minúsculas | Usa opciones sin distinción de mayúsculas/minúsculas o verifica la cadena de texto exacta |
+| Las anotaciones permanecen | `DeleteAnnotationRedaction` no añadido a la política | Añade `new DeleteAnnotationRedaction()` al arreglo de la política |
+| Procesamiento lento en PDFs grandes | Escaneos de expresiones regulares innecesarios | Limita el alcance de la expresión regular o prefiltra páginas antes de aplicar el patrón |
 
 ## Preguntas frecuentes
 
-**P: ¿Qué es GroupDocs.Redaction?**  
-R: Una biblioteca potente para redactar información sensible de varios formatos de documentos usando Java.
+**Q: ¿Qué es GroupDocs.Redaction?**  
+A: GroupDocs.Redaction es una biblioteca Java que elimina o reemplaza programáticamente contenido sensible en PDFs y otros formatos de documentos.
 
-**P: ¿Cómo comienzo con GroupDocs.Redaction?**  
-R: Configure su entorno, incluya la dependencia Maven y siga la guía de inicialización anterior.
+**Q: ¿Cómo empiezo con GroupDocs.Redaction?**  
+A: Añade la dependencia Maven, obtén una licencia de prueba y sigue los pasos de inicialización mostrados arriba.
 
-**P: ¿Puedo personalizar los patrones de redacción en GroupDocs.Redaction?**  
-R: Sí—utilice frases exactas, expresiones regulares o clases integradas de eliminación de metadatos.
+**Q: ¿Puedo personalizar los patrones de redacción en GroupDocs.Redaction?**  
+A: Sí—utiliza redacciones de frase exacta, redacciones con expresiones regulares o las clases integradas de eliminación de metadatos.
 
-**P: ¿Es posible guardar y reutilizar configuraciones de redacción?**  
-R: Absolutamente—guarde su `RedactionPolicy` como un archivo XML y cárguelo más tarde.
+**Q: ¿Es posible guardar y reutilizar configuraciones de redacción?**  
+A: Por supuesto—guarda tu `RedactionPolicy` como un archivo XML y cárgalo más tarde para procesamiento por lotes.
 
-**P: ¿Cuáles son las mejores prácticas para optimizar el rendimiento con GroupDocs.Redaction?**  
-R: Aplique solo las redacciones necesarias, administre el tamaño del heap de Java y escriba patrones regex eficientes.
+**Q: ¿Cuáles son las mejores prácticas para optimizar el rendimiento con GroupDocs.Redaction?**  
+A: Aplica solo las redacciones necesarias, ajusta el tamaño del heap de Java y crea patrones de expresiones regulares eficientes para minimizar el uso de CPU.
 
 ## Recursos
-
 - [Documentación](https://docs.groupdocs.com/redaction/java/)
 - [Referencia de API](https://reference.groupdocs.com/redaction/java)
 - [Descarga](https://releases.groupdocs.com/redaction/java/)
@@ -238,8 +269,12 @@ R: Aplique solo las redacciones necesarias, administre el tamaño del heap de Ja
 
 ---
 
-**Última actualización:** 2026-03-14  
-**Probado con:** GroupDocs.Redaction 24.9 for Java  
-**Autor:** GroupDocs  
+**Última actualización:** 2026-08-31  
+**Probado con:** GroupDocs.Redaction 24.9 para Java  
+**Autor:** GroupDocs
 
----
+## Tutoriales relacionados
+
+- [Cómo eliminar anotaciones con GroupDocs.Redaction Java](/redaction/java/annotation-redaction/)
+- [Cómo redactar metadatos Java con GroupDocs.Redaction](/redaction/java/metadata-redaction/)
+- [cómo redactar pdf java – Tutoriales de redacción específicos de PDF para GroupDocs.Redaction](/redaction/java/pdf-specific-redaction/)

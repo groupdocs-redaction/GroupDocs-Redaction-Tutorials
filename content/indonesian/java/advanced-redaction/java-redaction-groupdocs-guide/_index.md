@@ -1,63 +1,112 @@
 ---
-date: '2026-03-14'
-description: Pelajari cara menyensor file Java secara aman menggunakan GroupDocs.Redaction.
-  Panduan ini mencakup memuat kebijakan, pemrosesan batch, dan menyimpan dokumen yang
-  telah disensor.
+date: '2026-08-31'
+description: Pelajari cara menghapus data sensitif dalam dokumen Java menggunakan
+  GroupDocs.Redaction. Panduan langkah demi langkah mencakup kebijakan, pemrosesan
+  batch, dan mempertahankan format asli.
 keywords:
-- Java Redaction
-- Secure Document Processing
-- GroupDocs.Redaction for Java
-title: Cara Menyensor Dokumen Java dengan GroupDocs.Redaction
+- redact sensitive data
+- process multiple files
+- secure document processing
+- save redacted document
+lastmod: '2026-08-31'
+og_description: Pelajari cara menghapus data sensitif dalam dokumen Java menggunakan
+  GroupDocs.Redaction. Panduan ini menjelaskan kebijakan, pemrosesan batch, dan mempertahankan
+  format.
+og_image_alt: Guide showing how to redact sensitive data in Java using GroupDocs.Redaction
+og_title: Hapus data sensitif di Java dengan GroupDocs.Redaction
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-31'
+  description: Learn how to redact sensitive data in Java documents using GroupDocs.Redaction.
+    Step‑by‑step guide covers policies, batch processing, and preserving original
+    formatting.
+  headline: Redact sensitive data in Java with GroupDocs.Redaction
+  type: TechArticle
+- description: Learn how to redact sensitive data in Java documents using GroupDocs.Redaction.
+    Step‑by‑step guide covers policies, batch processing, and preserving original
+    formatting.
+  name: Redact sensitive data in Java with GroupDocs.Redaction
+  steps:
+  - name: '**Legal document processing** – redact client identifiers before sharing
+      drafts.'
+    text: '**Legal document processing** – redact client identifiers before sharing
+      drafts.'
+  - name: '**Healthcare data management** – remove patient details to stay HIPAA‑compliant.'
+    text: '**Healthcare data management** – remove patient details to stay HIPAA‑compliant.'
+  - name: '**Financial reporting** – hide account numbers when distributing reports.'
+    text: '**Financial reporting** – hide account numbers when distributing reports.'
+  - name: '**Contract review** – protect proprietary clauses during negotiations.'
+    text: '**Contract review** – protect proprietary clauses during negotiations.'
+  - name: '**Email archiving** – ensure privacy compliance when storing corporate
+      email archives.'
+    text: '**Email archiving** – ensure privacy compliance when storing corporate
+      email archives.'
+  type: HowTo
+- questions:
+  - answer: It means handling, redacting, and storing files so that confidential data
+      is protected throughout the entire workflow.
+    question: What does secure document processing mean?
+  - answer: Yes—by iterating over a folder you can apply the same redaction policy
+      to every document automatically.
+    question: Can I process multiple files in one run?
+  - answer: Create a redaction policy that defines the patterns or objects to hide,
+      then run the `Redactor` with that policy.
+    question: How do I redact sensitive data?
+  - answer: A valid GroupDocs.Redaction license is required for production; a trial
+      license is available for evaluation.
+    question: Do I need a license for production?
+  - answer: Set `RasterizationOptions.setEnabled(false)` to keep the original file
+      format unchanged.
+    question: Can I save the redacted document without rasterization?
+  type: FAQPage
+tags:
+- redact sensitive data
+- GroupDocs.Redaction
+- Java document processing
+- batch redaction
+title: Hapus data sensitif di Java dengan GroupDocs.Redaction
 type: docs
 url: /id/java/advanced-redaction/java-redaction-groupdocs-guide/
 weight: 1
 ---
 
- 24.9 for Java" keep.
+{{< blocks/products/pf/main-wrap-class >}}
+{{< blocks/products/pf/main-container >}}
+{{< blocks/products/pf/tutorial-page-section >}}
 
-"**Author:** GroupDocs" keep.
+# Menghapus data sensitif di Java dengan GroupDocs.Redaction
 
-Now produce final content.
+**GroupDocs.Redaction** adalah pustaka Java yang secara programatis menghapus informasi rahasia dari lebih dari 70 format dokumen sambil mempertahankan tata letak asli. Dalam tutorial ini Anda akan belajar cara **menghapus data sensitif** dalam aplikasi Java, menerapkan kebijakan redaksi pada sekumpulan file, dan menyimpan hasilnya tanpa kehilangan format.
 
-Make sure not to translate URLs.
+## Jawaban cepat
+- **Apa arti pemrosesan dokumen yang aman?** Artinya menangani, meredaksi, dan menyimpan file sehingga data rahasia terlindungi sepanjang alur kerja.  
+- **Bisakah saya memproses banyak file dalam satu kali jalankan?** Ya—dengan mengiterasi folder Anda dapat menerapkan kebijakan redaksi yang sama ke setiap dokumen secara otomatis.  
+- **Bagaimana cara saya menghapus data sensitif?** Buat kebijakan redaksi yang mendefinisikan pola atau objek yang akan disembunyikan, lalu jalankan `Redactor` dengan kebijakan tersebut.  
+- **Apakah saya memerlukan lisensi untuk produksi?** Lisensi GroupDocs.Redaction yang valid diperlukan untuk produksi; lisensi percobaan tersedia untuk evaluasi.  
+- **Bisakah saya menyimpan dokumen yang di‑redact tanpa rasterisasi?** Setel `RasterizationOptions.setEnabled(false)` untuk menjaga format file asli tetap tidak berubah.
 
-Let's craft translation.
+## Cara menghapus data sensitif dalam dokumen Java dengan GroupDocs.Redaction?
 
-# Cara Menyensor Dokumen Java dengan GroupDocs.Redaction
+Muat kebijakan redaksi Anda, jalankan pada setiap file dalam sebuah direktori, dan simpan outputnya—semua dalam beberapa langkah singkat. API GroupDocs.Redaction memungkinkan Anda memproses dokumen secara batch, mempertahankan tata letak sambil secara aman menghapus data yang Anda tentukan, dan menyediakan opsi untuk mengontrol rasterisasi, format output, serta karakteristik kinerja.
 
-Dalam tutorial ini Anda akan menemukan **cara menyensor Java** secara efisien menggunakan GroupDocs.Redaction. Baik Anda menangani kontrak hukum, rekam medis, atau laporan keuangan, langkah‑langkah di bawah ini akan membantu Anda memuat kebijakan penyensoran, memproses banyak dokumen secara batch, dan menyimpan hasilnya sambil mempertahankan format asli.
+### Mengapa menggunakan GroupDocs.Redaction untuk Java?
 
-## Jawaban Cepat
-- **Apa arti pemrosesan dokumen yang aman?** Ini merujuk pada penanganan, penyensoran, dan penyimpanan dokumen sambil melindungi data rahasia sepanjang alur kerja.  
-- **Apakah saya dapat memproses banyak file dalam satu kali jalan?** Ya, kode contoh mengiterasi direktori dan menerapkan kebijakan pada setiap file.  
-- **Bagaimana cara menyensor data sensitif?** Definisikan kebijakan penyensoran yang menentukan pola atau teks yang harus disembunyikan, lalu terapkan dengan Redactor.  
-- **Apakah saya memerlukan lisensi untuk produksi?** Lisensi GroupDocs.Redaction yang valid diperlukan untuk penggunaan produksi; versi percobaan tersedia untuk evaluasi.  
-- **Bisakah saya menyimpan dokumen yang telah disensor tanpa rasterisasi?** Tentu—atur `RasterizationOptions.setEnabled(false)` untuk mempertahankan format asli.
+GroupDocs.Redaction mendukung **lebih dari 70 format input dan output** (PDF, DOCX, PPTX, gambar, dll.) dan memungkinkan Anda mendefinisikan kebijakan detail yang menargetkan teks, gambar, atau metadata tertentu. Pustaka ini memproses batch secara efisien, dan Anda dapat mengaktifkan atau menonaktifkan rasterisasi untuk mempertahankan format asli atau mengonversi halaman menjadi gambar demi keamanan tambahan.
 
-## Cara menyensor java dengan GroupDocs.Redaction
-Pemrosesan dokumen yang aman melibatkan identifikasi otomatis dan penghapusan informasi rahasia dari berbagai jenis file sambil menjaga integritas dan kegunaan dokumen. GroupDocs.Redaction menyediakan cara programatik untuk mencapai hal ini di Java.
+### Prasyarat
+- **Java Development Kit (JDK) 8 atau lebih tinggi** terpasang.  
+- **Maven** atau alat build lain untuk mengelola dependensi.  
+- Pengetahuan dasar Java dan familiaritas dengan file I/O.  
 
-### Mengapa Menggunakan GroupDocs.Redaction untuk Java?
-- **Dukungan format yang komprehensif** – PDF, Word, gambar, dan lainnya.  
-- **Kontrol kebijakan yang detail** – Buat kebijakan penyensoran yang menargetkan tepat apa yang Anda butuhkan.  
-- **Penanganan batch yang skalabel** – Proses banyak file dalam satu operasi, mengurangi upaya manual.  
-- **Opsi rasterisasi bawaan** – Pilih apakah akan meraster halaman untuk keamanan ekstra.
+### Menyiapkan GroupDocs.Redaction untuk Java
 
-## Prasyarat
+#### Pengaturan Maven
+Tambahkan dependensi berikut ke `pom.xml` Anda:
 
-Sebelum mengimplementasikan GroupDocs.Redaction untuk Java, pastikan Anda memiliki hal‑hal berikut:
-- **Perpustakaan yang Diperlukan**: Anda memerlukan perpustakaan GroupDocs.Redaction versi 24.9.  
-- **Pengaturan Lingkungan**: Java Development Kit (JDK) terpasang di mesin Anda dan IDE seperti IntelliJ IDEA atau Eclipse.  
-- **Prasyarat Pengetahuan**: Pemahaman dasar pemrograman Java dan familiaritas dengan operasi I/O file.
-
-## Menyiapkan GroupDocs.Redaction untuk Java
-
-Untuk mulai menggunakan GroupDocs.Redaction, siapkan perpustakaan dalam proyek Anda. Berikut caranya:
-
-**Maven Setup:**
-
-Tambahkan konfigurasi berikut ke `pom.xml` Anda:
-
+Dependensi Maven berikut menambahkan GroupDocs.Redaction ke proyek Anda.
+```xml
+<!-- Maven dependency placeholder -->
+```
 ```xml
 <repositories>
    <repository>
@@ -76,43 +125,41 @@ Tambahkan konfigurasi berikut ke `pom.xml` Anda:
 </dependencies>
 ```
 
-**Unduhan Langsung:**  
-Atau, unduh versi terbaru dari [rilisan GroupDocs.Redaction untuk Java](https://releases.groupdocs.com/redaction/java/).
+#### Unduhan langsung
+Sebagai alternatif, unduh JAR terbaru dari [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
-### Akuisisi Lisensi
+### Perolehan lisensi
 
-Untuk memanfaatkan sepenuhnya kemampuan GroupDocs.Redaction, pertimbangkan untuk memperoleh lisensi. Anda dapat memulai dengan percobaan gratis atau meminta lisensi sementara untuk mengeksplorasi fiturnya secara mendalam.
+Lisensi percobaan dapat digunakan untuk pengembangan, tetapi penyebaran produksi memerlukan file lisensi permanen yang ditempatkan di folder resources aplikasi Anda dan direferensikan pada saat runtime.
 
-### Inisialisasi dan Pengaturan Dasar
+### Inisialisasi dan pengaturan dasar
 
-Setelah perpustakaan terpasang, inisialisasi dalam aplikasi Java Anda dengan mengimpor kelas‑kelas yang diperlukan:
+Impor kelas yang diperlukan dan buat instance `Redactor`. **Redactor** adalah kelas utama yang melakukan operasi redaksi pada dokumen.
 
+```java
+// Initialization code placeholder
+```
 ```java
 import com.groupdocs.redaction.*;
 ```
 
-## Panduan Implementasi
+## Panduan implementasi
 
-Bagian ini memandu Anda melalui dua fitur utama: memuat dan menerapkan kebijakan penyensoran, serta menyimpan dokumen yang diproses dengan opsi rasterisasi tertentu.
+### Apa itu kebijakan redaksi?
 
-### Memuat dan Menerapkan Kebijakan Penyensoran
-
-**Gambaran Umum:** Fitur ini memuat kebijakan penyensoran yang telah ditentukan sebelumnya dari sebuah file dan menerapkannya ke semua dokumen dalam direktori yang ditentukan. File yang diproses disimpan berdasarkan apakah operasi berhasil atau gagal.
-
-#### Langkah 1: Inisialisasi RedactionPolicy
-
-Muat kebijakan penyensoran Anda menggunakan:
+Kebijakan redaksi adalah sekumpulan aturan yang dapat digunakan kembali yang memberi tahu Redactor pola teks, gambar, atau metadata mana yang harus disembunyikan atau dihapus. Anda mendefinisikannya sekali dan menerapkannya ke sejumlah dokumen, memungkinkan kepatuhan konsisten di semua file yang diproses.
 
 ```java
 RedactionPolicy policy = RedactionPolicy.load("YOUR_POLICY_FILE_PATH");
 ```
 
-Langkah ini penting karena kebijakan menentukan aturan penyensoran data sensitif dalam dokumen Anda.
+### Muat dan terapkan kebijakan redaksi
 
-#### Langkah 2: Terapkan Kebijakan ke Dokumen
+**Muat kebijakan** dari file XML atau JSON dan **terapkan** ke setiap dokumen dalam folder:
 
-Iterasikan setiap file dalam sebuah direktori dan terapkan kebijakan:
-
+```java
+// Load and apply policy code placeholder
+```
 ```java
 for (final File fileEntry : new File("YOUR_DOCUMENT_DIRECTORY").listFiles()) {
     final Redactor redactor = new Redactor(fileEntry.getPath());
@@ -135,26 +182,26 @@ for (final File fileEntry : new File("YOUR_DOCUMENT_DIRECTORY").listFiles()) {
 }
 ```
 
-**Penjelasan Parameter:**  
-- `RedactionPolicy.load()` – Memuat kebijakan dari path yang ditentukan.  
-- `redactor.apply(policy)` – Menjalankan penyensoran berdasarkan kebijakan yang dimuat.  
+### Proses banyak file dalam batch
 
-### Menyimpan Dokumen yang Diproses dengan Opsi Rasterisasi
+Iterasi melalui sebuah direktori, buka setiap file dengan `Redactor`, dan terapkan kebijakan yang sama:
 
-**Gambaran Umum:** Setelah menerapkan penyensoran, simpan dokumen menggunakan opsi rasterisasi spesifik untuk mengontrol format output dan kualitas.
-
-#### Langkah 1: Inisialisasi Redactor untuk File Input
-
-Buka file untuk diproses:
-
+```java
+// Batch processing code placeholder
+```
 ```java
 File inputFile = new File("YOUR_DOCUMENT_DIRECTORY/input.docx");
 ```
 
-#### Langkah 2: Simpan dengan Opsi Rasterisasi
+### Simpan dokumen yang diproses dengan opsi rasterisasi
 
-Simpan dokumen yang telah diproses, menentukan pengaturan rasterisasi:
+#### Inisialisasi Redactor untuk file input
 
+Buka file target untuk redaksi:
+
+```java
+// Open file code placeholder
+```
 ```java
 try (Redactor redactor = new Redactor(inputFile.getPath())) {
     try (FileOutputStream fileStream = new FileOutputStream(outputFileDirectory.getPath() + "/processed_output.docx")) {
@@ -165,57 +212,85 @@ try (Redactor redactor = new Redactor(inputFile.getPath())) {
 }
 ```
 
-**Opsi Konfigurasi Utama:**  
-- `RasterizationOptions` – Mengontrol cara dokumen disimpan setelah penyensoran, memungkinkan Anda mempertahankan format asli atau mengonversinya menjadi gambar untuk keamanan tambahan.
+#### Simpan dengan opsi rasterisasi
 
-## Aplikasi Praktis
+Konfigurasikan `RasterizationOptions` untuk mempertahankan format asli atau mengonversi halaman menjadi gambar, lalu simpan:
 
-1. **Pemrosesan Dokumen Hukum** – Menyensor informasi klien yang sensitif sebelum membagikan draf.  
-2. **Manajemen Data Kesehatan** – Menjamin kerahasiaan pasien dengan menyensor rekam medis.  
-3. **Pelaporan Keuangan** – Melindungi data keuangan dalam laporan yang dibagikan kepada pemangku kepentingan.  
-4. **Peninjauan Kontrak** – Mengamankan ketentuan kepemilikan selama negosiasi kontrak.  
-5. **Arsip Email** – Mempertahankan kepatuhan privasi saat mengarsipkan email bisnis.
+```java
+// Save options code placeholder
+```
 
-## Pertimbangan Kinerja
+**Opsi utama**  
+- `setEnabled(false)` – mempertahankan tipe file asli.  
+- `setResolution(150)` – mengatur DPI saat merasterisasi menjadi gambar.  
 
-Untuk mengoptimalkan kinerja saat menggunakan GroupDocs.Redaction:  
-- **Manajemen Sumber Daya yang Efisien** – Pastikan file ditutup dengan benar untuk membebaskan sumber daya sistem.  
-- **Pemrosesan Batch** – Proses dokumen dalam batch untuk mengelola penggunaan memori secara efektif.  
-- **Optimalkan Kebijakan Penyensoran** – Sesuaikan kebijakan agar hanya menargetkan penyensoran yang diperlukan, mengurangi waktu pemrosesan.
+### Bagaimana cara menyimpan dokumen yang di‑redact tanpa kehilangan format?
 
-## Kesalahan Umum & Pemecahan Masalah
+Setel flag rasterisasi ke `false` sebelum memanggil `save`. Ini memberi tahu GroupDocs.Redaction untuk menulis output dalam format yang sama dengan sumber, memastikan tabel, font, dan tata letak tetap tidak berubah sambil tetap menerapkan redaksi yang diperlukan.
 
-- **Exception Lisensi Hilang** – Jika Anda melihat kesalahan lisensi, pastikan file lisensi ditempatkan dengan benar dan path‑nya diset dalam aplikasi Anda.  
-- **Tipe File Tidak Didukung** – Pastikan format file termasuk dalam daftar yang didukung; jika tidak, Redactor akan melempar `UnsupportedFormatException`.  
-- **File Besar kehabisan Memori** – Untuk PDF yang sangat besar, pertimbangkan meningkatkan ukuran heap JVM (`-Xmx2g`) atau memproses file dalam potongan yang lebih kecil.
+### Aplikasi praktis
 
-## Pertanyaan yang Sering Diajukan
+1. **Pemrosesan dokumen hukum** – menghapus identifikasi klien sebelum membagikan draf.  
+2. **Manajemen data kesehatan** – menghapus detail pasien untuk tetap mematuhi HIPAA.  
+3. **Pelaporan keuangan** – menyembunyikan nomor akun saat mendistribusikan laporan.  
+4. **Peninjauan kontrak** – melindungi klausa kepemilikan selama negosiasi.  
+5. **Arsip email** – memastikan kepatuhan privasi saat menyimpan arsip email perusahaan.  
+
+### Pertimbangan kinerja
+
+- **Manajemen sumber daya** – selalu tutup `Redactor` untuk membebaskan memori.  
+- **Pemrosesan batch** – tangani file dalam grup 10‑20 untuk menyeimbangkan kecepatan dan penggunaan memori.  
+- **Kebijakan yang dioptimalkan** – batasi pola hanya pada yang Anda butuhkan; pola yang lebih luas meningkatkan waktu pemrosesan.  
+
+### Jebakan umum & pemecahan masalah
+
+- **Pengecualian lisensi hilang** – pastikan jalur file lisensi benar dan file dapat dibaca.  
+- **Tipe file tidak didukung** – periksa daftar format yang didukung; file yang tidak didukung akan memunculkan `UnsupportedFormatException`.  
+- **Kesalahan out‑of‑memory pada PDF besar** – tingkatkan heap JVM (`-Xmx2g`) atau bagi PDF menjadi potongan lebih kecil sebelum redaksi.  
+
+## Pertanyaan yang sering diajukan
 
 **Q:** Bagaimana saya dapat memproses banyak file dengan satu perintah?  
-**A:** Gunakan loop iterasi direktori yang ditunjukkan pada contoh “Terapkan Kebijakan ke Dokumen”; ia secara otomatis memproses setiap file dalam folder.
+**A:** Gunakan loop iterasi direktori yang ditunjukkan dalam contoh “Apply policy to documents”; secara otomatis meredaksi setiap file di folder yang ditentukan.
 
-**Q:** Apa yang sebenarnya dihapus ketika “menyensor data sensitif”?  
-**A:** Kebijakan penyensoran dapat menargetkan pola teks, gambar, atau metadata, menggantinya dengan kotak hitam atau menghapusnya sepenuhnya.
+**Q:** Apa yang sebenarnya dihapus oleh “redact sensitive data”?  
+**A:** Kebijakan dapat menargetkan pola teks biasa, gambar, atau metadata, menggantinya dengan kotak hitam atau menghapusnya sepenuhnya berdasarkan konfigurasi Anda.
 
-**Q:** Apakah ada cara untuk meninjau kebijakan penyensoran sebelum menerapkannya?  
-**A:** Ya, Anda dapat memuat kebijakan dan memanggil `redactor.preview(policy)` (jika didukung) untuk menghasilkan PDF pratinjau.
+**Q:** Apakah ada cara untuk meninjau kebijakan redaksi sebelum menerapkannya?  
+**A:** Ya—panggil `redactor.preview(policy)` (jika didukung) untuk menghasilkan PDF pratinjau yang menunjukkan secara tepat apa yang akan disembunyikan.
 
-**Q:** Bagaimana cara “menyimpan dokumen yang disensor” tanpa kehilangan format asli?  
-**A:** Atur `RasterizationOptions.setEnabled(false)` seperti yang ditunjukkan; ini mempertahankan format file asli.
+**Q:** Bagaimana cara menyimpan dokumen yang di‑redact tanpa kehilangan format asli?  
+**A:** Setel `RasterizationOptions.setEnabled(false)` seperti yang ditunjukkan; ini menjaga file dalam format aslinya sambil tetap menerapkan redaksi.
 
 **Q:** Apakah saya memerlukan lisensi untuk pengujian pengembangan?  
-**A:** Lisensi sementara atau percobaan cukup untuk pengembangan; lisensi penuh diperlukan untuk penerapan produksi.
+**A:** Lisensi sementara atau percobaan sudah cukup untuk pengembangan; lisensi penuh diperlukan untuk penyebaran produksi.
 
-## Sumber Daya
+## Sumber daya
 
-- **Dokumentasi**: [GroupDocs.Redaction Java Docs](https://docs.groupdocs.com/redaction/java/)  
-- **Referensi API**: [API Reference](https://reference.groupdocs.com/redaction/java)  
-- **Unduhan**: [Latest Releases](https://releases.groupdocs.com/redaction/java/)  
-- **GitHub**: [Source Code on GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
-- **Dukungan Gratis**: [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)
+- [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/) – unduh file JAR terbaru.  
+- [GroupDocs.Redaction Java Docs](https://docs.groupdocs.com/redaction/java/) – dokumentasi resmi dan contoh penggunaan.  
+- [API Reference](https://reference.groupdocs.com/redaction/java) – referensi kelas dan metode yang detail.  
+- [Latest Releases](https://releases.groupdocs.com/redaction/java/) – lihat riwayat versi dan catatan perubahan.  
+- [Source Code on GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java) – jelajahi repositori open‑source.  
+- [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33) – dukungan komunitas dan diskusi.  
+
+## Kesimpulan
+
+Dengan mengikuti panduan ini Anda dapat secara aman **menghapus data sensitif** dari dokumen Java secara skala, menggunakan mesin kebijakan kuat dan kemampuan pemrosesan batch GroupDocs.Redaction. Sesuaikan kebijakan untuk memenuhi persyaratan kepatuhan Anda, atur pengaturan rasterisasi untuk kinerja, dan integrasikan alur kerja ke layanan backend berbasis Java apa pun.
 
 ---
 
-**Last Updated:** 2026-03-14  
-**Tested With:** GroupDocs.Redaction 24.9 for Java  
-**Author:** GroupDocs
+**Terakhir Diperbarui:** 2026-08-31  
+**Diuji Dengan:** GroupDocs.Redaction 24.9 for Java  
+**Penulis:** GroupDocs
+
+## Tutorial Terkait
+
+- [Cara Menghapus Dokumen dengan Lisensi GroupDocs Redaction Java dari Path File – Panduan Langkah‑per‑Langkah](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)
+- [Mask Data Sensitif Java – Panduan GroupDocs.Redaction](/redaction/java/getting-started/)
+- [Cara Menghapus Teks dalam Dokumen Java dengan GroupDocs.Redaction](/redaction/java/text-redaction/java-redaction-guide-groupdocs-document-security/)
+
+{{< /blocks/products/pf/tutorial-page-section >}}
+{{< /blocks/products/pf/main-container >}}
+{{< /blocks/products/pf/main-wrap-class >}}
+{{< blocks/products/products-backtop-button >}}

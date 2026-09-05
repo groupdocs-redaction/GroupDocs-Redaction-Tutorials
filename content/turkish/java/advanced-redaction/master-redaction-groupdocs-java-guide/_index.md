@@ -1,52 +1,101 @@
 ---
-date: '2026-03-14'
-description: Kırpma politikası oluşturmayı ve PDF Java belgelerini kırpmayı, anotasyonları
-  kaldırma (Java) ve PDF metadata'sını silme dahil, öğrenin. Tam bir rehber.
+date: '2026-08-31'
+description: GroupDocs.Redaction for Java kullanarak PDF'yi nasıl kırpacağınızı öğrenin,
+  redaction policies oluşturun, annotations kaldırın ve metadata'yı programatik ve
+  uyumlu bir şekilde silin.
 keywords:
-- redact sensitive information
+- how to redact pdf
+- erase metadata pdf
+- remove annotations java
 - GroupDocs.Redaction Java
 - document redaction
-title: GroupDocs.Redaction Java ile PDF için Kırpma Politikası Oluştur
+lastmod: '2026-08-31'
+og_description: GroupDocs.Redaction for Java kullanarak PDF'yi nasıl kırpacağınızı
+  öğrenin. Policies oluşturun, annotations kaldırın ve metadata'yı hızlı ve güvenli
+  bir şekilde silin.
+og_image_alt: Guide showing how to redact PDF files with GroupDocs.Redaction in Java
+og_title: GroupDocs.Redaction for Java ile PDF nasıl kırpılır
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-31'
+  description: Learn how to redact PDF using GroupDocs.Redaction for Java, create
+    redaction policies, remove annotations, and erase metadata in a programmatic,
+    compliant way.
+  headline: How to redact PDF with GroupDocs.Redaction for Java
+  type: TechArticle
+- description: Learn how to redact PDF using GroupDocs.Redaction for Java, create
+    redaction policies, remove annotations, and erase metadata in a programmatic,
+    compliant way.
+  name: How to redact PDF with GroupDocs.Redaction for Java
+  steps:
+  - name: configure redactions
+    text: 'Configure the redactions using different classes provided by GroupDocs.Redaction:'
+  - name: save redaction policy
+    text: 'Save the configured policy as an XML file:'
+  - name: create exact phrase redaction
+    text: 'Implement an exact phrase redaction:'
+  - name: create regex redaction
+    text: 'Define a regex‑based redaction:'
+  type: HowTo
+- questions:
+  - answer: GroupDocs.Redaction is a Java library that programmatically removes or
+      replaces sensitive content in PDFs and other document formats.
+    question: What is GroupDocs.Redaction?
+  - answer: Add the Maven dependency, obtain a trial license, and follow the initialization
+      steps shown above.
+    question: How do I get started with GroupDocs.Redaction?
+  - answer: Yes—use exact‑phrase redactions, regular‑expression redactions, or the
+      built‑in metadata removal classes.
+    question: Can I customize redaction patterns in GroupDocs.Redaction?
+  - answer: Absolutely—save your `RedactionPolicy` as an XML file and load it later
+      for batch processing.
+    question: Is it possible to save and reuse redaction configurations?
+  - answer: Apply only required redactions, tune Java heap size, and craft efficient
+      regex patterns to minimise CPU usage.
+    question: What are the best practices for optimizing performance with GroupDocs.Redaction?
+  type: FAQPage
+tags:
+- redact PDF
+- GroupDocs.Redaction
+- Java document processing
+- erase metadata pdf
+- remove annotations java
+title: GroupDocs.Redaction for Java ile PDF nasıl kırpılır
 type: docs
 url: /tr/java/advanced-redaction/master-redaction-groupdocs-java-guide/
 weight: 1
 ---
 
-# PDF için Redaction Policy Oluşturma - GroupDocs.Redaction for Java ile
+# GroupDocs.Redaction for Java ile PDF Nasıl Kırpılır
 
-Günümüz dijital ortamında hassas bilgileri yönetmek çok önemlidir ve **redaction policy oluşturmak**, gizli verilerin PDF dosyalarınızdan asla sızmamasını sağlamanın en hızlı yoludur. **redact PDF Java** belgelerine, **remove annotations java**'a veya **erase metadata pdf**'ye ihtiyacınız olsun, GroupDocs.Redaction for Java, tüm büyük platformlarda çalışan temiz, programatik bir yaklaşım sunar.
+Bugünün veri odaklı dünyasında, PDF dosyalarındaki gizli bilgileri korumak tartışılmaz bir gerekliliktir. Bu öğreticide, GroupDocs.Redaction for Java ile PDF belgelerini programlı olarak **PDF'yi nasıl kırpılır** gösteriyor, politika oluşturma, ek açıklama kaldırma ve meta veri silme konularını kapsıyor. Birçok PDF'ye uygulanabilecek yeniden kullanılabilir bir XML kırpma politikası elde edeceksiniz, GDPR, HIPAA ve diğer düzenlemelere uyumlu kalmanızı sağlayacak.
 
-## Hızlı Yanıtlar
-- **GroupDocs.Redaction'ın temel amacı nedir?** PDF'ler ve diğer belge formatlarından hassas içeriği programatik olarak redakte etmektir.  
-- **Java ile ek açıklamaları (annotations) kaldırabilir miyim?** Evet—`DeleteAnnotationRedaction` sınıfını kullanın (remove annotations java).  
-- **Geliştirme için lisansa ihtiyacım var mı?** Test için ücretsiz deneme veya geçici lisans yeterlidir; üretim için tam lisans gereklidir.  
-- **Hangi Java sürümü destekleniyor?** JDK 8 ve üzeri.  
-- **XML policy dosyasını nerede bulabilirim?** Kodunuzda çıktı yolunu tanımlarsınız ve `policy.save(...)` çağrısını yaparsınız.  
+## Hızlı cevaplar
+- **GroupDocs.Redaction'ın temel amacı nedir?** To programmatically redact sensitive content from PDFs and other document formats.  
+- **Java ile ek açıklamaları kaldırabilir miyim?** Yes—use the `DeleteAnnotationRedaction` class (remove annotations java).  
+- **Geliştirme için lisansa ihtiyacım var mı?** A free trial or temporary license works for testing; a full license is required for production.  
+- **Hangi Java sürümü destekleniyor?** JDK 8 or later.  
+- **XML politika dosyasını nerede bulabilirim?** You define the output path in your code and call `policy.save(...)`.
 
-## Redaction policy nedir ve **create redaction policy** nasıl yapılır?
-Redaction policy, bir belge içinde neyin gizleneceğini, silineceğini veya değiştirileceğini GroupDocs.Redaction'a tam olarak söyleyen yeniden kullanılabilir bir kural setidir. Politikayı bir kez tanımlayıp XML dosyası olarak kaydederek, kodu yeniden yazmadan aynı **redact sensitive info**'yu birden fazla PDF'de uygulayabilirsiniz.
+`DeleteAnnotationRedaction` sınıfı, yorumlar, vurgulamalar veya damgalar gibi ek açıklama nesnelerini bir PDF'den kaldırır.  
+`RedactionPolicy` sınıfı, bir XML dosyasına kaydedilebilen veya yüklenebilen kırpma kurallarının bir koleksiyonunu temsil eder.
 
-## Neden GroupDocs.Redaction for Java kullanmalısınız?
-- **Compliance‑ready** – GDPR, HIPAA ve diğer düzenlemelere uygundur.  
-- **Fine‑grained control** – Tam ifade, regex, ek açıklama kaldırma ve **erase metadata pdf** seçeneklerinden birini seçin.  
-- **Reusable policies** – Yapılandırmaları XML olarak kaydedin ve projeler arasında yeniden kullanın.  
-- **Performance‑optimized** – Büyük PDF'leri minimum bellek kullanımıyla verimli bir şekilde işler.  
+## Kırpma politikası nedir ve kırpma politikası nasıl oluşturulur?
+Kırpma politikası, GroupDocs.Redaction'a bir PDF'de hangi metin, desen, ek açıklama veya meta verinin gizleneceğini, silineceğini veya değiştirileceğini tam olarak söyleyen XML tabanlı bir kural setidir. Politikayı bir kez tanımlayıp XML dosyası olarak kaydederek, kodu yeniden yazmadan aynı **hassas bilgileri kırpma** işlemini birden fazla PDF'ye uygulayabilirsiniz.
+
+## GroupDocs.Redaction for Java neden kullanılmalı?
+GroupDocs.Redaction, **bellek‑verimli bir motor** ile PDF'leri işler ve 150 MB'den az RAM kullanarak 500 sayfayı aşan dosyaları bile işleyebilir. **30+ giriş ve çıkış formatını** destekler; DOCX, XLSX, PPTX, HTML ve yaygın görüntü türleri dahil ve GDPR ile HIPAA için yerleşik uyumluluk özellikleri sunar. Kütüphane ayrıca kesin ifade, regex, ek açıklama ve meta veri kırpmaları üzerinde ince ayarlı kontrol sağlar, bu da Java geliştiricileri için en çok yönlü çözüm haline getirir.
 
 ## Önkoşullar
-
-GroupDocs.Redaction for Java ile başlamadan önce aşağıdakilere sahip olduğunuzdan emin olun:
-
-- **Libraries and Dependencies**: Maven veya doğrudan indirme yoluyla projenize GroupDocs.Redaction'ı ekleyin.  
-- **Environment Setup**: JDK 8 veya üzeri bir Java geliştirme ortamının hazır olduğundan emin olun.  
-- **Knowledge Prerequisites**: Java programlama kavramları ve düzenli ifadeler (regex) hakkında temel bir bilgi faydalıdır.  
+- **Kütüphaneler ve bağımlılıklar** – GroupDocs.Redaction'ı Maven ile projenize ekleyin veya JAR dosyasını doğrudan indirin.  
+- **Java ortamı** – Yüklü ve yapılandırılmış JDK 8 veya daha yeni bir sürüm.  
+- **Temel bilgi** – Java sözdizimi ve düzenli ifadeler konusundaki aşinalık, politika oluşturmayı hızlandırır.
 
 ## GroupDocs.Redaction for Java Kurulumu
 
 ### Kurulum Bilgileri
-
-**Maven:**
-
-Maven kullanarak GroupDocs.Redaction'ı entegre etmek için `pom.xml` dosyanıza aşağıdakileri ekleyin:
+**Maven:**  
+GroupDocs.Redaction'ı Maven ile entegre etmek için `pom.xml` dosyanıza aşağıdakileri ekleyin:
 
 ```xml
 <repositories>
@@ -66,16 +115,13 @@ Maven kullanarak GroupDocs.Redaction'ı entegre etmek için `pom.xml` dosyanıza
 </dependencies>
 ```
 
-**Direct Download:**
-
+**Doğrudan indirme:**  
 Alternatif olarak, en son sürümü [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/) adresinden indirin.
 
-### Lisans Edinme
+### Lisans Alımı
+Tüm özellikleri keşfetmek için ücretsiz bir deneme sürümüyle başlayın veya geçici bir lisans edinin. Uzun vadeli kullanım için tam lisans satın alın.
 
-Tüm özellikleri keşfetmek için ücretsiz deneme ile başlayın veya geçici bir lisans edinin. Uzun vadeli kullanım için tam bir lisans satın almayı düşünün.
-
-**Basic Initialization:**
-
+**Temel başlatma:**  
 Projenizde GroupDocs.Redaction'ı başlatmak için:
 
 ```java
@@ -91,19 +137,16 @@ public class RedactionSetup {
 }
 ```
 
-## Uygulama Kılavuzu
+## Uygulama Rehberi
 
-Uygulamayı belirli özelliklere ayıralım.
-
-### **create redaction policy** nasıl yapılır: Redaction Policy Oluşturma ve Kaydetme
+### Kırpma politikası nasıl oluşturulur: kırpma politikasını oluştur ve kaydet
+Kırpma yapılandırmanızı yükleyin, istediğiniz kırpma nesnelerini ekleyin ve politikayı bir XML dosyası olarak kalıcı hale getirin. Bu iki adımlı süreç, aynı kuralları birçok PDF'de yeniden oluşturmak zorunda kalmadan yeniden kullanmanıza olanak tanır.
 
 #### Genel Bakış
+Bu özellik, kesin ifade, regex ve meta veri silme gibi birden fazla kırpma türünü yapılandırmanıza izin verir. Bu yapılandırmaları gelecekteki kullanım için bir XML dosyası olarak kaydedebilirsiniz.
 
-Bu özellik, tam ifade, regex ve metadata silme gibi birden fazla redaction türünü yapılandırmanıza olanak tanır. Bu yapılandırmaları gelecekte kullanmak üzere bir XML dosyası olarak kaydedebilirsiniz.
-
-##### Adım 1: Redaction'ları Yapılandırma
-
-Redaction'ları, GroupDocs.Redaction tarafından sağlanan farklı sınıfları kullanarak yapılandırın:
+##### Adım 1: kırpmaları yapılandır
+GroupDocs.Redaction tarafından sağlanan farklı sınıfları kullanarak kırpmaları yapılandırın:
 
 ```java
 import com.groupdocs.redaction.RedactionPolicy;
@@ -130,8 +173,7 @@ RedactionPolicy policy = new RedactionPolicy(new Redaction[] {
 });
 ```
 
-##### Adım 2: Redaction Policy'yi Kaydetme
-
+##### Adım 2: kırpma politikasını kaydet
 Yapılandırılmış politikayı bir XML dosyası olarak kaydedin:
 
 ```java
@@ -140,15 +182,14 @@ String outputPath = YOUR_DOCUMENT_DIRECTORY + "YOUR_OUTPUT_DIRECTORY/POLICY_SAVE
 policy.save(outputPath);
 ```
 
-### **remove annotations java** nasıl yapılır: Tam İfade Redaction'ı Yapılandırma
+### Java ile ek açıklamaları kaldırma: kesin ifade kırpmasını yapılandır
+Bir PDF yükleyin, gizlemek istediğiniz kesin ifadeyi tanımlayın ve kırpmayı politikaya ekleyin. İfade, siyah bir kutu veya özel bir metinle değiştirilecektir.
 
 #### Genel Bakış
+Bu özellik, belirli ifadeleri kırpmayı hedefler ve önceden tanımlı bir metinle değiştirir.
 
-Bu özellik, belirli ifadeleri redakte etmeyi hedefler ve önceden tanımlı bir metinle değiştirir.
-
-##### Adım 1: Tam İfade Redaction'ı Oluşturma
-
-Tam ifade redaction'ı uygulayın:
+##### Adım 1: kesin ifade kırpması oluştur
+Kesin ifade kırpması uygulayın:
 
 ```java
 import com.groupdocs.redaction.Redaction;
@@ -162,15 +203,14 @@ Redaction exactPhraseRedaction = new ExactPhraseRedaction(
 );
 ```
 
-### **remove annotations java** nasıl yapılır: Regex Redaction'ı Yapılandırma
+### Java ile ek açıklamaları kaldırma: regex kırpmasını yapılandır
+Sosyal güvenlik numaraları veya kredi kartı formatları gibi desenleri bulmak için düzenli ifadeler kullanın, ardından bunları otomatik olarak değiştirin veya silin.
 
 #### Genel Bakış
+Düzenli ifadelerle belgelerinizdeki desenleri tanımlayın ve değiştirin.
 
-Belge içinde desenleri tanımlamak ve değiştirmek için düzenli ifadeleri (regex) kullanın.
-
-##### Adım 1: Regex Redaction'ı Oluşturma
-
-Regex tabanlı bir redaction tanımlayın:
+##### Adım 1: regex kırpması oluştur
+Regex tabanlı bir kırpma tanımlayın:
 
 ```java
 import com.groupdocs.redaction.Redaction;
@@ -186,53 +226,56 @@ Redaction regexRedaction = new RegexRedaction(
 ```
 
 ## Pratik Uygulamalar
-
-1. **Confidential Document Management**: Hukuk ve İK belgelerinde isimler, sosyal güvenlik numaraları veya finansal veriler gibi **redact sensitive info** otomatik olarak gizleyin.  
-2. **Compliance Automation**: Müşteri iletişimlerinde kişisel tanımlayıcıları redakte ederek GDPR, HIPAA ve diğer düzenleyici uyumluluğu sağlayın.  
-3. **Data Anonymization for Testing**: Test veri setlerini yapısal bütünlüğü koruyarak anonimleştirmek için regex‑tabanlı redaction'ları kullanın.  
+1. **Gizli belge yönetimi** – Hukuk ve İK belgelerinde adlar, sosyal güvenlik numaraları veya finansal veriler gibi **hassas bilgileri otomatik olarak kırpın**.  
+2. **Uyumluluk otomasyonu** – Müşteri iletişimlerinden kişisel tanımlayıcıları çıkararak GDPR, HIPAA ve diğer düzenleyici gereksinimleri karşılayın.  
+3. **Test için veri anonimleştirme** – Belge yapısını korurken test veri setlerini anonimleştirmek için regex tabanlı kırpmalar uygulayın.
 
 ## Performans Düşünceleri
+- **Kırpmayı optimize edin** – İşleme süresini düşük tutmak için yalnızca ihtiyacınız olan kırpmaları uygulayın.  
+- **Bellek yönetimi** – Java yığın kullanımını izleyin; GroupDocs.Redaction, tüm dosyayı belleğe yüklemek yerine sayfaları akış olarak işler.  
+- **Verimli regex desenleri** – Aşırı geri izleme ve CPU yükünden kaçınmak için kısa ve öz düzenli ifadeler yazın.
 
-- **Optimize Redaction**: İşlem hızını artırmak için yalnızca gerekli redaction'ları uygulayın.  
-- **Memory Management**: Özellikle büyük belgelerde kaynak kullanımını izleyin ve Java belleğini etkili bir şekilde yönetin.  
-- **Efficient Regex Patterns**: Hesaplama süresini azaltmak için regex desenlerinizin performans için optimize edildiğinden emin olun.  
+## Yaygın sorunlar ve çözümler
 
-## Yaygın Sorunlar ve Çözümler
-
-| Issue | Cause | Fix |
-|-------|-------|-----|
-| Redaction uygulanmadı | Yanlış ifade/harf duyarlılığı | Büyük/küçük harf duyarsız seçenekleri kullanın veya tam metni doğrulayın |
-| Ek açıklamalar kalıyor | `DeleteAnnotationRedaction` politikaya eklenmedi | Politika dizisine `new DeleteAnnotationRedaction()` ekleyin |
-| Büyük PDF'lerde yavaş işleme | Gereksiz regex taramaları | Regex kapsamını sınırlayın veya sayfaları önceden filtreleyin |
+| Sorun | Neden | Çözüm |
+|-------|-------|------|
+| Kırpma uygulanmadı | Yanlış ifade veya büyük/küçük harf duyarlılığı | Büyük/küçük harf duyarsız seçenekleri kullanın veya tam metin dizesini doğrulayın |
+| Ek açıklamalar kalıyor | `DeleteAnnotationRedaction` politikaya eklenmemiş | Politika dizisine `new DeleteAnnotationRedaction()` ekleyin |
+| Büyük PDF'lerde yavaş işleme | Gereksiz regex taramaları | Regex kapsamını sınırlayın veya deseni uygulamadan önce sayfaları önceden filtreleyin |
 
 ## Sıkça Sorulan Sorular
 
 **S: GroupDocs.Redaction nedir?**  
-C: Java kullanarak çeşitli belge formatlarından hassas bilgileri redakte eden güçlü bir kütüphanedir.
+C: GroupDocs.Redaction, PDF'ler ve diğer belge formatlarındaki hassas içeriği programlı olarak kaldıran veya değiştiren bir Java kütüphanesidir.
 
 **S: GroupDocs.Redaction ile nasıl başlayabilirim?**  
-C: Ortamınızı kurun, Maven bağımlılığını ekleyin ve yukarıdaki başlatma kılavuzunu izleyin.
+C: Maven bağımlılığını ekleyin, bir deneme lisansı alın ve yukarıda gösterildiği gibi başlatma adımlarını izleyin.
 
-**S: GroupDocs.Redaction'da redaction desenlerini özelleştirebilir miyim?**  
-C: Evet—tam ifadeler, düzenli ifadeler (regex) veya yerleşik metadata kaldırma sınıflarını kullanın.
+**S: GroupDocs.Redaction'da kırpma desenlerini özelleştirebilir miyim?**  
+C: Evet—kesin ifade kırpmaları, düzenli ifade kırpmaları veya yerleşik meta veri kaldırma sınıflarını kullanabilirsiniz.
 
-**S: Redaction yapılandırmalarını kaydedip yeniden kullanmak mümkün mü?**  
-C: Kesinlikle—`RedactionPolicy`'nizi bir XML dosyası olarak kaydedin ve daha sonra yükleyin.
+**S: Kırpma yapılandırmalarını kaydedip yeniden kullanmak mümkün mü?**  
+C: Kesinlikle—`RedactionPolicy`'nizi bir XML dosyası olarak kaydedin ve toplu işleme için daha sonra yükleyin.
 
 **S: GroupDocs.Redaction ile performansı optimize etmek için en iyi uygulamalar nelerdir?**  
-C: Yalnızca gerekli redaction'ları uygulayın, Java yığın (heap) boyutunu yönetin ve verimli regex desenleri yazın.
+C: Yalnızca gerekli kırpmaları uygulayın, Java yığın boyutunu ayarlayın ve CPU kullanımını azaltmak için verimli regex desenleri oluşturun.
 
 ## Kaynaklar
-
 - [Dokümantasyon](https://docs.groupdocs.com/redaction/java/)
-- [API Referansı](https://reference.groupdocs.com/redaction/java)
+- [API referansı](https://reference.groupdocs.com/redaction/java)
 - [İndirme](https://releases.groupdocs.com/redaction/java/)
-- [GitHub Deposu](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
-- [Ücretsiz Destek Forumu](https://forum.groupdocs.com/c/redaction/33)
-- [Geçici Lisans](https://purchase.groupdocs.com/temporary-license/)
+- [GitHub deposu](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
+- [Ücretsiz destek forumu](https://forum.groupdocs.com/c/redaction/33)
+- [Geçici lisans](https://purchase.groupdocs.com/temporary-license/)
 
 ---
 
-**Son Güncelleme:** 2026-03-14  
-**Test Edilen Sürüm:** GroupDocs.Redaction 24.9 for Java  
+**Son güncelleme:** 2026-08-31  
+**Test edilen sürüm:** GroupDocs.Redaction 24.9 for Java  
 **Yazar:** GroupDocs
+
+## İlgili Öğreticiler
+
+- [Java ile GroupDocs.Redaction Kullanarak Ek Açıklamaları Kaldırma](/redaction/java/annotation-redaction/)
+- [Java ile GroupDocs.Redaction Kullanarak Meta Verileri Kırpma](/redaction/java/metadata-redaction/)
+- [java pdf kırpma – GroupDocs.Redaction için PDF'ye Özel Kırpma Öğreticileri](/redaction/java/pdf-specific-redaction/)

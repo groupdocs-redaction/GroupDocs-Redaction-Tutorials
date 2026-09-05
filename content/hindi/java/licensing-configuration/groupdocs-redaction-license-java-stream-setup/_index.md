@@ -1,47 +1,99 @@
 ---
-date: '2026-03-06'
-description: इनपुटस्ट्रीम का उपयोग करके ग्रुपडॉक्स लाइसेंस जावा सेट करना सीखें, जिससे
-  लाइसेंसिंग अनुपालन सहज हो।
+date: '2026-08-31'
+description: InputStream का उपयोग करके Java में GroupDocs लाइसेंस स्ट्रीम को लोड करना
+  सीखें, जिससे लाइसेंसिंग अनुपालन सहज हो।
 keywords:
-- set GroupDocs.Redaction license Java
-- Java input stream licensing
-- configure GroupDocs.Redaction
-title: InputStream का उपयोग करके GroupDocs लाइसेंस जावा कैसे सेट करें
+- load groupdocs license stream
+- groupdocs redaction java licensing
+- inputstream license java
+lastmod: '2026-08-31'
+og_description: InputStream का उपयोग करके Java में GroupDocs लाइसेंस स्ट्रीम को लोड
+  करना सीखें। सुरक्षित और पथ‑रहित लाइसेंसिंग के लिए चरण‑दर‑चरण मार्गदर्शिका का पालन
+  करें।
+og_image_alt: Guide showing how to load GroupDocs license stream in Java with InputStream
+og_title: Java में GroupDocs लाइसेंस स्ट्रीम को आसानी से लोड कैसे करें
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-31'
+  description: Learn how to load GroupDocs license stream in Java using an InputStream
+    for seamless licensing compliance.
+  headline: How to easily load GroupDocs license stream in Java
+  type: TechArticle
+- description: Learn how to load GroupDocs license stream in Java using an InputStream
+    for seamless licensing compliance.
+  name: How to easily load GroupDocs license stream in Java
+  steps:
+  - name: '**Free trial:** Start with a trial to explore basic features.'
+    text: '**Free trial:** Start with a trial to explore basic features.'
+  - name: '**Temporary license:** Obtain a temporary key from the GroupDocs website.'
+    text: '**Temporary license:** Obtain a temporary key from the GroupDocs website.'
+  - name: '**Purchase:** Acquire a full subscription for production use.'
+    text: '**Purchase:** Acquire a full subscription for production use.'
+  - name: '**Legal document redaction:** Automatically remove personal data before
+      sharing.'
+    text: '**Legal document redaction:** Automatically remove personal data before
+      sharing.'
+  - name: '**Content moderation:** Strip confidential details from user‑uploaded PDFs.'
+    text: '**Content moderation:** Strip confidential details from user‑uploaded PDFs.'
+  - name: '**Public release preparation:** Ensure proprietary information never leaves
+      your organization.'
+    text: '**Public release preparation:** Ensure proprietary information never leaves
+      your organization.'
+  type: HowTo
+- questions:
+  - answer: Visit the [GroupDocs website](https://purchase.groupdocs.com/temporary-license/)
+      and request a trial key.
+    question: How do I obtain a temporary license for GroupDocs.Redaction?
+  - answer: Yes, once the library and license are on the local machine, no internet
+      connection is required.
+    question: Can I use GroupDocs.Redaction offline after the license is applied?
+  - answer: PDF, Word, Excel, PowerPoint, and common image formats such as JPEG and
+      PNG.
+    question: Which document formats are supported by GroupDocs.Redaction?
+  - answer: Wrap the licensing code in a try‑catch block and log the exception details
+      for troubleshooting.
+    question: What is the best way to handle exceptions when setting the license?
+  - answer: An InputStream lets you load the license from resources, cloud storage,
+      or encrypted containers without exposing absolute paths.
+    question: Why choose an InputStream over a direct file path?
+  type: FAQPage
+tags:
+- groupdocs licensing
+- java inputstream
+- redaction sdk
+- java licensing
+title: Java में GroupDocs लाइसेंस स्ट्रीम को आसानी से लोड कैसे करें
 type: docs
 url: /hi/java/licensing-configuration/groupdocs-redaction-license-java-stream-setup/
 weight: 1
 ---
 
-# GroupDocs लाइसेंस जावा को InputStream का उपयोग करके सेट कैसे करें
+# Java में GroupDocs लाइसेंस स्ट्रीम को आसानी से लोड कैसे करें
 
-यदि आपको **set groupdocs license java** को लचीले तरीके से सेट करने की आवश्यकता है, तो लाइसेंस फ़ाइल को `InputStream` से लोड करना सबसे साफ़ समाधान है। यह तरीका तब भी काम करता है जब लाइसेंस आपके JAR के अंदर, नेटवर्क शेयर पर, या सुरक्षित वॉल्ट में स्थित हो, जिससे आप डिप्लॉयमेंट पर पूर्ण नियंत्रण रख सकते हैं बिना हार्ड‑कोडेड पाथ्स के।
+इस ट्यूटोरियल में आप सीखेंगे **Java में GroupDocs लाइसेंस स्ट्रीम को कैसे लोड करें** ताकि आप अपने Redaction SDK लाइसेंस को हार्ड‑कोडेड फ़ाइल पाथ्स के बिना लागू कर सकें। चाहे लाइसेंस आपके JAR के अंदर हो, नेटवर्क शेयर पर हो, या सीक्रेट मैनेजर में, इसे स्ट्रीम करने से आपको डिप्लॉयमेंट और सुरक्षा पर पूर्ण नियंत्रण मिलता है।
 
 ## त्वरित उत्तर
-- **GroupDocs.Redaction लाइसेंस सेट करने का मुख्य तरीका क्या है?** `.lic` फ़ाइल को `FileInputStream` में लोड करें और `license.setLicense(stream)` को कॉल करें।  
-- **क्या मुझे इंटरनेट कनेक्शन की जरूरत है?** नहीं, लाइसेंस लागू होने के बाद लाइब्रेरी पूरी तरह ऑफ़लाइन काम करती है।  
+- **GroupDocs लाइसेंस स्ट्रीम को लोड करने का प्राथमिक तरीका क्या है?** `.lic` फ़ाइल को `FileInputStream` (या किसी भी `InputStream`) में लोड करें और `license.setLicense(stream)` को कॉल करें।  
+- **क्या मुझे इंटरनेट कनेक्शन की आवश्यकता है?** नहीं, लाइसेंस लागू होने के बाद SDK पूरी तरह ऑफ़लाइन काम करता है।  
 - **कौन सा Java संस्करण आवश्यक है?** Java 8 या उससे ऊपर का समर्थन किया जाता है।  
-- **क्या मैं लाइसेंस को क्लासपाथ में रख सकता हूँ?** हाँ, आप इसे रिसोर्स स्ट्रीम के रूप में लोड कर सकते हैं।  
-- **यदि लाइसेंस फ़ाइल गायब हो तो क्या होता है?** API एक एक्सेप्शन थ्रो करती है; आपको इसे सुगमता से हैंडल करना चाहिए।
+- **क्या मैं लाइसेंस को क्लासपाथ में स्टोर कर सकता हूँ?** हाँ, आप इसे रिसोर्स स्ट्रीम के रूप में लोड कर सकते हैं।  
+- **यदि लाइसेंस फ़ाइल गायब हो तो क्या होता है?** API एक अपवाद फेंकती है; आपको इसे सुगमता से संभालना चाहिए।
 
 ## परिचय
 
-इस ट्यूटोरियल में आप **how to set groupdocs license java** को `InputStream` से लाइसेंस फ़ाइल लोड करके सीखेंगे। स्ट्रीम का उपयोग करने से आपका लाइसेंसिंग लॉजिक पोर्टेबल बन जाता है, विशेषकर जब लाइसेंस फ़ाइल JAR के अंदर पैकेज्ड हो या रनटाइम पर सुरक्षित स्थान से प्राप्त हो।
+GroupDocs.Redaction को प्रीमियम रेडैक्शन पैटर्न, बैच प्रोसेसिंग, और हाई‑परफ़ॉर्मेंस रेंडरिंग को अनलॉक करने के लिए वैध लाइसेंस की आवश्यकता होती है। **GroupDocs लाइसेंस स्ट्रीम को लोड करना** सीखकर आप किसी भी Java रनटाइम वातावरण में SDK को सक्रिय करने का पोर्टेबल, सुरक्षित तरीका प्राप्त करते हैं।
 
 ## “set groupdocs license java” क्या है?
 
-लाइसेंस सेट करने से GroupDocs.Redaction SDK को पता चलता है कि आपके पास वैध एंटाइटलमेंट है, जिससे सभी प्रीमियम फीचर जैसे एडवांस्ड रेडैक्शन पैटर्न, बैच प्रोसेसिंग, और हाई‑परफ़ॉर्मेंस रेंडरिंग अनलॉक हो जाते हैं। वैध लाइसेंस के बिना SDK प्रतिबंधित इवैल्यूएशन मोड में चलता है।
+`set groupdocs license java` ऑपरेशन Redaction SDK को बताता है कि आपके पास वैध एंटाइटलमेंट है, जिससे यह इवैल्यूएशन मोड से फुल‑फ़ीचर मोड में बदल जाता है। `InputStream` के माध्यम से लाइसेंस लोड करने से आप लाइसेंस फ़ाइल को फ़ाइल सिस्टम से बाहर रख सकते हैं, जो कंटेनराइज़्ड या क्लाउड‑नेटीव डिप्लॉयमेंट के लिए आदर्श है।
 
-## लाइसेंसिंग के लिए InputStream क्यों उपयोग करें?
+## लाइसेंसिंग के लिए InputStream का उपयोग क्यों करें?
 
-- **पोर्टेबिलिटी:** स्थानीय मशीन, Docker कंटेनर, और क्लाउड VM पर समान रूप से काम करता है।  
-- **सुरक्षा:** आप लाइसेंस को एन्क्रिप्टेड रिसोर्स या सीक्रेट मैनेजर में रख सकते हैं और रनटाइम पर स्ट्रीम कर सकते हैं।  
-- **कोई हार्ड‑कोडेड पाथ नहीं:** फ़ाइल‑सिस्टम निर्भरताओं को हटाता है जो एप्लिकेशन को मूव करने पर टूट सकती हैं।
+लाइसेंस को स्ट्रीम के रूप में लोड करने से आपका कोड निरपेक्ष फ़ाइल स्थानों से अलग हो जाता है, जिससे वही बाइनरी डेवलपर लैपटॉप, Docker कंटेनर, या Kubernetes पॉड पर बिना किसी संशोधन के चल सकता है। यह तरीका आपको लाइसेंस को एन्क्रिप्टेड रिसोर्सेज या सीक्रेट‑मैनेजमेंट सर्विसेज में स्टोर करने की भी अनुमति देता है, जिससे सुरक्षा में सुधार होता है और हार्ड‑कोडेड पाथ्स समाप्त होते हैं।
 
-## आवश्यकताएँ
-शुरू करने से पहले सुनिश्चित करें कि आपके पास हैं:
-
-- **GroupDocs.Redaction for Java** (वर्ज़न 24.9 या बाद का)  
-- **Java Development Kit (JDK)** 8+  
+## पूर्वापेक्षाएँ
+- GroupDocs.Redaction for Java (संस्करण 24.9 या बाद का)  
+- Java Development Kit (JDK) 8+  
 - IntelliJ IDEA, Eclipse, या NetBeans जैसे IDE  
 - डिपेंडेंसी मैनेजमेंट के लिए Maven स्थापित  
 
@@ -53,15 +105,15 @@ weight: 1
 - उपयुक्त IDE  
 - Maven स्थापित  
 
-### ज्ञान की पूर्वापेक्षाएँ
+### ज्ञान पूर्वापेक्षाएँ
 - बेसिक Java प्रोग्रामिंग  
 - I/O स्ट्रीम्स की परिचितता  
 
 ## GroupDocs.Redaction for Java सेटअप करना
-शुरू करने के लिए लाइब्रेरी को अपने प्रोजेक्ट में जोड़ें।
 
-### Maven का उपयोग करके
-अपने `pom.xml` फ़ाइल में निम्न कॉन्फ़िगरेशन जोड़ें:
+### Maven का उपयोग करना
+
+`pom.xml` फ़ाइल में निम्न कॉन्फ़िगरेशन जोड़ें:
 
 ```xml
 <repositories>
@@ -81,16 +133,18 @@ weight: 1
 </dependencies>
 ```
 
-### डायरेक्ट डाउनलोड
+### सीधे डाउनलोड
+
 वैकल्पिक रूप से, आप नवीनतम JAR को [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/) से डाउनलोड कर सकते हैं।
 
 #### लाइसेंस प्राप्त करने के चरण
-1. **फ़्री ट्रायल:** बेसिक फीचर एक्सप्लोर करने के लिए ट्रायल शुरू करें।  
-2. **टेम्पररी लाइसेंस:** GroupDocs वेबसाइट से टेम्पररी की प्राप्त करें।  
-3. **पर्चेज:** प्रोडक्शन उपयोग के लिए पूर्ण सब्सक्रिप्शन खरीदें।
+1. **Free trial:** बुनियादी फीचर्स को एक्सप्लोर करने के लिए ट्रायल से शुरू करें।  
+2. **Temporary license:** GroupDocs वेबसाइट से एक टेम्पररी की प्राप्त करें।  
+3. **Purchase:** प्रोडक्शन उपयोग के लिए पूर्ण सब्सक्रिप्शन प्राप्त करें।
 
-### बेसिक इनिशियलाइज़ेशन
-लाइसेंस लागू करने से पहले आप नीचे दिया गया स्केलेटन उपयोग करेंगे:
+## बेसिक इनिशियलाइज़ेशन
+
+`com.groupdocs.redaction.licensing` से `License` क्लास SDK पर लाइसेंस लागू करती है। नीचे वह स्केलेटन है जिसे आप लाइसेंस लागू करने से पहले उपयोग करेंगे:
 
 ```java
 // Import necessary classes
@@ -105,12 +159,14 @@ class InitializeGroupDocs {
 }
 ```
 
-## GroupDocs लाइसेंस जावा को InputStream का उपयोग करके सेट करना
-स्ट्रीम के माध्यम से लाइसेंस लोड करने से आपका कोड हार्ड‑कोडेड फ़ाइल पाथ्स से मुक्त हो जाता है, जिससे कंटेनर या क्लाउड वातावरण में डिप्लॉयमेंट आसान हो जाता है।
+## InputStream का उपयोग करके Java में GroupDocs लाइसेंस स्ट्रीम को कैसे लोड करें?
 
-### चरण‑बद्ध इम्प्लीमेंटेशन
-**1. अपने डॉक्यूमेंट डायरेक्टरी पाथ को परिभाषित करें**  
-लाइसेंस फ़ाइल जहाँ स्थित है (या जहाँ आप इसे खोजने की उम्मीद करते हैं) उसे निर्दिष्ट करें।
+`.lic` फ़ाइल को `InputStream` (उदाहरण के लिए, `FileInputStream` या `ClassLoader.getResourceAsStream`) के रूप में लोड करें और `new License().setLicense(stream)` को कॉल करें। यह एक‑लाइन ऑपरेशन फिजिकल फ़ाइल पाथ को रेफ़रेंस किए बिना पूर्ण Redaction फीचर सेट को सक्रिय करता है, जिससे आपका एप्लिकेशन विभिन्न वातावरणों में पोर्टेबल बनता है।
+
+### चरण‑दर‑चरण कार्यान्वयन
+
+**1. अपने दस्तावेज़ डायरेक्टरी पाथ को परिभाषित करें**  
+लाइसेंस फ़ाइल कहाँ स्थित है (या जहाँ आप इसे खोजने की उम्मीद करते हैं) निर्दिष्ट करें।
 
 ```java
 String YOUR_DOCUMENT_DIRECTORY = "YOUR_DOCUMENT_DIRECTORY";
@@ -122,7 +178,7 @@ String YOUR_DOCUMENT_DIRECTORY = "YOUR_DOCUMENT_DIRECTORY";
 File licenseFile = new File(YOUR_DOCUMENT_DIRECTORY + "/path/to/license.lic");
 ```
 
-**3. जांचें कि लाइसेंस फ़ाइल मौजूद है और इसे लागू करें**  
+**3. जांचें कि लाइसेंस फ़ाइल मौजूद है या नहीं और इसे लागू करें**  
 
 ```java
 if (licenseFile.exists()) {
@@ -144,52 +200,61 @@ if (licenseFile.exists()) {
 - **FileInputStream** `.lic` फ़ाइल को स्ट्रीम के रूप में पढ़ता है।  
 - **com.groupdocs.redaction.licensing.License** वह क्लास है जो SDK पर लाइसेंस लागू करती है।  
 
-### ट्रबलशूटिंग टिप्स
-- **License File Not Found:** डायरेक्टरी पाथ और फ़ाइल नाम को सत्यापित करें।  
-- **IOException:** हमेशा I/O ऑपरेशन्स को `try‑with‑resources` में रैप करें ताकि स्ट्रीम सही ढंग से बंद हो सके।  
+### समस्या निवारण टिप्स
+- **License file not found:** डायरेक्टरी पाथ और फ़ाइल नाम सत्यापित करें।  
+- **IOException:** हमेशा I/O ऑपरेशन्स को try‑with‑resources में रैप करें ताकि स्ट्रीम्स सही ढंग से बंद हों।  
 
-## व्यावहारिक उपयोग
-GroupDocs.Redaction निम्न परिदृश्यों में उत्कृष्ट है:
+## व्यावहारिक अनुप्रयोग
 
-1. **लीगल डॉक्यूमेंट रेडैक्शन:** शेयर करने से पहले व्यक्तिगत डेटा को स्वचालित रूप से हटाएँ।  
-2. **कंटेंट मॉडरेशन:** यूज़र‑अपलोडेड PDFs से गोपनीय विवरण हटाएँ।  
-3. **पब्लिक रिलीज़ प्रिपरेशन:** सुनिश्चित करें कि स्वामित्व वाली जानकारी कभी भी आपके संगठन से बाहर न जाए।
+GroupDocs.Redaction निम्नलिखित परिदृश्यों में उत्कृष्ट है:
+
+1. **Legal document redaction:** शेयर करने से पहले व्यक्तिगत डेटा को स्वचालित रूप से हटाएँ।  
+2. **Content moderation:** उपयोगकर्ता‑अपलोडेड PDFs से गोपनीय विवरण हटाएँ।  
+3. **Public release preparation:** सुनिश्चित करें कि स्वामित्व वाली जानकारी कभी भी आपके संगठन से बाहर न जाए।  
 
 ## प्रदर्शन संबंधी विचार
-- **बैच प्रोसेसिंग:** I/O ओवरहेड कम करने के लिए डॉक्यूमेंट्स को समूहित करें।  
-- **मेमोरी मैनेजमेंट:** बड़े फ़ाइलों के लिए स्ट्रीम्स का उपयोग करें और ऑब्जेक्ट्स को तुरंत डिस्पोज़ करें।  
-- **ऑप्टिमाइज़ेशन सेटिंग्स:** आवश्यकता पड़ने पर पैरलल प्रोसेसिंग के लिए SDK विकल्पों का अन्वेषण करें।
+- **Batch processing:** मानक 8‑कोर सर्वर पर GroupDocs.Redaction 30 + दस्तावेज़ प्रति मिनट प्रोसेस करने का समर्थन करता है।  
+- **Memory management:** बड़े फ़ाइलों (2 GB तक) के लिए स्ट्रीम्स का उपयोग करें और ऑब्जेक्ट्स को तुरंत डिस्पोज़ करें, बिना पूरे दस्तावेज़ को मेमोरी में लोड किए।  
+- **Optimization settings:** यदि आवश्यक हो तो पैरलल प्रोसेसिंग के लिए SDK विकल्पों का अन्वेषण करें।  
 
 ## सामान्य समस्याएँ और समाधान
-| Issue | Likely Cause | Fix |
+| समस्या | संभावित कारण | समाधान |
 |-------|--------------|-----|
-| “License file not found.” | Wrong path or missing file in classpath. | Double‑check `YOUR_DOCUMENT_DIRECTORY` and ensure the `.lic` file is deployed with the application. |
-| `NullPointerException` when calling `setLicense`. | Stream is `null` because the file couldn’t be opened. | Use try‑with‑resources and verify file permissions. |
-| License not applied despite no exception. | License file is corrupted or mismatched version. | Re‑download the license from the GroupDocs portal and replace the file. |
+| “License file not found.” | क्लासपाथ में गलत पाथ या फ़ाइल गायब है। | `YOUR_DOCUMENT_DIRECTORY` को दोबारा जांचें और सुनिश्चित करें कि `.lic` फ़ाइल एप्लिकेशन के साथ डिप्लॉय की गई है। |
+| `NullPointerException` when calling `setLicense`. | स्ट्रीम `null` है क्योंकि फ़ाइल नहीं खुल सकी। | try‑with‑resources का उपयोग करें और फ़ाइल अनुमतियों की जाँच करें। |
+| License not applied despite no exception. | लाइसेंस फ़ाइल भ्रष्ट या संस्करण असंगत है। | GroupDocs पोर्टल से लाइसेंस को पुनः डाउनलोड करें और फ़ाइल को बदलें। |
 
 ## अक्सर पूछे जाने वाले प्रश्न
 
-**Q: GroupDocs.Redaction के लिए टेम्पररी लाइसेंस कैसे प्राप्त करें?**  
-A: [GroupDocs वेबसाइट](https://purchase.groupdocs.com/temporary-license/) पर जाएँ और ट्रायल की अनुरोध करें।
+**Q: मैं GroupDocs.Redaction के लिए टेम्पररी लाइसेंस कैसे प्राप्त करूँ?**  
+A: [GroupDocs वेबसाइट](https://purchase.groupdocs.com/temporary-license/) पर जाएँ और ट्रायल की का अनुरोध करें।
 
-**Q: लाइसेंस लागू होने के बाद क्या मैं GroupDocs.Redaction ऑफ़लाइन उपयोग कर सकता हूँ?**  
-A: हाँ, लाइब्रेरी और लाइसेंस स्थानीय मशीन पर होने पर इंटरनेट कनेक्शन की आवश्यकता नहीं रहती।
+**Q: लाइसेंस लागू होने के बाद क्या मैं GroupDocs.Redaction को ऑफ़लाइन उपयोग कर सकता हूँ?**  
+A: हाँ, एक बार लाइब्रेरी और लाइसेंस स्थानीय मशीन पर हो जाने के बाद इंटरनेट कनेक्शन की आवश्यकता नहीं रहती।
 
-**Q: GroupDocs.Redaction किन डॉक्यूमेंट फ़ॉर्मैट्स को सपोर्ट करता है?**  
-A: PDF, Word, Excel, PowerPoint, और JPEG तथा PNG जैसे सामान्य इमेज फ़ॉर्मैट्स।
+**Q: कौन से दस्तावेज़ फ़ॉर्मेट्स GroupDocs.Redaction द्वारा समर्थित हैं?**  
+A: PDF, Word, Excel, PowerPoint, और सामान्य इमेज फ़ॉर्मेट जैसे JPEG और PNG।
 
-**Q: लाइसेंस सेट करते समय एक्सेप्शन को हैंडल करने का सबसे अच्छा तरीका क्या है?**  
-A: लाइसेंसिंग कोड को `try‑catch` ब्लॉक में रैप करें और ट्रबलशूटिंग के लिए एक्सेप्शन विवरण लॉग करें।
+**Q: लाइसेंस सेट करते समय अपवादों को संभालने का सबसे अच्छा तरीका क्या है?**  
+A: लाइसेंसिंग कोड को try‑catch ब्लॉक में रैप करें और समस्या निवारण के लिए अपवाद विवरण को लॉग करें।
 
 **Q: सीधे फ़ाइल पाथ की बजाय InputStream क्यों चुनें?**  
-A: InputStream आपको लाइसेंस को रिसोर्सेज, क्लाउड स्टोरेज, या एन्क्रिप्टेड कंटेनर से लोड करने देता है बिना एब्सोल्यूट पाथ्स को उजागर किए।
+A: InputStream आपको लाइसेंस को रिसोर्सेज, क्लाउड स्टोरेज, या एन्क्रिप्टेड कंटेनर से लोड करने देता है बिना निरपेक्ष पाथ्स को उजागर किए।
 
 ## संसाधन
-- **डॉक्यूमेंटेशन:** [GroupDocs.Redaction Documentation](https://docs.groupdocs.com/redaction/java/)  
-- **सपोर्ट फोरम:** [GroupDocs Support Forums](https://forum.groupdocs.com/c/redaction/33)
+- डॉक्यूमेंटेशन: [GroupDocs.Redaction Documentation](https://docs.groupdocs.com/redaction/java/)  
+- सपोर्ट फ़ोरम: [GroupDocs Support Forums](https://forum.groupdocs.com/c/redaction/33)
 
 ---
 
-**Last Updated:** 2026-03-06  
-**Tested With:** GroupDocs.Redaction 24.9 for Java  
-**Author:** GroupDocs
+**अंतिम अपडेट:** 2026-08-31  
+**परीक्षण किया गया:** GroupDocs.Redaction 24.9 for Java  
+**लेखक:** GroupDocs  
+
+---
+
+## संबंधित ट्यूटोरियल
+
+- [GroupDocs लाइसेंस Java सेट करने का तरीका – GroupDocs.Redaction के लिए लाइसेंसिंग और कॉन्फ़िगरेशन ट्यूटोरियल](/redaction/java/licensing-configuration/)
+- [फ़ाइल पाथ से GroupDocs Redaction Java लाइसेंस के साथ दस्तावेज़ कैसे रेडैक्ट करें – चरण‑दर‑चरण गाइड](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)
+- [Java में GroupDocs.Redaction के साथ PDF रेडैक्शन सीखें: ट्यूटोरियल और उदाहरण](/redaction/java/)

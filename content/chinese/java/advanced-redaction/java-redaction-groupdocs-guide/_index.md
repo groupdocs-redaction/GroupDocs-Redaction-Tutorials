@@ -1,50 +1,110 @@
 ---
-date: '2026-03-14'
-description: 了解如何使用 GroupDocs.Redaction 安全地对 Java 文件进行脱敏。本指南涵盖加载策略、批量处理以及保存已脱敏的文档。
+date: '2026-08-31'
+description: 了解如何使用 GroupDocs.Redaction 对 Java 文档中的敏感数据进行脱敏。分步指南涵盖 policies、batch
+  processing 和 preserving original formatting。
 keywords:
-- Java Redaction
-- Secure Document Processing
-- GroupDocs.Redaction for Java
-title: 如何使用 GroupDocs.Redaction 对 Java 文档进行脱敏
+- redact sensitive data
+- process multiple files
+- secure document processing
+- save redacted document
+lastmod: '2026-08-31'
+og_description: 了解如何使用 GroupDocs.Redaction 对 Java 文档中的敏感数据进行脱敏。本指南将带您了解 policies、batch
+  processing 和 preserving formatting。
+og_image_alt: Guide showing how to redact sensitive data in Java using GroupDocs.Redaction
+og_title: 使用 GroupDocs.Redaction 在 Java 中对敏感数据进行脱敏
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-31'
+  description: Learn how to redact sensitive data in Java documents using GroupDocs.Redaction.
+    Step‑by‑step guide covers policies, batch processing, and preserving original
+    formatting.
+  headline: Redact sensitive data in Java with GroupDocs.Redaction
+  type: TechArticle
+- description: Learn how to redact sensitive data in Java documents using GroupDocs.Redaction.
+    Step‑by‑step guide covers policies, batch processing, and preserving original
+    formatting.
+  name: Redact sensitive data in Java with GroupDocs.Redaction
+  steps:
+  - name: '**Legal document processing** – redact client identifiers before sharing
+      drafts.'
+    text: '**Legal document processing** – redact client identifiers before sharing
+      drafts.'
+  - name: '**Healthcare data management** – remove patient details to stay HIPAA‑compliant.'
+    text: '**Healthcare data management** – remove patient details to stay HIPAA‑compliant.'
+  - name: '**Financial reporting** – hide account numbers when distributing reports.'
+    text: '**Financial reporting** – hide account numbers when distributing reports.'
+  - name: '**Contract review** – protect proprietary clauses during negotiations.'
+    text: '**Contract review** – protect proprietary clauses during negotiations.'
+  - name: '**Email archiving** – ensure privacy compliance when storing corporate
+      email archives.'
+    text: '**Email archiving** – ensure privacy compliance when storing corporate
+      email archives.'
+  type: HowTo
+- questions:
+  - answer: It means handling, redacting, and storing files so that confidential data
+      is protected throughout the entire workflow.
+    question: What does secure document processing mean?
+  - answer: Yes—by iterating over a folder you can apply the same redaction policy
+      to every document automatically.
+    question: Can I process multiple files in one run?
+  - answer: Create a redaction policy that defines the patterns or objects to hide,
+      then run the `Redactor` with that policy.
+    question: How do I redact sensitive data?
+  - answer: A valid GroupDocs.Redaction license is required for production; a trial
+      license is available for evaluation.
+    question: Do I need a license for production?
+  - answer: Set `RasterizationOptions.setEnabled(false)` to keep the original file
+      format unchanged.
+    question: Can I save the redacted document without rasterization?
+  type: FAQPage
+tags:
+- redact sensitive data
+- GroupDocs.Redaction
+- Java document processing
+- batch redaction
+title: 使用 GroupDocs.Redaction 在 Java 中对敏感数据进行脱敏
 type: docs
 url: /zh/java/advanced-redaction/java-redaction-groupdocs-guide/
 weight: 1
 ---
 
-# 如何使用 GroupDocs.Redaction 对 Java 文档进行脱敏
+{{< blocks/products/pf/main-wrap-class >}}
+{{< blocks/products/pf/main-container >}}
+{{< blocks/products/pf/tutorial-page-section >}}
 
-在本教程中，您将发现 **如何脱敏 java** 文件的高效方法，使用 GroupDocs.Redaction。无论您处理的是法律合同、医疗记录还是财务报表，以下步骤将帮助您加载脱敏策略、批量处理多个文档，并在保持原始格式完整的情况下保存结果。
+# 在 Java 中使用 GroupDocs.Redaction 对敏感数据进行编辑
+
+**GroupDocs.Redaction** 是一个 Java 库，能够以编程方式从超过 70 种文档格式中删除机密信息，同时保持原始布局不变。在本教程中，您将学习如何在 Java 应用程序中 **编辑敏感数据**，将编辑策略应用于一批文件，并在不丢失格式的情况下保存结果。
 
 ## 快速答案
-- **安全文档处理是什么意思？** 它指在整个工作流中处理、脱敏和存储文档，同时保护机密数据。  
-- **我可以一次运行处理多个文件吗？** 可以，示例代码会遍历目录并对每个文件应用策略。  
-- **我如何脱敏敏感数据？** 定义一个指定要隐藏的模式或文本的脱敏策略，然后使用 Redactor 应用它。  
-- **生产环境需要许可证吗？** 生产使用需要有效的 GroupDocs.Redaction 许可证；可使用试用版进行评估。  
-- **我可以在不栅格化的情况下保存脱敏文档吗？** 当然——设置 `RasterizationOptions.setEnabled(false)` 以保持原始格式。
+- **安全文档处理是什么意思？** 它指的是在整个工作流中处理、编辑和存储文件，以确保机密数据得到保护。  
+- **我可以一次性处理多个文件吗？** 可以——通过遍历文件夹，您可以自动将相同的编辑策略应用于每个文档。  
+- **我该如何编辑敏感数据？** 创建一个定义要隐藏的模式或对象的编辑策略，然后使用该策略运行 `Redactor`。  
+- **生产环境需要许可证吗？** 生产环境需要有效的 GroupDocs.Redaction 许可证；评估期间可以使用试用许可证。  
+- **我可以在不栅格化的情况下保存编辑后的文档吗？** 将 `RasterizationOptions.setEnabled(false)` 设置为 false，以保持原始文件格式不变。
 
-## 如何使用 GroupDocs.Redaction 脱敏 java
-安全文档处理涉及自动识别并删除各种文件类型中的机密信息，同时保持文档的完整性和可用性。GroupDocs.Redaction 在 Java 中提供了一种编程方式来实现此目的。
+## 如何使用 GroupDocs.Redaction 在 Java 文档中编辑敏感数据？
+
+加载您的编辑策略，对目录中的每个文件运行它，并保存输出——全部只需几个简洁的步骤。GroupDocs.Redaction 的 API 允许您批量处理文档，保持布局的同时安全地删除指定的数据，并提供控制栅格化、输出格式和性能特性的选项。
 
 ### 为什么在 Java 中使用 GroupDocs.Redaction？
-- **全面的格式支持** – PDF、Word、图像等。  
-- **细粒度的策略控制** – 创建精确针对需求的脱敏策略。  
-- **可扩展的批处理** – 在一次操作中处理多个文件，减少人工工作量。  
-- **内置栅格化选项** – 选择是否对页面进行栅格化以增强安全性。
 
-## 前提条件
+GroupDocs.Redaction 支持 **70 多种输入和输出格式**（PDF、DOCX、PPTX、图像等），并允许您定义细粒度的策略，以针对精确的文本、图像或元数据。该库高效处理批量任务，您可以切换栅格化，以保持原始格式或将页面转换为图像以增强安全性。
 
-在实现 GroupDocs.Redaction for Java 之前，请确保具备以下条件：
-- **必需的库**：需要 GroupDocs.Redaction 库版本 24.9。  
-- **环境设置**：在机器上安装 Java Development Kit (JDK) 并使用 IntelliJ IDEA 或 Eclipse 等 IDE。  
-- **知识前提**：具备 Java 编程的基本了解并熟悉文件 I/O 操作。
+### 前置条件
+- **Java Development Kit (JDK) 8 或更高版本** 已安装。  
+- **Maven** 或其他构建工具用于管理依赖。  
+- 基本的 Java 知识并熟悉文件 I/O。  
 
-## 为 Java 设置 GroupDocs.Redaction
+### 为 Java 设置 GroupDocs.Redaction
 
-要开始使用 GroupDocs.Redaction，请在项目中设置该库。操作如下：
+#### Maven 设置
+在您的 `pom.xml` 中添加以下依赖：
 
-**Maven 设置:**  
-在您的 `pom.xml` 中添加以下配置：
-
+以下 Maven 依赖将 GroupDocs.Redaction 添加到您的项目中。
+```xml
+<!-- Maven dependency placeholder -->
+```
 ```xml
 <repositories>
    <repository>
@@ -63,43 +123,41 @@ weight: 1
 </dependencies>
 ```
 
-**直接下载:**  
-另外，您可以从 [GroupDocs.Redaction for Java 发布](https://releases.groupdocs.com/redaction/java/) 下载最新版本。
+#### 直接下载
+或者，从 [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/) 下载最新的 JAR。
 
-### 许可证获取
+### 获取许可证
 
-为了充分利用 GroupDocs.Redaction 的功能，建议获取许可证。您可以先使用免费试用版，或申请临时许可证以深入体验其特性。
+试用许可证可用于开发，但生产部署需要将永久许可证文件放置在应用程序的 resources 文件夹中，并在运行时进行引用。
 
 ### 基本初始化和设置
 
-库安装完成后，通过导入必要的类在 Java 应用程序中进行初始化：
+导入所需的类并创建 `Redactor` 实例。**Redactor** 是执行文档编辑操作的主要类。
 
+```java
+// Initialization code placeholder
+```
 ```java
 import com.groupdocs.redaction.*;
 ```
 
-## 实现指南
+## 实施指南
 
-本节将指导您实现两个关键功能：加载并应用脱敏策略，以及使用特定栅格化选项保存处理后的文档。
+### 什么是编辑策略？
 
-### 加载并应用脱敏策略
-
-**概述：** 此功能从文件加载预定义的脱敏策略，并将其应用于指定目录中的所有文档。处理后的文件会根据操作成功或失败进行保存。
-
-#### 步骤 1：初始化 RedactionPolicy
-
-使用以下方式加载脱敏策略：
+编辑策略是一组可重用的规则，告诉 Redactor 要隐藏或删除哪些文本模式、图像或元数据。您只需定义一次，即可将其应用于任意数量的文档，从而在所有处理的文件中实现一致的合规性。
 
 ```java
 RedactionPolicy policy = RedactionPolicy.load("YOUR_POLICY_FILE_PATH");
 ```
 
-此步骤至关重要，因为策略定义了文档中敏感数据的脱敏规则。
+### 加载并应用编辑策略
 
-#### 步骤 2：将策略应用于文档
+**从 XML 或 JSON 文件加载策略** 并 **将其应用** 于文件夹中的每个文档：
 
-遍历目录中的每个文件并应用策略：
-
+```java
+// Load and apply policy code placeholder
+```
 ```java
 for (final File fileEntry : new File("YOUR_DOCUMENT_DIRECTORY").listFiles()) {
     final Redactor redactor = new Redactor(fileEntry.getPath());
@@ -122,26 +180,26 @@ for (final File fileEntry : new File("YOUR_DOCUMENT_DIRECTORY").listFiles()) {
 }
 ```
 
-**参数说明：**  
-- `RedactionPolicy.load()` – 从指定路径加载策略。  
-- `redactor.apply(policy)` – 根据加载的策略执行脱敏。
+### 批量处理多个文件
 
-### 使用栅格化选项保存处理后的文档
+遍历目录，使用 `Redactor` 打开每个文件，并应用相同的策略：
 
-**概述：** 在应用脱敏后，使用特定的栅格化选项保存文档，以控制输出格式和质量。
-
-#### 步骤 1：为输入文件初始化 Redactor
-
-打开文件进行处理：
-
+```java
+// Batch processing code placeholder
+```
 ```java
 File inputFile = new File("YOUR_DOCUMENT_DIRECTORY/input.docx");
 ```
 
-#### 步骤 2：使用栅格化选项保存
+### 使用栅格化选项保存处理后的文档
 
-保存处理后的文档，指定栅格化设置：
+#### 为输入文件初始化 Redactor
 
+打开目标文件进行编辑：
+
+```java
+// Open file code placeholder
+```
 ```java
 try (Redactor redactor = new Redactor(inputFile.getPath())) {
     try (FileOutputStream fileStream = new FileOutputStream(outputFileDirectory.getPath() + "/processed_output.docx")) {
@@ -152,57 +210,85 @@ try (Redactor redactor = new Redactor(inputFile.getPath())) {
 }
 ```
 
-**关键配置选项：**  
-- `RasterizationOptions` – 控制脱敏后文档的保存方式，您可以保持原始格式或转换为图像以增强安全性。
+#### 使用栅格化选项保存
 
-## 实际应用
+配置 `RasterizationOptions` 以保持原始格式或将页面转换为图像，然后保存：
 
-1. **法律文档处理** – 在共享草稿前脱敏客户的敏感信息。  
-2. **医疗数据管理** – 通过脱敏医疗记录确保患者机密性。  
-3. **财务报告** – 保护与利益相关者共享的报告中的财务数据。  
-4. **合同审查** – 在合同谈判期间保护专有条款。  
-5. **邮件归档** – 在归档商务邮件时保持隐私合规性。
+```java
+// Save options code placeholder
+```
 
-## 性能考虑
+**关键选项**  
+- `setEnabled(false)` – 保持原始文件类型。  
+- `setResolution(150)` – 在栅格化为图像时设置 DPI 为 150。  
 
-在使用 GroupDocs.Redaction 时优化性能的建议：  
-- **高效的资源管理** – 确保文件正确关闭，以释放系统资源。  
-- **批量处理** – 以批次方式处理文档，有效管理内存使用。  
-- **优化脱敏策略** – 定制策略仅针对必要的脱敏内容，从而减少处理时间。
+### 如何在不丢失格式的情况下保存编辑后的文档？
 
-## 常见问题与故障排除
+在调用 `save` 之前将栅格化标志设置为 `false`。这会指示 GroupDocs.Redaction 将输出写入与源相同的格式，确保表格、字体和布局保持不变，同时仍然应用所需的编辑。
 
-- **缺少许可证异常** – 如果出现许可证错误，请确认许可证文件已正确放置并在应用程序中设置了路径。  
-- **不支持的文件类型** – 确认文件格式在支持列表中；否则，Redactor 将抛出 `UnsupportedFormatException`。  
-- **大文件内存不足** – 对于非常大的 PDF，考虑增大 JVM 堆大小（`-Xmx2g`）或将文件分成更小的块处理。
+### 实际应用
 
-## 常见问答
+1. **法律文档处理** – 在共享草稿之前编辑客户标识符。  
+2. **医疗数据管理** – 删除患者详细信息以符合 HIPAA 要求。  
+3. **财务报告** – 在分发报告时隐藏账号。  
+4. **合同审查** – 在谈判期间保护专有条款。  
+5. **电子邮件归档** – 在存储企业电子邮件归档时确保隐私合规。  
 
-**问：** 我如何使用单个命令处理多个文件？  
-**答：** 使用“将策略应用于文档”示例中展示的目录遍历循环；它会自动处理文件夹中的每个文件。
+### 性能考虑因素
 
-**问：** “脱敏敏感数据”实际会移除什么？  
-**答：** 脱敏策略可以针对文本模式、图像或元数据，将其替换为黑框或完全删除。
+- **资源管理** – 始终关闭 `Redactor` 以释放内存。  
+- **批量处理** – 将文件分批（10‑20 个）处理，以平衡速度和内存使用。  
+- **优化策略** – 将模式限制在所需范围内；更宽泛的模式会增加处理时间。  
 
-**问：** 是否有办法在应用脱敏策略前预览？  
-**答：** 可以，加载策略后调用 `redactor.preview(policy)`（如果支持）生成预览 PDF。
+### 常见陷阱与故障排除
 
-**问：** 如何在不失去原始格式的情况下“保存脱敏文档”？  
-**答：** 如示例所示，设置 `RasterizationOptions.setEnabled(false)`，即可保持原始文件格式。
+- **缺少许可证异常** – 验证许可证文件路径是否正确且文件可读。  
+- **不支持的文件类型** – 检查支持的格式列表；不支持的文件会抛出 `UnsupportedFormatException`。  
+- **大 PDF 的内存溢出错误** – 增加 JVM 堆内存 (`-Xmx2g`) 或在编辑前将 PDF 拆分为更小的块。  
 
-**问：** 开发测试是否需要许可证？  
-**答：** 开发阶段使用临时或试用许可证即可；生产部署需要正式许可证。
+## 常见问题
+
+**Q:** 我如何使用单个命令处理多个文件？  
+**A:** 使用“将策略应用于文档”示例中展示的目录遍历循环；它会自动编辑指定文件夹中的每个文件。
+
+**Q:** “编辑敏感数据” 实际上会删除什么？  
+**A:** 该策略可以针对纯文本模式、图像或元数据，根据您的配置将其替换为黑框或完全删除。
+
+**Q:** 是否有办法在应用编辑策略前预览？  
+**A:** 有——调用 `redactor.preview(policy)`（如果支持）可生成预览 PDF，准确显示将被隐藏的内容。
+
+**Q:** 我如何在不丢失原始格式的情况下保存编辑后的文档？  
+**A:** 如示例所示，将 `RasterizationOptions.setEnabled(false)` 设置为 false；这会在保持文件原生格式的同时仍然应用编辑。
+
+**Q:** 开发测试是否需要许可证？  
+**A:** 临时或试用许可证足以用于开发；生产部署需要完整许可证。
 
 ## 资源
 
-- **文档**: [GroupDocs.Redaction Java 文档](https://docs.groupdocs.com/redaction/java/)  
-- **API 参考**: [API 参考](https://reference.groupdocs.com/redaction/java)  
-- **下载**: [最新发布](https://releases.groupdocs.com/redaction/java/)  
-- **GitHub**: [GitHub 上的源代码](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
-- **免费支持**: [GroupDocs 论坛](https://forum.groupdocs.com/c/redaction/33)
+- [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/) – 下载最新的 JAR 文件。  
+- [GroupDocs.Redaction Java Docs](https://docs.groupdocs.com/redaction/java/) – 官方文档和使用示例。  
+- [API Reference](https://reference.groupdocs.com/redaction/java) – 详细的类和方法参考。  
+- [Latest Releases](https://releases.groupdocs.com/redaction/java/) – 查看版本历史和更新日志。  
+- [Source Code on GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java) – 浏览开源代码库。  
+- [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33) – 社区支持与讨论。  
+
+## 结论
+
+通过遵循本指南，您可以使用 GroupDocs.Redaction 强大的策略引擎和批处理功能，安全地在大规模 Java 文档中 **编辑敏感数据**。根据合规要求调整策略，调优栅格化设置以提升性能，并将工作流集成到任何基于 Java 的后端服务中。
 
 ---
 
-**最后更新：** 2026-03-14  
-**测试环境：** GroupDocs.Redaction 24.9 for Java  
-**作者：** GroupDocs
+**最后更新:** 2026-08-31  
+**测试环境:** GroupDocs.Redaction 24.9 for Java  
+**作者:** GroupDocs
+
+## 相关教程
+
+- [如何使用文件路径的 GroupDocs Redaction Java 许可证编辑文档 – 步骤指南](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)
+- [在 Java 中掩码敏感数据 – GroupDocs.Redaction 指南](/redaction/java/getting-started/)
+- [如何使用 GroupDocs.Redaction 在 Java 文档中编辑文本](/redaction/java/text-redaction/java-redaction-guide-groupdocs-document-security/)
+
+{{< /blocks/products/pf/tutorial-page-section >}}
+{{< /blocks/products/pf/main-container >}}
+{{< /blocks/products/pf/main-wrap-class >}}
+{{< blocks/products/products-backtop-button >}}

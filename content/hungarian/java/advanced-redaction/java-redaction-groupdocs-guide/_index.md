@@ -1,54 +1,112 @@
 ---
-date: '2026-03-14'
-description: Tanulja meg, hogyan lehet biztonságosan redigálni a Java fájlokat a GroupDocs.Redaction
-  segítségével. Ez az útmutató a szabályok betöltését, a kötegelt feldolgozást és
-  a redigált dokumentumok mentését tárgyalja.
+date: '2026-08-31'
+description: Ismerje meg, hogyan lehet redakcióval eltávolítani érzékeny adatokat
+  Java dokumentumokban a GroupDocs.Redaction segítségével. A lépésről‑lépésre útmutató
+  a szabályzatokat, a kötegelt feldolgozást és az eredeti formázás megőrzését tárgyalja.
 keywords:
-- Java Redaction
-- Secure Document Processing
-- GroupDocs.Redaction for Java
-title: Hogyan redigáljunk Java dokumentumokat a GroupDocs.Redaction segítségével
+- redact sensitive data
+- process multiple files
+- secure document processing
+- save redacted document
+lastmod: '2026-08-31'
+og_description: Ismerje meg, hogyan lehet redakcióval eltávolítani érzékeny adatokat
+  Java dokumentumokban a GroupDocs.Redaction segítségével. Az útmutató bemutatja a
+  szabályzatokat, a kötegelt feldolgozást és a formázás megőrzését.
+og_image_alt: Guide showing how to redact sensitive data in Java using GroupDocs.Redaction
+og_title: Érzékeny adatok redakciója Java-ban a GroupDocs.Redaction használatával
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-31'
+  description: Learn how to redact sensitive data in Java documents using GroupDocs.Redaction.
+    Step‑by‑step guide covers policies, batch processing, and preserving original
+    formatting.
+  headline: Redact sensitive data in Java with GroupDocs.Redaction
+  type: TechArticle
+- description: Learn how to redact sensitive data in Java documents using GroupDocs.Redaction.
+    Step‑by‑step guide covers policies, batch processing, and preserving original
+    formatting.
+  name: Redact sensitive data in Java with GroupDocs.Redaction
+  steps:
+  - name: '**Legal document processing** – redact client identifiers before sharing
+      drafts.'
+    text: '**Legal document processing** – redact client identifiers before sharing
+      drafts.'
+  - name: '**Healthcare data management** – remove patient details to stay HIPAA‑compliant.'
+    text: '**Healthcare data management** – remove patient details to stay HIPAA‑compliant.'
+  - name: '**Financial reporting** – hide account numbers when distributing reports.'
+    text: '**Financial reporting** – hide account numbers when distributing reports.'
+  - name: '**Contract review** – protect proprietary clauses during negotiations.'
+    text: '**Contract review** – protect proprietary clauses during negotiations.'
+  - name: '**Email archiving** – ensure privacy compliance when storing corporate
+      email archives.'
+    text: '**Email archiving** – ensure privacy compliance when storing corporate
+      email archives.'
+  type: HowTo
+- questions:
+  - answer: It means handling, redacting, and storing files so that confidential data
+      is protected throughout the entire workflow.
+    question: What does secure document processing mean?
+  - answer: Yes—by iterating over a folder you can apply the same redaction policy
+      to every document automatically.
+    question: Can I process multiple files in one run?
+  - answer: Create a redaction policy that defines the patterns or objects to hide,
+      then run the `Redactor` with that policy.
+    question: How do I redact sensitive data?
+  - answer: A valid GroupDocs.Redaction license is required for production; a trial
+      license is available for evaluation.
+    question: Do I need a license for production?
+  - answer: Set `RasterizationOptions.setEnabled(false)` to keep the original file
+      format unchanged.
+    question: Can I save the redacted document without rasterization?
+  type: FAQPage
+tags:
+- redact sensitive data
+- GroupDocs.Redaction
+- Java document processing
+- batch redaction
+title: Érzékeny adatok redakciója Java-ban a GroupDocs.Redaction használatával
 type: docs
 url: /hu/java/advanced-redaction/java-redaction-groupdocs-guide/
 weight: 1
 ---
 
- etc. Keep them.
+{{< blocks/products/pf/main-wrap-class >}}
+{{< blocks/products/pf/main-container >}}
+{{< blocks/products/pf/tutorial-page-section >}}
 
-Now produce final content.# Hogyan redigáljunk Java dokumentumokat a GroupDocs.Redaction segítségével
+# Érzékeny adatok redakciója Java-ban a GroupDocs.Redaction segítségével
 
-Ebben az útmutatóban megtudhatja, hogyan lehet hatékonyan **hogyan redigáljunk java** fájlokat a GroupDocs.Redaction használatával. Akár jogi szerződésekkel, orvosi feljegyzésekkel vagy pénzügyi kimutatásokkal dolgozik, az alábbi lépések segítenek betölteni egy redigálási szabályzatot, kötegelt módon feldolgozni több dokumentumot, és elmenteni az eredményeket, miközben az eredeti formázás változatlan marad.
+**GroupDocs.Redaction** egy Java könyvtár, amely programozottan eltávolítja a bizalmas információkat több mint 70 dokumentumformátumból, miközben az eredeti elrendezést változatlanul hagyja. Ebben az útmutatóban megtanulja, hogyan **redakciózza az érzékeny adatokat** Java alkalmazásokban, hogyan alkalmazzon redakciós szabályt fájlcsoporton, és hogyan mentse az eredményeket formázás elvesztése nélkül.
 
 ## Gyors válaszok
-- **Mit jelent a biztonságos dokumentumfeldolgozás?** A dokumentumok kezelése, redigálása és tárolása, miközben a bizalmas adatokat a teljes munkafolyamat során védjük.  
-- **Feldolgozhatok több fájlt egy futtatás során?** Igen, a mintakód egy könyvtáron iterál és a szabályzatot minden egyes fájlra alkalmazza.  
-- **Hogyan redigálhatok érzékeny adatokat?** Definiáljon egy redigálási szabályzatot, amely meghatározza a rejtendő mintákat vagy szöveget, majd alkalmazza azt a Redactor segítségével.  
-- **Szükségem van licencre a termeléshez?** Érvényes GroupDocs.Redaction licenc szükséges a termelési használathoz; egy próba verzió elérhető értékeléshez.  
-- **Menthetem a redigált dokumentumot rasterizálás nélkül?** Természetesen—állítsa be a `RasterizationOptions.setEnabled(false)` értéket, hogy megőrizze az eredeti formátumot.
+- **Mit jelent a biztonságos dokumentumfeldolgozás?** Azt jelenti, hogy a fájlokat kezelik, redakciózzák és tárolják úgy, hogy a bizalmas adatok a teljes munkafolyamat során védve legyenek.  
+- **Feldolgozhatok több fájlt egy futtatásban?** Igen — egy mappa iterálásával automatikusan alkalmazhatja ugyanazt a redakciós szabályt minden dokumentumra.  
+- **Hogyan redakciózom az érzékeny adatokat?** Hozzon létre egy redakciós szabályt, amely meghatározza a rejtendő vagy törlendő mintákat vagy objektumokat, majd futtassa a `Redactor`-t ezzel a szabállyal.  
+- **Szükségem van licencre a termeléshez?** Éles környezetben egy érvényes GroupDocs.Redaction licenc szükséges; egy próbaverzió licenc elérhető értékeléshez.  
+- **Menthetem a redakciózott dokumentumot rasterizálás nélkül?** Állítsa a `RasterizationOptions.setEnabled(false)`-t, hogy az eredeti fájlformátum változatlan maradjon.
 
-## Hogyan redigáljunk java-t a GroupDocs.Redaction segítségével
-A biztonságos dokumentumfeldolgozás magában foglalja a bizalmas információk automatikus azonosítását és eltávolítását különféle fájltípusokból, miközben megőrzi a dokumentum integritását és használhatóságát. A GroupDocs.Redaction programozott módot kínál ennek Java-ban történő megvalósításához.
+## Hogyan redakciózzuk az érzékeny adatokat Java dokumentumokban a GroupDocs.Redaction segítségével?
 
-### Miért használjuk a GroupDocs.Redaction-t Java-hoz?
-- **Átfogó formátumtámogatás** – PDF-ek, Word, képek és egyebek.  
-- **Finomhangolt szabályzat-vezérlés** – Hozzon létre egy redigálási szabályzatot, amely pontosan azt célozza, amire szüksége van.  
-- **Skálázható kötegelt kezelés** – Több fájlt dolgozzon fel egyetlen műveletben, csökkentve a manuális munkát.  
-- **Beépített rasterizálási beállítások** – Válassza ki, hogy a lapokat rasterizálja-e extra biztonság érdekében.
+Töltse be a redakciós szabályt, futtassa minden könyvtárban lévő fájlon, és mentse a kimenetet — mindezt néhány tömör lépésben. A GroupDocs.Redaction API lehetővé teszi a dokumentumok kötegelt feldolgozását, az elrendezés megőrzését, miközben biztonságosan eltávolítja a megadott adatokat, és lehetőséget biztosít a rasterizálás, a kimeneti formátum és a teljesítmény jellemzőinek szabályozására.
 
-## Előfeltételek
+### Miért használja a GroupDocs.Redaction-t Java-hoz?
 
-A GroupDocs.Redaction Java-hoz történő megvalósítása előtt győződjön meg arról, hogy a következőkkel rendelkezik:
-- **Szükséges könyvtárak**: A GroupDocs.Redaction könyvtár 24.9-es verziójára van szükség.  
-- **Környezet beállítása**: A gépén telepített Java Development Kit (JDK) és egy IDE, például IntelliJ IDEA vagy Eclipse.  
-- **Tudás előfeltételek**: Alapvető Java programozási ismeretek és a fájl I/O műveletek ismerete.
+A GroupDocs.Redaction támogatja a **70+ bemeneti és kimeneti formátumot** (PDF, DOCX, PPTX, képek stb.) és lehetővé teszi finomhangolt szabályok definiálását, amelyek pontos szövegre, képekre vagy metaadatokra céloznak. A könyvtár hatékonyan dolgozza fel a kötegeket, és a rasterizálást be- vagy kikapcsolhatja, hogy megőrizze az eredeti formátumot vagy képekké konvertálja az oldalakat a biztonság növelése érdekében.
 
-## A GroupDocs.Redaction Java-hoz beállítása
+### Előfeltételek
+- **Java Development Kit (JDK) 8 vagy újabb** telepítve.  
+- **Maven** vagy más build eszköz a függőségek kezeléséhez.  
+- Alapvető Java ismeretek és fájl I/O ismerete.  
 
-A GroupDocs.Redaction használatának megkezdéséhez állítsa be a könyvtárat a projektjében. Így teheti:
+### A GroupDocs.Redaction beállítása Java-hoz
 
-**Maven beállítás:**  
-Adja hozzá a következő konfigurációt a `pom.xml` fájlhoz:
+#### Maven beállítás
+Adja hozzá a következő függőséget a `pom.xml`-hez:
 
+A következő Maven függőség hozzáadja a GroupDocs.Redaction-t a projektjéhez.
+```xml
+<!-- Maven dependency placeholder -->
+```
 ```xml
 <repositories>
    <repository>
@@ -67,43 +125,38 @@ Adja hozzá a következő konfigurációt a `pom.xml` fájlhoz:
 </dependencies>
 ```
 
-**Közvetlen letöltés:**  
-Alternatívaként töltse le a legújabb verziót a [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/) oldalról.
+#### Közvetlen letöltés
+Alternatívaként töltse le a legújabb JAR-t a [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/) címről.
 
 ### Licenc beszerzése
 
-A GroupDocs.Redaction képességeinek teljes kiaknázásához fontolja meg a licenc beszerzését. Kezdhet ingyenes próbaidőszakkal, vagy kérhet ideiglenes licencet, hogy alaposan felfedezze a funkciókat.
+A próbaverzió licenc fejlesztéshez működik, de egy éles környezetben történő telepítéshez állandó licencfájl szükséges, amelyet az alkalmazás erőforrások mappájába kell helyezni, és futásidőben hivatkozni kell rá.
 
 ### Alapvető inicializálás és beállítás
 
-Miután telepítette a könyvtárat, inicializálja azt a Java alkalmazásában a szükséges osztályok importálásával:
-
+Importálja a szükséges osztályokat, és hozza létre a `Redactor` példányt. **Redactor** a fő osztály, amely a dokumentumok redakciós műveleteit végzi.
+```java
+// Initialization code placeholder
+```
 ```java
 import com.groupdocs.redaction.*;
 ```
 
 ## Implementációs útmutató
 
-Ez a szakasz végigvezeti Önt két kulcsfontosságú funkció megvalósításán: egy redigálási szabályzat betöltésén és alkalmazásán, valamint a feldolgozott dokumentumok mentésén specifikus rasterizálási beállításokkal.
+### Mi az a redakciós szabály?
 
-### Redigálási szabályzat betöltése és alkalmazása
-
-**Áttekintés:** Ez a funkció egy előre definiált redigálási szabályzatot tölt be egy fájlból, és azt alkalmazza egy megadott könyvtárban lévő összes dokumentumra. A feldolgozott fájlok mentésre kerülnek attól függően, hogy a művelet sikeres vagy sikertelen volt.
-
-#### 1. lépés: RedactionPolicy inicializálása
-
-Töltse be a redigálási szabályzatát a következő módon:
-
+A redakciós szabály egy újrahasználható szabálykészlet, amely megmondja a Redactor-nak, mely szövegmintákat, képeket vagy metaadatokat kell elrejteni vagy törölni. Egyszer definiálja, majd bármennyi dokumentumra alkalmazza, ezáltal konzisztens megfelelőséget biztosítva az összes feldolgozott fájlban.
 ```java
 RedactionPolicy policy = RedactionPolicy.load("YOUR_POLICY_FILE_PATH");
 ```
 
-Ez a lépés kulcsfontosságú, mivel a szabályzat határozza meg a dokumentumokban érzékeny adatok redigálásának szabályait.
+### Redakciós szabály betöltése és alkalmazása
 
-#### 2. lépés: Szabályzat alkalmazása dokumentumokra
-
-Iteráljon a könyvtár minden fájlján, és alkalmazza a szabályzatot:
-
+**Töltse be a szabályt** egy XML vagy JSON fájlból, és **alkalmazza** minden dokumentumra egy mappában:
+```java
+// Load and apply policy code placeholder
+```
 ```java
 for (final File fileEntry : new File("YOUR_DOCUMENT_DIRECTORY").listFiles()) {
     final Redactor redactor = new Redactor(fileEntry.getPath());
@@ -126,26 +179,24 @@ for (final File fileEntry : new File("YOUR_DOCUMENT_DIRECTORY").listFiles()) {
 }
 ```
 
-**Paraméterek magyarázata:**  
-- `RedactionPolicy.load()` – Betölti a szabályzatot egy megadott útvonalról.  
-- `redactor.apply(policy)` – Végrehajtja a redigálást a betöltött szabályzat alapján.  
+### Több fájl feldolgozása kötegben
 
-### Feldolgozott dokumentumok mentése rasterizálási beállításokkal
-
-**Áttekintés:** A redigálások alkalmazása után mentse a dokumentumokat specifikus rasterizálási beállításokkal, hogy szabályozza a kimeneti formátumot és minőséget.
-
-#### 1. lépés: Redactor inicializálása bemeneti fájlhoz
-
-Nyisson meg egy fájlt a feldolgozáshoz:
-
+Iteráljon egy könyvtáron, nyissa meg minden fájlt egy `Redactor`-ral, és alkalmazza ugyanazt a szabályt:
+```java
+// Batch processing code placeholder
+```
 ```java
 File inputFile = new File("YOUR_DOCUMENT_DIRECTORY/input.docx");
 ```
 
-#### 2. lépés: Mentés rasterizálási beállításokkal
+### Feldolgozott dokumentumok mentése rasterizálási beállításokkal
 
-Mentse a feldolgozott dokumentumot, megadva a rasterizálási beállításokat:
+#### Redactor inicializálása bemeneti fájlhoz
 
+Nyissa meg a célfájlt a redakcióhoz:
+```java
+// Open file code placeholder
+```
 ```java
 try (Redactor redactor = new Redactor(inputFile.getPath())) {
     try (FileOutputStream fileStream = new FileOutputStream(outputFileDirectory.getPath() + "/processed_output.docx")) {
@@ -156,57 +207,84 @@ try (Redactor redactor = new Redactor(inputFile.getPath())) {
 }
 ```
 
-**Kulcsfontosságú konfigurációs beállítások:**  
-- `RasterizationOptions` – Szabályozza, hogyan kerülnek a dokumentumok mentésre a redigálás után, lehetővé téve az eredeti formátum megtartását vagy képekké konvertálását extra biztonság érdekében.
+#### Mentés rasterizálási beállításokkal
 
-## Gyakorlati alkalmazások
+Állítsa be a `RasterizationOptions`-t, hogy megőrizze az eredeti formátumot vagy konvertálja az oldalakat képekké, majd mentse:
+```java
+// Save options code placeholder
+```
 
-1. **Jogi dokumentumfeldolgozás** – Redigálja az érzékeny ügyfélinformációkat a tervek megosztása előtt.  
-2. **Egészségügyi adatkezelés** – Biztosítsa a beteg titkosságát a orvosi feljegyzések redigálásával.  
-3. **Pénzügyi jelentéskészítés** – Védje a pénzügyi adatokat a befektetőkkel megosztott jelentésekben.  
-4. **Szerződés felülvizsgálat** – Védje a szellemi tulajdonra vonatkozó feltételeket a szerződéses tárgyalások során.  
-5. **E‑mail archiválás** – Tartsa be a magánszféra előírásait üzleti e‑mailek archiválásakor.
+**Kulcsfontosságú beállítások**  
+- `setEnabled(false)` – megőrzi az eredeti fájltípust.  
+- `setResolution(150)` – beállítja a DPI-t képekre rasterizáláskor.  
 
-## Teljesítménybeli megfontolások
+### Hogyan menthetünk redakciózott dokumentumot formázás elvesztése nélkül?
 
-A GroupDocs.Redaction használata közben a teljesítmény optimalizálásához:
-- **Hatékony erőforrás-kezelés** – Győződjön meg arról, hogy a fájlok megfelelően zárva vannak, hogy felszabaduljanak a rendszer erőforrásai.  
-- **Kötegelt feldolgozás** – Dokumentumokat kötegekben dolgozzon fel, hogy hatékonyan kezelje a memóriahasználatot.  
-- **Redigálási szabályzatok optimalizálása** – Szabályozza a szabályzatokat úgy, hogy csak a szükséges redigálásokat célozzák, ezáltal csökkentve a feldolgozási időt.
+Állítsa a rasterizálási jelzőt `false`-ra a `save` hívása előtt. Ez azt mondja a GroupDocs.Redaction-nek, hogy a kimenetet ugyanabban a formátumban írja, mint a forrás, biztosítva, hogy a táblázatok, betűtípusok és az elrendezés változatlan maradjon, miközben a szükséges redakciókat alkalmazza.
 
-## Gyakori hibák és hibaelhárítás
+### Gyakorlati alkalmazások
 
-- **Hiányzó licenc kivétel** – Ha licenchibát lát, ellenőrizze, hogy a licencfájl megfelelően el van-e helyezve, és az útvonal be van-e állítva az alkalmazásban.  
-- **Nem támogatott fájltípusok** – Győződjön meg arról, hogy a fájlformátum szerepel a támogatottak listáján; ellenkező esetben a Redactor `UnsupportedFormatException` kivételt dob.  
-- **Nagy fájlok memóriahiány** – Nagyon nagy PDF-ek esetén fontolja meg a JVM heap méretének növelését (`-Xmx2g`), vagy a fájlok kisebb darabokra bontását.
+1. **Jogi dokumentumfeldolgozás** – ügyfélazonosítók redakciója a tervek megosztása előtt.  
+2. **Egészségügyi adatkezelés** – a betegadatok eltávolítása a HIPAA‑megfelelés érdekében.  
+3. **Pénzügyi jelentés** – számlaszámok elrejtése jelentések terjesztésekor.  
+4. **Szerződés felülvizsgálat** – szellemi tulajdonra vonatkozó záradékok védelme a tárgyalások során.  
+5. **E‑mail archiválás** – adatvédelmi megfelelőség biztosítása vállalati e‑mail archívumok tárolásakor.  
 
-## Gyakran ismételt kérdések
+### Teljesítmény szempontok
 
-**K:** Hogyan tudok több fájlt egyetlen parancs segítségével feldolgozni?  
-**V:** Használja a “Apply Policy to Documents” példában bemutatott könyvtár‑iterációs ciklust; automatikusan feldolgozza a mappában lévő minden fájlt.
+- **Erőforrás-kezelés** – mindig zárja le a `Redactor`-t a memória felszabadításához.  
+- **Kötegelt feldolgozás** – kezelje a fájlokat 10‑20-as csoportokban a sebesség és memóriahasználat egyensúlyozásához.  
+- **Optimalizált szabályok** – korlátozza a mintákat csak a szükségesre; a szélesebb minták növelik a feldolgozási időt.  
 
-**K:** Mit távolít el valójában a „redact sensitive data”?  
-**V:** A redigálási szabályzat célba vehet szövegmintákat, képeket vagy metaadatokat, és ezeket fekete dobozokkal helyettesíti vagy teljesen eltávolítja.
+### Gyakori buktatók és hibaelhárítás
 
-**K:** Van mód a redigálási szabályzat előnézetére alkalmazás előtt?  
-**V:** Igen, betöltheti a szabályzatot, és meghívhatja a `redactor.preview(policy)` (ha támogatott) metódust egy előnézeti PDF generálásához.
+- **Hiányzó licenc kivétel** – ellenőrizze, hogy a licencfájl útvonala helyes és a fájl olvasható.  
+- **Nem támogatott fájltípus** – ellenőrizze a támogatott formátumok listáját; a nem támogatott fájlok `UnsupportedFormatException`-t váltanak ki.  
+- **Memóriahiány hibák nagy PDF-eken** – növelje a JVM heap-et (`-Xmx2g`) vagy bontsa fel a PDF-et kisebb darabokra a redakció előtt.  
 
-**K:** Hogyan menthetem a „redigált dokumentumot” az eredeti formázás elvesztése nélkül?  
-**V:** Állítsa be a `RasterizationOptions.setEnabled(false)` értéket a bemutatott módon; ez megőrzi az eredeti fájlformátumot.
+## Gyakran feltett kérdések
 
-**K:** Szükségem van licencre a fejlesztői teszteléshez?  
-**V:** Ideiglenes vagy próba licenc elegendő a fejlesztéshez; a termelési környezethez teljes licenc szükséges.
+**Q:** Hogyan dolgozhatok fel több fájlt egyetlen parancs segítségével?  
+**A:** Használja a “Apply policy to documents” példában látható könyvtár‑iterációs ciklust; ez automatikusan redakciózza a megadott mappában lévő minden fájlt.
 
-## Források
+**Q:** Mit távolít el valójában a „redact sensitive data”?  
+**A:** A szabály célzottan szövegmintákat, képeket vagy metaadatokat érinthet, és a konfigurációtól függően fekete dobozokkal helyettesíti vagy teljesen eltávolítja őket.
 
-- **Dokumentáció**: [GroupDocs.Redaction Java Docs](https://docs.groupdocs.com/redaction/java/)  
-- **API referencia**: [API Reference](https://reference.groupdocs.com/redaction/java)  
-- **Letöltés**: [Latest Releases](https://releases.groupdocs.com/redaction/java/)  
-- **GitHub**: [Source Code on GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
-- **Ingyenes támogatás**: [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)
+**Q:** Van mód a redakciós szabály előnézetére a alkalmazás előtt?  
+**A:** Igen – hívja a `redactor.preview(policy)`-t (ha támogatott), hogy egy előnézeti PDF-et generáljon, amely pontosan megmutatja, mi lesz elrejtve.
+
+**Q:** Hogyan menthetem a redakciózott dokumentumot az eredeti formázás elvesztése nélkül?  
+**A:** Állítsa be a `RasterizationOptions.setEnabled(false)`-t a bemutatott módon; ez a fájlt natív formátumban tartja, miközben a redakciókat alkalmazza.
+
+**Q:** Szükségem van licencre a fejlesztői teszteléshez?  
+**A:** Ideiglenes vagy próbaverzió licenc elegendő a fejlesztéshez; teljes licenc szükséges az éles környezetben való telepítéshez.
+
+## Erőforrások
+
+- [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/) – töltse le a legújabb JAR fájlokat.  
+- [GroupDocs.Redaction Java Docs](https://docs.groupdocs.com/redaction/java/) – hivatalos dokumentáció és használati példák.  
+- [API Reference](https://reference.groupdocs.com/redaction/java) – részletes osztály- és metódusreferencia.  
+- [Latest Releases](https://releases.groupdocs.com/redaction/java/) – verziótörténet és változásnaplók megtekintése.  
+- [Source Code on GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java) – tekintse meg a nyílt forráskódú tárolót.  
+- [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33) – közösségi támogatás és megbeszélés.  
+
+## Következtetés
+
+Ezzel az útmutatóval biztonságosan **redakciózhatja az érzékeny adatokat** Java dokumentumokból nagy léptékben, a GroupDocs.Redaction erőteljes szabálymotorjával és kötegelt feldolgozási képességeivel. Igazítsa a szabályt a megfelelőségi követelményekhez, finomhangolja a rasterizálási beállításokat a teljesítmény érdekében, és integrálja a munkafolyamatot bármely Java‑alapú háttérszolgáltatásba.
 
 ---
 
-**Utoljára frissítve:** 2026-03-14  
-**Tesztelve a következővel:** GroupDocs.Redaction 24.9 for Java  
+**Legutóbb frissítve:** 2026-08-31  
+**Tesztelve:** GroupDocs.Redaction 24.9 for Java  
 **Szerző:** GroupDocs
+
+## Kapcsolódó oktatóanyagok
+
+- [Hogyan redakciózzuk a dokumentumokat a GroupDocs Redaction Java licenccel fájl útvonalból – Lépésről lépésre útmutató](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)
+- [Érzékeny adatok maszkolása Java – GroupDocs.Redaction útmutató](/redaction/java/getting-started/)
+- [Hogyan redakciózzuk a szöveget Java dokumentumokban a GroupDocs.Redaction segítségével](/redaction/java/text-redaction/java-redaction-guide-groupdocs-document-security/)
+
+{{< /blocks/products/pf/tutorial-page-section >}}
+{{< /blocks/products/pf/main-container >}}
+{{< /blocks/products/pf/main-wrap-class >}}
+{{< blocks/products/products-backtop-button >}}

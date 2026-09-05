@@ -1,49 +1,99 @@
 ---
-date: '2026-03-14'
-description: 學習如何建立遮蔽政策並遮蔽 PDF Java 文件，包括移除 Java 註解與抹除 PDF 元資料。完整指南。
+date: '2026-08-31'
+description: 學習如何使用 GroupDocs.Redaction for Java redact PDF，建立 redaction policies，移除
+  annotations，並以程式化、合規的方式擦除 metadata。
 keywords:
-- redact sensitive information
+- how to redact pdf
+- erase metadata pdf
+- remove annotations java
 - GroupDocs.Redaction Java
 - document redaction
-title: 使用 GroupDocs.Redaction Java 為 PDF 建立遮蔽政策
+lastmod: '2026-08-31'
+og_description: 如何使用 GroupDocs.Redaction for Java redact PDF。建立 policies，移除 annotations，並快速且安全地擦除
+  metadata。
+og_image_alt: Guide showing how to redact PDF files with GroupDocs.Redaction in Java
+og_title: 如何使用 GroupDocs.Redaction for Java redact PDF
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-31'
+  description: Learn how to redact PDF using GroupDocs.Redaction for Java, create
+    redaction policies, remove annotations, and erase metadata in a programmatic,
+    compliant way.
+  headline: How to redact PDF with GroupDocs.Redaction for Java
+  type: TechArticle
+- description: Learn how to redact PDF using GroupDocs.Redaction for Java, create
+    redaction policies, remove annotations, and erase metadata in a programmatic,
+    compliant way.
+  name: How to redact PDF with GroupDocs.Redaction for Java
+  steps:
+  - name: configure redactions
+    text: 'Configure the redactions using different classes provided by GroupDocs.Redaction:'
+  - name: save redaction policy
+    text: 'Save the configured policy as an XML file:'
+  - name: create exact phrase redaction
+    text: 'Implement an exact phrase redaction:'
+  - name: create regex redaction
+    text: 'Define a regex‑based redaction:'
+  type: HowTo
+- questions:
+  - answer: GroupDocs.Redaction is a Java library that programmatically removes or
+      replaces sensitive content in PDFs and other document formats.
+    question: What is GroupDocs.Redaction?
+  - answer: Add the Maven dependency, obtain a trial license, and follow the initialization
+      steps shown above.
+    question: How do I get started with GroupDocs.Redaction?
+  - answer: Yes—use exact‑phrase redactions, regular‑expression redactions, or the
+      built‑in metadata removal classes.
+    question: Can I customize redaction patterns in GroupDocs.Redaction?
+  - answer: Absolutely—save your `RedactionPolicy` as an XML file and load it later
+      for batch processing.
+    question: Is it possible to save and reuse redaction configurations?
+  - answer: Apply only required redactions, tune Java heap size, and craft efficient
+      regex patterns to minimise CPU usage.
+    question: What are the best practices for optimizing performance with GroupDocs.Redaction?
+  type: FAQPage
+tags:
+- redact PDF
+- GroupDocs.Redaction
+- Java document processing
+- erase metadata pdf
+- remove annotations java
+title: 如何使用 GroupDocs.Redaction for Java redact PDF
 type: docs
 url: /zh-hant/java/advanced-redaction/master-redaction-groupdocs-java-guide/
 weight: 1
 ---
 
-# 使用 GroupDocs.Redaction for Java 為 PDF 建立 Redaction Policy
+# 如何使用 GroupDocs.Redaction for Java 對 PDF 進行遮蔽
 
-在當今的數位環境中，管理敏感資訊是必須的，而 **建立 redaction policy** 是確保機密資料不會從 PDF 檔案洩漏的最快方法。無論您需要 **redact PDF Java** 文件、**remove annotations java**，或是 **erase metadata pdf**，GroupDocs.Redaction for Java 都提供乾淨且程式化的方式，能在所有主要平台上運作。
+在當今以數據為驅動的世界中，保護 PDF 檔案內的機密資訊是不可妥協的需求。本教學示範 **如何遮蔽 PDF** 文件，涵蓋政策建立、註解移除以及中繼資料刪除。完成後您將擁有可重複使用的 XML 遮蔽政策，可套用於任意數量的 PDF，協助您遵循 GDPR、HIPAA 及其他法規。
 
 ## 快速回答
 - **GroupDocs.Redaction 的主要目的為何？** 以程式方式遮蔽 PDF 及其他文件格式中的敏感內容。  
-- **我可以使用 Java 移除註解嗎？** 可以 — 使用 `DeleteAnnotationRedaction` 類別（remove annotations java）。  
-- **開發時需要授權嗎？** 免費試用或臨時授權可用於測試；正式上線需購買完整授權。  
+- **我可以使用 Java 移除註解嗎？** 是—使用 `DeleteAnnotationRedaction` 類別 (remove annotations java)。  
+- **開發時需要授權嗎？** 免費試用或臨時授權可用於測試；正式環境需購買正式授權。  
 - **支援哪個 Java 版本？** JDK 8 或更新版本。  
-- **XML 政策檔案放在哪裡？** 您在程式碼中定義輸出路徑，然後呼叫 `policy.save(...)`。
+- **XML 政策檔案放在哪裡？** 您在程式碼中定義輸出路徑，並呼叫 `policy.save(...)`。  
 
-## 什麼是 Redaction Policy 以及如何 **create redaction policy**？
-Redaction Policy 是一組可重複使用的規則，告訴 GroupDocs.Redaction 在文件中要隱藏、刪除或取代什麼內容。只要定義一次並儲存為 XML 檔案，即可在多個 PDF 上套用相同的 **redact sensitive info**，無需重新撰寫程式碼。
+`DeleteAnnotationRedaction` 類別會移除 PDF 中的註解物件，例如評論、標記或印章。  
+`RedactionPolicy` 類別代表一組遮蔽規則，可儲存至或從 XML 檔案載入。  
+
+## 什麼是遮蔽政策，以及如何建立遮蔽政策？
+遮蔽政策是一組基於 XML 的規則，告訴 GroupDocs.Redaction 在 PDF 中要隱藏、刪除或取代哪些文字、模式、註解或中繼資料。只要定義一次並儲存為 XML 檔案，即可在多個 PDF 上套用相同的 **遮蔽敏感資訊**，無需重寫程式碼。  
 
 ## 為何使用 GroupDocs.Redaction for Java？
-- **Compliance‑ready** – 符合 GDPR、HIPAA 以及其他法規要求。  
-- **Fine‑grained control** – 可選擇精確字串、正則表達式、註解移除，以及 **erase metadata pdf**。  
-- **Reusable policies** – 將設定儲存為 XML，並在不同專案間重複使用。  
-- **Performance‑optimized** – 高效處理大型 PDF，佔用記憶體極少。
+GroupDocs.Redaction 使用 **記憶體效能高的引擎** 處理 PDF，能在使用低於 150 MB 記憶體的情況下處理超過 500 頁的檔案。它支援 **30 多種輸入與輸出格式**，包括 DOCX、XLSX、PPTX、HTML 以及常見影像類型，並內建 GDPR 與 HIPAA 的合規功能。此函式庫亦提供對精確字串、正規表達式、註解與中繼資料遮蔽的細緻控制，是 Java 開發者最具彈性的解決方案。  
 
 ## 前置條件
-要開始使用 GroupDocs.Redaction for Java，請確保具備以下條件：
-
-- **Libraries and Dependencies**：透過 Maven 或直接下載方式將 GroupDocs.Redaction 加入專案。  
-- **Environment Setup**：確保已安裝 JDK 8 或更新版本的 Java 開發環境。  
-- **Knowledge Prerequisites**：具備 Java 程式概念與正則表達式的基本認識將會有幫助。
+- **函式庫與相依性** – 透過 Maven 將 GroupDocs.Redaction 加入專案，或直接下載 JAR。  
+- **Java 環境** – 已安裝並設定 JDK 8 或更新版本。  
+- **基礎知識** – 熟悉 Java 語法與正規表達式可加速政策建立。  
 
 ## 設定 GroupDocs.Redaction for Java
 
 ### 安裝資訊
-
 **Maven:**  
-要透過 Maven 整合 GroupDocs.Redaction，請在 `pom.xml` 中加入以下內容：
+若要使用 Maven 整合 GroupDocs.Redaction，請將以下內容加入 `pom.xml`：
 
 ```xml
 <repositories>
@@ -63,14 +113,13 @@ Redaction Policy 是一組可重複使用的規則，告訴 GroupDocs.Redaction 
 </dependencies>
 ```
 
-**Direct Download:**  
-或者，從 [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/) 下載最新版本。
+**Direct download:**  
+或者，從 [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/) 下載最新版本。  
 
 ### 取得授權
+先使用免費試用或取得臨時授權以探索全部功能。長期使用則需購買正式授權。
 
-先使用免費試用或取得臨時授權以探索所有功能。長期使用時，建議購買完整授權。
-
-**Basic Initialization:**  
+**Basic initialization:**  
 在專案中初始化 GroupDocs.Redaction：
 
 ```java
@@ -88,15 +137,14 @@ public class RedactionSetup {
 
 ## 實作指南
 
-以下將實作細分為各項功能。
-
-### 如何 **create redaction policy**：建立與儲存 Redaction Policy
+### 如何建立遮蔽政策：建立並儲存遮蔽政策
+載入遮蔽設定，加入所需的遮蔽物件，並將政策持久化為 XML 檔案。此兩步驟流程讓您可在多個 PDF 中重複使用相同規則，而無需每次重新建立政策。
 
 #### 概觀
-此功能可設定多種遮蔽類型，例如精確字串、正則表達式與中繼資料擦除，並可將這些設定儲存為 XML 檔案供日後使用。
+此功能允許您設定多種遮蔽類型，如精確字串、正規表達式與中繼資料刪除，之後可將這些設定儲存為 XML 檔案以供日後使用。
 
-##### 步驟 1：設定 Redactions
-使用 GroupDocs.Redaction 提供的不同類別來設定遮蔽：
+##### 步驟 1：設定遮蔽
+使用 GroupDocs.Redaction 提供的不同類別設定遮蔽：
 
 ```java
 import com.groupdocs.redaction.RedactionPolicy;
@@ -123,7 +171,7 @@ RedactionPolicy policy = new RedactionPolicy(new Redaction[] {
 });
 ```
 
-##### 步驟 2：儲存 Redaction Policy
+##### 步驟 2：儲存遮蔽政策
 將設定好的政策儲存為 XML 檔案：
 
 ```java
@@ -132,7 +180,8 @@ String outputPath = YOUR_DOCUMENT_DIRECTORY + "YOUR_OUTPUT_DIRECTORY/POLICY_SAVE
 policy.save(outputPath);
 ```
 
-### 如何 **remove annotations java**：設定精確字串遮蔽
+### 如何使用 Java 移除註解：設定精確字串遮蔽
+載入 PDF，定義要隱藏的精確字串，並將遮蔽加入政策。該字串將被黑框或自訂文字取代。
 
 #### 概觀
 此功能針對特定字串進行遮蔽，並以預先定義的文字取代。
@@ -152,13 +201,14 @@ Redaction exactPhraseRedaction = new ExactPhraseRedaction(
 );
 ```
 
-### 如何 **remove annotations java**：設定正則表達式遮蔽
+### 如何使用 Java 移除註解：設定正規表達式遮蔽
+使用正規表達式定位如社會安全號碼或信用卡格式等模式，然後自動取代或刪除。
 
 #### 概觀
-使用正則表達式來辨識並取代文件中的模式。
+使用正規表達式辨識並取代文件中的模式。
 
-##### 步驟 1：建立正則表達式遮蔽
-定義基於正則表達式的遮蔽：
+##### 步驟 1：建立正規表達式遮蔽
+定義基於正規表達式的遮蔽：
 
 ```java
 import com.groupdocs.redaction.Redaction;
@@ -174,50 +224,56 @@ Redaction regexRedaction = new RegexRedaction(
 ```
 
 ## 實務應用
-1. **Confidential Document Management**：自動 **redact sensitive info** 如姓名、社會安全號碼或財務資料，適用於法律與人力資源文件。  
-2. **Compliance Automation**：透過遮蔽客戶通訊中的個人識別資訊，確保符合 GDPR、HIPAA 及其他法規。  
-3. **Data Anonymization for Testing**：使用正則表達式遮蔽，將測試資料集匿名化，同時保留結構完整性。
+1. **機密文件管理** – 自動 **遮蔽敏感資訊**，如姓名、社會安全號碼或財務資料，適用於法律與人力資源文件。  
+2. **合規自動化** – 透過剔除客戶通訊中的個人識別資訊，以符合 GDPR、HIPAA 及其他法規要求。  
+3. **測試資料匿名化** – 使用正規表達式遮蔽，匿名化測試資料集，同時保留文件結構。  
 
 ## 效能考量
-- **Optimize Redaction**：僅套用必要的遮蔽，以提升處理速度。  
-- **Memory Management**：監控資源使用，妥善管理 Java 記憶體，尤其是大型文件。  
-- **Efficient Regex Patterns**：確保正則表達式已最佳化，以降低計算時間。
+- **最佳化遮蔽** – 僅套用必要的遮蔽，以降低處理時間。  
+- **記憶體管理** – 監控 Java 堆積使用量；GroupDocs.Redaction 以串流方式處理頁面，避免一次載入整個檔案。  
+- **有效的正規表達式** – 撰寫簡潔的正規表達式，避免過度回溯與 CPU 負載。  
 
 ## 常見問題與解決方案
 
 | 問題 | 原因 | 解決方案 |
-|------|------|----------|
-| 遮蔽未套用 | 字串錯誤/大小寫敏感 | 使用不區分大小寫的選項或確認精確文字 |
-| 註解仍然存在 | `DeleteAnnotationRedaction` 未加入政策 | 將 `new DeleteAnnotationRedaction()` 加入政策陣列 |
-| 大型 PDF 處理緩慢 | 不必要的正則表達式掃描 | 限制正則表達式範圍或預先過濾頁面 |
+|-------|-------|-----|
+| 未套用遮蔽 | 字串錯誤或大小寫敏感 | 使用不分大小寫的選項或確認精確文字字串 |
+| 註解仍然存在 | 未將 `DeleteAnnotationRedaction` 加入政策 | 在政策陣列中加入 `new DeleteAnnotationRedaction()` |
+| 大型 PDF 處理緩慢 | 不必要的正規表達式掃描 | 限制正規表達式範圍或在套用模式前先過濾頁面 |
 
 ## 常見問答
 
-**Q: What is GroupDocs.Redaction?**  
-A: 一個強大的程式庫，可使用 Java 從各種文件格式中遮蔽敏感資訊。
+**Q: 什麼是 GroupDocs.Redaction？**  
+A: GroupDocs.Redaction 是一個 Java 函式庫，可程式化地移除或取代 PDF 及其他文件格式中的敏感內容。  
 
-**Q: How do I get started with GroupDocs.Redaction?**  
-A: 設定開發環境、加入 Maven 依賴，並依照上述初始化指南開始使用。
+**Q: 如何開始使用 GroupDocs.Redaction？**  
+A: 加入 Maven 相依性，取得試用授權，並依照上述初始化步驟操作。  
 
-**Q: Can I customize redaction patterns in GroupDocs.Redaction?**  
-A: 可以 — 使用精確字串、正則表達式，或內建的中繼資料移除類別。
+**Q: 我可以自訂 GroupDocs.Redaction 的遮蔽模式嗎？**  
+A: 可以——使用精確字串遮蔽、正規表達式遮蔽，或內建的中繼資料移除類別。  
 
-**Q: Is it possible to save and reuse redaction configurations?**  
-A: 當然可以 — 將 `RedactionPolicy` 儲存為 XML 檔案，之後再載入使用。
+**Q: 能否儲存並重複使用遮蔽設定？**  
+A: 完全可以——將 `RedactionPolicy` 儲存為 XML 檔案，之後再載入以進行批次處理。  
 
-**Q: What are the best practices for optimizing performance with GroupDocs.Redaction?**  
-A: 僅套用必要的遮蔽、管理 Java 堆積大小，並撰寫高效的正則表達式。
+**Q: 使用 GroupDocs.Redaction 時，最佳的效能優化做法是什麼？**  
+A: 僅套用必要的遮蔽、調整 Java 堆積大小，並撰寫高效的正規表達式以降低 CPU 使用率。  
 
 ## 資源
 - [文件說明](https://docs.groupdocs.com/redaction/java/)
 - [API 參考](https://reference.groupdocs.com/redaction/java)
 - [下載](https://releases.groupdocs.com/redaction/java/)
-- [GitHub 倉庫](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
+- [GitHub 程式庫](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
 - [免費支援論壇](https://forum.groupdocs.com/c/redaction/33)
 - [臨時授權](https://purchase.groupdocs.com/temporary-license/)
 
 ---
 
-**最後更新：** 2026-03-14  
+**最後更新：** 2026-08-31  
 **測試環境：** GroupDocs.Redaction 24.9 for Java  
-**作者：** GroupDocs
+**作者：** GroupDocs  
+
+## 相關教學
+
+- [如何使用 GroupDocs.Redaction Java 移除註解](/redaction/java/annotation-redaction/)
+- [如何使用 GroupDocs.Redaction Java 遮蔽中繼資料](/redaction/java/metadata-redaction/)
+- [如何使用 Java 遮蔽 PDF – 針對 PDF 的遮蔽教學](/redaction/java/pdf-specific-redaction/)

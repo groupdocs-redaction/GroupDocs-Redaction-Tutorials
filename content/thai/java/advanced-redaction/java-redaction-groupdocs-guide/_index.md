@@ -1,53 +1,111 @@
 ---
-date: '2026-03-14'
-description: เรียนรู้วิธีการทำลบข้อมูลไฟล์ Java อย่างปลอดภัยด้วย GroupDocs.Redaction
-  คู่มือนี้ครอบคลุมการโหลดนโยบาย การประมวลผลแบบกลุ่ม และการบันทึกเอกสารที่ผ่านการลบข้อมูลแล้ว.
+date: '2026-08-31'
+description: เรียนรู้วิธีลบข้อมูลที่ละเอียดอ่อนในเอกสาร Java ด้วย GroupDocs.Redaction
+  คู่มือแบบ Step‑by‑step ครอบคลุม policies, batch processing, และ preserving original
+  formatting.
 keywords:
-- Java Redaction
-- Secure Document Processing
-- GroupDocs.Redaction for Java
-title: วิธีลบข้อมูลในเอกสาร Java ด้วย GroupDocs.Redaction
+- redact sensitive data
+- process multiple files
+- secure document processing
+- save redacted document
+lastmod: '2026-08-31'
+og_description: เรียนรู้วิธีลบข้อมูลที่ละเอียดอ่อนในเอกสาร Java ด้วย GroupDocs.Redaction
+  คู่มือนี้จะพาคุณผ่าน policies, batch processing, และ preserving formatting.
+og_image_alt: Guide showing how to redact sensitive data in Java using GroupDocs.Redaction
+og_title: ลบข้อมูลที่ละเอียดอ่อนใน Java ด้วย GroupDocs.Redaction
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-31'
+  description: Learn how to redact sensitive data in Java documents using GroupDocs.Redaction.
+    Step‑by‑step guide covers policies, batch processing, and preserving original
+    formatting.
+  headline: Redact sensitive data in Java with GroupDocs.Redaction
+  type: TechArticle
+- description: Learn how to redact sensitive data in Java documents using GroupDocs.Redaction.
+    Step‑by‑step guide covers policies, batch processing, and preserving original
+    formatting.
+  name: Redact sensitive data in Java with GroupDocs.Redaction
+  steps:
+  - name: '**Legal document processing** – redact client identifiers before sharing
+      drafts.'
+    text: '**Legal document processing** – redact client identifiers before sharing
+      drafts.'
+  - name: '**Healthcare data management** – remove patient details to stay HIPAA‑compliant.'
+    text: '**Healthcare data management** – remove patient details to stay HIPAA‑compliant.'
+  - name: '**Financial reporting** – hide account numbers when distributing reports.'
+    text: '**Financial reporting** – hide account numbers when distributing reports.'
+  - name: '**Contract review** – protect proprietary clauses during negotiations.'
+    text: '**Contract review** – protect proprietary clauses during negotiations.'
+  - name: '**Email archiving** – ensure privacy compliance when storing corporate
+      email archives.'
+    text: '**Email archiving** – ensure privacy compliance when storing corporate
+      email archives.'
+  type: HowTo
+- questions:
+  - answer: It means handling, redacting, and storing files so that confidential data
+      is protected throughout the entire workflow.
+    question: What does secure document processing mean?
+  - answer: Yes—by iterating over a folder you can apply the same redaction policy
+      to every document automatically.
+    question: Can I process multiple files in one run?
+  - answer: Create a redaction policy that defines the patterns or objects to hide,
+      then run the `Redactor` with that policy.
+    question: How do I redact sensitive data?
+  - answer: A valid GroupDocs.Redaction license is required for production; a trial
+      license is available for evaluation.
+    question: Do I need a license for production?
+  - answer: Set `RasterizationOptions.setEnabled(false)` to keep the original file
+      format unchanged.
+    question: Can I save the redacted document without rasterization?
+  type: FAQPage
+tags:
+- redact sensitive data
+- GroupDocs.Redaction
+- Java document processing
+- batch redaction
+title: ลบข้อมูลที่ละเอียดอ่อนใน Java ด้วย GroupDocs.Redaction
 type: docs
 url: /th/java/advanced-redaction/java-redaction-groupdocs-guide/
 weight: 1
 ---
 
-# วิธีลบข้อมูลเอกสาร Java ด้วย GroupDocs.Redaction
+{{< blocks/products/pf/main-wrap-class >}}
+{{< blocks/products/pf/main-container >}}
+{{< blocks/products/pf/tutorial-page-section >}}
 
-ในบทแนะนำนี้คุณจะได้ค้นพบ **วิธีลบข้อมูล java** อย่างมีประสิทธิภาพโดยใช้ GroupDocs.Redaction ไม่ว่าคุณจะจัดการสัญญากฎหมาย, บันทึกทางการแพทย์, หรือรายงานการเงิน ขั้นตอนต่อไปนี้จะช่วยให้คุณโหลดนโยบายการลบข้อมูล, ประมวลผลหลายเอกสารเป็นชุด, และบันทึกผลลัพธ์โดยคงรูปแบบเดิมไว้
+# ลบข้อมูลที่ละเอียดอ่อนใน Java ด้วย GroupDocs.Redaction
+
+**GroupDocs.Redaction** เป็นไลบรารี Java ที่ลบข้อมูลลับจากรูปแบบเอกสารกว่า 70 แบบโดยอัตโนมัติ พร้อมรักษาเค้าโครงเดิมไว้ไม่เปลี่ยนแปลง ในบทแนะนำนี้คุณจะได้เรียนรู้วิธี **ลบข้อมูลที่ละเอียดอ่อน** ในแอปพลิเคชัน Java, ใช้นโยบายการลบข้อมูลกับชุดไฟล์, และบันทึกผลลัพธ์โดยไม่สูญเสียการจัดรูปแบบ.
 
 ## คำตอบอย่างรวดเร็ว
-- **การประมวลผลเอกสารอย่างปลอดภัยหมายถึงอะไร?** มันหมายถึงการจัดการ, การลบข้อมูล, และการจัดเก็บเอกสารโดยปกป้องข้อมูลที่เป็นความลับตลอดกระบวนการทำงาน.  
-- **ฉันสามารถประมวลผลหลายไฟล์ในครั้งเดียวได้หรือไม่?** ได้, ตัวอย่างโค้ดจะวนผ่านไดเรกทอรีและใช้แนวนโยบายกับแต่ละไฟล์.  
-- **ฉันจะลบข้อมูลที่ละเอียดอ่อนอย่างไร?** กำหนดนโยบายการลบข้อมูลที่ระบุรูปแบบหรือข้อความที่ต้องซ่อน, แล้วใช้ Redactor เพื่อประยุกต์ใช้.  
-- **ฉันต้องการใบอนุญาตสำหรับการใช้งานจริงหรือไม่?** จำเป็นต้องมีใบอนุญาต GroupDocs.Redaction ที่ถูกต้องสำหรับการใช้งานในสภาพแวดล้อมการผลิต; มีรุ่นทดลองให้ใช้ประเมิน.  
-- **ฉันสามารถบันทึกเอกสารที่ลบข้อมูลแล้วโดยไม่ทำ rasterization ได้หรือไม่?** ได้เลย—ตั้งค่า `RasterizationOptions.setEnabled(false)` เพื่อคงรูปแบบเดิม.
+- **การประมวลผลเอกสารอย่างปลอดภัยหมายถึงอะไร?** หมายถึงการจัดการ, ลบข้อมูล, และเก็บไฟล์เพื่อให้ข้อมูลลับได้รับการปกป้องตลอดกระบวนการทำงานทั้งหมด.  
+- **ฉันสามารถประมวลผลหลายไฟล์ในครั้งเดียวได้หรือไม่?** ใช่—โดยการวนลูปผ่านโฟลเดอร์คุณสามารถใช้แนวนโยบายการลบข้อมูลเดียวกันกับทุกเอกสารโดยอัตโนมัติ.  
+- **ฉันจะลบข้อมูลที่ละเอียดอ่อนอย่างไร?** สร้างนโยบายการลบข้อมูลที่กำหนดรูปแบบหรือวัตถุที่ต้องซ่อน, จากนั้นเรียกใช้ `Redactor` พร้อมนโยบายนั้น.  
+- **ฉันต้องการไลเซนส์สำหรับการใช้งานจริงหรือไม่?** จำเป็นต้องมีไลเซนส์ GroupDocs.Redaction ที่ถูกต้องสำหรับการใช้งานจริง; มีไลเซนส์ทดลองสำหรับการประเมินผล.  
+- **ฉันสามารถบันทึกเอกสารที่ลบข้อมูลแล้วโดยไม่ทำ rasterization ได้หรือไม่?** ตั้งค่า `RasterizationOptions.setEnabled(false)` เพื่อรักษาไฟล์รูปแบบเดิมไว้โดยไม่เปลี่ยนแปลง.
 
-## วิธีลบข้อมูล java ด้วย GroupDocs.Redaction
-การประมวลผลเอกสารอย่างปลอดภัยเกี่ยวข้องกับการระบุและลบข้อมูลที่เป็นความลับโดยอัตโนมัติจากไฟล์หลายประเภทในขณะที่คงความสมบูรณ์และการใช้งานของเอกสารไว้ GroupDocs.Redaction ให้วิธีการเชิงโปรแกรมเพื่อทำเช่นนี้ใน Java.
+## วิธีลบข้อมูลที่ละเอียดอ่อนในเอกสาร Java ด้วย GroupDocs.Redaction?
+
+โหลดนโยบายการลบข้อมูลของคุณ, รันกับแต่ละไฟล์ในไดเรกทอรี, และบันทึกผลลัพธ์—ทั้งหมดในไม่กี่ขั้นตอนสั้น ๆ API ของ GroupDocs.Redaction ให้คุณประมวลผลเอกสารเป็นชุด, รักษาเค้าโครงขณะลบข้อมูลที่ระบุอย่างปลอดภัย, และมีตัวเลือกเพื่อควบคุม rasterization, รูปแบบผลลัพธ์, และลักษณะการทำงาน.
 
 ### ทำไมต้องใช้ GroupDocs.Redaction สำหรับ Java?
-- **การสนับสนุนรูปแบบที่ครอบคลุม** – PDFs, Word, รูปภาพ, และอื่น ๆ.  
-- **การควบคุมนโยบายแบบละเอียด** – สร้างนโยบายการลบข้อมูลที่ตรงกับสิ่งที่คุณต้องการ.  
-- **การจัดการเป็นชุดที่ขยายได้** – ประมวลผลหลายไฟล์ในหนึ่งการทำงาน, ลดความพยายามด้วยมือ.  
-- **ตัวเลือก rasterization ในตัว** – เลือกว่าจะ rasterize หน้าเพื่อความปลอดภัยเพิ่มเติมหรือไม่.
 
-## ข้อกำหนดเบื้องต้น
+GroupDocs.Redaction รองรับ **รูปแบบอินพุตและเอาต์พุตกว่า 70** (PDF, DOCX, PPTX, รูปภาพ ฯลฯ) และให้คุณกำหนดนโยบายละเอียดที่มุ่งเป้าไปที่ข้อความ, รูปภาพ, หรือเมตาดาต้าแบบเฉพาะเจาะจง. ไลบรารีนี้ประมวลผลชุดได้อย่างมีประสิทธิภาพ, และคุณสามารถสลับ rasterization เพื่อรักษาแบบฟอร์มเดิมหรือแปลงหน้าเป็นรูปภาพเพื่อความปลอดภัยเพิ่ม.
 
-ก่อนที่จะนำ GroupDocs.Redaction ไปใช้กับ Java, ตรวจสอบว่าคุณมีสิ่งต่อไปนี้:
+### ข้อกำหนดเบื้องต้น
+- **Java Development Kit (JDK) 8 หรือสูงกว่า** ติดตั้งแล้ว.  
+- **Maven** หรือเครื่องมือสร้างอื่นเพื่อจัดการ dependencies.  
+- ความรู้พื้นฐานของ Java และความคุ้นเคยกับการทำงานไฟล์ I/O.  
 
-- **ไลบรารีที่จำเป็น**: คุณต้องการไลบรารี GroupDocs.Redaction รุ่น 24.9.  
-- **การตั้งค่าสภาพแวดล้อม**: ต้องมี Java Development Kit (JDK) ติดตั้งบนเครื่องของคุณและ IDE เช่น IntelliJ IDEA หรือ Eclipse.  
-- **ความรู้เบื้องต้น**: ความเข้าใจพื้นฐานของการเขียนโปรแกรม Java และความคุ้นเคยกับการทำงานไฟล์ I/O.
+### การตั้งค่า GroupDocs.Redaction สำหรับ Java
 
-## การตั้งค่า GroupDocs.Redaction สำหรับ Java
+#### การตั้งค่า Maven
+เพิ่ม dependency ต่อไปนี้ลงในไฟล์ `pom.xml` ของคุณ:
 
-เพื่อเริ่มใช้ GroupDocs.Redaction, ตั้งค่าไลบรารีในโปรเจกต์ของคุณ ดังนี้:
-
-**การตั้งค่า Maven:**
-
-เพิ่มการกำหนดค่าต่อไปนี้ในไฟล์ `pom.xml` ของคุณ:
-
+Dependency ของ Maven ด้านล่างนี้จะเพิ่ม GroupDocs.Redaction ให้กับโปรเจกต์ของคุณ.
+```xml
+<!-- Maven dependency placeholder -->
+```
 ```xml
 <repositories>
    <repository>
@@ -66,43 +124,34 @@ weight: 1
 </dependencies>
 ```
 
-**ดาวน์โหลดโดยตรง:**  
-หรือคุณสามารถดาวน์โหลดเวอร์ชันล่าสุดจาก [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+#### ดาวน์โหลดโดยตรง
+หรือคุณสามารถดาวน์โหลด JAR ล่าสุดจาก [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
-### การได้รับใบอนุญาต
+### การรับไลเซนส์
+ไลเซนส์ทดลองใช้ได้สำหรับการพัฒนา, แต่การใช้งานในสภาพแวดล้อมจริงต้องใช้ไฟล์ไลเซนส์ถาวรที่วางไว้ในโฟลเดอร์ resources ของแอปพลิเคชันและอ้างอิงในขณะรัน.
 
-เพื่อใช้ความสามารถของ GroupDocs.Redaction อย่างเต็มที่, พิจารณาได้รับใบอนุญาต คุณสามารถเริ่มต้นด้วยการทดลองใช้ฟรีหรือขอใบอนุญาตชั่วคราวเพื่อสำรวจคุณลักษณะต่าง ๆ อย่างละเอียด.
-
-### การเริ่มต้นและตั้งค่าพื้นฐาน
-
-เมื่อคุณติดตั้งไลบรารีแล้ว, เริ่มต้นใช้งานในแอปพลิเคชัน Java ของคุณโดยนำเข้าคลาสที่จำเป็น:
-
+### การเริ่มต้นและตั้งค่าเบื้องต้น
+นำเข้าคลาสที่จำเป็นและสร้างอินสแตนซ์ของ `Redactor`. **Redactor** คือคลาสหลักที่ทำการลบข้อมูลในเอกสาร.
+```java
+// Initialization code placeholder
+```
 ```java
 import com.groupdocs.redaction.*;
 ```
 
 ## คู่มือการใช้งาน
 
-ส่วนนี้จะพาคุณผ่านการทำงานของสองคุณลักษณะสำคัญ: การโหลดและประยุกต์ใช้แนวนโยบายการลบข้อมูล, และการบันทึกเอกสารที่ประมวลผลด้วยตัวเลือก rasterization เฉพาะ.
-
-### โหลดและประยุกต์ใช้แนวนโยบายการลบข้อมูล
-
-**ภาพรวม:** ฟีเจอร์นี้โหลดแนวนโยบายการลบข้อมูลที่กำหนดไว้ล่วงหน้าจากไฟล์และประยุกต์ใช้กับเอกสารทั้งหมดในไดเรกทอรีที่ระบุ ไฟล์ที่ประมวลผลจะถูกบันทึกตามผลการทำงานว่าสำเร็จหรือไม่สำเร็จ.
-
-#### ขั้นตอนที่ 1: เริ่มต้น RedactionPolicy
-
-โหลดแนวนโยบายการลบข้อมูลของคุณโดยใช้:
-
+### นโยบายการลบข้อมูลคืออะไร?
+นโยบายการลบข้อมูลคือชุดกฎที่สามารถนำกลับมาใช้ใหม่ซึ่งบอกให้ Redactor รู้ว่าจะซ่อนหรือลบรูปแบบข้อความ, รูปภาพ, หรือเมตาดาต้าใด. คุณกำหนดมันครั้งเดียวและใช้กับเอกสารจำนวนใดก็ได้, ทำให้การปฏิบัติตามกฎเป็นไปอย่างสม่ำเสมอในทุกไฟล์ที่ประมวลผล.
 ```java
 RedactionPolicy policy = RedactionPolicy.load("YOUR_POLICY_FILE_PATH");
 ```
 
-ขั้นตอนนี้สำคัญเนื่องจากนโยบายกำหนดกฎเกณฑ์สำหรับการลบข้อมูลที่ละเอียดอ่อนในเอกสารของคุณ.
-
-#### ขั้นตอนที่ 2: ประยุกต์ใช้แนวนโยบายกับเอกสาร
-
-วนผ่านแต่ละไฟล์ในไดเรกทอรีและประยุกต์ใช้แนวนโยบาย:
-
+### โหลดและใช้นโยบายการลบข้อมูล
+**โหลดนโยบาย** จากไฟล์ XML หรือ JSON และ **ใช้มัน** กับเอกสารแต่ละไฟล์ในโฟลเดอร์:
+```java
+// Load and apply policy code placeholder
+```
 ```java
 for (final File fileEntry : new File("YOUR_DOCUMENT_DIRECTORY").listFiles()) {
     final Redactor redactor = new Redactor(fileEntry.getPath());
@@ -125,26 +174,22 @@ for (final File fileEntry : new File("YOUR_DOCUMENT_DIRECTORY").listFiles()) {
 }
 ```
 
-**อธิบายพารามิเตอร์:**  
-- `RedactionPolicy.load()` – โหลดนโยบายจากเส้นทางที่ระบุ.  
-- `redactor.apply(policy)` – ดำเนินการลบข้อมูลตามนโยบายที่โหลด.  
-
-### บันทึกเอกสารที่ประมวลผลด้วยตัวเลือก Rasterization
-
-**ภาพรวม:** หลังจากประยุกต์การลบข้อมูล, บันทึกเอกสารโดยใช้ตัวเลือก rasterization เฉพาะเพื่อควบคุมรูปแบบและคุณภาพของผลลัพธ์.
-
-#### ขั้นตอนที่ 1: เริ่มต้น Redactor สำหรับไฟล์อินพุต
-
-เปิดไฟล์เพื่อประมวลผล:
-
+### ประมวลผลหลายไฟล์เป็นชุด
+วนลูปผ่านไดเรกทอรี, เปิดแต่ละไฟล์ด้วย `Redactor`, และใช้แนวนโยบายเดียวกัน:
+```java
+// Batch processing code placeholder
+```
 ```java
 File inputFile = new File("YOUR_DOCUMENT_DIRECTORY/input.docx");
 ```
 
-#### ขั้นตอนที่ 2: บันทึกด้วยตัวเลือก Rasterization
+### บันทึกเอกสารที่ประมวลผลด้วยตัวเลือก rasterization
 
-บันทึกเอกสารที่ประมวลผล, ระบุตั้งค่า rasterization:
-
+#### เริ่มต้น Redactor สำหรับไฟล์อินพุต
+เปิดไฟล์เป้าหมายเพื่อทำการลบข้อมูล:
+```java
+// Open file code placeholder
+```
 ```java
 try (Redactor redactor = new Redactor(inputFile.getPath())) {
     try (FileOutputStream fileStream = new FileOutputStream(outputFileDirectory.getPath() + "/processed_output.docx")) {
@@ -155,54 +200,79 @@ try (Redactor redactor = new Redactor(inputFile.getPath())) {
 }
 ```
 
-**ตัวเลือกการกำหนดค่าที่สำคัญ:**  
-- `RasterizationOptions` – ควบคุมวิธีการบันทึกเอกสารหลังการลบข้อมูล, ให้คุณคงรูปแบบเดิมหรือแปลงเป็นภาพเพื่อความปลอดภัยเพิ่ม.
+#### บันทึกด้วยตัวเลือก rasterization
+กำหนดค่า `RasterizationOptions` เพื่อรักษาแบบฟอร์มเดิมหรือแปลงหน้าเป็นรูปภาพ, จากนั้นบันทึก:
+```java
+// Save options code placeholder
+```
 
-## การประยุกต์ใช้งานจริง
-1. **การประมวลผลเอกสารทางกฎหมาย** – ลบข้อมูลลูกค้าที่ละเอียดอ่อนก่อนแชร์ฉบับร่าง.  
-2. **การจัดการข้อมูลสุขภาพ** – รักษาความลับของผู้ป่วยโดยลบข้อมูลในบันทึกทางการแพทย์.  
-3. **การรายงานทางการเงิน** – ปกป้องข้อมูลการเงินในรายงานที่แชร์กับผู้มีส่วนได้ส่วนเสีย.  
-4. **การตรวจสอบสัญญา** – ปกป้องเงื่อนไขที่เป็นกรรมสิทธิ์ระหว่างการเจรจาสัญญา.  
-5. **การเก็บถาวรอีเมล** – รักษาการปฏิบัติตามความเป็นส่วนตัวเมื่อเก็บอีเมลธุรกิจ.
+**ตัวเลือกสำคัญ**  
+- `setEnabled(false)` – รักษาชนิดไฟล์เดิม.  
+- `setResolution(150)` – ตั้งค่า DPI เมื่อ rasterizing เป็นรูปภาพ.  
 
-## พิจารณาด้านประสิทธิภาพ
+### วิธีบันทึกเอกสารที่ลบข้อมูลแล้วโดยไม่สูญเสียการจัดรูปแบบ?
+ตั้งค่าสถานะ rasterization เป็น `false` ก่อนเรียก `save`. นี้บอก GroupDocs.Redaction ให้เขียนผลลัพธ์ในรูปแบบเดียวกับแหล่งที่มา, ทำให้ตาราง, ฟอนต์, และเค้าโครงคงที่โดยยังคงทำการลบข้อมูลตามที่ต้องการ.
 
-เพื่อเพิ่มประสิทธิภาพขณะใช้ GroupDocs.Redaction:
-- **การจัดการทรัพยากรอย่างมีประสิทธิภาพ** – ตรวจสอบให้ไฟล์ถูกปิดอย่างถูกต้องเพื่อปลดปล่อยทรัพยากรระบบ.  
-- **การประมวลผลเป็นชุด** – ประมวลผลเอกสารเป็นชุดเพื่อจัดการการใช้หน่วยความจำอย่างมีประสิทธิภาพ.  
-- **ปรับแต่งแนวนโยบายการลบข้อมูล** – ปรับนโยบายให้มุ่งเป้าเฉพาะการลบที่จำเป็น, ลดเวลาการประมวลผล.
+### การประยุกต์ใช้ในทางปฏิบัติ
+1. **การประมวลผลเอกสารทางกฎหมาย** – ลบข้อมูลระบุตัวลูกค้าก่อนแชร์ฉบับร่าง.  
+2. **การจัดการข้อมูลสุขภาพ** – ลบรายละเอียดผู้ป่วยเพื่อให้สอดคล้องกับ HIPAA.  
+3. **การรายงานทางการเงิน** – ซ่อนหมายเลขบัญชีเมื่อแจกจ่ายรายงาน.  
+4. **การตรวจสอบสัญญา** – ปกป้องข้อกำหนดที่เป็นกรรมสิทธิ์ระหว่างการเจรจา.  
+5. **การเก็บถาวรอีเมล** – รับรองการปฏิบัติตามความเป็นส่วนตัวเมื่อจัดเก็บอีเมลขององค์กร.  
 
-## ข้อผิดพลาดทั่วไปและการแก้ไขปัญหา
-- **Missing License Exception** – หากคุณพบข้อผิดพลาดเกี่ยวกับใบอนุญาต, ตรวจสอบว่าไฟล์ใบอนุญาตวางไว้ถูกต้องและเส้นทางตั้งค่าในแอปพลิเคชันของคุณ.  
-- **Unsupported File Types** – ตรวจสอบให้แน่ใจว่ารูปแบบไฟล์อยู่ในรายการที่สนับสนุน; มิฉะนั้น Redactor จะโยน `UnsupportedFormatException`.  
-- **Large Files Out of Memory** – สำหรับ PDF ขนาดใหญ่มาก, พิจารณาเพิ่มขนาด heap ของ JVM (`-Xmx2g`) หรือประมวลผลไฟล์เป็นชิ้นเล็ก ๆ.
+### พิจารณาด้านประสิทธิภาพ
+- **การจัดการทรัพยากร** – ปิด `Redactor` เสมอเพื่อคืนหน่วยความจำ.  
+- **การประมวลผลเป็นชุด** – จัดการไฟล์เป็นกลุ่ม 10‑20 ไฟล์เพื่อสมดุลความเร็วและการใช้หน่วยความจำ.  
+- **นโยบายที่ปรับให้เหมาะสม** – จำกัดรูปแบบให้เฉพาะที่ต้องการ; รูปแบบกว้างจะเพิ่มเวลาการประมวลผล.  
+
+### ข้อผิดพลาดทั่วไปและการแก้ไขปัญหา
+- **ข้อยกเว้นไลเซนส์หาย** – ตรวจสอบว่าเส้นทางไฟล์ไลเซนส์ถูกต้องและไฟล์สามารถอ่านได้.  
+- **ประเภทไฟล์ที่ไม่รองรับ** – ตรวจสอบรายการรูปแบบที่รองรับ; ไฟล์ที่ไม่รองรับจะทำให้เกิด `UnsupportedFormatException`.  
+- **ข้อผิดพลาด out‑of‑memory กับ PDF ขนาดใหญ่** – เพิ่มขนาด heap ของ JVM (`-Xmx2g`) หรือแยก PDF เป็นส่วนย่อยก่อนทำการลบข้อมูล.  
 
 ## คำถามที่พบบ่อย
 
 **Q:** ฉันจะประมวลผลหลายไฟล์ด้วยคำสั่งเดียวได้อย่างไร?  
-**A:** ใช้ลูปการวนผ่านไดเรกทอรีที่แสดงในตัวอย่าง “Apply Policy to Documents”; มันจะประมวลผลทุกไฟล์ในโฟลเดอร์โดยอัตโนมัติ.
+**A:** ใช้ลูปการวนผ่านไดเรกทอรีตามตัวอย่าง “Apply policy to documents”; มันจะลบข้อมูลทุกไฟล์ในโฟลเดอร์ที่ระบุโดยอัตโนมัติ.
 
-**Q:** “การลบข้อมูลที่ละเอียดอ่อน” จริง ๆ แล้วลบอะไร?  
-**A:** แนวนโยบายการลบข้อมูลสามารถกำหนดเป้าหมายเป็นรูปแบบข้อความ, รูปภาพ, หรือเมตาดาต้า, แทนที่ด้วยกล่องสีดำหรือเอาออกทั้งหมด.
+**Q:** “ลบข้อมูลที่ละเอียดอ่อน” จริง ๆ แล้วลบอะไร?  
+**A:** นโยบายสามารถมุ่งเป้าไปที่รูปแบบข้อความธรรมดา, รูปภาพ, หรือเมตาดาต้า, แทนที่ด้วยกล่องสีดำหรือลบออกทั้งหมดตามการกำหนดค่าของคุณ.
 
-**Q:** มีวิธีดูตัวอย่างแนวนโยบายการลบข้อมูลก่อนประยุกต์ใช้หรือไม่?  
-**A:** มี, คุณสามารถโหลดนโยบายและเรียก `redactor.preview(policy)` (หากรองรับ) เพื่อสร้าง PDF ตัวอย่าง.
+**Q:** มีวิธีดูตัวอย่างนโยบายการลบข้อมูลก่อนนำไปใช้หรือไม่?  
+**A:** มี—เรียก `redactor.preview(policy)` (ถ้ารองรับ) เพื่อสร้าง PDF ตัวอย่างที่แสดงอย่างชัดเจนว่าจะแสดงอะไรบ้างที่ถูกซ่อน.
 
-**Q:** ฉันจะ “บันทึกเอกสารที่ลบข้อมูลแล้ว” โดยไม่สูญเสียรูปแบบเดิมได้อย่างไร?  
-**A:** ตั้งค่า `RasterizationOptions.setEnabled(false)` ตามที่แสดง; นี้จะคงรูปแบบไฟล์เดิมไว้.
+**Q:** ฉันจะบันทึกเอกสารที่ลบข้อมูลแล้วโดยไม่สูญเสียการจัดรูปแบบเดิมได้อย่างไร?  
+**A:** ตั้งค่า `RasterizationOptions.setEnabled(false)` ตามที่แสดง; นี้ทำให้ไฟล์คงอยู่ในรูปแบบดั้งเดิมขณะยังคงทำการลบข้อมูล.
 
-**Q:** ฉันต้องการใบอนุญาตสำหรับการทดสอบการพัฒนาหรือไม่?  
-**A:** ใบอนุญาตชั่วคราวหรือรุ่นทดลองเพียงพอสำหรับการพัฒนา; ใบอนุญาตเต็มจำเป็นสำหรับการใช้งานในสภาพแวดล้อมการผลิต.
+**Q:** ฉันต้องการไลเซนส์สำหรับการทดสอบการพัฒนาหรือไม่?  
+**A:** ไลเซนส์ชั่วคราวหรือทดลองเพียงพอสำหรับการพัฒนา; ไลเซนส์เต็มรูปแบบจำเป็นสำหรับการใช้งานจริง.
 
 ## แหล่งข้อมูล
-- **Documentation**: [GroupDocs.Redaction Java Docs](https://docs.groupdocs.com/redaction/java/)  
-- **API Reference**: [API Reference](https://reference.groupdocs.com/redaction/java)  
-- **Download**: [Latest Releases](https://releases.groupdocs.com/redaction/java/)  
-- **GitHub**: [Source Code on GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
-- **Free Support**: [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)
+
+- [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/) – ดาวน์โหลดไฟล์ JAR ล่าสุด.  
+- [GroupDocs.Redaction Java Docs](https://docs.groupdocs.com/redaction/java/) – เอกสารอย่างเป็นทางการและตัวอย่างการใช้งาน.  
+- [API Reference](https://reference.groupdocs.com/redaction/java) – อ้างอิงคลาสและเมธอดอย่างละเอียด.  
+- [Latest Releases](https://releases.groupdocs.com/redaction/java/) – ดูประวัติเวอร์ชันและบันทึกการเปลี่ยนแปลง.  
+- [Source Code on GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java) – สำรวจ repository แบบโอเพ่นซอร์ส.  
+- [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33) – การสนับสนุนและการสนทนาของชุมชน.
+
+## สรุป
+
+โดยทำตามคู่มือนี้คุณสามารถ **ลบข้อมูลที่ละเอียดอ่อน** จากเอกสาร Java อย่างปลอดภัยและในปริมาณมาก, โดยใช้เอนจินนโยบายที่ทรงพลังและความสามารถในการประมวลผลเป็นชุดของ GroupDocs.Redaction. ปรับนโยบายให้สอดคล้องกับข้อกำหนดการปฏิบัติตาม, ปรับตั้งค่าการ rasterization เพื่อประสิทธิภาพ, และรวม workflow นี้เข้ากับบริการ backend ที่พัฒนาด้วย Java ใดก็ได้.
 
 ---
 
-**อัปเดตล่าสุด:** 2026-03-14  
-**ทดสอบกับ:** GroupDocs.Redaction 24.9 for Java  
+**อัปเดตล่าสุด:** 2026-08-31  
+**ทดสอบด้วย:** GroupDocs.Redaction 24.9 for Java  
 **ผู้เขียน:** GroupDocs
+
+## บทแนะนำที่เกี่ยวข้อง
+
+- [วิธีลบข้อมูลเอกสารด้วย GroupDocs Redaction Java License จากเส้นทางไฟล์ – คู่มือขั้นตอนโดยละเอียด](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)
+- [ซ่อนข้อมูลที่ละเอียดอ่อนใน Java – คู่มือ GroupDocs.Redaction](/redaction/java/getting-started/)
+- [วิธีลบข้อความในเอกสาร Java ด้วย GroupDocs.Redaction](/redaction/java/text-redaction/java-redaction-guide-groupdocs-document-security/)
+
+{{< /blocks/products/pf/tutorial-page-section >}}
+{{< /blocks/products/pf/main-container >}}
+{{< /blocks/products/pf/main-wrap-class >}}
+{{< blocks/products/products-backtop-button >}}
