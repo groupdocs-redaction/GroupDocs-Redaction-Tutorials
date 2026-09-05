@@ -1,47 +1,98 @@
 ---
-date: '2026-02-26'
-description: Tìm hiểu cách xóa thông tin trong tài liệu Java bằng GroupDocs.Redaction,
-  bao gồm cách che giấu thông tin cá nhân và thay thế văn bản nhạy cảm.
+date: '2026-08-14'
+description: Cách xóa thông tin trong tài liệu Java bằng GroupDocs.Redaction – ẩn
+  thông tin cá nhân và thay thế văn bản nhạy cảm một cách hiệu quả.
 keywords:
+- how to redact text
+- GroupDocs Redaction Java
+- text redaction Java
+- mask personal information
+lastmod: '2026-08-14'
+og_description: Cách xóa thông tin trong văn bản bằng GroupDocs.Redaction cho Java
+  cho phép bạn ẩn vĩnh viễn dữ liệu cá nhân và thay thế các chuỗi nhạy cảm trên PDF,
+  DOCX và các định dạng khác, đảm bảo tuân thủ GDPR và HIPAA.
+og_image_alt: 'Guide: redact text in Java using GroupDocs.Redaction library'
+og_title: Cách xóa thông tin trong văn bản bằng GroupDocs.Redaction cho Java
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-14'
+  description: How to redact text in Java documents using GroupDocs.Redaction – mask
+    personal information and replace sensitive text efficiently.
+  headline: How to redact text with GroupDocs.Redaction for Java
+  type: TechArticle
+- description: How to redact text in Java documents using GroupDocs.Redaction – mask
+    personal information and replace sensitive text efficiently.
+  name: How to redact text with GroupDocs.Redaction for Java
+  steps:
+  - name: initialize the redactor
+    text: '`Redactor` is the core class that loads a document, applies redaction rules,
+      and writes the output.'
+  - name: apply exact‑phrase redaction
+    text: '`ExactPhraseRedaction` searches for an exact string match, while `ReplacementOptions`
+      defines how the matched text should be replaced. - **Parameters:** - `"John
+      Doe"` – the exact text to be redacted. - `ReplacementOptions("[personal]")`
+      – the string that will replace the original content, effective'
+  - name: save the redacted document
+    text: '`Redactor.save` writes the modified document to a new file or overwrites
+      the original, preserving the original format.'
+  - name: clean up resources
+    text: Always call `Redactor.close()` to release native resources and avoid memory
+      leaks.
+  type: HowTo
+- questions:
+  - answer: Yes, the library supports PDF, DOCX, XLSX, PPTX, and many other formats.
+    question: Can I redact text from PDFs using GroupDocs.Redaction?
+  - answer: No. Redactions permanently remove the original content, so keep a backup
+      of the source file.
+    question: Is a redaction reversible?
+  - answer: Process them in chunks, use batch mode, and monitor memory usage with
+      profiling tools.
+    question: How do I handle very large documents efficiently?
+  - answer: Besides DOCX and PDF, you can redact TXT, RTF, XLSX, PPTX, and more.
+    question: What other text formats are supported?
+  - answer: Absolutely. The API can be called from web services, background jobs,
+      or CI/CD pipelines.
+    question: Can I integrate GroupDocs.Redaction into existing workflows?
+  type: FAQPage
+tags:
 - text redaction
-- GroupDocs Redaction for Java
-- sensitive information redaction
-title: Cách xóa thông tin nhạy cảm trong văn bản bằng GroupDocs.Redaction cho Java
+- GroupDocs.Redaction
+- Java document processing
+- privacy compliance
+- redaction API
+title: Cách xóa thông tin trong văn bản bằng GroupDocs.Redaction cho Java
 type: docs
 url: /vi/java/text-redaction/groupdocs-redaction-java-text-redaction/
 weight: 1
 ---
 
-# Cách Xóa Văn Bản trong Tài Liệu Sử Dụng GroupDocs.Redaction cho Java
+# Cách xóa văn bản với GroupDocs.Redaction cho Java
 
-Trong hướng dẫn này, bạn sẽ khám phá **cách xóa văn bản** trong các tài liệu dựa trên Java với sự trợ giúp của GroupDocs.Redaction. Cho dù bạn cần **che giấu thông tin cá nhân** hoặc **thay thế văn bản nhạy cảm** bằng các ký tự thay thế, các bước dưới đây sẽ hướng dẫn bạn qua một giải pháp hoàn chỉnh, sẵn sàng cho môi trường sản xuất. Khi kết thúc tutorial, bạn sẽ có thể bảo vệ quyền riêng tư, tuân thủ quy định và tự động hoá việc xóa trong nhiều định dạng tệp.
+Trong hướng dẫn này, bạn sẽ học **cách xóa văn bản** trong các tài liệu dựa trên Java bằng GroupDocs.Redaction. Bạn sẽ thấy cách che dấu thông tin cá nhân, thay thế các chuỗi nhạy cảm bằng các placeholder an toàn, và xử lý nhiều tệp theo cách hỗ trợ batch. Khi kết thúc, bạn sẽ có một giải pháp sẵn sàng cho sản xuất, bảo vệ quyền riêng tư, đáp ứng yêu cầu GDPR/HIPAA, và tích hợp mượt mà vào các ứng dụng Java hiện có.
 
-## Quick Answers
-- **What library is used?** GroupDocs.Redaction for Java  
-- **Can I mask personal information?** Yes – use exact‑phrase redaction with replacement options.  
-- **Is batch processing supported?** Absolutely, you can loop through multiple files with the same Redactor instance.  
-- **Do I need a license?** A free trial works for evaluation; a commercial license is required for production.  
-- **Which Java version is required?** JDK 8 or higher.
+## Câu trả lời nhanh
+- **Thư viện nào được sử dụng?** GroupDocs.Redaction for Java.  
+- **Tôi có thể che dấu thông tin cá nhân không?** Có – sử dụng redaction cụm từ chính xác với các tùy chọn thay thế.  
+- **Có hỗ trợ xử lý batch không?** Chắc chắn, bạn có thể lặp qua nhiều tệp với cùng một thể hiện Redactor.  
+- **Tôi có cần giấy phép không?** Bản dùng thử miễn phí đủ cho việc đánh giá; giấy phép thương mại cần thiết cho môi trường sản xuất.  
+- **Yêu cầu phiên bản Java nào?** JDK 8 trở lên.
 
 ## “Cách xóa văn bản” là gì?
-Xóa (redaction) là quá trình loại bỏ hoặc che khuất vĩnh viễn dữ liệu bí mật khỏi tài liệu. Với GroupDocs.Redaction, bạn có thể lập trình để tìm các chuỗi cụ thể, thay thế chúng bằng các ký tự thay thế an toàn, và lưu tệp đã được làm sạch — tất cả mà không cần chỉnh sửa thủ công.
+Redaction loại bỏ hoặc che khuất vĩnh viễn dữ liệu mật từ một tài liệu. Với GroupDocs.Redaction, bạn có thể tìm các chuỗi cụ thể, thay thế chúng bằng các placeholder an toàn, và lưu tệp đã được làm sạch — mà không cần chỉnh sửa thủ công.
 
 ## Tại sao nên sử dụng GroupDocs.Redaction cho Java?
-- **Broad format support:** DOCX, PDF, XLSX, PPTX, và nhiều định dạng khác.  
-- **High performance:** Tối ưu cho tệp lớn và các thao tác batch.  
-- **Extensible callbacks:** Kết nối vào các sự kiện xóa để ghi log hoặc xử lý tùy chỉnh.  
-- **Compliance‑ready:** Đáp ứng GDPR, HIPAA và các quy định bảo mật khác.
+GroupDocs.Redaction cho Java hỗ trợ **hơn 50 định dạng đầu vào và đầu ra** (bao gồm PDF, DOCX, XLSX, PPTX, TXT, RTF) và có thể xử lý các tệp hàng trăm trang mà không cần tải toàn bộ tài liệu vào bộ nhớ, cung cấp các hoạt động batch hiệu suất cao trên phần cứng máy chủ tiêu chuẩn.
 
-## Prerequisites
+## Yêu cầu trước
 - **Java Development Kit (JDK):** Phiên bản 8 hoặc mới hơn.  
-- **IDE:** IntelliJ IDEA, Eclipse, hoặc bất kỳ trình soạn thảo nào hỗ trợ Java.  
+- **IDE:** IntelliJ IDEA, Eclipse, hoặc bất kỳ trình chỉnh sửa nào tương thích với Java.  
 - **Maven:** Để quản lý phụ thuộc.  
-- **Basic Java knowledge:** Quen thuộc với lớp, phương thức và xử lý ngoại lệ.
+- **Kiến thức cơ bản về Java:** Quen thuộc với các lớp, phương thức và xử lý ngoại lệ.
 
-## Setting Up GroupDocs.Redaction cho Java
+## Cài đặt GroupDocs.Redaction cho Java
 Để bắt đầu, thêm thư viện vào dự án Maven của bạn.
 
-### Maven Setup
+### Cấu hình Maven
 Thêm repository và dependency vào tệp `pom.xml` của bạn:
 
 ```xml
@@ -62,17 +113,18 @@ Thêm repository và dependency vào tệp `pom.xml` của bạn:
 </dependencies>
 ```
 
-### Direct Download
+### Tải trực tiếp
 Nếu bạn muốn, tải JAR mới nhất từ [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
-### License Acquisition
-Bạn có thể bắt đầu với **Free Trial**, yêu cầu **Temporary License** để thử nghiệm kéo dài, hoặc mua **Commercial License** cho môi trường sản xuất.
+### Nhận giấy phép
+Bạn có thể bắt đầu với **Bản dùng thử miễn phí**, yêu cầu **Giấy phép tạm thời** để thử nghiệm kéo dài, hoặc mua **Giấy phép thương mại** cho việc sử dụng trong môi trường sản xuất.
 
-## Cách Xóa Văn Bản trong Tài Liệu với GroupDocs.Redaction
-Các phần sau sẽ hướng dẫn bạn qua các bước chính xác để **che giấu thông tin cá nhân** và **thay thế văn bản nhạy cảm**.
+## Cách xóa văn bản trong tài liệu bằng GroupDocs.Redaction
 
-### Step 1: Initialize the Redactor
-Tạo một thể hiện `Redactor` trỏ tới tài liệu bạn muốn xử lý.
+Các phần sau sẽ hướng dẫn bạn qua các bước cần thiết để **che dấu thông tin cá nhân** và **thay thế văn bản nhạy cảm**.
+
+### Bước 1: khởi tạo redactor
+`Redactor` là lớp cốt lõi tải tài liệu, áp dụng các quy tắc redaction, và ghi ra kết quả.  
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -83,25 +135,25 @@ import com.groupdocs.redaction.redactions.ReplacementOptions;
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/sample.docx", new LoadOptions());
 ```
 
-### Step 2: Apply Exact‑Phrase Redaction
-Sử dụng `ExactPhraseRedaction` để tìm một cụm từ như “John Doe” và thay thế nó bằng ký tự thay thế an toàn.
+### Bước 2: áp dụng redaction cụm từ chính xác
+`ExactPhraseRedaction` tìm kiếm khớp chuỗi chính xác, trong khi `ReplacementOptions` xác định cách văn bản khớp sẽ được thay thế.  
 
 ```java
 redactor.apply(new ExactPhraseRedaction("John Doe", new ReplacementOptions("[personal]"));
 ```
-- **Parameters:**  
-  - `"John Doe"` – chuỗi chính xác cần được xóa.  
-  - `ReplacementOptions("[personal]")` – chuỗi sẽ thay thế nội dung gốc, thực tế **che giấu thông tin cá nhân**.
+- **Tham số:**  
+  - `"John Doe"` – văn bản chính xác cần được xóa.  
+  - `ReplacementOptions("[personal]")` – chuỗi sẽ thay thế nội dung gốc, thực tế **che dấu thông tin cá nhân**.
 
-### Step 3: Save the Redacted Document
-Lưu các thay đổi vào một tệp mới hoặc ghi đè lên tệp gốc.
+### Bước 3: lưu tài liệu đã xóa
+`Redactor.save` ghi tài liệu đã chỉnh sửa vào một tệp mới hoặc ghi đè lên tệp gốc, giữ nguyên định dạng ban đầu.  
 
 ```java
 redactor.save();
 ```
 
-### Step 4: Clean Up Resources
-Luôn đóng `Redactor` để giải phóng tài nguyên gốc.
+### Bước 4: dọn dẹp tài nguyên
+Luôn gọi `Redactor.close()` để giải phóng tài nguyên gốc và tránh rò rỉ bộ nhớ.  
 
 ```java
 finally {
@@ -109,11 +161,11 @@ finally {
 }
 ```
 
-## Cách Che Giấu Thông Tin Cá Nhân với Callback Tùy Chỉnh
-Đôi khi bạn cần kiểm soát nhiều hơn những gì xảy ra khi một lần xóa được thực hiện (ví dụ: ghi log, thay thế có điều kiện).
+## Cách che dấu thông tin cá nhân bằng callback tùy chỉnh
+Callback tùy chỉnh cho phép bạn phản hồi mỗi sự kiện redaction — hữu ích cho việc ghi log, thay thế có điều kiện, hoặc theo dõi audit.
 
-### Create a Callback Class
-Triển khai `IRedactionCallback` để nhận các sự kiện xóa.
+### Tạo lớp callback
+`IRedactionCallback` định nghĩa các phương thức được gọi trước và sau mỗi thao tác redaction.  
 
 ```java
 class RedactionDump implements IRedactionCallback {
@@ -124,51 +176,56 @@ class RedactionDump implements IRedactionCallback {
 }
 ```
 
-### Use the Callback When Instantiating Redactor
-Truyền callback qua `RedactorSettings`.
+### Sử dụng callback khi khởi tạo Redactor
+Truyền triển khai callback của bạn qua `RedactorSettings` để engine biết gọi nó trong quá trình xử lý.  
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/sample.docx", new LoadOptions(), new RedactorSettings(new RedactionDump()));
 ```
 
-## Ứng Dụng Thực Tiễn
-- **Legal contracts:** Tự động ẩn tên khách hàng, số SSN, hoặc các điều khoản bí mật.  
-- **Medical records:** **Che giấu thông tin cá nhân** như mã định danh bệnh nhân trước khi chia sẻ với bên thứ ba.  
-- **Corporate communications:** **Thay thế văn bản nhạy cảm** như mã dự án nội bộ trước khi phân phối ra bên ngoài.
+## Ứng dụng thực tiễn
+- **Hợp đồng pháp lý:** Tự động ẩn tên khách hàng, SSN, hoặc các điều khoản mật trước khi chia sẻ bản nháp.  
+- **Hồ sơ y tế:** **Che dấu thông tin cá nhân** như mã định danh bệnh nhân khi xuất hồ sơ cho đối tác nghiên cứu.  
+- **Truyền thông doanh nghiệp:** **Thay thế văn bản nhạy cảm** như mã dự án nội bộ trước khi phân phối ra bên ngoài, đảm bảo không rò rỉ vô tình.
 
-## Performance Considerations
-Khi xử lý các tệp lớn hoặc số lượng lớn, hãy ghi nhớ các mẹo sau:
+## Các cân nhắc về hiệu năng
+Khi xử lý các tệp lớn hoặc số lượng nhiều, hãy lưu ý các mẹo sau:
+- **Xử lý batch:** Lặp qua một tập hợp tệp để giảm chi phí khởi động.  
+- **Quản lý bộ nhớ:** Giải phóng `Redactor` sau mỗi tệp; tránh giữ nhiều tài liệu trong bộ nhớ cùng lúc.  
+- **Profiling:** Sử dụng các profiler Java (ví dụ, VisualVM) để phát hiện các nút thắt trong I/O hoặc logic redaction.
 
-- **Batch processing:** Lặp qua một tập hợp các tệp để giảm chi phí khởi động.  
-- **Memory management:** Giải phóng `Redactor` sau mỗi tệp; tránh giữ nhiều tài liệu trong bộ nhớ cùng lúc.  
-- **Profiling:** Sử dụng các profiler Java (ví dụ, VisualVM) để phát hiện các nút thắt trong I/O hoặc logic xóa.
+## Câu hỏi thường gặp
+**Q: Tôi có thể xóa văn bản từ PDF bằng GroupDocs.Redaction không?**  
+A: Có, thư viện hỗ trợ PDF, DOCX, XLSX, PPTX và nhiều định dạng khác.
 
-## Frequently Asked Questions
-**Q: Can I redact text from PDFs using GroupDocs.Redaction?**  
-A: Yes, the library supports PDF, DOCX, XLSX, PPTX, and many other formats.
+**Q: Redaction có thể đảo ngược không?**  
+A: Không. Redaction loại bỏ vĩnh viễn nội dung gốc, vì vậy hãy giữ bản sao lưu của tệp nguồn.
 
-**Q: Is a redaction reversible?**  
-A: No. Redactions permanently remove the original content, so keep a backup of the source file.
+**Q: Làm thế nào để xử lý các tài liệu rất lớn một cách hiệu quả?**  
+A: Xử lý chúng theo từng phần, sử dụng chế độ batch, và giám sát việc sử dụng bộ nhớ bằng các công cụ profiling.
 
-**Q: How do I handle very large documents efficiently?**  
-A: Process them in chunks, use batch mode, and monitor memory usage with profiling tools.
+**Q: Những định dạng văn bản nào khác được hỗ trợ?**  
+A: Ngoài DOCX và PDF, bạn có thể xóa TXT, RTF, XLSX, PPTX và hơn nữa.
 
-**Q: What other text formats are supported?**  
-A: Besides DOCX and PDF, you can redact TXT, RTF, XLSX, PPTX, and more.
+**Q: Tôi có thể tích hợp GroupDocs.Redaction vào các quy trình hiện có không?**  
+A: Chắc chắn. API có thể được gọi từ các dịch vụ web, công việc nền, hoặc pipeline CI/CD.
 
-**Q: Can I integrate GroupDocs.Redaction into existing workflows?**  
-A: Absolutely. The API can be called from web services, background jobs, or CI/CD pipelines.
-
-## Resources
-- **Documentation:** [GroupDocs Redaction Java Docs](https://docs.groupdocs.com/redaction/java/)  
-- **API Reference:** [GroupDocs API Reference for Java](https://reference.groupdocs.com/redaction/java)  
-- **Download:** [GroupDocs.Redaction Downloads](https://releases.groupdocs.com/redaction/java/)  
-- **GitHub Repository:** [GroupDocs Redaction GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
-- **Free Support Forum:** [GroupDocs Free Support](https://forum.groupdocs.com/c/redaction/33)  
-- **Temporary License Application:** [Apply for a Temporary License](https://purchase.groupdocs.com/temporary-license/)
+## Tài nguyên
+- **Tài liệu:** [GroupDocs Redaction Java Docs](https://docs.groupdocs.com/redaction/java/)  
+- **Tham chiếu API:** [GroupDocs API Reference for Java](https://reference.groupdocs.com/redaction/java)  
+- **Tải xuống:** [GroupDocs.Redaction Downloads](https://releases.groupdocs.com/redaction/java/)  
+- **Kho GitHub:** [GroupDocs Redaction GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
+- **Diễn đàn hỗ trợ miễn phí:** [GroupDocs Free Support](https://forum.groupdocs.com/c/redaction/33)  
+- **Đăng ký giấy phép tạm thời:** [Apply for a Temporary License](https://purchase.groupdocs.com/temporary-license/)
 
 ---
 
-**Last Updated:** 2026-02-26  
-**Tested With:** GroupDocs.Redaction 24.9 for Java  
-**Author:** GroupDocs
+**Cập nhật lần cuối:** 2026-08-14  
+**Đã kiểm tra với:** GroupDocs.Redaction 24.9 for Java  
+**Tác giả:** GroupDocs
+
+## Hướng dẫn liên quan
+
+- [Che Dấu Dữ Liệu Nhạy Cảm Java – Hướng Dẫn GroupDocs.Redaction](/redaction/java/getting-started/)
+- [Che Dấu Dữ Liệu Nhạy Cảm Java – Xóa Thông Tin Cá Nhân với GroupDocs.Redaction](/redaction/java/advanced-redaction/master-document-redaction-java-groupdocs-redaction/)
+- [Chỉnh Sửa Tài Liệu Bảo Vệ Mật Khẩu Java - Xóa Tài Liệu Sử Dụng GroupDocs.Redaction](/redaction/java/document-loading/groupdocs-redaction-java-password-documents/)

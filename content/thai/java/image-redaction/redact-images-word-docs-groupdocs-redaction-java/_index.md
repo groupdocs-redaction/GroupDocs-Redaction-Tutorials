@@ -1,46 +1,102 @@
 ---
-date: '2026-03-04'
-description: เรียนรู้วิธีการลบข้อมูลรูปภาพในเอกสาร Word ด้วย GroupDocs.Redaction สำหรับ
-  Java การสอนแบบขั้นตอนนี้จะแสดงให้คุณเห็นวิธีการซ่อนข้อมูลภาพอย่างปลอดภัย
+date: '2026-08-14'
+description: เรียนรู้วิธีลบข้อมูลรูปภาพในเอกสาร Word ด้วย GroupDocs.Redaction for
+  Java คำแนะนำแบบขั้นตอนนี้จะแสดงวิธีการซ่อนข้อมูลภาพอย่างปลอดภัย
 keywords:
-- redact images in word documents using java
-- groupdocs.redaction for java
-- image redaction in word documents
-title: วิธีลบข้อมูลรูปภาพในเอกสาร Word ด้วย GroupDocs.Redaction สำหรับ Java – คู่มือฉบับสมบูรณ์
+- how to redact images
+- mask images word
+- groupdocs.redaction java
+- image redaction word
+lastmod: '2026-08-14'
+og_description: วิธีลบข้อมูลรูปภาพในเอกสาร Word ด้วย GroupDocs.Redaction for Java
+  ทำตามคำแนะนำนี้เพื่อปิดบังหรือเอาข้อมูลภาพออกอย่างปลอดภัยภายในไม่กี่นาที
+og_image_alt: Guide showing Java code to redact images in Word documents with GroupDocs.Redaction
+og_title: วิธีลบข้อมูลรูปภาพในเอกสาร Word ด้วย GroupDocs.Redaction for Java
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-14'
+  description: Learn how to redact images in Word documents using GroupDocs.Redaction
+    for Java. This step‑by‑step tutorial shows you how to securely hide visual data.
+  headline: How to redact images in Word documents using GroupDocs.Redaction for Java
+  type: TechArticle
+- description: Learn how to redact images in Word documents using GroupDocs.Redaction
+    for Java. This step‑by‑step tutorial shows you how to securely hide visual data.
+  name: How to redact images in Word documents using GroupDocs.Redaction for Java
+  steps:
+  - name: define document path and initialize redactor
+    text: 'First, point the library at the DOCX you want to process: Now create the
+      `Redactor` instance:'
+  - name: set coordinates and dimensions
+    text: 'Identify the exact region of the image you wish to hide. The `Point` defines
+      the upper‑left corner, while `Dimension` sets the width and height of the redaction
+      box: > **Pro tip:** Use a Word viewer or the Office Open XML SDK to inspect
+      image positions if you need precise coordinates.'
+  - name: apply image redaction
+    text: '`ImageAreaRedaction` is the object that describes how an image region should
+      be altered; you can replace it with a solid color, a custom pattern, or completely
+      erase it. Create the redaction object, specify a replacement color (blue in
+      this example), and execute the change: The redacted area is now '
+  - name: persist changes with java redactor save
+    text: Calling `redactor.save()` writes the modified document back to disk. Because
+      the `Redactor` implements `AutoCloseable`, wrapping it in a try‑with‑resources
+      block guarantees that all native resources are released, keeping memory usage
+      low.
+  type: HowTo
+- questions:
+  - answer: Ensure that your coordinates are accurately calculated based on the image's
+      dimensions within the document.
+    question: How do I handle incorrect coordinates during redaction?
+  - answer: Yes, it supports a variety of formats beyond Word, including PDFs and
+      spreadsheets.
+    question: Can GroupDocs.Redaction work with other file formats?
+  - answer: Optimize your Java environment and consider using asynchronous processing
+      for large files.
+    question: What if I encounter performance issues?
+  - answer: Contact GroupDocs support to discuss options for obtaining a temporary
+      or full license.
+    question: How do I extend my trial license?
+  - answer: Yes, you can seek assistance on the [GroupDocs Free Support Forum](https://forum.groupdocs.com/c/redaction/33).
+    question: Is there community support available for troubleshooting?
+  type: FAQPage
+tags:
+- redact images
+- groupdocs.redaction
+- java document processing
+- word image redaction
+title: วิธีลบข้อมูลรูปภาพในเอกสาร Word ด้วย GroupDocs.Redaction for Java
 type: docs
 url: /th/java/image-redaction/redact-images-word-docs-groupdocs-redaction-java/
 weight: 1
 ---
 
-# วิธีทำการลบข้อมูลจากรูปภาพในเอกสาร Word ด้วย GroupDocs.Redaction สำหรับ Java
+# วิธีทำการลบข้อมูลภาพในเอกสาร Word ด้วย GroupDocs.Redaction สำหรับ Java
 
-ในยุคดิจิทัลปัจจุบัน, **วิธีทำการลบข้อมูลจากรูปภาพใน word** เป็นทักษะสำคัญสำหรับการปกป้องกราฟิกที่เป็นความลับ, โลโก้, หรือรูปภาพส่วนบุคคล. บทแนะนำนี้จะพาคุณผ่านการใช้ GroupDocs.Redaction สำหรับ Java เพื่อค้นหาและซ่อนรูปภาพที่ฝังอยู่ในเอกสาร Microsoft Word อย่างปลอดภัย. เมื่อจบคุณจะเข้าใจกระบวนการทำงานทั้งหมด—ตั้งแต่การตั้งค่าห้องสมุดจนถึงการใช้การลบข้อมูลรูปภาพอย่างแม่นยำ—เพื่อให้คุณสามารถปกป้องข้อมูลภาพที่อ่อนไหวจากมือที่ไม่เหมาะสม.
+ในยุคดิจิทัลปัจจุบัน, **วิธีทำการลบข้อมูลภาพ** ในไฟล์ Word เป็นทักษะสำคัญสำหรับการปกป้องกราฟิกที่เป็นความลับ, โลโก้, หรือรูปส่วนตัว. บทแนะนำนี้จะพาคุณผ่านการใช้ GroupDocs.Redaction สำหรับ Java เพื่อค้นหาและซ่อนภาพที่ฝังอยู่ในเอกสาร Microsoft Word อย่างปลอดภัย. เมื่อจบคุณจะเข้าใจกระบวนการทำงานทั้งหมด—ตั้งแต่การตั้งค่าไลบรารีจนถึงการใช้การลบข้อมูลภาพอย่างแม่นยำ—เพื่อให้คุณสามารถปกป้องข้อมูลภาพที่อ่อนไหวไม่ให้ตกไปอยู่ในมือผิด.
 
-## คำตอบอย่างรวดเร็ว
-- **ห้องสมุดใดจัดการการลบข้อมูลรูปภาพ?** GroupDocs.Redaction for Java  
-- **ต้องการเวอร์ชัน Java ใด?** JDK 8 หรือสูงกว่า  
-- **ฉันต้องการไลเซนส์หรือไม่?** การทดลองใช้ฟรีทำงานสำหรับการทดสอบ; จำเป็นต้องมีไลเซนส์เต็มสำหรับการใช้งานจริง  
-- **ฉันสามารถลบข้อมูลไฟล์ประเภทอื่นได้หรือไม่?** ใช่—รองรับ PDF, Excel, และอื่น ๆ  
+## คำตอบสั้น
+- **ไลบรารีที่จัดการการลบข้อมูลภาพคืออะไร?** GroupDocs.Redaction for Java  
+- **ต้องการเวอร์ชัน Java ใด?** JDK 8 or higher  
+- **ต้องการไลเซนส์หรือไม่?** การทดลองใช้ฟรี (free trial) ทำงานสำหรับการทดสอบ; ไลเซนส์เต็ม (full license) จำเป็นสำหรับการใช้งานจริง  
+- **ฉันสามารถลบข้อมูลไฟล์ประเภทอื่นได้หรือไม่?** ได้ — รองรับ PDF, Excel และอื่น ๆ  
 - **กระบวนการนี้มีประสิทธิภาพด้านหน่วยความจำหรือไม่?** ใช่, โดยเฉพาะเมื่อคุณจัดการทรัพยากรและประมวลผลเอกสารขนาดใหญ่เป็นชิ้นส่วน  
 
-## วิธีทำการลบข้อมูลรูปภาพในเอกสาร Word?
-การลบข้อมูลรูปภาพในเอกสาร Word หมายถึงการลบหรือปกปิดองค์ประกอบภาพที่มีข้อมูลส่วนบุคคลหรือข้อมูลที่เป็นกรรมสิทธิ์อย่างถาวร. GroupDocs.Redaction ให้การควบคุมแบบโปรแกรมเพื่อกำหนดพื้นที่ที่แน่นอน, แทนที่ด้วยสีทึบ, หรือทำลายข้อมูลรูปภาพโดยสมบูรณ์.
+## วิธีทำการลบข้อมูลภาพในเอกสาร Word
+
+โหลดไฟล์ DOCX เป้าหมาย, กำหนดพื้นที่ที่มีรูปภาพที่เป็นความลับ, และเรียกใช้ API การลบข้อมูลเพื่อแทนที่พื้นที่นั้นด้วยสีทึบหรือรูปแบบที่กำหนดเอง. การดำเนินการทั้งหมดต้องใช้เพียงไม่กี่บรรทัดของโค้ด Java และรับประกันว่าข้อมูลพิกเซลต้นฉบับจะถูกลบอย่างถาวร.
 
 ## ทำไมต้องใช้ GroupDocs.Redaction สำหรับ Java?
-- **ความแม่นยำ:** กำหนดพิกัดเฉพาะ, เพื่อให้แน่ใจว่าเฉพาะพื้นที่ที่ต้องการเท่านั้นที่ถูกซ่อน.  
-- **ประสิทธิภาพ:** ปรับให้เหมาะกับไฟล์ขนาดใหญ่และการประมวลผลเป็นชุด.  
-- **การสนับสนุนหลายรูปแบบ:** ทำงานกับ DOCX, PDF, PPTX, และอื่น ๆ, ช่วยให้คุณใช้โค้ดฐานเดียวกันได้.  
-- **การปฏิบัติตามกฎระเบียบ:** ช่วยให้สอดคล้องกับ GDPR, HIPAA, และกฎความเป็นส่วนตัวอื่น ๆ โดยรับประกันว่าข้อมูลที่ลบจะไม่สามารถกู้คืนได้.  
+
+GroupDocs.Redaction มี API เดียวที่สอดคล้องกันซึ่งสามารถลบข้อมูลภาพ, ข้อความ, เมตาดาต้า, และคำอธิบายประกอบได้ใน **30+ รูปแบบไฟล์** — รวมถึง DOCX, PDF, PPTX, และ XLSX. มันประมวลผลเอกสารหลายร้อยหน้าโดยไม่ต้องโหลดไฟล์ทั้งหมดเข้าสู่หน่วยความจำ, ให้เวลาตอบสนองระดับมิลลิวินาทีบนฮาร์ดแวร์เซิร์ฟเวอร์ทั่วไป. ไลบรารียังมีรายงานการปฏิบัติตามมาตรฐานในตัว, ช่วยให้คุณปฏิบัติตาม GDPR, HIPAA, และระเบียบความเป็นส่วนตัวอื่น ๆ.
 
 ## ข้อกำหนดเบื้องต้น
-- **Java Development Kit (JDK) 8+** ที่ติดตั้งบนเครื่องของคุณ.  
+- **Java Development Kit (JDK) 8+** ติดตั้งบนเครื่องของคุณ.  
 - **Maven** (หรือความสามารถในการเพิ่ม JAR ด้วยตนเอง).  
-- ความคุ้นเคยพื้นฐานกับไวยากรณ์ Java และโครงสร้างโครงการ.  
+- ความคุ้นเคยพื้นฐานกับไวยากรณ์ Java และโครงสร้างโปรเจกต์.  
 
 ## การตั้งค่า GroupDocs.Redaction สำหรับ Java
 
 ### การติดตั้งผ่าน Maven
-เพิ่มรีโพซิทอรีของ GroupDocs และการพึ่งพาในไฟล์ `pom.xml` ของคุณ:
+เพิ่มรีโพซิทอรีของ GroupDocs และ dependency ลงในไฟล์ `pom.xml` ของคุณ:
 
 ```xml
 <repositories>
@@ -64,12 +120,13 @@ weight: 1
 หากคุณไม่ต้องการใช้ Maven, ดาวน์โหลด JAR ล่าสุดจากหน้าปล่อยอย่างเป็นทางการ: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
 ### การรับไลเซนส์
-- **ทดลองใช้ฟรี:** เหมาะสำหรับการประเมินคุณลักษณะ.  
-- **ไลเซนส์ชั่วคราว:** ขยายความสามารถของการทดลองใช้เป็นระยะเวลาจำกัด.  
-- **การซื้อเต็มรูปแบบ:** ปลดล็อกตัวเลือกการลบข้อมูลทั้งหมดและการสนับสนุนระดับพรีเมียม.  
+- **Free trial:** เหมาะสำหรับการประเมินคุณลักษณะ.  
+- **Temporary license:** ขยายความสามารถของการทดลองใช้เป็นระยะเวลาจำกัด.  
+- **Full purchase:** เปิดใช้งานตัวเลือกการลบข้อมูลทั้งหมดและการสนับสนุนระดับพรีเมียม.  
 
-### การเริ่มต้นพื้นฐาน
-ด้านล่างเป็นโค้ด Java ขั้นต่ำเพื่อเปิดเอกสาร Word ด้วยคลาส `Redactor`:
+## การเริ่มต้นพื้นฐาน
+
+คลาส `Redactor` เป็นจุดเริ่มต้นสำหรับการดำเนินการลบข้อมูลทั้งหมด; มันเป็นตัวแทนของเอกสารที่โหลดแล้วและจัดการทรัพยากรโดยอัตโนมัติ. สร้างอินสแตนซ์โดยส่งพาธของไฟล์ DOCX ของคุณ:
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -89,14 +146,14 @@ public class RedactImagesExample {
 
 ## คู่มือการใช้งาน – ขั้นตอนต่อขั้นตอน
 
-### ขั้นตอน 1: กำหนดเส้นทางไฟล์เอกสารและเริ่มต้น Redactor
-แรกสุด, ชี้ห้องสมุดไปที่ไฟล์ DOCX ที่คุณต้องการประมวลผล:
+### ขั้นตอน 1: กำหนดพาธเอกสารและเริ่มต้น Redactor
+แรก, ระบุตำแหน่งของไลบรารีไปยังไฟล์ DOCX ที่คุณต้องการประมวลผล:
 
 ```java
 String documentPath = "YOUR_DOCUMENT_DIRECTORY/sample.docx";
 ```
 
-จากนั้นสร้างอินสแตนซ์ของ `Redactor`:
+จากนั้นสร้างอินสแตนซ์ `Redactor`:
 
 ```java
 try (final Redactor redactor = new Redactor(documentPath)) {
@@ -105,17 +162,17 @@ try (final Redactor redactor = new Redactor(documentPath)) {
 ```
 
 ### ขั้นตอน 2: ตั้งค่าพิกัดและขนาด
-ระบุพื้นที่ที่แน่นอนของรูปภาพที่คุณต้องการซ่อน. `Point` กำหนดมุมบนซ้าย, ส่วน `Dimension` กำหนดความกว้างและความสูงของกล่องลบข้อมูล:
+ระบุพื้นที่ที่แน่นอนของภาพที่คุณต้องการซ่อน. `Point` กำหนดมุมบนซ้าย, ส่วน `Dimension` กำหนดความกว้างและความสูงของกล่องการลบข้อมูล:
 
 ```java
 java.awt.Point samplePoint = new java.awt.Point(516, 311); // Define starting point
 java.awt.Dimension sampleSize = new java.awt.Dimension(170, 35); // Set dimensions
 ```
 
-> **เคล็ดลับมืออาชีพ:** ใช้ตัวดู Word หรือ Office Open XML SDK เพื่อตรวจสอบตำแหน่งรูปภาพหากคุณต้องการพิกัดที่แม่นยำ.
+> **เคล็ดลับ:** ใช้โปรแกรมดู Word หรือ Office Open XML SDK เพื่อตรวจสอบตำแหน่งภาพหากคุณต้องการพิกัดที่แม่นยำ.
 
-### ขั้นตอน 3: ใช้การลบข้อมูลรูปภาพ
-สร้างอ็อบเจ็กต์ `ImageAreaRedaction`, ระบุสีแทนที่ (สีน้ำเงินในตัวอย่างนี้), และดำเนินการเปลี่ยนแปลง:
+### ขั้นตอน 3: ใช้การลบข้อมูลภาพ
+`ImageAreaRedaction` คืออ็อบเจ็กต์ที่อธิบายว่าพื้นที่ภาพควรเปลี่ยนแปลงอย่างไร; คุณสามารถแทนที่ด้วยสีทึบ, รูปแบบที่กำหนดเอง, หรือทำลายอย่างสมบูรณ์. สร้างอ็อบเจ็กต์การลบข้อมูล, ระบุสีทดแทน (สีน้ำเงินในตัวอย่างนี้), และดำเนินการเปลี่ยนแปลง:
 
 ```java
 RedactorChangeLog result = redactor.apply(new ImageAreaRedaction(
@@ -128,66 +185,71 @@ if (result.getStatus() != RedactionStatus.Failed) {
 }
 ```
 
-พื้นที่ที่ลบข้อมูลแล้วจะถูกแทนที่ด้วยสี่เหลี่ยมสีฟ้าแบบทึบ, ทำให้เนื้อหาภาพต้นฉบับไม่สามารถกู้คืนได้. วิธีนี้ยังแสดงตัวอย่าง **replace image color java**—คุณสามารถเปลี่ยน `java.awt.Color.BLUE` เป็นสีใดก็ได้ที่สอดคล้องกับนโยบายการปฏิบัติตามของคุณ.
+พื้นที่ที่ถูกลบข้อมูลตอนนี้ถูกแทนที่ด้วยสี่เหลี่ยมสีฟ้าแบบทึบ, ทำให้เนื้อหาภาพต้นฉบับไม่สามารถกู้คืนได้. วิธีนี้ยังแสดงให้เห็น **replace image color java** — คุณสามารถสลับ `java.awt.Color.BLUE` กับสีใดก็ได้ที่สอดคล้องกับนโยบายการปฏิบัติตามของคุณ.
 
 ### ขั้นตอน 4: บันทึกการเปลี่ยนแปลงด้วย java redactor save
-การเรียก `redactor.save()` คือขั้นตอน **java redactor save** ที่เขียนเอกสารที่แก้ไขแล้วกลับไปยังดิสก์. เนื่องจาก `Redactor` implements `AutoCloseable`, การห่อหุ้มด้วยบล็อก try‑with‑resources จะรับประกันว่าทรัพยากรเนทีฟทั้งหมดจะถูกปล่อย, ทำให้การใช้หน่วยความจำน้อยลง.
+การเรียก `redactor.save()` จะเขียนเอกสารที่แก้ไขแล้วกลับไปยังดิสก์. เนื่องจาก `Redactor` implements `AutoCloseable`, การห่อหุ้มด้วยบล็อก try‑with‑resources จะรับประกันว่าทรัพยากรเนทีฟทั้งหมดจะถูกปล่อย, ทำให้การใช้หน่วยความจำน้อยลง.
+
+## ปกปิดภาพใน Word
+
+GroupDocs.Redaction ยังสามารถ **mask images** ในเอกสาร Word, ปกคลุมด้วยสีทึบหรือโอเวอร์เลย์ที่กำหนดเอง. นี้เป็นประโยชน์เมื่อคุณต้องการรักษาเลย์เอาต์ไว้แต่ซ่อนเนื้อหาภาพพื้นฐาน. คลาส `ImageAreaRedaction` เดียวกันสนับสนุนการทำ mask โดยตั้งค่า `RegionReplacementOptions` เป็นการเติมสีกึ่งโปร่งใส.
 
 ## เคล็ดลับการแก้ไขปัญหา
-- **พิกัดอยู่นอกขอบเขต:** ตรวจสอบว่า `samplePoint` และ `sampleSize` อยู่ภายในขอบกระดาษ.  
-- **ขาดการพึ่งพา:** ตรวจสอบพิกัด Maven หรือเส้นทาง JAR อีกครั้ง.  
-- **ข้อผิดพลาดไลเซนส์:** ตรวจสอบว่าไฟล์ไลเซนส์วางอย่างถูกต้องและระยะเวลาทดลองยังไม่หมด.  
+- **Coordinates out of bounds:** ตรวจสอบว่า `samplePoint` และ `sampleSize` อยู่ภายในขอบหน้ากระดาษ.  
+- **Missing dependencies:** ตรวจสอบพิกัด Maven หรือพาธของ JAR อีกครั้ง.  
+- **License errors:** ตรวจสอบว่าไฟล์ไลเซนส์วางอย่างถูกต้องและระยะเวลาการทดลองยังไม่หมดอายุ.  
 
 ## การประยุกต์ใช้งานจริง
-1. **ร่างเอกสารทางกฎหมาย:** ลบตราประทับที่เป็นความลับก่อนแชร์กับฝ่ายตรงข้าม.  
-2. **รายงานการเงิน:** ซ่อนแผนภูมิที่เป็นกรรมสิทธิ์เมื่อแจกจ่ายเวอร์ชันตัวอย่าง.  
-3. **บันทึกทางการแพทย์:** ลบรูปถ่ายของผู้ป่วยเพื่อให้สอดคล้องกับ HIPAA.  
+1. **Legal drafts:** ลบตราประทับที่เป็นความลับก่อนแชร์กับฝ่ายตรงข้าม.  
+2. **Financial reports:** ซ่อนแผนภูมิที่เป็นกรรมสิทธิ์เมื่อแจกจ่ายเวอร์ชันตัวอย่าง.  
+3. **Medical records:** ลบรูปภาพของผู้ป่วยเพื่อปฏิบัติตาม HIPAA.  
 
-## พิจารณาด้านประสิทธิภาพ
-- **การจัดการหน่วยความจำ:** ห่อ `Redactor` ด้วยบล็อก try‑with‑resources (ตามที่แสดง) เพื่อรับประกันการกำจัดที่เหมาะสม.  
-- **ไฟล์ขนาดใหญ่:** ประมวลผลเอกสารเป็นชิ้นส่วนหรือใช้การทำงานแบบอะซิงโครนัสเพื่อให้ UI ตอบสนอง.  
-- **การตรวจสอบ:** บันทึกรายละเอียด `RedactorChangeLog` เพื่อทำการตรวจสอบว่ามีการลบอะไรและเมื่อใด.  
+## ข้อควรพิจารณาด้านประสิทธิภาพ
+- **Memory management:** ห่อ `Redactor` ด้วยบล็อก try‑with‑resources (ตามที่แสดง) เพื่อรับประกันการกำจัดที่เหมาะสม.  
+- **Large files:** ประมวลผลเอกสารเป็นชิ้นส่วนหรือใช้การทำงานแบบอะซิงโครนัสเพื่อให้ UI ตอบสนองได้.  
+- **Monitoring:** บันทึกรายละเอียด `RedactorChangeLog` เพื่อทำการตรวจสอบว่ามีการลบข้อมูลอะไรและเมื่อใด.  
 
 ## สรุป
-ตอนนี้คุณมีวิธีที่ครบถ้วนและพร้อมใช้งานในระดับการผลิตสำหรับ **วิธีทำการลบข้อมูลจากรูปภาพใน word** เอกสารโดยใช้ GroupDocs.Redaction สำหรับ Java. ด้วยการกำหนดพิกัดที่แน่นอนและใช้การแทนที่สี, คุณสามารถปกป้องข้อมูลภาพใด ๆ ที่อาจเปิดเผยข้อมูลที่อ่อนไหวได้.
+ตอนนี้คุณมีวิธีที่ครบถ้วนและพร้อมใช้งานในระดับผลิตสำหรับ **วิธีทำการลบข้อมูลภาพ** ในเอกสาร Word ด้วย GroupDocs.Redaction สำหรับ Java. ด้วยการกำหนดพิกัดที่แม่นยำและใช้การแทนที่สี, คุณสามารถปกป้องข้อมูลภาพใด ๆ ที่อาจทำให้ข้อมูลที่เป็นความลับถูกเปิดเผย.
 
 ### ขั้นตอนต่อไป
-- สำรวจประเภทการลบข้อมูลอื่น ๆ (ข้อความ, เมทาดาต้า, คำอธิบาย).  
-- ผสานกระบวนการทำงานเข้ากับเว็บเซอร์วิสหรือ ตัวประมวลผลแบบชุด.  
+- สำรวจประเภทการลบข้อมูลอื่น ๆ (ข้อความ, เมตาดาต้า, คำอธิบายประกอบ).  
+- ผสานรวมกระบวนการทำงานเข้าสู่เว็บเซอร์วิสหรือโปรเซสเซอร์แบบแบตช์.  
 - ตรวจสอบเอกสารอ้างอิง API อย่างเป็นทางการสำหรับตัวเลือกขั้นสูง.  
 
 ## ส่วนคำถามที่พบบ่อย
-**ถาม: ฉันจะจัดการกับพิกัดที่ไม่ถูกต้องระหว่างการลบข้อมูลอย่างไร?**  
-ตอบ: ตรวจสอบให้แน่ใจว่าพิกัดของคุณคำนวณอย่างแม่นยำตามมิติของรูปภาพภายในเอกสาร.
 
-**ถาม: GroupDocs.Redaction สามารถทำงานกับรูปแบบไฟล์อื่นได้หรือไม่?**  
-ตอบ: ใช่, รองรับรูปแบบต่าง ๆ นอกเหนือจาก Word รวมถึง PDF และสเปรดชีต.
+**Q: ฉันจะจัดการกับพิกัดที่ไม่ถูกต้องระหว่างการลบข้อมูลอย่างไร?**  
+A: ตรวจสอบว่าพิกัดของคุณคำนวณอย่างแม่นยำตามมิติของภาพภายในเอกสาร.
 
-**ถาม: ถ้าฉันเจอปัญหาด้านประสิทธิภาพจะทำอย่างไร?**  
-ตอบ: ปรับแต่งสภาพแวดล้อม Java ของคุณและพิจารณาใช้การประมวลผลแบบอะซิงโครนัสสำหรับไฟล์ขนาดใหญ่.
+**Q: GroupDocs.Redaction สามารถทำงานกับรูปแบบไฟล์อื่นได้หรือไม่?**  
+A: ได้, รองรับรูปแบบต่าง ๆ นอกเหนือจาก Word รวมถึง PDF และสเปรดชีต.
 
-**ถาม: ฉันจะต่ออายุไลเซนส์ทดลองได้อย่างไร?**  
-ตอบ: ติดต่อฝ่ายสนับสนุนของ GroupDocs เพื่อหารือเกี่ยวกับตัวเลือกในการรับไลเซนส์ชั่วคราวหรือเต็มรูปแบบ.
+**Q: จะทำอย่างไรหากพบปัญหาด้านประสิทธิภาพ?**  
+A: ปรับแต่งสภาพแวดล้อม Java ของคุณและพิจารณาใช้การประมวลผลแบบอะซิงโครนัสสำหรับไฟล์ขนาดใหญ่.
 
-**ถาม: มีการสนับสนุนจากชุมชนสำหรับการแก้ไขปัญหาหรือไม่?**  
-ตอบ: มี, คุณสามารถขอความช่วยเหลือได้ที่ [ฟอรั่มสนับสนุนฟรีของ GroupDocs](https://forum.groupdocs.com/c/redaction/33).
+**Q: ฉันจะต่ออายุไลเซนส์ทดลองได้อย่างไร?**  
+A: ติดต่อฝ่ายสนับสนุนของ GroupDocs เพื่อหารือเกี่ยวกับตัวเลือกการรับไลเซนส์ชั่วคราวหรือเต็ม.
+
+**Q: มีชุมชนสนับสนุนสำหรับการแก้ไขปัญหรือไม่?**  
+A: มี, คุณสามารถขอความช่วยเหลือได้ที่ [GroupDocs Free Support Forum](https://forum.groupdocs.com/c/redaction/33).
 
 ## คำถามที่พบบ่อย (เพิ่มเติม)
 
-**ถาม: ฉันสามารถแทนที่สีการลบข้อมูลด้วยรูปภาพหรือแพทเทิร์นที่กำหนดเองได้หรือไม่?**  
-ตอบ: ใช่—ใช้ `RegionReplacementOptions` พร้อม `java.awt.Image` ที่กำหนดเองแทนสีทึบ.
+**Q: ฉันสามารถแทนที่สีการลบข้อมูลด้วยรูปภาพหรือรูปแบบที่กำหนดเองได้หรือไม่?**  
+A: ได้ — ใช้ `RegionReplacementOptions` กับ `java.awt.Image` ที่กำหนดเองแทนสีทึบ.
 
-**ถาม: กระบวนการลบข้อมูลทำให้ข้อมูลรูปภาพต้นฉบับถูกลบอย่างถาวรหรือไม่?**  
-ตอบ: แน่นอน. เมื่อบันทึกแล้ว ข้อมูลพิกเซลต้นฉบับจะถูกลบและไม่สามารถกู้คืนได้.
+**Q: กระบวนการลบข้อมูลทำให้ข้อมูลภาพต้นฉบับถูกลบอย่างถาวรหรือไม่?**  
+A: แน่นอน. เมื่อบันทึกแล้ว, ข้อมูลพิกเซลต้นฉบับจะถูกลบและไม่สามารถกู้คืนได้.
 
-**ถาม: ฉันจะทำการประมวลผลหลายเอกสารเป็นชุดได้อย่างไร?**  
-ตอบ: วนลูปผ่านคอลเลกชันของเส้นทางไฟล์, สร้างอินสแตนซ์ `Redactor` สำหรับแต่ละไฟล์, และใช้ตรรกะการลบข้อมูลเดียวกัน.
+**Q: ฉันจะประมวลผลหลายเอกสารพร้อมกันอย่างไร?**  
+A: วนลูปผ่านคอลเลกชันของพาธไฟล์, สร้าง `Redactor` สำหรับแต่ละไฟล์, และใช้ตรรกะการลบข้อมูลเดียวกัน.
 
-**ถาม: มีข้อจำกัดใด ๆ เกี่ยวกับรูปแบบภาพภายในไฟล์ DOCX หรือไม่?**  
-ตอบ: GroupDocs.Redaction รองรับประเภทภาพมาตรฐานที่ฝังอยู่ใน Office Open XML (PNG, JPEG, GIF, BMP).
+**Q: มีข้อจำกัดใด ๆ เกี่ยวกับรูปแบบภาพภายในไฟล์ DOCX หรือไม่?**  
+A: GroupDocs.Redaction รองรับประเภทภาพมาตรฐานที่ฝังใน Office Open XML (PNG, JPEG, GIF, BMP).
 
-**ถาม: ฉันจะหาเอกสารรายละเอียดเพิ่มเติมได้จากที่ไหน?**  
-ตอบ: ดูเอกสารอย่างเป็นทางการและลิงก์อ้างอิง API ด้านล่าง.
+**Q: ฉันจะหาเอกสารรายละเอียดเพิ่มเติมได้จากที่ไหน?**  
+A: ดูเอกสารอย่างเป็นทางการและลิงก์อ้างอิง API ด้านล่าง.
 
 ## แหล่งข้อมูล
 
@@ -200,6 +262,12 @@ if (result.getStatus() != RedactionStatus.Failed) {
 
 ---
 
-**อัปเดตล่าสุด:** 2026-03-04  
-**ทดสอบกับ:** GroupDocs.Redaction 24.9 สำหรับ Java  
+**อัปเดตล่าสุด:** 2026-08-14  
+**ทดสอบกับ:** GroupDocs.Redaction 24.9 for Java  
 **ผู้เขียน:** GroupDocs
+
+## บทแนะนำที่เกี่ยวข้อง
+
+- [วิธีใช้ groupdocs redaction สำหรับ Java: การทำ Pre‑Rasterization ในเอกสาร Word](/redaction/java/rasterization-options/groupdocs-redaction-java-pre-rasterization-word-docs/)
+- [วิธีแปลง DOCX เป็นภาพและลบข้อมูลเอกสาร Word ด้วย GroupDocs Redaction Java](/redaction/java/document-saving/groupdocs-redaction-java-rasterize-word-docs/)
+- [Mask Sensitive Data Java – ลบข้อมูลส่วนบุคคลด้วย GroupDocs.Redaction](/redaction/java/advanced-redaction/master-document-redaction-java-groupdocs-redaction/)

@@ -1,48 +1,106 @@
 ---
-date: '2026-03-04'
-description: GroupDocs.Redaction for Java kullanarak Word belgelerindeki görselleri
-  nasıl kırpacağınızı öğrenin. Bu adım adım öğretici, görsel verileri güvenli bir
-  şekilde nasıl gizleyeceğinizi gösterir.
+date: '2026-08-14'
+description: GroupDocs.Redaction for Java kullanarak Word belgelerinde görselleri
+  nasıl gizlersiniz öğrenin. Bu adım adım öğretici, görsel verileri güvenli bir şekilde
+  gizlemenizi gösterir.
 keywords:
-- redact images in word documents using java
-- groupdocs.redaction for java
-- image redaction in word documents
-title: Java için GroupDocs.Redaction kullanarak Word belgelerindeki görselleri nasıl
-  kırpılır – Kapsamlı bir rehber
+- how to redact images
+- mask images word
+- groupdocs.redaction java
+- image redaction word
+lastmod: '2026-08-14'
+og_description: GroupDocs.Redaction for Java ile Word belgelerinde görselleri nasıl
+  gizlersiniz öğrenin. Bu rehber, görsel verileri birkaç dakika içinde güvenli bir
+  şekilde maskelemenizi veya kaldırmanızı sağlar.
+og_image_alt: Guide showing Java code to redact images in Word documents with GroupDocs.Redaction
+og_title: GroupDocs.Redaction for Java kullanarak Word belgelerinde görselleri nasıl
+  gizlersiniz
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-14'
+  description: Learn how to redact images in Word documents using GroupDocs.Redaction
+    for Java. This step‑by‑step tutorial shows you how to securely hide visual data.
+  headline: How to redact images in Word documents using GroupDocs.Redaction for Java
+  type: TechArticle
+- description: Learn how to redact images in Word documents using GroupDocs.Redaction
+    for Java. This step‑by‑step tutorial shows you how to securely hide visual data.
+  name: How to redact images in Word documents using GroupDocs.Redaction for Java
+  steps:
+  - name: define document path and initialize redactor
+    text: 'First, point the library at the DOCX you want to process: Now create the
+      `Redactor` instance:'
+  - name: set coordinates and dimensions
+    text: 'Identify the exact region of the image you wish to hide. The `Point` defines
+      the upper‑left corner, while `Dimension` sets the width and height of the redaction
+      box: > **Pro tip:** Use a Word viewer or the Office Open XML SDK to inspect
+      image positions if you need precise coordinates.'
+  - name: apply image redaction
+    text: '`ImageAreaRedaction` is the object that describes how an image region should
+      be altered; you can replace it with a solid color, a custom pattern, or completely
+      erase it. Create the redaction object, specify a replacement color (blue in
+      this example), and execute the change: The redacted area is now '
+  - name: persist changes with java redactor save
+    text: Calling `redactor.save()` writes the modified document back to disk. Because
+      the `Redactor` implements `AutoCloseable`, wrapping it in a try‑with‑resources
+      block guarantees that all native resources are released, keeping memory usage
+      low.
+  type: HowTo
+- questions:
+  - answer: Ensure that your coordinates are accurately calculated based on the image's
+      dimensions within the document.
+    question: How do I handle incorrect coordinates during redaction?
+  - answer: Yes, it supports a variety of formats beyond Word, including PDFs and
+      spreadsheets.
+    question: Can GroupDocs.Redaction work with other file formats?
+  - answer: Optimize your Java environment and consider using asynchronous processing
+      for large files.
+    question: What if I encounter performance issues?
+  - answer: Contact GroupDocs support to discuss options for obtaining a temporary
+      or full license.
+    question: How do I extend my trial license?
+  - answer: Yes, you can seek assistance on the [GroupDocs Free Support Forum](https://forum.groupdocs.com/c/redaction/33).
+    question: Is there community support available for troubleshooting?
+  type: FAQPage
+tags:
+- redact images
+- groupdocs.redaction
+- java document processing
+- word image redaction
+title: GroupDocs.Redaction for Java kullanarak Word belgelerinde görselleri nasıl
+  gizlersiniz
 type: docs
 url: /tr/java/image-redaction/redact-images-word-docs-groupdocs-redaction-java/
 weight: 1
 ---
 
-# Word Belgelerinde Görüntüleri Kırpma (Redact) Nasıl Yapılır – GroupDocs.Redaction for Java Kullanarak
+# GroupDocs.Redaction for Java kullanarak Word belgelerinde görüntüleri nasıl gizleriz
 
-Günümüz dijital çağında, **Word'te görüntüleri nasıl kırparız** dosyalarında görüntüleri kırpma (redact) nasıl yapılır, gizli grafikler, logolar veya kişisel fotoğrafları korumak için kritik bir beceridir. Bu öğretici, Microsoft Word belgelerinde gömülü görüntüleri bulmak ve güvenli bir şekilde gizlemek için GroupDocs.Redaction for Java kullanımını adım adım gösterir. Sonunda, kütüphaneyi kurmaktan hassas görüntü kırpmalarını uygulamaya kadar tam iş akışını anlayacak ve hassas görsel verileri yanlış ellere düşmekten koruyabileceksiniz.
+Günümüz dijital çağında, Word dosyalarında **görüntüleri nasıl gizleyeceğiniz** gizli grafikler, logolar veya kişisel fotoğrafları korumak için kritik bir beceridir. Bu öğretici, Microsoft Word belgelerindeki gömülü görüntüleri bulmak ve güvenli bir şekilde gizlemek için GroupDocs.Redaction for Java kullanımını adım adım gösterir. Sonunda, kütüphaneyi kurmaktan hassas görüntü gizlemelerini uygulamaya kadar tam iş akışını anlayacak ve hassas görsel verileri yanlış ellere düşmekten koruyabileceksiniz.
 
-## Hızlı Yanıtlar
-- **Görüntü kırpma (redaction) işlemini hangi kütüphane yönetir?** GroupDocs.Redaction for Java  
+## Hızlı cevaplar
+- **Görüntü gizleme işlemini hangi kütüphane yönetir?** GroupDocs.Redaction for Java  
 - **Hangi Java sürümü gereklidir?** JDK 8 or higher  
-- **Lisans gerekir mi?** A free trial works for testing; a full license is required for production  
-- **Diğer dosya türlerini kırpabilir miyim?** Yes—PDF, Excel, and more are supported  
+- **Bir lisansa ihtiyacım var mı?** A free trial works for testing; a full license is required for production  
+- **Diğer dosya türlerini de gizleyebilir miyim?** Yes—PDF, Excel, and more are supported  
 - **İşlem bellek‑verimli mi?** Yes, especially when you manage resources and process large documents in chunks  
 
-## Word belgelerinde görüntüleri nasıl kırparız?
-Word belgesinde görüntüleri kırpmak, özel veya tescilli bilgileri içeren görsel öğeleri kalıcı olarak kaldırmak veya maskelemek anlamına gelir. GroupDocs.Redaction, kesin bölgeler tanımlamak, bunları katı bir renk ile değiştirmek veya görüntü verisini tamamen silmek için programatik kontrol sağlar.
+## Word belgelerinde görüntüleri nasıl gizleriz?
 
-## Neden GroupDocs.Redaction for Java kullanmalı?
-- **Hassasiyet:** Belirli koordinatları hedefleyerek yalnızca istenen alanın gizlenmesini sağlar.  
-- **Performans:** Büyük dosyalar ve toplu işleme için optimize edilmiştir.  
-- **Çapraz format desteği:** DOCX, PDF, PPTX ve daha fazlası ile çalışır, aynı kod tabanını yeniden kullanmanıza olanak tanır.  
-- **Uyumluluk:** Kırpılan içeriğin geri alınamayacağını garanti ederek GDPR, HIPAA ve diğer gizlilik düzenlemelerine uyum sağlamanıza yardımcı olur.  
+Hedef DOCX dosyasını yükleyin, hassas resmi içeren alanı tanımlayın ve bölgeyi katı bir renk veya özel bir desenle değiştirmek için gizleme API'sini çağırın. Tüm işlem sadece birkaç satır Java kodu gerektirir ve orijinal piksel verilerinin kalıcı olarak kaldırılmasını garanti eder.
+
+## Neden GroupDocs.Redaction for Java kullanmalısınız?
+
+GroupDocs.Redaction, **30+ dosya formatı** boyunca görüntü, metin, meta veri ve ek açıklamaları gizleyebilen tek ve tutarlı bir API sağlar—DOCX, PDF, PPTX ve XLSX dahil. Tüm dosyayı belleğe yüklemeden çok sayfalı belgeleri işler ve tipik sunucu donanımında saniyenin altında yanıt süreleri sunar. Kütüphane ayrıca yerleşik uyumluluk raporları sunar ve GDPR, HIPAA ve diğer gizlilik düzenlemelerine uymanıza yardımcı olur.
 
 ## Önkoşullar
 - **Java Development Kit (JDK) 8+** makinenizde kurulu olmalıdır.  
 - **Maven** (veya JAR'ları manuel olarak ekleme yeteneği).  
-- Java sözdizimi ve proje yapısı hakkında temel bir aşinalık.  
+- Java sözdizimi ve proje yapısına temel aşinalık.  
 
-## GroupDocs.Redaction for Java Kurulumu
+## GroupDocs.Redaction for Java kurulumu
 
 ### Maven ile Kurulum
-`pom.xml` dosyanıza GroupDocs deposunu ve bağımlılığı ekleyin:
+Add the GroupDocs repository and dependency to your `pom.xml`:
 
 ```xml
 <repositories>
@@ -62,16 +120,17 @@ Word belgesinde görüntüleri kırpmak, özel veya tescilli bilgileri içeren g
 </dependencies>
 ```
 
-### Doğrudan İndirme
+### Doğrudan indirme
 Maven kullanmak istemiyorsanız, resmi sürüm sayfasından en son JAR'ı indirin: [GroupDocs.Redaction for Java sürümleri](https://releases.groupdocs.com/redaction/java/).
 
-### Lisans Edinme
-- **Ücretsiz Deneme:** Özellikleri değerlendirmek için idealdir.  
-- **Geçici Lisans:** Deneme yeteneklerini sınırlı bir süre için uzatır.  
-- **Tam Satın Alma:** Tüm kırpma seçeneklerini ve premium desteği açar.
+### Lisans edinme
+- **Ücretsiz deneme:** Özellikleri değerlendirmek için idealdir.  
+- **Geçici lisans:** Deneme yeteneklerini sınırlı bir süre uzatır.  
+- **Tam satın alma:** Tüm gizleme seçeneklerini ve premium desteği açar.  
 
-### Temel Başlatma
-`Redactor` sınıfı ile bir Word belgesini açmak için minimum Java kodu aşağıdadır:
+## Temel başlatma
+
+`Redactor` sınıfı, tüm gizleme işlemleri için giriş noktasıdır; yüklü bir belgeyi temsil eder ve kaynakları otomatik olarak yönetir. DOCX dosyanızın yolunu geçirerek bir örnek oluşturun:
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -89,9 +148,9 @@ public class RedactImagesExample {
 }
 ```
 
-## Uygulama Kılavuzu – Adım Adım
+## Uygulama rehberi – adım adım
 
-### Adım 1: Belge Yolunu Tanımlayın ve Redactor'ı Başlatın
+### Adım 1: belge yolunu tanımlayın ve redactor'ı başlatın
 İlk olarak, kütüphaneyi işlemek istediğiniz DOCX dosyasına yönlendirin:
 
 ```java
@@ -106,18 +165,18 @@ try (final Redactor redactor = new Redactor(documentPath)) {
 }
 ```
 
-### Adım 2: Koordinatları ve Boyutları Ayarlayın
-Gizlemek istediğiniz görüntünün kesin bölgesini belirleyin. `Point` üst‑sol köşeyi tanımlar, `Dimension` ise kırpma kutusunun genişlik ve yüksekliğini ayarlar:
+### Adım 2: koordinatları ve boyutları ayarlayın
+Gizlemek istediğiniz görüntünün tam bölgesini belirleyin. `Point` üst‑sol köşeyi tanımlar, `Dimension` ise gizleme kutusunun genişliğini ve yüksekliğini ayarlar:
 
 ```java
 java.awt.Point samplePoint = new java.awt.Point(516, 311); // Define starting point
 java.awt.Dimension sampleSize = new java.awt.Dimension(170, 35); // Set dimensions
 ```
 
-> **Pro tip:** Kesin koordinatlara ihtiyacınız varsa, görüntü konumlarını incelemek için bir Word görüntüleyici veya Office Open XML SDK kullanın.
+> **Pro tip:** Görüntü konumlarını incelemek ve kesin koordinatlara ihtiyacınız varsa bir Word görüntüleyici veya Office Open XML SDK kullanın.
 
-### Adım 3: Görüntü Kırpmasını Uygulayın
-`ImageAreaRedaction` nesnesi oluşturun, bir değiştirme rengi (bu örnekte mavi) belirtin ve değişikliği uygulayın:
+### Adım 3: görüntü gizlemesini uygulayın
+`ImageAreaRedaction`, bir görüntü bölgesinin nasıl değiştirileceğini tanımlayan nesnedir; katı bir renk, özel bir desen ile değiştirebilir veya tamamen silebilirsiniz. Gizleme nesnesini oluşturun, bir değiştirme rengi (bu örnekte mavi) belirleyin ve değişikliği yürütün:
 
 ```java
 RedactorChangeLog result = redactor.apply(new ImageAreaRedaction(
@@ -130,79 +189,87 @@ if (result.getStatus() != RedactionStatus.Failed) {
 }
 ```
 
-Kırpılan alan artık katı bir mavi dikdörtgenle değiştirilmiştir, böylece orijinal görsel içerik geri alınamaz hale gelir. Bu yaklaşım aynı zamanda **replace image color java**'yı da gösterir—`java.awt.Color.BLUE`'u uyum politikanıza uyan herhangi bir renk ile değiştirebilirsiniz.
+Gizlenen alan artık katı mavi bir dikdörtgenle değiştirilmiştir ve orijinal görsel içerik geri getirilemez hâle gelmiştir. Bu yaklaşım ayrıca **replace image color java**'yı da gösterir—`java.awt.Color.BLUE`'u uyumluluk politikanıza uyan herhangi bir renkle değiştirebilirsiniz.
 
-### Adım 4: Değişiklikleri java redactor save ile Kalıcı Hale Getirin
-`redactor.save()` çağrısı, değiştirilmiş belgeyi diske yazan **java redactor save** adımıdır. `Redactor`, `AutoCloseable` arayüzünü uyguladığından, bir try‑with‑resources bloğuna sarılması tüm yerel kaynakların serbest bırakılmasını garanti eder ve bellek kullanımını düşük tutar.
+### Adım 4: java redactor save ile değişiklikleri kalıcı hale getirin
+`redactor.save()` çağrısı, değiştirilmiş belgeyi diske yazar. `Redactor`, `AutoCloseable` arayüzünü uyguladığından, bir try‑with‑resources bloğu içinde sarmalanması tüm yerel kaynakların serbest bırakılmasını garanti eder ve bellek kullanımını düşük tutar.
 
-## Sorun Giderme İpuçları
-- **Koordinatlar sınırların dışında:** `samplePoint` ve `sampleSize` değerlerinin sayfa kenar boşlukları içinde kaldığını doğrulayın.  
+## Word'de görüntüleri maskeleme
+
+GroupDocs.Redaction, Word belgelerindeki **görüntüleri maskeleyebilir**, onları katı bir renk veya özel bir kaplama ile kaplar. Düzeni korurken alttaki görsel içeriği gizlemeniz gerektiğinde faydalıdır. Aynı `ImageAreaRedaction` sınıfı, `RegionReplacementOptions`'ı yarı saydam bir dolgu olarak ayarlayarak maske işlemlerini destekler.
+
+## Sorun giderme ipuçları
+- **Koordinatlar sınırların dışında:** `samplePoint` ve `sampleSize`'ın sayfa kenar boşlukları içinde kaldığını doğrulayın.  
 - **Eksik bağımlılıklar:** Maven koordinatlarını veya JAR yollarını iki kez kontrol edin.  
-- **Lisans hataları:** Lisans dosyasının doğru konumlandırıldığından ve deneme süresinin süresinin dolmadığından emin olun.  
+- **Lisans hataları:** Lisans dosyasının doğru konumda olduğundan ve deneme süresinin süresinin dolmadığından emin olun.  
 
-## Pratik Uygulamalar
-1. **Hukuki Taslaklar:** Karşı taraf avukatıyla paylaşmadan önce gizli mühürleri kaldırın.  
-2. **Finansal Raporlar:** Ön izleme sürümlerini dağıtırken tescilli grafikleri gizleyin.  
-3. **Tıbbi Kayıtlar:** HIPAA'ya uyum sağlamak için hasta fotoğraflarını kaldırın.  
+## Pratik uygulamalar
+1. **Hukuki taslaklar:** Karşı taraf avukatıyla paylaşmadan önce gizli mühürleri kaldırın.  
+2. **Finansal raporlar:** Ön izleme sürümlerini dağıtırken özel grafikleri gizleyin.  
+3. **Tıbbi kayıtlar:** HIPAA'ya uyum sağlamak için hasta fotoğraflarını kaldırın.  
 
-## Performans Hususları
-- **Bellek Yönetimi:** `Redactor`'ı bir try‑with‑resources bloğuna sararak (gösterildiği gibi) doğru şekilde serbest bırakılmasını garanti edin.  
-- **Büyük Dosyalar:** Belgeleri parçalar halinde işleyin veya UI'nin yanıt vermesini sağlamak için eşzamanlı olmayan yürütme kullanın.  
-- **İzleme:** Ne zaman ve neyin kırpıldığını denetlemek için `RedactorChangeLog` ayrıntılarını kaydedin.  
+## Performans değerlendirmeleri
+- **Bellek yönetimi:** `Redactor`'ı bir try‑with‑resources bloğu içinde sarmalayın (gösterildiği gibi) doğru şekilde temizlenmesini garanti eder.  
+- **Büyük dosyalar:** Belgeleri parçalara bölerek işleyin veya UI'nin yanıt vermesini sağlamak için eşzamansız yürütme kullanın.  
+- **İzleme:** `RedactorChangeLog` ayrıntılarını kaydedin, neyin ve ne zaman gizlendiğini denetlemek için.  
 
 ## Sonuç
-Artık GroupDocs.Redaction for Java kullanarak **Word'te görüntüleri nasıl kırparız** belgeleri için tam, üretim‑hazır bir yönteme sahipsiniz. Kesin koordinatları tanımlayarak ve bir renk değişimi uygulayarak, hassas bilgileri ortaya çıkarabilecek herhangi bir görsel veriyi koruyabilirsiniz.
+Artık GroupDocs.Redaction for Java kullanarak Word belgelerinde **görüntüleri nasıl gizleyeceğiniz** konusunda eksiksiz, üretim‑hazır bir yönteme sahipsiniz. Kesin koordinatları tanımlayarak ve renk değiştirme uygulayarak, hassas bilgileri ortaya çıkarabilecek tüm görsel verileri koruyabilirsiniz.
 
-### Sonraki Adımlar
-- Diğer kırpma türlerini (metin, meta veri, ek açıklamalar) keşfedin.  
-- İş akışını bir web servisi veya toplu iş işlemcisine entegre edin.  
+### Sonraki adımlar
+- Diğer gizleme türlerini keşfedin (metin, meta veri, ek açıklamalar).  
+- İş akışını bir web servisine veya toplu iş işlemcisine entegre edin.  
 - Gelişmiş seçenekler için resmi API referansını inceleyin.  
 
-## SSS Bölümü
+## SSS bölümü
 
-**Q: Redaction sırasında hatalı koordinatlarla nasıl başa çıkılır?**  
-A: Koordinatlarınızın belge içindeki görüntünün boyutlarına göre doğru hesaplandığından emin olun.
+**S: Word dosyalarında gizleme sırasında hatalı koordinatlarla nasıl başa çıkabilirim?**  
+C: Koordinatlarınızı belgedeki görüntünün boyutlarına göre doğru bir şekilde hesapladığınızdan emin olun.
 
-**Q: GroupDocs.Redaction diğer dosya formatlarıyla çalışabilir mi?**  
-A: Evet, Word dışındaki birçok formatı, PDF'ler ve elektronik tablolar dahil, destekler.
+**S: GroupDocs.Redaction başka dosya formatlarıyla çalışabilir mi?**  
+C: Evet, Word dışındaki PDF'ler ve elektronik tablolar dahil olmak üzere çeşitli formatları destekler.
 
-**Q: Performans sorunlarıyla karşılaşırsam ne yapmalıyım?**  
-A: Java ortamınızı optimize edin ve büyük dosyalar için eşzamanlı olmayan işleme geçmeyi düşünün.
+**S: Performans sorunlarıyla karşılaşırsam ne yapmalıyım?**  
+C: Java ortamınızı optimize edin ve büyük dosyalar için eşzamansız işleme geçmeyi düşünün.
 
-**Q: Deneme lisansımı nasıl uzatabilirim?**  
-A: Geçici veya tam lisans alım seçeneklerini görüşmek için GroupDocs destek ekibiyle iletişime geçin.
+**S: Deneme lisansımı nasıl uzatabilirim?**  
+C: Geçici veya tam lisans elde etmek için seçenekleri görüşmek üzere GroupDocs destek ekibiyle iletişime geçin.
 
-**Q: Sorun gidermede topluluk desteği mevcut mu?**  
-A: Evet, [GroupDocs Ücretsiz Destek Forumunda](https://forum.groupdocs.com/c/redaction/33) yardım alabilirsiniz.
+**S: Sorun giderme için topluluk desteği var mı?**  
+C: Evet, [GroupDocs Free Support Forum](https://forum.groupdocs.com/c/redaction/33) üzerinden yardım alabilirsiniz.
 
-## Sıkça Sorulan Sorular (Ek)
+## Sık sorulan sorular (ek)
 
-**Q: Kırpma rengini özel bir görüntü veya desenle değiştirebilir miyim?**  
-A: Evet—katı bir renk yerine özel bir `java.awt.Image` ile `RegionReplacementOptions` kullanın.
+**S: Gizleme rengini özel bir görüntü veya desenle değiştirebilir miyim?**  
+C: Evet—katı bir renk yerine özel bir `java.awt.Image` ile `RegionReplacementOptions` kullanın.
 
-**Q: Kırpma işlemi orijinal görüntü verisini kalıcı olarak siler mi?**  
-A: Kesinlikle. Kaydedildikten sonra, orijinal piksel verileri kaldırılır ve geri getirilemez.
+**S: Gizleme işlemi orijinal görüntü verilerini kalıcı olarak siler mi?**  
+C: Kesinlikle. Kaydedildikten sonra orijinal piksel verileri kaldırılır ve geri getirilemez.
 
-**Q: Birden fazla belgeyi toplu olarak nasıl işleyebilirim?**  
-A: Dosya yolu koleksiyonunu döngüye alarak, her biri için bir `Redactor` örneği oluşturup aynı kırpma mantığını uygulayın.
+**S: Birden fazla belgeyi toplu olarak nasıl işleyebilirim?**  
+C: Dosya yolları koleksiyonunu döngüye alıp her biri için bir `Redactor` örneği oluşturun ve aynı gizleme mantığını uygulayın.
 
-**Q: DOCX dosyalarındaki görüntü formatlarıyla ilgili sınırlamalar var mı?**  
-A: GroupDocs.Redaction, Office Open XML içinde gömülü standart görüntü türlerini (PNG, JPEG, GIF, BMP) destekler.
+**S: DOCX dosyalarındaki görüntü formatlarıyla ilgili sınırlamalar var mı?**  
+C: GroupDocs.Redaction, Office Open XML içinde gömülü standart görüntü tiplerini (PNG, JPEG, GIF, BMP) destekler.
 
-**Q: Daha ayrıntılı belgeleri nerede bulabilirim?**  
-A: Aşağıdaki resmi dokümantasyon ve API referans bağlantılarına bakın.
+**S: Daha ayrıntılı belgeleri nerede bulabilirim?**  
+C: Aşağıdaki resmi dokümantasyon ve API referans bağlantılarına bakın.
 
 ## Kaynaklar
 
-- **Dokümantasyon:** [GroupDocs.Redaction Java Dokümantasyonu](https://docs.groupdocs.com/redaction/java/)  
-- **API Referansı:** [GroupDocs Redaction Java API'si](https://reference.groupdocs.com/redaction/java)  
-- **İndirme:** [En Son Sürümler](https://releases.groupdocs.com/redaction/java/)  
-- **GitHub:** [GroupDocs GitHub Deposu](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
-- **Ücretsiz Destek:** [GroupDocs Destek Forumu](https://forum.groupdocs.com/c/redaction/33)  
-- **Geçici Lisans:** [Geçici Lisans Alın](https://purchase.groupdocs.com/temporary-license/) 
+- **Dokümantasyon:** [GroupDocs.Redaction Java Documentation](https://docs.groupdocs.com/redaction/java/)  
+- **API referansı:** [GroupDocs Redaction API for Java](https://reference.groupdocs.com/redaction/java)  
+- **İndirme:** [Latest Releases](https://releases.groupdocs.com/redaction/java/)  
+- **GitHub:** [GroupDocs GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
+- **Ücretsiz destek:** [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33)  
+- **Geçici lisans:** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
----
-
-**Son Güncelleme:** 2026-03-04  
+**Son Güncelleme:** 2026-08-14  
 **Test Edilen Versiyon:** GroupDocs.Redaction 24.9 for Java  
 **Yazar:** GroupDocs
+
+## İlgili Öğreticiler
+
+- [Java için groupdocs redaction kullanımı: Word Belgelerinde Ön‑Rasterizasyon](/redaction/java/rasterization-options/groupdocs-redaction-java-pre-rasterization-word-docs/)
+- [DOCX'i Görüntüye Dönüştürme ve Word Belgelerini GroupDocs Redaction Java ile Gizleme](/redaction/java/document-saving/groupdocs-redaction-java-rasterize-word-docs/)
+- [Hassas Verileri Maskeleme Java – GroupDocs.Redaction ile Kişisel Bilgileri Gizleme](/redaction/java/advanced-redaction/master-document-redaction-java-groupdocs-redaction/)

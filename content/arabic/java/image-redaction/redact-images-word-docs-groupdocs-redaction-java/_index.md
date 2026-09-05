@@ -1,47 +1,100 @@
 ---
-date: '2026-03-04'
-description: تعلم كيفية إخفاء الصور في مستندات Word باستخدام GroupDocs.Redaction للغة
+date: '2026-08-14'
+description: تعلم كيفية إخفاء الصور في مستندات Word باستخدام GroupDocs.Redaction for
   Java. يوضح لك هذا الدليل خطوة بخطوة كيفية إخفاء البيانات البصرية بأمان.
 keywords:
-- redact images in word documents using java
-- groupdocs.redaction for java
-- image redaction in word documents
-title: كيفية إخفاء الصور في مستندات Word باستخدام GroupDocs.Redaction للغة Java –
-  دليل شامل
+- how to redact images
+- mask images word
+- groupdocs.redaction java
+- image redaction word
+lastmod: '2026-08-14'
+og_description: كيفية إخفاء الصور في مستندات Word باستخدام GroupDocs.Redaction for
+  Java. اتبع هذا الدليل لتغطية أو إزالة البيانات البصرية بأمان خلال دقائق.
+og_image_alt: Guide showing Java code to redact images in Word documents with GroupDocs.Redaction
+og_title: كيفية إخفاء الصور في مستندات Word باستخدام GroupDocs.Redaction for Java
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-14'
+  description: Learn how to redact images in Word documents using GroupDocs.Redaction
+    for Java. This step‑by‑step tutorial shows you how to securely hide visual data.
+  headline: How to redact images in Word documents using GroupDocs.Redaction for Java
+  type: TechArticle
+- description: Learn how to redact images in Word documents using GroupDocs.Redaction
+    for Java. This step‑by‑step tutorial shows you how to securely hide visual data.
+  name: How to redact images in Word documents using GroupDocs.Redaction for Java
+  steps:
+  - name: define document path and initialize redactor
+    text: 'First, point the library at the DOCX you want to process: Now create the
+      `Redactor` instance:'
+  - name: set coordinates and dimensions
+    text: 'Identify the exact region of the image you wish to hide. The `Point` defines
+      the upper‑left corner, while `Dimension` sets the width and height of the redaction
+      box: > **Pro tip:** Use a Word viewer or the Office Open XML SDK to inspect
+      image positions if you need precise coordinates.'
+  - name: apply image redaction
+    text: '`ImageAreaRedaction` is the object that describes how an image region should
+      be altered; you can replace it with a solid color, a custom pattern, or completely
+      erase it. Create the redaction object, specify a replacement color (blue in
+      this example), and execute the change: The redacted area is now '
+  - name: persist changes with java redactor save
+    text: Calling `redactor.save()` writes the modified document back to disk. Because
+      the `Redactor` implements `AutoCloseable`, wrapping it in a try‑with‑resources
+      block guarantees that all native resources are released, keeping memory usage
+      low.
+  type: HowTo
+- questions:
+  - answer: Ensure that your coordinates are accurately calculated based on the image's
+      dimensions within the document.
+    question: How do I handle incorrect coordinates during redaction?
+  - answer: Yes, it supports a variety of formats beyond Word, including PDFs and
+      spreadsheets.
+    question: Can GroupDocs.Redaction work with other file formats?
+  - answer: Optimize your Java environment and consider using asynchronous processing
+      for large files.
+    question: What if I encounter performance issues?
+  - answer: Contact GroupDocs support to discuss options for obtaining a temporary
+      or full license.
+    question: How do I extend my trial license?
+  - answer: Yes, you can seek assistance on the [GroupDocs Free Support Forum](https://forum.groupdocs.com/c/redaction/33).
+    question: Is there community support available for troubleshooting?
+  type: FAQPage
+tags:
+- redact images
+- groupdocs.redaction
+- java document processing
+- word image redaction
+title: كيفية إخفاء الصور في مستندات Word باستخدام GroupDocs.Redaction for Java
 type: docs
 url: /ar/java/image-redaction/redact-images-word-docs-groupdocs-redaction-java/
 weight: 1
 ---
 
-# كيفية إخفاء الصور في مستندات Word باستخدام GroupDocs.Redaction للغة Java
+# كيفية تمويه الصور في مستندات Word باستخدام GroupDocs.Redaction للـ Java
 
-في عصرنا الرقمي اليوم، **كيفية إخفاء الصور في ملفات word** تُعد مهارة حاسمة لحماية الرسومات السرية، والشعارات، أو الصور الشخصية. يوضح هذا الدليل كيفية استخدام GroupDocs.Redaction للغة Java لتحديد وإخفاء الصور المدمجة بأمان في مستندات Microsoft Word. في النهاية، ستفهم سير العمل الكامل—من إعداد المكتبة إلى تطبيق إخفاءات الصور الدقيقة—حتى تتمكن من الحفاظ على البيانات البصرية الحساسة بعيدًا عن الأيدي الخاطئة.
+في عصرنا الرقمي اليوم، **كيفية تمويه الصور** في ملفات Word هي مهارة حاسمة لحماية الرسومات السرية، الشعارات، أو الصور الشخصية. يشرح هذا الدليل كيفية استخدام GroupDocs.Redaction للـ Java لتحديد وإخفاء الصور المدمجة في مستندات Microsoft Word بأمان. في النهاية، ستفهم سير العمل الكامل — من إعداد المكتبة إلى تطبيق تمويه الصور بدقة — لتتمكن من الحفاظ على البيانات البصرية الحساسة بعيدًا عن الأيدي الخاطئة.
 
 ## إجابات سريعة
-- **ما المكتبة التي تتعامل مع إخفاء الصور؟** GroupDocs.Redaction للغة Java  
+- **ما المكتبة التي تتعامل مع تمويه الصور؟** GroupDocs.Redaction for Java  
 - **ما نسخة Java المطلوبة؟** JDK 8 أو أعلى  
-- **هل أحتاج إلى ترخيص؟** النسخة التجريبية المجانية تكفي للاختبار؛ الترخيص الكامل مطلوب للإنتاج  
-- **هل يمكنني إخفاء أنواع ملفات أخرى؟** نعم—PDF، Excel، والمزيد مدعومة  
-- **هل العملية فعّالة من حيث الذاكرة؟** نعم، خاصةً عندما تدير الموارد وتعالج المستندات الكبيرة على دفعات  
+- **هل أحتاج إلى ترخيص؟** نسخة تجريبية مجانية تعمل للاختبار؛ الترخيص الكامل مطلوب للإنتاج  
+- **هل يمكنني تمويه أنواع ملفات أخرى؟** نعم — PDF، Excel، والمزيد مدعومة  
+- **هل العملية فعّالة من حيث الذاكرة؟** نعم، خاصة عندما تدير الموارد وتعالج المستندات الكبيرة على دفعات  
 
-## كيف يتم إخفاء الصور في مستندات Word؟
-إخفاء الصور في مستند Word يعني إزالة أو إخفاء العناصر البصرية التي تحتوي على معلومات خاصة أو ملكية بشكل دائم. يوفر GroupDocs.Redaction تحكمًا برمجيًا لتحديد المناطق بدقة، واستبدالها بلون صلب، أو مسح بيانات الصورة بالكامل.
+## كيفية تمويه الصور في مستندات Word؟
+حمّل ملف DOCX المستهدف، حدد المنطقة التي تحتوي على الصورة الحساسة، واستدعِ API التمويه لاستبدال المنطقة بلون صلب أو بنمط مخصص. العملية بأكملها تتطلب بضع أسطر فقط من كود Java وتضمن حذف بيانات البكسل الأصلية بشكل دائم.
 
-## لماذا نستخدم GroupDocs.Redaction للغة Java؟
-- **الدقة:** استهداف إحداثيات محددة، مما يضمن إخفاء المنطقة المطلوبة فقط.  
-- **الأداء:** مُحسّن للملفات الكبيرة والمعالجة الدفعية.  
-- **دعم صيغ متعددة:** يعمل مع DOCX، PDF، PPTX، وأكثر، مما يتيح لك إعادة استخدام قاعدة الشيفرة نفسها.  
-- **الامتثال:** يساعد على تلبية متطلبات GDPR، HIPAA، وغيرها من اللوائح الخصوصية من خلال ضمان عدم إمكانية استعادة المحتوى المُخفى.  
+## لماذا نستخدم GroupDocs.Redaction للـ Java؟
+توفر GroupDocs.Redaction API موحدًا واحدًا يمكنه تمويه الصور والنصوص والبيانات الوصفية والتعليقات عبر **أكثر من 30 تنسيق ملف** — بما في ذلك DOCX وPDF وPPTX وXLSX. يعالج مستندات مئات الصفحات دون تحميل الملف بالكامل في الذاكرة، مما يحقق أوقات استجابة أقل من الثانية على خوادم عادية. كما تقدم المكتبة تقارير امتثال مدمجة، تساعدك على الالتزام بـ GDPR وHIPAA وغيرها من اللوائح المتعلقة بالخصوصية.
 
 ## المتطلبات المسبقة
-- **مجموعة تطوير Java (JDK) 8+** مثبتة على جهازك.  
+- **Java Development Kit (JDK) 8+** مثبت على جهازك.  
 - **Maven** (أو القدرة على إضافة ملفات JAR يدويًا).  
 - إلمام أساسي بصياغة Java وبنية المشروع.  
 
-## إعداد GroupDocs.Redaction للغة Java
+## إعداد GroupDocs.Redaction للـ Java
 
 ### التثبيت عبر Maven
-أضف مستودع GroupDocs والاعتماد إلى ملف `pom.xml` الخاص بك:
+أضف مستودع GroupDocs والاعتمادية إلى ملف `pom.xml` الخاص بك:
 
 ```xml
 <repositories>
@@ -62,15 +115,16 @@ weight: 1
 ```
 
 ### التحميل المباشر
-إذا كنت لا ترغب في استخدام Maven، احصل على أحدث ملف JAR من صفحة الإصدارات الرسمية: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+إذا كنت تفضّل عدم استخدام Maven، احصل على أحدث ملف JAR من صفحة الإصدار الرسمية: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
 ### الحصول على الترخيص
 - **نسخة تجريبية مجانية:** مثالية لتقييم الميزات.  
-- **ترخيص مؤقت:** يمدّ قدرات النسخة التجريبية لفترة محدودة.  
-- **شراء كامل:** يفتح جميع خيارات الإخفاء والدعم المميز.
+- **ترخيص مؤقت:** يمدّ قدرات التجربة لفترة محدودة.  
+- **شراء كامل:** يفتح جميع خيارات التمويه والدعم المميز.  
 
-### التهيئة الأساسية
-فيما يلي الحد الأدنى من شفرة Java لفتح مستند Word باستخدام فئة `Redactor`:
+## التهيئة الأساسية
+
+فئة `Redactor` هي نقطة الدخول لجميع عمليات التمويه؛ تمثّل مستندًا محملاً وتدير الموارد تلقائيًا. أنشئ مثيلًا بتمرير مسار ملف DOCX الخاص بك:
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -90,14 +144,14 @@ public class RedactImagesExample {
 
 ## دليل التنفيذ – خطوة بخطوة
 
-### الخطوة 1: تحديد مسار المستند وتهيئة Redactor
-أولًا، وجه المكتبة إلى ملف DOCX الذي تريد معالجته:
+### الخطوة 1: تحديد مسار المستند وتهيئة الـ Redactor
+أولاً، وجه المكتبة إلى ملف DOCX الذي تريد معالجته:
 
 ```java
 String documentPath = "YOUR_DOCUMENT_DIRECTORY/sample.docx";
 ```
 
-الآن أنشئ كائن `Redactor`:
+الآن أنشئ مثيل `Redactor`:
 
 ```java
 try (final Redactor redactor = new Redactor(documentPath)) {
@@ -106,17 +160,17 @@ try (final Redactor redactor = new Redactor(documentPath)) {
 ```
 
 ### الخطوة 2: ضبط الإحداثيات والأبعاد
-حدد المنطقة الدقيقة للصورة التي تريد إخفاءها. الـ `Point` يحدد الزاوية العلوية اليسرى، بينما `Dimension` يحدد العرض والارتفاع لمربع الإخفاء:
+حدد المنطقة الدقيقة للصورة التي ترغب في إخفائها. يحدد `Point` الزاوية العليا اليسرى، بينما يحدد `Dimension` العرض والارتفاع لصندوق التمويه:
 
 ```java
 java.awt.Point samplePoint = new java.awt.Point(516, 311); // Define starting point
 java.awt.Dimension sampleSize = new java.awt.Dimension(170, 35); // Set dimensions
 ```
 
-> **نصيحة احترافية:** استخدم عارض Word أو Office Open XML SDK لفحص مواضع الصور إذا كنت بحاجة إلى إحداثيات دقيقة.
+> **نصيحة احترافية:** استخدم عارض Word أو Office Open XML SDK لتفقد مواضع الصور إذا كنت بحاجة إلى إحداثيات دقيقة.
 
-### الخطوة 3: تطبيق إخفاء الصورة
-أنشئ كائن `ImageAreaRedaction`، حدد لون الاستبدال (أزرق في هذا المثال)، ثم نفّذ التغيير:
+### الخطوة 3: تطبيق تمويه الصورة
+`ImageAreaRedaction` هو الكائن الذي يصف كيفية تعديل منطقة الصورة؛ يمكنك استبداله بلون صلب، نمط مخصص، أو محوها بالكامل. أنشئ كائن التمويه، حدد لون الاستبدال (أزرق في هذا المثال)، ونفّذ التغيير:
 
 ```java
 RedactorChangeLog result = redactor.apply(new ImageAreaRedaction(
@@ -129,37 +183,40 @@ if (result.getStatus() != RedactionStatus.Failed) {
 }
 ```
 
-المنطقة المُخفاة الآن مستبدلة بمستطيل أزرق صلب، مما يجعل المحتوى البصري الأصلي غير قابل للاسترجاع. يوضح هذا النهج أيضًا **replace image color java**—يمكنك استبدال `java.awt.Color.BLUE` بأي لون يتوافق مع سياسات الامتثال الخاصة بك.
+تم الآن استبدال المنطقة المموهة بمستطيل أزرق صلب، مما يجعل المحتوى البصري الأصلي غير قابل للاسترجاع. يوضح هذا الأسلوب أيضًا **replace image color java** — يمكنك استبدال `java.awt.Color.BLUE` بأي لون يتوافق مع سياسة الامتثال الخاصة بك.
 
 ### الخطوة 4: حفظ التغييرات باستخدام java redactor save
-استدعاء `redactor.save()` هو خطوة **java redactor save** التي تكتب المستند المعدل مرة أخرى إلى القرص. نظرًا لأن `Redactor` يطبق `AutoCloseable`، فإن تغليفه داخل كتلة try‑with‑resources يضمن تحرير جميع الموارد الأصلية، مما يحافظ على انخفاض استهلاك الذاكرة.
+استدعاء `redactor.save()` يكتب المستند المعدل مرة أخرى إلى القرص. نظرًا لأن `Redactor` يطبق `AutoCloseable`، فإن تغليفه داخل كتلة try‑with‑resources يضمن تحرير جميع الموارد الأصلية، مما يحافظ على انخفاض استهلاك الذاكرة.
+
+## إخفاء الصور في Word
+
+يمكن لـ GroupDocs.Redaction أيضًا **إخفاء الصور** في مستندات Word، بتغطيتها بلون صلب أو طبقة مخصصة. هذا مفيد عندما تحتاج إلى الحفاظ على التخطيط ولكن إخفاء المحتوى البصري الأساسي. تدعم فئة `ImageAreaRedaction` نفسها عمليات الإخفاء عن طريق ضبط `RegionReplacementOptions` إلى تعبئة شبه شفافة.
 
 ## نصائح استكشاف الأخطاء وإصلاحها
-- **الإحداثيات خارج الحدود:** تأكد من أن `samplePoint` و `sampleSize` يبقيان داخل هوامش الصفحة.  
-- **اعتمادات مفقودة:** راجع إحداثيات Maven أو مسارات ملفات JAR.  
-- **أخطاء الترخيص:** تأكد من وضع ملف الترخيص في المكان الصحيح وأن فترة التجربة لم تنتهِ بعد.  
+- **الإحداثيات خارج الحدود:** تأكد من أن `samplePoint` و`sampleSize` يبقيان داخل هوامش الصفحة.  
+- **الاعتمادات المفقودة:** تحقق مرة أخرى من إحداثيات Maven أو مسارات JAR.  
+- **أخطاء الترخيص:** تأكد من وضع ملف الترخيص بشكل صحيح وأن فترة التجربة لم تنتهِ.  
 
 ## تطبيقات عملية
 1. **المسودات القانونية:** إزالة الأختام السرية قبل مشاركتها مع الطرف المقابل.  
-2. **التقارير المالية:** إخفاء المخططات الملكية عند توزيع نسخ معاينة.  
-3. **السجلات الطبية:** حذف صور المرضى للامتثال لمتطلبات HIPAA.  
+2. **التقارير المالية:** إخفاء المخططات المملوكة عند توزيع نسخ معاينة.  
+3. **السجلات الطبية:** حذف صور المرضى للامتثال لـ HIPAA.  
 
 ## اعتبارات الأداء
-- **إدارة الذاكرة:** غلف `Redactor` بكتلة try‑with‑resources (كما هو موضح) لضمان التخلص السليم.  
+- **إدارة الذاكرة:** غلف `Redactor` داخل كتلة try‑with‑resources (كما هو موضح) لضمان التخلص السليم.  
 - **الملفات الكبيرة:** عالج المستندات على دفعات أو استخدم التنفيذ غير المتزامن للحفاظ على استجابة واجهة المستخدم.  
-- **المراقبة:** سجّل تفاصيل `RedactorChangeLog` لتدقيق ما تم إخفاؤه ومتى.  
+- **المراقبة:** سجّل تفاصيل `RedactorChangeLog` لتدقيق ما تم تمويهه ومتى.  
 
 ## الخلاصة
-أصبح لديك الآن طريقة جاهزة للإنتاج حول **كيفية إخفاء الصور في word** باستخدام GroupDocs.Redaction للغة Java. من خلال تحديد إحداثيات دقيقة وتطبيق استبدال اللون، يمكنك حماية أي بيانات بصرية قد تكشف عن معلومات حساسة.
+أصبح لديك الآن طريقة كاملة وجاهزة للإنتاج **لتمويه الصور** في مستندات Word باستخدام GroupDocs.Redaction للـ Java. من خلال تحديد إحداثيات دقيقة وتطبيق استبدال اللون، يمكنك حماية أي بيانات بصرية قد تكشف عن معلومات حساسة.
 
 ### الخطوات التالية
-- استكشف أنواع إخفاء أخرى (نص، بيانات تعريفية، تعليقات).  
+- استكشف أنواع تمويه أخرى (نص، بيانات وصفية، تعليقات).  
 - دمج سير العمل في خدمة ويب أو معالج دفعي.  
-- راجع مرجع API الرسمي للحصول على خيارات متقدمة.
+- راجع مرجع API الرسمي للحصول على خيارات متقدمة.  
 
 ## قسم الأسئلة المتكررة
-
-**س: كيف أتعامل مع إحداثيات غير صحيحة أثناء الإخفاء؟**  
+**س: كيف أتعامل مع إحداثيات غير صحيحة أثناء التمويه؟**  
 ج: تأكد من حساب إحداثياتك بدقة بناءً على أبعاد الصورة داخل المستند.
 
 **س: هل يمكن لـ GroupDocs.Redaction العمل مع صيغ ملفات أخرى؟**  
@@ -174,36 +231,38 @@ if (result.getStatus() != RedactionStatus.Failed) {
 **س: هل هناك دعم مجتمع متاح لاستكشاف الأخطاء؟**  
 ج: نعم، يمكنك طلب المساعدة في [منتدى الدعم المجاني لـ GroupDocs](https://forum.groupdocs.com/c/redaction/33).
 
-## أسئلة شائعة (إضافية)
+## أسئلة متكررة (إضافية)
 
-**س: هل يمكنني استبدال لون الإخفاء بصورة أو نمط مخصص؟**  
-ج: نعم—استخدم `RegionReplacementOptions` مع صورة `java.awt.Image` مخصصة بدلاً من لون صلب.
+**س: هل يمكنني استبدال لون التمويه بصورة أو نمط مخصص؟**  
+ج: نعم — استخدم `RegionReplacementOptions` مع `java.awt.Image` مخصص بدلاً من لون صلب.
 
-**س: هل عملية الإخفاء تحذف بيانات الصورة الأصلية نهائيًا؟**  
+**س: هل عملية التمويه تحذف بيانات الصورة الأصلية بشكل دائم؟**  
 ج: بالتأكيد. بمجرد الحفظ، تُحذف بيانات البكسل الأصلية ولا يمكن استرجاعها.
 
-**س: كيف يمكنني معالجة عدة مستندات دفعة واحدة؟**  
-ج: كرّر عبر مجموعة من مسارات الملفات، أنشئ `Redactor` لكل منها، وطبق نفس منطق الإخفاء.
+**س: كيف يمكنني معالجة عدة مستندات دفعيًا؟**  
+ج: كرّر عبر مجموعة من مسارات الملفات، أنشئ `Redactor` لكل منها، وطبق نفس منطق التمويه.
 
 **س: هل هناك أي قيود على صيغ الصور داخل ملفات DOCX؟**  
-ج: يدعم GroupDocs.Redaction أنواع الصور القياسية المدمجة في Office Open XML (PNG، JPEG، GIF، BMP).
+ج: يدعم GroupDocs.Redaction الأنواع القياسية للصور المدمجة في Office Open XML (PNG، JPEG، GIF، BMP).
 
 **س: أين يمكنني العثور على وثائق أكثر تفصيلاً؟**  
-ج: راجع الروابط الرسمية للوثائق ومرجع API أدناه.
+ج: راجع الوثائق الرسمية وروابط مرجع API أدناه.
 
-## موارد
-
+## الموارد
 - **الوثائق:** [GroupDocs.Redaction Java Documentation](https://docs.groupdocs.com/redaction/java/)  
 - **مرجع API:** [GroupDocs Redaction API for Java](https://reference.groupdocs.com/redaction/java)  
 - **التنزيل:** [Latest Releases](https://releases.groupdocs.com/redaction/java/)  
 - **GitHub:** [GroupDocs GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
-- **الدعم المجاني:** [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33)  
+- **دعم مجاني:** [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33)  
 - **ترخيص مؤقت:** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
 ---
 
-**آخر تحديث:** 2026-03-04  
-**تم الاختبار مع:** GroupDocs.Redaction 24.9 للغة Java  
-**المؤلف:** GroupDocs  
+**آخر تحديث:** 2026-08-14  
+**تم الاختبار مع:** GroupDocs.Redaction 24.9 for Java  
+**المؤلف:** GroupDocs
 
----
+## دروس ذات صلة
+- [كيفية استخدام groupdocs redaction للـ Java: ما قبل الترصيص في مستندات Word](/redaction/java/rasterization-options/groupdocs-redaction-java-pre-rasterization-word-docs/)
+- [كيفية تحويل DOCX إلى صورة وتمويه مستندات Word باستخدام GroupDocs Redaction Java](/redaction/java/document-saving/groupdocs-redaction-java-rasterize-word-docs/)
+- [إخفاء البيانات الحساسة Java – تمويه المعلومات الشخصية باستخدام GroupDocs.Redaction](/redaction/java/advanced-redaction/master-document-redaction-java-groupdocs-redaction/)
