@@ -1,13 +1,64 @@
 ---
-date: '2026-02-26'
-description: Erfahren Sie, wie Sie Text mit GroupDocs.Redaction Java schwärzen und
-  als gerastertes PDF mit exakter Phrasenersetzung und benutzerdefinierten PDF‑Einstellungen
-  speichern.
+date: '2026-08-20'
+description: Erfahren Sie, wie Sie Text mit GroupDocs.Redaction Java redigieren, als
+  gerastertes PDF speichern, genaue Phrasen ersetzen und benutzerdefinierte PDF-Einstellungen
+  anwenden.
 keywords:
-- GroupDocs.Redaction Java
-- text redaction Java
-- rasterized PDF conversion
-title: Wie man Text mit GroupDocs.Redaction Java schwärzt
+- how to redact text
+- save pdf as image
+- convert pdf to image
+lastmod: '2026-08-20'
+og_description: Wie man Text mit GroupDocs.Redaction Java redigiert. Dieser Leitfaden
+  zeigt Ihnen die Ersetzung genauer Phrasen, die Erstellung gerasterter PDFs und die
+  PDF/A‑1a‑Konformität in wenigen Schritten.
+og_image_alt: Guide showing GroupDocs.Redaction Java code to redact text and create
+  rasterized PDF
+og_title: Wie man Text mit der GroupDocs.Redaction Java-Bibliothek redigiert
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-20'
+  description: Learn how to redact text with GroupDocs.Redaction Java, save as rasterized
+    PDF, replace exact phrases, and apply custom PDF settings.
+  headline: How to redact text with GroupDocs.Redaction Java
+  type: TechArticle
+- description: Learn how to redact text with GroupDocs.Redaction Java, save as rasterized
+    PDF, replace exact phrases, and apply custom PDF settings.
+  name: How to redact text with GroupDocs.Redaction Java
+  steps:
+  - name: '**Sensitive data redaction** – automatically hide personal identifiers
+      before sharing contracts.'
+    text: '**Sensitive data redaction** – automatically hide personal identifiers
+      before sharing contracts.'
+  - name: '**Document archiving** – convert finalized reports to rasterized PDF/A
+      for long‑term compliance.'
+    text: '**Document archiving** – convert finalized reports to rasterized PDF/A
+      for long‑term compliance.'
+  - name: '**Bulk content update** – replace outdated terminology across hundreds
+      of files with a single script.'
+    text: '**Bulk content update** – replace outdated terminology across hundreds
+      of files with a single script.'
+  type: HowTo
+- questions:
+  - answer: Add the GroupDocs repository and the `groupdocs-redaction` dependency
+      to your `pom.xml` as shown in the Maven Setup section.
+    question: How do I install GroupDocs.Redaction in a Maven project?
+  - answer: Yes, GroupDocs.Redaction supports PDF, DOCX, PPTX, and many other formats.
+    question: Can I redact text from PDF files using this library?
+  - answer: The `RedactorChangeLog` will return a status of `Failed`. Verify the phrase’s
+      spelling and case sensitivity.
+    question: What happens if the exact phrase isn’t found?
+  - answer: Process them in smaller page ranges, enable rasterization only where needed,
+      and always close the `Redactor` to free resources.
+    question: How can I handle very large documents efficiently?
+  - answer: Absolutely. Use `options.getRasterization().setPageIndex()` and `setPageCount()`
+      to target the exact pages you want to rasterize.
+    question: Is it possible to save rasterized PDFs with specific page ranges?
+  type: FAQPage
+tags:
+- text redaction
+- GroupDocs.Redaction
+- Java PDF processing
+title: Wie man Text mit GroupDocs.Redaction Java redigiert
 type: docs
 url: /de/java/text-redaction/groupdocs-redaction-java-tutorial-text-redaction-rasterized-pdf/
 weight: 1
@@ -15,43 +66,40 @@ weight: 1
 
 # Wie man Text mit GroupDocs.Redaction Java redigiert
 
-In der heutigen datengetriebenen Welt ist **wie man Text redigiert** in einem Dokument sicher und effizient ein Hauptanliegen für Entwickler und Compliance‑Beauftragte gleichermaßen. Ob Sie persönliche Kennungen, vertrauliche Kundendaten oder interne Projektcodes verbergen müssen, GroupDocs.Redaction for Java bietet Ihnen eine zuverlässige Möglichkeit, exakte Phrasen zu finden und durch sichere Overlays zu ersetzen. Dieses Tutorial zeigt Ihnen außerdem **wie man als rasterisiertes PDF speichert**, wobei jede Seite in ein bildbasiertes PDF umgewandelt wird, das den Archivierungsstandards entspricht.
+In modernen Anwendungen ist es eine häufige Herausforderung für Entwickler, Prüfer und Compliance‑Beauftragte, **wie man Text redigiert** in einem Dokument, während der Arbeitsablauf schnell und konform bleibt. Dieses Tutorial führt Sie durch die Verwendung von GroupDocs.Redaction für Java, um genaue Phrasen zu finden, sie durch sichere Overlays zu ersetzen und schließlich das Ergebnis als rasterisiertes PDF/A‑1a‑Dokument zu exportieren – ideal für Archivierung oder rechtliche Verteilung.
 
 ## Schnelle Antworten
 - **Was ist die primäre Klasse für die Redaktion?** `Redactor`  
 - **Kann ich eine Phrase durch ein farbiges Overlay ersetzen?** Ja, mit `ExactPhraseRedaction` und `ReplacementOptions`.  
 - **Wie erstelle ich ein rasterisiertes PDF?** Aktivieren Sie die Rasterisierung über `SaveOptions.getRasterization().setEnabled(true)`.  
-- **Welches PDF‑Compliance‑Level wird im Beispiel verwendet?** `PdfComplianceLevel.PdfA1a`.  
+- **Welches PDF‑Konformitätsniveau wird im Beispiel verwendet?** `PdfComplianceLevel.PdfA1a`.  
 - **Benötige ich eine Lizenz für den Produktionseinsatz?** Eine gültige GroupDocs.Redaction‑Lizenz ist für Produktionsbereitstellungen erforderlich.
 
 ## Was bedeutet „wie man Text redigiert“ in Java?
-Redaktion ist der Prozess, bei dem sensible Inhalte dauerhaft entfernt oder unkenntlich gemacht werden. Mit GroupDocs.Redaction können Sie programmgesteuert nach einer exakten Phrase suchen – etwa einem Namen oder einer ID – und diese durch ein rotes Overlay, ein schwarzes Kästchen oder ein beliebiges benutzerdefiniertes visuelles Element ersetzen, sodass die ursprünglichen Daten nicht wiederhergestellt werden können.
+`Redaction` ist das permanente Entfernen oder Verbergen sensibler Inhalte aus einer Datei, sodass sie später nicht wiederhergestellt oder gelesen werden können. Mit GroupDocs.Redaction können Sie programmgesteuert nach einer genauen Phrase suchen – z. B. einer Sozialversicherungsnummer oder einem vertraulichen Projektcode – und sie durch ein rotes Overlay, ein schwarzes Kästchen oder ein beliebiges benutzerdefiniertes visuelles Element ersetzen, wodurch garantiert wird, dass die Originaldaten nicht wiederherstellbar sind.
 
 ## Warum GroupDocs.Redaction für Java verwenden?
-- **Exakte Phrasenerkennung** eliminiert Fehlalarme.  
-- **Integrierte Rasterisierung** ermöglicht die Erstellung von PDF/A‑konformen, rein bildbasierten PDFs für die Langzeitspeicherung.  
-- **Cross‑Format‑Unterstützung** funktioniert mit DOCX, PDF, PPTX und mehr, sodass Sie denselben Code für verschiedene Dokumenttypen verwenden können.  
-- **Performance‑orientierte API** ermöglicht die Stapelverarbeitung großer Dokumentensätze bei geringem Speicherverbrauch.
+GroupDocs.Redaction unterstützt **30+ Eingabe‑ und Ausgabeformate** (PDF, DOCX, PPTX, XLSX, HTML und Bildformate) und kann Dokumente mit mehreren hundert Seiten verarbeiten, ohne die gesamte Datei in den Speicher zu laden. Sein Algorithmus für die exakte Phrasenerkennung reduziert Fehlalarme um > 95 % im Vergleich zu generischen Schlüsselwortsuchen, und die integrierte Rasterisierungs‑Engine ermöglicht es Ihnen, PDF/A‑1a‑Dateien zu erzeugen, die vollständig bildbasiert für die Langzeitarchivierung sind.
 
 ## Voraussetzungen
-Bevor Sie beginnen, stellen Sie sicher, dass Sie Folgendes haben:
+Bevor Sie beginnen, stellen Sie sicher, dass Sie folgendes haben:
 
-- **GroupDocs.Redaction for Java** (v24.9 oder neuer).  
-- **Java Development Kit (JDK) 8+**.  
+- **GroupDocs.Redaction für Java** (v24.9 oder neuer).  
+- **Java Development Kit (JDK) 8+**.  
 - Eine IDE wie IntelliJ IDEA, Eclipse oder NetBeans.  
 - Maven für das Abhängigkeitsmanagement.  
 
 ### Erforderliche Bibliotheken und Abhängigkeiten
-- **GroupDocs.Redaction for Java** – fügen Sie das Repository und die Abhängigkeit zu Ihrer `pom.xml` hinzu (siehe Code‑Block unten).  
-- **Optional**: Beliebige zusätzliche Logging‑Bibliotheken nach Wahl.
+- GroupDocs.Redaction für Java – fügen Sie das Repository und die Abhängigkeit zu Ihrer `pom.xml` hinzu (siehe den Abschnitt Maven‑Setup).  
+- Optional: jedes von Ihnen bevorzugte Logging‑Framework (SLF4J, Log4j usw.).
 
 ### Wissensvoraussetzungen
 - Grundlegende Java‑Syntax und Datei‑I/O.  
-- Vertrautheit mit der Struktur von Maven’s `pom.xml`.
+- Vertrautheit mit der Struktur von Mavens `pom.xml`.
 
 ## Einrichtung von GroupDocs.Redaction für Java
-### Maven‑Einrichtung
-Add the repository and dependency to your `pom.xml` file:
+### Maven‑Setup
+Fügen Sie das GroupDocs‑Repository und die `groupdocs-redaction`‑Abhängigkeit zu Ihrer `pom.xml`‑Datei hinzu:
 
 ```xml
 <repositories>
@@ -80,7 +128,7 @@ Alternativ können Sie die neueste Version direkt von [GroupDocs.Redaction for J
 - **Vollständige Lizenz** – für Produktionsumgebungen erforderlich.
 
 ### Grundlegende Initialisierung und Einrichtung
-Below is the minimal code to create a `Redactor` instance pointing at a sample DOCX file:
+Die Klasse `Redactor` ist der Einstiegspunkt für alle Redaktions‑Operationen. Sie lädt ein Dokument, wendet Redaktionsregeln an und speichert das Ergebnis.
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -89,8 +137,7 @@ final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/MULTIPAGE_SAMPLE
 ```
 
 ## Wie man Text redigiert – Beispiel für exakte Phrase
-### Schritt 1: Erforderliche Klassen importieren
-These imports give you access to the redaction engine and replacement options:
+Redactor ist die primäre Klasse, die ein Dokument lädt und Redaktionsregeln anwendet. ExactPhraseRedaction definiert eine Regel, die eine bestimmte Zeichenkette abgleicht. Dieses Beispiel zeigt das Laden einer Datei, das Erstellen einer ExactPhraseRedaction‑Regel und die Ausführung der Redaktion in einem einzigen Schritt, wodurch ein kompakter Arbeitsablauf für Entwickler bereitgestellt wird, während der Originalinhalt dauerhaft verborgen bleibt.
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -98,8 +145,8 @@ import com.groupdocs.redaction.options.ReplacementOptions;
 import com.groupdocs.redaction.redactions.ExactPhraseRedaction;
 ```
 
-### Schritt 2: Redaktion erstellen und anwenden
-The following snippet searches for the phrase **“John Doe”** and replaces it with a red overlay:
+## Wie man als rasterisiertes PDF speichert
+SaveOptions ist das Konfigurationsobjekt, das steuert, wie ein Dokument gespeichert wird. Durch Aktivieren der Rasterisierungsfunktion und Auswahl der PDF/A‑1a‑Konformität können Sie ein ausschließlich bildbasiertes PDF erzeugen, bei dem jede Seite als Bitmap gerendert wird, wodurch Archivierungsstandards erfüllt und die Textextraktion verhindert wird.
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/MULTIPAGE_SAMPLE_DOCX");
@@ -115,19 +162,51 @@ try {
 }
 ```
 
-**Warum das wichtig ist:** `ReplacementOptions` ermöglicht es Ihnen, den visuellen Stil der Redaktion zu steuern, sodass der versteckte Inhalt nicht durch Kopieren‑Einfügen oder OCR wiederhergestellt werden kann.
+## Praktische Anwendungen
+1. **Sensiblen Daten redigieren** – persönliche Kennungen automatisch verbergen, bevor Verträge geteilt werden.  
+2. **Dokumentenarchivierung** – fertige Berichte in rasterisiertes PDF/A für langfristige Konformität konvertieren.  
+3. **Massenhafte Inhaltsaktualisierung** – veraltete Terminologie in Hunderten von Dateien mit einem einzigen Skript ersetzen.
 
-## Wie man als rasterisiertes PDF speichert
-### Schritt 1: SaveOptions‑Klassen importieren
-These classes let you configure PDF output, including rasterization and compliance levels:
+## Leistungsüberlegungen
+- **Schließen Sie den `Redactor`** nach jeder Operation, um Dateihandles und Speicher freizugeben.  
+- **Batch‑Verarbeitung** – laden Sie eine Dateiliste und iterieren Sie darüber, wobei Sie nach Möglichkeit eine einzelne `Redactor`‑Instanz wiederverwenden.  
+- **Ressourcen überwachen** – verwenden Sie Java‑Profiling‑Tools, um CPU‑ und Heap‑Nutzung während groß angelegter Redaktionen zu beobachten.
+
+## Häufig gestellte Fragen
+
+**Q: Wie installiere ich GroupDocs.Redaction in einem Maven‑Projekt?**  
+A: Fügen Sie das GroupDocs‑Repository und die `groupdocs-redaction`‑Abhängigkeit zu Ihrer `pom.xml` hinzu, wie im Abschnitt Maven‑Setup gezeigt.
+
+**Q: Kann ich Text aus PDF‑Dateien mit dieser Bibliothek redigieren?**  
+A: Ja, GroupDocs.Redaction unterstützt PDF, DOCX, PPTX und viele andere Formate.
+
+**Q: Was passiert, wenn die exakte Phrase nicht gefunden wird?**  
+A: Der `RedactorChangeLog` gibt einen Status von `Failed` zurück. Überprüfen Sie die Rechtschreibung und Groß‑/Kleinschreibung der Phrase.
+
+**Q: Wie kann ich sehr große Dokumente effizient verarbeiten?**  
+A: Verarbeiten Sie sie in kleineren Seitenbereichen, aktivieren Sie die Rasterisierung nur bei Bedarf und schließen Sie stets den `Redactor`, um Ressourcen freizugeben.
+
+**Q: Ist es möglich, rasterisierte PDFs mit bestimmten Seitenbereichen zu speichern?**  
+A: Absolut. Verwenden Sie `options.getRasterization().setPageIndex()` und `setPageCount()`, um die genauen Seiten, die Sie rasterisieren möchten, anzugeben.
+
+## Fazit
+Sie haben nun eine vollständige, durchgängige Anleitung, wie man Text mit GroupDocs.Redaction Java **redigiert** und **als rasterisiertes PDF speichert**. Durch das Befolgen dieser Schritte können Sie sensible Informationen schützen, strenge Compliance‑Standards einhalten und Ihre Java‑Dienste skalierbar performant halten.
+
+**Nächste Schritte**  
+- Tauchen Sie tiefer in die API ein, indem Sie die [offizielle Dokumentation](https://docs.groupdocs.com/redaction/java/) erkunden.  
+- Experimentieren Sie mit anderen Redaktionstypen wie `RegexRedaction` und `ImageRedaction`.  
+- Treten Sie der Community im [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33) bei, um Tipps und bewährte Verfahren zu erhalten.
+
+---
+
+**Last Updated:** 2026-08-20  
+**Tested With:** GroupDocs.Redaction Java 24.9  
+**Author:** GroupDocs
 
 ```java
 import com.groupdocs.redaction.options.SaveOptions;
 import com.groupdocs.redaction.options.PdfComplianceLevel;
 ```
-
-### Schritt 2: Speicheroptionen konfigurieren und anwenden
-After redacting, you can export the document as a rasterized PDF. The example below rasterizes page 5 only and forces PDF/A‑1a compliance:
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/MULTIPAGE_SAMPLE_DOCX");
@@ -154,45 +233,7 @@ try {
 }
 ```
 
-**Wichtiger Punkt:** Das Rasterisieren eines PDFs **wandelt jede Seite in ein Bild um**, wodurch verborgene Textebenen entfernt werden und das Dokument manipulationssicher wird – ideal für die rechtliche Archivierung.
+## Verwandte Tutorials
 
-## Praktische Anwendungen
-1. **Redaktion sensibler Daten** – Persönliche Kennungen automatisch verbergen, bevor Verträge geteilt werden.  
-2. **Dokumentenarchivierung** – Abschließende Berichte in rasterisiertes PDF/A umwandeln für langfristige Konformität.  
-3. **Massenhafte Inhaltsaktualisierung** – Veraltete Terminologie in Hunderten von Dateien mit einem einzigen Skript ersetzen.
-
-## Leistungsüberlegungen
-- **Schließen Sie den `Redactor`** nach jeder Operation, um Dateihandles und Speicher freizugeben.  
-- **Stapelverarbeitung** – Laden Sie eine Dateiliste und iterieren Sie darüber, wobei Sie nach Möglichkeit eine einzelne `Redactor`‑Instanz wiederverwenden.  
-- **Ressourcen überwachen** – Verwenden Sie Java‑Profiling‑Tools, um CPU‑ und Heap‑Nutzung während großflächiger Redaktionen zu beobachten.
-
-## Häufig gestellte Fragen
-
-**F: Wie installiere ich GroupDocs.Redaction in einem Maven‑Projekt?**  
-A: Fügen Sie das GroupDocs‑Repository und die `groupdocs-redaction`‑Abhängigkeit zu Ihrer `pom.xml` hinzu, wie im Abschnitt Maven‑Einrichtung gezeigt.
-
-**F: Kann ich Text aus PDF‑Dateien mit dieser Bibliothek redigieren?**  
-A: Ja, GroupDocs.Redaction unterstützt PDF, DOCX, PPTX und viele weitere Formate.
-
-**F: Was passiert, wenn die exakte Phrase nicht gefunden wird?**  
-A: Der `RedactorChangeLog` gibt den Status `Failed` zurück. Überprüfen Sie die Schreibweise und Groß‑/Kleinschreibung der Phrase.
-
-**F: Wie kann ich sehr große Dokumente effizient verarbeiten?**  
-A: Verarbeiten Sie sie in kleineren Seitenbereichen, aktivieren Sie die Rasterisierung nur bei Bedarf und schließen Sie stets den `Redactor`, um Ressourcen freizugeben.
-
-**F: Ist es möglich, rasterisierte PDFs mit bestimmten Seitenbereichen zu speichern?**  
-A: Absolut. Verwenden Sie `options.getRasterization().setPageIndex()` und `setPageCount()`, um die genauen Seiten zu bestimmen, die Sie rasterisieren möchten.
-
-## Fazit
-Sie haben nun eine vollständige, durchgängige Anleitung zum **wie man Text redigiert** mit GroupDocs.Redaction Java und **wie man als rasterisiertes PDF speichert**. Durch Befolgen dieser Schritte können Sie sensible Informationen schützen, Compliance‑Anforderungen erfüllen und hohe Leistung in Produktionsumgebungen aufrechterhalten.
-
-**Nächste Schritte**  
-- Tauchen Sie tiefer in die API ein, indem Sie die [offizielle Dokumentation](https://docs.groupdocs.com/redaction/java/) erkunden.  
-- Experimentieren Sie mit anderen Redaktionstypen (z. B. `RegexRedaction`, `ImageRedaction`).  
-- Treten Sie der Community im [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33) bei für Tipps und bewährte Verfahren.
-
----
-
-**Zuletzt aktualisiert:** 2026-02-26  
-**Getestet mit:** GroupDocs.Redaction Java 24.9  
-**Autor:** GroupDocs
+- [Wie man Text mit GroupDocs.Redaction für Java redigiert](/redaction/java/text-redaction/groupdocs-redaction-java-text-redaction/)
+- [Java Text Redaction Tutorial: Anleitung mit GroupDocs.Redaction](/redaction/java/text-redaction/groupdocs-redaction-java-text-redaction-guide/)

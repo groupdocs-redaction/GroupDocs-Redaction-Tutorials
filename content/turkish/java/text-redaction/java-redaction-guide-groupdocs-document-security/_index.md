@@ -1,44 +1,108 @@
 ---
-date: '2026-03-04'
-description: GroupDocs.Redaction for Java kullanarak metni nasıl karartacağınızı,
-  metni renk ile nasıl değiştireceğinizi ve Java belge güvenliğini nasıl sağlayacağınızı
-  öğrenin. Kod örnekleriyle adım adım kılavuz.
+date: '2026-08-20'
+description: Java belgelerinde metni GroupDocs.Redaction kullanarak nasıl redact edeceğinizi
+  öğrenin; exact‑phrase, regex, color replacement, annotation ve metadata redaction'ı
+  kapsayan güvenli uyumluluk için.
 keywords:
-- Java Document Redaction
-- GroupDocs.Redaction for Java
-- text redaction in Java
-title: GroupDocs.Redaction ile Java Belgelerinde Metni Nasıl Kırpılır?
+- how to redact text
+- replace text with color
+- GroupDocs.Redaction Java
+- Java document security
+- document redaction library
+lastmod: '2026-08-20'
+og_description: Java belgelerinde metni GroupDocs.Redaction kullanarak nasıl redact
+  edeceğinizi öğrenin; exact‑phrase, regex, color replacement, annotation ve metadata
+  redaction.
+og_image_alt: Guide showing Java code redacting text with GroupDocs.Redaction
+og_title: Java belgelerinde metni GroupDocs.Redaction ile nasıl redact ederiz
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-20'
+  description: Learn how to redact text in Java documents using GroupDocs.Redaction,
+    covering exact‑phrase, regex, color replacement, annotation and metadata redaction
+    for secure compliance.
+  headline: How to redact text in Java documents with GroupDocs.Redaction
+  type: TechArticle
+- description: Learn how to redact text in Java documents using GroupDocs.Redaction,
+    covering exact‑phrase, regex, color replacement, annotation and metadata redaction
+    for secure compliance.
+  name: How to redact text in Java documents with GroupDocs.Redaction
+  steps:
+  - name: '**Add the Maven dependency** (or include the JAR).'
+    text: '**Add the Maven dependency** (or include the JAR).'
+  - name: '**Configure your license** by calling `License.setLicense("path/to/license.lic")`
+      early in your application.'
+    text: '**Configure your license** by calling `License.setLicense("path/to/license.lic")`
+      early in your application.'
+  - name: '**Create a `Redactor` instance** pointing at the source document.'
+    text: '**Create a `Redactor` instance** pointing at the source document.'
+  - name: '**Initialize the Redactor** with the document you want to process:'
+    text: '**Initialize the Redactor** with the document you want to process:'
+  - name: '**Define the exact‑phrase rule** and apply it:'
+    text: '**Define the exact‑phrase rule** and apply it:'
+  - name: '**Save the redacted file** to your output folder:'
+    text: '**Save the redacted file** to your output folder:'
+  - name: 'Load the document:'
+    text: 'Load the document:'
+  - name: 'Create a regex rule and apply it:'
+    text: 'Create a regex rule and apply it:'
+  - name: 'Save the result:'
+    text: 'Save the result:'
+  - name: 'Load the document:'
+    text: 'Load the document:'
+  type: HowTo
+- questions:
+  - answer: Yes. Create each redaction object, call `redactor.apply()` for each, then
+      save once.
+    question: Can I combine multiple redaction rules in a single pass?
+  - answer: Absolutely. Pass the password to the `Redactor` constructor that accepts
+      a `LoadOptions` object.
+    question: Does GroupDocs.Redaction support password‑protected files?
+  - answer: You can call `redactor.preview()` to generate a temporary view that highlights
+      the areas to be redacted.
+    question: Is it possible to preview redactions before saving?
+  - answer: DOCX, PDF, PPTX, XLSX, PNG, JPEG, BMP, and many more—over 30 formats in
+      total.
+    question: What file formats are supported?
+  - answer: Use the metadata erasure feature, remove annotations, and apply exact‑phrase
+      or regex redactions to all personal data fields.
+    question: How do I ensure the redacted document complies with GDPR?
+  type: FAQPage
+tags:
+- text redaction
+- GroupDocs.Redaction
+- Java document security
+- regex redaction
+- metadata removal
+title: Java belgelerinde metni GroupDocs.Redaction ile nasıl redact ederiz
 type: docs
 url: /tr/java/text-redaction/java-redaction-guide-groupdocs-document-security/
 weight: 1
 ---
 
-# GroupDocs.Redaction ile Java Belgelerinde Metin Kırpma (Redact) Nasıl Yapılır
+# GroupDocs.Redaction ile Java belgelerinde metni karalamak
 
-Modern uygulamalarda, PDF, Word dosyaları veya görüntüler içinde **metin kırpma (redact) nasıl yapılır** sıkça karşılaşılan bir gereksinimdir; uyumluluk ve gizlilik için. Kişisel tanımlayıcıları gizlemeniz, gizli açıklamaları kaldırmanız veya meta verileri temizlemeniz gerekse, GroupDocs.Redaction for Java, **java document security** elde etmeniz için temiz, programatik bir yol sunar. Bu öğretici, kütüphaneyi kurmaktan exact‑phrase, regex, renk‑tabanlı, açıklama ve meta veri kırpmalarına kadar her temel adımı size gösterir.
+Modern uygulamalarda, PDF, Word dosyaları veya görüntüler içinde **metni nasıl karalanır** gereksinimi uyumluluk ve gizlilik için sıkça ortaya çıkar. Kişisel tanımlayıcıları gizlemeniz, gizli notları kaldırmanız veya meta verileri temizlemeniz gerekse, GroupDocs.Redaction for Java, **java document security** elde etmeniz için temiz, programatik bir yol sunar. Bu öğretici, kütüphaneyi kurmaktan exact‑phrase, regex, renk‑bazlı, açıklama ve meta veri karalamalarına kadar her temel adımı size gösterir—böylece karalamayı doğrudan arka uç hizmetlerinize entegre edebilirsiniz.
 
-## Hızlı Yanıtlar
-- **Java belge kırpma (redaction) işlemini hangi kütüphane yönetir?** GroupDocs.Redaction for Java.  
-- **Metni kaldırmak yerine renk ile değiştirebilir miyim?** Evet, “replace text with color” özelliğini kullanarak.  
+## Hızlı yanıtlar
+- **Java belge karalama işlemini hangi kütüphane yönetir?** GroupDocs.Redaction for Java.  
+- **Metni kaldırmak yerine renk ile değiştirebilir miyim?** Evet, “metni renk ile değiştir” özelliğini kullanın.  
 - **Üretim kullanımında lisansa ihtiyacım var mı?** Tam işlevsellik için geçici veya ücretli bir lisans gereklidir.  
-- **Hangi Java sürümleri desteklenir?** JDK 8 ve üzeri.  
+- **Hangi Java sürümleri destekleniyor?** JDK 8 ve üzeri.  
 - **Kütüphaneyi eklemenin tek yolu Maven mi?** Maven önerilir, ancak JAR dosyasını manuel olarak da indirebilirsiniz.
 
-## Java’da “metin kırpma (redact) nasıl yapılır” nedir?
-Kırpma (redaction), bir belgedeki hassas içeriği kalıcı olarak kaldırma veya gizleme sürecidir; böylece içerik geri getirilemez. Java’da bu genellikle bir dosyayı yüklemeyi, gizlenecek öğeleri tanımlamayı, kırpmayı uygulamayı ve temizlenmiş sürümü kaydetmeyi içerir.
+## Java’da “metni nasıl karalanır” nedir?
+**Karalama, hassas içeriği kalıcı olarak kaldırır veya gizler, böylece geri getirilemez.** Java’da bir dosya yüklersiniz, gizlenecek şeyi tanımlarsınız, karalamayı uygularsınız ve temizlenmiş sürümü kaydedersiniz. Bu, sonraki tüketicilerin yalnızca temizlenmiş belgeyi görmesini sağlar.
 
-## Neden GroupDocs.Redaction for Java Kullanılmalı?
-- **Kapsamlı format desteği** – DOCX, PDF, PPTX, görüntüler ve daha fazlası ile çalışır.  
-- **İnce ayarlı kontrol** – exact phrase, regular expression, color, annotation veya metadata ile kırpma yapar.  
-- **Performans‑optimize** – akış‑tabanlı işleme, büyük dosyalar için bellek kullanımını azaltır.  
-- **Yerleşik uyumluluk** – GDPR, HIPAA ve diğer gizlilik düzenlemelerine uymayı kolaylaştırır.
+## Neden GroupDocs.Redaction for Java kullanmalısınız?
+Dosyanızı yükleyin, bir kural tanımlayın ve SDK ağır işi halleder. GroupDocs.Redaction **30+ format**ı destekler—DOCX, PDF, PPTX, XLSX, PNG, JPEG, BMP dahil—ve büyük belgeleri akış‑tabanlı mimariyle işler. Exact‑phrase, regex, renk‑bazlı, açıklama ve meta veri karalamalarını sunar, GDPR, HIPAA ve diğer düzenlemelere uyum sağlamak için ayrıntılı kontrol sağlar.
 
 ## Önkoşullar
-- **Java Development Kit (JDK) 8+** makinenizde kurulu olmalıdır.  
+- **Java Development Kit (JDK) 8+** makinenizde kurulu olmalı.  
 - **Maven** bağımlılık yönetimi için (veya JAR dosyasını manuel olarak indirebilirsiniz).  
 
-### Gerekli Kütüphaneler ve Bağımlılıklar
-Add the GroupDocs repository and the Redaction dependency to your `pom.xml`:
+### Gerekli kütüphaneler ve bağımlılıklar
+`pom.xml` dosyanıza GroupDocs deposunu ve Redaction bağımlılığını ekleyin:
 
 ```xml
 <repositories>
@@ -58,31 +122,36 @@ Add the GroupDocs repository and the Redaction dependency to your `pom.xml`:
 </dependencies>
 ```
 
-Ayrıca en son JAR dosyasını resmi sürüm sayfasından indirebilirsiniz: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+Ayrıca resmi sürüm sayfasından en son JAR dosyasını indirebilirsiniz: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
-### Lisans Edinimi
-Üretim kullanımı için geçici veya tam lisans edinin. Değerlendirme amaçlı ücretsiz bir deneme sürümü mevcuttur.
+### Lisans edinme
+Üretim kullanımı için geçici veya tam lisans edinin. Değerlendirme amaçlı ücretsiz deneme mevcuttur.
 
 ## GroupDocs.Redaction for Java Kurulumu
 1. **Maven bağımlılığını ekleyin** (veya JAR dosyasını dahil edin).  
-2. **Lisansınızı yapılandırın**; uygulamanızın başında `License.setLicense("path/to/license.lic")` metodunu çağırın.  
+2. **Lisansınızı yapılandırın** uygulamanızın başında `License.setLicense("path/to/license.lic")` çağrısı yaparak.  
+   `License`, bir GroupDocs Redaction lisans dosyasını yüklemek ve uygulamak için kullanılan sınıftır.  
 3. **Kaynak belgeye işaret eden bir `Redactor` örneği oluşturun**.
 
-Artık kırpmaya başlayabilirsiniz.
+**`Redactor` sınıfı, belgeleri bellek‑verimli bir şekilde yükleyen, değiştiren ve kaydeden çekirdek motorudur.** Bir `Redactor` nesnesine sahip olduğunuzda, sonucu kalıcı hale getirmeden önce birden fazla karalama kuralını zincirleyebilirsiniz.
 
-## Uygulama Kılavuzu
+Artık karalamaya başlamaya hazırsınız.
 
-### Exact Phrase Kırpma
+## Uygulama rehberi
+
+### Tam ifade karalama
 Belirli bir ifadeyi (ör. bir kişinin adı) yer tutucu metinle değiştirin.
 
-#### Adım‑Adım
-1. **Initialize the Redactor** with the document you want to process:
+#### Tam ifade karalama nasıl çalışır?
+`ExactPhraseRedaction`, belirli bir metin dizesini kaldıran veya değiştiren bir kuralı temsil eder. Belgeyi yükleyin, tam dizeyi hedefleyen bir `ExactPhraseRedaction` kuralı oluşturun, kuralı uygulayın ve çıktıyı kaydedin. SDK, eşleşen metni otomatik olarak boş bırakır ve düzeni korur.
+
+1. **Redactor'ı** işlemek istediğiniz belgeyle başlatın:
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/sample.docx");
 ```
 
-2. **Define the exact‑phrase rule** and apply it:
+2. **Tam ifade kuralını** tanımlayın ve uygulayın:
 
 ```java
 ExactPhraseRedaction redaction = new ExactPhraseRedaction(
@@ -92,7 +161,7 @@ ExactPhraseRedaction redaction = new ExactPhraseRedaction(
 redactor.apply(redaction);
 ```
 
-3. **Save the redacted file** to your output folder:
+3. **Karalanmış dosyayı** çıktı klasörünüze kaydedin:
 
 ```java
 if (redactor.save("YOUR_OUTPUT_DIRECTORY/redacted.docx")) {
@@ -100,17 +169,19 @@ if (redactor.save("YOUR_OUTPUT_DIRECTORY/redacted.docx")) {
 }
 ```
 
-### Regex Kırpma ve Metin Değiştirme
-Seri numaraları gibi desenleri bulmak için regular expression kullanın ve bunları genel bir token ile değiştirin.
+### Metin değiştirme ile Regex karalama
+Seri numaraları gibi desenleri bulmak için düzenli ifadeler kullanın ve bunları genel bir token ile değiştirin.
 
-#### Adım‑Adım
-1. Load the document:
+#### Değiştirme ile regex karalama nasıl çalışır?
+`RegexRedaction`, eşleşen metni bulmak ve değiştirmek için bir düzenli ifadeye dayalı bir kural tanımlar. Deseni ve değiştirme dizesini içeren bir `RegexRedaction` nesnesi sağlarsınız. Motor belgeyi tarar, her eşleşmeyi değiştirir ve çevresindeki biçimlendirmeyi korur.
+
+1. Belgeyi yükleyin:
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/sample.docx");
 ```
 
-2. Create a regex rule and apply it:
+2. Bir regex kuralı oluşturun ve uygulayın:
 
 ```java
 RegexRedaction redaction = new RegexRedaction(
@@ -120,7 +191,7 @@ RegexRedaction redaction = new RegexRedaction(
 redactor.apply(redaction);
 ```
 
-3. Save the result:
+3. Sonucu kaydedin:
 
 ```java
 if (redactor.save("YOUR_OUTPUT_DIRECTORY/redacted.docx")) {
@@ -128,17 +199,19 @@ if (redactor.save("YOUR_OUTPUT_DIRECTORY/redacted.docx")) {
 }
 ```
 
-### Regex Kırpma ve Renk Değiştirme
-Metni silmek yerine, **replace text with color** özelliğiyle metni renk ile değiştirerek karakterleri korurken görsel olarak gizleyebilirsiniz.
+### Renk değiştirme ile Regex karalama
+Metni silmek yerine, **metni renk ile değiştirebilir** ve alttaki karakterleri koruyarak görsel olarak gizleyebilirsiniz.
 
-#### Adım‑Adım
-1. Load the document:
+#### Renk‑bazlı karalama silmeden nasıl farklıdır?
+SDK, eşleşen metni seçilen renkle boyar, insan gözüyle okunamaz hale getirir ancak dosya akışında hâlâ bulunur. Bu, sonraki işleme için belge yapısını korumanız gerektiğinde faydalıdır.
+
+1. Belgeyi yükleyin:
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/sample.docx");
 ```
 
-2. Define a regex pattern and set the replacement color (e.g., blue):
+2. Bir regex deseni tanımlayın ve değiştirme rengini ayarlayın (ör. mavi):
 
 ```java
 RegexRedaction redaction = new RegexRedaction(
@@ -148,7 +221,7 @@ RegexRedaction redaction = new RegexRedaction(
 redactor.apply(redaction);
 ```
 
-3. Save the updated file:
+3. Güncellenmiş dosyayı kaydedin:
 
 ```java
 if (redactor.save("YOUR_OUTPUT_DIRECTORY/redacted.docx")) {
@@ -156,17 +229,19 @@ if (redactor.save("YOUR_OUTPUT_DIRECTORY/redacted.docx")) {
 }
 ```
 
-### Açıklama Silme Kırpması
-Bir belgedeki tüm açıklamaları (yorumlar, vurgulamalar vb.) temizleyerek daha düzenli bir son sürüm elde edin.
+### Açıklama silme karalaması
+Daha temiz bir son sürüm için bir belgedeki tüm açıklamaları (yorumlar, vurgulamalar vb.) kaldırın.
 
-#### Adım‑Adım
-1. Load your file:
+#### Açıklamaları tek adımda nasıl kaldırabilirsiniz?
+`AnnotationRedaction`, yorumlar, vurgulamalar ve damgalar gibi açıklamaları kaldıran bir kuraldır. Her açıklama türünü hedefleyen bir `AnnotationRedaction` kuralı oluşturun, uygulayın ve değişiklikleri kalıcı hale getirin.
+
+1. Dosyanızı yükleyin:
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/sample.docx");
 ```
 
-2. Apply the annotation‑deletion rule:
+2. Açıklama‑silme kuralını uygulayın:
 
 ```java
 DeleteAnnotationRedaction redaction = new DeleteAnnotationRedaction();
@@ -174,7 +249,7 @@ DeleteAnnotationRedaction redaction = new DeleteAnnotationRedaction();
 redactor.apply(redaction);
 ```
 
-3. Persist the changes:
+3. Değişiklikleri kalıcı hale getirin:
 
 ```java
 if (redactor.save("YOUR_OUTPUT_DIRECTORY/redacted.docx")) {
@@ -182,17 +257,19 @@ if (redactor.save("YOUR_OUTPUT_DIRECTORY/redacted.docx")) {
 }
 ```
 
-### Metadata Silme Kırpması
-Gizliliği korumak ve uyumluluk standartlarını karşılamak için tüm metadata (yazar, oluşturma tarihi, özel özellikler) öğelerini kaldırın.
+### Meta veri silme karalaması
+Gizliliği korumak ve uyum standartlarını karşılamak için her türlü meta veriyi (yazar, oluşturma tarihi, özel özellikler) kaldırın.
 
-#### Adım‑Adım
-1. Open the document:
+#### Meta veri silme gizliliği nasıl garanti eder?
+`MetadataRedaction`, belgedeki yerleşik ve özel meta veri alanlarını temizler. `MetadataRedaction` kuralı, yerleşik ve özel meta veri alanlarını siler, dosyanın özellik çantasında gizli kimlik belirteci kalmadığından emin olur.
+
+1. Belgeyi açın:
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/sample.docx");
 ```
 
-2. Apply the metadata‑erasure rule:
+2. Meta veri‑silme kuralını uygulayın:
 
 ```java
 EraseMetadataRedaction redaction = new EraseMetadataRedaction(MetadataFilters.All);
@@ -200,7 +277,7 @@ EraseMetadataRedaction redaction = new EraseMetadataRedaction(MetadataFilters.Al
 redactor.apply(redaction);
 ```
 
-3. Save the sanitized document:
+3. Temizlenmiş belgeyi kaydedin:
 
 ```java
 if (redactor.save("YOUR_OUTPUT_DIRECTORY/redacted.docx")) {
@@ -208,48 +285,54 @@ if (redactor.save("YOUR_OUTPUT_DIRECTORY/redacted.docx")) {
 }
 ```
 
-## Pratik Uygulamalar (Neden Önemli?)
-- **Hukuki Belge Hazırlığı** – Taslakları paylaşmadan önce müşteri isimlerini kırpın.  
-- **Sağlık Sektörü Uyumluluğu** – HIPAA uyumlu kalmak için hasta tanımlayıcılarını kaldırın.  
-- **Kurumsal Veri Koruması** – İç raporlarda finansal rakamları veya ticari sırları gizleyin.
+## Pratik uygulamalar (neden önemlidir)
+- **Hukuki belge hazırlığı** – Taslakları karşı taraf avukatıyla paylaşmadan önce müşteri adlarını karalayın.  
+- **Sağlık hizmeti uyumu** – Hasta kimlik bilgilerini kaldırarak HIPAA uyumlu kalın, manuel düzenleme yapmadan.  
+- **Kurumsal veri koruması** – Dağıtımdan önce iç raporlarda finansal rakamları veya ticari sırları gizleyin.  
 
-Bu kırpma adımlarını mevcut iş akışınıza entegre etmek, gizlilik korumasını otomatikleştirir ve kazara veri sızıntısı riskini azaltır.
+Bu adımları otomatikleştirmek manuel çabayı azaltır, insan hatasını ortadan kaldırır ve binlerce dosya boyunca tutarlı uyumu sağlar.
 
-## Performans Düşünceleri
-- **Yüklemek yerine akış kullanın** – Büyük dosyalar için, tüm belgeyi belleğe yüklemek yerine `InputStream` kabul eden `Redactor` yapıcılarını kullanın.  
-- **Regex desenlerini ön‑derleyin**; aynı kırpmayı tekrar tekrar çalıştırdığınızda CPU yükünü azaltır.  
-- **JVM yığınını izleyin** – Kırpma bellek yoğun olabilir; toplu işleme için yığın boyutunu artırmayı düşünün.
+## Performans değerlendirmeleri
+- **Yüklemek yerine akış kullanın** – Büyük dosyalar için, tüm belgeyi belleğe yüklemekten kaçınmak amacıyla `InputStream` kabul eden `Redactor` yapıcılarını kullanın.  
+- **Regex desenlerini ön‑derleyin** aynı karalamayı tekrar tekrar çalıştırdığınızda; bu CPU yükünü %30’a kadar azaltır.  
+- **JVM yığınını izleyin** – Karalama bellek yoğun olabilir; çok‑gigabayt arşivlerin toplu işlenmesi için yığın boyutunu (`-Xmx2g`) artırmayı düşünün.  
 
-## Yaygın Sorunlar ve Sorun Giderme
-| Belirti | Muhtemel Neden | Çözüm |
+## Yaygın sorunlar ve çözüm yolları
+| Semptom | Muhtemel neden | Çözüm |
 |---------|----------------|-------|
 | `apply` sonrası değişiklik yok | Yanlış belge yolu veya dosya kilitli | Dosya yolunu doğrulayın ve belgenin başka bir yerde açık olmadığından emin olun |
-| Regex eşleşmiyor | Desen sözdizimi hatası | Regex'i çevrimiçi bir test aracıyla deneyin; ters bölümleri (backslashes) doğru kaçırın |
+| Regex eşleşmiyor | Desen sözdizimi hatası | Regex'i çevrimiçi bir test aracıyla deneyin; ters eğik çizgileri doğru kaçırın |
 | Renk değiştirme görünmüyor | Çıktı formatı metin rengini desteklemiyor (ör. düz metin) | Stil koruyan DOCX veya PDF gibi bir format kullanın |
-| Çalışma zamanında lisans hatası | Lisans dosyası eksik veya geçersiz | `.lic` dosyasını erişilebilir bir dizine koyun ve herhangi bir Redactor kullanmadan önce `License.setLicense` metodunu çağırın |
+| Çalışma zamanında lisans hatası | Lisans dosyası eksik veya geçersiz | `.lic` dosyasını erişilebilir bir dizine koyun ve herhangi bir Redactor kullanımdan önce `License.setLicense` çağırın |
 
-## Sıkça Sorulan Sorular
+## Sıkça sorulan sorular
 
-**S: Birden fazla kırpma kuralını tek bir geçişte birleştirebilir miyim?**  
-C: Evet. Her kırpma nesnesini oluşturun, her biri için `redactor.apply()` çağırın, ardından bir kez kaydedin.
+**S: Birden fazla karalama kuralını tek bir geçişte birleştirebilir miyim?**  
+C: Evet. Her karalama nesnesini oluşturun, her biri için `redactor.apply()` çağırın, ardından bir kez kaydedin.
 
 **S: GroupDocs.Redaction şifre‑korumalı dosyaları destekliyor mu?**  
-C: Kesinlikle. Şifreyi, `LoadOptions` nesnesini kabul eden `Redactor` yapıcısına geçirin.
+C: Kesinlikle. Şifreyi `LoadOptions` nesnesi kabul eden `Redactor` yapıcısına iletin.
 
-**S: Kaydetmeden önce kırpmaları önizlemek mümkün mü?**  
-C: `redactor.preview()` metodunu çağırarak kırpılacak alanları vurgulayan geçici bir görünüm oluşturabilirsiniz.
+**S: Kaydetmeden önce karalamaları önizlemek mümkün mü?**  
+C: `redactor.preview()` çağırarak karalanacak alanları vurgulayan geçici bir görünüm oluşturabilirsiniz.
 
 **S: Hangi dosya formatları destekleniyor?**  
-C: DOCX, PDF, PPTX, XLSX, görüntüler (PNG, JPEG, BMP) ve daha fazlası.
+C: DOCX, PDF, PPTX, XLSX, PNG, JPEG, BMP ve daha birçok—toplamda 30’dan fazla format.
 
-**S: Kırpılmış belgenin GDPR'ye uygun olmasını nasıl sağlarım?**  
-C: Metadata silme özelliğini kullanın, açıklamaları kaldırın ve tüm kişisel veri alanlarına exact‑phrase veya regex kırpmaları uygulayın.
+**S: Karalanmış belgenin GDPR’ye uygunluğunu nasıl sağlarsınız?**  
+C: Meta veri silme özelliğini kullanın, açıklamaları kaldırın ve tüm kişisel veri alanlarına exact‑phrase veya regex karalamaları uygulayın.
 
 ## Sonuç
-Artık GroupDocs.Redaction kullanarak Java belgelerinde **metin kırpma (redact) nasıl yapılır** konusunda eksiksiz, uçtan uca bir rehbere sahipsiniz. Exact‑phrase, regex, renk‑tabanlı, açıklama ve metadata kırpmaları adımlarını izleyerek güçlü **java document security** elde eder, kodunuzu temiz ve sürdürülebilir tutarsınız. Bu kod parçacıklarını mevcut hizmetlerinize entegre edin, toplu işleme otomatikleştirin ve gizlilik düzenlemelerine uyumlu kalın.
+Artık GroupDocs.Redaction kullanarak Java belgelerinde **metni nasıl karalanır** konusunda eksiksiz, uçtan uca bir rehbere sahipsiniz. Exact‑phrase, regex, renk‑bazlı, açıklama ve meta veri karalamaları için adımları izleyerek güçlü **java document security** elde edebilir, kodunuzu temiz ve sürdürülebilir tutabilirsiniz. Bu kod parçacıklarını mevcut hizmetlerinize entegre edin, toplu işleme otomasyonunu sağlayın ve gizlilik düzenlemelerine uyumlu kalın.
 
 ---
 
-**Son Güncelleme:** 2026-03-04  
-**Test Edilen Sürüm:** GroupDocs.Redaction 24.9 for Java  
+**Son Güncelleme:** 2026-08-20  
+**Test Edilen:** GroupDocs.Redaction 24.9 for Java  
 **Yazar:** GroupDocs
+
+## İlgili Eğitimler
+
+- [metadata metnini java ile değiştir – GroupDocs ile Güvenli Karalama](/redaction/java/metadata-redaction/java-redaction-metadata-text-replacement-guide/)
+- [GroupDocs.Redaction for Java kullanarak Word belgelerindeki görüntüleri nasıl karalarsınız – Kapsamlı Rehber](/redaction/java/image-redaction/redact-images-word-docs-groupdocs-redaction-java/)
+- [GroupDocs Redaction Java Lisansı dosya yolundan belge karalama – Adım Adım Rehber](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)

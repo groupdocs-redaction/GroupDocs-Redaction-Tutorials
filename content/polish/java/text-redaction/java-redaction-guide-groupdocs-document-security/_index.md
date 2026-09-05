@@ -1,44 +1,107 @@
 ---
-date: '2026-03-04'
-description: Dowiedz się, jak redagować tekst, zamieniać tekst na kolor i zapewnić
-  bezpieczeństwo dokumentów Java przy użyciu GroupDocs.Redaction for Java. Przewodnik
-  krok po kroku z przykładami kodu.
+date: '2026-08-20'
+description: Dowiedz się, jak redagować tekst w dokumentach Java przy użyciu GroupDocs.Redaction,
+  obejmując exact‑phrase, regex, color replacement, annotation oraz metadata redaction
+  w celu zapewnienia bezpiecznej zgodności.
 keywords:
-- Java Document Redaction
-- GroupDocs.Redaction for Java
-- text redaction in Java
-title: Jak cenzurować tekst w dokumentach Java przy użyciu GroupDocs.Redaction
+- how to redact text
+- replace text with color
+- GroupDocs.Redaction Java
+- Java document security
+- document redaction library
+lastmod: '2026-08-20'
+og_description: Dowiedz się, jak redagować tekst w dokumentach Java przy użyciu GroupDocs.Redaction,
+  obejmując exact‑phrase, regex, color replacement, annotation oraz metadata redaction.
+og_image_alt: Guide showing Java code redacting text with GroupDocs.Redaction
+og_title: Jak redagować tekst w dokumentach Java przy użyciu GroupDocs.Redaction
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-20'
+  description: Learn how to redact text in Java documents using GroupDocs.Redaction,
+    covering exact‑phrase, regex, color replacement, annotation and metadata redaction
+    for secure compliance.
+  headline: How to redact text in Java documents with GroupDocs.Redaction
+  type: TechArticle
+- description: Learn how to redact text in Java documents using GroupDocs.Redaction,
+    covering exact‑phrase, regex, color replacement, annotation and metadata redaction
+    for secure compliance.
+  name: How to redact text in Java documents with GroupDocs.Redaction
+  steps:
+  - name: '**Add the Maven dependency** (or include the JAR).'
+    text: '**Add the Maven dependency** (or include the JAR).'
+  - name: '**Configure your license** by calling `License.setLicense("path/to/license.lic")`
+      early in your application.'
+    text: '**Configure your license** by calling `License.setLicense("path/to/license.lic")`
+      early in your application.'
+  - name: '**Create a `Redactor` instance** pointing at the source document.'
+    text: '**Create a `Redactor` instance** pointing at the source document.'
+  - name: '**Initialize the Redactor** with the document you want to process:'
+    text: '**Initialize the Redactor** with the document you want to process:'
+  - name: '**Define the exact‑phrase rule** and apply it:'
+    text: '**Define the exact‑phrase rule** and apply it:'
+  - name: '**Save the redacted file** to your output folder:'
+    text: '**Save the redacted file** to your output folder:'
+  - name: 'Load the document:'
+    text: 'Load the document:'
+  - name: 'Create a regex rule and apply it:'
+    text: 'Create a regex rule and apply it:'
+  - name: 'Save the result:'
+    text: 'Save the result:'
+  - name: 'Load the document:'
+    text: 'Load the document:'
+  type: HowTo
+- questions:
+  - answer: Yes. Create each redaction object, call `redactor.apply()` for each, then
+      save once.
+    question: Can I combine multiple redaction rules in a single pass?
+  - answer: Absolutely. Pass the password to the `Redactor` constructor that accepts
+      a `LoadOptions` object.
+    question: Does GroupDocs.Redaction support password‑protected files?
+  - answer: You can call `redactor.preview()` to generate a temporary view that highlights
+      the areas to be redacted.
+    question: Is it possible to preview redactions before saving?
+  - answer: DOCX, PDF, PPTX, XLSX, PNG, JPEG, BMP, and many more—over 30 formats in
+      total.
+    question: What file formats are supported?
+  - answer: Use the metadata erasure feature, remove annotations, and apply exact‑phrase
+      or regex redactions to all personal data fields.
+    question: How do I ensure the redacted document complies with GDPR?
+  type: FAQPage
+tags:
+- text redaction
+- GroupDocs.Redaction
+- Java document security
+- regex redaction
+- metadata removal
+title: Jak redagować tekst w dokumentach Java przy użyciu GroupDocs.Redaction
 type: docs
 url: /pl/java/text-redaction/java-redaction-guide-groupdocs-document-security/
 weight: 1
 ---
 
-# Jak cenzurować tekst w dokumentach Java przy użyciu GroupDocs.Redaction
+# Jak redagować tekst w dokumentach Java przy użyciu GroupDocs.Redaction
 
-We współczesnych aplikacjach, **jak cenzurować tekst** w plikach PDF, Word czy obrazach jest częstym wymogiem w zakresie zgodności i prywatności. Niezależnie od tego, czy musisz ukryć dane osobowe, usunąć poufne adnotacje, czy pozbyć się metadanych, GroupDocs.Redaction for Java zapewnia czysty, programowy sposób na osiągnięcie **java document security**. Ten samouczek przeprowadzi Cię przez każdy niezbędny krok — od konfiguracji biblioteki po zastosowanie redakcji dokładnych fraz, wyrażeń regularnych, opartej na kolorze, adnotacji i metadanych.
+W nowoczesnych aplikacjach **jak redagować tekst** w plikach PDF, Word lub obrazach jest częstym wymogiem w zakresie zgodności i prywatności. Niezależnie od tego, czy musisz ukryć dane osobowe, usunąć poufne adnotacje, czy wyczyścić metadane, GroupDocs.Redaction for Java zapewnia czysty, programowy sposób na osiągnięcie **bezpieczeństwa dokumentów Java**. Ten samouczek przeprowadzi Cię przez każdy niezbędny krok — od konfiguracji biblioteki po zastosowanie redakcji dokładnych fraz, wyrażeń regularnych, opartej na kolorze, adnotacji i metadanych — abyś mógł wbudować redakcję bezpośrednio w usługi backendowe.
 
-## Quick Answers
+## Szybkie odpowiedzi
 - **Jaka biblioteka obsługuje redakcję dokumentów Java?** GroupDocs.Redaction for Java.  
-- **Czy mogę zastąpić tekst kolorem zamiast go usuwać?** Tak, używając funkcji „replace text with color”.  
+- **Czy mogę zastąpić tekst kolorem zamiast go usuwać?** Tak, użyj funkcji „replace text with color”.  
 - **Czy potrzebna jest licencja do użytku produkcyjnego?** Wymagana jest tymczasowa lub płatna licencja, aby uzyskać pełną funkcjonalność.  
-- **Jakie wersje Java są wspierane?** JDK 8 lub wyższy.  
+- **Jakie wersje Java są obsługiwane?** JDK 8 lub wyższy.  
 - **Czy Maven jest jedynym sposobem dodania biblioteki?** Maven jest zalecany, ale możesz także pobrać plik JAR ręcznie.
 
-## Czym jest redakcja tekstu w Javie?
-Redakcja to proces trwałego usuwania lub zaciemniania wrażliwych treści w dokumencie, tak aby nie mogły zostać odzyskane. W Javie zazwyczaj obejmuje wczytanie pliku, określenie, co ukryć, zastosowanie redakcji i zapisanie oczyszczonej wersji.
+## Co to jest „jak redagować tekst” w Javie?
+**Redakcja trwale usuwa lub zaciemnia wrażliwe treści, tak aby nie mogły zostać odzyskane.** W Javie ładowany jest plik, definiowane jest, co ukryć, stosowana jest redakcja i zapisywana jest oczyszczona wersja. Dzięki temu każdy kolejny odbiorca widzi jedynie wyczyszczony dokument.
 
-## Why use GroupDocs.Redaction for Java?
-- **Kompleksowe wsparcie formatów** – działa z DOCX, PDF, PPTX, obrazami i wieloma innymi.  
-- **Precyzyjna kontrola** – redaguj według dokładnej frazy, wyrażenia regularnego, koloru, adnotacji lub metadanych.  
-- **Optymalizacja wydajności** – przetwarzanie oparte na strumieniach zmniejsza zużycie pamięci przy dużych plikach.  
-- **Wbudowana zgodność** – pomaga spełnić wymogi GDPR, HIPAA i innych regulacji prywatności.
+## Dlaczego warto używać GroupDocs.Redaction dla Java?
+Załaduj plik, zdefiniuj regułę, a SDK wykona ciężką pracę. GroupDocs.Redaction obsługuje **ponad 30 formatów** — w tym DOCX, PDF, PPTX, XLSX, PNG, JPEG, BMP — i przetwarza duże dokumenty dzięki architekturze opartej na strumieniach. Oferuje redakcję dokładnych fraz, wyrażeń regularnych, opartą na kolorze, adnotacji i metadanych, zapewniając precyzyjną kontrolę spełniającą wymogi GDPR, HIPAA i innych regulacji.
 
-## Prerequisites
+## Wymagania wstępne
 - **Java Development Kit (JDK) 8+** zainstalowany na Twoim komputerze.  
 - **Maven** do zarządzania zależnościami (lub możesz pobrać plik JAR ręcznie).  
 
-### Required Libraries and Dependencies
-Add the GroupDocs repository and the Redaction dependency to your `pom.xml`:
+### Wymagane biblioteki i zależności
+Dodaj repozytorium GroupDocs oraz zależność Redaction do swojego `pom.xml`:
 
 ```xml
 <repositories>
@@ -58,32 +121,35 @@ Add the GroupDocs repository and the Redaction dependency to your `pom.xml`:
 </dependencies>
 ```
 
-Możesz również pobrać najnowszy plik JAR z oficjalnej strony wydania: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+Możesz również pobrać najnowszy plik JAR ze strony oficjalnych wydań: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
-### License Acquisition
+### Uzyskanie licencji
 Do użytku produkcyjnego uzyskaj tymczasową lub pełną licencję. Dostępna jest bezpłatna wersja próbna do celów oceny.
 
-## Setting Up GroupDocs.Redaction for Java
+## Konfiguracja GroupDocs.Redaction dla Java
 1. **Dodaj zależność Maven** (lub dołącz plik JAR).  
 2. **Skonfiguruj licencję** wywołując `License.setLicense("path/to/license.lic")` na początku aplikacji.  
+   `License` to klasa używana do ładowania i stosowania pliku licencji GroupDocs Redaction.  
 3. **Utwórz instancję `Redactor`** wskazującą na dokument źródłowy.
+
+**Klasa `Redactor` jest rdzeniem silnika, który ładuje, modyfikuje i zapisuje dokumenty w sposób oszczędny pamięciowo.** Gdy masz obiekt `Redactor`, możesz łączyć wiele reguł redakcji przed zapisaniem wyniku.
 
 Teraz jesteś gotowy, aby rozpocząć redakcję.
 
-## Implementation Guide
+## Przewodnik implementacji
 
-### Exact Phrase Redaction
-Zastąp konkretną frazę (np. imię i nazwisko osoby) tekstem zastępczym.
+### Redakcja dokładnej frazy
+Zastąp określoną frazę (np. imię i nazwisko osoby) tekstem zastępczym.
 
-#### Step‑by‑Step
-1. **Zainicjalizuj Redactor** z dokumentem, który chcesz przetworzyć:
+#### Jak działa redakcja dokładnej frazy?
+`ExactPhraseRedaction` reprezentuje regułę, która usuwa lub zastępuje konkretny dokładny ciąg znaków. Załaduj dokument, utwórz regułę `ExactPhraseRedaction` skierowaną na dokładny ciąg, zastosuj regułę i zapisz wynik. SDK automatycznie zamazał dopasowany tekst, zachowując układ.
 
+1. **Zainicjuj Redactor** z dokumentem, który chcesz przetworzyć:
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/sample.docx");
 ```
 
 2. **Zdefiniuj regułę dokładnej frazy** i zastosuj ją:
-
 ```java
 ExactPhraseRedaction redaction = new ExactPhraseRedaction(
     "John Doe", 
@@ -92,26 +158,25 @@ ExactPhraseRedaction redaction = new ExactPhraseRedaction(
 redactor.apply(redaction);
 ```
 
-3. **Zapisz zredagowany plik** w folderze wyjściowym:
-
+3. **Zapisz zredagowany plik** do folderu wyjściowego:
 ```java
 if (redactor.save("YOUR_OUTPUT_DIRECTORY/redacted.docx")) {
     System.out.println("Redaction applied successfully.");
 }
 ```
 
-### Regex Redaction with Text Replacement
+### Redakcja wyrażeń regularnych z zamianą tekstu
 Użyj wyrażeń regularnych do znajdowania wzorców, takich jak numery seryjne, i zastąp je ogólnym tokenem.
 
-#### Step‑by‑Step
-1. Wczytaj dokument:
+#### Jak działa redakcja wyrażeń regularnych z zamianą?
+`RegexRedaction` definiuje regułę opartą na wyrażeniu regularnym, aby znaleźć i zmodyfikować dopasowany tekst. Dostarczasz obiekt `RegexRedaction` zawierający wzorzec i ciąg zamiany. Silnik przeszukuje dokument, podmienia każde dopasowanie i zachowuje otaczające formatowanie.
 
+1. Załaduj dokument:
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/sample.docx");
 ```
 
 2. Utwórz regułę regex i zastosuj ją:
-
 ```java
 RegexRedaction redaction = new RegexRedaction(
     "Redaction",
@@ -121,25 +186,24 @@ redactor.apply(redaction);
 ```
 
 3. Zapisz wynik:
-
 ```java
 if (redactor.save("YOUR_OUTPUT_DIRECTORY/redacted.docx")) {
     System.out.println("Redaction applied successfully.");
 }
 ```
 
-### Regex Redaction with Color Replacement
-Zamiast usuwać tekst, możesz **zastąpić tekst kolorem**, aby wizualnie go zaciemnić, zachowując jednocześnie ukryte znaki.
+### Redakcja wyrażeń regularnych z zamianą koloru
+Zamiast usuwać tekst, możesz **zastąpić tekst kolorem**, aby wizualnie go zaciemnić, zachowując jednocześnie podstawowe znaki.
 
-#### Step‑by‑Step
-1. Wczytaj dokument:
+#### Czym różni się redakcja oparta na kolorze od usuwania?
+SDK maluje dopasowany tekst wybranym kolorem, czyniąc go nieczytelnym dla ludzkiego oka, ale nadal obecnym w strumieniu pliku. Jest to przydatne, gdy trzeba zachować strukturę dokumentu do dalszego przetwarzania.
 
+1. Załaduj dokument:
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/sample.docx");
 ```
 
-2. Zdefiniuj wzorzec regex i ustaw kolor zastąpienia (np. niebieski):
-
+2. Zdefiniuj wzorzec regex i ustaw kolor zamiany (np. niebieski):
 ```java
 RegexRedaction redaction = new RegexRedaction(
     "\d{2}\s*\d{2}[^\\d]*\d{6}", 
@@ -149,25 +213,24 @@ redactor.apply(redaction);
 ```
 
 3. Zapisz zaktualizowany plik:
-
 ```java
 if (redactor.save("YOUR_OUTPUT_DIRECTORY/redacted.docx")) {
     System.out.println("Redaction applied successfully.");
 }
 ```
 
-### Delete Annotation Redaction
+### Redakcja usuwania adnotacji
 Usuń wszystkie adnotacje (komentarze, podświetlenia itp.) z dokumentu, aby uzyskać czystszą wersję końcową.
 
-#### Step‑by‑Step
-1. Wczytaj plik:
+#### Jak usunąć adnotacje w jednym kroku?
+`AnnotationRedaction` to reguła usuwająca adnotacje, takie jak komentarze, podświetlenia i pieczątki. Utwórz regułę `AnnotationRedaction` skierowaną na każdy typ adnotacji, zastosuj ją i zapisz zmiany.
 
+1. Załaduj swój plik:
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/sample.docx");
 ```
 
 2. Zastosuj regułę usuwania adnotacji:
-
 ```java
 DeleteAnnotationRedaction redaction = new DeleteAnnotationRedaction();
 
@@ -175,25 +238,24 @@ redactor.apply(redaction);
 ```
 
 3. Zapisz zmiany:
-
 ```java
 if (redactor.save("YOUR_OUTPUT_DIRECTORY/redacted.docx")) {
     System.out.println("Annotations deleted successfully.");
 }
 ```
 
-### Erase Metadata Redaction
+### Redakcja usuwania metadanych
 Usuń wszystkie metadane (autor, data utworzenia, własne właściwości), aby chronić prywatność i spełnić standardy zgodności.
 
-#### Step‑by‑Step
-1. Otwórz dokument:
+#### Jak usunięcie metadanych zapewnia prywatność?
+`MetadataRedaction` usuwa wbudowane i własne pola metadanych z dokumentu. Reguła `MetadataRedaction` wymazuje wbudowane i własne pola metadanych, zapewniając, że żadne ukryte identyfikatory nie pozostaną w zbiorze właściwości pliku.
 
+1. Otwórz dokument:
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/sample.docx");
 ```
 
 2. Zastosuj regułę usuwania metadanych:
-
 ```java
 EraseMetadataRedaction redaction = new EraseMetadataRedaction(MetadataFilters.All);
 
@@ -201,55 +263,60 @@ redactor.apply(redaction);
 ```
 
 3. Zapisz oczyszczony dokument:
-
 ```java
 if (redactor.save("YOUR_OUTPUT_DIRECTORY/redacted.docx")) {
     System.out.println("Metadata erased successfully.");
 }
 ```
 
-## Practical Applications (Why This Matters)
-- **Przygotowanie dokumentów prawnych** – Redaguj nazwiska klientów przed udostępnieniem wersji roboczych.  
-- **Zgodność w opiece zdrowotnej** – Usuń identyfikatory pacjentów, aby zachować zgodność z HIPAA.  
-- **Ochrona danych korporacyjnych** – Ukryj dane finansowe lub tajemnice handlowe w wewnętrznych raportach.  
+## Praktyczne zastosowania (dlaczego to ważne)
+- **Przygotowanie dokumentów prawnych** – Redaguj nazwiska klientów przed udostępnieniem wersji roboczych przeciwnikowi.  
+- **Zgodność w opiece zdrowotnej** – Usuń identyfikatory pacjentów, aby zachować zgodność z HIPAA bez ręcznej edycji.  
+- **Ochrona danych korporacyjnych** – Ukryj dane finansowe lub tajemnice handlowe w wewnętrznych raportach przed dystrybucją.  
 
-Integracja tych kroków redakcji w istniejący przepływ pracy automatyzuje ochronę prywatności i zmniejsza ryzyko przypadkowych wycieków danych.
+Automatyzacja tych kroków zmniejsza nakład pracy ręcznej, eliminuje błędy ludzkie i zapewnia spójną zgodność w tysiącach plików.
 
-## Performance Considerations
-- **Strumieniowanie zamiast ładowania** – Przy dużych plikach używaj konstruktorów `Redactor`, które przyjmują `InputStream`, aby uniknąć wczytywania całego dokumentu do pamięci.  
-- **Prekompiluj wzorce regex** gdy wykonujesz tę samą redakcję wielokrotnie; zmniejsza to obciążenie CPU.  
-- **Monitoruj stertę JVM** – Redakcja może być intensywna pod względem pamięci; rozważ zwiększenie rozmiaru sterty przy przetwarzaniu wsadowym.
+## Uwagi dotyczące wydajności
+- **Strumień zamiast pełnego ładowania** – Dla dużych plików używaj konstruktorów `Redactor`, które przyjmują `InputStream`, aby uniknąć ładowania całego dokumentu do pamięci.  
+- **Prekompiluj wzorce regex**, gdy wielokrotnie wykonujesz tę samą redakcję; zmniejsza to obciążenie CPU nawet o 30 %.  
+- **Monitoruj stertę JVM** – Redakcja może być intensywna pamięciowo; rozważ zwiększenie rozmiaru sterty (`-Xmx2g`) przy przetwarzaniu wsadowym archiwów wielogigabajtowych.  
 
-## Common Issues & Troubleshooting
+## Typowe problemy i rozwiązywanie
 | Objaw | Prawdopodobna przyczyna | Rozwiązanie |
 |-------|--------------------------|-------------|
-| Brak zmian po `apply` | Nieprawidłowa ścieżka do dokumentu lub plik jest zablokowany | Sprawdź ścieżkę do pliku i upewnij się, że dokument nie jest otwarty w innym miejscu |
-| Regex nie dopasowuje | Błąd składni wzorca | Przetestuj wyrażenie regularne w narzędziu online; prawidłowo escapuj backslashe |
-| Zastąpienie kolorem niewidoczne | Format wyjściowy nie obsługuje koloru tekstu (np. zwykły tekst) | Użyj formatu takiego jak DOCX lub PDF, który zachowuje stylizację |
+| Brak zmian po `apply` | Nieprawidłowa ścieżka do dokumentu lub plik zablokowany | Sprawdź ścieżkę do pliku i upewnij się, że dokument nie jest otwarty w innym miejscu |
+| Regex nie dopasowuje | Błąd składni wzorca | Przetestuj wyrażenie regularne w narzędziu online; prawidłowo escapuj backslash'e |
+| Zamiana koloru niewidoczna | Format wyjściowy nie obsługuje koloru tekstu (np. zwykły tekst) | Użyj formatu takiego jak DOCX lub PDF, który zachowuje stylizację |
 | Błąd licencji w czasie wykonywania | Brak pliku licencji lub jest nieprawidłowy | Umieść plik `.lic` w dostępnym katalogu i wywołaj `License.setLicense` przed użyciem Redactor |
 
-## Frequently Asked Questions
+## Najczęściej zadawane pytania
 
-**P: Czy mogę połączyć wiele reguł redakcji w jednym przebiegu?**  
-**O:** Tak. Utwórz każdy obiekt redakcji, wywołaj `redactor.apply()` dla każdego, a następnie zapisz raz.
+**Q: Czy mogę połączyć wiele reguł redakcji w jednym przebiegu?**  
+A: Tak. Utwórz każdy obiekt redakcji, wywołaj `redactor.apply()` dla każdego, a następnie zapisz raz.
 
-**P: Czy GroupDocs.Redaction obsługuje pliki chronione hasłem?**  
-**O:** Oczywiście. Przekaż hasło do konstruktora `Redactor`, który przyjmuje obiekt `LoadOptions`.
+**Q: Czy GroupDocs.Redaction obsługuje pliki chronione hasłem?**  
+A: Zdecydowanie. Przekaż hasło do konstruktora `Redactor`, który przyjmuje obiekt `LoadOptions`.
 
-**P: Czy istnieje możliwość podglądu redakcji przed zapisaniem?**  
-**O:** Możesz wywołać `redactor.preview()`, aby wygenerować tymczasowy podgląd podświetlający obszary do redakcji.
+**Q: Czy można podglądnąć redakcje przed zapisaniem?**  
+A: Możesz wywołać `redactor.preview()`, aby wygenerować tymczasowy podgląd, który podświetla obszary do redakcji.
 
-**P: Jakie formaty plików są obsługiwane?**  
-**O:** DOCX, PDF, PPTX, XLSX, obrazy (PNG, JPEG, BMP) i wiele innych.
+**Q: Jakie formaty plików są obsługiwane?**  
+A: DOCX, PDF, PPTX, XLSX, PNG, JPEG, BMP i wiele innych — ponad 30 formatów łącznie.
 
-**P: Jak zapewnić, że zredagowany dokument spełnia wymogi GDPR?**  
-**O:** Użyj funkcji usuwania metadanych, usuń adnotacje i zastosuj redakcję dokładnych fraz lub regex do wszystkich pól danych osobowych.
+**Q: Jak zapewnić, że zredagowany dokument jest zgodny z GDPR?**  
+A: Skorzystaj z funkcji usuwania metadanych, usuń adnotacje i zastosuj redakcję dokładnych fraz lub regex do wszystkich pól danych osobowych.
 
-## Conclusion
-Masz teraz kompletny, kompleksowy przewodnik dotyczący **jak cenzurować tekst** w dokumentach Java przy użyciu GroupDocs.Redaction. Postępując zgodnie z krokami dotyczącymi redakcji dokładnych fraz, regex, opartej na kolorze, adnotacji i metadanych, możesz osiągnąć solidną **java document security**, zachowując kod czysty i łatwy w utrzymaniu. Zintegruj te fragmenty z istniejącymi usługami, automatyzuj przetwarzanie wsadowe i zachowaj zgodność z regulacjami prywatności.
+## Podsumowanie
+Masz teraz kompletny, kompleksowy przewodnik o **jak redagować tekst** w dokumentach Java przy użyciu GroupDocs.Redaction. Postępując zgodnie z krokami dotyczącymi redakcji dokładnych fraz, regex, opartej na kolorze, adnotacji i metadanych, możesz osiągnąć solidne **bezpieczeństwo dokumentów Java**, zachowując kod czysty i łatwy do utrzymania. Zintegruj te fragmenty kodu z istniejącymi usługami, zautomatyzuj przetwarzanie wsadowe i zachowaj zgodność z przepisami o prywatności.
 
 ---
 
-**Ostatnia aktualizacja:** 2026-03-04  
-**Testowano z:** GroupDocs.Redaction 24.9 for Java  
-**Autor:** GroupDocs
+**Last Updated:** 2026-08-20  
+**Tested with:** GroupDocs.Redaction 24.9 for Java  
+**Author:** GroupDocs
+
+## Powiązane samouczki
+
+- [zastąp tekst metadanych java – Bezpieczna redakcja z GroupDocs](/redaction/java/metadata-redaction/java-redaction-metadata-text-replacement-guide/)
+- [Jak redagować obrazy w dokumentach Word przy użyciu GroupDocs.Redaction dla Java – Kompletny przewodnik](/redaction/java/image-redaction/redact-images-word-docs-groupdocs-redaction-java/)
+- [Jak redagować dokumenty z licencją GroupDocs Redaction Java z ścieżki pliku – Przewodnik krok po kroku](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)

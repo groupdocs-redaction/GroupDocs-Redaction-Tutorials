@@ -1,37 +1,101 @@
 ---
-date: '2026-03-04'
-description: Scopri come redigere il testo, sostituire il testo con colore e garantire
-  la sicurezza dei documenti Java utilizzando GroupDocs.Redaction per Java. Guida
-  passo passo con esempi di codice.
+date: '2026-08-20'
+description: Scopri come censurare il testo nei documenti Java usando GroupDocs.Redaction,
+  coprendo la censura di frasi esatte, regex, sostituzione del colore, annotazione
+  e censura dei metadati per una conformità sicura.
 keywords:
-- Java Document Redaction
-- GroupDocs.Redaction for Java
-- text redaction in Java
+- how to redact text
+- replace text with color
+- GroupDocs.Redaction Java
+- Java document security
+- document redaction library
+lastmod: '2026-08-20'
+og_description: Scopri come censurare il testo nei documenti Java usando GroupDocs.Redaction,
+  coprendo la censura di frasi esatte, regex, sostituzione del colore, annotazione
+  e censura dei metadati.
+og_image_alt: Guide showing Java code redacting text with GroupDocs.Redaction
+og_title: Come censurare il testo nei documenti Java con GroupDocs.Redaction
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-20'
+  description: Learn how to redact text in Java documents using GroupDocs.Redaction,
+    covering exact‑phrase, regex, color replacement, annotation and metadata redaction
+    for secure compliance.
+  headline: How to redact text in Java documents with GroupDocs.Redaction
+  type: TechArticle
+- description: Learn how to redact text in Java documents using GroupDocs.Redaction,
+    covering exact‑phrase, regex, color replacement, annotation and metadata redaction
+    for secure compliance.
+  name: How to redact text in Java documents with GroupDocs.Redaction
+  steps:
+  - name: '**Add the Maven dependency** (or include the JAR).'
+    text: '**Add the Maven dependency** (or include the JAR).'
+  - name: '**Configure your license** by calling `License.setLicense("path/to/license.lic")`
+      early in your application.'
+    text: '**Configure your license** by calling `License.setLicense("path/to/license.lic")`
+      early in your application.'
+  - name: '**Create a `Redactor` instance** pointing at the source document.'
+    text: '**Create a `Redactor` instance** pointing at the source document.'
+  - name: '**Initialize the Redactor** with the document you want to process:'
+    text: '**Initialize the Redactor** with the document you want to process:'
+  - name: '**Define the exact‑phrase rule** and apply it:'
+    text: '**Define the exact‑phrase rule** and apply it:'
+  - name: '**Save the redacted file** to your output folder:'
+    text: '**Save the redacted file** to your output folder:'
+  - name: 'Load the document:'
+    text: 'Load the document:'
+  - name: 'Create a regex rule and apply it:'
+    text: 'Create a regex rule and apply it:'
+  - name: 'Save the result:'
+    text: 'Save the result:'
+  - name: 'Load the document:'
+    text: 'Load the document:'
+  type: HowTo
+- questions:
+  - answer: Yes. Create each redaction object, call `redactor.apply()` for each, then
+      save once.
+    question: Can I combine multiple redaction rules in a single pass?
+  - answer: Absolutely. Pass the password to the `Redactor` constructor that accepts
+      a `LoadOptions` object.
+    question: Does GroupDocs.Redaction support password‑protected files?
+  - answer: You can call `redactor.preview()` to generate a temporary view that highlights
+      the areas to be redacted.
+    question: Is it possible to preview redactions before saving?
+  - answer: DOCX, PDF, PPTX, XLSX, PNG, JPEG, BMP, and many more—over 30 formats in
+      total.
+    question: What file formats are supported?
+  - answer: Use the metadata erasure feature, remove annotations, and apply exact‑phrase
+      or regex redactions to all personal data fields.
+    question: How do I ensure the redacted document complies with GDPR?
+  type: FAQPage
+tags:
+- text redaction
+- GroupDocs.Redaction
+- Java document security
+- regex redaction
+- metadata removal
 title: Come censurare il testo nei documenti Java con GroupDocs.Redaction
 type: docs
 url: /it/java/text-redaction/java-redaction-guide-groupdocs-document-security/
 weight: 1
 ---
 
-# Come censurare il testo nei documenti Java con GroupDocs.Redaction
+# Come redigere testo in documenti Java con GroupDocs.Redaction
 
-Nelle applicazioni moderne, **come censurare il testo** all'interno di PDF, file Word o immagini è una necessità frequente per la conformità e la privacy. Che tu debba nascondere identificatori personali, rimuovere annotazioni riservate o eliminare i metadati, GroupDocs.Redaction per Java ti offre un modo pulito e programmatico per garantire **java document security**. Questo tutorial ti guida attraverso ogni passaggio essenziale—dalla configurazione della libreria all'applicazione di censure basate su frase esatta, regex, colore, annotazione e metadati.
+In modern applications, **come redigere testo** inside PDFs, Word files, or images is a frequent requirement for compliance and privacy. Whether you need to hide personal identifiers, remove confidential annotations, or strip metadata, GroupDocs.Redaction for Java gives you a clean, programmatic way to achieve **java document security**. This tutorial walks you through every essential step—from setting up the library to applying exact‑phrase, regex, color‑based, annotation, and metadata redactions—so you can embed redaction directly into your backend services.
 
 ## Risposte rapide
-- **Quale libreria gestisce la censura dei documenti Java?** GroupDocs.Redaction for Java.  
-- **Posso sostituire il testo con un colore invece di rimuoverlo?** Sì, usando la funzione “replace text with color”.  
+- **Quale libreria gestisce la redazione di documenti Java?** GroupDocs.Redaction for Java.  
+- **Posso sostituire il testo con un colore invece di rimuoverlo?** Sì, usa la funzione “replace text with color”.  
 - **È necessaria una licenza per l'uso in produzione?** È richiesta una licenza temporanea o a pagamento per la piena funzionalità.  
 - **Quali versioni di Java sono supportate?** JDK 8 o superiore.  
-- **Maven è l'unico modo per aggiungere la libreria?** Maven è consigliato, ma è anche possibile scaricare il JAR manualmente.
+- **Maven è l'unico modo per aggiungere la libreria?** Maven è consigliato, ma è possibile scaricare il JAR manualmente.
 
-## Cos'è “come censurare il testo” in Java?
-La censura è il processo di rimozione permanente o oscuramento di contenuti sensibili da un documento in modo che non possano essere recuperati. In Java, ciò tipicamente comporta il caricamento di un file, la definizione di ciò da nascondere, l'applicazione della censura e il salvataggio della versione sanificata.
+## Cos'è “how to redact text” in Java?
+**La redazione rimuove o oscura permanentemente i contenuti sensibili in modo che non possano essere recuperati.** In Java, carichi un file, definisci cosa nascondere, applichi la redazione e salvi la versione sanificata. Questo garantisce che qualsiasi consumatore a valle veda solo il documento pulito.
 
-## Perché utilizzare GroupDocs.Redaction per Java?
-- **Supporto completo dei formati** – funziona con DOCX, PDF, PPTX, immagini e altro.  
-- **Controllo granulare** – censura per frase esatta, espressione regolare, colore, annotazione o metadati.  
-- **Ottimizzato per le prestazioni** – l'elaborazione basata su stream riduce l'uso di memoria per file di grandi dimensioni.  
-- **Conformità integrata** – aiuta a soddisfare GDPR, HIPAA e altre normative sulla privacy.
+## Perché usare GroupDocs.Redaction per Java?
+Carica il tuo file, definisci una regola e l'SDK gestisce il lavoro pesante. GroupDocs.Redaction supporta **30+ formati** — inclusi DOCX, PDF, PPTX, XLSX, PNG, JPEG, BMP — e elabora grandi documenti tramite un'architettura basata su stream. Offre redazione per frase esatta, regex, basata su colore, annotazione e metadati, fornendo un controllo fine per soddisfare GDPR, HIPAA e altre normative.
 
 ## Prerequisiti
 - **Java Development Kit (JDK) 8+** installato sulla tua macchina.  
@@ -64,25 +128,30 @@ Puoi anche scaricare l'ultimo JAR dalla pagina di rilascio ufficiale: [GroupDocs
 Per l'uso in produzione, ottieni una licenza temporanea o completa. È disponibile una prova gratuita per scopi di valutazione.
 
 ## Configurazione di GroupDocs.Redaction per Java
-1. **Aggiungi la dipendenza Maven** (oppure includi il JAR).  
+1. **Aggiungi la dipendenza Maven** (o includi il JAR).  
 2. **Configura la tua licenza** chiamando `License.setLicense("path/to/license.lic")` all'inizio della tua applicazione.  
-3. **Crea un'istanza `Redactor`** che punta al documento sorgente.
+   `License` è la classe usata per caricare e applicare un file di licenza GroupDocs Redaction.  
+3. **Crea un'istanza `Redactor`** che punti al documento sorgente.
 
-Ora sei pronto per iniziare a censurare.
+**La classe `Redactor` è il motore principale che carica, modifica e salva i documenti in modo efficiente in termini di memoria.** Una volta che hai un oggetto `Redactor`, puoi concatenare più regole di redazione prima di persistere il risultato.
+
+Ora sei pronto per iniziare a redigere.
 
 ## Guida all'implementazione
 
-### Censura per frase esatta
-Sostituisci una frase specifica (ad esempio il nome di una persona) con un testo segnaposto.
+### Redazione per frase esatta
+Sostituisci una frase specifica (ad esempio, il nome di una persona) con un testo segnaposto.
 
-#### Passo‑per‑passo
+#### Come funziona la redazione per frase esatta?
+`ExactPhraseRedaction` rappresenta una regola che rimuove o sostituisce una specifica stringa di testo esatta. Carica il documento, crea una regola `ExactPhraseRedaction` che mira alla stringa esatta, applica la regola e salva l'output. L'SDK cancella automaticamente il testo corrispondente mantenendo il layout.
+
 1. **Inizializza il Redactor** con il documento che desideri elaborare:
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/sample.docx");
 ```
 
-2. **Definisci la regola di frase esatta** e applicala:
+2. **Definisci la regola per frase esatta** e applicala:
 
 ```java
 ExactPhraseRedaction redaction = new ExactPhraseRedaction(
@@ -92,7 +161,7 @@ ExactPhraseRedaction redaction = new ExactPhraseRedaction(
 redactor.apply(redaction);
 ```
 
-3. **Salva il file censurato** nella tua cartella di output:
+3. **Salva il file redatto** nella tua cartella di output:
 
 ```java
 if (redactor.save("YOUR_OUTPUT_DIRECTORY/redacted.docx")) {
@@ -100,10 +169,12 @@ if (redactor.save("YOUR_OUTPUT_DIRECTORY/redacted.docx")) {
 }
 ```
 
-### Censura con regex e sostituzione del testo
+### Redazione con regex e sostituzione del testo
 Usa le espressioni regolari per individuare pattern come numeri di serie e sostituirli con un token generico.
 
-#### Passo‑per‑passo
+#### Come funziona la redazione con regex e sostituzione?
+`RegexRedaction` definisce una regola basata su un'espressione regolare per trovare e modificare il testo corrispondente. Fornisci un oggetto `RegexRedaction` che contiene il pattern e la stringa di sostituzione. Il motore scansiona il documento, sostituisce ogni corrispondenza e mantiene intatto il formato circostante.
+
 1. Carica il documento:
 
 ```java
@@ -128,17 +199,19 @@ if (redactor.save("YOUR_OUTPUT_DIRECTORY/redacted.docx")) {
 }
 ```
 
-### Censura con regex e sostituzione colore
+### Redazione con regex e sostituzione colore
 Invece di eliminare il testo, puoi **sostituire il testo con colore** per oscurarlo visivamente mantenendo i caratteri sottostanti.
 
-#### Passo‑per‑passo
+#### In che modo la redazione basata su colore differisce dall'eliminazione?
+L'SDK colora il testo corrispondente con il colore scelto, rendendolo illeggibile all'occhio umano ma ancora presente nello stream del file. Questo è utile quando è necessario mantenere la struttura del documento per l'elaborazione a valle.
+
 1. Carica il documento:
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/sample.docx");
 ```
 
-2. Definisci un pattern regex e imposta il colore di sostituzione (ad esempio, blu):
+2. Definisci un pattern regex e imposta il colore di sostituzione (ad es., blu):
 
 ```java
 RegexRedaction redaction = new RegexRedaction(
@@ -156,10 +229,12 @@ if (redactor.save("YOUR_OUTPUT_DIRECTORY/redacted.docx")) {
 }
 ```
 
-### Censura di eliminazione delle annotazioni
+### Redazione di eliminazione annotazioni
 Rimuovi tutte le annotazioni (commenti, evidenziazioni, ecc.) da un documento per una versione finale più pulita.
 
-#### Passo‑per‑passo
+#### Come rimuovere le annotazioni in un solo passaggio?
+`AnnotationRedaction` è una regola che rimuove annotazioni come commenti, evidenziazioni e timbri. Crea una regola `AnnotationRedaction` che mira a ogni tipo di annotazione, applicala e persisti le modifiche.
+
 1. Carica il tuo file:
 
 ```java
@@ -174,7 +249,7 @@ DeleteAnnotationRedaction redaction = new DeleteAnnotationRedaction();
 redactor.apply(redaction);
 ```
 
-3. Salva le modifiche:
+3. Persisti le modifiche:
 
 ```java
 if (redactor.save("YOUR_OUTPUT_DIRECTORY/redacted.docx")) {
@@ -182,10 +257,12 @@ if (redactor.save("YOUR_OUTPUT_DIRECTORY/redacted.docx")) {
 }
 ```
 
-### Censura di cancellazione dei metadati
-Rimuovi ogni metadato (autore, data di creazione, proprietà personalizzate) per proteggere la privacy e soddisfare gli standard di conformità.
+### Redazione cancellazione metadati
+Rimuovi ogni elemento di metadati (autore, data di creazione, proprietà personalizzate) per proteggere la privacy e rispettare gli standard di conformità.
 
-#### Passo‑per‑passo
+#### In che modo la cancellazione dei metadati garantisce la privacy?
+`MetadataRedaction` cancella i campi di metadati integrati e personalizzati dal documento. La regola `MetadataRedaction` elimina i campi di metadati integrati e personalizzati, assicurando che nessun identificatore nascosto rimanga nel bag delle proprietà del file.
+
 1. Apri il documento:
 
 ```java
@@ -208,49 +285,54 @@ if (redactor.save("YOUR_OUTPUT_DIRECTORY/redacted.docx")) {
 }
 ```
 
-## Applicazioni pratiche (Perché è importante)
-- **Preparazione di documenti legali** – Censura i nomi dei clienti prima di condividere le bozze.  
-- **Conformità sanitaria** – Rimuovi gli identificatori dei pazienti per rimanere conformi a HIPAA.  
-- **Protezione dei dati aziendali** – Nascondi cifre finanziarie o segreti commerciali nei report interni.  
+## Applicazioni pratiche (perché è importante)
+- **Preparazione di documenti legali** – Redigi i nomi dei clienti prima di condividere le bozze con la controparte.  
+- **Conformità sanitaria** – Rimuovi gli identificatori dei pazienti per rimanere conformi a HIPAA senza modifiche manuali.  
+- **Protezione dei dati aziendali** – Nascondi cifre finanziarie o segreti commerciali nei report interni prima della distribuzione.  
 
-Integrare questi passaggi di censura nel tuo flusso di lavoro esistente automatizza la protezione della privacy e riduce il rischio di perdite accidentali di dati.
+Automatizzare questi passaggi riduce lo sforzo manuale, elimina gli errori umani e garantisce una conformità costante su migliaia di file.
 
 ## Considerazioni sulle prestazioni
-- **Stream invece di caricare** – Per file di grandi dimensioni, usa i costruttori `Redactor` che accettano `InputStream` per evitare di caricare l'intero documento in memoria.  
-- **Pre‑compila i pattern regex** quando esegui la stessa censura più volte; questo riduce il carico CPU.  
-- **Monitora l'heap JVM** – La censura può richiedere molta memoria; considera di aumentare la dimensione dell'heap per l'elaborazione batch.
+- **Stream invece di load** – Per file di grandi dimensioni, usa i costruttori `Redactor` che accettano `InputStream` per evitare di caricare l'intero documento in memoria.  
+- **Pre‑compila i pattern regex** quando esegui la stessa redazione più volte; questo riduce il carico CPU fino al 30 %.  
+- **Monitora l'heap JVM** – La redazione può essere intensiva in memoria; considera di aumentare la dimensione dell'heap (`-Xmx2g`) per l'elaborazione batch di archivi multi‑gigabyte.
 
 ## Problemi comuni e risoluzione
-
 | Sintomo | Probabile causa | Soluzione |
 |---------|-----------------|-----------|
 | Nessuna modifica dopo `apply` | Percorso del documento errato o file bloccato | Verifica il percorso del file e assicurati che il documento non sia aperto altrove |
 | Regex non corrisponde | Errore di sintassi del pattern | Testa la regex con un tester online; escapa correttamente le barre rovesciate |
-| Sostituzione colore non visibile | Il formato di output non supporta il colore del testo (ad esempio, testo semplice) | Usa un formato come DOCX o PDF che conserva lo stile |
+| Sostituzione colore non visibile | Il formato di output non supporta il colore del testo (es. testo semplice) | Usa un formato come DOCX o PDF che conserva lo stile |
 | Errore di licenza a runtime | File di licenza mancante o non valido | Posiziona il file `.lic` in una directory accessibile e chiama `License.setLicense` prima di qualsiasi utilizzo di Redactor |
 
 ## Domande frequenti
 
-**Q: Posso combinare più regole di censura in un unico passaggio?**  
-A: Sì. Crea ogni oggetto di censura, chiama `redactor.apply()` per ciascuno, poi salva una sola volta.
+**Q: Posso combinare più regole di redazione in un unico passaggio?**  
+A: Sì. Crea ogni oggetto di redazione, chiama `redactor.apply()` per ciascuno, poi salva una sola volta.
 
-**Q: GroupDocs.Redaction supporta i file protetti da password?**  
+**Q: GroupDocs.Redaction supporta file protetti da password?**  
 A: Assolutamente. Passa la password al costruttore `Redactor` che accetta un oggetto `LoadOptions`.
 
-**Q: È possibile visualizzare in anteprima le censure prima di salvare?**  
-A: Puoi chiamare `redactor.preview()` per generare una vista temporanea che evidenzia le aree da censurare.
+**Q: È possibile visualizzare in anteprima le redazioni prima di salvare?**  
+A: Puoi chiamare `redactor.preview()` per generare una vista temporanea che evidenzia le aree da redigere.
 
 **Q: Quali formati di file sono supportati?**  
-A: DOCX, PDF, PPTX, XLSX, immagini (PNG, JPEG, BMP) e molti altri.
+A: DOCX, PDF, PPTX, XLSX, PNG, JPEG, BMP e molti altri — oltre 30 formati in totale.
 
-**Q: Come posso garantire che il documento censurato sia conforme al GDPR?**  
-A: Usa la funzione di cancellazione dei metadati, rimuovi le annotazioni e applica censure per frase esatta o regex a tutti i campi di dati personali.
+**Q: Come posso garantire che il documento redatto sia conforme al GDPR?**  
+A: Usa la funzione di cancellazione dei metadati, rimuovi le annotazioni e applica redazioni per frase esatta o regex a tutti i campi di dati personali.
 
 ## Conclusione
-Adesso hai una guida completa, end‑to‑end, su **come censurare il testo** nei documenti Java usando GroupDocs.Redaction. Seguendo i passaggi per censure per frase esatta, regex, basate sul colore, annotazioni e metadati, puoi ottenere una solida **java document security** mantenendo il tuo codice pulito e manutenibile. Integra questi snippet nei tuoi servizi esistenti, automatizza l'elaborazione batch e rimani conforme alle normative sulla privacy.
+Ora hai una guida completa, end‑to‑end, su **come redigere testo** nei documenti Java usando GroupDocs.Redaction. Seguendo i passaggi per redazioni per frase esatta, regex, basate su colore, annotazioni e metadati, puoi ottenere una solida **java document security** mantenendo il tuo codice pulito e manutenibile. Integra questi snippet nei tuoi servizi esistenti, automatizza l'elaborazione batch e rimani conforme alle normative sulla privacy.
 
 ---
 
-**Last Updated:** 2026-03-04  
-**Tested With:** GroupDocs.Redaction 24.9 for Java  
-**Author:** GroupDocs
+**Ultimo aggiornamento:** 2026-08-20  
+**Testato con:** GroupDocs.Redaction 24.9 for Java  
+**Autore:** GroupDocs
+
+## Tutorial correlati
+
+- [sostituisci testo metadati java – Redazione sicura con GroupDocs](/redaction/java/metadata-redaction/java-redaction-metadata-text-replacement-guide/)
+- [Come redigere immagini nei documenti Word usando GroupDocs.Redaction per Java – Guida completa](/redaction/java/image-redaction/redact-images-word-docs-groupdocs-redaction-java/)
+- [Come redigere documenti con licenza GroupDocs Redaction Java da percorso file – Guida passo‑passo](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)

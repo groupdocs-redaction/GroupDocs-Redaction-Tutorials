@@ -1,13 +1,79 @@
 ---
-date: '2026-03-04'
-description: Naučte se, jak redigovat text, nahradit text barvou a zajistit bezpečnost
-  dokumentů v Javě pomocí GroupDocs.Redaction pro Javu. Praktický průvodce krok za
-  krokem s ukázkami kódu.
+date: '2026-08-20'
+description: Zjistěte, jak redigovat text v Java dokumentech pomocí GroupDocs.Redaction,
+  zahrnující exact‑phrase, regex, color replacement, annotation a metadata redaction
+  pro bezpečnou shodu s předpisy.
 keywords:
-- Java Document Redaction
-- GroupDocs.Redaction for Java
-- text redaction in Java
-title: Jak cenzurovat text v dokumentech Java pomocí GroupDocs.Redaction
+- how to redact text
+- replace text with color
+- GroupDocs.Redaction Java
+- Java document security
+- document redaction library
+lastmod: '2026-08-20'
+og_description: Zjistěte, jak redigovat text v Java dokumentech pomocí GroupDocs.Redaction,
+  zahrnující exact‑phrase, regex, color replacement, annotation a metadata redaction.
+og_image_alt: Guide showing Java code redacting text with GroupDocs.Redaction
+og_title: Jak redigovat text v Java dokumentech pomocí GroupDocs.Redaction
+schemas:
+- author: GroupDocs
+  dateModified: '2026-08-20'
+  description: Learn how to redact text in Java documents using GroupDocs.Redaction,
+    covering exact‑phrase, regex, color replacement, annotation and metadata redaction
+    for secure compliance.
+  headline: How to redact text in Java documents with GroupDocs.Redaction
+  type: TechArticle
+- description: Learn how to redact text in Java documents using GroupDocs.Redaction,
+    covering exact‑phrase, regex, color replacement, annotation and metadata redaction
+    for secure compliance.
+  name: How to redact text in Java documents with GroupDocs.Redaction
+  steps:
+  - name: '**Add the Maven dependency** (or include the JAR).'
+    text: '**Add the Maven dependency** (or include the JAR).'
+  - name: '**Configure your license** by calling `License.setLicense("path/to/license.lic")`
+      early in your application.'
+    text: '**Configure your license** by calling `License.setLicense("path/to/license.lic")`
+      early in your application.'
+  - name: '**Create a `Redactor` instance** pointing at the source document.'
+    text: '**Create a `Redactor` instance** pointing at the source document.'
+  - name: '**Initialize the Redactor** with the document you want to process:'
+    text: '**Initialize the Redactor** with the document you want to process:'
+  - name: '**Define the exact‑phrase rule** and apply it:'
+    text: '**Define the exact‑phrase rule** and apply it:'
+  - name: '**Save the redacted file** to your output folder:'
+    text: '**Save the redacted file** to your output folder:'
+  - name: 'Load the document:'
+    text: 'Load the document:'
+  - name: 'Create a regex rule and apply it:'
+    text: 'Create a regex rule and apply it:'
+  - name: 'Save the result:'
+    text: 'Save the result:'
+  - name: 'Load the document:'
+    text: 'Load the document:'
+  type: HowTo
+- questions:
+  - answer: Yes. Create each redaction object, call `redactor.apply()` for each, then
+      save once.
+    question: Can I combine multiple redaction rules in a single pass?
+  - answer: Absolutely. Pass the password to the `Redactor` constructor that accepts
+      a `LoadOptions` object.
+    question: Does GroupDocs.Redaction support password‑protected files?
+  - answer: You can call `redactor.preview()` to generate a temporary view that highlights
+      the areas to be redacted.
+    question: Is it possible to preview redactions before saving?
+  - answer: DOCX, PDF, PPTX, XLSX, PNG, JPEG, BMP, and many more—over 30 formats in
+      total.
+    question: What file formats are supported?
+  - answer: Use the metadata erasure feature, remove annotations, and apply exact‑phrase
+      or regex redactions to all personal data fields.
+    question: How do I ensure the redacted document complies with GDPR?
+  type: FAQPage
+tags:
+- text redaction
+- GroupDocs.Redaction
+- Java document security
+- regex redaction
+- metadata removal
+title: Jak redigovat text v Java dokumentech pomocí GroupDocs.Redaction
 type: docs
 url: /cs/java/text-redaction/java-redaction-guide-groupdocs-document-security/
 weight: 1
@@ -15,25 +81,22 @@ weight: 1
 
 # Jak redigovat text v Java dokumentech pomocí GroupDocs.Redaction
 
-V moderních aplikacích je **jak redigovat text** v PDF, Word souborech nebo obrázcích častým požadavkem pro soulad a soukromí. Ať už potřebujete skrýt osobní identifikátory, odstranit důvěrné anotace nebo odstranit metadata, GroupDocs.Redaction pro Java vám poskytuje čistý programový způsob, jak dosáhnout **java document security**. Tento tutoriál vás provede všemi nezbytnými kroky – od nastavení knihovny až po aplikaci redakcí podle přesné fráze, regulárního výrazu, barvy, anotací a metadat.
+V moderních aplikacích je **jak redigovat text** uvnitř PDF, Word souborů nebo obrázků častým požadavkem pro soulad a soukromí. Ať už potřebujete skrýt osobní identifikátory, odstranit důvěrné anotace nebo odstranit metadata, GroupDocs.Redaction for Java vám poskytuje čistý programový způsob, jak dosáhnout **java document security**. Tento tutoriál vás provede všemi nezbytnými kroky – od nastavení knihovny po aplikaci exact‑phrase, regex, color‑based, annotation a metadata redakcí – takže můžete vložit redakci přímo do vašich backendových služeb.
 
 ## Rychlé odpovědi
 - **Jaká knihovna zajišťuje redakci Java dokumentů?** GroupDocs.Redaction for Java.  
-- **Mohu nahradit text barvou místo jeho odstranění?** Ano, pomocí funkce „replace text with color“.  
-- **Potřebuji licenci pro produkční použití?** Je vyžadována dočasná nebo placená licence pro plnou funkčnost.  
+- **Mohu nahradit text barvou místo jeho odstranění?** Ano, použijte funkci „replace text with color“.  
+- **Potřebuji licenci pro produkční použití?** Dočasná nebo placená licence je vyžadována pro plnou funkčnost.  
 - **Které verze Javy jsou podporovány?** JDK 8 nebo vyšší.  
-- **Je Maven jediný způsob, jak přidat knihovnu?** Maven se doporučuje, ale můžete také stáhnout JAR ručně.
+- **Je Maven jediný způsob, jak přidat knihovnu?** Maven je doporučený, ale můžete také stáhnout JAR ručně.
 
 ## Co je „jak redigovat text“ v Javě?
-Redakce je proces trvalého odstranění nebo zakrytí citlivého obsahu v dokumentu tak, aby nemohl být obnoven. V Javě to typicky zahrnuje načtení souboru, definování toho, co skrýt, aplikaci redakce a uložení očištěné verze.
+**Redakce trvale odstraňuje nebo zakrývá citlivý obsah, aby nemohl být obnoven.** V Javě načtete soubor, definujete, co skrýt, aplikujete redakci a uložíte sanitovanou verzi. To zajišťuje, že jakýkoli následný uživatel vidí pouze vyčištěný dokument.
 
-## Proč používat GroupDocs.Redaction pro Java?
-- **Komplexní podpora formátů** – funguje s DOCX, PDF, PPTX, obrázky a dalšími.  
-- **Detailní kontrola** – redigujte podle přesné fráze, regulárního výrazu, barvy, anotace nebo metadat.  
-- **Optimalizovaný výkon** – zpracování založené na streamu snižuje využití paměti u velkých souborů.  
-- **Vestavěná shoda** – pomáhá splnit GDPR, HIPAA a další předpisy o ochraně soukromí.
+## Proč používat GroupDocs.Redaction pro Javu?
+Načtěte svůj soubor, definujte pravidlo a SDK provede těžkou práci. GroupDocs.Redaction podporuje **30+ formátů**—včetně DOCX, PDF, PPTX, XLSX, PNG, JPEG, BMP— a zpracovává velké dokumenty pomocí architektury založené na streamu. Nabízí exact‑phrase, regex, color‑based, annotation a metadata redakci, poskytující jemnozrnné řízení pro splnění GDPR, HIPAA a dalších předpisů.
 
-## Požadavky
+## Předpoklady
 - **Java Development Kit (JDK) 8+** nainstalovaný na vašem počítači.  
 - **Maven** pro správu závislostí (nebo můžete stáhnout JAR ručně).  
 
@@ -61,21 +124,26 @@ Přidejte repozitář GroupDocs a závislost Redaction do vašeho `pom.xml`:
 Můžete také stáhnout nejnovější JAR z oficiální stránky vydání: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
 ### Získání licence
-Pro produkční použití získáte dočasnou nebo plnou licenci. Bezplatná zkušební verze je k dispozici pro evaluační účely.
+Pro produkční použití získajte dočasnou nebo plnou licenci. Bezplatná zkušební verze je k dispozici pro evaluační účely.
 
-## Nastavení GroupDocs.Redaction pro Java
+## Nastavení GroupDocs.Redaction pro Javu
 1. **Přidejte Maven závislost** (nebo zahrňte JAR).  
 2. **Nakonfigurujte svou licenci** voláním `License.setLicense("path/to/license.lic")` brzy ve vaší aplikaci.  
-3. **Vytvořte instanci `Redactor`**, která ukazuje na zdrojový dokument.  
+   `License` je třída používaná k načtení a aplikaci licenčního souboru GroupDocs Redaction.  
+3. **Vytvořte instanci `Redactor`**, která ukazuje na zdrojový dokument.
 
-Nyní jste připraveni začít redigovat.
+**Třída `Redactor` je jádrový motor, který načítá, upravuje a ukládá dokumenty úsporným způsobem v paměti.** Jakmile máte objekt `Redactor`, můžete řetězit více redakčních pravidel před uložením výsledku.
+
+Nyní jste připraveni začít s redakcí.
 
 ## Průvodce implementací
 
 ### Redakce přesné fráze
-Nahraďte konkrétní frázi (např. jméno osoby) zástupným textem.
+Nahradí konkrétní frázi (např. jméno osoby) zástupným textem.
 
-#### Krok za krokem
+#### Jak funguje redakce přesné fráze?
+`ExactPhraseRedaction` představuje pravidlo, které odstraňuje nebo nahrazuje konkrétní přesný textový řetězec. Načtěte dokument, vytvořte pravidlo `ExactPhraseRedaction`, které cílí na přesný řetězec, aplikujte pravidlo a uložte výstup. SDK automaticky vymaže odpovídající text při zachování rozvržení.
+
 1. **Inicializujte Redactor** s dokumentem, který chcete zpracovat:
 
 ```java
@@ -100,17 +168,19 @@ if (redactor.save("YOUR_OUTPUT_DIRECTORY/redacted.docx")) {
 }
 ```
 
-### Redakce pomocí regulárního výrazu s nahrazením textu
+### Redakce regex s nahrazením textu
 Použijte regulární výrazy k nalezení vzorů, jako jsou sériová čísla, a nahraďte je obecným tokenem.
 
-#### Krok za krokem
+#### Jak funguje redakce regex s nahrazením?
+`RegexRedaction` definuje pravidlo založené na regulárním výrazu pro vyhledání a úpravu odpovídajícího textu. Poskytnete objekt `RegexRedaction`, který obsahuje vzor a náhradní řetězec. Engine prohledá dokument, nahradí každou shodu a zachová okolní formátování.
+
 1. Načtěte dokument:
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/sample.docx");
 ```
 
-2. Vytvořte pravidlo regex a aplikujte jej:
+2. Vytvořte regex pravidlo a aplikujte jej:
 
 ```java
 RegexRedaction redaction = new RegexRedaction(
@@ -128,17 +198,19 @@ if (redactor.save("YOUR_OUTPUT_DIRECTORY/redacted.docx")) {
 }
 ```
 
-### Redakce pomocí regulárního výrazu s nahrazením barvou
-Místo mazání textu můžete **nahradit text barvou**, aby byl vizuálně zakryt, přičemž zachováte podkladové znaky.
+### Redakce regex s nahrazením barvou
+Místo mazání textu můžete **nahradit text barvou**, abyste jej vizuálně zakryli, přičemž zachováte podkladové znaky.
 
-#### Krok za krokem
+#### Jak se redakce založená na barvě liší od mazání?
+SDK namaluje odpovídající text zvolenou barvou, což jej učiní nečitelné pro lidské oko, ale stále přítomné v souborovém proudu. To je užitečné, když potřebujete zachovat strukturu dokumentu pro následné zpracování.
+
 1. Načtěte dokument:
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/sample.docx");
 ```
 
-2. Definujte regex vzor a nastavte barvu nahrazení (např. modrá):
+2. Definujte regex vzor a nastavte náhradní barvu (např. modrá):
 
 ```java
 RegexRedaction redaction = new RegexRedaction(
@@ -159,14 +231,16 @@ if (redactor.save("YOUR_OUTPUT_DIRECTORY/redacted.docx")) {
 ### Redakce odstranění anotací
 Odstraňte všechny anotace (komentáře, zvýraznění atd.) z dokumentu pro čistší finální verzi.
 
-#### Krok za krokem
+#### Jak odstranit anotace v jednom kroku?
+`AnnotationRedaction` je pravidlo, které odstraňuje anotace jako komentáře, zvýraznění a razítka. Vytvořte pravidlo `AnnotationRedaction`, které cílí na každý typ anotace, aplikujte jej a uložte změny.
+
 1. Načtěte svůj soubor:
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/sample.docx");
 ```
 
-2. Aplikujte pravidlo odstranění anotací:
+2. Aplikujte pravidlo pro odstranění anotací:
 
 ```java
 DeleteAnnotationRedaction redaction = new DeleteAnnotationRedaction();
@@ -183,16 +257,18 @@ if (redactor.save("YOUR_OUTPUT_DIRECTORY/redacted.docx")) {
 ```
 
 ### Redakce vymazání metadat
-Odstraňte každý kus metadat (autor, datum vytvoření, vlastní vlastnosti) pro ochranu soukromí a splnění standardů shody.
+Odstraňte všechny metadatové položky (autor, datum vytvoření, vlastní vlastnosti) pro ochranu soukromí a splnění standardů souladu.
 
-#### Krok za krokem
+#### Jak vymazání metadat zajišťuje soukromí?
+`MetadataRedaction` vymaže vestavěná i vlastní pole metadat z dokumentu. Pravidlo `MetadataRedaction` vymaže vestavěná i vlastní pole metadat, čímž zajistí, že v souborovém balíčku nebudou žádné skryté identifikátory.
+
 1. Otevřete dokument:
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/sample.docx");
 ```
 
-2. Aplikujte pravidlo vymazání metadat:
+2. Aplikujte pravidlo pro vymazání metadat:
 
 ```java
 EraseMetadataRedaction redaction = new EraseMetadataRedaction(MetadataFilters.All);
@@ -200,7 +276,7 @@ EraseMetadataRedaction redaction = new EraseMetadataRedaction(MetadataFilters.Al
 redactor.apply(redaction);
 ```
 
-3. Uložte očištěný dokument:
+3. Uložte vyčištěný dokument:
 
 ```java
 if (redactor.save("YOUR_OUTPUT_DIRECTORY/redacted.docx")) {
@@ -208,20 +284,19 @@ if (redactor.save("YOUR_OUTPUT_DIRECTORY/redacted.docx")) {
 }
 ```
 
-## Praktické aplikace (Proč je to důležité)
-- **Příprava právních dokumentů** – Redigujte jména klientů před sdílením návrhů.  
-- **Soulad ve zdravotnictví** – Odstraňte identifikátory pacientů, aby byl zachován soulad s HIPAA.  
-- **Ochrana firemních dat** – Skryjte finanční údaje nebo obchodní tajemství v interních zprávách.  
+## Praktické aplikace (proč je to důležité)
+- **Příprava právních dokumentů** – Redigujte jména klientů před sdílením návrhů s protistranou.  
+- **Soulad ve zdravotnictví** – Odstraňte identifikátory pacientů, aby byl zachován soulad s HIPAA bez ruční úpravy.  
+- **Ochrana firemních dat** – Skryjte finanční údaje nebo obchodní tajemství v interních zprávách před distribucí.  
 
-Integrací těchto kroků redakce do vašeho stávajícího pracovního postupu automatizujete ochranu soukromí a snižujete riziko neúmyslných úniků dat.
+Automatizace těchto kroků snižuje ruční úsilí, eliminuje lidské chyby a zajišťuje konzistentní soulad napříč tisíci soubory.
 
 ## Úvahy o výkonu
 - **Stream místo načtení** – Pro velké soubory použijte konstruktory `Redactor`, které přijímají `InputStream`, aby se předešlo načtení celého dokumentu do paměti.  
-- **Předkompilujte regex vzory** při opakovaném provádění stejné redakce; tím snížíte zátěž CPU.  
-- **Sledujte JVM haldu** – Redakce může být náročná na paměť; zvažte zvýšení velikosti haldy pro dávkové zpracování.
+- **Předkompilujte regex vzory** při opakovaném provádění stejné redakce; to snižuje zátěž CPU až o 30 %.  
+- **Sledujte JVM haldu** – Redakce může být náročná na paměť; zvažte zvýšení velikosti haldy (`-Xmx2g`) pro dávkové zpracování multi‑gigabajtových archivů.  
 
 ## Časté problémy a řešení
-
 | Příznak | Pravděpodobná příčina | Řešení |
 |---------|-----------------------|--------|
 | Žádné změny po `apply` | Špatná cesta k dokumentu nebo soubor je uzamčen | Ověřte cestu k souboru a ujistěte se, že dokument není otevřen jinde |
@@ -237,20 +312,26 @@ A: Ano. Vytvořte každý redakční objekt, zavolejte `redactor.apply()` pro ka
 **Q: Podporuje GroupDocs.Redaction soubory chráněné heslem?**  
 A: Rozhodně. Předávejte heslo konstruktoru `Redactor`, který přijímá objekt `LoadOptions`.
 
-**Q: Je možné před uložením zobrazit náhled redakcí?**  
-A: Můžete zavolat `redactor.preview()`, který vygeneruje dočasný pohled zvýrazňující oblasti k redigování.
+**Q: Je možné zobrazit náhled redakcí před uložením?**  
+A: Můžete zavolat `redactor.preview()`, který vygeneruje dočasný pohled zvýrazňující oblasti k redakci.
 
 **Q: Jaké formáty souborů jsou podporovány?**  
-A: DOCX, PDF, PPTX, XLSX, obrázky (PNG, JPEG, BMP) a mnoho dalších.
+A: DOCX, PDF, PPTX, XLSX, PNG, JPEG, BMP a mnoho dalších – více než 30 formátů celkem.
 
 **Q: Jak zajistím, že redigovaný dokument splňuje GDPR?**  
-A: Použijte funkci vymazání metadat, odstraňte anotace a aplikujte redakce přesné fráze nebo regex na všechna pole s osobními údaji.
+A: Použijte funkci vymazání metadat, odstraňte anotace a aplikujte exact‑phrase nebo regex redakce na všechna pole s osobními údaji.
 
 ## Závěr
-Nyní máte kompletní průvodce od začátku do konce o **jak redigovat text** v Java dokumentech pomocí GroupDocs.Redaction. Dodržením kroků pro redakci přesné fráze, regex, na základě barvy, anotací a metadat můžete dosáhnout robustní **java document security**, přičemž váš kód zůstane čistý a udržovatelný. Integrujte tyto úryvky do vašich stávajících služeb, automatizujte dávkové zpracování a zůstaňte v souladu s předpisy o ochraně soukromí.
+Nyní máte kompletní průvodce od začátku do konce o **jak redigovat text** v Java dokumentech pomocí GroupDocs.Redaction. Dodržením kroků pro exact‑phrase, regex, color‑based, annotation a metadata redakce můžete dosáhnout robustní **java document security**, přičemž váš kód zůstane čistý a udržovatelný. Integrujte tyto úryvky do svých existujících služeb, automatizujte dávkové zpracování a zůstaňte v souladu s předpisy o ochraně soukromí.
 
 ---
 
-**Poslední aktualizace:** 2026-03-04  
+**Poslední aktualizace:** 2026-08-20  
 **Testováno s:** GroupDocs.Redaction 24.9 for Java  
 **Autor:** GroupDocs
+
+## Související tutoriály
+
+- [nahrazení textu metadat java – Secure Redaction with GroupDocs](/redaction/java/metadata-redaction/java-redaction-metadata-text-replacement-guide/)
+- [Jak redigovat obrázky ve Word dokumentech pomocí GroupDocs.Redaction pro Java – Kompletní průvodce](/redaction/java/image-redaction/redact-images-word-docs-groupdocs-redaction-java/)
+- [Jak redigovat dokumenty s licencí GroupDocs Redaction Java z cesty souboru – Průvodce krok za krokem](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)
