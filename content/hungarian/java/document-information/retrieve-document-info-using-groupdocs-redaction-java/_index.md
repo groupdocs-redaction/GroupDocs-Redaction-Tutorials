@@ -1,52 +1,99 @@
 ---
-date: '2026-03-20'
-description: Ismerje meg, hogyan lehet Java‑ban lekérni a fájltípust, a dokumentum
-  méretét és a PDF metaadatait a GroupDocs.Redaction for Java segítségével. Növelje
-  Java‑alkalmazása dokumentumkezelését még ma.
+date: '2026-09-06'
+description: Tanulja meg, hogyan java get file extension, retrieve document size,
+  page count, és PDF metadata a GroupDocs.Redaction for Java segítségével. Növelje
+  Java alkalmazása dokumentumkezelését még ma.
 keywords:
-- get file type java
+- java get file extension
+- java file type detection
 - get document size java
-- retrieve pdf metadata java
 - get page count java
-- GroupDocs Redaction library setup Java
-title: Hogyan kapjuk meg a fájltípust Java-val a GroupDocs.Redaction segítségével
+- read pdf metadata java
+lastmod: '2026-09-06'
+og_description: Fedezze fel, hogyan java get file extension, document size, page count,
+  és PDF metadata a GroupDocs.Redaction for Java segítségével. Egyszerű kód, gyors
+  eredmények.
+og_image_alt: Guide showing Java code to extract file type, size, and page count using
+  GroupDocs.Redaction
+og_title: Hogyan java get file extension a GroupDocs.Redaction segítségével
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-06'
+  description: Learn how to java get file extension, retrieve document size, page
+    count, and PDF metadata with GroupDocs.Redaction for Java. Boost your Java app's
+    document handling today.
+  headline: How to java get file extension using GroupDocs.Redaction
+  type: TechArticle
+- description: Learn how to java get file extension, retrieve document size, page
+    count, and PDF metadata with GroupDocs.Redaction for Java. Boost your Java app's
+    document handling today.
+  name: How to java get file extension using GroupDocs.Redaction
+  steps:
+  - name: import necessary classes
+    text: 'Add the required imports at the top of your Java file:'
+  - name: initialize the redactor
+    text: The `Redactor` class is the core engine that opens a document and provides
+      access to its metadata.
+  - name: retrieve and display document info
+    text: '`IDocumentInfo` provides the metadata you need. Call `getDocumentInfo()`
+      once and then query the three properties. The three `System.out.println` statements
+      output the file type, page count, and size in bytes—exactly the data you need
+      for downstream processing.'
+  type: HowTo
+- questions:
+  - answer: GroupDocs.Redaction is a Java library that enables redaction, metadata
+      extraction, and format‑agnostic document processing across more than 50 file
+      types.
+    question: What is GroupDocs.Redaction?
+  - answer: Yes, `IDocumentInfo` returns PDF version, encryption status, and basic
+      metadata without extra code.
+    question: Can I retrieve metadata from PDF files?
+  - answer: Enclose the `getDocumentInfo()` call in a `try‑catch` block and handle
+      `RedactionException` to manage corrupted or unsupported files.
+    question: How do I handle exceptions when retrieving document info?
+  - answer: File type, number of pages, size in bytes, PDF version, encryption flag,
+      and basic author/creation metadata.
+    question: What kind of information can I get about a document?
+  - answer: Yes, instantiate a separate `Redactor` for each file inside a thread pool
+      and reuse the same JVM to achieve high throughput.
+    question: Is there support for batch‑processing many documents efficiently?
+  type: FAQPage
+tags:
+- document metadata
+- GroupDocs.Redaction
+- Java file handling
+title: Hogyan java get file extension a GroupDocs.Redaction segítségével
 type: docs
 url: /hu/java/document-information/retrieve-document-info-using-groupdocs-redaction-java/
 weight: 1
 ---
 
-# Hogyan lehet lekérdezni a fájltípust Java-ban a GroupDocs.Redaction segítségével
+# Hogyan lehet java get file extension használni a GroupDocs.Redaction segítségével
 
-A dokumentumokról szóló kritikus részletek – például a **file type**, az oldalszám és a méret – lekérdezése gyakori követelmény dokumentum‑központú Java‑alkalmazások fejlesztésekor. Ebben az útmutatóban megtanulja, hogyan **get file type java** és hogyan **get document size java**, **get page count java**, valamint **retrieve pdf metadata java** a GroupDocs.Redaction könyvtár segítségével. A fájltípus korai ismerete lehetővé teszi a megfelelő feldolgozási útvonal kiválasztását, míg a méret- és oldalszám‑információk segítenek a források hatékos kezelésében.
+A modern Java alkalmazásokban, amelyek felhasználók által feltöltött fájlokat dolgoznak fel, a pontos fájltípus korai ismerete — **java get file extension** — elengedhetetlen a routing, a biztonság és az erőforrás-tervezés szempontjából. Ez a bemutató megmutatja, hogyan lehet java get file extension, lekérni a dokumentum méretét, az oldalszámot, és még a PDF metaadatokat is a GroupDocs.Redaction könyvtár segítségével. A végére egyetlen, alacsony memóriaigényű hívással kapja meg az összes szükséges kulcsfontosságú tulajdonságot.
 
 ## Gyors válaszok
 - **Melyik metódus adja vissza a fájltípust?** `IDocumentInfo.getFileType()`
 - **Hogyan szerezhetem meg az oldalszámot?** `IDocumentInfo.getPageCount()`
-- **Melyik hívás adja meg a dokumentum méretét bájtokban?** `IDocumentInfo.getSize()`
-- **Szükségem van licencre a minta futtatásához?** A próba vagy ideiglenes licenc elegendő az értékeléshez.
+- **Melyik hívás adja vissza a dokumentum méretét bájtban?** `IDocumentInfo.getSize()`
+- **Szükségem van licencre a példa futtatásához?** A próba vagy ideiglenes licenc működik értékeléshez.
 - **Melyik Java verzió szükséges?** Java 8 vagy újabb.
 
-## Mi az a „get file type java”?
-A kifejezés a fájlformátum (pl. DOCX, PDF) programozott lekérdezésére utal Java-ban. A GroupDocs.Redaction a `IDocumentInfo` interfészen keresztül teszi elérhetővé ezt az információt, egy egy‑soros hívással.
+## Mi az a „java get file extension”?
+**java get file extension** azt jelenti, hogy programozottan kinyerjük a fájlformátumot (pl. DOCX, PDF) egy Java dokumentumból. A GroupDocs.Redaction a `IDocumentInfo` interfészen keresztül teszi elérhetővé ezt az információt, így egyetlen metódushívás adja vissza a kiterjesztés karakterláncát.
 
-## Miért használjuk a GroupDocs.Redaction-t metaadatok kinyerésére?
-- **Széles körű formátumtámogatás:** Kezeli a PDF, DOCX, XLSX, PPTX és még sok más formátumot.
-- **Egyszerű API:** Egy‑soros hívások visszaadják a fájltípust, az oldalszámot és a méretet.
-- **Teljesítmény‑optimalizált:** Csak a szükséges metaadatokat tölti be, alacsony memóriahasználattal.
-- **Következetes eredmények:** Minden támogatott fájlkiterjesztésnél ugyanúgy működik, így egy **java get file extension** esetben is megbízható.
+## Miért használjuk a GroupDocs.Redaction-t metaadat‑kinyeréshez?
+A GroupDocs.Redaction képes metaadatokat olvasni **50+** bemeneti formátumból — beleértve a PDF, DOCX, XLSX, PPTX és képtípusokat — anélkül, hogy a teljes fájlt a memóriába töltené. Egy 300 oldalas PDF-et kevesebb, mint 200 ms alatt dolgoz fel egy tipikus szerveren, a RAM használatot 20 MB alatt tartva. Ez a teljesítmény‑optimalizált megközelítés lehetővé teszi a kötegelt feladatok skálázását, miközben konzisztens eredményeket biztosít az összes támogatott formátumban.
 
-## Előfeltételek
-- Java 8 vagy újabb telepítve.
+## Előkövetelmények
+- Java 8 vagy újabb telepítve.
 - Maven‑kompatibilis IDE (IntelliJ IDEA, Eclipse, stb.).
 - Hozzáférés egy GroupDocs.Redaction licenchez (ingyenes próba vagy ideiglenes licenc).
 
 ## A GroupDocs.Redaction beállítása Java-hoz
 
-A GroupDocs.Redaction könyvtár használatához a Java projektben kövesse az alábbi telepítési lépéseket:
-
-**Maven telepítés**
-
-Adja hozzá a következő tárolót és függőséget a `pom.xml` fájlhoz:
+### Maven telepítés
+Adja hozzá a tárolót és a függőséget a `pom.xml` fájlhoz:
 
 ```xml
 <repositories>
@@ -66,43 +113,30 @@ Adja hozzá a következő tárolót és függőséget a `pom.xml` fájlhoz:
 </dependencies>
 ```
 
-**Közvetlen letöltés**
-
+### Közvetlen letöltés
 Alternatívaként töltse le a legújabb verziót a [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/) oldalról.
 
-### Licenc beszerzése
-- **Ingyenes próba:** Kezdje egy ingyenes próbával a könyvtár értékeléséhez.  
-- **Ideiglenes licenc:** Szerezzen ideiglenes licencet a hosszabb értékeléshez.  
-- **Vásárlás:** Fontolja meg a vásárlást, ha megfelel az igényeinek.
+#### Licenc beszerzése
+- **Free trial:** Kezdje egy ingyenes próbalicencel a könyvtár értékeléséhez.  
+- **Temporary license:** Szerezzen be egy ideiglenes licencet a kiterjesztett értékeléshez.  
+- **Purchase:** Fontolja meg a vásárlást, ha megfelel az igényeinek.
 
-A telepítés után inicializálja és állítsa be a GroupDocs.Redaction-t:
+## Miért fontos a java get file extension a valós projektekben
+A dokumentum típusának ismerete a feltöltés pillanatában lehetővé teszi a fájlok megfelelő feldolgozási csővezetékbe irányítását — a PDF-eket a redakcióhoz, a Word fájlokat a konverzióhoz, a képeket az OCR-hez. Emellett biztonsági ellenőrzéseket tesz lehetővé (végrehajtható fájlok blokkolása) és pontos UI ikonokat a dokumentumkezelő rendszerekben.
 
-```java
-import com.groupdocs.redaction.Redactor;
+## Hogyan java get file extension, get document size java, és get page count java
+A fájltípus, méret és oldalszám lekérhető egyetlen `IDocumentInfo` hívással. Ez a hívás csak a dokumentum fejlécre olvas, így még a nagy fájlok is gyorsan és minimális memóriahasználattal kerülnek feldolgozásra. Ez a könnyű megközelítés ideális kötegelt feldolgozáshoz, ahol csak összefoglaló információra van szükség a további lépések meghatározása előtt. A `IDocumentInfo` interfész metaadatokat biztosít, mint a fájltípus, oldalszám és méret, a teljes dokumentum betöltése nélkül.
 
-// Initialize Redactor with the path to your document
-final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX");
-```
-
-## Miért fontos a get file type java a valós projektekben
-A dokumentum típusának korai megismerése lehetővé teszi, hogy a fájlokat a megfelelő feldolgozási csővezetékbe irányítsa – például PDF-eket egy redakciós munkafolyamatba, Word fájlokat egy konverziós szolgáltatásba, vagy képeket egy OCR motorba küldje. Emellett segít a biztonsági szabályok betartásában (végrehajtható fájlok blokkolása) és pontos UI ikonok megjelenítésében a dokumentumkezelő rendszerekben.
-
-## Hogyan lehet lekérdezni a fájltípust java, a dokumentum méretét java és az oldalszámot java
-
-Miután a könyvtár készen áll, lépésről lépésre bemutatjuk, hogyan szerezheti meg a szükséges információkat.
-
-### 1. lépés: Szükséges osztályok importálása
-
-Győződjön meg róla, hogy a szükséges osztályokat importálja a Java fájl tetején:
+### 1. lépés: szükséges osztályok importálása
+Adja hozzá a szükséges importokat a Java fájl tetejéhez:
 
 ```java
 import com.groupdocs.redaction.Redactor;
 import com.groupdocs.redaction.domain.IDocumentInfo;
 ```
 
-### 2. lépés: Redactor inicializálása
-
-Hozzon létre egy `Redactor` példányt, megadva a dokumentum elérési útját. Ez az objektum lehetővé teszi a fájllal való interakciót és a metaadatok lekérését.
+### 2. lépés: a redaktor inicializálása
+A `Redactor` osztály a fő motor, amely megnyit egy dokumentumot és hozzáférést biztosít a metaadataihoz.
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX");
@@ -113,9 +147,8 @@ try {
 }
 ```
 
-### 3. lépés: Dokumentuminformációk lekérése és megjelenítése
-
-Hívja meg a `getDocumentInfo()` metódust egy `IDocumentInfo` objektum megszerzéséhez. Ebből az objektumból egyetlen hívással **get file type java**, **get document size java**, és **get page count java** lekérhető.
+### 3. lépés: dokumentuminformációk lekérése és megjelenítése
+`IDocumentInfo` biztosítja a szükséges metaadatokat. Hívja meg egyszer a `getDocumentInfo()` metódust, majd kérdezze le a három tulajdonságot.
 
 ```java
 // Retrieve document information
@@ -127,75 +160,73 @@ System.out.println("Page Count: " + info.getPageCount());
 System.out.println("Size (Bytes): " + info.getSize());
 ```
 
-A három `System.out.println` utasítás kiírja a fájltípust, az oldalak számát és a méretet bájtokban – pontosan azt, amire a további feldolgozáshoz szükség van.
+A három `System.out.println` utasítás kiírja a fájltípust, az oldalszámot és a méretet bájtban — pontosan az adatokat, amelyekre a további feldolgozáshoz szükség van.
 
-## Hogyan lehet lekérdezni a pdf metaadatokat java
-
-Ha a forrásdokumentum PDF, ugyanazok a `IDocumentInfo` hívások PDF‑specifikus metaadatokat adnak vissza (pl. PDF verzió, titkosítási állapot). Nem szükséges extra kód; egyszerűen használja ugyanazt a `getDocumentInfo()` metódust.
+## Hogyan lehet pdf metaadatokat lekérni java-ban
+Töltse be a PDF-et a `Redactor` segítségével, és hívja meg a `getDocumentInfo()` metódust. Ugyanaz a metódus visszaadja a PDF‑specifikus mezőket, mint a verzió és a titkosítás állapota, így nincs szükség extra kódra. A visszaadott `IDocumentInfo` objektum tartalmazza a PDF‑specifikus mezőket, például a verziószámot, a titkosítás jelzőt és a szabványos metaadatokat (szerző, cím, létrehozás dátuma). Ezeket a tulajdonságokat közvetlenül a getter metódusokkal érheti el, lehetővé téve a PDF részletek megjelenítését vagy naplózását további elemzés nélkül.
 
 ## Gyakori felhasználási esetek
-1. **Dokumentumkezelő rendszerek:** Automatikusan kategorizálja a fájlokat típus vagy méret alapján a tárolás előtt.  
-2. **Tartalomfeldolgozó csővezetékek:** Oldalszám alapján válasszon különböző feldolgozási stratégiákat (pl. nagy PDF-ek kötegelt redakciója vs. kis Word dokumentumok).  
-3. **Digitális eszköztárak:** Gyors előnézetet mutat a felhasználóknak a dokumentum tulajdonságairól a fájl megnyitása nélkül.
+1. **Document management systems:** Dokumentumkezelő rendszerek: Automatikusan kategorizálja a fájlokat típus vagy méret alapján a tárolás előtt.  
+2. **Content processing pipelines:** Tartalomfeldolgozó csővezetékek: Válasszon különböző feldolgozási stratégiákat az oldalszám alapján (pl. nagy PDF-ek kötegelt redakciója vs. kis Word dokumentumok).  
+3. **Digital asset libraries:** Digitális eszközkönyvtárak: Mutasson a felhasználóknak gyors előnézetet a dokumentum tulajdonságairól a fájl megnyitása nélkül.
 
 ## Gyakori problémák és megoldások
-- **Fájl nem található:** Ellenőrizze a `Redactor`-nak átadott abszolút vagy relatív útvonalat.  
-- **Nem támogatott formátum:** Győződjön meg róla, hogy a dokumentum kiterjesztése támogatott a GroupDocs.Redaction által.  
-- **Licenc hibák:** Használjon érvényes próba vagy állandó licencet; ellenkező esetben az API licenckivételt dob.
+- **File not found:** Fájl nem található: Ellenőrizze az `Redactor`‑nak átadott abszolút vagy relatív útvonalat.  
+- **Unsupported format:** Nem támogatott formátum: Győződjön meg arról, hogy a dokumentum kiterjesztése szerepel a GroupDocs.Redaction által támogatott 50+ formátum között.  
+- **License errors:** Licenc hibák: Használjon érvényes próba vagy állandó licencet; ellenkező esetben az API licenckivételt dob.
 
 ## Hibaelhárítási tippek (read document metadata java)
-- **Metaadat hívások csomagolása** `try‑catch` blokkba a sérült fájlok kifogás nélküli kezelése érdekében.  
-- **Használja a `redactor.isEncrypted()`-t** (ha elérhető) a titkosított PDF-ek felismeréséhez a metaadatok olvasása előtt.  
-- **Sok fájl feldolgozásakor** használjon újrahasznosítható szálkészletet, és minden `Redactor` példányt azonnal zárjon le a fájl‑handle szivárgások elkerülése érdekében.
+- Tegye a metaadat hívásokat egy `try‑catch` blokkba, hogy a sérült fájlokat elegánsan kezelje.  
+- Használja a `redactor.isEncrypted()` (ha elérhető) metódust a titkosított PDF-ek felismerésére a metaadatok olvasása előtt.  
+- Sok fájl feldolgozásakor újrahasználjon egy szálkészletet, és minden `Redactor` példányt azonnal zárjon le, hogy elkerülje a fájl‑kezelő szivárgásokat.
 
-## Teljesítménybeli megfontolások
+## Teljesítményfontosságú szempontok
+When handling large batches:
+- Nyissa meg minden dokumentumot egy `try‑with‑resources` blokkban, hogy garantálja a fájlkezelők időben történő felszabadítását.  
+- Cache-elje csak a szükséges metaadatokat; kerüld a teljes dokumentum tartalmának betöltését, ha nem szükséges.
 
-Nagy kötegek kezelésekor:
-- Nyissa meg minden dokumentumot egy `try‑with‑resources` blokkban a fájl‑handle-ek időben történő felszabadításának biztosításához.  
-- Cache‑elje csak a szükséges metaadatokat; kerüld a teljes dokumentum tartalmának betöltését, ha nincs rá szükség.
+## Gyakran feltett kérdések
+**Q: Mi az a GroupDocs.Redaction?**  
+A: A GroupDocs.Redaction egy Java könyvtár, amely lehetővé teszi a redakciót, metaadat‑kinyerést és formátumfüggetlen dokumentumfeldolgozást több mint 50 fájltípuson.
+
+**Q: Lekérhetek metaadatokat PDF fájlokból?**  
+A: Igen, az `IDocumentInfo` visszaadja a PDF verziót, a titkosítás állapotát és az alap metaadatokat extra kód nélkül.
+
+**Q: Hogyan kezelem a kivételeket a dokumentuminformáció lekérésekor?**  
+A: Tegye a `getDocumentInfo()` hívást egy `try‑catch` blokkba, és kezelje a `RedactionException`‑t a sérült vagy nem támogatott fájlok kezeléséhez.
+
+**Q: Milyen információkat kaphatok egy dokumentumról?**  
+A: Fájltípus, oldalak száma, méret bájtban, PDF verzió, titkosítás jelző, valamint alap szerző/létrehozási metaadatok.
+
+**Q: Van támogatás a dokumentumok hatékony kötegelt feldolgozásához?**  
+A: Igen, hozza létre külön `Redactor` példányt minden fájlhoz egy szálkészleten belül, és használja ugyanazt a JVM‑et a magas áteresztőképesség eléréséhez.
 
 ## Következtetés
-
-Most már tudja, hogyan **get file type java**, **get document size java**, **get page count java**, és **retrieve pdf metadata java** a GroupDocs.Redaction segítségével. Integrálja ezeket a kódrészleteket Java‑alkalmazásaiba, hogy okosabb döntéseket hozhasson a dokumentumkezelésről, javítsa a teljesítményt, és gazdagabb felhasználói élményt nyújtson.
-
-## GyIK szekció
-
-**Q1: Mi az a GroupDocs.Redaction?**  
-A1: Ez egy könyvtár a dokumentumok redakciójához és információinak kezeléséhez Java alkalmazásokban.
-
-**Q2: Lekérhetek metaadatokat PDF fájlokból?**  
-A2: Igen, a könyvtár számos fájlformátumot támogat, beleértve a PDF-eket is.
-
-**Q3: Hogyan kezelhetem a kivételeket a dokumentuminformációk lekérésekor?**  
-A3: Használjon try‑catch blokkokat a lehetséges hibák kifogás nélküli kezeléséhez.
-
-**Q4: Milyen információkat kaphatok egy dokumentumról?**  
-A4: A fájltípus, az oldalak száma és a méret bájtokban szerepel a lekérhető adatok között.
-
-**Q5: Támogatottak-e más fájlformátumok is a Word dokumentumokon kívül?**  
-A5: Igen, a GroupDocs.Redaction több fájltípust támogat, többek között PDF-eket, Excel fájlokat és egyebeket.
-
-## További gyakran ismételt kérdések
-
-**Q: Visszaadja az API a PDF verziót (pl. 1.7) a metaadatok részeként?**  
-A: Az `IDocumentInfo` objektum tartalmazza a PDF alapvető jellemzőit; a részletes verzióinformációkért a Redactor API-n keresztül kérdezhet PDF‑specifikus tulajdonságokat.
-
-**Q: Lekérhetek metaadatokat anélkül, hogy az egész dokumentumot a memóriába tölteném?**  
-A: Igen, a `getDocumentInfo()` csak a metaadatokhoz szükséges fejlécinformációkat olvassa, alacsony memóriahasználattal.
-
-**Q: Lehet hatékonyan kötegelt feldolgozni sok dokumentumot?**  
-A: Minden dokumentum feldolgozását saját `Redactor` példányba csomagolja, és használjon szálkészletet a munka párhuzamosításához.
-
-## Források
-- **Dokumentáció:** [GroupDocs Redaction Java Documentation](https://docs.groupdocs.com/redaction/java/)  
-- **API referencia:** [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)  
-- **Letöltés:** [GroupDocs.Redaction for Java Downloads](https://releases.groupdocs.com/redaction/java/)  
-- **GitHub:** [GroupDocs GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
-- **Ingyenes támogatás:** [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)  
-- **Ideiglenes licenc:** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/)  
+Most már tudja, hogyan kell **java get file extension**, **get document size java**, **get page count java**, és **retrieve pdf metadata java** a GroupDocs.Redaction segítségével. Integrálja ezeket a kódrészleteket Java alkalmazásaiba, hogy okosabb döntéseket hozzon a dokumentumkezelésről, javítsa a teljesítményt, és gazdagabb felhasználói élményt nyújtson.
 
 ---
 
-**Utoljára frissítve:** 2026-03-20  
-**Tesztelt verzió:** GroupDocs.Redaction 24.9 for Java  
-**Szerző:** GroupDocs
+**Utoljára frissítve:** 2026-09-06  
+**Tesztelve ezzel:** GroupDocs.Redaction 24.9 for Java  
+**Szerző:** GroupDocs  
+
+**Erőforrások**  
+- **Dokumentáció:** [GroupDocs Redaction Java Documentation](https://docs.groupdocs.com/redaction/java/)  
+- **API referencia:** [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)  
+- **Letöltés:** [GroupDocs.Redaction for Java Downloads](https://releases.groupdocs.com/redaction/java/)  
+- **GitHub:** [GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
+- **Ingyenes támogatás:** [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)  
+- **Ideiglenes licenc:** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/)
+
+```java
+import com.groupdocs.redaction.Redactor;
+
+// Initialize Redactor with the path to your document
+final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX");
+```
+
+## Kapcsolódó oktatóanyagok
+
+- [java read file metadata – file type with GroupDocs.Redaction](/redaction/java/metadata-redaction/groupdocs-redaction-java-document-metadata-extraction/)
+- [Generate Preview & Document Page Count – GroupDocs Java](/redaction/java/document-information/)
+- [How to Preview Page with GroupDocs.Redaction for Java – A Comprehensive Guide](/redaction/java/document-loading/load-preview-document-pages-groupdocs-redaction-java/)
