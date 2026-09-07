@@ -291,10 +291,3 @@ A: 核心 API 為同步，但您可將呼叫包裝於 Java `CompletableFuture`�
 - [使用 GroupDocs.Redaction 於 Java 載入文件頁面預覽](/redaction/java/document-loading/)
 - [Mask Sensitive Data Java – GroupDocs.Redaction 指南](/redaction/java/getting-started/)
 
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

@@ -70,10 +70,6 @@ url: /es/java/advanced-redaction/java-redaction-groupdocs-guide/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Redactar datos sensibles en Java con GroupDocs.Redaction
 
 **GroupDocs.Redaction** es una biblioteca Java que elimina programáticamente información confidencial de más de 70 formatos de documento mientras mantiene intacto el diseño original. En este tutorial aprenderá cómo **redactar datos sensibles** en aplicaciones Java, aplicar una política de redacción a un lote de archivos y guardar los resultados sin perder el formato.
@@ -284,8 +280,3 @@ Siguiendo esta guía, puede redactar de forma segura **datos sensibles** de docu
 - [Enmascarar datos sensibles Java – Guía de GroupDocs.Redaction](/redaction/java/getting-started/)
 - [Cómo redactar texto en documentos Java con GroupDocs.Redaction](/redaction/java/text-redaction/java-redaction-guide-groupdocs-document-security/)
 
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

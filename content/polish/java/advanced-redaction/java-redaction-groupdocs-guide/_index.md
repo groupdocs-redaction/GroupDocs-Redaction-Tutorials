@@ -70,10 +70,6 @@ url: /pl/java/advanced-redaction/java-redaction-groupdocs-guide/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Ukryj wrażliwe dane w Javie przy użyciu GroupDocs.Redaction
 
 **GroupDocs.Redaction** jest biblioteką Java, która programowo usuwa poufne informacje z ponad 70 formatów dokumentów, zachowując oryginalny układ. W tym samouczku dowiesz się, jak **ukrywać wrażliwe dane** w aplikacjach Java, zastosować politykę redakcji do partii plików i zapisać wyniki bez utraty formatowania.
@@ -284,8 +280,3 @@ Stosując się do tego przewodnika, możesz bezpiecznie **ukrywać wrażliwe dan
 - [Maskowanie wrażliwych danych Java – przewodnik GroupDocs.Redaction](/redaction/java/getting-started/)
 - [Jak redagować tekst w dokumentach Java przy użyciu GroupDocs.Redaction](/redaction/java/text-redaction/java-redaction-guide-groupdocs-document-security/)
 
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

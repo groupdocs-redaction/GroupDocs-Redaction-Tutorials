@@ -296,9 +296,3 @@ Bis hierhin sollten Sie ein solides Verständnis dafür haben, wie man **impleme
 - [Vorschau von Dokumentseiten Java Laden mit GroupDocs.Redaction](/redaction/java/document-loading/)
 - [Sensiblen Daten maskieren Java – GroupDocs.Redaction Leitfaden](/redaction/java/getting-started/)
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

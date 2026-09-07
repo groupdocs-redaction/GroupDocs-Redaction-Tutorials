@@ -69,10 +69,6 @@ url: /th/java/advanced-redaction/java-redaction-groupdocs-guide/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # ลบข้อมูลที่ละเอียดอ่อนใน Java ด้วย GroupDocs.Redaction
 
 **GroupDocs.Redaction** เป็นไลบรารี Java ที่ลบข้อมูลลับจากรูปแบบเอกสารกว่า 70 แบบโดยอัตโนมัติ พร้อมรักษาเค้าโครงเดิมไว้ไม่เปลี่ยนแปลง ในบทแนะนำนี้คุณจะได้เรียนรู้วิธี **ลบข้อมูลที่ละเอียดอ่อน** ในแอปพลิเคชัน Java, ใช้นโยบายการลบข้อมูลกับชุดไฟล์, และบันทึกผลลัพธ์โดยไม่สูญเสียการจัดรูปแบบ.
@@ -271,8 +267,3 @@ try (Redactor redactor = new Redactor(inputFile.getPath())) {
 - [วิธีลบข้อมูลเอกสารด้วย GroupDocs Redaction Java License จากเส้นทางไฟล์ – คู่มือขั้นตอนโดยละเอียด](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)
 - [ซ่อนข้อมูลที่ละเอียดอ่อนใน Java – คู่มือ GroupDocs.Redaction](/redaction/java/getting-started/)
 - [วิธีลบข้อความในเอกสาร Java ด้วย GroupDocs.Redaction](/redaction/java/text-redaction/java-redaction-guide-groupdocs-document-security/)
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

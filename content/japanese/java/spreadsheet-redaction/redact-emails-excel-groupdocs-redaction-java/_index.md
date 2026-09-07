@@ -108,7 +108,6 @@ GroupDocs.Redaction は **30 以上の入力および出力フォーマット** 
    </dependency>
 </dependencies>
 ```
-```
 
 ### GroupDocs.Redaction のライセンスを取得するには？
 GroupDocs は 3 つのライセンスオプションを提供しています（[GroupDocs’ website](https://purchase.groupdocs.com/temporary-license/) を参照）。
@@ -130,7 +129,6 @@ public class RedactEmails {
     }
 }
 ```
-```
 
 ## 実装ガイド
 
@@ -150,7 +148,6 @@ public class RedactEmails {
     }
 }
 ```
-```
 
 ### リダクションを単一のワークシートと列に限定するには？
 `CellFilter` クラスを使用すると、リダクション対象となるワークシートと列を指定できます。`CellFilter` を使用して対象シート名と列インデックスを設定します。`CellFilter` クラスはリダクションエンジンが評価する前にセルをフィルタリングし、意図したセルだけが処理されるようにします。
@@ -164,7 +161,6 @@ CellFilter filter = new CellFilter();
 filter.setColumnIndex(1); // Targeting the second column (index starts at 0)
 filter.setWorkSheetName("Customers"); // Specify the worksheet name
 ```
-```
 
 ### ほとんどのメールアドレスにマッチする正規表現パターンを定義するには？
 `java.util.regex` の `Pattern` クラスは、テキストマッチに使用されるコンパイル済み正規表現を表します。一般的なメール形式をキャプチャする正規表現で `Pattern` オブジェクトを作成します。以下のパターンは、RFC‑5322 に準拠したアドレスの大部分にマッチし、形式が不正な文字列は無視します。
@@ -175,7 +171,6 @@ import java.util.regex.Pattern;
 
 // Define regex pattern for matching emails
 Pattern expression = Pattern.compile("^\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$");
-```
 ```
 
 ### リダクションを適用し、メールアドレスをプレースホルダーに置き換えるには？
@@ -197,7 +192,6 @@ if (result.getStatus() != RedactionStatus.Failed) {
     saveOptions.setAddSuffix(true); // Add a suffix to the saved file name
     redactor.save(saveOptions);
 }
-```
 ```
 
 ## 一般的な落とし穴とトラブルシューティング

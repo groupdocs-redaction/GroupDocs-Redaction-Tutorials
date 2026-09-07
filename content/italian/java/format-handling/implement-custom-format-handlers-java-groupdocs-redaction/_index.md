@@ -294,9 +294,3 @@ A questo punto dovresti avere una solida comprensione di come **implement custom
 - [Anteprima delle pagine del documento Java con caricamento in GroupDocs.Redaction](/redaction/java/document-loading/)
 - [Mascherare dati sensibili Java – Guida GroupDocs.Redaction](/redaction/java/getting-started/)
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

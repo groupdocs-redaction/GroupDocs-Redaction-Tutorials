@@ -296,10 +296,3 @@ Do tego momentu powinieneś mieć solidne pojęcie o tym, jak **implement custom
 - [Podgląd stron dokumentu w Javie z GroupDocs.Redaction](/redaction/java/document-loading/)
 - [Maskowanie wrażliwych danych w Javie – przewodnik GroupDocs.Redaction](/redaction/java/getting-started/)
 
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

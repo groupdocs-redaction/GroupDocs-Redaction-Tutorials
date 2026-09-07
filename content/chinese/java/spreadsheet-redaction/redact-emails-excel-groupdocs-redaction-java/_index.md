@@ -108,7 +108,6 @@ GroupDocs.Redaction 支持 **30 多种输入和输出格式**，并且能够在�
    </dependency>
 </dependencies>
 ```
-```
 
 ### 如何获取 GroupDocs.Redaction 的许可证？
 GroupDocs 提供三种授权选项（参见 [GroupDocs’ website](https://purchase.groupdocs.com/temporary-license/)）：
@@ -130,7 +129,6 @@ public class RedactEmails {
     }
 }
 ```
-```
 
 ## 实施指南
 
@@ -150,7 +148,6 @@ public class RedactEmails {
     }
 }
 ```
-```
 
 ### 如何将脱敏限制在单个工作表和列上？
 `CellFilter` 类允许您指定应检查脱敏的工作表和列。使用 `CellFilter` 来指定目标工作表名称和列索引。`CellFilter` 类在脱敏引擎评估之前过滤单元格，确保仅处理预期的单元格。
@@ -164,7 +161,6 @@ CellFilter filter = new CellFilter();
 filter.setColumnIndex(1); // Targeting the second column (index starts at 0)
 filter.setWorkSheetName("Customers"); // Specify the worksheet name
 ```
-```
 
 ### 如何定义匹配大多数电子邮件地址的正则表达式模式？
 `java.util.regex` 中的 `Pattern` 类表示用于匹配文本的编译正则表达式。创建一个包含捕获典型电子邮件格式的正则表达式的 `Pattern` 对象。下面的模式匹配大多数符合 RFC‑5322 的地址，同时忽略格式错误的字符串。
@@ -175,7 +171,6 @@ import java.util.regex.Pattern;
 
 // Define regex pattern for matching emails
 Pattern expression = Pattern.compile("^\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$");
-```
 ```
 
 ### 如何应用脱敏并用占位符替换电子邮件？
@@ -197,7 +192,6 @@ if (result.getStatus() != RedactionStatus.Failed) {
     saveOptions.setAddSuffix(true); // Add a suffix to the saved file name
     redactor.save(saveOptions);
 }
-```
 ```
 
 ## 常见陷阱与故障排除

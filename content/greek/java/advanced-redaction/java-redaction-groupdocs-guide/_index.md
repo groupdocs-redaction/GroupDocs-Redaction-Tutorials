@@ -70,10 +70,6 @@ url: /el/java/advanced-redaction/java-redaction-groupdocs-guide/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Αφαίρεση ευαίσθητων δεδομένων σε Java με GroupDocs.Redaction
 
 **GroupDocs.Redaction** είναι μια βιβλιοθήκη Java που αφαιρεί προγραμματιστικά εμπιστευτικές πληροφορίες από περισσότερα από 70 μορφές εγγράφων, διατηρώντας το αρχικό διάταξη αμετάβλητη. Σε αυτό το tutorial θα μάθετε πώς να **αφαιρείτε ευαίσθητα δεδομένα** σε εφαρμογές Java, να εφαρμόζετε πολιτική αφαίρεσης σε μια δέσμη αρχείων και να αποθηκεύετε τα αποτελέσματα χωρίς να χάνετε τη μορφοποίηση.
@@ -279,8 +275,3 @@ try (Redactor redactor = new Redactor(inputFile.getPath())) {
 - [Πώς να αφαιρέσετε έγγραφα με την άδεια GroupDocs Redaction Java από διαδρομή αρχείου – Οδηγός βήμα προς βήμα](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)
 - [Απόκρυψη ευαίσθητων δεδομένων Java – Οδηγός GroupDocs.Redaction](/redaction/java/getting-started/)
 - [Πώς να αφαιρέσετε κείμενο σε έγγραφα Java με το GroupDocs.Redaction](/redaction/java/text-redaction/java-redaction-guide-groupdocs-document-security/)
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

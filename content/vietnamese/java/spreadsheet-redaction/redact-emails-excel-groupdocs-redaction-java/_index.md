@@ -110,7 +110,6 @@ Thêm kho lưu trữ GroupDocs và phụ thuộc Redaction vào tệp `pom.xml` 
    </dependency>
 </dependencies>
 ```
-```
 
 ### Làm thế nào để lấy giấy phép cho GroupDocs.Redaction?
 GroupDocs cung cấp ba tùy chọn cấp phép (xem [trang web của GroupDocs](https://purchase.groupdocs.com/temporary-license/)):
@@ -132,7 +131,6 @@ public class RedactEmails {
     }
 }
 ```
-```
 
 ## Hướng dẫn triển khai
 
@@ -152,7 +150,6 @@ public class RedactEmails {
     }
 }
 ```
-```
 
 ### Làm thế nào để giới hạn việc ẩn dữ liệu chỉ trên một worksheet và cột?
 Lớp `CellFilter` cho phép bạn chỉ định worksheet và cột (các cột) nào sẽ được kiểm tra để ẩn dữ liệu. Sử dụng `CellFilter` để chỉ định tên sheet mục tiêu và chỉ số cột. Lớp `CellFilter` lọc các ô trước khi engine ẩn dữ liệu đánh giá chúng, đảm bảo chỉ các ô mong muốn được xử lý.
@@ -166,7 +163,6 @@ CellFilter filter = new CellFilter();
 filter.setColumnIndex(1); // Targeting the second column (index starts at 0)
 filter.setWorkSheetName("Customers"); // Specify the worksheet name
 ```
-```
 
 ### Làm thế nào để định nghĩa mẫu biểu thức chính quy phù hợp với hầu hết địa chỉ email?
 Lớp `Pattern` từ `java.util.regex` đại diện cho một biểu thức chính quy đã được biên dịch dùng để khớp văn bản. Tạo một đối tượng `Pattern` với regex bắt các định dạng email điển hình. Mẫu dưới đây khớp với phần lớn các địa chỉ tuân theo RFC‑5322 trong khi bỏ qua các chuỗi không hợp lệ.
@@ -177,7 +173,6 @@ import java.util.regex.Pattern;
 
 // Define regex pattern for matching emails
 Pattern expression = Pattern.compile("^\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$");
-```
 ```
 
 ### Làm thế nào để áp dụng việc ẩn dữ liệu và thay thế email bằng một chuỗi giữ chỗ?
@@ -199,7 +194,6 @@ if (result.getStatus() != RedactionStatus.Failed) {
     saveOptions.setAddSuffix(true); // Add a suffix to the saved file name
     redactor.save(saveOptions);
 }
-```
 ```
 
 ## Những lỗi thường gặp và khắc phục

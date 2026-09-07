@@ -297,9 +297,3 @@ R : L'API principale est synchrone, mais vous pouvez encapsuler les appels dan
 - [Aperçu du chargement des pages de document Java avec GroupDocs.Redaction](/redaction/java/document-loading/)
 - [Masquer les données sensibles Java – Guide GroupDocs.Redaction](/redaction/java/getting-started/)
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

@@ -68,10 +68,6 @@ url: /ar/java/advanced-redaction/java-redaction-groupdocs-guide/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # إزالة البيانات الحساسة في Java باستخدام GroupDocs.Redaction
 
 **GroupDocs.Redaction** هي مكتبة Java تقوم برمجيًا بإزالة المعلومات السرية من أكثر من 70 تنسيق مستند مع الحفاظ على تخطيط الأصل دون تغيير. في هذا الدرس ستتعلم كيفية **إزالة البيانات الحساسة** في تطبيقات Java، وتطبيق سياسة إزالة على مجموعة من الملفات، وحفظ النتائج دون فقدان التنسيق.
@@ -278,8 +274,3 @@ try (Redactor redactor = new Redactor(inputFile.getPath())) {
 - [كيفية إزالة المستندات باستخدام ترخيص GroupDocs Redaction Java من مسار الملف – دليل خطوة بخطوة](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)
 - [إخفاء البيانات الحساسة Java – دليل GroupDocs.Redaction](/redaction/java/getting-started/)
 - [كيفية إزالة النص في مستندات Java باستخدام GroupDocs.Redaction](/redaction/java/text-redaction/java-redaction-guide-groupdocs-document-security/)
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

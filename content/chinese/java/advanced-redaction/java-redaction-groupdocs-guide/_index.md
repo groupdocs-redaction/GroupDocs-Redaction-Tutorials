@@ -68,10 +68,6 @@ url: /zh/java/advanced-redaction/java-redaction-groupdocs-guide/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # 在 Java 中使用 GroupDocs.Redaction 对敏感数据进行编辑
 
 **GroupDocs.Redaction** 是一个 Java 库，能够以编程方式从超过 70 种文档格式中删除机密信息，同时保持原始布局不变。在本教程中，您将学习如何在 Java 应用程序中 **编辑敏感数据**，将编辑策略应用于一批文件，并在不丢失格式的情况下保存结果。
@@ -287,8 +283,3 @@ try (Redactor redactor = new Redactor(inputFile.getPath())) {
 - [如何使用文件路径的 GroupDocs Redaction Java 许可证编辑文档 – 步骤指南](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)
 - [在 Java 中掩码敏感数据 – GroupDocs.Redaction 指南](/redaction/java/getting-started/)
 - [如何使用 GroupDocs.Redaction 在 Java 文档中编辑文本](/redaction/java/text-redaction/java-redaction-guide-groupdocs-document-security/)
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

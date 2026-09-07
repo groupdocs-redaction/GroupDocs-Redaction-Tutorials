@@ -302,9 +302,3 @@ Eddig már szilárd képet kell, hogy szerezz a **implement custom format handle
 - [Dokumentumoldalak előnézete Java betöltéssel a GroupDocs.Redaction segítségével](/redaction/java/document-loading/)
 - [Érzékeny adatok maszkolása Java – GroupDocs.Redaction útmutató](/redaction/java/getting-started/)
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

@@ -70,10 +70,6 @@ url: /nl/java/advanced-redaction/java-redaction-groupdocs-guide/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Gevoelige gegevens redigeren in Java met GroupDocs.Redaction
 
 **GroupDocs.Redaction** is een Java-bibliotheek die programmatisch vertrouwelijke informatie verwijdert uit meer dan 70 documentformaten, terwijl de oorspronkelijke lay-out behouden blijft. In deze tutorial leer je hoe je **gevoelige gegevens kunt redigeren** in Java-toepassingen, een redactiebeleid toepast op een batch bestanden, en de resultaten opslaat zonder de opmaak te verliezen.
@@ -283,8 +279,3 @@ Door deze gids te volgen kun je veilig **gevoelige gegevens redigeren** uit Java
 - [Hoe documenten te redigeren met GroupDocs Redaction Java-licentie vanuit bestands‑pad – Een stapsgewijze gids](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)
 - [Gevoelige gegevens maskeren Java – GroupDocs.Redaction‑gids](/redaction/java/getting-started/)
 - [Hoe tekst te redigeren in Java‑documenten met GroupDocs.Redaction](/redaction/java/text-redaction/java-redaction-guide-groupdocs-document-security/)
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

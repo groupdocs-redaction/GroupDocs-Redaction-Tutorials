@@ -110,7 +110,6 @@ Přidejte úložiště GroupDocs a závislost Redaction do souboru `pom.xml` (vi
    </dependency>
 </dependencies>
 ```
-```
 
 ### Jak získat licenci pro GroupDocs.Redaction?
 GroupDocs nabízí tři licenční možnosti (viz [GroupDocs’ website](https://purchase.groupdocs.com/temporary-license/)):
@@ -132,7 +131,6 @@ public class RedactEmails {
     }
 }
 ```
-```
 
 ## Průvodce implementací
 
@@ -152,7 +150,6 @@ public class RedactEmails {
     }
 }
 ```
-```
 
 ### Jak omezit redakci na jeden list a sloupec?
 Třída `CellFilter` vám umožňuje určit, který list a sloupec(y) mají být zkontrolovány pro redakci. Použijte `CellFilter` k určení názvu cílového listu a indexu sloupce. Třída `CellFilter` filtruje buňky před tím, než je redakční engine vyhodnotí, čímž zajišťuje, že jsou zpracovány pouze zamýšlené buňky.
@@ -166,7 +163,6 @@ CellFilter filter = new CellFilter();
 filter.setColumnIndex(1); // Targeting the second column (index starts at 0)
 filter.setWorkSheetName("Customers"); // Specify the worksheet name
 ```
-```
 
 ### Jak definovat regulární výraz, který odpovídá většině e‑mailových adres?
 Třída `Pattern` z `java.util.regex` představuje zkompilovaný regulární výraz používaný k porovnání textu. Vytvořte objekt `Pattern` s regexem, který zachytí typické formáty e‑mailů. Níže uvedený vzor odpovídá většině adres vyhovujících RFC‑5322 a ignoruje poškozené řetězce.
@@ -177,7 +173,6 @@ import java.util.regex.Pattern;
 
 // Define regex pattern for matching emails
 Pattern expression = Pattern.compile("^\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$");
-```
 ```
 
 ### Jak aplikovat redakci a nahradit e‑mailové adresy zástupným textem?
@@ -199,7 +194,6 @@ if (result.getStatus() != RedactionStatus.Failed) {
     saveOptions.setAddSuffix(true); // Add a suffix to the saved file name
     redactor.save(saveOptions);
 }
-```
 ```
 
 ## Časté úskalí a řešení problémů

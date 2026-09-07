@@ -109,7 +109,6 @@ Lägg till GroupDocs‑arkivet och Redaction‑beroendet i din `pom.xml`‑fil (
    </dependency>
 </dependencies>
 ```
-```
 
 ### Hur kan jag skaffa en licens för GroupDocs.Redaction?
 GroupDocs erbjuder tre licensalternativ (se [GroupDocs’ website](https://purchase.groupdocs.com/temporary-license/)):
@@ -131,7 +130,6 @@ public class RedactEmails {
     }
 }
 ```
-```
 
 ## Implementeringsguide
 
@@ -151,7 +149,6 @@ public class RedactEmails {
     }
 }
 ```
-```
 
 ### Hur kan jag begränsa maskeringen till ett enda arbetsblad och en kolumn?
 `CellFilter`‑klassen låter dig ange vilket arbetsblad och vilka kolumn(er) som ska granskas för maskering. Använd ett `CellFilter` för att specificera målbladets namn och kolumnindex. `CellFilter`‑klassen filtrerar celler innan maskeringsmotorn utvärderar dem, vilket säkerställer att endast de avsedda cellerna bearbetas.
@@ -165,7 +162,6 @@ CellFilter filter = new CellFilter();
 filter.setColumnIndex(1); // Targeting the second column (index starts at 0)
 filter.setWorkSheetName("Customers"); // Specify the worksheet name
 ```
-```
 
 ### Hur definierar jag ett reguljärt uttryck som matchar de flesta e‑postadresser?
 `Pattern`‑klassen från `java.util.regex` representerar ett kompilerat reguljärt uttryck som används för att matcha text. Skapa ett `Pattern`‑objekt med ett regex som fångar typiska e‑postformat. Mönstret nedan matchar majoriteten av RFC‑5322‑kompatibla adresser samtidigt som det ignorerar felaktiga strängar.
@@ -176,7 +172,6 @@ import java.util.regex.Pattern;
 
 // Define regex pattern for matching emails
 Pattern expression = Pattern.compile("^\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$");
-```
 ```
 
 ### Hur tillämpar jag maskeringen och ersätter e‑postadresser med en platshållare?
@@ -198,7 +193,6 @@ if (result.getStatus() != RedactionStatus.Failed) {
     saveOptions.setAddSuffix(true); // Add a suffix to the saved file name
     redactor.save(saveOptions);
 }
-```
 ```
 
 ## Vanliga fallgropar och felsökning

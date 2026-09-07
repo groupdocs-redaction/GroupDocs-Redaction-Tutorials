@@ -68,10 +68,6 @@ url: /sv/java/advanced-redaction/java-redaction-groupdocs-guide/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Redigera känslig data i Java med GroupDocs.Redaction
 
 **GroupDocs.Redaction** är ett Java‑bibliotek som programatiskt tar bort konfidentiell information från mer än 70 dokumentformat samtidigt som den ursprungliga layouten bevaras. I den här handledningen lär du dig hur du **redigera känslig data** i Java‑applikationer, tillämpar en redigeringspolicy på en batch av filer och sparar resultaten utan att förlora formatering.
@@ -282,8 +278,3 @@ Genom att följa den här guiden kan du säkert **redigera känslig data** från
 - [Maskera känslig data Java – GroupDocs.Redaction‑guide](/redaction/java/getting-started/)
 - [Hur man redigerar text i Java‑dokument med GroupDocs.Redaction](/redaction/java/text-redaction/java-redaction-guide-groupdocs-document-security/)
 
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

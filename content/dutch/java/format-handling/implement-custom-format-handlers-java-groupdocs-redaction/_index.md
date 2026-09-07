@@ -296,10 +296,3 @@ U zou nu een goed begrip moeten hebben van hoe **implement custom format handler
 - [Voorbeeld documentpagina's Java laden met GroupDocs.Redaction](/redaction/java/document-loading/)
 - [Masker gevoelige data Java – GroupDocs.Redaction gids](/redaction/java/getting-started/)
 
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

@@ -90,13 +90,11 @@ GroupDocs.Redaction은 **30개 이상의 파일 형식**을 지원하고 스트�
 ```bash
 dotnet add package GroupDocs.Redaction
 ```  
-```  
 
 **Package Manager**  
 ```  
 ```powershell
 Install-Package GroupDocs.Redaction
-```  
 ```  
 
 **NuGet Package Manager UI**  
@@ -125,7 +123,6 @@ using (Redactor redactor = new Redactor(sourceFile, loadOptions))
     // Redaction logic goes here
 }
 ```  
-```  
 
 자세한 사용법은 공식 [Documentation](https://docs.groupdocs.com/redaction/net/) 및 [API Reference](https://reference.groupdocs.com/redaction/net)를 참고하세요. 최신 바이너리는 [Download](https://releases.groupdocs.com/redaction/net/) 페이지에서 다운로드할 수 있습니다. 도움이 필요하면 [Free Support](https://forum.groupdocs.com/c/redaction/33) 포럼을 이용하세요.
 
@@ -141,7 +138,6 @@ using (Redactor redactor = new Redactor(sourceFile, loadOptions))
 ```csharp
 string sourceFile = "YOUR_DOCUMENT_DIRECTORY\PROTECTED_SAMPLE_DOCX.docx";
 ```  
-```  
 
 #### 단계 2: LoadOptions 생성
 `LoadOptions`는 파일을 해제하는 데 필요한 비밀번호를 전달합니다. 올바른 비밀번호를 제공하는 것이 성공적인 로드에 필수적입니다.
@@ -149,7 +145,6 @@ string sourceFile = "YOUR_DOCUMENT_DIRECTORY\PROTECTED_SAMPLE_DOCX.docx";
 ```  
 ```csharp
 LoadOptions loadOptions = new LoadOptions("mypassword"); // Replace with your actual password.
-```  
 ```  
 
 #### 단계 3: 문서 열기
@@ -161,7 +156,6 @@ using (Redactor redactor = new Redactor(sourceFile, loadOptions))
 {
     // Further operations can be performed here
 }
-```  
 ```  
 
 ### 정확한 구문 검열 적용 방법
@@ -175,7 +169,6 @@ using (Redactor redactor = new Redactor(sourceFile, loadOptions))
 redactor.Apply(new ExactPhraseRedaction("John Doe", new ReplacementOptions("[REDACTED]") {
     // Additional configuration if needed
 }));
-```  
 ```  
 
 ## 일반적인 문제 및 해결책

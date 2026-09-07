@@ -110,7 +110,6 @@ GroupDocs deposunu ve Redaction bağımlılığını `pom.xml` dosyanıza ekleyi
    </dependency>
 </dependencies>
 ```
-```
 
 ### GroupDocs.Redaction için lisans nasıl alınır?
 GroupDocs üç lisans seçeneği sunar (bkz. [GroupDocs’ website](https://purchase.groupdocs.com/temporary-license/)):
@@ -132,7 +131,6 @@ public class RedactEmails {
     }
 }
 ```
-```
 
 ## Uygulama rehberi
 
@@ -152,7 +150,6 @@ public class RedactEmails {
     }
 }
 ```
-```
 
 ### Kırmızı çizimi tek bir çalışma sayfası ve sütunla sınırlamak nasıl yapılır?
 `CellFilter` sınıfı, kırmızı çizim için incelenecek çalışma sayfası ve sütun(lar)ı belirtmenizi sağlar. Hedef sayfa adını ve sütun indeksini belirlemek için bir `CellFilter` kullanın. `CellFilter` sınıfı, kırmızı çizim motoru değerlendirmeden önce hücreleri filtreler, böylece yalnızca istenen hücreler işlenir.
@@ -166,7 +163,6 @@ CellFilter filter = new CellFilter();
 filter.setColumnIndex(1); // Targeting the second column (index starts at 0)
 filter.setWorkSheetName("Customers"); // Specify the worksheet name
 ```
-```
 
 ### Çoğu e‑posta adresine uyan bir düzenli ifade deseni nasıl tanımlanır?
 `java.util.regex` paketinden `Pattern` sınıfı, metni eşleştirmek için derlenmiş bir düzenli ifadeyi temsil eder. Tipik e‑posta formatlarını yakalayan bir regex ile bir `Pattern` nesnesi oluşturun. Aşağıdaki desen, RFC‑5322‑uyumlu adreslerin büyük çoğunluğunu yakalar ve hatalı dizeleri görmezden gelir.
@@ -177,7 +173,6 @@ import java.util.regex.Pattern;
 
 // Define regex pattern for matching emails
 Pattern expression = Pattern.compile("^\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$");
-```
 ```
 
 ### Kırmızı çizimi uygulayıp e‑postaları bir yer tutucu ile nasıl değiştiririm?
@@ -199,7 +194,6 @@ if (result.getStatus() != RedactionStatus.Failed) {
     saveOptions.setAddSuffix(true); // Add a suffix to the saved file name
     redactor.save(saveOptions);
 }
-```
 ```
 
 ## Yaygın hatalar ve sorun giderme

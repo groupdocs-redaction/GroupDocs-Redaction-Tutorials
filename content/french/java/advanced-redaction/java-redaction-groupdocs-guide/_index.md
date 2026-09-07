@@ -70,10 +70,6 @@ url: /fr/java/advanced-redaction/java-redaction-groupdocs-guide/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Masquer les données sensibles en Java avec GroupDocs.Redaction
 
 **GroupDocs.Redaction** est une bibliothèque Java qui supprime de manière programmatique les informations confidentielles de plus de 70 formats de documents tout en conservant la mise en page originale. Dans ce tutoriel, vous apprendrez comment **masquer les données sensibles** dans les applications Java, appliquer une politique de masquage à un lot de fichiers et enregistrer les résultats sans perdre le formatage.
@@ -290,8 +286,3 @@ En suivant ce guide, vous pouvez masquer en toute sécurité les **données sens
 - [Masquer les données sensibles Java – Guide GroupDocs.Redaction](/redaction/java/getting-started/)
 - [Comment masquer du texte dans les documents Java avec GroupDocs.Redaction](/redaction/java/text-redaction/java-redaction-guide-groupdocs-document-security/)
 
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

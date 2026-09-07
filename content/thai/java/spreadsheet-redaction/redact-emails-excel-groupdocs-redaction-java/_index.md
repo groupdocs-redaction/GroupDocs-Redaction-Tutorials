@@ -110,7 +110,6 @@ GroupDocs.Redaction รองรับ **รูปแบบไฟล์เข้
    </dependency>
 </dependencies>
 ```
-```
 
 ### ฉันจะขอรับใบอนุญาตสำหรับ GroupDocs.Redaction อย่างไร?
 GroupDocs มีตัวเลือกใบอนุญาตสามแบบ (ดู [GroupDocs’ website](https://purchase.groupdocs.com/temporary-license/)):
@@ -132,7 +131,6 @@ public class RedactEmails {
     }
 }
 ```
-```
 
 ## คู่มือการใช้งาน
 
@@ -152,7 +150,6 @@ public class RedactEmails {
     }
 }
 ```
-```
 
 ### ฉันจะจำกัดการลบข้อมูลให้กับแผ่นงานและคอลัมน์เดียวได้อย่างไร?
 คลาส `CellFilter` ให้คุณระบุว่าแผ่นงานและคอลัมน์ใดบ้างที่จะตรวจสอบสำหรับการลบข้อมูล ใช้ `CellFilter` เพื่อกำหนดชื่อแผ่นงานเป้าหมายและดัชนีคอลัมน์ คลาส `CellFilter` จะกรองเซลล์ก่อนที่เอนจินลบข้อมูลจะประมวลผล เพื่อให้แน่ใจว่าเฉพาะเซลล์ที่ต้องการเท่านั้นที่ถูกประมวลผล
@@ -166,7 +163,6 @@ CellFilter filter = new CellFilter();
 filter.setColumnIndex(1); // Targeting the second column (index starts at 0)
 filter.setWorkSheetName("Customers"); // Specify the worksheet name
 ```
-```
 
 ### ฉันจะกำหนดรูปแบบ regular‑expression ที่จับที่อยู่อีเมลส่วนใหญ่ได้อย่างไร?
 คลาส `Pattern` จาก `java.util.regex` แสดงถึง regular‑expression ที่คอมไพล์แล้วใช้ในการจับข้อความ สร้างอ็อบเจกต์ `Pattern` ด้วย regex ที่ครอบคลุมรูปแบบอีเมลทั่วไป รูปแบบด้านล่างจับที่อยู่อีเมลที่สอดคล้องกับ RFC‑5322 ส่วนใหญ่โดยละเว้นสตริงที่ผิดรูป
@@ -177,7 +173,6 @@ import java.util.regex.Pattern;
 
 // Define regex pattern for matching emails
 Pattern expression = Pattern.compile("^\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$");
-```
 ```
 
 ### ฉันจะใช้การลบข้อมูลและแทนที่อีเมลด้วยข้อความแทนที่อย่างไร?
@@ -199,7 +194,6 @@ if (result.getStatus() != RedactionStatus.Failed) {
     saveOptions.setAddSuffix(true); // Add a suffix to the saved file name
     redactor.save(saveOptions);
 }
-```
 ```
 
 ## ข้อผิดพลาดทั่วไปและการแก้ไขปัญหา

@@ -66,10 +66,6 @@ url: /ja/java/advanced-redaction/java-redaction-groupdocs-guide/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # JavaでGroupDocs.Redactionを使用して機密データを編集する
 
 **GroupDocs.Redaction** は、70 以上のドキュメント形式から機密情報をプログラムで削除し、元のレイアウトを保持する Java ライブラリです。このチュートリアルでは、Java アプリケーションで **機密データを編集** する方法、バッチのファイルに編集ポリシーを適用する方法、そして書式を失わずに結果を保存する方法を学びます。
@@ -287,8 +283,3 @@ try (Redactor redactor = new Redactor(inputFile.getPath())) {
 - [ファイルパスから GroupDocs Redaction Java ライセンスを使用してドキュメントを編集する方法 – ステップバイステップガイド](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)
 - [機密データをマスクする Java – GroupDocs.Redaction ガイド](/redaction/java/getting-started/)
 - [GroupDocs.Redaction を使用して Java ドキュメントのテキストを編集する方法](/redaction/java/text-redaction/java-redaction-guide-groupdocs-document-security/)
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

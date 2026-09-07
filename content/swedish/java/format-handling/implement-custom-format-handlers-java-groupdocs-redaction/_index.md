@@ -295,9 +295,3 @@ Nu bör du ha en solid förståelse för hur man **implement custom format handl
 - [Förhandsgranska dokumentsidor Java‑laddning med GroupDocs.Redaction](/redaction/java/document-loading/)
 - [Maskera känslig data Java – GroupDocs.Redaction‑guide](/redaction/java/getting-started/)
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

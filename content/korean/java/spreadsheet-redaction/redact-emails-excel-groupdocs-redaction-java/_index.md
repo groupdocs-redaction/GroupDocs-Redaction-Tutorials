@@ -109,7 +109,6 @@ Add the GroupDocs repository and the Redaction dependency to your `pom.xml` file
    </dependency>
 </dependencies>
 ```
-```
 
 ### GroupDocs.Redaction 라이선스를 어떻게 얻나요?
 GroupDocs offers three licensing options (see [GroupDocs’ website](https://purchase.groupdocs.com/temporary-license/)):
@@ -131,7 +130,6 @@ public class RedactEmails {
     }
 }
 ```
-```
 
 ## 구현 가이드
 
@@ -151,7 +149,6 @@ public class RedactEmails {
     }
 }
 ```
-```
 
 ### 리다크션을 단일 워크시트와 열로 제한하려면 어떻게 하나요?
 The `CellFilter` class lets you specify which worksheet and column(s) should be examined for redaction. Use a `CellFilter` to specify the target sheet name and column index. The `CellFilter` class filters cells before the redaction engine evaluates them, ensuring only the intended cells are processed.
@@ -165,7 +162,6 @@ CellFilter filter = new CellFilter();
 filter.setColumnIndex(1); // Targeting the second column (index starts at 0)
 filter.setWorkSheetName("Customers"); // Specify the worksheet name
 ```
-```
 
 ### 대부분의 이메일 주소와 일치하는 정규식 패턴을 정의하려면 어떻게 하나요?
 The `Pattern` class from `java.util.regex` represents a compiled regular‑expression used to match text. Create a `Pattern` object with a regex that captures typical email formats. The pattern below matches the majority of RFC‑5322‑compliant addresses while ignoring malformed strings.
@@ -176,7 +172,6 @@ import java.util.regex.Pattern;
 
 // Define regex pattern for matching emails
 Pattern expression = Pattern.compile("^\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$");
-```
 ```
 
 ### 리다크션을 적용하고 이메일을 플레이스홀더로 교체하려면 어떻게 하나요?
@@ -198,7 +193,6 @@ if (result.getStatus() != RedactionStatus.Failed) {
     saveOptions.setAddSuffix(true); // Add a suffix to the saved file name
     redactor.save(saveOptions);
 }
-```
 ```
 
 ## 일반적인 함정 및 문제 해결

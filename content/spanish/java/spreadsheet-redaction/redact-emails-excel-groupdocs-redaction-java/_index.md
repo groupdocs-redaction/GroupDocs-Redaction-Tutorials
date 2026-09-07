@@ -110,7 +110,6 @@ Agregue el repositorio de GroupDocs y la dependencia Redaction a su archivo `pom
    </dependency>
 </dependencies>
 ```
-```
 
 ### ¿Cómo puedo obtener una licencia para GroupDocs.Redaction?
 GroupDocs ofrece tres opciones de licencia (vea [sitio web de GroupDocs](https://purchase.groupdocs.com/temporary-license/)):
@@ -132,7 +131,6 @@ public class RedactEmails {
     }
 }
 ```
-```
 
 ## Guía de implementación
 
@@ -152,7 +150,6 @@ public class RedactEmails {
     }
 }
 ```
-```
 
 ### ¿Cómo limitar la redacción a una sola hoja de cálculo y columna?
 La clase `CellFilter` le permite especificar qué hoja de cálculo y columna(s) deben examinarse para la redacción. Use un `CellFilter` para indicar el nombre de la hoja objetivo y el índice de columna. La clase `CellFilter` filtra las celdas antes de que el motor de redacción las evalúe, asegurando que solo se procesen las celdas previstas.
@@ -166,7 +163,6 @@ CellFilter filter = new CellFilter();
 filter.setColumnIndex(1); // Targeting the second column (index starts at 0)
 filter.setWorkSheetName("Customers"); // Specify the worksheet name
 ```
-```
 
 ### ¿Cómo definir un patrón de expresión regular que coincida con la mayoría de direcciones de correo electrónico?
 La clase `Pattern` de `java.util.regex` representa una expresión regular compilada usada para coincidir texto. Cree un objeto `Pattern` con una expresión que capture formatos típicos de correo electrónico. El patrón a continuación coincide con la mayoría de direcciones compatibles con RFC‑5322 mientras ignora cadenas mal formadas.
@@ -177,7 +173,6 @@ import java.util.regex.Pattern;
 
 // Define regex pattern for matching emails
 Pattern expression = Pattern.compile("^\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$");
-```
 ```
 
 ### ¿Cómo aplicar la redacción y reemplazar correos electrónicos con un marcador de posición?
@@ -199,7 +194,6 @@ if (result.getStatus() != RedactionStatus.Failed) {
     saveOptions.setAddSuffix(true); // Add a suffix to the saved file name
     redactor.save(saveOptions);
 }
-```
 ```
 
 ## Errores comunes y solución de problemas

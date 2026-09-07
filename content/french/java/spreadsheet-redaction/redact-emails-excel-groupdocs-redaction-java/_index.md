@@ -110,7 +110,6 @@ Ajoutez le dépôt GroupDocs et la dépendance Redaction à votre fichier `pom.x
    </dependency>
 </dependencies>
 ```
-```
 
 ### Comment obtenir une licence pour GroupDocs.Redaction ?
 GroupDocs propose trois options de licence (voir le [site Web de GroupDocs](https://purchase.groupdocs.com/temporary-license/)) :
@@ -132,7 +131,6 @@ public class RedactEmails {
     }
 }
 ```
-```
 
 ## Guide d’implémentation
 
@@ -152,7 +150,6 @@ public class RedactEmails {
     }
 }
 ```
-```
 
 ### Comment limiter la rédaction à une seule feuille de calcul et colonne ?
 La classe `CellFilter` vous permet de spécifier quelle feuille de calcul et quelles colonne(s) doivent être examinées pour la rédaction. Utilisez un `CellFilter` pour indiquer le nom de la feuille cible et l’indice de colonne. La classe `CellFilter` filtre les cellules avant que le moteur de rédaction ne les évalue, garantissant que seules les cellules prévues sont traitées.
@@ -166,7 +163,6 @@ CellFilter filter = new CellFilter();
 filter.setColumnIndex(1); // Targeting the second column (index starts at 0)
 filter.setWorkSheetName("Customers"); // Specify the worksheet name
 ```
-```
 
 ### Comment définir un motif d’expression régulière qui correspond à la plupart des adresses e‑mail ?
 La classe `Pattern` de `java.util.regex` représente une expression régulière compilée utilisée pour faire correspondre du texte. Créez un objet `Pattern` avec une regex qui capture les formats d’e‑mail typiques. Le motif ci‑dessous correspond à la majorité des adresses conformes à la RFC‑5322 tout en ignorant les chaînes mal formées.
@@ -177,7 +173,6 @@ import java.util.regex.Pattern;
 
 // Define regex pattern for matching emails
 Pattern expression = Pattern.compile("^\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$");
-```
 ```
 
 ### Comment appliquer la rédaction et remplacer les e‑mail par un texte de remplacement ?
@@ -199,7 +194,6 @@ if (result.getStatus() != RedactionStatus.Failed) {
     saveOptions.setAddSuffix(true); // Add a suffix to the saved file name
     redactor.save(saveOptions);
 }
-```
 ```
 
 ## Pièges courants et dépannage

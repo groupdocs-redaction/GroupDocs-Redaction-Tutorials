@@ -110,7 +110,6 @@ Tambahkan repositori GroupDocs dan dependensi Redaction ke file `pom.xml` Anda (
    </dependency>
 </dependencies>
 ```
-```
 
 ### Bagaimana cara mendapatkan lisensi untuk GroupDocs.Redaction?
 GroupDocs menawarkan tiga opsi lisensi (lihat [situs web GroupDocs](https://purchase.groupdocs.com/temporary-license/)):
@@ -132,7 +131,6 @@ public class RedactEmails {
     }
 }
 ```
-```
 
 ## Panduan Implementasi
 
@@ -152,7 +150,6 @@ public class RedactEmails {
     }
 }
 ```
-```
 
 ### Bagaimana cara membatasi redaksi ke satu lembar kerja dan kolom?
 Kelas `CellFilter` memungkinkan Anda menentukan lembar kerja dan kolom yang harus diperiksa untuk redaksi. Gunakan `CellFilter` untuk menentukan nama sheet target dan indeks kolom. Kelas `CellFilter` menyaring sel sebelum mesin redaksi mengevaluasinya, memastikan hanya sel yang dimaksud yang diproses.
@@ -166,7 +163,6 @@ CellFilter filter = new CellFilter();
 filter.setColumnIndex(1); // Targeting the second column (index starts at 0)
 filter.setWorkSheetName("Customers"); // Specify the worksheet name
 ```
-```
 
 ### Bagaimana cara mendefinisikan pola regular‑expression yang cocok dengan sebagian besar alamat email?
 Kelas `Pattern` dari `java.util.regex` mewakili regular‑expression yang telah dikompilasi untuk mencocokkan teks. Buat objek `Pattern` dengan regex yang menangkap format email tipikal. Pola di bawah ini mencocokkan mayoritas alamat yang sesuai RFC‑5322 sambil mengabaikan string yang tidak valid.
@@ -177,7 +173,6 @@ import java.util.regex.Pattern;
 
 // Define regex pattern for matching emails
 Pattern expression = Pattern.compile("^\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$");
-```
 ```
 
 ### Bagaimana cara menerapkan redaksi dan mengganti email dengan placeholder?
@@ -199,7 +194,6 @@ if (result.getStatus() != RedactionStatus.Failed) {
     saveOptions.setAddSuffix(true); // Add a suffix to the saved file name
     redactor.save(saveOptions);
 }
-```
 ```
 
 ## Kesalahan umum dan pemecahan masalah

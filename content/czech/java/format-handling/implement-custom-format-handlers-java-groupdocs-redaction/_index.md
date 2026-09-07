@@ -296,9 +296,3 @@ Do této chvíle byste měli mít pevné pochopení, jak **implementovat vlastn�
 - [Náhled stránek dokumentu načítání v Javě s GroupDocs.Redaction](/redaction/java/document-loading/)
 - [Maskovat citlivá data v Javě – průvodce GroupDocs.Redaction](/redaction/java/getting-started/)
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

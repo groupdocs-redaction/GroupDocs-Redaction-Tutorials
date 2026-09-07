@@ -110,7 +110,6 @@ Voeg de GroupDocs‑repository en de Redaction‑dependency toe aan je `pom.xml`
    </dependency>
 </dependencies>
 ```
-```
 
 ### Hoe kan ik een licentie voor GroupDocs.Redaction verkrijgen?
 GroupDocs biedt drie licentie‑opties (zie [website van GroupDocs](https://purchase.groupdocs.com/temporary-license/)):
@@ -132,7 +131,6 @@ public class RedactEmails {
     }
 }
 ```
-```
 
 ## Implementatie‑gids
 
@@ -152,7 +150,6 @@ public class RedactEmails {
     }
 }
 ```
-```
 
 ### Hoe kan ik redactie beperken tot één werkblad en kolom?
 De `CellFilter`‑klasse stelt je in staat om op te geven welk werkblad en welke kolom(men) moeten worden onderzocht voor redactie. Gebruik een `CellFilter` om de doel‑bladnaam en kolomindex op te geven. De `CellFilter`‑klasse filtert cellen voordat de redactie‑engine ze evalueert, zodat alleen de beoogde cellen worden verwerkt.
@@ -166,7 +163,6 @@ CellFilter filter = new CellFilter();
 filter.setColumnIndex(1); // Targeting the second column (index starts at 0)
 filter.setWorkSheetName("Customers"); // Specify the worksheet name
 ```
-```
 
 ### Hoe definieer ik een reguliere‑expressiepatroon dat de meeste e‑mailadressen matcht?
 De `Pattern`‑klasse uit `java.util.regex` vertegenwoordigt een gecompileerde reguliere‑expressie die wordt gebruikt om tekst te matchen. Maak een `Pattern`‑object met een regex die typische e‑mailformaten vastlegt. Het onderstaande patroon matcht de meerderheid van RFC‑5322‑conforme adressen terwijl het misvormde strings negeert.
@@ -177,7 +173,6 @@ import java.util.regex.Pattern;
 
 // Define regex pattern for matching emails
 Pattern expression = Pattern.compile("^\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$");
-```
 ```
 
 ### Hoe pas ik de redactie toe en vervang ik e‑mailadressen door een tijdelijke aanduiding?
@@ -199,7 +194,6 @@ if (result.getStatus() != RedactionStatus.Failed) {
     saveOptions.setAddSuffix(true); // Add a suffix to the saved file name
     redactor.save(saveOptions);
 }
-```
 ```
 
 ## Veelvoorkomende valkuilen en probleemoplossing

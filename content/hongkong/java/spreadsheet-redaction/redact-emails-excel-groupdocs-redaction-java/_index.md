@@ -108,7 +108,6 @@ GroupDocs.Redaction 支援 **30 多種輸入與輸出格式**，且能在不將�
    </dependency>
 </dependencies>
 ```
-```
 
 ### 如何取得 GroupDocs.Redaction 的授權？
 GroupDocs 提供三種授權選項（參見 [GroupDocs’ website](https://purchase.groupdocs.com/temporary-license/)）：
@@ -130,7 +129,6 @@ public class RedactEmails {
     }
 }
 ```
-```
 
 ## 實作指南
 
@@ -150,7 +148,6 @@ public class RedactEmails {
     }
 }
 ```
-```
 
 ### 如何將遮蔽限制於單一工作表與欄位？
 `CellFilter` 類別讓您指定要檢查遮蔽的工作表與欄位。使用 `CellFilter` 來設定目標工作表名稱與欄位索引。`CellFilter` 會在遮蔽引擎評估之前過濾儲存格，確保僅處理預期的儲存格。
@@ -164,7 +161,6 @@ CellFilter filter = new CellFilter();
 filter.setColumnIndex(1); // Targeting the second column (index starts at 0)
 filter.setWorkSheetName("Customers"); // Specify the worksheet name
 ```
-```
 
 ### 如何定義匹配大多數電子郵件地址的正規表達式模式？
 `java.util.regex` 中的 `Pattern` 類別代表已編譯的正規表達式，用於匹配文字。建立一個包含典型電子郵件格式的正則表達式 `Pattern` 物件。以下模式可匹配大多符合 RFC‑5322 標準的地址，同時忽略格式錯誤的字串。
@@ -175,7 +171,6 @@ import java.util.regex.Pattern;
 
 // Define regex pattern for matching emails
 Pattern expression = Pattern.compile("^\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$");
-```
 ```
 
 ### 如何套用遮蔽並以佔位文字取代電子郵件？
@@ -197,7 +192,6 @@ if (result.getStatus() != RedactionStatus.Failed) {
     saveOptions.setAddSuffix(true); // Add a suffix to the saved file name
     redactor.save(saveOptions);
 }
-```
 ```
 
 ## 常見問題與故障排除

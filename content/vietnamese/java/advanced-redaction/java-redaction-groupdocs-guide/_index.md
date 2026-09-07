@@ -69,10 +69,6 @@ url: /vi/java/advanced-redaction/java-redaction-groupdocs-guide/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Xóa dữ liệu nhạy cảm trong Java bằng GroupDocs.Redaction
 
 **GroupDocs.Redaction** là một thư viện Java cho phép loại bỏ thông tin mật một cách lập trình từ hơn 70 định dạng tài liệu đồng thời giữ nguyên bố cục gốc. Trong hướng dẫn này, bạn sẽ học cách **xóa dữ liệu nhạy cảm** trong các ứng dụng Java, áp dụng chính sách xóa cho một loạt tệp, và lưu kết quả mà không mất định dạng.
@@ -289,8 +285,3 @@ Bằng cách làm theo hướng dẫn này, bạn có thể an toàn **xóa dữ
 - [Che giấu dữ liệu nhạy cảm Java – Hướng dẫn GroupDocs.Redaction](/redaction/java/getting-started/)
 - [Cách xóa văn bản trong tài liệu Java bằng GroupDocs.Redaction](/redaction/java/text-redaction/java-redaction-guide-groupdocs-document-security/)
 
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

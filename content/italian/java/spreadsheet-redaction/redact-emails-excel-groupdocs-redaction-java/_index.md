@@ -110,7 +110,6 @@ Aggiungi il repository GroupDocs e la dipendenza Redaction al tuo file `pom.xml`
    </dependency>
 </dependencies>
 ```
-```
 
 ### Come ottenere una licenza per GroupDocs.Redaction?
 GroupDocs offre tre opzioni di licenza (vedi [sito di GroupDocs](https://purchase.groupdocs.com/temporary-license/)):
@@ -132,7 +131,6 @@ public class RedactEmails {
     }
 }
 ```
-```
 
 ## Guida all'implementazione
 
@@ -152,7 +150,6 @@ public class RedactEmails {
     }
 }
 ```
-```
 
 ### Come limitare la redazione a un singolo foglio di lavoro e colonna?
 La classe `CellFilter` consente di specificare quale foglio di lavoro e colonna(e) devono essere esaminate per la redazione. Usa un `CellFilter` per specificare il nome del foglio di destinazione e l'indice della colonna. La classe `CellFilter` filtra le celle prima che il motore di redazione le valuti, garantendo che vengano elaborate solo le celle desiderate.
@@ -166,7 +163,6 @@ CellFilter filter = new CellFilter();
 filter.setColumnIndex(1); // Targeting the second column (index starts at 0)
 filter.setWorkSheetName("Customers"); // Specify the worksheet name
 ```
-```
 
 ### Come definire un pattern di espressione regolare che corrisponda alla maggior parte degli indirizzi email?
 La classe `Pattern` di `java.util.regex` rappresenta un'espressione regolare compilata usata per confrontare il testo. Crea un oggetto `Pattern` con una regex che cattura i formati tipici di email. Il pattern qui sotto corrisponde alla maggior parte degli indirizzi conformi a RFC‑5322, ignorando le stringhe malformate.
@@ -177,7 +173,6 @@ import java.util.regex.Pattern;
 
 // Define regex pattern for matching emails
 Pattern expression = Pattern.compile("^\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$");
-```
 ```
 
 ### Come applicare la redazione e sostituire le email con un segnaposto?
@@ -199,7 +194,6 @@ if (result.getStatus() != RedactionStatus.Failed) {
     saveOptions.setAddSuffix(true); // Add a suffix to the saved file name
     redactor.save(saveOptions);
 }
-```
 ```
 
 ## Problemi comuni e risoluzione dei problemi

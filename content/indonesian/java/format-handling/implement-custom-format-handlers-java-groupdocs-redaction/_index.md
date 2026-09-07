@@ -296,9 +296,3 @@ Saat ini Anda seharusnya memiliki pemahaman yang kuat tentang cara **implement c
 - [Pratinjau Halaman Dokumen Java dengan GroupDocs.Redaction](/redaction/java/document-loading/)
 - [Sembunyikan Data Sensitif Java – Panduan GroupDocs.Redaction](/redaction/java/getting-started/)
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

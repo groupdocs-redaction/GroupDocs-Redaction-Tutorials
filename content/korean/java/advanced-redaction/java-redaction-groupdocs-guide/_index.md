@@ -68,10 +68,6 @@ url: /ko/java/advanced-redaction/java-redaction-groupdocs-guide/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Java에서 GroupDocs.Redaction을 사용한 민감한 데이터 가리기
 
 **GroupDocs.Redaction**은 70개 이상의 문서 형식에서 기밀 정보를 프로그래밍 방식으로 제거하면서 원본 레이아웃을 유지하는 Java 라이브러리입니다. 이 튜토리얼에서는 Java 애플리케이션에서 **민감한 데이터를 가리는** 방법, 파일 배치에 가리기 정책을 적용하는 방법, 서식을 잃지 않고 결과를 저장하는 방법을 배웁니다.
@@ -288,8 +284,3 @@ try (Redactor redactor = new Redactor(inputFile.getPath())) {
 - [Mask Sensitive Data Java – GroupDocs.Redaction Guide](/redaction/java/getting-started/)
 - [How to Redact Text in Java Documents with GroupDocs.Redaction](/redaction/java/text-redaction/java-redaction-guide-groupdocs-document-security/)
 
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

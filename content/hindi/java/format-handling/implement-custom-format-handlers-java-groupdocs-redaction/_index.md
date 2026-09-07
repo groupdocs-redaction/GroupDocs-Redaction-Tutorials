@@ -296,9 +296,3 @@ A: कोर API सिंक्रोनस है, लेकिन आप क�
 - [GroupDocs.Redaction के साथ Java में दस्तावेज़ पृष्ठों का प्रीव्यू लोडिंग](/redaction/java/document-loading/)
 - [Java में संवेदनशील डेटा को मास्क करें – GroupDocs.Redaction गाइड](/redaction/java/getting-started/)
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

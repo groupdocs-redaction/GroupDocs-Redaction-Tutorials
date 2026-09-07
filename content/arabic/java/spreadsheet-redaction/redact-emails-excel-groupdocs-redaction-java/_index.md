@@ -110,7 +110,6 @@ weight: 1
    </dependency>
 </dependencies>
 ```
-```
 
 ### كيف يمكنني الحصول على ترخيص لـ GroupDocs.Redaction؟
 تقدم GroupDocs ثلاث خيارات للترخيص (انظر [موقع GroupDocs](https://purchase.groupdocs.com/temporary-license/)):
@@ -131,7 +130,6 @@ public class RedactEmails {
     }
 }
 ```
-```
 
 ## دليل التنفيذ
 
@@ -151,7 +149,6 @@ public class RedactEmails {
     }
 }
 ```
-```
 
 ### كيف يمكنني حصر الإزالة على ورقة عمل واحدة وعمود واحد؟
 تتيح لك فئة `CellFilter` تحديد ورقة العمل و(الأعمدة) التي يجب فحصها للإزالة. استخدم `CellFilter` لتحديد اسم الورقة المستهدفة ورقم العمود. تقوم فئة `CellFilter` بترشيح الخلايا قبل أن يقوم محرك الإزالة بتقييمها، مما يضمن معالجة الخلايا المقصودة فقط.
@@ -165,7 +162,6 @@ CellFilter filter = new CellFilter();
 filter.setColumnIndex(1); // Targeting the second column (index starts at 0)
 filter.setWorkSheetName("Customers"); // Specify the worksheet name
 ```
-```
 
 ### كيف أحدد نمط تعبير منتظم يطابق معظم عناوين البريد الإلكتروني؟
 تمثل فئة `Pattern` من `java.util.regex` تعبيرًا منتظمًا مُجمعًا يُستخدم لمطابقة النص. أنشئ كائن `Pattern` باستخدام تعبير regex يلتقط صيغ البريد الإلكتروني النموذجية. النمط أدناه يطابق غالبية العناوين المتوافقة مع RFC‑5322 مع تجاهل السلاسل غير الصالحة.
@@ -176,7 +172,6 @@ import java.util.regex.Pattern;
 
 // Define regex pattern for matching emails
 Pattern expression = Pattern.compile("^\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$");
-```
 ```
 
 ### كيف أطبق الإزالة وأستبدل عناوين البريد الإلكتروني بنص بديل؟
@@ -198,7 +193,6 @@ if (result.getStatus() != RedactionStatus.Failed) {
     saveOptions.setAddSuffix(true); // Add a suffix to the saved file name
     redactor.save(saveOptions);
 }
-```
 ```
 
 ## الأخطاء الشائعة واستكشاف الأخطاء

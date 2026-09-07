@@ -110,7 +110,6 @@ Adja hozzá a GroupDocs tárolót és a Redaction függőséget a `pom.xml` fáj
    </dependency>
 </dependencies>
 ```
-```
 
 ### Hogyan szerezhetek licencet a GroupDocs.Redaction-hez?
 A GroupDocs három licencelési lehetőséget kínál (lásd a [GroupDocs weboldalát](https://purchase.groupdocs.com/temporary-license/)):
@@ -132,7 +131,6 @@ public class RedactEmails {
     }
 }
 ```
-```
 
 ## Implementációs útmutató
 
@@ -151,7 +149,6 @@ public class RedactEmails {
     }
 }
 ```
-```
 
 ### Hogyan korlátozhatom a redakciót egyetlen munkalapra és oszlopra?
 A `CellFilter` osztály lehetővé teszi, hogy megadja, mely munkalapot és oszlop(ok)at kell a redakcióra ellenőrizni. Használjon `CellFilter`‑t a cél munkalap nevének és oszlopindexnek a megadásához. A `CellFilter` osztály a cellákat a redakciós motor értékelése előtt szűri, biztosítva, hogy csak a kívánt cellák legyenek feldolgozva.
@@ -165,7 +162,6 @@ CellFilter filter = new CellFilter();
 filter.setColumnIndex(1); // Targeting the second column (index starts at 0)
 filter.setWorkSheetName("Customers"); // Specify the worksheet name
 ```
-```
 
 ### Hogyan definiáljak reguláris kifejezést, amely a legtöbb e‑mail címet egyezik?
 A `java.util.regex` csomag `Pattern` osztálya egy lefordított reguláris kifejezést képvisel, amely szöveget keres. Hozzon létre egy `Pattern` objektumot egy regex‑szel, amely a tipikus e‑mail formátumokat fedi le. Az alábbi minta a RFC‑5322‑nek megfelelő címek többségét egyezik, miközben a hibás karakterláncokat figyelmen kívül hagyja.
@@ -176,7 +172,6 @@ import java.util.regex.Pattern;
 
 // Define regex pattern for matching emails
 Pattern expression = Pattern.compile("^\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$");
-```
 ```
 
 ### Hogyan alkalmazzam a redakciót és cseréljem le az e‑mail címeket egy helyettesítő szövegre?
@@ -198,7 +193,6 @@ if (result.getStatus() != RedactionStatus.Failed) {
     saveOptions.setAddSuffix(true); // Add a suffix to the saved file name
     redactor.save(saveOptions);
 }
-```
 ```
 
 ## Gyakori buktatók és hibaelhárítás

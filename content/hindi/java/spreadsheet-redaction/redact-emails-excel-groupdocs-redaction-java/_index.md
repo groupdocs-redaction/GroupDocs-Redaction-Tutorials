@@ -110,7 +110,6 @@ GroupDocs.Redaction **30+ इनपुट और आउटपुट फॉर्
    </dependency>
 </dependencies>
 ```
-```
 
 ### GroupDocs.Redaction के लिए लाइसेंस कैसे प्राप्त करें?
 GroupDocs तीन लाइसेंस विकल्प प्रदान करता है (देखें [GroupDocs’ website](https://purchase.groupdocs.com/temporary-license/))：
@@ -132,7 +131,6 @@ public class RedactEmails {
     }
 }
 ```
-```
 
 ## कार्यान्वयन गाइड
 
@@ -152,7 +150,6 @@ public class RedactEmails {
     }
 }
 ```
-```
 
 ### रेडैक्शन को एक ही वर्कशीट और कॉलम तक कैसे सीमित करें?
 `CellFilter` क्लास आपको यह निर्दिष्ट करने देता है कि कौन सी वर्कशीट और कॉलम(स) को रेडैक्शन के लिए जांचा जाना चाहिए। लक्ष्य शीट नाम और कॉलम इंडेक्स निर्दिष्ट करने के लिए `CellFilter` का उपयोग करें। `CellFilter` क्लास रेडैक्शन इंजन द्वारा मूल्यांकन से पहले सेल्स को फ़िल्टर करता है, जिससे केवल इच्छित सेल्स प्रोसेस होते हैं।
@@ -166,7 +163,6 @@ CellFilter filter = new CellFilter();
 filter.setColumnIndex(1); // Targeting the second column (index starts at 0)
 filter.setWorkSheetName("Customers"); // Specify the worksheet name
 ```
-```
 
 ### अधिकांश ईमेल पतों से मेल खाने वाला रेगुलर‑एक्सप्रेशन पैटर्न कैसे परिभाषित करें?
 `java.util.regex` की `Pattern` क्लास एक संकलित रेगुलर‑एक्सप्रेशन को दर्शाती है जिसका उपयोग टेक्स्ट से मेल खाने के लिए किया जाता है। एक `Pattern` ऑब्जेक्ट बनाएं जिसमें वह रेगेक्स हो जो सामान्य ईमेल फ़ॉर्मेट को कैप्चर करे। नीचे दिया गया पैटर्न RFC‑5322‑अनुरूप अधिकांश पतों से मेल खाता है जबकि गलत स्ट्रिंग्स को अनदेखा करता है।
@@ -177,7 +173,6 @@ import java.util.regex.Pattern;
 
 // Define regex pattern for matching emails
 Pattern expression = Pattern.compile("^\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$");
-```
 ```
 
 ### रेडैक्शन लागू करें और ईमेल को प्लेसहोल्डर से कैसे बदलें?
@@ -199,7 +194,6 @@ if (result.getStatus() != RedactionStatus.Failed) {
     saveOptions.setAddSuffix(true); // Add a suffix to the saved file name
     redactor.save(saveOptions);
 }
-```
 ```
 
 ## सामान्य समस्याएँ और ट्रबलशूटिंग

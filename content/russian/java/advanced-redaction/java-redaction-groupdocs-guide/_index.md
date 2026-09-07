@@ -70,10 +70,6 @@ url: /ru/java/advanced-redaction/java-redaction-groupdocs-guide/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Редактировать конфиденциальные данные в Java с помощью GroupDocs.Redaction
 
 **GroupDocs.Redaction** — это Java-библиотека, которая программно удаляет конфиденциальную информацию более чем из 70 форматов документов, сохраняя оригинальное расположение. В этом руководстве вы узнаете, как **редактировать конфиденциальные данные** в Java‑приложениях, применять политику редактирования к набору файлов и сохранять результаты без потери форматирования.
@@ -283,8 +279,3 @@ try (Redactor redactor = new Redactor(inputFile.getPath())) {
 - [Как редактировать документы с помощью GroupDocs Redaction Java License из пути к файлу — пошаговое руководство](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)
 - [Маскировка конфиденциальных данных Java — руководство GroupDocs.Redaction](/redaction/java/getting-started/)
 - [Как редактировать текст в Java‑документах с помощью GroupDocs.Redaction](/redaction/java/text-redaction/java-redaction-guide-groupdocs-document-security/)
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

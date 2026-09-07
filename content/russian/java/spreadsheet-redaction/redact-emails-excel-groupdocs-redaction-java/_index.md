@@ -110,7 +110,6 @@ GroupDocs.Redaction поддерживает **более 30 форматов в
    </dependency>
 </dependencies>
 ```
-```
 
 ### Как получить лицензию для GroupDocs.Redaction?
 GroupDocs предлагает три варианта лицензирования (см. [веб‑сайт GroupDocs](https://purchase.groupdocs.com/temporary-license/)):
@@ -132,7 +131,6 @@ public class RedactEmails {
     }
 }
 ```
-```
 
 ## Руководство по реализации
 
@@ -152,7 +150,6 @@ public class RedactEmails {
     }
 }
 ```
-```
 
 ### Как ограничить редактирование одной листом и столбцом?
 Класс `CellFilter` позволяет указать, какой лист и столбец(ы) следует проверять на наличие редактируемых данных. Используйте `CellFilter` для указания имени целевого листа и индекса столбца. Класс `CellFilter` фильтрует ячейки до того, как движок редактирования их обработает, гарантируя, что обрабатываются только нужные ячейки.
@@ -166,7 +163,6 @@ CellFilter filter = new CellFilter();
 filter.setColumnIndex(1); // Targeting the second column (index starts at 0)
 filter.setWorkSheetName("Customers"); // Specify the worksheet name
 ```
-```
 
 ### Как определить шаблон регулярного выражения, который соответствует большинству адресов электронной почты?
 Класс `Pattern` из `java.util.regex` представляет скомпилированное регулярное выражение, используемое для поиска текста. Создайте объект `Pattern` с regex, который охватывает типичные форматы электронной почты. Приведённый ниже шаблон соответствует большинству адресов, соответствующих RFC‑5322, игнорируя некорректные строки.
@@ -177,7 +173,6 @@ import java.util.regex.Pattern;
 
 // Define regex pattern for matching emails
 Pattern expression = Pattern.compile("^\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$");
-```
 ```
 
 ### Как применить редактирование и заменить электронные письма заполнителем?
@@ -199,7 +194,6 @@ if (result.getStatus() != RedactionStatus.Failed) {
     saveOptions.setAddSuffix(true); // Add a suffix to the saved file name
     redactor.save(saveOptions);
 }
-```
 ```
 
 ## Распространённые ошибки и устранение неполадок

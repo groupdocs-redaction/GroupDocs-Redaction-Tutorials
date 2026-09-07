@@ -297,10 +297,3 @@ By now you should have a solid grasp of how to **implement custom format handler
 - [Preview Document Pages Java Loading with GroupDocs.Redaction](/redaction/java/document-loading/)
 - [Mask Sensitive Data Java – GroupDocs.Redaction Guide](/redaction/java/getting-started/)
 
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

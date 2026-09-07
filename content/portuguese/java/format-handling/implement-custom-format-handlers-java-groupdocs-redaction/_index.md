@@ -296,9 +296,3 @@ Até agora você deve ter uma compreensão sólida de como **implement custom fo
 - [Pré‑visualizar páginas de documento Java carregando com GroupDocs.Redaction](/redaction/java/document-loading/)
 - [Mascarar dados sensíveis Java – Guia GroupDocs.Redaction](/redaction/java/getting-started/)
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

@@ -70,10 +70,6 @@ url: /hi/java/advanced-redaction/java-redaction-groupdocs-guide/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # GroupDocs.Redaction के साथ जावा में संवेदनशील डेटा को रिडैक्ट करें
 
 **GroupDocs.Redaction** एक जावा लाइब्रेरी है जो प्रोग्रामेटिक रूप से 70 से अधिक दस्तावेज़ फ़ॉर्मैट्स से गोपनीय जानकारी हटाती है जबकि मूल लेआउट अपरिवर्तित रहता है। इस ट्यूटोरियल में आप सीखेंगे कि जावा एप्लिकेशन्स में **संवेदनशील डेटा को रिडैक्ट** कैसे किया जाता है, फ़ाइलों के बैच पर रिडैक्शन पॉलिसी कैसे लागू की जाए, और फ़ॉर्मेटिंग खोए बिना परिणाम कैसे सहेजे जाएँ।
@@ -276,8 +272,3 @@ try (Redactor redactor = new Redactor(inputFile.getPath())) {
 - [जावा में संवेदनशील डेटा को मास्क करना – GroupDocs.Redaction गाइड](/redaction/java/getting-started/)  
 - [GroupDocs.Redaction के साथ जावा दस्तावेज़ों में टेक्स्ट रिडैक्ट करने का तरीका](/redaction/java/text-redaction/java-redaction-guide-groupdocs-document-security/)
 
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

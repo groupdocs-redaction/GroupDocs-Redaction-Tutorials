@@ -292,9 +292,3 @@ A: 핵심 API는 동기식이지만 Java `CompletableFuture`로 호출을 래핑
 - [GroupDocs.Redaction을 사용한 Java 문서 페이지 미리보기 로드](/redaction/java/document-loading/)
 - [민감 데이터 마스킹 Java – GroupDocs.Redaction 가이드](/redaction/java/getting-started/)
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

@@ -296,9 +296,3 @@ C5: Çekirdek API eşzamanlıdır, ancak Java `CompletableFuture` içinde çağr
 - [GroupDocs.Redaction ile Java'da Belge Sayfalarını Önizleme](/redaction/java/document-loading/)
 - [Java’da Hassas Verileri Maskele – GroupDocs.Redaction Kılavuzu](/redaction/java/getting-started/)
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

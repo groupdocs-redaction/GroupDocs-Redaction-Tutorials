@@ -296,9 +296,3 @@ A: Το βασικό API είναι συγχρονικό, αλλά μπορεί�
 - [Προεπισκόπηση σελίδων εγγράφου Java με φόρτωση στο GroupDocs.Redaction](/redaction/java/document-loading/)
 - [Απόκρυψη ευαίσθητων δεδομένων Java – Οδηγός GroupDocs.Redaction](/redaction/java/getting-started/)
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

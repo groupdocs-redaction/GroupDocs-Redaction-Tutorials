@@ -110,7 +110,6 @@ Fügen Sie das GroupDocs‑Repository und die Redaction‑Abhängigkeit zu Ihrer
    </dependency>
 </dependencies>
 ```
-```
 
 ### Wie kann ich eine Lizenz für GroupDocs.Redaction erhalten?
 GroupDocs bietet drei Lizenzierungsoptionen (siehe [GroupDocs‑Website](https://purchase.groupdocs.com/temporary-license/)) an:
@@ -132,7 +131,6 @@ public class RedactEmails {
     }
 }
 ```
-```
 
 ## Implementierungsanleitung
 
@@ -152,7 +150,6 @@ public class RedactEmails {
     }
 }
 ```
-```
 
 ### Wie kann ich die Redaktion auf ein einzelnes Arbeitsblatt und eine Spalte beschränken?
 Die Klasse `CellFilter` ermöglicht es Ihnen, festzulegen, welches Arbeitsblatt und welche Spalte(n) für die Redaktion geprüft werden sollen. Verwenden Sie einen `CellFilter`, um den Ziel‑Blattnamen und den Spaltenindex anzugeben. Die Klasse `CellFilter` filtert Zellen, bevor die Redaktions‑Engine sie auswertet, sodass nur die beabsichtigten Zellen verarbeitet werden.
@@ -166,7 +163,6 @@ CellFilter filter = new CellFilter();
 filter.setColumnIndex(1); // Targeting the second column (index starts at 0)
 filter.setWorkSheetName("Customers"); // Specify the worksheet name
 ```
-```
 
 ### Wie definiere ich ein reguläres Ausdrucksmuster, das die meisten E‑Mail‑Adressen erfasst?
 Die Klasse `Pattern` aus `java.util.regex` stellt einen kompilierten regulären Ausdruck dar, der zum Abgleichen von Text verwendet wird. Erzeugen Sie ein `Pattern`‑Objekt mit einem Regex, das typische E‑Mail‑Formate erfasst. Das untenstehende Muster entspricht der Mehrheit der RFC‑5322‑konformen Adressen und ignoriert fehlerhafte Zeichenketten.
@@ -177,7 +173,6 @@ import java.util.regex.Pattern;
 
 // Define regex pattern for matching emails
 Pattern expression = Pattern.compile("^\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$");
-```
 ```
 
 ### Wie wende ich die Redaktion an und ersetze E‑Mails durch einen Platzhalter?
@@ -199,7 +194,6 @@ if (result.getStatus() != RedactionStatus.Failed) {
     saveOptions.setAddSuffix(true); // Add a suffix to the saved file name
     redactor.save(saveOptions);
 }
-```
 ```
 
 ## Häufige Fallstricke und Fehlersuche

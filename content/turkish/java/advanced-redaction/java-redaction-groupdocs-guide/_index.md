@@ -70,10 +70,6 @@ url: /tr/java/advanced-redaction/java-redaction-groupdocs-guide/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Java'da Hassas Verileri Redakte Etme - GroupDocs.Redaction ile
 
 **GroupDocs.Redaction** bir Java kütüphanesidir ve programlı olarak 70'ten fazla belge formatından gizli bilgileri, orijinal düzeni bozmadan kaldırır. Bu öğreticide Java uygulamalarında **hassas verileri nasıl redakte edeceğinizi**, bir dosya topluluğuna redaksiyon politikası uygulamayı ve sonuçları biçimlendirmeyi kaybetmeden kaydetmeyi öğreneceksiniz.
@@ -281,8 +277,3 @@ Bu kılavuzu izleyerek GroupDocs.Redaction'ın güçlü politika motoru ve toplu
 - [Java’da Hassas Verileri Maskele – GroupDocs.Redaction Rehberi](/redaction/java/getting-started/)
 - [GroupDocs.Redaction ile Java Belgelerinde Metni Nasıl Redakte Edilir](/redaction/java/text-redaction/java-redaction-guide-groupdocs-document-security/)
 
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

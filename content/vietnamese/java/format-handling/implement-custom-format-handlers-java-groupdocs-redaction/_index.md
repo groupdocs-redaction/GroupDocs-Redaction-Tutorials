@@ -293,9 +293,3 @@ Bây giờ bạn đã nắm vững cách **implement custom format handler** và
 - [Xem trước các trang tài liệu Java Loading với GroupDocs.Redaction](/redaction/java/document-loading/)
 - [Che dấu Dữ liệu Nhạy cảm Java – Hướng dẫn GroupDocs.Redaction](/redaction/java/getting-started/)
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

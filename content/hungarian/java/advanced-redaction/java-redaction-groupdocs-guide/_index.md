@@ -70,10 +70,6 @@ url: /hu/java/advanced-redaction/java-redaction-groupdocs-guide/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Érzékeny adatok redakciója Java-ban a GroupDocs.Redaction segítségével
 
 **GroupDocs.Redaction** egy Java könyvtár, amely programozottan eltávolítja a bizalmas információkat több mint 70 dokumentumformátumból, miközben az eredeti elrendezést változatlanul hagyja. Ebben az útmutatóban megtanulja, hogyan **redakciózza az érzékeny adatokat** Java alkalmazásokban, hogyan alkalmazzon redakciós szabályt fájlcsoporton, és hogyan mentse az eredményeket formázás elvesztése nélkül.
@@ -283,8 +279,3 @@ Ezzel az útmutatóval biztonságosan **redakciózhatja az érzékeny adatokat**
 - [Hogyan redakciózzuk a dokumentumokat a GroupDocs Redaction Java licenccel fájl útvonalból – Lépésről lépésre útmutató](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)
 - [Érzékeny adatok maszkolása Java – GroupDocs.Redaction útmutató](/redaction/java/getting-started/)
 - [Hogyan redakciózzuk a szöveget Java dokumentumokban a GroupDocs.Redaction segítségével](/redaction/java/text-redaction/java-redaction-guide-groupdocs-document-security/)
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

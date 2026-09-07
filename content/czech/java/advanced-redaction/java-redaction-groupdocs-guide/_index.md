@@ -69,10 +69,6 @@ url: /cs/java/advanced-redaction/java-redaction-groupdocs-guide/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Redigování citlivých údajů v Javě pomocí GroupDocs.Redaction
 
 **GroupDocs.Redaction** je knihovna pro Javu, která programově odstraňuje důvěrné informace z více než 70 formátů dokumentů a zachovává původní rozvržení. V tomto tutoriálu se naučíte, jak **redigovat citlivá data** v Java aplikacích, použít politiku redakce na dávku souborů a uložit výsledky bez ztráty formátování.
@@ -288,8 +284,3 @@ Podle tohoto průvodce můžete bezpečně **redigovat citlivá data** z Java do
 - [Maskování citlivých dat v Javě – průvodce GroupDocs.Redaction](/redaction/java/getting-started/)
 - [Jak redigovat text v Java dokumentech pomocí GroupDocs.Redaction](/redaction/java/text-redaction/java-redaction-guide-groupdocs-document-security/)
 
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

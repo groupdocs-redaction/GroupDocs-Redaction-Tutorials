@@ -66,10 +66,6 @@ url: /zh-hant/java/advanced-redaction/java-redaction-groupdocs-guide/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # 在 Java 中使用 GroupDocs.Redaction 進行敏感資料遮蔽
 
 **GroupDocs.Redaction** 是一個 Java 函式庫，可程式化地從超過 70 種文件格式中移除機密資訊，同時保持原始版面不變。在本教學中，您將學習如何在 Java 應用程式中 **遮蔽敏感資料**、將遮蔽政策套用至一批檔案，並在不失去格式的情況下儲存結果。
@@ -285,8 +281,3 @@ try (Redactor redactor = new Redactor(inputFile.getPath())) {
 - [在 Java 中遮蔽敏感資料 – GroupDocs.Redaction 指南](/redaction/java/getting-started/)
 - [如何使用 GroupDocs.Redaction 在 Java 文件中遮蔽文字](/redaction/java/text-redaction/java-redaction-guide-groupdocs-document-security/)
 
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

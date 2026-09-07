@@ -110,7 +110,6 @@ Dodaj repozytorium GroupDocs oraz zależność Redaction do pliku `pom.xml` (zob
    </dependency>
 </dependencies>
 ```
-```
 
 ### Jak uzyskać licencję na GroupDocs.Redaction?
 GroupDocs oferuje trzy opcje licencjonowania (zobacz [stronę GroupDocs](https://purchase.groupdocs.com/temporary-license/)):
@@ -132,7 +131,6 @@ public class RedactEmails {
     }
 }
 ```
-```
 
 ## Przewodnik implementacji
 
@@ -152,7 +150,6 @@ public class RedactEmails {
     }
 }
 ```
-```
 
 ### Jak ograniczyć redakcję do jednego arkusza i kolumny?
 Klasa `CellFilter` pozwala określić, który arkusz i kolumna(y) mają być sprawdzane pod kątem redakcji. Użyj `CellFilter`, aby podać nazwę docelowego arkusza i indeks kolumny. Klasa `CellFilter` filtruje komórki przed ich oceną przez silnik redakcji, zapewniając, że przetwarzane są tylko zamierzone komórki.
@@ -166,7 +163,6 @@ CellFilter filter = new CellFilter();
 filter.setColumnIndex(1); // Targeting the second column (index starts at 0)
 filter.setWorkSheetName("Customers"); // Specify the worksheet name
 ```
-```
 
 ### Jak zdefiniować wyrażenie regularne pasujące do większości adresów e‑mail?
 Klasa `Pattern` z pakietu `java.util.regex` reprezentuje skompilowane wyrażenie regularne używane do dopasowywania tekstu. Utwórz obiekt `Pattern` z wyrażeniem regularnym, które obejmuje typowe formaty e‑mail. Poniższy wzorzec dopasowuje większość adresów zgodnych z RFC‑5322, ignorując nieprawidłowe ciągi.
@@ -177,7 +173,6 @@ import java.util.regex.Pattern;
 
 // Define regex pattern for matching emails
 Pattern expression = Pattern.compile("^\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$");
-```
 ```
 
 ### Jak zastosować redakcję i zamienić e‑maile na tekst zastępczy?
@@ -199,7 +194,6 @@ if (result.getStatus() != RedactionStatus.Failed) {
     saveOptions.setAddSuffix(true); // Add a suffix to the saved file name
     redactor.save(saveOptions);
 }
-```
 ```
 
 ## Typowe pułapki i rozwiązywanie problemów

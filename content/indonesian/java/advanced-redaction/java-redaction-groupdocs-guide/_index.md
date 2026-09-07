@@ -70,10 +70,6 @@ url: /id/java/advanced-redaction/java-redaction-groupdocs-guide/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Menghapus data sensitif di Java dengan GroupDocs.Redaction
 
 **GroupDocs.Redaction** adalah pustaka Java yang secara programatis menghapus informasi rahasia dari lebih dari 70 format dokumen sambil mempertahankan tata letak asli. Dalam tutorial ini Anda akan belajar cara **menghapus data sensitif** dalam aplikasi Java, menerapkan kebijakan redaksi pada sekumpulan file, dan menyimpan hasilnya tanpa kehilangan format.
@@ -289,8 +285,3 @@ Dengan mengikuti panduan ini Anda dapat secara aman **menghapus data sensitif** 
 - [Cara Menghapus Dokumen dengan Lisensi GroupDocs Redaction Java dari Path File – Panduan Langkah‑per‑Langkah](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)
 - [Mask Data Sensitif Java – Panduan GroupDocs.Redaction](/redaction/java/getting-started/)
 - [Cara Menghapus Teks dalam Dokumen Java dengan GroupDocs.Redaction](/redaction/java/text-redaction/java-redaction-guide-groupdocs-document-security/)
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

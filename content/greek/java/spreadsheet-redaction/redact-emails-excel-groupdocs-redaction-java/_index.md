@@ -110,7 +110,6 @@ weight: 1
    </dependency>
 </dependencies>
 ```
-```
 
 ### Πώς μπορώ να αποκτήσω άδεια για το GroupDocs.Redaction;
 Το GroupDocs προσφέρει τρεις επιλογές αδειοδότησης (δείτε [GroupDocs’ website](https://purchase.groupdocs.com/temporary-license/)):
@@ -132,7 +131,6 @@ public class RedactEmails {
     }
 }
 ```
-```
 
 ## Οδηγός υλοποίησης
 
@@ -152,7 +150,6 @@ public class RedactEmails {
     }
 }
 ```
-```
 
 ### Πώς μπορώ να περιορίσω την επεξεργασία σε ένα μόνο φύλλο εργασίας και στήλη;
 Η κλάση `CellFilter` σας επιτρέπει να καθορίσετε ποιο φύλλο εργασίας και ποιες στήλες πρέπει να εξεταστούν για επεξεργασία. Χρησιμοποιήστε ένα `CellFilter` για να ορίσετε το όνομα του στόχου φύλλου και τον δείκτη στήλης. Η κλάση `CellFilter` φιλτράρει τα κελιά πριν η μηχανή επεξεργασίας τα αξιολογήσει, εξασφαλίζοντας ότι μόνο τα επιθυμητά κελιά θα υποβληθούν σε επεξεργασία.
@@ -166,7 +163,6 @@ CellFilter filter = new CellFilter();
 filter.setColumnIndex(1); // Targeting the second column (index starts at 0)
 filter.setWorkSheetName("Customers"); // Specify the worksheet name
 ```
-```
 
 ### Πώς ορίζω ένα πρότυπο κανονικής έκφρασης που ταιριάζει με τις περισσότερες διευθύνσεις email;
 Η κλάση `Pattern` από το `java.util.regex` αντιπροσωπεύει μια μεταγλωττισμένη κανονική έκφραση που χρησιμοποιείται για την αντιστοίχιση κειμένου. Δημιουργήστε ένα αντικείμενο `Pattern` με ένα regex που καταγράφει τυπικές μορφές email. Το παρακάτω πρότυπο ταιριάζει με την πλειονότητα των διευθύνσεων που συμμορφώνονται με το RFC‑5322, αγνοώντας εσφαλμένες αλφαριθμητικές ακολουθίες.
@@ -177,7 +173,6 @@ import java.util.regex.Pattern;
 
 // Define regex pattern for matching emails
 Pattern expression = Pattern.compile("^\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$");
-```
 ```
 
 ### Πώς εφαρμόζω την επεξεργασία και αντικαθιστώ τα email με ένα placeholder;
@@ -199,7 +194,6 @@ if (result.getStatus() != RedactionStatus.Failed) {
     saveOptions.setAddSuffix(true); // Add a suffix to the saved file name
     redactor.save(saveOptions);
 }
-```
 ```
 
 ## Συχνά προβλήματα και αντιμετώπιση

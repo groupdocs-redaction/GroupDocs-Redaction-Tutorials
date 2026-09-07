@@ -70,10 +70,6 @@ url: /it/java/advanced-redaction/java-redaction-groupdocs-guide/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Redigere dati sensibili in Java con GroupDocs.Redaction
 
 **GroupDocs.Redaction** è una libreria Java che rimuove programmaticamente informazioni riservate da più di 70 formati di documento mantenendo intatto il layout originale. In questo tutorial imparerai come **redigere dati sensibili** nelle applicazioni Java, applicare una politica di redazione a un batch di file e salvare i risultati senza perdere la formattazione.
@@ -284,8 +280,3 @@ Seguendo questa guida puoi **redigere in modo sicuro dati sensibili** dai docume
 - [Mascherare dati sensibili Java – Guida GroupDocs.Redaction](/redaction/java/getting-started/)
 - [Come redigere testo nei documenti Java con GroupDocs.Redaction](/redaction/java/text-redaction/java-redaction-guide-groupdocs-document-security/)
 
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

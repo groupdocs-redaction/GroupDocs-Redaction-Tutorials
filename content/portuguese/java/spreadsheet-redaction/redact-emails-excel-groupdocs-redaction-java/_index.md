@@ -110,7 +110,6 @@ Adicione o repositório GroupDocs e a dependência Redaction ao seu arquivo `pom
    </dependency>
 </dependencies>
 ```
-```
 
 ### Como obter uma licença para o GroupDocs.Redaction?
 O GroupDocs oferece três opções de licenciamento (veja [site do GroupDocs](https://purchase.groupdocs.com/temporary-license/)):
@@ -132,7 +131,6 @@ public class RedactEmails {
     }
 }
 ```
-```
 
 ## Guia de implementação
 
@@ -152,7 +150,6 @@ public class RedactEmails {
     }
 }
 ```
-```
 
 ### Como limitar a redação a uma única planilha e coluna?
 A classe `CellFilter` permite especificar qual planilha e coluna(s) devem ser examinadas para redação. Use um `CellFilter` para definir o nome da planilha alvo e o índice da coluna. A classe `CellFilter` filtra as células antes que o motor de redação as avalie, garantindo que apenas as células pretendidas sejam processadas.
@@ -166,7 +163,6 @@ CellFilter filter = new CellFilter();
 filter.setColumnIndex(1); // Targeting the second column (index starts at 0)
 filter.setWorkSheetName("Customers"); // Specify the worksheet name
 ```
-```
 
 ### Como definir um padrão de expressão regular que corresponda à maioria dos endereços de e‑mail?
 A classe `Pattern` de `java.util.regex` representa uma expressão regular compilada usada para corresponder texto. Crie um objeto `Pattern` com uma regex que capture formatos típicos de e‑mail. O padrão abaixo corresponde à maioria dos endereços compatíveis com RFC‑5322, ignorando strings malformadas.
@@ -177,7 +173,6 @@ import java.util.regex.Pattern;
 
 // Define regex pattern for matching emails
 Pattern expression = Pattern.compile("^\\w+([-+.']\\w+)*@\\w+([-.]\\w+)*\\.\\w+([-.]\\w+)*$");
-```
 ```
 
 ### Como aplicar a redação e substituir e‑mails por um placeholder?
@@ -199,7 +194,6 @@ if (result.getStatus() != RedactionStatus.Failed) {
     saveOptions.setAddSuffix(true); // Add a suffix to the saved file name
     redactor.save(saveOptions);
 }
-```
 ```
 
 ## Armadilhas comuns e solução de problemas

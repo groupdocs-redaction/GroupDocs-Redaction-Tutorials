@@ -295,9 +295,3 @@ A: 核心 API 为同步，但您可以将调用包装在 Java `CompletableFuture
 - [使用 GroupDocs.Redaction 预览文档页面 Java 加载](/redaction/java/document-loading/)
 - [Java 敏感数据掩码 – GroupDocs.Redaction 指南](/redaction/java/getting-started/)
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}

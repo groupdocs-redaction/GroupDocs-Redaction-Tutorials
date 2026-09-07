@@ -296,9 +296,3 @@ A: Основное API синхронное, но вы можете оберн�
 - [Предпросмотр страниц документа Java с GroupDocs.Redaction](/redaction/java/document-loading/)
 - [Маскирование конфиденциальных данных Java – руководство GroupDocs.Redaction](/redaction/java/getting-started/)
 
-{{< /blocks/products/pf/tutorial-page-section >}}
-
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-
-{{< blocks/products/products-backtop-button >}}
