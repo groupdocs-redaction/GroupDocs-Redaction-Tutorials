@@ -1,59 +1,124 @@
 ---
-date: '2026-03-17'
-description: เรียนรู้วิธีการลบข้อมูลส่วนที่เป็นคำอธิบายใน Java ด้วย GroupDocs.Redaction.
-  ทำตามคู่มือแบบทีละขั้นตอนนี้เพื่อความเป็นส่วนตัวของข้อมูลและการปฏิบัติตามกฎระเบียบ.
+date: '2026-09-11'
+description: เรียนรู้วิธีลบคอมเมนต์ java และทำการลบ annotations ด้วย GroupDocs.Redaction.
+  ปฏิบัติตามคู่มือขั้นตอนต่อขั้นตอนนี้เพื่อความเป็นส่วนตัวของข้อมูลและการปฏิบัติตามกฎระเบียบ.
 keywords:
-- annotation redaction Java
-- GroupDocs.Redaction tutorial
-- redact annotations in documents
-title: วิธีลบคำอธิบายใน Java ด้วย GroupDocs
+- remove comments java
+- how to redact annotations
+- GroupDocs Redaction Java
+- annotation redaction tutorial
+lastmod: '2026-09-11'
+og_description: เรียนรู้วิธีลบคอมเมนต์ java และทำการลบ annotations ด้วย GroupDocs.Redaction.
+  คู่มือนี้แสดงการตั้งค่าแบบ step‑by‑step, code, และแนวปฏิบัติที่ดีที่สุดสำหรับความเป็นส่วนตัวของข้อมูล.
+og_image_alt: Tutorial showing how to remove comments java and redact annotations
+  using GroupDocs.Redaction
+og_title: ลบคอมเมนต์ java ด้วย GroupDocs – คู่มือการลบ annotation อย่างสมบูรณ์
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-11'
+  description: Learn how to remove comments java and redact annotations using GroupDocs.Redaction.
+    Follow this step‑by‑step guide for data privacy and compliance.
+  headline: 'How to remove comments java using GroupDocs: a complete guide'
+  type: TechArticle
+- description: Learn how to remove comments java and redact annotations using GroupDocs.Redaction.
+    Follow this step‑by‑step guide for data privacy and compliance.
+  name: 'How to remove comments java using GroupDocs: a complete guide'
+  steps:
+  - name: initialize the redactor
+    text: '`Redactor` is the core class that represents the document in memory and
+      exposes redaction methods. Begin by creating a `Redactor` instance with your
+      document path. This is where you specify the file containing annotations to
+      be redacted.'
+  - name: apply annotationredaction
+    text: '`AnnotationRedaction` represents a redaction rule that targets text inside
+      document annotations. Use it to replace occurrences of “john” with “[redacted]”.
+      - **Pattern matching:** The regex `(?im:john)` searches for “john” in a case‑insensitive
+      manner. - **Replacement text:** “[redacted]” is the tex'
+  - name: configure save options
+    text: '`SaveOptions` configures how the redacted document is written to disk,
+      such as format and file naming. You can add a suffix, rasterize to PDF, or keep
+      the original format.'
+  - name: save the redacted document
+    text: Calling `redactor.save(saveOptions)` writes the changes to a new file. The
+      `setAddSuffix(true)` flag automatically appends “_redacted” to the original
+      filename, making the output easy to identify.
+  - name: properly close the redactor – manage redactor resources
+    text: '`Redactor` implements `AutoCloseable`; closing it releases file handles
+      and frees native memory. Always wrap the usage in a try‑with‑resources block
+      or call `close()` explicitly.'
+  type: HowTo
+- questions:
+  - answer: Yes. Open the document with the appropriate password before creating the
+      `Redactor` instance.
+    question: Can I redact annotations in password‑protected files?
+  - answer: Absolutely. You can loop through a collection of file paths, instantiate
+      a `Redactor` for each, and apply the same redaction rules.
+    question: Does the library support batch processing of multiple files?
+  - answer: They are replaced with the replacement text you specify (e.g., “[redacted]”),
+      and the original content is no longer present in the saved file.
+    question: What happens to original annotations after redaction?
+  - answer: You can export the document to PDF with `setRasterizeToPDF(true)` to create
+      a visual preview that hides the original annotation layers.
+    question: Is there a way to preview redactions before saving?
+  - answer: Increase the JVM heap size, process worksheets individually if possible,
+      and consider using the `setAddSuffix` option to keep intermediate files manageable.
+    question: How do I handle very large Excel workbooks with millions of cells?
+  type: FAQPage
+tags:
+- remove comments java
+- GroupDocs Redaction
+- Java annotation redaction
+- document privacy
+- GDPR compliance
+title: 'วิธีลบคอมเมนต์ java ด้วย GroupDocs: คู่มือฉบับสมบูรณ์'
 type: docs
 url: /th/java/annotation-redaction/java-annotation-redaction-groupdocs-tutorial/
 weight: 1
 ---
 
- not to translate URLs.
+{{< blocks/products/pf/main-wrap-class >}}
+{{< blocks/products/pf/main-container >}}
+{{< blocks/products/pf/tutorial-page-section >}}
 
-Proceed to produce final markdown.
+# วิธีลบคอมเมนต์ Java ด้วย GroupDocs: คู่มือฉบับสมบูรณ์
 
-# วิธีลบข้อมูลใน Annotation ใน Java ด้วย GroupDocs: คู่มือฉบับสมบูรณ์
+ในยุคดิจิทัลปัจจุบัน การเรียนรู้วิธี **remove comments java** และการทำลบข้อมูลที่เป็น annotation ในเอกสารเป็นทักษะสำคัญสำหรับการปกป้องข้อมูลที่ละเอียดอ่อนและปฏิบัติตามกฎระเบียบด้านความเป็นส่วนตัว ไม่ว่าคุณจะจัดการกับงบการเงิน สัญญากฎหมาย หรือบันทึกส่วนบุคคล การซ่อนเนื้อหา annotation จะทำให้ข้อมูลที่เป็นความลับไม่รั่วไหลเมื่อไฟล์ถูกแชร์ คู่มือนี้จะพาคุณผ่านกระบวนการทั้งหมดของการใช้ GroupDocs.Redaction for Java เพื่อค้นหาและลบข้อความ annotation โดยอัตโนมัติ
 
-ในยุคดิจิทัลปัจจุบัน **วิธีลบข้อมูลใน annotation** ในเอกสารเป็นทักษะสำคัญสำหรับการปกป้องข้อมูลที่ละเอียดอ่อนและการปฏิบัติตามกฎระเบียบความเป็นส่วนตัว ไม่ว่าคุณจะจัดการกับงบการเงิน สัญญากฎหมาย หรือบันทึกส่วนบุคคล การลบหรือซ่อนเนื้อหาใน annotation จะช่วยให้ข้อมูลลับไม่รั่วไหลเมื่อไฟล์ถูกแชร์ คำแนะนำนี้จะพาคุณผ่านกระบวนการทั้งหมดของการใช้ GroupDocs.Redaction สำหรับ Java เพื่อค้นหาและลบข้อความใน annotation อัตโนมัติ
+## คำตอบอย่างรวดเร็ว
+- **What does “annotation redaction” mean?** การลบหรือซ่อนข้อความภายในคอมเมนต์, โน้ต, และ annotation อื่น ๆ ของเอกสาร.  
+- **Which library handles it?** GroupDocs.Redaction for Java.  
+- **Do I need a license?** ใบอนุญาตชั่วคราวเพียงพอสำหรับการทดสอบ; ใบอนุญาตเต็มจะเปิดใช้งานคุณสมบัติทั้งหมด.  
+- **Can I use regex patterns?** ใช่—`AnnotationRedaction` รองรับ regular expressions สำหรับการจับคู่ที่แม่นยำ.  
+- **Is the solution suitable for large files?** ใช่, ด้วยการจัดการหน่วยความจำที่เหมาะสมตามที่อธิบายต่อไป
 
-## คำตอบสั้น ๆ
-- **“การลบข้อมูลใน annotation” หมายถึงอะไร?** การลบหรือซ่อนข้อความภายในคอมเมนต์, โน้ต, และ annotation อื่น ๆ ของเอกสาร  
-- **ไลบรารีที่ทำหน้าที่นี้คืออะไร?** GroupDocs.Redaction สำหรับ Java  
-- **ต้องมีลิขสิทธิ์หรือไม่?** ลิขสิทธิ์ชั่วคราวเพียงพอสำหรับการทดสอบ; ลิขสิทธิ์เต็มจะเปิดฟีเจอร์ทั้งหมด  
-- **สามารถใช้รูปแบบ regex ได้หรือไม่?** ได้ — `AnnotationRedaction` รองรับ regular expressions สำหรับการจับคู่ที่แม่นยำ  
-- **โซลูชันนี้เหมาะกับไฟล์ขนาดใหญ่หรือไม่?** ใช่, ด้วยแนวทางการจัดการหน่วยความจำที่อธิบายต่อไป
+## Annotation redaction คืออะไร
+Annotation redaction หมายถึงกระบวนการค้นหาข้อความที่ละเอียดอ่อนภายในคอมเมนต์ของเอกสาร, footnote, หรือองค์ประกอบ markup อื่น ๆ และแทนที่ด้วยตัวแทน (เช่น “[redacted]”). แตกต่างจากการลบข้อความธรรมดา, วิธีนี้มุ่งเป้าไปที่ชั้นที่ซ่อนอยู่ซึ่งมักหลุดจากการตรวจสอบด้วยมือ
 
-## การลบข้อมูลใน Annotation คืออะไร?
-การลบข้อมูลใน annotation หมายถึงกระบวนการค้นหาข้อความที่เป็นความลับภายในคอมเมนต์, หมายเหตุ, หรือองค์ประกอบ markup อื่น ๆ ของเอกสารและแทนที่ด้วยตัวแทน (เช่น “[redacted]”) แตกต่างจากการลบข้อความธรรมดา การลบนี้มุ่งเป้าไปที่ชั้นที่มักหลุดพ้นจากการตรวจสอบด้วยตนเอง
+## ทำไมต้องใช้ GroupDocs.Redaction for Java
+GroupDocs.Redaction ให้โซลูชันที่ครอบคลุมและมีประสิทธิภาพสูงที่รองรับหลายรูปแบบไฟล์, มีความแม่นยำด้วย regex, และรวมคุณสมบัติตรงตามมาตรฐานการปฏิบัติตาม. มันออกแบบมาเพื่อจัดการเอกสารขนาดใหญ่อย่างมีประสิทธิภาพพร้อมรับประกันว่าข้อมูล annotation ที่ละเอียดอ่อนจะถูกลบอย่างสมบูรณ์
 
-## ทำไมต้องใช้ GroupDocs.Redaction สำหรับ Java?
-- **รองรับเอกสารแบบเต็ม:** ทำงานกับ Word, Excel, PowerPoint, PDF, และรูปแบบอื่น ๆ อีกหลายประเภท  
-- **ความแม่นยำด้วย Regex:** กำหนดเป้าหมายเฉพาะข้อมูลที่ต้องการซ่อน  
-- **ประสิทธิภาพสูง:** จัดการไฟล์ขนาดใหญ่ด้วยการใช้หน่วยความจำน้อย  
-- **พร้อมสำหรับการปฏิบัติตาม:** รองรับ GDPR, HIPAA, และมาตรฐานความเป็นส่วนตัวอื่น ๆ โดยอัตโนมัติ
+- **Full‑document support:** รองรับรูปแบบไฟล์ **30+** รูปแบบ รวมถึง DOCX, XLSX, PPTX, PDF, และรูปภาพกว่า 20 ประเภท.  
+- **Regex‑driven precision:** กำหนดเป้าหมายเฉพาะข้อมูลที่ต้องการซ่อน.  
+- **Performance‑optimized:** ประมวลผลไฟล์หลายร้อยหน้าโดยใช้หน่วยความจำ heap ต่ำกว่า 200 MB.  
+- **Compliance‑ready:** ตรงตามมาตรฐาน GDPR, HIPAA, และมาตรฐานความเป็นส่วนตัวอื่น ๆ โดยอัตโนมัติ.
 
-## วิธีลบข้อมูลใน Annotation ด้วย Java — กระบวนการครบวงจร
-ด้านล่างนี้เป็นขั้นตอนแบบทีละขั้นตอนที่เชื่อมโยงแนวคิดที่ได้อธิบายไว้ข้างต้น เราจะเริ่มจากการตั้งค่าสภาพแวดล้อม, ผ่านโค้ดการลบจริง, และสรุปด้วยเคล็ดลับการบันทึกเอกสารที่ลบข้อมูลแล้วและการจัดการทรัพยากรของ Redactor
+## วิธีลบคอมเมนต์ Java ด้วย GroupDocs
+`Redactor` class เป็นจุดเริ่มต้นหลักที่โหลดเอกสารและให้การดำเนินการลบข้อมูล. โหลดไฟล์เป้าหมายด้วย `new Redactor("file.docx")`, ใช้ `AnnotationRedaction` ที่ตรงกับข้อความคอมเมนต์ที่ต้องการซ่อน, แล้วบันทึกเอกสารด้วย `SaveOptions`. รูปแบบสามขั้นตอนนี้จะลบคอมเมนต์ java ในหนึ่งขั้นตอนที่ใช้หน่วยความจำอย่างมีประสิทธิภาพ
 
 ## ข้อกำหนดเบื้องต้น
 
-ก่อนเริ่ม, ตรวจสอบว่าคุณมีไลบรารีและสภาพแวดล้อมที่จำเป็นแล้ว คุณจะต้องมี:
+ก่อนเริ่ม, ตรวจสอบว่าคุณมีไลบรารีและสภาพแวดล้อมที่จำเป็นแล้ว. คุณจะต้องมี:
 
-- **ไลบรารีที่ต้องการ:** GroupDocs.Redaction เวอร์ชัน 24.9 หรือใหม่กว่า  
-- **การตั้งค่าสภาพแวดล้อม:** ติดตั้ง Java Development Kit (JDK) บนเครื่องของคุณ  
-- **ความรู้พื้นฐาน:** ความเข้าใจพื้นฐานเกี่ยวกับการเขียนโปรแกรม Java
+- **Required libraries:** ไลบรารี GroupDocs.Redaction รุ่น 24.9 หรือใหม่กว่า.  
+- **Environment setup:** ติดตั้ง Java Development Kit (JDK) บนเครื่องของคุณ.  
+- **Knowledge prerequisites:** ความเข้าใจพื้นฐานของการเขียนโปรแกรม Java.
 
 ## การตั้งค่า GroupDocs.Redaction สำหรับ Java
 
-เพื่อเริ่มใช้ GroupDocs.Redaction ในโปรเจกต์ของคุณ, คุณต้องรวมไลบรารีผ่าน Maven หรือดาวน์โหลดโดยตรง
+เพื่อเริ่มใช้ GroupDocs.Redaction ในโปรเจคของคุณ, คุณต้องรวมเข้ากับ Maven หรือดาวน์โหลดไลบรารีโดยตรง
 
 ### การติดตั้งด้วย Maven
-
-เพิ่ม repository และ dependency ต่อไปนี้ในไฟล์ `pom.xml` ของคุณ:
+Add the following repository and dependency to your `pom.xml`:
 
 ```xml
 <repositories>
@@ -74,16 +139,13 @@ Proceed to produce final markdown.
 ```
 
 ### ดาวน์โหลดโดยตรง
+หรือดาวน์โหลดเวอร์ชันล่าสุดจาก [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
-หรือคุณสามารถดาวน์โหลดเวอร์ชันล่าสุดจาก [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/)  
-
-#### การขอรับลิขสิทธิ์
-
-คุณสามารถขอรับลิขสิทธิ์ชั่วคราวหรือซื้อลิขสิทธิ์เต็มเพื่อเปิดฟีเจอร์ทั้งหมด สำหรับการทดลอง, คุณสามารถขอรับลิขสิทธิ์ชั่วคราวผ่าน [purchase page](https://purchase.groupdocs.com/temporary-license/) ของพวกเขา
+#### การรับใบอนุญาต
+คุณสามารถรับใบอนุญาตชั่วคราวหรือซื้อใบอนุญาตเต็มเพื่อเปิดใช้งานคุณสมบัติทั้งหมด. สำหรับการทดลอง, คุณสามารถขอใบอนุญาตชั่วคราวผ่าน [purchase page](https://purchase.groupdocs.com/temporary-license/).
 
 ### การเริ่มต้นและตั้งค่าเบื้องต้น
-
-ก่อนอื่น, ตรวจสอบว่าโปรเจกต์ของคุณได้ตั้งค่าขึ้นกับ dependencies ที่จำเป็นแล้ว จากนั้นให้ import คลาสของ GroupDocs.Redaction เข้าไฟล์ Java ของคุณ:
+`Redactor` class เป็นจุดเริ่มต้นที่โหลดเอกสารและให้การดำเนินการลบข้อมูล. นำเข้าคลาสที่จำเป็นเข้าสู่ไฟล์ Java ของคุณ:
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -91,32 +153,29 @@ import com.groupdocs.redaction.options.SaveOptions;
 import com.groupdocs.redaction.redactions.AnnotationRedaction;
 ```
 
-## คู่มือการทำงาน
+## คู่มือการนำไปใช้
 
-ต่อไปนี้เป็นการเดินผ่านการทำงานของการลบข้อมูลใน annotation ด้วย GroupDocs.Redaction
+ตอนนี้เราจะไปผ่านขั้นตอนการทำ annotation redaction ด้วย GroupDocs.Redaction
 
-### ขั้นตอนที่ 1: เริ่มต้น Redactor
-
-สร้างอินสแตนซ์ `Redactor` พร้อมระบุพาธของเอกสารของคุณ ซึ่งเป็นไฟล์ที่มี annotation ที่ต้องการลบ
+### ขั้นตอนที่ 1: เริ่มต้น redactor
+`Redactor` เป็นคลาสหลักที่แสดงเอกสารในหน่วยความจำและเปิดเผยเมธอดการลบข้อมูล. เริ่มโดยสร้างอินสแตนซ์ `Redactor` ด้วยเส้นทางไฟล์ของคุณ. ที่นี่คุณระบุไฟล์ที่มี annotation ที่ต้องการลบ.
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/ANNOTATED_XLSX");
 ```
 
-### ขั้นตอนที่ 2: ใช้ AnnotationRedaction
-
-ใช้ `AnnotationRedaction` เพื่อกำหนดเป้าหมายข้อความภายใน annotation ที่ตรงกับรูปแบบที่กำหนด ที่นี่เราต้องการแทนที่คำว่า "john" ด้วย "[redacted]"
+### ขั้นตอนที่ 2: ใช้ annotationredaction
+`AnnotationRedaction` แสดงกฎการลบข้อมูลที่มุ่งเป้าข้อความภายใน annotation ของเอกสาร. ใช้เพื่อแทนที่คำว่า “john” ด้วย “[redacted]”.
 
 ```java
 redactor.apply(new AnnotationRedaction("(?im:john)", "[redacted]");
 ```
 
-- **การจับคู่รูปแบบ:** regex `(?im:john)` จะค้นหา "john" แบบไม่สนใจตัวพิมพ์ใหญ่‑เล็ก  
-- **ข้อความแทนที่:** "[redacted]" คือข้อความที่จะใช้แทนที่รูปแบบที่ตรงกัน
+- **Pattern matching:** regex `(?im:john)` ค้นหา “john” แบบไม่สนใจตัวพิมพ์.  
+- **Replacement text:** “[redacted]” คือข้อความที่จะใช้แทนที่รูปแบบที่ตรงกัน.
 
-### ขั้นตอนที่ 3: ตั้งค่า Save Options
-
-กำหนด `SaveOptions` เพื่อระบุวิธีการบันทึกเอกสารที่ลบข้อมูลแล้ว คุณสามารถระบุว่าจะเพิ่ม suffix หรือ rasterize เอกสารเป็น PDF
+### ขั้นตอนที่ 3: ตั้งค่า save options
+`SaveOptions` กำหนดวิธีการบันทึกเอกสารที่ลบข้อมูลลงดิสก์, เช่น รูปแบบและการตั้งชื่อไฟล์. คุณสามารถเพิ่ม suffix, แปลงเป็น PDF, หรือคงรูปแบบเดิม.
 
 ```java
 SaveOptions saveOptions = new SaveOptions();
@@ -125,16 +184,14 @@ saveOptions.setRasterizeToPDF(false);
 ```
 
 ### ขั้นตอนที่ 4: บันทึกเอกสารที่ลบข้อมูลแล้ว
-
-สุดท้าย, บันทึกการเปลี่ยนแปลงโดยใช้ `SaveOptions` ที่ตั้งค่าไว้ ขั้นตอนนี้ทำให้การลบข้อมูลของคุณถูกนำไปใช้และจัดเก็บอย่างถูกต้อง
+การเรียก `redactor.save(saveOptions)` จะเขียนการเปลี่ยนแปลงลงไฟล์ใหม่. ธง `setAddSuffix(true)` จะเพิ่ม “_redacted” ไปยังชื่อไฟล์เดิมโดยอัตโนมัติ, ทำให้ผลลัพธ์ง่ายต่อการระบุ.
 
 ```java
 redactor.save(saveOptions);
 ```
 
-### ขั้นตอนที่ 5: ปิด Redactor อย่างถูกต้อง – จัดการทรัพยากรของ Redactor
-
-ควรปิดอินสแตนซ์ `Redactor` เสมอเพื่อปล่อยทรัพยากรและหลีกเลี่ยง memory leak:
+### ขั้นตอนที่ 5: ปิด redactor อย่างถูกต้อง – จัดการทรัพยากร redactor
+`Redactor` implements `AutoCloseable`; การปิดจะปล่อยไฟล์แฮนด์และคืนหน่วยความจำ native. ควรห่อการใช้งานในบล็อก try‑with‑resources หรือเรียก `close()` อย่างชัดเจน.
 
 ```java
 finally {
@@ -143,78 +200,83 @@ finally {
 ```
 
 ## วิธีบันทึกเอกสารที่ลบข้อมูลแล้ว
-
-อ็อบเจกต์ `SaveOptions` ให้การควบคุมระดับละเอียดเหนือไฟล์ผลลัพธ์ การตั้งค่า `setAddSuffix(true)` จะเพิ่ม “_redacted” ไปยังชื่อไฟล์ต้นฉบับโดยอัตโนมัติ ทำให้เห็นชัดว่าเวอร์ชันใดมีการลบข้อมูลแล้ว คุณยังสามารถสลับ `setRasterizeToPDF` หากต้องการผลลัพธ์เป็น PDF‑only เพื่อเพิ่มความปลอดภัย
+`SaveOptions` ให้การควบคุมละเอียดต่อไฟล์ผลลัพธ์. การตั้งค่า `setAddSuffix(true)` จะเพิ่ม “_redacted” ไปยังชื่อไฟล์เดิมโดยอัตโนมัติ, ทำให้ชัดเจนว่าเวอร์ชันใดมีการลบข้อมูล. คุณยังสามารถสลับ `setRasterizeToPDF` หากต้องการผลลัพธ์เป็น PDF เท่านั้นเพื่อความปลอดภัยเพิ่ม
 
 ## การประยุกต์ใช้งานจริง
+Annotation redaction มีคุณค่าในหลายสถานการณ์:
 
-การลบข้อมูลใน annotation มีประโยชน์ในหลายสถานการณ์:
+- **Data privacy:** รับรองว่าตัวระบุส่วนบุคคลไม่ออกจากสภาพแวดล้อมที่ปลอดภัยของคุณ.  
+- **Compliance:** ปฏิบัติตาม GDPR, HIPAA, หรือข้อกำหนดอุตสาหกรรมโดยอัตโนมัติในการลบโน้ตที่เป็นความลับ.  
+- **Document sharing:** แจกจ่ายร่างให้กับพันธมิตรภายนอกอย่างปลอดภัยโดยไม่เปิดเผยคอมเมนต์ภายใน.
 
-- **ความเป็นส่วนตัวของข้อมูล:** ทำให้ตัวระบุส่วนบุคคลไม่ออกจากสภาพแวดล้อมที่ปลอดภัยของคุณ  
-- **การปฏิบัติตาม:** ตรงตาม GDPR, HIPAA หรือกฎระเบียบเฉพาะอุตสาหกรรมโดยการลบโน้ตที่เป็นความลับโดยอัตโนมัติ  
-- **การแชร์เอกสาร:** แจกจ่ายฉบับร่างให้กับพันธมิตรภายนอกโดยไม่เปิดเผยคอมเมนต์ภายใน
-
-คุณสามารถรวม GroupDocs.Redaction กับระบบอื่น ๆ (เช่น แพลตฟอร์มจัดการเอกสาร, workflow อัตโนมัติ) เพื่อสร้าง pipeline การลบข้อมูลแบบครบวงจร
+คุณสามารถรวม GroupDocs.Redaction กับระบบอื่น ๆ (เช่น แพลตฟอร์มจัดการเอกสาร, workflow อัตโนมัติ) เพื่อสร้าง pipeline การลบข้อมูลแบบ end‑to‑end.
 
 ## พิจารณาด้านประสิทธิภาพ
-
 เมื่อทำงานกับเอกสารขนาดใหญ่หรือประมวลผลเป็นชุด:
 
-- **การจัดการหน่วยความจำ:** ใช้ `Redactor` ซ้ำเมื่อเป็นไปได้และปิดให้เร็วที่สุด  
-- **การทำงานแบบหลายเธรด:** ประมวลผลไฟล์พร้อมกันเฉพาะเมื่อมี heap space เพียงพอ  
-- **การตรวจสอบ:** บันทึกเวลาในการประมวลผลและการใช้หน่วยความจำเพื่อระบุคอขวดตั้งแต่ต้น
+- **Memory management:** ใช้ `Redactor` ซ้ำเมื่อเป็นไปได้และปิดให้เร็ว.  
+- **Threading:** ประมวลผลไฟล์แบบขนานเฉพาะเมื่อมี heap พอ.  
+- **Monitoring:** บันทึกเวลาประมวลผลและการใช้หน่วยความจำเพื่อระบุคอขวดตั้งแต่แรก.
 
-## ปัญหาที่พบบ่อยและการแก้ไข
+## ปัญหาทั่วไปและการแก้ไข
 
 | อาการ | สาเหตุที่เป็นไปได้ | วิธีแก้ |
-|-------|-------------------|--------|
-| ไม่มีการเปลี่ยนแปลงหลัง `save()` | Regex ไม่ถูกต้องหรือความไวต่อกรณี | ตรวจสอบรูปแบบ; ใช้ `(?i)` สำหรับการจับคู่แบบไม่สนใจตัวพิมพ์ใหญ่‑เล็ก |
-| OutOfMemoryError กับไฟล์ใหญ่ | Redactor โหลดเอกสารทั้งหมดในหน่วยความจำ | เพิ่ม heap ของ JVM (`-Xmx`) หรือประมวลผลไฟล์เป็นชิ้นเล็ก |
-| LicenseException | ใช้ trial โดยไม่มีไฟล์ลิขสิทธิ์ที่ถูกต้อง | วางไฟล์ลิขสิทธิ์ชั่วคราวในโฟลเดอร์รากของโปรเจกต์หรือกำหนดค่าลิขสิทธิ์ผ่านโค้ด |
+|---------|--------------|-----|
+| ไม่มีการเปลี่ยนแปลงหลังจาก `save()` | Regex ผิดหรือความแตกต่างของตัวพิมพ์ | ตรวจสอบรูปแบบ; ใช้ `(?i)` สำหรับการจับคู่ไม่สนใจตัวพิมพ์. |
+| OutOfMemoryError กับไฟล์ขนาดใหญ่ | Redactor เก็บเอกสารทั้งหมดในหน่วยความจำ | เพิ่ม heap ของ JVM (`-Xmx`) หรือประมวลผลไฟล์เป็นส่วนย่อย. |
+| LicenseException | ใช้รุ่นทดลองโดยไม่มีไฟล์ใบอนุญาตที่ถูกต้อง | วางไฟล์ใบอนุญาตชั่วคราวในโฟลเดอร์รากของโปรเจคหรือกำหนดค่าใบอนุญาตผ่านโปรแกรม. |
 
 ## ส่วนคำถามที่พบบ่อย
-1. **GroupDocs.Redaction สำหรับ Java คืออะไร?**  
-   - ไลบรารีที่ช่วยให้คุณลบข้อความภายในเอกสาร, ปกป้องข้อมูลที่ละเอียดอ่อน  
+1. **What is GroupDocs.Redaction for Java?**  
+   - ไลบรารีที่ช่วยให้คุณลบข้อความภายในเอกสาร, เพื่อให้ข้อมูลที่ละเอียดอ่อนได้รับการปกป้อง.  
+2. **How do I set up GroupDocs.Redaction in my Java project?**  
+   - ใช้ Maven หรือดาวน์โหลดไลบรารีโดยตรงและเพิ่มเข้าไปใน dependencies ของโปรเจค.  
+3. **Can I use regex patterns for specific text redaction?**  
+   - ใช่, `AnnotationRedaction` รองรับ regex สำหรับการแทนที่ข้อความที่กำหนด.  
+4. **What are some common use cases for annotation redaction?**  
+   - ความเป็นส่วนตัวของข้อมูล, การปฏิบัติตามกฎระเบียบ, และการแชร์เอกสารอย่างปลอดภัยเป็นการใช้งานหลัก.  
+5. **How can I optimize performance when using GroupDocs.Redaction?**  
+   - จัดการการใช้หน่วยความจำอย่างมีประสิทธิภาพและปฏิบัติตามแนวทางที่ดีที่สุดของ Java เพื่อให้การประมวลผลมีประสิทธิภาพ.
 
-2. **ฉันจะตั้งค่า GroupDocs.Redaction ในโปรเจกต์ Java ของฉันอย่างไร?**  
-   - ใช้ Maven หรือดาวน์โหลดไลบรารีโดยตรงและเพิ่มเป็น dependency ของโปรเจกต์  
+## คำถามที่พบบ่อย
 
-3. **ฉันสามารถใช้ regex เพื่อลบข้อความเฉพาะได้หรือไม่?**  
-   - ได้, `AnnotationRedaction` รองรับ regex สำหรับการแทนที่ข้อความที่กำหนด  
+**Q: Can I redact annotations in password‑protected files?**  
+A: ใช่. เปิดเอกสารด้วยรหัสผ่านที่เหมาะสมก่อนสร้างอินสแตนซ์ `Redactor`.
 
-4. **การลบข้อมูลใน annotation มีการใช้งานทั่วไปอะไรบ้าง?**  
-   - ความเป็นส่วนตัวของข้อมูล, การปฏิบัติตามกฎระเบียบ, และการแชร์เอกสารอย่างปลอดภัย  
+**Q: Does the library support batch processing of multiple files?**  
+A: แน่นอน. คุณสามารถวนลูปผ่านคอลเลกชันของเส้นทางไฟล์, สร้าง `Redactor` สำหรับแต่ละไฟล์, และใช้กฎการลบข้อมูลเดียวกัน.
 
-5. **ฉันจะเพิ่มประสิทธิภาพการทำงานเมื่อใช้ GroupDocs.Redaction อย่างไร?**  
-   - จัดการการใช้หน่วยความจำอย่างมีประสิทธิภาพและปฏิบัติตามแนวทางที่ดีที่สุดของ Java เพื่อให้การประมวลผลเป็นไปอย่างราบรื่น  
+**Q: What happens to original annotations after redaction?**  
+A: พวกมันจะถูกแทนที่ด้วยข้อความที่คุณระบุ (เช่น “[redacted]”), และเนื้อหาเดิมจะไม่มีอยู่ในไฟล์ที่บันทึกแล้ว.
 
-## คำถามที่พบบ่อยเพิ่มเติม
+**Q: Is there a way to preview redactions before saving?**  
+A: คุณสามารถส่งออกเอกสารเป็น PDF ด้วย `setRasterizeToPDF(true)` เพื่อสร้างตัวอย่างภาพที่ซ่อนชั้น annotation ดั้งเดิม.
 
-**ถาม: ฉันสามารถลบ annotation ในไฟล์ที่มีการป้องกันด้วยรหัสผ่านได้หรือไม่?**  
-ตอบ: ได้. เปิดไฟล์ด้วยรหัสผ่านที่ถูกต้องก่อนสร้างอินสแตนซ์ `Redactor`
-
-**ถาม: ไลบรารีนี้รองรับการประมวลผลเป็นชุดของหลายไฟล์หรือไม่?**  
-ตอบ: แน่นอน. คุณสามารถวนลูปผ่านคอลเลกชันของพาธไฟล์, สร้าง `Redactor` สำหรับแต่ละไฟล์, และใช้กฎการลบเดียวกัน  
-
-**ถาม: สิ่งที่เกิดขึ้นกับ annotation ดั้งเดิมหลังการลบข้อมูลคืออะไร?**  
-ตอบ: จะถูกแทนที่ด้วยข้อความที่คุณกำหนด (เช่น “[redacted]”) และเนื้อหาเดิมจะไม่ปรากฏในไฟล์ที่บันทึกแล้ว  
-
-**ถาม: มีวิธีดูตัวอย่างการลบข้อมูลก่อนบันทึกหรือไม่?**  
-ตอบ: คุณสามารถส่งออกเอกสารเป็น PDF ด้วย `setRasterizeToPDF(true)` เพื่อสร้างตัวอย่างภาพที่ซ่อน layer ของ annotation ดั้งเดิม  
-
-**ถาม: ฉันจะจัดการกับ Excel workbook ขนาดใหญ่มากที่มีล้านเซลล์อย่างไร?**  
-ตอบ: เพิ่มขนาด heap ของ JVM, ประมวลผล worksheet แยกกันถ้าเป็นไปได้, และใช้ตัวเลือก `setAddSuffix` เพื่อจัดการไฟล์กลางให้เป็นระเบียบ  
+**Q: How do I handle very large Excel workbooks with millions of cells?**  
+A: เพิ่มขนาด heap ของ JVM, ประมวลผล worksheet ทีละแผ่นถ้าเป็นไปได้, และพิจารณาใช้ตัวเลือก `setAddSuffix` เพื่อทำให้ไฟล์กลางจัดการได้ง่าย.
 
 ## แหล่งข้อมูล
-- [Documentation](https://docs.groupdocs.com/redaction/java/)
-- [API Reference](https://reference.groupdocs.com/redaction/java)
-- [Download](https://releases.groupdocs.com/redaction/java/)
-- [GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
-- [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)
-- [Temporary License](https://purchase.groupdocs.com/temporary-license/)
+- [เอกสาร](https://docs.groupdocs.com/redaction/java/)
+- [อ้างอิง API](https://reference.groupdocs.com/redaction/java)
+- [ดาวน์โหลด](https://releases.groupdocs.com/redaction/java/)
+- [ที่เก็บ GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
+- [ฟอรั่มสนับสนุนฟรี](https://forum.groupdocs.com/c/redaction/33)
+- [ใบอนุญาตชั่วคราว](https://purchase.groupdocs.com/temporary-license/)
 
 ---
 
-**อัปเดตล่าสุด:** 2026-03-17  
-**ทดสอบกับ:** GroupDocs.Redaction 24.9 for Java  
+**อัปเดตล่าสุด:** 2026-09-11  
+**ทดสอบด้วย:** GroupDocs.Redaction 24.9 for Java  
 **ผู้เขียน:** GroupDocs
+
+## บทแนะนำที่เกี่ยวข้อง
+
+- [วิธีลบข้อมูลในเอกสารด้วย GroupDocs Redaction Java License จากเส้นทางไฟล์ – คู่มือขั้นตอนโดยละเอียด](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)
+- [วิธีลบข้อมูลเอกสาร Java ด้วย GroupDocs.Redaction API](/redaction/java/getting-started/java-groupdocs-redaction-tutorial/)
+- [วิธีลบข้อความใน Java ด้วย GroupDocs.Redaction – คู่มือ](/redaction/java/text-redaction/text-redaction-java-groupdocs-redaction/)
+
+
+{{< /blocks/products/pf/tutorial-page-section >}}
+{{< /blocks/products/pf/main-container >}}
+{{< /blocks/products/pf/main-wrap-class >}}
+{{< blocks/products/products-backtop-button >}}

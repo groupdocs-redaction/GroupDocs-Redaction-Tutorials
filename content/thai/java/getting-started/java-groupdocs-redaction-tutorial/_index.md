@@ -1,47 +1,103 @@
 ---
-date: '2026-03-20'
-description: เรียนรู้วิธีการลบข้อมูลในเอกสาร Java และโหลดไฟล์เอกสาร Java ที่อยู่ในเครื่องโดยใช้
-  GroupDocs.Redaction สำหรับ Java คู่มือแบบขั้นตอนนี้ครอบคลุมการตั้งค่า การใช้งาน
-  และแนวปฏิบัติที่ดีที่สุด
+date: '2026-09-11'
+description: เรียนรู้วิธีการลบข้อมูลที่ละเอียดอ่อนใน Java ด้วย GroupDocs.Redaction
+  คู่มือขั้นตอนต่อขั้นตอนนี้ครอบคลุมการโหลดไฟล์เอกสาร Java จากเครื่องท้องถิ่น การใช้กฎการลบข้อมูล
+  และการรักษาความปลอดภัยของเอกสาร Java อย่างมีประสิทธิภาพ
 keywords:
-- Java document redaction
-- GroupDocs.Redaction API
-- secure documents with Java
-title: วิธีทำการลบข้อมูลในเอกสาร Java ด้วย GroupDocs.Redaction API
+- redact sensitive data
+- redact pdf java
+- load local document java
+- secure documents java
+lastmod: '2026-09-11'
+og_description: เรียนรู้วิธีการลบข้อมูลที่ละเอียดอ่อนใน Java ด้วย GroupDocs.Redaction
+  คู่มือนี้จะแสดงวิธีการโหลดไฟล์เอกสาร Java จากเครื่องท้องถิ่น การใช้กฎการลบข้อมูล
+  และการประมวลผลไฟล์ PDF, Word, และ Excel อย่างปลอดภัย
+og_image_alt: Guide showing Java code to redact sensitive data using GroupDocs.Redaction
+og_title: ลบข้อมูลที่ละเอียดอ่อนใน Java ด้วย GroupDocs.Redaction
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-11'
+  description: Learn how to redact sensitive data in Java using GroupDocs.Redaction.
+    This step‑by‑step guide covers loading local document Java files, applying redaction
+    rules, and securing documents Java efficiently.
+  headline: Redact sensitive data in Java with GroupDocs.Redaction
+  type: TechArticle
+- description: Learn how to redact sensitive data in Java using GroupDocs.Redaction.
+    This step‑by‑step guide covers loading local document Java files, applying redaction
+    rules, and securing documents Java efficiently.
+  name: Redact sensitive data in Java with GroupDocs.Redaction
+  steps:
+  - name: specify the document path (load local document java)
+    text: Define the absolute or relative path to the file you want to protect.
+  - name: create a redactor instance
+    text: '`Redactor` is the core class that opens a document and manages redaction
+      operations. Using a `try‑finally` block guarantees that native resources are
+      released promptly.'
+  - name: apply redactions
+    text: '`DeleteAnnotationRedaction` removes annotation objects from the document.
+      In this example we remove all annotations. Replace `DeleteAnnotationRedaction`
+      with any other rule such as `DeleteTextRedaction` or `RedactImageRedaction`
+      to meet your specific compliance needs.'
+  - name: save the redacted document
+    text: Persist the changes either back to the original file or to a new location
+      of your choosing. By following these four steps you have successfully **redact
+      sensitive data**—loading a local file, applying a redaction rule, and writing
+      the cleaned output.
+  type: HowTo
+- questions:
+  - answer: It is a powerful API that enables developers to redact sensitive information
+      from documents in over 115 formats using Java.
+    question: What is GroupDocs.Redaction for Java?
+  - answer: Surround the `Redactor` constructor with a try‑catch block; catch `FileNotFoundException`
+      for missing files and `RedactionException` for API‑specific errors.
+    question: How do I handle exceptions when loading a document?
+  - answer: Yes—loop through a folder, instantiate a `Redactor` for each file, apply
+      the desired redactions, and save the results.
+    question: Can I use GroupDocs.Redaction for batch processing multiple files?
+  - answer: It supports Word, PDF, Excel, PowerPoint, OpenDocument, and many other
+      popular formats, totaling more than 115 file types.
+    question: What document formats does GroupDocs.Redaction support?
+  - answer: Absolutely—use the library’s stream‑based APIs to read from and write
+      to AWS S3, Azure Blob Storage, or Google Cloud Storage.
+    question: Is integration with cloud storage possible?
+  type: FAQPage
+tags:
+- redaction java
+- groupdocs
+- document security
+- java file processing
+title: ลบข้อมูลที่ละเอียดอ่อนใน Java ด้วย GroupDocs.Redaction
 type: docs
 url: /th/java/getting-started/java-groupdocs-redaction-tutorial/
 weight: 1
 ---
 
-# ลบข้อมูลในเอกสาร Java ด้วย GroupDocs.Redaction API
+# ลบข้อมูลที่ละเอียดอ่อนใน Java ด้วย GroupDocs.Redaction
 
-ในแอปพลิเคชันสมัยใหม่, **redact java documents** เป็นความสามารถที่จำเป็นเมื่อคุณต้องจัดการสัญญา, งบการเงิน, หรือไฟล์ HR ที่มีข้อมูลลับ. ในบทเรียนนี้คุณจะได้เรียนรู้วิธี **load local document java** ไฟล์, ใช้กฎการลบข้อมูล, และบันทึกเวอร์ชันที่สะอาด—ทั้งหมดด้วยไลบรารี GroupDocs.Redaction สำหรับ Java. เมื่อเสร็จคุณจะมีโค้ดสแนปช็อตที่สามารถนำไปใช้ในโปรเจกต์ Java ใดก็ได้.
+ในโลกที่ขับเคลื่อนด้วยข้อมูลในปัจจุบัน, **redact sensitive data** จากสัญญา, งบการเงิน หรือไฟล์ HR ก่อนที่ข้อมูลจะออกจากระบบของคุณ บทเรียนนี้จะพาคุณผ่านการโหลดไฟล์เอกสาร Java ที่อยู่ในเครื่อง, การกำหนดกฎการลบข้อมูล, และการบันทึกเวอร์ชันที่สะอาดโดยใช้ไลบรารี GroupDocs.Redaction สำหรับ Java. เมื่อเสร็จคุณจะมีโค้ดสั้นที่นำกลับมาใช้ได้ซึ่งทำงานกับ PDF, Word, Excel, PowerPoint และรูปแบบอื่น ๆ อีกมากมาย.
 
 ## คำตอบอย่างรวดเร็ว
 - **ควรใช้ไลบรารีอะไร?** GroupDocs.Redaction for Java  
-- **ฉันสามารถลบข้อมูลไฟล์ที่จัดเก็บในเครื่องได้หรือไม่?** ใช่—เพียงโหลดเอกสารในเครื่องด้วยเส้นทางไฟล์ของมัน  
-- **ฉันต้องการไลเซนส์หรือไม่?** การทดลองฟรีทำงานสำหรับการประเมิน; จำเป็นต้องมีไลเซนส์เชิงพาณิชย์สำหรับการผลิต  
-- **ประเภทเอกสารใดที่รองรับ?** Word, PDF, Excel, PowerPoint, และอื่น ๆ อีกมากมาย  
-- **สามารถทำการประมวลผลแบบอะซิงโครนัสได้หรือไม่?** คุณสามารถห่อการเรียกลบข้อมูลในเธรดแยกต่างหากเพื่อประสิทธิภาพที่ดีขึ้น  
+- **ฉันสามารถลบข้อมูลไฟล์ที่เก็บไว้ในเครื่องได้หรือไม่?** Yes—simply load the local document with its file path  
+- **ฉันต้องการไลเซนส์หรือไม่?** A free trial works for evaluation; a commercial license is required for production  
+- **ประเภทเอกสารใดบ้างที่รองรับ?** Word, PDF, Excel, PowerPoint, and many more (over 115 formats)  
+- **การประมวลผลแบบอะซิงโครนัสเป็นไปได้หรือไม่?** You can wrap redaction calls in separate threads for better responsiveness  
 
 ## “redact java documents” คืออะไร?
-การลบข้อมูลใน Java หมายถึงการลบหรือทำให้ข้อมูลที่เป็นความลับ (ข้อความ, รูปภาพ, คำอธิบาย) จากเอกสารโดยอัตโนมัติก่อนที่จะแบ่งปันหรือจัดเก็บ. API ของ GroupDocs.Redaction ให้คุณมีอินเทอร์เฟซระดับสูงที่สะอาดเพื่อทำการเหล่านี้โดยไม่ต้องแก้ไขไฟล์ด้วยตนเอง.
+**Redact Java documents** หมายถึงการลบหรือทำให้ข้อมูลลับ เช่น ข้อความ, รูปภาพ, และคำอธิบายบรร anotations จากไฟล์โดยใช้โค้ด Java อย่างเป็นโปรแกรม กระบวนการนี้ช่วยให้องค์กรปฏิบัติตามข้อกำหนดการปฏิบัติตามเช่น GDPR, HIPAA, และ PCI‑DSS โดยทำให้ข้อมูลที่ละเอียดอ่อนไม่ออกจากระบบ. API ของ GroupDocs.Redaction ให้ส่วนต่อประสานระดับสูงที่ปลอดภัยต่อประเภท (type‑safe) ซึ่งแยกการจัดการไฟล์ระดับต่ำ ทำให้การลบข้อมูลเป็นเรื่องง่ายและเชื่อถือได้.
 
 ## ทำไมต้องใช้ GroupDocs.Redaction สำหรับ Java?
-- **การสนับสนุนรูปแบบที่ครอบคลุม** – ทำงานกับไฟล์ประเภทกว่า 100 ประเภท  
-- **การควบคุมระดับละเอียด** – เลือกจากข้อความ, รูปภาพ, คำอธิบาย, หรือกฎการลบข้อมูลแบบกำหนดเอง  
-- **ประสิทธิภาพที่ปรับแต่งไว้** – จัดการไฟล์ขนาดใหญ่ได้อย่างมีประสิทธิภาพโดยใช้หน่วยความจำน้อย  
-- **การผสานรวมที่ง่าย** – พร้อมใช้กับ Maven/Gradle, ไม่มีการพึ่งพา native  
+GroupDocs.Redaction รองรับ **115+ input and output formats**, ประมวลผลไฟล์หลายร้อยหน้าโดยใช้หน่วยความจำ heap ต่ำกว่า 200 MB, และมี API ที่ปลอดภัยต่อเธรด (thread‑safe) ที่ให้คุณรันการลบข้อมูลในสตรีมแบบขนาน ประโยชน์ที่วัดได้เหล่านี้ทำให้เป็นตัวเลือกอันดับต้น ๆ สำหรับองค์กรที่ต้อง **secure documents Java** แอปพลิเคชันในระดับใหญ่.
 
 ## ข้อกำหนดเบื้องต้น
-- **Java Development Kit (JDK) 8+** ติดตั้งแล้ว  
-- **Maven** สำหรับการจัดการ dependencies  
-- ความรู้พื้นฐานเกี่ยวกับ Java I/O และการจัดการข้อยกเว้น  
-- เข้าถึงไลเซนส์ **GroupDocs.Redaction** (ทดลองหรือเชิงพาณิชย์)  
+- Java Development Kit (JDK) 8 หรือใหม่กว่า ที่ติดตั้งแล้ว  
+- Maven สำหรับการจัดการ dependencies  
+- ความคุ้นเคยพื้นฐานกับ Java I/O และการจัดการข้อยกเว้น  
+- การเข้าถึงไลเซนส์ GroupDocs.Redaction (ทดลองสำหรับการทดสอบ, เชิงพาณิชย์สำหรับการผลิต)  
 
 ## การตั้งค่า GroupDocs.Redaction สำหรับ Java
 
-### การติดตั้งด้วย Maven
+### การติดตั้ง Maven
 เพิ่ม repository และ dependency ลงในไฟล์ `pom.xml` ของคุณ:
 
 ```xml
@@ -66,21 +122,23 @@ weight: 1
 หรือคุณสามารถดาวน์โหลด JAR ล่าสุดจาก [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
 ### ขั้นตอนการรับไลเซนส์
-- **Free Trial:** เริ่มต้นด้วยการทดลองฟรีเพื่อประเมินความสามารถของไลบรารี.  
-- **Temporary License:** รับไลเซนส์ชั่วคราวสำหรับการทดสอบระยะสั้น.  
-- **Purchase:** ซื้อไลเซนส์เชิงพาณิชย์สำหรับการใช้งานในสภาพการผลิตเต็มรูปแบบ.  
+- **Free trial:** เริ่มต้นด้วยการทดลองฟรีเพื่อประเมินความสามารถของไลบรารี  
+- **Temporary license:** รับไลเซนส์ชั่วคราวสำหรับการทดสอบระยะสั้น  
+- **Purchase:** ซื้อไลเซนส์เชิงพาณิชย์สำหรับการใช้งานในระบบผลิตเต็มรูปแบบ  
 
-## วิธีลบข้อมูลเอกสาร Java – คู่มือขั้นตอนโดยละเอียด
+## วิธีลบข้อมูลเอกสาร Java – คู่มือขั้นตอนต่อขั้นตอน
 
-### ขั้นตอนที่ 1: ระบุเส้นทางของเอกสาร (load local document java)
-กำหนดเส้นทางแบบ absolute หรือ relative ของเอกสารที่คุณต้องการปกป้อง.
+โหลดเอกสาร, สร้าง redactor, ใช้กฎ, และบันทึกผลลัพธ์. ส่วนต่อไปนี้จะแบ่งแต่ละขั้นตอนพร้อมคำอธิบายสั้น ๆ.
+
+### ขั้นตอนที่ 1: ระบุเส้นทางไฟล์เอกสาร (โหลดเอกสาร Java จากเครื่อง)
+กำหนดเส้นทางแบบ absolute หรือ relative ไปยังไฟล์ที่คุณต้องการปกป้อง.
 
 ```java
 final String documentPath = "YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX";
 ```
 
 ### ขั้นตอนที่ 2: สร้างอินสแตนซ์ Redactor
-สร้างอินสแตนซ์ของคลาส `Redactor` ด้วยเส้นทางที่คุณกำหนดไว้. รูปแบบ `try‑finally` รับประกันว่าทรัพยากรจะถูกปล่อยอย่างถูกต้อง.
+`Redactor` คือคลาสหลักที่เปิดเอกสารและจัดการการดำเนินการลบข้อมูล การใช้บล็อก `try‑finally` จะรับประกันว่าทรัพยากรพื้นฐานจะถูกปล่อยออกอย่างทันท่วงที.
 
 ```java
 try {
@@ -96,7 +154,7 @@ try {
 ```
 
 ### ขั้นตอนที่ 3: ใช้การลบข้อมูล
-ในตัวอย่างนี้เราจะลบคำอธิบายทั้งหมด. คุณสามารถแทนที่ `DeleteAnnotationRedaction` ด้วยประเภทการลบข้อมูลอื่น ๆ (เช่น `DeleteTextRedaction`, `RedactImageRedaction`).
+`DeleteAnnotationRedaction` จะลบวัตถุ annotation จากเอกสาร ในตัวอย่างนี้เราลบ annotation ทั้งหมด แทนที่ `DeleteAnnotationRedaction` ด้วยกฎอื่นเช่น `DeleteTextRedaction` หรือ `RedactImageRedaction` เพื่อให้ตรงกับความต้องการการปฏิบัติตามของคุณ.
 
 ```java
 // Apply a redaction to delete annotations in the document
@@ -104,59 +162,64 @@ redactor.apply(new DeleteAnnotationRedaction());
 ```
 
 ### ขั้นตอนที่ 4: บันทึกเอกสารที่ลบข้อมูลแล้ว
-บันทึกการเปลี่ยนแปลงกลับไปยังไฟล์ต้นฉบับหรือไปยังตำแหน่งใหม่.
+บันทึกการเปลี่ยนแปลงกลับไปยังไฟล์ต้นฉบับหรือไปยังตำแหน่งใหม่ตามที่คุณเลือก.
 
 ```java
 // Save the changes made to the original document
 redactor.save();
 ```
 
-โดยทำตามสี่ขั้นตอนนี้ คุณได้ทำการ **redact java documents** สำเร็จ—โหลดไฟล์ในเครื่อง, ใช้กฎการลบข้อมูล, และเขียนผลลัพธ์ที่สะอาด.
+โดยการทำตามสี่ขั้นตอนนี้คุณได้ **redact sensitive data** อย่างสำเร็จ — โหลดไฟล์จากเครื่อง, ใช้กฎการลบข้อมูล, และเขียนผลลัพธ์ที่ทำความสะอาดแล้ว.
 
-## ปัญหาที่พบบ่อยและวิธีแก้ไข
-- **File Not Found:** ตรวจสอบสตริง `documentPath` อีกครั้ง; ใช้เส้นทางแบบ absolute เพื่อความแน่นอน.  
-- **Version Mismatch:** ตรวจสอบให้แน่ใจว่าเวอร์ชันของ dependency Maven ตรงกับ JAR ที่คุณดาวน์โหลด.  
-- **Insufficient Permissions:** รัน JVM ด้วยสิทธิ์ไฟล์ระบบที่เหมาะสม, โดยเฉพาะบน Linux/macOS.  
+## ปัญหาทั่วไปและวิธีแก้
+- **File not found:** ตรวจสอบว่า `documentPath` ชี้ไปยังตำแหน่งที่ถูกต้อง; เส้นทางแบบ absolute จะหลีกเลี่ยงความกำกวม.  
+- **Version mismatch:** ตรวจสอบให้แน่ใจว่าเวอร์ชันของ dependency ใน Maven ตรงกับ JAR ที่คุณดาวน์โหลด.  
+- **Insufficient permissions:** รัน JVM ด้วยสิทธิ์ระบบไฟล์ที่เหมาะสม, โดยเฉพาะบน Linux/macOS.  
 
 ## การประยุกต์ใช้งานจริง
-1. **Legal Document Processing:** ลบชื่อของลูกค้าและหมายเลขคดีก่อนแชร์ให้กับที่ปรึกษาภายนอก.  
-2. **Financial Audits:** ลบหมายเลขบัญชีจากรายงานการตรวจสอบเพื่อให้สอดคล้องกับกฎระเบียบความเป็นส่วนตัว.  
-3. **HR Records:** ซ่อนข้อมูลส่วนบุคคลของพนักงานเมื่อส่งออกไฟล์ HR เพื่อการวิเคราะห์.  
+1. **Legal document processing:** ลบชื่อของลูกค้าและหมายเลขคดีก่อนแชร์กับที่ปรึกษาภายนอก.  
+2. **Financial audits:** ลบหมายเลขบัญชีจากรายงานการตรวจสอบเพื่อให้สอดคล้องกับข้อกำหนด PCI‑DSS และ GDPR.  
+3. **HR records:** ซ่อนข้อมูลส่วนบุคคลของพนักงานเมื่อส่งออกไฟล์ HR เพื่อการวิเคราะห์หรือการตรวจสอบโดยบุคคลที่สาม.  
 
-## พิจารณาด้านประสิทธิภาพ
-- **Memory Management:** ใช้บล็อก `try‑finally` (ตามที่แสดง) เพื่อปล่อยทรัพยากร native อย่างรวดเร็ว.  
-- **Batch Processing:** สำหรับปริมาณมาก, ทำการวนซ้ำผ่านไดเรกทอรีและประมวลผลไฟล์ด้วย parallel streams.  
-- **Asynchronous Execution:** ห่อหุ้มตรรกะการลบข้อมูลใน `CompletableFuture` หรือ thread pool เพื่อให้ UI threads ตอบสนองได้ดี.  
+## ข้อควรพิจารณาด้านประสิทธิภาพ
+- **Memory management:** รูปแบบ `try‑finally` ที่แสดงข้างต้นจะปล่อยทรัพยากรพื้นฐานทันที ทำให้การใช้ heap ต่ำ.  
+- **Batch processing:** วนลูปผ่านไดเรกทอรีและเรียกการลบข้อมูลในสตรีมแบบขนานเพื่อจัดการไฟล์หลายพันไฟล์อย่างมีประสิทธิภาพ.  
+- **Asynchronous execution:** ห่อโลจิกการลบข้อมูลใน `CompletableFuture` หรือ thread pool เพื่อให้เธรด UI ตอบสนองได้ในแอปพลิเคชันเดสก์ท็อปหรือเว็บ.  
 
 ## คำถามที่พบบ่อย
 
 **Q: GroupDocs.Redaction for Java คืออะไร?**  
-A: เป็น API ที่ทรงพลังที่ช่วยให้นักพัฒนาสามารถลบข้อมูลที่เป็นความลับจากเอกสารในรูปแบบต่าง ๆ ด้วย Java.
+A: เป็น API ที่ทรงพลังซึ่งช่วยให้นักพัฒนาสามารถลบข้อมูลที่ละเอียดอ่อนจากเอกสารในกว่า 115 รูปแบบโดยใช้ Java.
 
 **Q: ฉันจะจัดการกับข้อยกเว้นเมื่อโหลดเอกสารอย่างไร?**  
-A: ใช้บล็อก try‑catch รอบคอนสตรัคเตอร์ `Redactor`; จับข้อยกเว้นเฉพาะเช่น `FileNotFoundException` เพื่อให้การวินิจฉัยชัดเจนยิ่งขึ้น.
+A: ใช้บล็อก `try‑catch` รอบคอนสตรัคเตอร์ `Redactor`; จับ `FileNotFoundException` สำหรับไฟล์ที่หายไปและ `RedactionException` สำหรับข้อผิดพลาดเฉพาะของ API.
 
-**Q: ฉันสามารถใช้ GroupDocs.Redaction เพื่อประมวลผลหลายไฟล์เป็นชุดได้หรือไม่?**  
-A: ได้, คุณสามารถวนลูปผ่านโฟลเดอร์, สร้างอินสแตนซ์ `Redactor` สำหรับแต่ละไฟล์, ใช้การลบข้อมูลที่ต้องการ, และบันทึกผลลัพธ์.
+**Q: ฉันสามารถใช้ GroupDocs.Redaction สำหรับการประมวลผลเป็นชุดหลายไฟล์ได้หรือไม่?**  
+A: ได้—วนลูปผ่านโฟลเดอร์, สร้างอินสแตนซ์ `Redactor` สำหรับแต่ละไฟล์, ใช้การลบข้อมูลที่ต้องการ, และบันทึกผลลัพธ์.
 
-**Q: GroupDocs.Redaction รองรับรูปแบบเอกสารใดบ้าง?**  
-A: รองรับ Word, PDF, Excel, PowerPoint, OpenDocument, และรูปแบบยอดนิยมอื่น ๆ อีกหลายประเภท.
+**Q: GroupDocs.Redaction รองรับรูปแบบเอกสารอะไรบ้าง?**  
+A: รองรับ Word, PDF, Excel, PowerPoint, OpenDocument และรูปแบบยอดนิยมอื่น ๆ อีกมากมาย รวมกว่า 115 ประเภทไฟล์.
 
-**Q: สามารถผสานรวมกับคลาวด์สตอเรจได้หรือไม่?**  
-A: แน่นอน—ใช้ API ที่อิงสตรีมของไลบรารีเพื่ออ่านและเขียนไปยังบริการคลาวด์เช่น AWS S3, Azure Blob Storage, หรือ Google Cloud Storage.
+**Q: สามารถรวมกับคลาวด์สตอเรจได้หรือไม่?**  
+A: แน่นอน—ใช้ API ที่ทำงานบนสตรีมของไลบรารีเพื่ออ่านและเขียนไปยัง AWS S3, Azure Blob Storage หรือ Google Cloud Storage.
 
 ## แหล่งข้อมูล
-- **เอกสารประกอบ:** [GroupDocs Redaction Java Documentation](https://docs.groupdocs.com/redaction/java/)  
+- **เอกสาร:** [GroupDocs Redaction Java Documentation](https://docs.groupdocs.com/redaction/java/)  
 - **อ้างอิง API:** [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)  
 - **ดาวน์โหลด:** [GroupDocs.Redaction Releases](https://releases.groupdocs.com/redaction/java/)  
-- **ที่เก็บบน GitHub:** [GroupDocs Redaction on GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
+- **ที่เก็บ GitHub:** [GroupDocs Redaction on GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - **ฟอรั่มสนับสนุนฟรี:** [GroupDocs Support](https://forum.groupdocs.com/c/redaction/33)  
 - **ไลเซนส์ชั่วคราว:** [Get a Temporary License](https://purchase.groupdocs.com/temporary-license/)  
 
-โดยการใช้ไลบรารี GroupDocs.Redaction สำหรับ Java, คุณสามารถมั่นใจได้ว่าข้อมูลที่เป็นความลับในเอกสารของคุณจะได้รับการปกป้องอย่างมีประสิทธิภาพและปลอดภัย. ขอให้เขียนโค้ดอย่างสนุกสนาน!
+โดยการใช้ไลบรารี GroupDocs.Redaction สำหรับ Java คุณสามารถทำให้แน่ใจว่า **redact sensitive data** จากเอกสารของคุณได้อย่างมีประสิทธิภาพและปลอดภัย. ขอให้เขียนโค้ดสนุก!
 
 ---
 
-**อัปเดตล่าสุด:** 2026-03-20  
+**อัปเดตล่าสุด:** 2026-09-11  
 **ทดสอบด้วย:** GroupDocs.Redaction 24.9 for Java  
 **ผู้เขียน:** GroupDocs
+
+## บทแนะนำที่เกี่ยวข้อง
+- [วิธีลบข้อมูลเอกสารด้วยไลเซนส์ GroupDocs Redaction Java จากเส้นทางไฟล์ – คู่มือขั้นตอนต่อขั้นตอน](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)
+- [ดูตัวอย่างหน้าจากเอกสาร Java ด้วย GroupDocs.Redaction](/redaction/java/document-loading/)
+- [วิธีลบข้อมูล PDF และปิดบังข้อมูลที่ละเอียดอ่อนด้วย Java และ GroupDocs](/redaction/java/advanced-redaction/master-document-redaction-java-groupdocs-redaction/)
