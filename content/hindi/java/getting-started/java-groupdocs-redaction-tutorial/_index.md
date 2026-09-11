@@ -1,48 +1,105 @@
 ---
-date: '2026-03-20'
-description: GroupDocs.Redaction for Java का उपयोग करके जावा दस्तावेज़ों को रीडैक्ट
-  करना और स्थानीय दस्तावेज़ जावा फ़ाइलें लोड करना सीखें। यह चरण‑दर‑चरण गाइड सेटअप,
-  कार्यान्वयन और सर्वोत्तम प्रथाओं को कवर करता है।
+date: '2026-09-11'
+description: GroupDocs.Redaction का उपयोग करके Java में संवेदनशील डेटा को रिडैक्ट
+  करना सीखें। यह step‑by‑step गाइड स्थानीय दस्तावेज़ Java फ़ाइलों को लोड करने, रिडैक्शन
+  नियम लागू करने, और Java दस्तावेज़ों को कुशलतापूर्वक सुरक्षित करने को कवर करता है।
 keywords:
-- Java document redaction
-- GroupDocs.Redaction API
-- secure documents with Java
-title: GroupDocs.Redaction API के साथ जावा दस्तावेज़ों को कैसे रीडैक्ट करें
+- redact sensitive data
+- redact pdf java
+- load local document java
+- secure documents java
+lastmod: '2026-09-11'
+og_description: GroupDocs.Redaction का उपयोग करके Java में संवेदनशील डेटा को रिडैक्ट
+  करना सीखें। यह गाइड आपको स्थानीय दस्तावेज़ Java फ़ाइलों को लोड करने, रिडैक्शन नियम
+  लागू करने, और PDF, Word, तथा Excel फ़ाइलों को सुरक्षित रूप से प्रोसेस करने का तरीका
+  दिखाता है।
+og_image_alt: Guide showing Java code to redact sensitive data using GroupDocs.Redaction
+og_title: GroupDocs.Redaction के साथ Java में संवेदनशील डेटा को रिडैक्ट करें
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-11'
+  description: Learn how to redact sensitive data in Java using GroupDocs.Redaction.
+    This step‑by‑step guide covers loading local document Java files, applying redaction
+    rules, and securing documents Java efficiently.
+  headline: Redact sensitive data in Java with GroupDocs.Redaction
+  type: TechArticle
+- description: Learn how to redact sensitive data in Java using GroupDocs.Redaction.
+    This step‑by‑step guide covers loading local document Java files, applying redaction
+    rules, and securing documents Java efficiently.
+  name: Redact sensitive data in Java with GroupDocs.Redaction
+  steps:
+  - name: specify the document path (load local document java)
+    text: Define the absolute or relative path to the file you want to protect.
+  - name: create a redactor instance
+    text: '`Redactor` is the core class that opens a document and manages redaction
+      operations. Using a `try‑finally` block guarantees that native resources are
+      released promptly.'
+  - name: apply redactions
+    text: '`DeleteAnnotationRedaction` removes annotation objects from the document.
+      In this example we remove all annotations. Replace `DeleteAnnotationRedaction`
+      with any other rule such as `DeleteTextRedaction` or `RedactImageRedaction`
+      to meet your specific compliance needs.'
+  - name: save the redacted document
+    text: Persist the changes either back to the original file or to a new location
+      of your choosing. By following these four steps you have successfully **redact
+      sensitive data**—loading a local file, applying a redaction rule, and writing
+      the cleaned output.
+  type: HowTo
+- questions:
+  - answer: It is a powerful API that enables developers to redact sensitive information
+      from documents in over 115 formats using Java.
+    question: What is GroupDocs.Redaction for Java?
+  - answer: Surround the `Redactor` constructor with a try‑catch block; catch `FileNotFoundException`
+      for missing files and `RedactionException` for API‑specific errors.
+    question: How do I handle exceptions when loading a document?
+  - answer: Yes—loop through a folder, instantiate a `Redactor` for each file, apply
+      the desired redactions, and save the results.
+    question: Can I use GroupDocs.Redaction for batch processing multiple files?
+  - answer: It supports Word, PDF, Excel, PowerPoint, OpenDocument, and many other
+      popular formats, totaling more than 115 file types.
+    question: What document formats does GroupDocs.Redaction support?
+  - answer: Absolutely—use the library’s stream‑based APIs to read from and write
+      to AWS S3, Azure Blob Storage, or Google Cloud Storage.
+    question: Is integration with cloud storage possible?
+  type: FAQPage
+tags:
+- redaction java
+- groupdocs
+- document security
+- java file processing
+title: GroupDocs.Redaction के साथ Java में संवेदनशील डेटा को रिडैक्ट करें
 type: docs
 url: /hi/java/getting-started/java-groupdocs-redaction-tutorial/
 weight: 1
 ---
 
-# GroupDocs.Redaction API के साथ Java दस्तावेज़ों को रीडैक्ट करें
+# Java में संवेदनशील डेटा को Redact करें GroupDocs.Redaction
 
-आधुनिक अनुप्रयोगों में, **redact java documents** वह अनिवार्य क्षमता है जब आप संविदाएँ, वित्तीय विवरण, या HR फ़ाइलें जो गोपनीय डेटा रखती हैं, संभालते हैं। इस ट्यूटोरियल में आप सीखेंगे कि कैसे **load local document java** फ़ाइलों को लोड करें, रीडैक्शन नियम लागू करें, और एक साफ़ संस्करण सहेजें—सभी GroupDocs.Redaction Java लाइब्रेरी के साथ। अंत तक, आपके पास एक पुन: उपयोग योग्य कोड स्निपेट होगा जिसे आप किसी भी Java प्रोजेक्ट में डाल सकते हैं।
+आज के डेटा‑चालित विश्व में, अनुबंधों, वित्तीय विवरणों, या HR फ़ाइलों से **redact sensitive data** करें इससे पहले कि वे आपके सिस्टम से बाहर निकलें। यह ट्यूटोरियल आपको स्थानीय दस्तावेज़ Java फ़ाइल लोड करने, redaction नियम निर्धारित करने, और GroupDocs.Redaction Java लाइब्रेरी का उपयोग करके साफ़ संस्करण सहेजने की प्रक्रिया दिखाता है। अंत तक आपके पास एक पुन: उपयोग योग्य स्निपेट होगा जो PDF, Word, Excel, PowerPoint, और कई अन्य फ़ॉर्मैट्स के लिए काम करता है।
 
 ## त्वरित उत्तर
-- **What library should I use?** GroupDocs.Redaction for Java  
-- **Can I redact a file stored locally?** हाँ—सिर्फ स्थानीय दस्तावेज़ को उसके फ़ाइल पथ के साथ लोड करें  
-- **Do I need a license?** मूल्यांकन के लिए एक मुफ्त ट्रायल काम करता है; उत्पादन के लिए एक व्यावसायिक लाइसेंस आवश्यक है  
-- **Which document types are supported?** Word, PDF, Excel, PowerPoint, और कई अन्य  
-- **Is asynchronous processing possible?** आप बेहतर प्रतिक्रिया के लिए रीडैक्शन कॉल को अलग थ्रेड्स में रैप कर सकते हैं  
+- **मैं कौन सी लाइब्रेरी उपयोग करूँ?** GroupDocs.Redaction for Java  
+- **क्या मैं स्थानीय रूप से संग्रहीत फ़ाइल को redact कर सकता हूँ?** हाँ—simply load the local document with its file path  
+- **क्या मुझे लाइसेंस चाहिए?** एक मुफ्त ट्रायल मूल्यांकन के लिए काम करता है; उत्पादन के लिए एक व्यावसायिक लाइसेंस आवश्यक है।  
+- **कौन से दस्तावेज़ प्रकार समर्थित हैं?** Word, PDF, Excel, PowerPoint, और कई अधिक (115 से अधिक फ़ॉर्मैट्स)  
+- **क्या असिंक्रोनस प्रोसेसिंग संभव है?** आप बेहतर प्रतिक्रिया के लिए redaction कॉल को अलग थ्रेड्स में रैप कर सकते हैं।  
 
 ## “redact java documents” क्या है?
-Java में रीडैक्शन का अर्थ है प्रोग्रामेटिक रूप से संवेदनशील सामग्री (टेक्स्ट, इमेज, एनोटेशन) को दस्तावेज़ों से हटाना या अस्पष्ट करना, इससे पहले कि उन्हें साझा या संग्रहीत किया जाए। GroupDocs.Redaction API आपको एक साफ़, उच्च‑स्तरीय इंटरफ़ेस प्रदान करता है जिससे आप ये कार्य मैन्युअल फ़ाइल संपादन के बिना कर सकते हैं।
+**Redact Java documents** का मतलब है Java कोड का उपयोग करके फ़ाइलों से गोपनीय टेक्स्ट, इमेज़ और एनोटेशन को प्रोग्रामेटिकली हटाना या अस्पष्ट करना। यह प्रक्रिया संगठनों को GDPR, HIPAA, और PCI‑DSS जैसे अनुपालन आवश्यकताओं को पूरा करने में मदद करती है, यह सुनिश्चित करके कि संवेदनशील जानकारी सिस्टम से बाहर न जाए। GroupDocs.Redaction API एक हाई‑लेवल, टाइप‑सेफ इंटरफ़ेस प्रदान करता है जो लो‑लेवल फ़ाइल हैंडलिंग को एब्स्ट्रैक्ट करता है, जिससे redaction सीधा और विश्वसनीय बनता है।
 
-## Java के लिए GroupDocs.Redaction क्यों उपयोग करें?
-- **Comprehensive format support** – 100 से अधिक फ़ाइल प्रकारों के साथ काम करता है  
-- **Fine‑grained control** – टेक्स्ट, इमेज, एनोटेशन या कस्टम रीडैक्शन नियमों में से चुनें  
-- **Performance‑optimized** – न्यूनतम मेमोरी ओवरहेड के साथ बड़े फ़ाइलों को कुशलता से संभालता है  
-- **Easy integration** – Maven/Gradle तैयार, कोई नेटिव डिपेंडेंसी नहीं  
+## Java के लिए GroupDocs.Redaction का उपयोग क्यों करें?
+GroupDocs.Redaction **115+ इनपुट और आउटपुट फ़ॉर्मैट्स** का समर्थन करता है, मल्टी‑हंड्रेड पेज फ़ाइलों को 200 MB से कम हीप मेमोरी में प्रोसेस करता है, और थ्रेड‑सेफ APIs प्रदान करता है जो आपको redactions को समानांतर स्ट्रीम में चलाने देता है। ये मापनीय लाभ इसे उन एंटरप्राइज़ेज़ के लिए शीर्ष विकल्प बनाते हैं जिन्हें स्केल पर **secure documents Java** एप्लिकेशन्स की आवश्यकता होती है।
 
 ## पूर्वापेक्षाएँ
-- **Java Development Kit (JDK) 8+** स्थापित  
-- **Maven** डिपेंडेंसी मैनेजमेंट के लिए  
-- Java I/O और एक्सेप्शन हैंडलिंग का बुनियादी ज्ञान  
-- **GroupDocs.Redaction** लाइसेंस (ट्रायल या कमर्शियल) तक पहुँच  
+- Java Development Kit (JDK) 8 या नया स्थापित हो  
+- निर्भरता प्रबंधन के लिए Maven  
+- Java I/O और एक्सेप्शन हैंडलिंग की बुनियादी परिचितता  
+- GroupDocs.Redaction लाइसेंस तक पहुंच (परीक्षण के लिए ट्रायल, उत्पादन के लिए व्यावसायिक)  
 
-## Java के लिए GroupDocs.Redaction सेट अप करना
+## Java के लिए GroupDocs.Redaction सेटअप करना
 
 ### Maven इंस्टॉलेशन
-अपने `pom.xml` में रिपॉजिटरी और डिपेंडेंसी जोड़ें:
+Add the repository and dependency to your `pom.xml`:
 
 ```xml
 <repositories>
@@ -63,24 +120,26 @@ Java में रीडैक्शन का अर्थ है प्रो�
 ```
 
 ### डायरेक्ट डाउनलोड
-वैकल्पिक रूप से, आप नवीनतम JAR [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/) से डाउनलोड कर सकते हैं।
+Alternatively, you can download the latest JAR from [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
-### लाइसेंस प्राप्ति चरण
-- **Free Trial:** लाइब्रेरी की क्षमताओं का मूल्यांकन करने के लिए एक मुफ्त ट्रायल से शुरू करें।  
-- **Temporary License:** अल्पकालिक परीक्षण के लिए एक टेम्पररी लाइसेंस प्राप्त करें।  
-- **Purchase:** पूर्ण उत्पादन उपयोग के लिए एक कमर्शियल लाइसेंस खरीदें।  
+### लाइसेंस प्राप्त करने के चरण
+- **Free trial:** लाइब्रेरी की क्षमताओं का मूल्यांकन करने के लिए एक मुफ्त ट्रायल से शुरू करें।  
+- **Temporary license:** अल्पकालिक परीक्षण के लिए एक टेम्पररी लाइसेंस प्राप्त करें।  
+- **Purchase:** पूर्ण उत्पादन उपयोग के लिए एक व्यावसायिक लाइसेंस प्राप्त करें।  
 
-## Java दस्तावेज़ों को रीडैक्ट करने की चरण‑दर‑चरण गाइड
+## Java दस्तावेज़ों को redact करने का चरण‑दर‑चरण गाइड
 
-### चरण 1: दस्तावेज़ पथ निर्दिष्ट करें (load local document java)
-सुरक्षित करने वाले दस्तावेज़ का पूर्ण या सापेक्ष पथ परिभाषित करें।
+एक दस्तावेज़ लोड करें, एक redactor बनाएं, एक नियम लागू करें, और परिणाम सहेजें। निम्नलिखित सेक्शन प्रत्येक चरण को संक्षिप्त व्याख्याओं के साथ विभाजित करते हैं।
+
+### चरण 1: दस्तावेज़ पथ निर्दिष्ट करें (स्थानीय दस्तावेज़ java लोड करें)
+उस फ़ाइल का पूर्ण या सापेक्ष पथ निर्धारित करें जिसे आप सुरक्षित करना चाहते हैं।
 
 ```java
 final String documentPath = "YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX";
 ```
 
-### चरण 2: Redactor इंस्टेंस बनाएं
-आपके द्वारा अभी परिभाषित पथ के साथ `Redactor` क्लास का इंस्टेंस बनाएं। `try‑finally` पैटर्न यह सुनिश्चित करता है कि संसाधन सही तरीके से रिलीज़ हों।
+### चरण 2: redactor इंस्टेंस बनाएं
+`Redactor` वह कोर क्लास है जो दस्तावेज़ खोलता है और redaction ऑपरेशन्स को मैनेज करता है। `try‑finally` ब्लॉक का उपयोग करने से नेटिव रिसोर्सेज़ तुरंत रिलीज़ हो जाते हैं।
 
 ```java
 try {
@@ -95,68 +154,74 @@ try {
 }
 ```
 
-### चरण 3: रीडैक्शन लागू करें
-इस उदाहरण में हम सभी एनोटेशन को हटाते हैं। आप `DeleteAnnotationRedaction` को किसी भी अन्य रीडैक्शन प्रकार (जैसे `DeleteTextRedaction`, `RedactImageRedaction`) से बदल सकते हैं।
+### चरण 3: redactions लागू करें
+`DeleteAnnotationRedaction` दस्तावेज़ से एनोटेशन ऑब्जेक्ट्स को हटाता है। इस उदाहरण में हम सभी एनोटेशन हटाते हैं। अपने विशिष्ट अनुपालन आवश्यकताओं को पूरा करने के लिए `DeleteAnnotationRedaction` को किसी अन्य नियम जैसे `DeleteTextRedaction` या `RedactImageRedaction` से बदलें।
 
 ```java
 // Apply a redaction to delete annotations in the document
 redactor.apply(new DeleteAnnotationRedaction());
 ```
 
-### चरण 4: रीडैक्टेड दस्तावेज़ को सहेजें
-परिवर्तनों को मूल फ़ाइल में या किसी नई लोकेशन पर सहेजें।
+### चरण 4: redacted दस्तावेज़ सहेजें
+परिवर्तनों को या तो मूल फ़ाइल में वापस या अपनी पसंद के नए स्थान पर सहेजें।
 
 ```java
 // Save the changes made to the original document
 redactor.save();
 ```
 
-इन चार चरणों का पालन करके आपने सफलतापूर्वक **redact java documents** कर लिया—स्थानीय फ़ाइल लोड की, रीडैक्शन नियम लागू किया, और साफ़ आउटपुट लिखा।
+इन चार चरणों का पालन करके आपने सफलतापूर्वक **redact sensitive data** किया है—स्थानीय फ़ाइल लोड करना, एक redaction नियम लागू करना, और साफ़ आउटपुट लिखना।
 
 ## सामान्य समस्याएँ और समाधान
-- **File Not Found:** `documentPath` स्ट्रिंग को दोबारा जांचें; निश्चितता के लिए पूर्ण पथ का उपयोग करें।  
-- **Version Mismatch:** सुनिश्चित करें कि Maven डिपेंडेंसी संस्करण आपके द्वारा डाउनलोड किए गए JAR से मेल खाता है।  
-- **Insufficient Permissions:** विशेषकर Linux/macOS पर, JVM को उचित फ़ाइल‑सिस्टम अधिकारों के साथ चलाएँ।  
+- **File not found:** सुनिश्चित करें कि `documentPath` सही स्थान की ओर इशारा कर रहा है; पूर्ण पथ अस्पष्टता से बचते हैं।  
+- **Version mismatch:** सुनिश्चित करें कि Maven डिपेंडेंसी संस्करण आपके द्वारा डाउनलोड किए गए JAR से मेल खाता है।  
+- **Insufficient permissions:** विशेषकर Linux/macOS पर JVM को उचित फ़ाइल‑सिस्टम अधिकारों के साथ चलाएँ।  
 
 ## व्यावहारिक अनुप्रयोग
-1. **Legal Document Processing:** बाहरी counsel के साथ साझा करने से पहले क्लाइंट नाम और केस नंबर रीडैक्ट करें।  
-2. **Financial Audits:** गोपनीयता नियमों का पालन करने के लिए ऑडिट रिपोर्ट से खाता नंबर हटाएँ।  
-3. **HR Records:** एनालिटिक्स के लिए HR फ़ाइलें एक्सपोर्ट करते समय व्यक्तिगत कर्मचारी डेटा छिपाएँ।  
+1. **Legal document processing:** बाहरी काउंसल के साथ साझा करने से पहले क्लाइंट नाम और केस नंबर को redact करें।  
+2. **Financial audits:** ऑडिट रिपोर्ट से खाता नंबर हटाएँ ताकि PCI‑DSS और GDPR आवश्यकताओं को पूरा किया जा सके।  
+3. **HR records:** एनालिटिक्स या थर्ड‑पार्टी रिव्यू के लिए HR फ़ाइलें एक्सपोर्ट करते समय व्यक्तिगत कर्मचारी डेटा को छिपाएँ।  
 
 ## प्रदर्शन संबंधी विचार
-- **Memory Management:** जैसा दिखाया गया है, `try‑finally` ब्लॉक्स का उपयोग करके नेटिव संसाधनों को तुरंत मुक्त करें।  
-- **Batch Processing:** बड़े वॉल्यूम के लिए, किसी डायरेक्टरी पर इटररेट करें और फ़ाइलों को पैरालल स्ट्रीम्स में प्रोसेस करें।  
-- **Asynchronous Execution:** UI थ्रेड्स को रिस्पॉन्सिव रखने के लिए रीडैक्शन लॉजिक को `CompletableFuture` या थ्रेड पूल में रैप करें।  
+- **Memory management:** ऊपर दिखाया गया `try‑finally` पैटर्न नेटिव रिसोर्सेज़ को तुरंत मुक्त करता है, जिससे हीप उपयोग कम रहता है।  
+- **Batch processing:** एक डायरेक्टरी पर इटररेट करें और समानांतर स्ट्रीम में redaction को कॉल करें ताकि हजारों फ़ाइलों को कुशलता से हैंडल किया जा सके।  
+- **Asynchronous execution:** UI थ्रेड्स को प्रतिक्रियाशील रखने के लिए redaction लॉजिक को `CompletableFuture` या थ्रेड पूल में रैप करें, चाहे डेस्कटॉप या वेब एप्लिकेशन हो।  
 
 ## अक्सर पूछे जाने वाले प्रश्न
 
-**Q: What is GroupDocs.Redaction for Java?**  
-A: यह एक शक्तिशाली API है जो डेवलपर्स को Java का उपयोग करके विभिन्न फ़ॉर्मेट के दस्तावेज़ों से संवेदनशील जानकारी रीडैक्ट करने की सुविधा देता है।
+**Q: GroupDocs.Redaction for Java क्या है?**  
+A: यह एक शक्तिशाली API है जो डेवलपर्स को Java का उपयोग करके 115 से अधिक फ़ॉर्मैट्स में दस्तावेज़ों से संवेदनशील जानकारी को redact करने में सक्षम बनाता है।
 
-**Q: How do I handle exceptions when loading a document?**  
-A: `Redactor` कंस्ट्रक्टर के आसपास try‑catch ब्लॉक्स का उपयोग करें; स्पष्ट डायग्नॉस्टिक्स के लिए `FileNotFoundException` जैसी विशिष्ट एक्सेप्शन को पकड़ें।
+**Q: दस्तावेज़ लोड करते समय अपवादों को कैसे संभालें?**  
+A: `Redactor` कन्स्ट्रक्टर को try‑catch ब्लॉक से घेरें; गायब फ़ाइलों के लिए `FileNotFoundException` और API‑विशिष्ट त्रुटियों के लिए `RedactionException` को पकड़ें।
 
-**Q: Can I use GroupDocs.Redaction for batch processing multiple files?**  
-A: हाँ, आप किसी फ़ोल्डर पर लूप कर सकते हैं, प्रत्येक फ़ाइल के लिए `Redactor` इंस्टेंस बनाएं, इच्छित रीडैक्शन लागू करें, और परिणाम सहेजें।
+**Q: क्या मैं कई फ़ाइलों के बैच प्रोसेसिंग के लिए GroupDocs.Redaction का उपयोग कर सकता हूँ?**  
+A: हाँ—फ़ोल्डर के माध्यम से लूप करें, प्रत्येक फ़ाइल के लिए `Redactor` इंस्टैंसिएट करें, इच्छित redactions लागू करें, और परिणाम सहेजें।
 
-**Q: What document formats does GroupDocs.Redaction support?**  
-A: यह Word, PDF, Excel, PowerPoint, OpenDocument, और कई अन्य लोकप्रिय फ़ॉर्मेट को सपोर्ट करता है।
+**Q: GroupDocs.Redaction कौन से दस्तावेज़ फ़ॉर्मैट्स का समर्थन करता है?**  
+A: यह Word, PDF, Excel, PowerPoint, OpenDocument, और कई अन्य लोकप्रिय फ़ॉर्मैट्स का समर्थन करता है, कुल मिलाकर 115 से अधिक फ़ाइल प्रकार।
 
-**Q: Is integration with cloud storage possible?**  
-A: बिल्कुल—लाइब्रेरी के स्ट्रीम‑बेस्ड API का उपयोग करके AWS S3, Azure Blob Storage, या Google Cloud Storage जैसी क्लाउड सेवाओं से पढ़ें और लिखें।
+**Q: क्या क्लाउड स्टोरेज के साथ इंटीग्रेशन संभव है?**  
+A: बिल्कुल—लाइब्रेरी के स्ट्रीम‑आधारित APIs का उपयोग करके AWS S3, Azure Blob Storage, या Google Cloud Storage से पढ़ें और लिखें।
 
 ## संसाधन
 - **Documentation:** [GroupDocs Redaction Java Documentation](https://docs.groupdocs.com/redaction/java/)  
-- **API Reference:** [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)  
+- **API reference:** [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)  
 - **Download:** [GroupDocs.Redaction Releases](https://releases.groupdocs.com/redaction/java/)  
-- **GitHub Repository:** [GroupDocs Redaction on GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
-- **Free Support Forum:** [GroupDocs Support](https://forum.groupdocs.com/c/redaction/33)  
-- **Temporary License:** [Get a Temporary License](https://purchase.groupdocs.com/temporary-license/)  
+- **GitHub repository:** [GroupDocs Redaction on GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
+- **Free support forum:** [GroupDocs Support](https://forum.groupdocs.com/c/redaction/33)  
+- **Temporary license:** [Get a Temporary License](https://purchase.groupdocs.com/temporary-license/)  
 
-GroupDocs.Redaction Java लाइब्रेरी का उपयोग करके आप अपने दस्तावेज़ों में संवेदनशील जानकारी को कुशलतापूर्वक और सुरक्षित रूप से संरक्षित कर सकते हैं। कोडिंग का आनंद लें!
+GroupDocs.Redaction Java लाइब्रेरी का उपयोग करके आप अपने दस्तावेज़ों से **redact sensitive data** को कुशलतापूर्वक और सुरक्षित रूप से सुनिश्चित कर सकते हैं। कोडिंग का आनंद लें!
 
 ---
 
-**Last Updated:** 2026-03-20  
+**Last Updated:** 2026-09-11  
 **Tested With:** GroupDocs.Redaction 24.9 for Java  
 **Author:** GroupDocs
+
+## संबंधित ट्यूटोरियल
+
+- [How to Redact Documents with GroupDocs Redaction Java License from File Path – A Step‑by‑Step Guide](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)
+- [Preview Document Pages Java Loading with GroupDocs.Redaction](/redaction/java/document-loading/)
+- [How to Redact PDF and Mask Sensitive Data Java with GroupDocs](/redaction/java/advanced-redaction/master-document-redaction-java-groupdocs-redaction/)

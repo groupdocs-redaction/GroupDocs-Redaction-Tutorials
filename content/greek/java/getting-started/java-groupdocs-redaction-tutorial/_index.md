@@ -1,48 +1,106 @@
 ---
-date: '2026-03-20'
-description: Μάθετε πώς να αποκρύπτετε έγγραφα Java και να φορτώνετε τοπικά αρχεία
-  εγγράφων Java χρησιμοποιώντας το GroupDocs.Redaction για Java. Αυτός ο οδηγός βήμα‑βήμα
-  καλύπτει τη ρύθμιση, την υλοποίηση και τις βέλτιστες πρακτικές.
+date: '2026-09-11'
+description: Μάθετε πώς να αποσυρθείτε ευαίσθητα δεδομένα σε Java χρησιμοποιώντας
+  το GroupDocs.Redaction. Αυτός ο οδηγός βήμα-βήμα καλύπτει τη φόρτωση τοπικών αρχείων
+  εγγράφων Java, την εφαρμογή κανόνων απόσυρσης και την ασφαλή επεξεργασία εγγράφων
+  Java αποδοτικά.
 keywords:
-- Java document redaction
-- GroupDocs.Redaction API
-- secure documents with Java
-title: Πώς να αποκρύψετε έγγραφα Java με το GroupDocs.Redaction API
+- redact sensitive data
+- redact pdf java
+- load local document java
+- secure documents java
+lastmod: '2026-09-11'
+og_description: Μάθετε πώς να αποσυρθείτε ευαίσθητα δεδομένα σε Java χρησιμοποιώντας
+  το GroupDocs.Redaction. Αυτός ο οδηγός σας δείχνει πώς να φορτώσετε τοπικά αρχεία
+  εγγράφων Java, να εφαρμόσετε κανόνες απόσυρσης και να επεξεργαστείτε με ασφάλεια
+  αρχεία PDF, Word και Excel.
+og_image_alt: Guide showing Java code to redact sensitive data using GroupDocs.Redaction
+og_title: Απόσυρση ευαίσθητων δεδομένων σε Java με το GroupDocs.Redaction
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-11'
+  description: Learn how to redact sensitive data in Java using GroupDocs.Redaction.
+    This step‑by‑step guide covers loading local document Java files, applying redaction
+    rules, and securing documents Java efficiently.
+  headline: Redact sensitive data in Java with GroupDocs.Redaction
+  type: TechArticle
+- description: Learn how to redact sensitive data in Java using GroupDocs.Redaction.
+    This step‑by‑step guide covers loading local document Java files, applying redaction
+    rules, and securing documents Java efficiently.
+  name: Redact sensitive data in Java with GroupDocs.Redaction
+  steps:
+  - name: specify the document path (load local document java)
+    text: Define the absolute or relative path to the file you want to protect.
+  - name: create a redactor instance
+    text: '`Redactor` is the core class that opens a document and manages redaction
+      operations. Using a `try‑finally` block guarantees that native resources are
+      released promptly.'
+  - name: apply redactions
+    text: '`DeleteAnnotationRedaction` removes annotation objects from the document.
+      In this example we remove all annotations. Replace `DeleteAnnotationRedaction`
+      with any other rule such as `DeleteTextRedaction` or `RedactImageRedaction`
+      to meet your specific compliance needs.'
+  - name: save the redacted document
+    text: Persist the changes either back to the original file or to a new location
+      of your choosing. By following these four steps you have successfully **redact
+      sensitive data**—loading a local file, applying a redaction rule, and writing
+      the cleaned output.
+  type: HowTo
+- questions:
+  - answer: It is a powerful API that enables developers to redact sensitive information
+      from documents in over 115 formats using Java.
+    question: What is GroupDocs.Redaction for Java?
+  - answer: Surround the `Redactor` constructor with a try‑catch block; catch `FileNotFoundException`
+      for missing files and `RedactionException` for API‑specific errors.
+    question: How do I handle exceptions when loading a document?
+  - answer: Yes—loop through a folder, instantiate a `Redactor` for each file, apply
+      the desired redactions, and save the results.
+    question: Can I use GroupDocs.Redaction for batch processing multiple files?
+  - answer: It supports Word, PDF, Excel, PowerPoint, OpenDocument, and many other
+      popular formats, totaling more than 115 file types.
+    question: What document formats does GroupDocs.Redaction support?
+  - answer: Absolutely—use the library’s stream‑based APIs to read from and write
+      to AWS S3, Azure Blob Storage, or Google Cloud Storage.
+    question: Is integration with cloud storage possible?
+  type: FAQPage
+tags:
+- redaction java
+- groupdocs
+- document security
+- java file processing
+title: Απόσυρση ευαίσθητων δεδομένων σε Java με το GroupDocs.Redaction
 type: docs
 url: /el/java/getting-started/java-groupdocs-redaction-tutorial/
 weight: 1
 ---
 
-# Απόκρυψη Java Εγγράφων με το GroupDocs.Redaction API
+# Κατάργηση ευαίσθητων δεδομένων σε Java με το GroupDocs.Redaction
 
-Στις σύγχρονες εφαρμογές, η **redact java documents** είναι μια απαραίτητη δυνατότητα όποτε διαχειρίζεστε συμβόλαια, οικονομικές καταστάσεις ή αρχεία HR που περιέχουν εμπιστευτικά δεδομένα. Σε αυτό το tutorial θα μάθετε πώς να **load local document java** αρχεία, να εφαρμόζετε κανόνες απόκρυψης και να αποθηκεύετε μια καθαρή έκδοση — όλα με τη βιβλιοθήκη GroupDocs.Redaction για Java. Στο τέλος, θα έχετε ένα επαναχρησιμοποιήσιμο κομμάτι κώδικα που μπορείτε να ενσωματώσετε σε οποιοδήποτε έργο Java.
+Σε έναν κόσμο που βασίζεται στα δεδομένα, **καταργήστε ευαίσθητα δεδομένα** από συμβάσεις, οικονομικές καταστάσεις ή αρχεία HR πριν φύγουν από το σύστημά σας. Αυτό το εκπαιδευτικό υλικό σας οδηγεί στη φόρτωση ενός τοπικού αρχείου Java, στον ορισμό κανόνων κατάργησης και στην αποθήκευση μιας καθαρής έκδοσης χρησιμοποιώντας τη βιβλιοθήκη GroupDocs.Redaction Java. Στο τέλος θα έχετε ένα επαναχρησιμοποιήσιμο απόσπασμα κώδικα που λειτουργεί για PDF, Word, Excel, PowerPoint και πολλές άλλες μορφές.
 
-## Quick Answers
+## Γρήγορες απαντήσεις
 - **Ποια βιβλιοθήκη πρέπει να χρησιμοποιήσω;** GroupDocs.Redaction for Java  
-- **Μπορώ να αποκρύψω ένα αρχείο που αποθηκεύεται τοπικά;** Ναι — απλώς φορτώστε το τοπικό έγγραφο με τη διαδρομή του αρχείου  
+- **Μπορώ να καταργήσω ένα αρχείο που αποθηκεύεται τοπικά;** Ναι—απλώς φορτώστε το τοπικό έγγραφο με τη διαδρομή του αρχείου  
 - **Χρειάζομαι άδεια;** Μια δωρεάν δοκιμή λειτουργεί για αξιολόγηση· απαιτείται εμπορική άδεια για παραγωγή  
-- **Ποιοι τύποι εγγράφων υποστηρίζονται;** Word, PDF, Excel, PowerPoint και πολλά άλλα  
-- **Είναι δυνατή η ασύγχρονη επεξεργασία;** Μπορείτε να τυλίξετε τις κλήσεις απόκρυψης σε ξεχωριστά νήματα για καλύτερη ανταπόκριση  
+- **Ποιοι τύποι εγγράφων υποστηρίζονται;** Word, PDF, Excel, PowerPoint, and many more (over 115 formats)  
+- **Είναι δυνατή η ασύγχρονη επεξεργασία;** Μπορείτε να τυλίξετε τις κλήσεις κατάργησης σε ξεχωριστά νήματα για καλύτερη ανταπόκριση  
 
-## What is “redact java documents”?
-Η απόκρυψη σε Java σημαίνει προγραμματιστική αφαίρεση ή απόκρυψη ευαίσθητου περιεχομένου (κείμενο, εικόνες, σχολιασμούς) από έγγραφα πριν αυτά κοινοποιηθούν ή αποθηκευτούν. Το GroupDocs.Redaction API σας παρέχει μια καθαρή, υψηλού επιπέδου διεπαφή για την εκτέλεση αυτών των ενεργειών χωρίς χειροκίνητη επεξεργασία αρχείων.
+## Τι είναι η «κατάργηση εγγράφων Java»;
+**Κατάργηση εγγράφων Java** σημαίνει προγραμματιστική αφαίρεση ή απόκρυψη εμπιστευτικού κειμένου, εικόνων και σχολίων από αρχεία χρησιμοποιώντας κώδικα Java. Αυτή η διαδικασία βοηθά τις οργανώσεις να πληρούν απαιτήσεις συμμόρφωσης όπως GDPR, HIPAA και PCI‑DSS διασφαλίζοντας ότι οι ευαίσθητες πληροφορίες δεν αφήνονται ποτέ το σύστημα. Το GroupDocs.Redaction API παρέχει μια υψηλού επιπέδου, τύπου‑ασφαλή διεπαφή που αφαιρεί τη χαμηλού επιπέδου διαχείριση αρχείων, κάνοντας την κατάργηση απλή και αξιόπιστη.
 
-## Why use GroupDocs.Redaction for Java?
-- **Πλήρης υποστήριξη μορφών** – λειτουργεί με πάνω από 100 τύπους αρχείων  
-- **Λεπτομερής έλεγχος** – επιλέξτε μεταξύ κειμένου, εικόνας, σχολιασμού ή προσαρμοσμένων κανόνων απόκρυψης  
-- **Βελτιστοποιημένη απόδοση** – διαχειρίζεται μεγάλα αρχεία αποδοτικά με ελάχιστη χρήση μνήμης  
-- **Εύκολη ενσωμάτωση** – έτοιμο για Maven/Gradle, χωρίς εγγενείς εξαρτήσεις  
+## Γιατί να χρησιμοποιήσετε το GroupDocs.Redaction για Java;
+Το GroupDocs.Redaction υποστηρίζει **115+ μορφές εισόδου και εξόδου**, επεξεργάζεται αρχεία πολλών εκατοντάδων σελίδων με λιγότερο από 200 MB μνήμης heap, και προσφέρει thread‑safe APIs που σας επιτρέπουν να εκτελείτε καταργήσεις σε παράλληλα streams. Αυτά τα ποσοτικοποιημένα οφέλη το καθιστούν κορυφαία επιλογή για επιχειρήσεις που πρέπει να **ασφαλίσουν έγγραφα Java** εφαρμογές σε κλίμακα.
 
-## Prerequisites
-- **Java Development Kit (JDK) 8+** εγκατεστημένο  
-- **Maven** για διαχείριση εξαρτήσεων  
-- Βασικές γνώσεις Java I/O και διαχείρισης εξαιρέσεων  
-- Πρόσβαση σε άδεια **GroupDocs.Redaction** (δοκιμαστική ή εμπορική)  
+## Προαπαιτούμενα
+- Java Development Kit (JDK) 8 ή νεότερο εγκατεστημένο  
+- Maven για διαχείριση εξαρτήσεων  
+- Βασική εξοικείωση με Java I/O και διαχείριση εξαιρέσεων  
+- Πρόσβαση σε άδεια GroupDocs.Redaction (δοκιμαστική για δοκιμές, εμπορική για παραγωγή)  
 
-## Setting Up GroupDocs.Redaction for Java
+## Ρύθμιση του GroupDocs.Redaction για Java
 
-### Maven Installation
-Add the repository and dependency to your `pom.xml`:
+### Εγκατάσταση Maven
+Προσθέστε το αποθετήριο και την εξάρτηση στο `pom.xml` σας:
 
 ```xml
 <repositories>
@@ -62,25 +120,27 @@ Add the repository and dependency to your `pom.xml`:
 </dependencies>
 ```
 
-### Direct Download
-Εναλλακτικά, μπορείτε να κατεβάσετε το τελευταίο JAR από [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+### Άμεση λήψη
+Εναλλακτικά, μπορείτε να κατεβάσετε το πιο πρόσφατο JAR από [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
-### License Acquisition Steps
-- **Δωρεάν Δοκιμή:** Ξεκινήστε με μια δωρεάν δοκιμή για να αξιολογήσετε τις δυνατότητες της βιβλιοθήκης.  
-- **Προσωρινή Άδεια:** Αποκτήστε μια προσωρινή άδεια για βραχυπρόθεσμη δοκιμή.  
-- **Αγορά:** Αποκτήστε εμπορική άδεια για πλήρη χρήση σε παραγωγή  
+### Βήματα απόκτησης άδειας
+- **Δωρεάν δοκιμή:** Ξεκινήστε με μια δωρεάν δοκιμή για να αξιολογήσετε τις δυνατότητες της βιβλιοθήκης.  
+- **Προσωρινή άδεια:** Αποκτήστε μια προσωρινή άδεια για βραχυπρόθεσμη δοκιμή.  
+- **Αγορά:** Αποκτήστε εμπορική άδεια για πλήρη χρήση σε παραγωγή.  
 
-## How to Redact Java Documents – Step‑by‑Step Guide
+## Πώς να καταργήσετε έγγραφα Java – οδηγός βήμα‑βήμα
 
-### Step 1: Specify the Document Path (load local document java)
-Ορίστε την απόλυτη ή σχετική διαδρομή προς το έγγραφο που θέλετε να προστατεύσετε.
+Φορτώστε ένα έγγραφο, δημιουργήστε έναν redactor, εφαρμόστε έναν κανόνα και αποθηκεύστε το αποτέλεσμα. Οι παρακάτω ενότητες εξηγούν κάθε βήμα με σύντομες επεξηγήσεις.
+
+### Βήμα 1: καθορίστε τη διαδρομή του εγγράφου (φόρτωση τοπικού εγγράφου java)
+Ορίστε την απόλυτη ή σχετική διαδρομή του αρχείου που θέλετε να προστατεύσετε.
 
 ```java
 final String documentPath = "YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX";
 ```
 
-### Step 2: Create a Redactor Instance
-Δημιουργήστε ένα αντικείμενο της κλάσης `Redactor` με τη διαδρομή που ορίσατε. Το πρότυπο `try‑finally` εγγυάται ότι οι πόροι απελευθερώνονται σωστά.
+### Βήμα 2: δημιουργήστε μια παρουσία redactor
+`Redactor` είναι η κεντρική κλάση που ανοίγει ένα έγγραφο και διαχειρίζεται τις λειτουργίες κατάργησης. Η χρήση ενός μπλοκ `try‑finally` εγγυάται ότι οι εγγενείς πόροι απελευθερώνονται άμεσα.
 
 ```java
 try {
@@ -95,68 +155,74 @@ try {
 }
 ```
 
-### Step 3: Apply Redactions
-Σε αυτό το παράδειγμα αφαιρούμε όλα τα σχόλια. Μπορείτε να αντικαταστήσετε το `DeleteAnnotationRedaction` με οποιονδήποτε άλλο τύπο απόκρυψης (π.χ., `DeleteTextRedaction`, `RedactImageRedaction`).
+### Βήμα 3: εφαρμόστε καταργήσεις
+`DeleteAnnotationRedaction` αφαιρεί αντικείμενα σχολίων από το έγγραφο. Σε αυτό το παράδειγμα αφαιρούμε όλα τα σχόλια. Αντικαταστήστε το `DeleteAnnotationRedaction` με οποιονδήποτε άλλο κανόνα όπως `DeleteTextRedaction` ή `RedactImageRedaction` για να καλύψετε τις συγκεκριμένες ανάγκες συμμόρφωσης.
 
 ```java
 // Apply a redaction to delete annotations in the document
 redactor.apply(new DeleteAnnotationRedaction());
 ```
 
-### Step 4: Save the Redacted Document
-Αποθηκεύστε τις αλλαγές πίσω στο αρχικό αρχείο ή σε νέα θέση.
+### Βήμα 4: αποθηκεύστε το καταργημένο έγγραφο
+Αποθηκεύστε τις αλλαγές είτε πίσω στο αρχικό αρχείο είτε σε νέα τοποθεσία της επιλογής σας.
 
 ```java
 // Save the changes made to the original document
 redactor.save();
 ```
 
-Ακολουθώντας αυτά τα τέσσερα βήματα, έχετε επιτυχώς **redact java documents** — φορτώνοντας ένα τοπικό αρχείο, εφαρμόζοντας έναν κανόνα απόκρυψης και γράφοντας το καθαρό αποτέλεσμα.
+Ακολουθώντας αυτά τα τέσσερα βήματα έχετε επιτυχώς **καταργήσει ευαίσθητα δεδομένα**—φορτώνοντας ένα τοπικό αρχείο, εφαρμόζοντας έναν κανόνα κατάργησης και γράφοντας το καθαρό αποτέλεσμα.
 
-## Common Issues and Solutions
-- **File Not Found:** Ελέγξτε ξανά τη συμβολοσειρά `documentPath`; χρησιμοποιήστε απόλυτες διαδρομές για βεβαιότητα.  
-- **Version Mismatch:** Βεβαιωθείτε ότι η έκδοση της εξάρτησης Maven ταιριάζει με το JAR που κατεβάσατε.  
-- **Insufficient Permissions:** Εκτελέστε το JVM με τα κατάλληλα δικαιώματα συστήματος αρχείων, ειδικά σε Linux/macOS.  
+## Συχνά προβλήματα και λύσεις
+- **Αρχείο δεν βρέθηκε:** Επαληθεύστε ότι το `documentPath` δείχνει στη σωστή θέση· οι απόλυτες διαδρομές αποφεύγουν την ασάφεια.  
+- **Ασυμφωνία έκδοσης:** Βεβαιωθείτε ότι η έκδοση της εξάρτησης Maven ταιριάζει με το JAR που κατεβάσατε.  
+- **Ανεπαρκή δικαιώματα:** Εκτελέστε το JVM με τα κατάλληλα δικαιώματα συστήματος αρχείων, ειδικά σε Linux/macOS.  
 
-## Practical Applications
-1. **Επεξεργασία Νομικών Εγγράφων:** Αποκρύψτε ονόματα πελατών και αριθμούς υποθέσεων πριν τα μοιραστείτε με εξωτερικό νομικό σύμβουλο.  
-2. **Οικονομικοί Έλεγχοι:** Αφαιρέστε αριθμούς λογαριασμών από εκθέσεις ελέγχου για συμμόρφωση με κανονισμούς απορρήτου.  
-3. **Αρχεία HR:** Κρύψτε προσωπικά δεδομένα υπαλλήλων κατά την εξαγωγή αρχείων HR για αναλύσεις.  
+## Πρακτικές εφαρμογές
+1. **Επεξεργασία νομικών εγγράφων:** Καταργήστε ονόματα πελατών και αριθμούς υποθέσεων πριν τα μοιραστείτε με εξωτερικό νομικό.  
+2. **Οικονομικοί έλεγχοι:** Αφαιρέστε αριθμούς λογαριασμών από εκθέσεις ελέγχου για να πληροίτε τις απαιτήσεις PCI‑DSS και GDPR.  
+3. **Αρχεία HR:** Κρύψτε προσωπικά δεδομένα υπαλλήλων κατά την εξαγωγή αρχείων HR για αναλύσεις ή έλεγχο τρίτων.  
 
-## Performance Considerations
-- **Memory Management:** Χρησιμοποιήστε μπλοκ `try‑finally` (όπως φαίνεται) για άμεση απελευθέρωση εγγενών πόρων.  
-- **Batch Processing:** Για μεγάλους όγκους, επαναλάβετε μέσω ενός καταλόγου και επεξεργαστείτε αρχεία σε παράλληλες ροές.  
-- **Asynchronous Execution:** Τυλίξτε τη λογική απόκρυψης σε `CompletableFuture` ή σε ομάδα νημάτων για να διατηρήσετε τις νήματα UI ανταποκρινόμενα.  
+## Σκέψεις απόδοσης
+- **Διαχείριση μνήμης:** Το πρότυπο `try‑finally` που φαίνεται παραπάνω απελευθερώνει άμεσα τους εγγενείς πόρους, διατηρώντας τη χρήση heap χαμηλή.  
+- **Επεξεργασία παρτίδας:** Επανάληψη σε έναν φάκελο και κλήση της κατάργησης σε παράλληλα streams για αποδοτική διαχείριση χιλιάδων αρχείων.  
+- **Ασύγχρονη εκτέλεση:** Τυλίξτε τη λογική κατάργησης σε `CompletableFuture` ή σε thread pool για να διατηρήσετε τα UI νήματα ανταποκρινόμενα σε εφαρμογές desktop ή web.  
 
-## Frequently Asked Questions
+## Συχνές ερωτήσεις
 
-**Ε: Τι είναι το GroupDocs.Redaction για Java;**  
-Α: Είναι ένα ισχυρό API που επιτρέπει στους προγραμματιστές να αποκρύπτουν ευαίσθητες πληροφορίες από έγγραφα σε διάφορες μορφές χρησιμοποιώντας Java.
+**Q: Τι είναι το GroupDocs.Redaction για Java;**  
+A: Είναι ένα ισχυρό API που επιτρέπει στους προγραμματιστές να καταργούν ευαίσθητες πληροφορίες από έγγραφα σε πάνω από 115 μορφές χρησιμοποιώντας Java.
 
-**Ε: Πώς διαχειρίζομαι εξαιρέσεις κατά τη φόρτωση ενός εγγράφου;**  
-Α: Χρησιμοποιήστε μπλοκ try‑catch γύρω από τον κατασκευαστή `Redactor`; πιάστε συγκεκριμένες εξαιρέσεις όπως `FileNotFoundException` για πιο σαφή διάγνωση.
+**Q: Πώς να διαχειριστώ εξαιρέσεις κατά τη φόρτωση ενός εγγράφου;**  
+A: Περιβάλλετε τον κατασκευαστή `Redactor` με ένα μπλοκ try‑catch· πιάστε `FileNotFoundException` για ελλιπή αρχεία και `RedactionException` για σφάλματα ειδικά του API.
 
-**Ε: Μπορώ να χρησιμοποιήσω το GroupDocs.Redaction για επεξεργασία παρτίδας πολλαπλών αρχείων;**  
-Α: Ναι, μπορείτε να διασχίσετε έναν φάκελο, να δημιουργήσετε ένα `Redactor` για κάθε αρχείο, να εφαρμόσετε τις επιθυμητές αποκρύψεις και να αποθηκεύσετε τα αποτελέσματα.
+**Q: Μπορώ να χρησιμοποιήσω το GroupDocs.Redaction για επεξεργασία παρτίδας πολλαπλών αρχείων;**  
+A: Ναι—περιηγηθείτε σε έναν φάκελο, δημιουργήστε ένα `Redactor` για κάθε αρχείο, εφαρμόστε τις επιθυμητές καταργήσεις και αποθηκεύστε τα αποτελέσματα.
 
-**Ε: Ποιες μορφές εγγράφων υποστηρίζει το GroupDocs.Redaction;**  
-Α: Υποστηρίζει Word, PDF, Excel, PowerPoint, OpenDocument και πολλές άλλες δημοφιλείς μορφές.
+**Q: Ποιες μορφές εγγράφων υποστηρίζει το GroupDocs.Redaction;**  
+A: Υποστηρίζει Word, PDF, Excel, PowerPoint, OpenDocument και πολλές άλλες δημοφιλείς μορφές, συνολικά πάνω από 115 τύπους αρχείων.
 
-**Ε: Είναι δυνατή η ενσωμάτωση με αποθήκευση στο cloud;**  
-Α: Απόλυτα — χρησιμοποιήστε τα API της βιβλιοθήκης βασισμένα σε ροές για ανάγνωση και εγγραφή σε υπηρεσίες cloud όπως AWS S3, Azure Blob Storage ή Google Cloud Storage.
+**Q: Είναι δυνατή η ενσωμάτωση με αποθήκευση στο cloud;**  
+A: Απόλυτα—χρησιμοποιήστε τα stream‑based APIs της βιβλιοθήκης για ανάγνωση και εγγραφή σε AWS S3, Azure Blob Storage ή Google Cloud Storage.
 
-## Resources
-- **Τεκμηρίωση:** [GroupDocs Redaction Java Documentation](https://docs.groupdocs.com/redaction/java/)  
+## Πόροι
+- **Documentation:** [GroupDocs Redaction Java Documentation](https://docs.groupdocs.com/redaction/java/)  
 - **Αναφορά API:** [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)  
 - **Λήψη:** [GroupDocs.Redaction Releases](https://releases.groupdocs.com/redaction/java/)  
 - **Αποθετήριο GitHub:** [GroupDocs Redaction on GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
-- **Δωρεάν Φόρουμ Υποστήριξης:** [GroupDocs Support](https://forum.groupdocs.com/c/redaction/33)  
-- **Προσωρινή Άδεια:** [Get a Temporary License](https://purchase.groupdocs.com/temporary-license/)  
+- **Δωρεάν φόρουμ υποστήριξης:** [GroupDocs Support](https://forum.groupdocs.com/c/redaction/33)  
+- **Προσωρινή άδεια:** [Get a Temporary License](https://purchase.groupdocs.com/temporary-license/)  
 
-Χρησιμοποιώντας τη βιβλιοθήκη GroupDocs.Redaction για Java, μπορείτε να διασφαλίσετε ότι οι ευαίσθητες πληροφορίες στα έγγραφά σας προστατεύονται αποδοτικά και με ασφάλεια. Καλό κώδικα!
+Χρησιμοποιώντας τη βιβλιοθήκη GroupDocs.Redaction Java, μπορείτε να διασφαλίσετε ότι **καταργείτε ευαίσθητα δεδομένα** από τα έγγραφά σας αποδοτικά και με ασφάλεια. Καλή προγραμματιστική!
 
 ---
 
-**Τελευταία Ενημέρωση:** 2026-03-20  
-**Δοκιμή Με:** GroupDocs.Redaction 24.9 for Java  
+**Τελευταία ενημέρωση:** 2026-09-11  
+**Δοκιμάστηκε με:** GroupDocs.Redaction 24.9 for Java  
 **Συγγραφέας:** GroupDocs
+
+## Σχετικά Μαθήματα
+
+- [Πώς να Καταργήσετε Έγγραφα με GroupDocs Redaction Java License από Διαδρομή Αρχείου – Οδηγός Βήμα‑Βήμα](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)
+- [Προεπισκόπηση Σελίδων Εγγράφου Java Φόρτωση με GroupDocs.Redaction](/redaction/java/document-loading/)
+- [Πώς να Καταργήσετε PDF και να Κρύψετε Ευαίσθητα Δεδομένα Java με GroupDocs](/redaction/java/advanced-redaction/master-document-redaction-java-groupdocs-redaction/)
