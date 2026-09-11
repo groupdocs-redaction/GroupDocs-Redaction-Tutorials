@@ -1,54 +1,125 @@
 ---
-date: '2026-03-17'
-description: Leer hoe u annotaties in Java kunt redigeren met GroupDocs.Redaction.
-  Volg deze stapsgewijze handleiding voor gegevensprivacy en naleving.
+date: '2026-09-11'
+description: Leer hoe je commentaren java kunt verwijderen en annotaties kunt redigeren
+  met GroupDocs.Redaction. Volg deze stapsgewijze gids voor gegevensprivacy en naleving.
 keywords:
-- annotation redaction Java
-- GroupDocs.Redaction tutorial
-- redact annotations in documents
-title: Hoe annotaties te redigeren in Java met GroupDocs
+- remove comments java
+- how to redact annotations
+- GroupDocs Redaction Java
+- annotation redaction tutorial
+lastmod: '2026-09-11'
+og_description: Leer hoe je commentaren java kunt verwijderen en annotaties kunt redigeren
+  met GroupDocs.Redaction. Deze gids toont een stapsgewijze installatie, code en best
+  practices voor gegevensprivacy.
+og_image_alt: Tutorial showing how to remove comments java and redact annotations
+  using GroupDocs.Redaction
+og_title: Verwijder commentaren java met GroupDocs – volledige gids voor annotatie‑redactie
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-11'
+  description: Learn how to remove comments java and redact annotations using GroupDocs.Redaction.
+    Follow this step‑by‑step guide for data privacy and compliance.
+  headline: 'How to remove comments java using GroupDocs: a complete guide'
+  type: TechArticle
+- description: Learn how to remove comments java and redact annotations using GroupDocs.Redaction.
+    Follow this step‑by‑step guide for data privacy and compliance.
+  name: 'How to remove comments java using GroupDocs: a complete guide'
+  steps:
+  - name: initialize the redactor
+    text: '`Redactor` is the core class that represents the document in memory and
+      exposes redaction methods. Begin by creating a `Redactor` instance with your
+      document path. This is where you specify the file containing annotations to
+      be redacted.'
+  - name: apply annotationredaction
+    text: '`AnnotationRedaction` represents a redaction rule that targets text inside
+      document annotations. Use it to replace occurrences of “john” with “[redacted]”.
+      - **Pattern matching:** The regex `(?im:john)` searches for “john” in a case‑insensitive
+      manner. - **Replacement text:** “[redacted]” is the tex'
+  - name: configure save options
+    text: '`SaveOptions` configures how the redacted document is written to disk,
+      such as format and file naming. You can add a suffix, rasterize to PDF, or keep
+      the original format.'
+  - name: save the redacted document
+    text: Calling `redactor.save(saveOptions)` writes the changes to a new file. The
+      `setAddSuffix(true)` flag automatically appends “_redacted” to the original
+      filename, making the output easy to identify.
+  - name: properly close the redactor – manage redactor resources
+    text: '`Redactor` implements `AutoCloseable`; closing it releases file handles
+      and frees native memory. Always wrap the usage in a try‑with‑resources block
+      or call `close()` explicitly.'
+  type: HowTo
+- questions:
+  - answer: Yes. Open the document with the appropriate password before creating the
+      `Redactor` instance.
+    question: Can I redact annotations in password‑protected files?
+  - answer: Absolutely. You can loop through a collection of file paths, instantiate
+      a `Redactor` for each, and apply the same redaction rules.
+    question: Does the library support batch processing of multiple files?
+  - answer: They are replaced with the replacement text you specify (e.g., “[redacted]”),
+      and the original content is no longer present in the saved file.
+    question: What happens to original annotations after redaction?
+  - answer: You can export the document to PDF with `setRasterizeToPDF(true)` to create
+      a visual preview that hides the original annotation layers.
+    question: Is there a way to preview redactions before saving?
+  - answer: Increase the JVM heap size, process worksheets individually if possible,
+      and consider using the `setAddSuffix` option to keep intermediate files manageable.
+    question: How do I handle very large Excel workbooks with millions of cells?
+  type: FAQPage
+tags:
+- remove comments java
+- GroupDocs Redaction
+- Java annotation redaction
+- document privacy
+- GDPR compliance
+title: 'Hoe commentaren java verwijderen met GroupDocs: een volledige gids'
 type: docs
 url: /nl/java/annotation-redaction/java-annotation-redaction-groupdocs-tutorial/
 weight: 1
 ---
 
-# Hoe annotaties redigeren in Java met GroupDocs: Een volledige gids
+{{< blocks/products/pf/main-wrap-class >}}
+{{< blocks/products/pf/main-container >}}
+{{< blocks/products/pf/tutorial-page-section >}}
 
-In het digitale tijdperk van vandaag is **hoe annotaties te redigeren** in documenten een cruciale vaardigheid om gevoelige gegevens te beschermen en te voldoen aan privacy‑regelgeving. Of u nu financiële overzichten, juridische contracten of persoonlijke dossiers verwerkt, het verwijderen of maskeren van annotatie‑inhoud zorgt ervoor dat vertrouwelijke informatie nooit lekt wanneer een bestand wordt gedeeld. Deze tutorial leidt u door het volledige proces van het gebruik van GroupDocs.Redaction voor Java om automatisch annotatietekst te vinden en te redigeren.
+# Hoe opmerkingen java te verwijderen met GroupDocs: een volledige gids
 
-## Quick Answers
+In het digitale tijdperk van vandaag is leren hoe je **remove comments java** en annotaties in documenten kunt redigeren een cruciale vaardigheid om gevoelige gegevens te beschermen en te voldoen aan privacy‑regelgeving. Of je nu financiële overzichten, juridische contracten of persoonlijke dossiers verwerkt, het maskeren van annotatie‑inhoud zorgt ervoor dat vertrouwelijke informatie nooit lekt wanneer een bestand wordt gedeeld. Deze tutorial leidt je door het volledige proces van het gebruik van GroupDocs.Redaction voor Java om automatisch annotatietekst te vinden en te redigeren.
+
+## Snelle antwoorden
 - **Wat betekent “annotation redaction”?** Verwijderen of maskeren van tekst binnen opmerkingen, notities en andere documentannotaties.  
 - **Welke bibliotheek behandelt dit?** GroupDocs.Redaction voor Java.  
 - **Heb ik een licentie nodig?** Een tijdelijke licentie is voldoende voor testen; een volledige licentie ontgrendelt alle functies.  
-- **Kan ik regex‑patronen gebruiken?** Ja—`AnnotationRedaction` accepteert reguliere expressies voor nauwkeurige overeenkomsten.  
+- **Kan ik regex‑patronen gebruiken?** Ja—`AnnotationRedaction` accepteert reguliere expressies voor precieze matching.  
 - **Is de oplossing geschikt voor grote bestanden?** Ja, met de juiste geheugen‑beheerpraktijken die later worden beschreven.
 
-## What Is Annotation Redaction?
-Annotation redaction verwijst naar het proces waarbij gevoelige tekst in documentcommentaren, voetnoten of andere markup‑elementen wordt opgespoord en vervangen door een placeholder (bijv. “[redacted]”). In tegenstelling tot gewone tekstredactie richt dit zich op de verborgen lagen die vaak aan handmatige controle ontsnappen.
+## Wat is annotation redaction?
+Annotation redaction verwijst naar het proces waarbij gevoelige tekst in documentcommentaren, voetnoten of andere opmaak‑elementen wordt opgespoord en vervangen door een tijdelijke aanduiding (bijv. “[redacted]”). In tegenstelling tot platte‑tekst redactie richt dit zich op de verborgen lagen die vaak aan handmatige controle ontsnappen.
 
-## Why Use GroupDocs.Redaction for Java?
-- **Volledige documentondersteuning:** Werkt met Word, Excel, PowerPoint, PDF en vele andere formaten.  
-- **Regex‑gedreven precisie:** Richt zich alleen op de gegevens die u wilt verbergen.  
-- **Prestaties geoptimaliseerd:** Verwerkt grote bestanden met een lage geheugelast.  
+## Waarom GroupDocs.Redaction voor Java gebruiken?
+GroupDocs.Redaction biedt een uitgebreide, high‑performance oplossing die veel bestandsformaten ondersteunt, regex‑gedreven precisie biedt en ingebouwde compliance‑functies bevat. Het is ontworpen om grote documenten efficiënt te verwerken terwijl gevoelige annotatie‑gegevens volledig worden verwijderd.
+
+- **Full‑documentondersteuning:** Ondersteunt **30+** invoer‑ en uitvoerformaten—waaronder DOCX, XLSX, PPTX, PDF en meer dan 20 afbeeldingsformaten.  
+- **Regex‑gedreven precisie:** Richt zich alleen op de gegevens die je wilt verbergen.  
+- **Performance‑geoptimaliseerd:** Verwerkt documenten van honderden pagina’s met minder dan 200 MB heap‑gebruik.  
 - **Compliance‑klaar:** Voldoet direct aan GDPR, HIPAA en andere privacy‑normen.
 
-## How to Redact Annotations in Java – Complete Workflow
-Hieronder vindt u een stapsgewijze walkthrough die de hierboven geïntroduceerde concepten samenbrengt. We beginnen met de omgevingconfiguratie, gaan door de daadwerkelijke redactiecodelogica en eindigen met best‑practice‑tips voor het opslaan van het geredigeerde document en het beheren van redactor‑bronnen.
+## Hoe verwijder ik comments java met GroupDocs?
+De `Redactor`‑klasse is het hoofd‑toegangspunt dat een document laadt en redactie‑bewerkingen biedt.  
+Laad het doelbestand met `new Redactor("file.docx")`, pas een `AnnotationRedaction` toe die overeenkomt met de commentaartekst die je wilt verbergen, en sla vervolgens het document op met `SaveOptions`. Dit drie‑stappen‑patroon verwijdert comments java in één geheugen‑efficiënte doorloop.
 
-## Prerequisites
+## Voorvereisten
 
-Before you begin, ensure that you have the necessary libraries and environment setup. You'll need:
+Zorg er vóór je begint voor dat je de benodigde bibliotheken en omgeving hebt ingesteld. Je hebt nodig:
 
-- **Vereiste bibliotheken:** GroupDocs.Redaction bibliotheek versie 24.9 of later.  
-- **Omgevingsinstelling:** Een Java Development Kit (JDK) geïnstalleerd op uw machine.  
-- **Kennisvereisten:** Basiskennis van Java‑programmeren.
+- **Vereiste bibliotheken:** GroupDocs.Redaction‑bibliotheek versie 24.9 of later.  
+- **Omgevingsinstelling:** Een Java Development Kit (JDK) geïnstalleerd op je machine.  
+- **Kennisvereisten:** Basisbegrip van Java‑programmeren.
 
-## Setting Up GroupDocs.Redaction for Java
+## GroupDocs.Redaction voor Java instellen
 
-Om GroupDocs.Redaction in uw project te gebruiken, moet u het integreren via Maven of de bibliotheek direct downloaden.
+Om GroupDocs.Redaction in je project te gebruiken, moet je het integreren via Maven of de bibliotheek direct downloaden.
 
-### Maven Installation
-
+### Maven‑installatie
 Add the following repository and dependency to your `pom.xml`:
 
 ```xml
@@ -69,17 +140,14 @@ Add the following repository and dependency to your `pom.xml`:
 </dependencies>
 ```
 
-### Direct Download
+### Directe download
+Download anders de nieuwste versie van [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
-Alternatively, download the latest version from [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+#### Licentie‑verwerving
+Je kunt een tijdelijke licentie verkrijgen of een volledige licentie aanschaffen om alle functies te ontgrendelen. Voor proefdoeleinden kun je een tijdelijke licentie aanvragen via hun [purchase page](https://purchase.groupdocs.com/temporary-license/).
 
-#### License Acquisition
-
-U kunt een tijdelijke licentie verkrijgen of een volledige licentie aanschaffen om alle functies te ontgrendelen. Voor proefdoeleinden kunt u een tijdelijke licentie aanvragen via hun [purchase page](https://purchase.groupdocs.com/temporary-license/).
-
-### Basic Initialization and Setup
-
-First, ensure your project is set up with the necessary dependencies. Once done, import GroupDocs.Redaction classes into your Java file:
+### Basisinitialisatie en -configuratie
+De `Redactor`‑klasse is het toegangspunt dat een document laadt en redactie‑bewerkingen biedt. Importeer de vereiste klassen in je Java‑bestand:
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -87,32 +155,29 @@ import com.groupdocs.redaction.options.SaveOptions;
 import com.groupdocs.redaction.redactions.AnnotationRedaction;
 ```
 
-## Implementation Guide
+## Implementatie‑gids
 
-Now let's walk through implementing annotation redaction using GroupDocs.Redaction.
+Laten we nu stap voor stap de implementatie van annotation redaction met GroupDocs.Redaction doorlopen.
 
-### Step 1: Initialize the Redactor
-
-Begin by creating a `Redactor` instance with your document path. This is where you specify the file containing annotations to be redacted.
+### Stap 1: initialiseer de redactor
+`Redactor` is de kernklasse die het document in het geheugen vertegenwoordigt en redactie‑methoden blootlegt. Begin met het maken van een `Redactor`‑instantie met het pad naar je document. Hier specificeer je het bestand dat annotaties bevat die moeten worden geredigeerd.
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/ANNOTATED_XLSX");
 ```
 
-### Step 2: Apply AnnotationRedaction
-
-Use `AnnotationRedaction` to target text within annotations matching a specific pattern. Here, we aim to replace occurrences of "john" with "[redacted]".
+### Stap 2: pas annotationredaction toe
+`AnnotationRedaction` vertegenwoordigt een redactie‑regel die tekst binnen documentannotaties target. Gebruik het om voorkomens van “john” te vervangen door “[redacted]`.
 
 ```java
 redactor.apply(new AnnotationRedaction("(?im:john)", "[redacted]");
 ```
 
-- **Patroonmatching:** De regex `(?im:john)` zoekt naar “john” op een case‑insensitieve manier.  
-- **Vervangingstekst:** “[redacted]” is de tekst die de gevonden patronen zal vervangen.
+- **Patroon‑matching:** De regex `(?im:john)` zoekt naar “john” op een case‑insensitieve manier.  
+- **Vervangingstekst:** “[redacted]” is de tekst die overeenkomende patronen zal vervangen.
 
-### Step 3: Configure Save Options
-
-Set up `SaveOptions` to define how the redacted document should be saved. You can specify whether to add a suffix or rasterize the document into PDF format.
+### Stap 3: configureer opslaan‑opties
+`SaveOptions` configureert hoe het geredigeerde document naar schijf wordt geschreven, zoals formaat en bestandsnaam. Je kunt een achtervoegsel toevoegen, rasteriseren naar PDF, of het oorspronkelijke formaat behouden.
 
 ```java
 SaveOptions saveOptions = new SaveOptions();
@@ -120,17 +185,15 @@ saveOptions.setAddSuffix(true);
 saveOptions.setRasterizeToPDF(false);
 ```
 
-### Step 4: Save the Redacted Document
-
-Finally, save your changes using the configured `SaveOptions`. This step ensures that your redactions are applied and stored correctly.
+### Stap 4: sla het geredigeerde document op
+Het aanroepen van `redactor.save(saveOptions)` schrijft de wijzigingen naar een nieuw bestand. De `setAddSuffix(true)`‑vlag voegt automatisch “_redacted” toe aan de oorspronkelijke bestandsnaam, waardoor de output gemakkelijk te identificeren is.
 
 ```java
 redactor.save(saveOptions);
 ```
 
-### Step 5: Properly Close the Redactor – Manage Redactor Resources
-
-Always close the `Redactor` instance to free up resources and avoid memory leaks:
+### Stap 5: sluit de redactor correct – beheer redactor‑bronnen
+`Redactor` implementeert `AutoCloseable`; het sluiten ervan vrijgeeft bestands‑handles en maakt native geheugen vrij. Omring het gebruik altijd met een try‑with‑resources‑blok of roep expliciet `close()` aan.
 
 ```java
 finally {
@@ -138,79 +201,88 @@ finally {
 }
 ```
 
-## How to Save Redacted Document
+## Hoe het geredigeerde document op te slaan
+Het `SaveOptions`‑object geeft je fijnmazige controle over het uitvoerbestand. Het instellen van `setAddSuffix(true)` voegt automatisch “_redacted” toe aan de oorspronkelijke bestandsnaam, waardoor duidelijk is welke versie de redacties bevat. Je kunt ook `setRasterizeToPDF` in‑ of uitschakelen als je een alleen‑PDF‑output nodig hebt voor extra beveiliging.
 
-The `SaveOptions` object gives you fine‑grained control over the output file. Setting `setAddSuffix(true)` automatically appends “_redacted” to the original filename, making it clear which version contains the redactions. You can also toggle `setRasterizeToPDF` if you need a PDF‑only output for added security.
+## Praktische toepassingen
+Annotation redaction kan van onschatbare waarde zijn in verschillende scenario’s:
 
-## Practical Applications
-
-Annotation redaction can be invaluable in various scenarios:
-
-- **Gegevensprivacy:** Ervoor zorgen dat persoonlijke identificatoren nooit uw beveiligde omgeving verlaten.  
+- **Gegevensprivacy:** Ervoor zorgen dat persoonlijke identificatoren nooit je beveiligde omgeving verlaten.  
 - **Compliance:** Voldoen aan GDPR, HIPAA of branchespecifieke regelgeving door automatisch vertrouwelijke notities te wissen.  
 - **Documentdeling:** Veilig concepten distribueren naar externe partners zonder interne opmerkingen bloot te stellen.
 
-You can integrate GroupDocs.Redaction with other systems (e.g., document management platforms, automated workflows) to create end‑to‑end redaction pipelines.
+Je kunt GroupDocs.Redaction integreren met andere systemen (bijv. document‑beheersplatformen, geautomatiseerde workflows) om end‑to‑end redactie‑pijplijnen te creëren.
 
-## Performance Considerations
+## Prestatie‑overwegingen
+Bij het werken met grote documenten of het verwerken van batches:
 
-When working with large documents or processing batches:
+- **Geheugenbeheer:** Hergebruik `Redactor`‑instanties wanneer mogelijk en sluit ze direct.  
+- **Threading:** Verwerk bestanden parallel alleen als je voldoende heap‑ruimte hebt.  
+- **Monitoring:** Log verwerkingstijden en geheugengebruik om knelpunten vroegtijdig te identificeren.
 
-- **Geheugenbeheer:** Hergebruik `Redactor`‑instanties waar mogelijk en sluit ze direct.  
-- **Threading:** Verwerk bestanden parallel alleen als u voldoende heap‑ruimte heeft.  
-- **Monitoring:** Log verwerkingsduur en geheugengebruik om knelpunten vroegtijdig te identificeren.
+## Veelvoorkomende problemen & foutopsporing
 
-## Common Issues & Troubleshooting
-
-| Symptom | Likely Cause | Fix |
+| Symptom | Likely cause | Fix |
 |---------|--------------|-----|
-| Geen wijzigingen na `save()` | Verkeerde regex of hoofdlettergevoeligheid | Controleer het patroon; gebruik `(?i)` voor case‑insensitieve matching. |
-| OutOfMemoryError bij grote bestanden | Redactor houdt het volledige document in het geheugen | Vergroot de JVM-heap (`-Xmx`) of verwerk bestanden in kleinere delen. |
-| LicenseException | Trial gebruiken zonder een geldig licentiebestand | Plaats het tijdelijke licentiebestand in de projectroot of configureer de licentie programmatisch. |
+| Geen wijzigingen na `save()` | Verkeerde regex of hoofdlettergevoeligheid | Controleer het patroon; gebruik `(?i)` voor case‑insensitive matching. |
+| OutOfMemoryError bij grote bestanden | Redactor houdt het volledige document in het geheugen | Verhoog de JVM‑heap (`-Xmx`) of verwerk bestanden in kleinere delen. |
+| LicenseException | Gebruik van trial zonder een geldig licentiebestand | Plaats het tijdelijke licentiebestand in de project‑root of configureer de licentie programmatisch. |
 
-## FAQ Section
+## FAQ‑sectie
 1. **Wat is GroupDocs.Redaction voor Java?**  
-   - Een bibliotheek die u in staat stelt tekst binnen documenten te redigeren, zodat gevoelige informatie beschermd blijft.
+   - Een bibliotheek die je in staat stelt tekst binnen documenten te redigeren, zodat gevoelige informatie beschermd blijft.
 
 2. **Hoe stel ik GroupDocs.Redaction in mijn Java‑project in?**  
-   - Gebruik Maven of download de bibliotheek direct en voeg deze toe aan uw projectafhankelijkheden.
+   - Gebruik Maven of download de bibliotheek direct en voeg deze toe aan de project‑afhankelijkheden.
 
 3. **Kan ik regex‑patronen gebruiken voor specifieke tekstredactie?**  
    - Ja, `AnnotationRedaction` ondersteunt regex‑patronen voor gerichte tekstvervanging.
 
-4. **Wat zijn enkele veelvoorkomende use‑cases voor annotatieredactie?**  
+4. **Wat zijn enkele veelvoorkomende use‑cases voor annotation redaction?**  
    - Gegevensprivacy, naleving van regelgeving en veilige documentdeling zijn belangrijke toepassingen.
 
 5. **Hoe kan ik de prestaties optimaliseren bij het gebruik van GroupDocs.Redaction?**  
-   - Beheer het geheugengebruik effectief en volg Java‑best practices om een efficiënte verwerking te garanderen.
+   - Beheer het geheugengebruik effectief en volg de Java‑best practices om een efficiënte verwerking te waarborgen.
 
-## Frequently Asked Questions
+## Veelgestelde vragen
 
-**V: Kan ik annotaties redigeren in met wachtwoord beveiligde bestanden?**  
-A: Ja. Open het document met het juiste wachtwoord voordat u de `Redactor`‑instance maakt.
+**Q: Kan ik annotaties redigeren in met wachtwoord beveiligde bestanden?**  
+A: Ja. Open het document met het juiste wachtwoord voordat je de `Redactor`‑instantie maakt.
 
-**V: Ondersteunt de bibliotheek batchverwerking van meerdere bestanden?**  
-A: Absoluut. U kunt door een collectie bestands‑paden itereren, voor elk een `Redactor` instantiëren en dezelfde redactieregels toepassen.
+**Q: Ondersteunt de bibliotheek batch‑verwerking van meerdere bestanden?**  
+A: Absoluut. Je kunt door een collectie bestands‑paden itereren, voor elk een `Redactor` instantiëren en dezelfde redactie‑regels toepassen.
 
-**V: Wat gebeurt er met originele annotaties na redactie?**  
-A: Ze worden vervangen door de vervangingstekst die u opgeeft (bijv. “[redacted]”), en de oorspronkelijke inhoud is niet meer aanwezig in het opgeslagen bestand.
+**Q: Wat gebeurt er met originele annotaties na redactie?**  
+A: Ze worden vervangen door de vervangingstekst die je opgeeft (bijv. “[redacted]”), en de originele inhoud is niet meer aanwezig in het opgeslagen bestand.
 
-**V: Is er een manier om redacties te bekijken voordat ze worden opgeslagen?**  
-A: U kunt het document exporteren naar PDF met `setRasterizeToPDF(true)` om een visueel voorbeeld te maken dat de originele annotatielagen verbergt.
+**Q: Is er een manier om redacties vooraf te bekijken voordat je opslaat?**  
+A: Je kunt het document exporteren naar PDF met `setRasterizeToPDF(true)` om een visuele preview te maken die de originele annotatielagen verbergt.
 
-**V: Hoe ga ik om met zeer grote Excel‑werkboeken met miljoenen cellen?**  
-A: Vergroot de JVM-heap‑grootte, verwerk werkbladen indien mogelijk afzonderlijk, en overweeg de `setAddSuffix`‑optie om tussentijdse bestanden beheersbaar te houden.
+**Q: Hoe ga ik om met zeer grote Excel‑werkboeken met miljoenen cellen?**  
+A: Verhoog de JVM‑heap‑grootte, verwerk werkbladen afzonderlijk indien mogelijk, en overweeg de `setAddSuffix`‑optie te gebruiken om tussen‑bestanden beheersbaar te houden.
 
-## Resources
-- [Documentation](https://docs.groupdocs.com/redaction/java/)
-- [API Reference](https://reference.groupdocs.com/redaction/java)
+## Bronnen
+- [Documentatie](https://docs.groupdocs.com/redaction/java/)
+- [API‑referentie](https://reference.groupdocs.com/redaction/java)
 - [Download](https://releases.groupdocs.com/redaction/java/)
-- [GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
-- [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)
-- [Temporary License](https://purchase.groupdocs.com/temporary-license/)
+- [GitHub‑repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
+- [Gratis ondersteuningsforum](https://forum.groupdocs.com/c/redaction/33)
+- [Tijdelijke licentie](https://purchase.groupdocs.com/temporary-license/)
 
 ---
 
-**Last Updated:** 2026-03-17  
+**Last Updated:** 2026-09-11  
 **Tested With:** GroupDocs.Redaction 24.9 for Java  
 **Author:** GroupDocs
+
+## Gerelateerde tutorials
+
+- [Hoe documenten te redigeren met GroupDocs Redaction Java-licentie vanaf bestands­pad – Een stap‑voor‑stap‑gids](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)
+- [Hoe Java‑documenten te redigeren met GroupDocs.Redaction API](/redaction/java/getting-started/java-groupdocs-redaction-tutorial/)
+- [Hoe tekst te redigeren in Java met GroupDocs.Redaction – Gids](/redaction/java/text-redaction/text-redaction-java-groupdocs-redaction/)
+
+
+{{< /blocks/products/pf/tutorial-page-section >}}
+{{< /blocks/products/pf/main-container >}}
+{{< /blocks/products/pf/main-wrap-class >}}
+{{< blocks/products/products-backtop-button >}}
