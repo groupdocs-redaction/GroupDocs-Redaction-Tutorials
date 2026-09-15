@@ -76,10 +76,6 @@ url: /th/java/annotation-redaction/java-annotation-redaction-groupdocs-tutorial/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # วิธีลบคอมเมนต์ Java ด้วย GroupDocs: คู่มือฉบับสมบูรณ์
 
 ในยุคดิจิทัลปัจจุบัน การเรียนรู้วิธี **remove comments java** และการทำลบข้อมูลที่เป็น annotation ในเอกสารเป็นทักษะสำคัญสำหรับการปกป้องข้อมูลที่ละเอียดอ่อนและปฏิบัติตามกฎระเบียบด้านความเป็นส่วนตัว ไม่ว่าคุณจะจัดการกับงบการเงิน สัญญากฎหมาย หรือบันทึกส่วนบุคคล การซ่อนเนื้อหา annotation จะทำให้ข้อมูลที่เป็นความลับไม่รั่วไหลเมื่อไฟล์ถูกแชร์ คู่มือนี้จะพาคุณผ่านกระบวนการทั้งหมดของการใช้ GroupDocs.Redaction for Java เพื่อค้นหาและลบข้อความ annotation โดยอัตโนมัติ
@@ -274,9 +270,3 @@ A: เพิ่มขนาด heap ของ JVM, ประมวลผล work
 - [วิธีลบข้อมูลในเอกสารด้วย GroupDocs Redaction Java License จากเส้นทางไฟล์ – คู่มือขั้นตอนโดยละเอียด](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)
 - [วิธีลบข้อมูลเอกสาร Java ด้วย GroupDocs.Redaction API](/redaction/java/getting-started/java-groupdocs-redaction-tutorial/)
 - [วิธีลบข้อความใน Java ด้วย GroupDocs.Redaction – คู่มือ](/redaction/java/text-redaction/text-redaction-java-groupdocs-redaction/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

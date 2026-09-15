@@ -79,10 +79,6 @@ url: /de/java/annotation-redaction/java-annotation-redaction-groupdocs-tutorial/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Wie man Kommentare in Java mit GroupDocs entfernt: ein vollständiger Leitfaden
 
 Im digitalen Zeitalter von heute ist das Erlernen, wie man **remove comments java** und Anmerkungen in Dokumenten redigiert, eine entscheidende Fähigkeit, um sensible Daten zu schützen und die Einhaltung von Datenschutzbestimmungen sicherzustellen. Egal, ob Sie Finanzberichte, Rechtsverträge oder persönliche Aufzeichnungen bearbeiten, das Maskieren von Anmerkungsinhalten stellt sicher, dass vertrauliche Informationen beim Teilen einer Datei niemals durchsickern. Dieses Tutorial führt Sie durch den gesamten Prozess, GroupDocs.Redaction für Java zu verwenden, um Anmerkungstexte automatisch zu finden und zu redigieren.
@@ -282,9 +278,3 @@ A: Erhöhen Sie die JVM‑Heap‑Größe, verarbeiten Sie Arbeitsblätter nach M
 - [Wie man Dokumente mit GroupDocs Redaction Java Lizenz aus Dateipfad redigiert – Eine Schritt‑für‑Schritt‑Anleitung](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)
 - [Wie man Java‑Dokumente mit GroupDocs.Redaction API redigiert](/redaction/java/getting-started/java-groupdocs-redaction-tutorial/)
 - [Wie man Text in Java mit GroupDocs.Redaction redigiert – Anleitung](/redaction/java/text-redaction/text-redaction-java-groupdocs-redaction/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

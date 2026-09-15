@@ -77,10 +77,6 @@ url: /nl/java/annotation-redaction/java-annotation-redaction-groupdocs-tutorial/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Hoe opmerkingen java te verwijderen met GroupDocs: een volledige gids
 
 In het digitale tijdperk van vandaag is leren hoe je **remove comments java** en annotaties in documenten kunt redigeren een cruciale vaardigheid om gevoelige gegevens te beschermen en te voldoen aan privacy‑regelgeving. Of je nu financiële overzichten, juridische contracten of persoonlijke dossiers verwerkt, het maskeren van annotatie‑inhoud zorgt ervoor dat vertrouwelijke informatie nooit lekt wanneer een bestand wordt gedeeld. Deze tutorial leidt je door het volledige proces van het gebruik van GroupDocs.Redaction voor Java om automatisch annotatietekst te vinden en te redigeren.
@@ -280,9 +276,3 @@ A: Verhoog de JVM‑heap‑grootte, verwerk werkbladen afzonderlijk indien mogel
 - [Hoe documenten te redigeren met GroupDocs Redaction Java-licentie vanaf bestands­pad – Een stap‑voor‑stap‑gids](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)
 - [Hoe Java‑documenten te redigeren met GroupDocs.Redaction API](/redaction/java/getting-started/java-groupdocs-redaction-tutorial/)
 - [Hoe tekst te redigeren in Java met GroupDocs.Redaction – Gids](/redaction/java/text-redaction/text-redaction-java-groupdocs-redaction/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

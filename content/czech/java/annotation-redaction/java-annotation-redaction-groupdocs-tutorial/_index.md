@@ -79,10 +79,6 @@ url: /cs/java/annotation-redaction/java-annotation-redaction-groupdocs-tutorial/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Jak odstranit komentáře java pomocí GroupDocs: kompletní průvodce
 
 V dnešním digitálním věku je naučit se **remove comments java** a redigovat anotace v dokumentech klíčová dovednost pro ochranu citlivých údajů a dodržování předpisů o ochraně soukromí. Ať už pracujete s finančními výkazy, právními smlouvami nebo osobními záznamy, maskování obsahu anotací zajišťuje, že důvěrné informace nikdy neuniknou při sdílení souboru. Tento tutoriál vás provede celým procesem používání GroupDocs.Redaction pro Java k automatickému vyhledání a redigování textu anotací.
@@ -281,9 +277,3 @@ A: Zvyšte velikost haldy JVM, pokud je to možné, zpracovávejte listy jednotl
 - [Jak redigovat dokumenty pomocí GroupDocs Redaction Java licence ze souborové cesty – krok za krokem](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)
 - [Jak redigovat Java dokumenty pomocí GroupDocs.Redaction API](/redaction/java/getting-started/java-groupdocs-redaction-tutorial/)
 - [Jak redigovat text v Javě pomocí GroupDocs.Redaction – průvodce](/redaction/java/text-redaction/text-redaction-java-groupdocs-redaction/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

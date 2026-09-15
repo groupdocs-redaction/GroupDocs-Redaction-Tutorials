@@ -80,10 +80,6 @@ url: /hu/java/annotation-redaction/java-annotation-redaction-groupdocs-tutorial/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Hogyan távolítsuk el a java megjegyzéseket a GroupDocs használatával: egy teljes útmutató
 
 A mai digitális korban a **remove comments java** megtanulása és a dokumentumok megjegyzéseinek redakciója kritikus készség a érzékeny adatok védelme és a adatvédelmi szabályozásoknak való megfelelés érdekében. Akár pénzügyi kimutatásokat, jogi szerződéseket vagy személyes nyilvántartásokat kezel, a megjegyzés tartalmának maszkolása biztosítja, hogy a bizalmas információk soha ne szivárogjanak ki egy fájl megosztásakor. Ez az útmutató végigvezeti a GroupDocs.Redaction for Java használatával történő automatikus megjegyzés szöveg keresés és redakció folyamatán.
@@ -277,8 +273,3 @@ V: Növeld a JVM heap méretét, ha lehetséges dolgozz egyes munkalapokkal, és
 - [Hogyan redakciózzuk a dokumentumokat a GroupDocs Redaction Java licenccel fájl útvonalról – Lépésről lépésre útmutató](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)
 - [Hogyan redakciózzuk a Java dokumentumokat a GroupDocs.Redaction API-val](/redaction/java/getting-started/java-groupdocs-redaction-tutorial/)
 - [Hogyan redakciózzuk a szöveget Java-ban a GroupDocs.Redaction segítségével – Útmutató](/redaction/java/text-redaction/text-redaction-java-groupdocs-redaction/)
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

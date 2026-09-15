@@ -77,10 +77,6 @@ url: /id/java/annotation-redaction/java-annotation-redaction-groupdocs-tutorial/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Cara menghapus komentar java menggunakan GroupDocs: panduan lengkap
 
 Di era digital saat ini, mempelajari cara **menghapus komentar java** dan menyensor anotasi dalam dokumen merupakan keterampilan penting untuk melindungi data sensitif dan mematuhi regulasi privasi. Baik Anda menangani laporan keuangan, kontrak hukum, atau catatan pribadi, menyamarkan konten anotasi memastikan informasi rahasia tidak pernah bocor saat file dibagikan. Tutorial ini akan memandu Anda melalui seluruh proses menggunakan GroupDocs.Redaction untuk Java guna secara otomatis menemukan dan menyensor teks anotasi.
@@ -280,9 +276,3 @@ J: Tingkatkan ukuran heap JVM, proses lembar kerja secara individual bila memung
 - [How to Redact Documents with GroupDocs Redaction Java License from File Path – A Step‑by‑Step Guide](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)
 - [How to Redact Java Documents with GroupDocs.Redaction API](/redaction/java/getting-started/java-groupdocs-redaction-tutorial/)
 - [How to Redact Text in Java with GroupDocs.Redaction – Guide](/redaction/java/text-redaction/text-redaction-java-groupdocs-redaction/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

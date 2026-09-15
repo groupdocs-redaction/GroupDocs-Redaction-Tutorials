@@ -79,10 +79,6 @@ url: /ru/java/annotation-redaction/java-annotation-redaction-groupdocs-tutorial/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Как удалить комментарии java с помощью GroupDocs: полное руководство
 
 В современную цифровую эпоху умение **remove comments java** и редактировать аннотации в документах является критически важным навыком для защиты конфиденциальных данных и соблюдения требований конфиденциальности. Независимо от того, работаете ли вы с финансовыми отчётами, юридическими контрактами или личными записями, маскирование содержимого аннотаций гарантирует, что конфиденциальная информация никогда не утечёт при обмене файлом. Этот учебник проведёт вас через весь процесс использования GroupDocs.Redaction для Java для автоматического поиска и редактирования текста аннотаций.
@@ -283,9 +279,3 @@ finally {
 - [Как редактировать документы с лицензией GroupDocs Redaction Java из пути к файлу — пошаговое руководство](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)
 - [Как редактировать Java‑документы с помощью API GroupDocs.Redaction](/redaction/java/getting-started/java-groupdocs-redaction-tutorial/)
 - [Как редактировать текст в Java с помощью GroupDocs.Redaction — руководство](/redaction/java/text-redaction/text-redaction-java-groupdocs-redaction/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

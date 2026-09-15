@@ -76,10 +76,6 @@ url: /ko/java/annotation-redaction/java-annotation-redaction-groupdocs-tutorial/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # GroupDocs를 사용하여 Java 주석 제거하기: 완전 가이드
 
 오늘날 디지털 시대에 **remove comments java**와 문서의 주석을 가리키는 방법을 배우는 것은 민감한 데이터를 보호하고 개인정보 보호 규정을 준수하기 위한 중요한 기술입니다. 재무 보고서, 법률 계약서, 개인 기록 등을 다루든, 주석 내용을 마스킹하면 파일을 공유할 때 기밀 정보가 유출되지 않도록 보장합니다. 이 튜토리얼에서는 GroupDocs.Redaction for Java를 사용하여 주석 텍스트를 자동으로 찾고 가리는 전체 과정을 단계별로 안내합니다.
@@ -275,8 +271,3 @@ A: JVM 힙 크기를 늘리고, 가능하면 워크시트를 개별적으로 처
 - [파일 경로에서 Java 라이선스로 GroupDocs Redaction 문서 가리기 – 단계별 가이드](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)
 - [GroupDocs.Redaction API로 Java 문서 가리기](/redaction/java/getting-started/java-groupdocs-redaction-tutorial/)
 - [Java에서 GroupDocs.Redaction으로 텍스트 가리기 – 가이드](/redaction/java/text-redaction/text-redaction-java-groupdocs-redaction/)
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

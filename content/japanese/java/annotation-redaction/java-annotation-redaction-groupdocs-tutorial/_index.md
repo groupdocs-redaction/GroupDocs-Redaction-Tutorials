@@ -76,10 +76,6 @@ url: /ja/java/annotation-redaction/java-annotation-redaction-groupdocs-tutorial/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # GroupDocs を使用して Java のコメントを削除する方法：完全ガイド
 
 今日のデジタル時代において、**remove comments java** とドキュメント内の注釈を赤字（レダクション）する方法を学ぶことは、機密データを保護し、プライバシー規制に準拠し続けるための重要なスキルです。財務諸表、法的契約、個人記録を扱う場合でも、注釈の内容をマスクすることで、ファイルが共有された際に機密情報が漏洩しないようにします。このチュートリアルでは、GroupDocs.Redaction for Java を使用して注釈テキストを自動的に検出し、レダクションする全プロセスを解説します。
@@ -273,8 +269,3 @@ A: JVM のヒープサイズを増やし、可能であればシートごとに�
 - [ファイルパスからの GroupDocs Redaction Java ライセンスでドキュメントをレダクションする方法 – ステップバイステップガイド](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)
 - [GroupDocs.Redaction API を使用した Java ドキュメントのレダクション方法](/redaction/java/getting-started/java-groupdocs-redaction-tutorial/)
 - [GroupDocs.Redaction を使用した Java のテキストレダクション – ガイド](/redaction/java/text-redaction/text-redaction-java-groupdocs-redaction/)
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

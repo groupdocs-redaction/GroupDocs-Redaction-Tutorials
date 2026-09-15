@@ -77,10 +77,6 @@ url: /vi/java/annotation-redaction/java-annotation-redaction-groupdocs-tutorial/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Cách xóa comments java bằng GroupDocs: hướng dẫn đầy đủ
 
 Trong thời đại số hiện nay, việc học cách **remove comments java** và xóa mờ các chú thích trong tài liệu là một kỹ năng quan trọng để bảo vệ dữ liệu nhạy cảm và tuân thủ các quy định về quyền riêng tư. Dù bạn đang xử lý báo cáo tài chính, hợp đồng pháp lý hay hồ sơ cá nhân, việc che giấu nội dung chú thích đảm bảo thông tin bí mật không bị rò rỉ khi tệp được chia sẻ. Hướng dẫn này sẽ đưa bạn qua toàn bộ quá trình sử dụng GroupDocs.Redaction cho Java để tự động tìm và xóa mờ văn bản chú thích.
@@ -280,9 +276,3 @@ A: Tăng kích thước heap JVM, xử lý các worksheet riêng lẻ nếu có 
 - [Cách xóa tài liệu với GroupDocs Redaction Java License từ Đường dẫn Tệp – Hướng dẫn từng bước](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)
 - [Cách xóa tài liệu Java với API GroupDocs.Redaction](/redaction/java/getting-started/java-groupdocs-redaction-tutorial/)
 - [Cách xóa văn bản trong Java với GroupDocs.Redaction – Hướng dẫn](/redaction/java/text-redaction/text-redaction-java-groupdocs-redaction/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

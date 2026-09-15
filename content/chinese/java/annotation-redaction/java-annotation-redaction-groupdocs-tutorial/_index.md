@@ -74,10 +74,6 @@ url: /zh/java/annotation-redaction/java-annotation-redaction-groupdocs-tutorial/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # 如何使用 GroupDocs 删除 Java 注释：完整指南
 
 在当今数字时代，学习如何 **remove comments java** 并在文档中编辑注释是一项保护敏感数据并遵守隐私法规的关键技能。无论您处理的是财务报表、法律合同还是个人记录，遮蔽注释内容都能确保机密信息在文件共享时不会泄露。本教程将带您完整了解如何使用 GroupDocs.Redaction for Java 自动查找并编辑注释文本的全过程。
@@ -277,9 +273,3 @@ A: 增大 JVM 堆内存，尽可能单独处理工作表，并考虑使用 `setA
 - [如何使用文件路径的 GroupDocs Redaction Java 许可证对文档进行编辑 – 步骤指南](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)
 - [如何使用 GroupDocs.Redaction API 编辑 Java 文档](/redaction/java/getting-started/java-groupdocs-redaction-tutorial/)
 - [如何使用 GroupDocs.Redaction 在 Java 中编辑文本 – 指南](/redaction/java/text-redaction/text-redaction-java-groupdocs-redaction/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

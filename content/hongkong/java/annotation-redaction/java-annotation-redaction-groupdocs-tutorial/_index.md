@@ -74,10 +74,6 @@ url: /zh-hant/java/annotation-redaction/java-annotation-redaction-groupdocs-tuto
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # 如何使用 GroupDocs 移除 Java 註解：完整指南
 
 在當今的數位時代，學習如何 **remove comments java** 以及在文件中刪除註解標記是一項關鍵技能，可保護敏感資料並遵守隱私法規。無論您處理的是財務報表、法律合約或個人記錄，遮蔽註解內容都能確保機密資訊在檔案共享時不會外洩。本教學將帶您完整了解如何使用 GroupDocs.Redaction for Java 自動搜尋並刪除註解文字。
@@ -274,8 +270,3 @@ A: 增加 JVM 堆積大小，若可能則逐工作表處理，並考慮使用 `s
 - [如何使用檔案路徑的 GroupDocs Redaction Java 授權來刪除文件 – 步驟指南](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)
 - [如何使用 GroupDocs.Redaction API 刪除 Java 文件](/redaction/java/getting-started/java-groupdocs-redaction-tutorial/)
 - [如何在 Java 中使用 GroupDocs.Redaction 刪除文字 – 指南](/redaction/java/text-redaction/text-redaction-java-groupdocs-redaction/)
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

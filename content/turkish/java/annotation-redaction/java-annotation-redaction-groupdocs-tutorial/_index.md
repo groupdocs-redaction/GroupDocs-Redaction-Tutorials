@@ -78,10 +78,6 @@ url: /tr/java/annotation-redaction/java-annotation-redaction-groupdocs-tutorial/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # GroupDocs kullanarak java yorumlarını kaldırma: kapsamlı bir rehber
 
 Günümüz dijital çağında, **remove comments java** ve belgelerdeki ek açıklamaları gizleme konusunda bilgi sahibi olmak, hassas verileri korumak ve gizlilik düzenlemelerine uyum sağlamak için kritik bir beceridir. Finansal tablolar, yasal sözleşmeler veya kişisel kayıtlar üzerinde çalışıyor olun, ek açıklama içeriğini maskelemek, bir dosya paylaşıldığında gizli bilgilerin asla sızmamasını sağlar. Bu öğretici, GroupDocs.Redaction for Java kullanarak ek açıklama metnini otomatik olarak bulma ve gizleme sürecinin tamamını adım adım gösterir.
@@ -281,9 +277,3 @@ C: JVM heap boyutunu artırın, mümkünse sayfaları ayrı ayrı işleyin ve ar
 - [How to Redact Documents with GroupDocs Redaction Java License from File Path – A Step‑by‑Step Guide](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)
 - [How to Redact Java Documents with GroupDocs.Redaction API](/redaction/java/getting-started/java-groupdocs-redaction-tutorial/)
 - [How to Redact Text in Java with GroupDocs.Redaction – Guide](/redaction/java/text-redaction/text-redaction-java-groupdocs-redaction/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

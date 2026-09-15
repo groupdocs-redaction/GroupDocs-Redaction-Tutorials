@@ -76,10 +76,6 @@ url: /ar/java/annotation-redaction/java-annotation-redaction-groupdocs-tutorial/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # كيفية إزالة تعليقات جافا باستخدام GroupDocs: دليل شامل
 
 في عصرنا الرقمي اليوم، يعد تعلم **إزالة تعليقات جافا** وتعديل التعليقات في المستندات مهارة حاسمة لحماية البيانات الحساسة والبقاء متوافقًا مع لوائح الخصوصية. سواء كنت تتعامل مع القوائم المالية أو العقود القانونية أو السجلات الشخصية، فإن إخفاء محتوى التعليقات يضمن عدم تسرب المعلومات السرية عند مشاركة الملف. يوضح هذا الدليل خطوة بخطوة كيفية استخدام GroupDocs.Redaction for Java للعثور تلقائيًا على نص التعليقات وتعديله.
@@ -279,9 +275,3 @@ finally {
 - [How to Redact Documents with GroupDocs Redaction Java License from File Path – A Step‑by‑Step Guide](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)
 - [How to Redact Java Documents with GroupDocs.Redaction API](/redaction/java/getting-started/java-groupdocs-redaction-tutorial/)
 - [How to Redact Text in Java with GroupDocs.Redaction – Guide](/redaction/java/text-redaction/text-redaction-java-groupdocs-redaction/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

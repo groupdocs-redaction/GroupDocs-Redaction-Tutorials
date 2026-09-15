@@ -79,10 +79,6 @@ url: /fr/java/annotation-redaction/java-annotation-redaction-groupdocs-tutorial/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Comment supprimer les commentaires java avec GroupDocs : guide complet
 
 À l'ère numérique actuelle, apprendre à **remove comments java** et à masquer les annotations dans les documents est une compétence essentielle pour protéger les données sensibles et rester conforme aux réglementations de confidentialité. Que vous manipuliez des états financiers, des contrats juridiques ou des dossiers personnels, masquer le contenu des annotations garantit que les informations confidentielles ne fuient jamais lorsqu'un fichier est partagé. Ce tutoriel vous guide à travers l'ensemble du processus d'utilisation de GroupDocs.Redaction pour Java afin de trouver et masquer automatiquement le texte des annotations.
@@ -282,9 +278,3 @@ R : Augmentez la taille du tas JVM, traitez les feuilles de calcul individuell
 - [Comment rédiger des documents avec GroupDocs Redaction Java License depuis le chemin de fichier – Guide étape par étape](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)
 - [Comment rédiger des documents Java avec l'API GroupDocs.Redaction](/redaction/java/getting-started/java-groupdocs-redaction-tutorial/)
 - [Comment rédiger du texte en Java avec GroupDocs.Redaction – Guide](/redaction/java/text-redaction/text-redaction-java-groupdocs-redaction/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

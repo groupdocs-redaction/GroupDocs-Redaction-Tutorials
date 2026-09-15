@@ -78,10 +78,6 @@ url: /hi/java/annotation-redaction/java-annotation-redaction-groupdocs-tutorial/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # GroupDocs का उपयोग करके जावा में टिप्पणियां हटाने का तरीका: एक पूर्ण गाइड
 
 आज के डिजिटल युग में, **remove comments java** सीखना और दस्तावेज़ों में एनोटेशन को रीडैक्ट करना संवेदनशील डेटा की सुरक्षा और गोपनीयता नियमों के अनुपालन के लिए एक महत्वपूर्ण कौशल है। चाहे आप वित्तीय विवरण, कानूनी अनुबंध या व्यक्तिगत रिकॉर्ड संभाल रहे हों, एनोटेशन सामग्री को मास्क करना सुनिश्चित करता है कि गोपनीय जानकारी फ़ाइल साझा करने पर कभी लीक न हो। यह ट्यूटोरियल आपको GroupDocs.Redaction for Java का उपयोग करके एनोटेशन टेक्स्ट को स्वचालित रूप से खोजने और रीडैक्ट करने की पूरी प्रक्रिया दिखाता है।
@@ -279,9 +275,3 @@ A: JVM हीप साइज बढ़ाएँ, संभव हो तो व
 - [फ़ाइल पाथ से GroupDocs Redaction Java लाइसेंस के साथ दस्तावेज़ रीडैक्ट करने का तरीका – चरण‑दर‑चरण गाइड](/redaction/java/licensing-configuration/implement-groupdocs-redaction-java-license-file-path/)  
 - [GroupDocs.Redaction API के साथ Java दस्तावेज़ रीडैक्ट कैसे करें](/redaction/java/getting-started/java-groupdocs-redaction-tutorial/)  
 - [GroupDocs.Redaction के साथ Java में टेक्स्ट रीडैक्ट कैसे करें – गाइड](/redaction/java/text-redaction/text-redaction-java-groupdocs-redaction/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}
