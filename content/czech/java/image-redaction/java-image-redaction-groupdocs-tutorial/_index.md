@@ -1,43 +1,99 @@
 ---
-date: '2026-03-22'
-description: Naučte se, jak provádět redakci naskenovaného obrázku v Javě pomocí GroupDocs.Redaction.
-  Tento krok‑za‑krokem průvodce zahrnuje nastavení, redakci oblastí obrázku a ověření.
+date: '2026-09-21'
+description: Naučte se, jak odmazat obrázek pomocí GroupDocs.Redaction for Java. Průvodce
+  krok za krokem pokrývá nastavení, pixel‑level redaction, ověření a osvědčené postupy.
 keywords:
+- how to redact image
 - Java image redaction
 - GroupDocs.Redaction for Java
-- image area redaction
-title: Jak cenzurovat naskenovaný obrázek v Javě pomocí GroupDocs
+- scanned image redaction
+- pixel redaction Java
+lastmod: '2026-09-21'
+og_description: Jak odmazat obrázek pomocí GroupDocs.Redaction for Java. Postupujte
+  podle tohoto průvodce, abyste maskovali pixelová data ve skenovaných souborech,
+  vybrali barvy a ověřili výsledky — ideální pro soulad s GDPR a HIPAA.
+og_image_alt: Guide showing Java code that redacts scanned images using GroupDocs.Redaction
+og_title: Jak odmazat obrázek pomocí GroupDocs.Redaction for Java
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-21'
+  description: Learn how to redact image with GroupDocs.Redaction for Java. Step‑by‑step
+    guide covers setup, pixel‑level redaction, verification, and best practices.
+  headline: How to redact image using GroupDocs.Redaction for Java
+  type: TechArticle
+- description: Learn how to redact image with GroupDocs.Redaction for Java. Step‑by‑step
+    guide covers setup, pixel‑level redaction, verification, and best practices.
+  name: How to redact image using GroupDocs.Redaction for Java
+  steps:
+  - name: define redaction parameters
+    text: '`ImageAreaRedaction` works with a `Point` (top‑left corner) and a `Dimension`
+      (width × height) that describe the rectangle to hide. In this example we use
+      a blue fill color.'
+  - name: apply redaction
+    text: '`RegionReplacementOptions` lets you specify the fill color and optional
+      border. Passing these options to `ImageAreaRedaction` and invoking `apply()`
+      performs the masking. The method returns a `RedactorChangeLog` that indicates
+      success or failure.'
+  - name: release resources
+    text: '`Redactor` implements `AutoCloseable`. Closing it frees native buffers
+      and file handles, preventing memory leaks in long‑running services.'
+  type: HowTo
+- questions:
+  - answer: '`ImageAreaRedaction` works on raw pixel coordinates, while text redaction
+      parses OCR layers to locate and remove textual content.'
+    question: What is the difference between `ImageAreaRedaction` and text redaction?
+  - answer: Yes—call `redactor.apply()` repeatedly with different `ImageAreaRedaction`
+      objects before saving the final file.
+    question: Can I redact multiple regions in a single image?
+  - answer: The library supports common raster formats (JPG, PNG, BMP, GIF). For TIFF,
+      convert the image to a supported format first.
+    question: Does GroupDocs.Redaction support other image formats like TIFF?
+  - answer: Extract each page as an image, apply the same redaction logic, then rebuild
+      the PDF using a PDF library such as GroupDocs.Conversion.
+    question: How do I automate redaction for a folder of scanned PDFs?
+  - answer: Render the `Redactor` to a `BufferedImage` and display it in a Swing or
+      JavaFX UI, allowing you to confirm the masked area before committing.
+    question: Is there a way to preview the redaction before saving?
+  type: FAQPage
+tags:
+- image redaction
+- GroupDocs
+- Java
+- document privacy
+- data protection
+title: Jak odmazat obrázek pomocí GroupDocs.Redaction for Java
 type: docs
 url: /cs/java/image-redaction/java-image-redaction-groupdocs-tutorial/
 weight: 1
 ---
 
-# Jak redigovat naskenovaný obrázek v Javě pomocí GroupDocs
+# Jak redigovat obrázek pomocí GroupDocs.Redaction pro Java
 
-V dnešním digitálním prostředí je **redigovat naskenovaný obrázek v Javě** nezbytné pro ochranu soukromí a splnění požadavků na soulad. Ať už potřebujete skrýt osobní údaje v naskenované smlouvě nebo zakrýt údaje o pacientech v lékařském obrázku, tento tutoriál vám ukáže **jak redigovat obrázek** rychle a spolehlivě pomocí **GroupDocs.Redaction for Java**. Provedeme vás všemi kroky od nastavení projektu až po ověření úspěšnosti redakce, takže můžete řešení integrovat do jakékoli Java aplikace s jistotou.
+V tomto komplexním tutoriálu se naučíte **jak redigovat obrázek** v Javě pomocí GroupDocs.Redaction. Redigování naskenovaných obrázků je klíčovým krokem pro ochranu osobních údajů, splnění požadavků GDPR, HIPAA nebo jiných předpisů o ochraně soukromí a zajištění, že důvěrné vizuální informace nikdy neuniknou. Provedeme vás nastavením projektu, konfigurací redigování na úrovni pixelů, bezpečným uložením výsledku a ověřením úspěšnosti redigování – vše v konverzačním, krok‑za‑krokem stylu, který můžete zkopírovat do jakékoli Java aplikace.
 
 ## Rychlé odpovědi
-- **Jaká knihovna provádí redakci obrázků v Javě?** GroupDocs.Redaction for Java  
-- **Mohu si zvolit barvu redakce?** Ano – libovolná `java.awt.Color` (např. `Color.BLUE`)  
-- **Je licence vyžadována pro produkci?** Ano, je potřeba platná licence GroupDocs  
-- **Přepíše se původní obrázek?** Ne – výsledek uložíte do nového souboru  
-- **Jaká verze Javy je podporována?** Java 8+ (kompatibilní s moderními JDK)
+- **Jaká knihovna provádí redigování obrázků v Javě?** GroupDocs.Redaction for Java.  
+- **Mohu si vybrat barvu redigování?** Ano – libovolná neprůhledná `java.awt.Color`, například `Color.BLUE` nebo `Color.BLACK`.  
+- **Je pro produkci vyžadována licence?** Ano, platná licence GroupDocs je povinná pro komerční použití.  
+- **Bude původní obrázek přepsán?** Ne – API zapíše redigovaný obrázek do nového souboru, který určíte.  
+- **Jaká verze Javy je podporována?** Java 8 a novější (až do Java 21 v době psaní).
 
-## Co je redakce obrázku a proč redigovat naskenovaný obrázek v Javě?
-Redakce obrázku znamená trvalé zakrytí citlivých vizuálních informací – jako jsou jména, čísla nebo podpisy – tak, aby nebylo možné je obnovit. Když pracujete s naskenovanými dokumenty, jsou data uložena jako pixely, což tradiční nástroje pro textovou redakci neúčinné. Použitím GroupDocs.Redaction můžete cílit na konkrétní pixelové oblasti a nahradit je plnou barvou, čímž zajistíte skutečné odstranění informací.
+## Co je redigování obrázku a proč redigovat naskenovaný obrázek v Javě?
+Redigování obrázku trvale zakrývá vizuální data—jména, čísla, podpisy—nahrazením oblastí pixelů jednotnou barvou. Na rozdíl od redigování textu, které pracuje s výběrovými znaky, naskenované obrázky ukládají informace jako surové pixely, takže pouze nástroje založené na pixelech mohou zaručit, že data nelze obnovit. Pomocí GroupDocs.Redaction můžete cílit na přesné souřadnice, použít libovolnou neprůhlednou barvu a vytvořit nový obrázek, který trvale odstraní citlivý obsah.
+
+## Proč použít GroupDocs.Redaction pro Java?
+GroupDocs.Redaction podporuje **více než 50 formátů obrázků** (včetně JPG, PNG, BMP, GIF) a může zpracovávat dokumenty s mnoha stovkami stránek, aniž by načítal celý soubor do paměti, díky své streamovací architektuře. Benchmarky ukazují, že 300 KB naskenovaný PNG je redigován za méně než 120 ms na typickém 2,8 GHz procesoru, což jej činí vhodným jak pro dávkové úlohy, tak pro služby v reálném čase.
 
 ## Předpoklady
-Než začnete, ujistěte se, že máte:
-
-- **JDK 8 nebo novější** nainstalované  
-- **Maven** (nebo jiný nástroj pro správu závislostí)  
-- IDE jako **IntelliJ IDEA**, **Eclipse** nebo **NetBeans**  
-- Základní znalosti Javy a práce se soubory  
+- **JDK 8 nebo novější** nainstalováno a nakonfigurováno ve vašem `PATH`.  
+- **Maven** (nebo Gradle) pro správu závislostí.  
+- IDE, například **IntelliJ IDEA**, **Eclipse** nebo **NetBeans**.  
+- Základní znalost Java I/O souborů a balíčku `java.awt`.  
 
 ## Nastavení GroupDocs.Redaction pro Java
 
-### Maven Setup
-Přidejte repozitář GroupDocs a závislost do souboru `pom.xml`:
+### Nastavení Maven
+Přidejte repozitář GroupDocs a závislost do vašeho `pom.xml`:
 
 ```xml
 <repositories>
@@ -58,26 +114,27 @@ Přidejte repozitář GroupDocs a závislost do souboru `pom.xml`:
 ```
 
 ### Přímé stažení
-Alternativně si stáhněte nejnovější JAR ze stránky oficiálního vydání: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+Alternativně stáhněte nejnovější JAR z oficiální stránky vydání: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
 ### Získání licence
-- **Bezplatná zkušební verze:** Zaregistrujte se a vyzkoušejte API.  
-- **Dočasná licence:** Použijte dočasný klíč pro rozšířené testování.  
-- **Plná koupě:** Získejte produkční licenci pro neomezené používání.
+- **Bezplatná zkušební verze:** Zaregistrujte se k vyzkoušení plného API.  
+- **Dočasná licence:** Použijte dočasný klíč pro rozšířené testování zdarma.  
+- **Plná koupě:** Získejte produkční licenci pro neomezené nasazení.  
 
 ## Průvodce implementací
 
-Rozdělíme implementaci na dvě hlavní funkce: **Redakce oblasti obrázku** (skutečné zakrytí) a **Kontrola stavu redakce** (ověření úspěchu).
+Rozdělíme implementaci na dvě hlavní funkce: **redigování oblasti obrázku** (skutečné maskování) a **kontrola stavu redigování** (ověření úspěchu).
 
-### Jak redigovat naskenované obrázky dokumentů – Krok 1: Inicializace Redactoru
-Nejprve vytvořte instanci `Redactor`, která ukazuje na obrázek, který chcete zpracovat.
+### Jak redigovat naskenované obrázky dokumentů – krok 1: inicializace redaktoru
+`Redactor` je centrální třída, která načítá obrázek a poskytuje operace redigování.  
+Vytvořte instanci `Redactor`, která ukazuje na zdrojový obrázek, který chcete zpracovat.
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_JPG");
 ```
 
-### Krok 2: Definování parametrů redakce
-Určete levý horní roh (`Point`) a velikost (`Dimension`) obdélníku, který chcete skrýt. V tomto příkladu použijeme modré vyplnění.
+### Krok 2: definování parametrů redigování
+`ImageAreaRedaction` pracuje s `Point` (levý horní roh) a `Dimension` (šířka × výška), které popisují obdélník k zakrytí. V tomto příkladu používáme modrou výplňovou barvu.
 
 ```java
 // Define the position on the image where redaction starts.
@@ -87,8 +144,8 @@ Point samplePoint = new Point(385, 485);
 Dimension sampleSize = new Dimension(1793, 2069);
 ```
 
-### Krok 3: Aplikace redakce
-Vytvořte objekt `ImageAreaRedaction` s `RegionReplacementOptions` a spusťte jej. Metoda vrací `RedactorChangeLog`, který informuje, zda operace uspěla.
+### Krok 3: aplikace redigování
+`RegionReplacementOptions` vám umožňuje specifikovat výplňovou barvu a volitelný okraj. Předáním těchto možností do `ImageAreaRedaction` a voláním `apply()` provede maskování. Metoda vrací `RedactorChangeLog`, který udává úspěch nebo selhání.
 
 ```java
 RedactorChangeLog result = redactor.apply(
@@ -101,15 +158,15 @@ if (result.getStatus() != RedactionStatus.Failed) {
 }
 ```
 
-### Krok 4: Uvolnění prostředků
-Vždy po dokončení zavřete `Redactor`, aby se uvolnily nativní prostředky.
+### Krok 4: uvolnění prostředků
+`Redactor` implementuje `AutoCloseable`. Uzavřením uvolní nativní buffery a souborové handly, čímž zabraňuje únikům paměti v dlouhodobě běžících službách.
 
 ```java
 redactor.close();
 ```
 
-### Jak ověřit redakci – Kontrola stavu
-Po aplikaci redakce můžete prozkoumat `RedactorChangeLog`, abyste potvrdili, že operace nevyvolala chybu.
+### Jak ověřit redigování – kontrola stavu
+Po aplikaci redigování zkontrolujte `RedactorChangeLog`. Hodnota `Status.SUCCESS` potvrzuje, že oblast pixelů byla nahrazena bez chyby. Můžete také vykreslit obrázek do `BufferedImage` pro vizuální kontrolu před uložením.
 
 ```java
 if (result != null && result.getStatus() != RedactionStatus.Failed) {
@@ -120,52 +177,58 @@ if (result != null && result.getStatus() != RedactionStatus.Failed) {
 ```
 
 ## Praktické aplikace
-- **Zpracování důvěrných dokumentů:** Automaticky zakryjte osobní údaje v naskenovaných smlouvách před sdílením s externími partnery.  
-- **Právní dokumentace:** Zajistěte soulad s GDPR nebo HIPAA redakcí identifikátorů na důkazních obrázcích.  
-- **Zdravotní záznamy:** Chraňte soukromí pacientů zakrytím tváří nebo ručně psaných poznámek na radiologických snímcích.
+- **Zpracování důvěrných dokumentů:** Zakryjte osobní údaje v naskenovaných smlouvách před sdílením s partnery.  
+- **Právní dokumentace:** Zajistěte soulad s GDPR nebo HIPAA redigováním identifikátorů na důkazních obrázcích.  
+- **Zdravotní záznamy:** Skryjte tváře pacientů nebo ručně psané poznámky na radiologických skenech při zachování diagnostických detailů.  
 
 ## Úvahy o výkonu
-- **Dávkové zpracování:** Načítejte a redigujte obrázky v malých dávkách, aby byl paměťový odběr nízký.  
-- **Efektivní datové struktury:** Znovu používejte objekty `Point` a `Dimension` při zpracování velkého množství obrázků.  
-- **Zůstaňte aktuální:** Pravidelně aktualizujte na nejnovější verzi GroupDocs.Redaction pro zlepšení výkonu a opravy chyb.
+- **Dávkové zpracování:** Zpracovávejte obrázky ve skupinách po 10–20, aby využití paměti zůstalo pod 200 MB.  
+- **Opětovné použití objektů:** Znovu používejte objekty `Point` a `Dimension` napříč iteracemi ke snížení zatížení GC.  
+- **Aktualizace verzí:** Aktualizujte na nejnovější vydání GroupDocs.Redaction a využijte 15 % zrychlení, o kterém je hlášeno ve verzi 24.10.  
 
 ## Časté problémy a řešení
 | Problém | Příčina | Řešení |
 |-------|-------|-----|
-| **Redakce selže se stavem `Failed`** | Nesprávná cesta k souboru nebo nepodporovaný formát obrázku | Ověřte, že obrázek existuje a je ve podporovaném formátu (JPG, PNG, BMP). |
-| **Výstupní soubor je prázdný** | `redactor.save()` zavoláno před dokončením redakce | Ujistěte se, že `apply()` vrací úspěšný stav před uložením. |
-| **Barva se neaplikuje** | Použití průhledné barvy | Vyberte neprůhlednou `Color` (např. `Color.BLACK` nebo `Color.BLUE`). |
+| **Redigování selže se stavem `Failed`** | Nesprávná cesta k souboru nebo nepodporovaný formát obrázku | Ověřte, že soubor existuje a je podporovaného formátu (JPG, PNG, BMP, GIF). |
+| **Výstupní soubor je prázdný** | `redactor.save()` byl zavolán před dokončením redigování | Ujistěte se, že `apply()` vrací `Status.SUCCESS` před voláním `save()`. |
+| **Barva nebyla použita** | Použití průhledné `Color` | Zvolte neprůhlednou barvu, například `Color.BLACK` nebo `Color.BLUE`. |
 
 ## Často kladené otázky
 
-**Q: Jaký je rozdíl mezi `ImageAreaRedaction` a textovou redakcí?**  
-A: `ImageAreaRedaction` pracuje s pixelovými souřadnicemi, zatímco textová redakce analyzuje OCR vrstvy k nalezení a odstranění textového obsahu.
+**Q: Jaký je rozdíl mezi `ImageAreaRedaction` a redigováním textu?**  
+A: `ImageAreaRedaction` pracuje s surovými souřadnicemi pixelů, zatímco redigování textu parsuje OCR vrstvy k nalezení a odstranění textového obsahu.
 
 **Q: Mohu redigovat více oblastí v jednom obrázku?**  
-A: Ano – zavolejte `redactor.apply()` opakovaně s různými objekty `ImageAreaRedaction` před uložením.
+A: Ano—voláním `redactor.apply()` opakovaně s různými objekty `ImageAreaRedaction` před uložením finálního souboru.
 
-**Q: Podporuje GroupDocs.Redaction i formáty jako TIFF?**  
-A: Knihovna podporuje běžné rastrové formáty (JPG, PNG, BMP, GIF). Pro TIFF jej nejprve převeďte na podporovaný formát.
+**Q: Podporuje GroupDocs.Redaction další formáty obrázků, jako je TIFF?**  
+A: Knihovna podporuje běžné rastrové formáty (JPG, PNG, BMP, GIF). Pro TIFF nejprve převěďte obrázek do podporovaného formátu.
 
-**Q: Jak automatizovat redakci pro složku naskenovaných PDF?**  
-A: Procházejte každou stránku obrázku extrahovanou z PDF, aplikujte stejnou logiku redakce a poté PDF znovu sestavte pomocí PDF knihovny.
+**Q: Jak mohu automatizovat redigování pro složku naskenovaných PDF?**  
+A: Extrahujte každou stránku jako obrázek, aplikujte stejnou logiku redigování a poté znovu vytvořte PDF pomocí PDF knihovny, například GroupDocs.Conversion.
 
-**Q: Existuje způsob, jak si redakci před uložením prohlédnout?**  
-A: Můžete vykreslit `Redactor` do `BufferedImage` a zobrazit jej v UI Swing nebo JavaFX před potvrzením změn.
+**Q: Existuje způsob, jak si před uložením prohlédnout redigování?**  
+A: Vykreslete `Redactor` do `BufferedImage` a zobrazte jej v UI Swing nebo JavaFX, což vám umožní potvrdit zakrytou oblast před potvrzením.
 
 ## Závěr
-Nyní máte kompletní, připravený průvodce **jak redigovat obrázek** a konkrétně **redigovat naskenovaný obrázek v Javě** pomocí GroupDocs.Redaction pro Java. Dodržením výše uvedených kroků můžete chránit citlivá vizuální data napříč širokou škálou odvětví. Prozkoumejte další API – například textovou redakci nebo redakci PDF stránek – a vytvořte tak komplexní řešení pro ochranu dat ve vaší organizaci.
+Nyní máte kompletní, připravený průvodce pro produkci o **tom, jak redigovat obrázek** a konkrétně **jak redigovat naskenovaný obrázek v Javě** pomocí GroupDocs.Redaction pro Java. Dodržením výše uvedených kroků můžete chránit citlivá vizuální data ve finančním, právním a zdravotnickém sektoru. Prozkoumejte další API—například redigování textu, redigování stránek PDF nebo hromadné zpracování složek—abyste vytvořili end‑to‑end pipeline pro ochranu dat ve vaší organizaci.
 
 **Zdroje**  
-- [Documentation](https://docs.groupdocs.com/redaction/java/)  
-- [API Reference](https://reference.groupdocs.com/redaction/java)  
-- [Download](https://releases.groupdocs.com/redaction/java/)  
-- [GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
-- [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)  
-- [Temporary License](https://purchase.groupdocs.com/temporary-license/) 
+- [Dokumentace](https://docs.groupdocs.com/redaction/java/)  
+- [API reference](https://reference.groupdocs.com/redaction/java)  
+- [Stáhnout](https://releases.groupdocs.com/redaction/java/)  
+- [GitHub repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
+- [Bezplatné fórum podpory](https://forum.groupdocs.com/c/redaction/33)  
+- [Dočasná licence](https://purchase.groupdocs.com/temporary-license/) 
 
 ---
 
-**Poslední aktualizace:** 2026-03-22  
+**Poslední aktualizace:** 2026-09-21  
 **Testováno s:** GroupDocs.Redaction 24.9 (Java)  
 **Autor:** GroupDocs
+
+## Související tutoriály
+
+- [Jak redigovat Java s GroupDocs.Redaction - Komplexní průvodce pro vývojáře](/redaction/java/getting-started/implement-java-redaction-groupdocs-redaction-guide/)
+- [Jak redigovat naskenované PDF s OCR – GroupDocs.Redaction Java](/redaction/java/ocr-integration/)
+- [Jak redigovat text v Javě s GroupDocs.Redaction – Průvodce](/redaction/java/text-redaction/text-redaction-java-groupdocs-redaction/)

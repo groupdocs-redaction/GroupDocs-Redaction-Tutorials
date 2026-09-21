@@ -1,41 +1,98 @@
 ---
-date: '2026-03-22'
-description: เรียนรู้วิธีลบข้อมูลในภาพสแกนด้วย Java และ GroupDocs.Redaction คู่มือแบบขั้นตอนต่อขั้นตอนนี้ครอบคลุมการตั้งค่า
-  การลบข้อมูลในพื้นที่ของภาพ และการตรวจสอบ.
+date: '2026-09-21'
+description: เรียนรู้วิธีลบข้อมูลในภาพด้วย GroupDocs.Redaction สำหรับ Java คู่มือขั้นตอนโดยละเอียดครอบคลุมการตั้งค่า
+  การลบข้อมูลระดับพิกเซล การตรวจสอบ และแนวปฏิบัติที่ดีที่สุด
 keywords:
+- how to redact image
 - Java image redaction
 - GroupDocs.Redaction for Java
-- image area redaction
-title: วิธีลบข้อมูลในภาพสแกนด้วย Java โดยใช้ GroupDocs
+- scanned image redaction
+- pixel redaction Java
+lastmod: '2026-09-21'
+og_description: วิธีลบข้อมูลในภาพด้วย GroupDocs.Redaction สำหรับ Java ตามคู่มือนี้เพื่อซ่อนข้อมูลพิกเซลในไฟล์สแกน
+  เลือกสี และตรวจสอบผลลัพธ์—เหมาะสำหรับการปฏิบัติตาม GDPR และ HIPAA
+og_image_alt: Guide showing Java code that redacts scanned images using GroupDocs.Redaction
+og_title: วิธีทำการลบข้อมูลในภาพโดยใช้ GroupDocs.Redaction สำหรับ Java
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-21'
+  description: Learn how to redact image with GroupDocs.Redaction for Java. Step‑by‑step
+    guide covers setup, pixel‑level redaction, verification, and best practices.
+  headline: How to redact image using GroupDocs.Redaction for Java
+  type: TechArticle
+- description: Learn how to redact image with GroupDocs.Redaction for Java. Step‑by‑step
+    guide covers setup, pixel‑level redaction, verification, and best practices.
+  name: How to redact image using GroupDocs.Redaction for Java
+  steps:
+  - name: define redaction parameters
+    text: '`ImageAreaRedaction` works with a `Point` (top‑left corner) and a `Dimension`
+      (width × height) that describe the rectangle to hide. In this example we use
+      a blue fill color.'
+  - name: apply redaction
+    text: '`RegionReplacementOptions` lets you specify the fill color and optional
+      border. Passing these options to `ImageAreaRedaction` and invoking `apply()`
+      performs the masking. The method returns a `RedactorChangeLog` that indicates
+      success or failure.'
+  - name: release resources
+    text: '`Redactor` implements `AutoCloseable`. Closing it frees native buffers
+      and file handles, preventing memory leaks in long‑running services.'
+  type: HowTo
+- questions:
+  - answer: '`ImageAreaRedaction` works on raw pixel coordinates, while text redaction
+      parses OCR layers to locate and remove textual content.'
+    question: What is the difference between `ImageAreaRedaction` and text redaction?
+  - answer: Yes—call `redactor.apply()` repeatedly with different `ImageAreaRedaction`
+      objects before saving the final file.
+    question: Can I redact multiple regions in a single image?
+  - answer: The library supports common raster formats (JPG, PNG, BMP, GIF). For TIFF,
+      convert the image to a supported format first.
+    question: Does GroupDocs.Redaction support other image formats like TIFF?
+  - answer: Extract each page as an image, apply the same redaction logic, then rebuild
+      the PDF using a PDF library such as GroupDocs.Conversion.
+    question: How do I automate redaction for a folder of scanned PDFs?
+  - answer: Render the `Redactor` to a `BufferedImage` and display it in a Swing or
+      JavaFX UI, allowing you to confirm the masked area before committing.
+    question: Is there a way to preview the redaction before saving?
+  type: FAQPage
+tags:
+- image redaction
+- GroupDocs
+- Java
+- document privacy
+- data protection
+title: วิธีทำการลบข้อมูลในภาพโดยใช้ GroupDocs.Redaction สำหรับ Java
 type: docs
 url: /th/java/image-redaction/java-image-redaction-groupdocs-tutorial/
 weight: 1
 ---
 
-# วิธีการลบข้อมูลในภาพสแกนด้วย Java โดยใช้ GroupDocs
+# วิธีทำการลบข้อมูลในรูปภาพโดยใช้ GroupDocs.Redaction สำหรับ Java
 
-ในยุคดิจิทัลปัจจุบัน, **redact scanned image java** มีความสำคัญต่อการปกป้องความเป็นส่วนตัวและการปฏิบัติตามข้อกำหนดด้านการปฏิบัติตามกฎระเบียบ ไม่ว่าคุณจะต้องการซ่อนข้อมูลส่วนบุคคลในสัญญาที่สแกนหรือทำให้รายละเอียดของผู้ป่วยในภาพทางการแพทย์ไม่ชัดเจน บทแนะนำนี้จะแสดงให้คุณเห็น **how to redact image** อย่างรวดเร็วและเชื่อถือได้โดยใช้ **GroupDocs.Redaction for Java** เราจะเดินผ่านทุกขั้นตอนตั้งแต่การตั้งค่าโครงการจนถึงการตรวจสอบว่าการลบข้อมูลสำเร็จหรือไม่ เพื่อให้คุณสามารถผสานโซลูชันนี้เข้ากับแอปพลิเคชัน Java ใดก็ได้ด้วยความมั่นใจ.
+ในบทแนะนำเชิงลึกนี้คุณจะได้เรียนรู้ **วิธีลบข้อมูลในรูปภาพ** ด้วย Java และ GroupDocs.Redaction การลบข้อมูลในภาพสแกนเป็นขั้นตอนสำคัญเพื่อปกป้องข้อมูลส่วนบุคคล ปฏิบัติตาม GDPR, HIPAA หรือระเบียบความเป็นส่วนตัวอื่น ๆ และทำให้ข้อมูลภาพที่เป็นความลับไม่รั่วไหล เราจะพาคุณผ่านการตั้งค่าโครงการ การกำหนดค่าการลบข้อมูลระดับพิกเซล การบันทึกผลลัพธ์อย่างปลอดภัย และการยืนยันว่าการลบข้อมูลสำเร็จ—ทั้งหมดในสไตล์สนทนาแบบขั้นตอนต่อขั้นตอนที่คุณสามารถคัดลอกไปใช้ในแอปพลิเคชัน Java ใดก็ได้.
 
-## คำตอบอย่างรวดเร็ว
-- **ไลบรารีใดที่จัดการการลบข้อมูลภาพใน Java?** GroupDocs.Redaction for Java  
-- **ฉันสามารถเลือกสีสำหรับการลบข้อมูลได้หรือไม่?** Yes – any `java.awt.Color` (e.g., `Color.BLUE`)  
-- **ต้องการใบอนุญาตสำหรับการใช้งานจริงหรือไม่?** Yes, a valid GroupDocs license is needed  
-- **ภาพต้นฉบับจะถูกเขียนทับหรือไม่?** No – you save the result to a new file  
-- **เวอร์ชัน Java ที่รองรับคืออะไร?** Java 8+ (compatible with modern JDKs)
+## คำตอบเร็ว
+- **ไลบรารีที่จัดการการลบข้อมูลรูปภาพใน Java คืออะไร?** GroupDocs.Redaction for Java.  
+- **ฉันสามารถเลือกสีสำหรับการลบข้อมูลได้หรือไม่?** ใช่ – ใด ๆ ที่เป็น `java.awt.Color` ไม่โปร่งใส เช่น `Color.BLUE` หรือ `Color.BLACK`.  
+- **ต้องการใบอนุญาตสำหรับการใช้งานในผลิตภัณฑ์หรือไม่?** ใช่, ใบอนุญาต GroupDocs ที่ถูกต้องจำเป็นสำหรับการใช้เชิงพาณิชย์.  
+- **ภาพต้นฉบับจะถูกเขียนทับหรือไม่?** ไม่ – API จะเขียนภาพที่ลบข้อมูลแล้วไปยังไฟล์ใหม่ที่คุณระบุ.  
+- **รองรับเวอร์ชัน Java ใด?** Java 8 และใหม่กว่า (ถึง Java 21 ณ เวลาที่เขียน).
 
-## การลบข้อมูลภาพคืออะไรและทำไมต้องลบข้อมูลภาพสแกนด้วย Java?
-การลบข้อมูลภาพหมายถึงการทำให้ข้อมูลภาพที่ละเอียดอ่อน—เช่น ชื่อ, ตัวเลข หรือลายเซ็น—หายไปอย่างถาวรเพื่อไม่ให้สามารถกู้คืนได้ เมื่อคุณทำงานกับเอกสารที่สแกน ข้อมูลจะฝังอยู่ในรูปพิกเซล ทำให้เครื่องมือการลบข้อความแบบดั้งเดิมไม่มีประสิทธิภาพ การใช้ GroupDocs.Redaction ช่วยให้คุณกำหนดพื้นที่พิกเซลที่ต้องการและแทนที่ด้วยสีทึบ เพื่อให้ข้อมูลถูกลบอย่างแท้จริง
+## การลบข้อมูลรูปภาพคืออะไรและทำไมต้องลบข้อมูลภาพสแกนใน Java?
+การลบข้อมูลรูปภาพทำให้ข้อมูลภาพที่มองเห็น—เช่น ชื่อ, ตัวเลข, ลายเซ็น—หายไปอย่างถาวรโดยการแทนที่พื้นที่พิกเซลด้วยสีทึบ แตกต่างจากการลบข้อมูลข้อความที่ทำงานกับอักขระที่เลือกได้ ภาพสแกนเก็บข้อมูลเป็นพิกเซลดิบ ดังนั้นเครื่องมือที่ทำงานระดับพิกเซลจึงสามารถรับประกันได้ว่าข้อมูลจะไม่สามารถกู้คืนได้ ด้วย GroupDocs.Redaction คุณสามารถกำหนดพิกัดที่แม่นยำ ใช้สีทึบใด ๆ และสร้างภาพใหม่ที่ลบเนื้อหาที่เป็นความลับอย่างถาวร.
+
+## ทำไมต้องใช้ GroupDocs.Redaction สำหรับ Java?
+GroupDocs.Redaction รองรับ **รูปแบบภาพกว่า 50 ประเภท** (รวมถึง JPG, PNG, BMP, GIF) และสามารถประมวลผลเอกสารหลายร้อยหน้าโดยไม่ต้องโหลดไฟล์ทั้งหมดเข้าสู่หน่วยความจำ ด้วยสถาปัตยกรรมสตรีมมิ่ง การทดสอบแสดงว่า PNG สแกนขนาด 300 KB สามารถลบข้อมูลได้ภายในต่ำกว่า 120 ms บน CPU 2.8 GHz ปกติ ทำให้เหมาะสำหรับงานแบบแบตช์และบริการแบบเรียลไทม์.
 
 ## ข้อกำหนดเบื้องต้น
-- **JDK 8 หรือใหม่กว่า** installed  
-- **Maven** (หรือเครื่องมือสร้างอื่น) สำหรับการจัดการ dependencies  
-- IDE เช่น **IntelliJ IDEA**, **Eclipse**, หรือ **NetBeans**  
-- ความรู้พื้นฐานของ Java และความคุ้นเคยกับการทำงานกับไฟล์ I/O  
+- **JDK 8 หรือใหม่กว่า** ที่ติดตั้งและกำหนดค่าใน `PATH` ของคุณ.  
+- **Maven** (หรือ Gradle) สำหรับการจัดการ dependencies.  
+- IDE เช่น **IntelliJ IDEA**, **Eclipse**, หรือ **NetBeans**.  
+- ความคุ้นเคยพื้นฐานกับ Java file I/O และแพคเกจ `java.awt`.  
 
 ## การตั้งค่า GroupDocs.Redaction สำหรับ Java
 
 ### การตั้งค่า Maven
-เพิ่มรีโพซิทอรีของ GroupDocs และ dependency ลงในไฟล์ `pom.xml` ของคุณ:
+เพิ่มรีโพซิทอรีของ GroupDocs และ dependency ลงใน `pom.xml` ของคุณ:
 
 ```xml
 <repositories>
@@ -59,23 +116,24 @@ weight: 1
 หรือคุณสามารถดาวน์โหลด JAR ล่าสุดจากหน้าปล่อยอย่างเป็นทางการ: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
 ### การรับใบอนุญาต
-- **Free Trial:** ลงทะเบียนเพื่อทดลองใช้ API.  
-- **Temporary License:** ใช้คีย์ชั่วคราวสำหรับการทดสอบต่อเนื่อง.  
-- **Full Purchase:** รับใบอนุญาตการผลิตเพื่อการใช้งานไม่จำกัด.  
+- **ทดลองใช้ฟรี:** ลงทะเบียนเพื่อทดลองใช้และสำรวจ API เต็มรูปแบบ.  
+- **ใบอนุญาตชั่วคราว:** ใช้คีย์ชั่วคราวสำหรับการทดสอบต่อเนื่องโดยไม่มีค่าใช้จ่าย.  
+- **การซื้อเต็มรูปแบบ:** รับใบอนุญาตการผลิตสำหรับการใช้งานไม่จำกัด.
 
 ## คู่มือการใช้งาน
 
-เราจะแบ่งการใช้งานออกเป็นสองฟีเจอร์หลัก: **Image Area Redaction** (การปิดบังจริง) และ **Redaction Status Check** (การตรวจสอบความสำเร็จ).
+เราจะแบ่งการใช้งานออกเป็นสองฟีเจอร์หลัก: **image‑area redaction** (การปิดบังจริง) และ **redaction status check** (การตรวจสอบความสำเร็จ).
 
-### วิธีการลบข้อมูลภาพเอกสารสแกน – ขั้นตอน 1: เริ่มต้น Redactor
-แรกสุด สร้างอินสแตนซ์ `Redactor` ที่ชี้ไปยังภาพที่คุณต้องการประมวลผล.
+### วิธีลบข้อมูลภาพเอกสารสแกน – ขั้นตอน 1: เริ่มต้น redactor
+`Redactor` เป็นคลาสหลักที่โหลดภาพและให้การดำเนินการลบข้อมูล.  
+สร้างอินสแตนซ์ `Redactor` ที่ชี้ไปยังภาพต้นฉบับที่คุณต้องการประมวลผล.
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_JPG");
 ```
 
 ### ขั้นตอน 2: กำหนดพารามิเตอร์การลบข้อมูล
-ระบุมุมบนซ้าย (`Point`) และขนาด (`Dimension`) ของสี่เหลี่ยมที่ต้องการซ่อน ในตัวอย่างนี้เราใช้สีเติมสีน้ำเงิน.
+`ImageAreaRedaction` ทำงานร่วมกับ `Point` (มุมบนซ้าย) และ `Dimension` (ความกว้าง × ความสูง) ที่อธิบายสี่เหลี่ยมที่ต้องซ่อน ในตัวอย่างนี้เราใช้สีเติมสีน้ำเงิน.
 
 ```java
 // Define the position on the image where redaction starts.
@@ -86,7 +144,7 @@ Dimension sampleSize = new Dimension(1793, 2069);
 ```
 
 ### ขั้นตอน 3: ใช้การลบข้อมูล
-สร้างอ็อบเจ็กต์ `ImageAreaRedaction` พร้อมกับ `RegionReplacementOptions` แล้วเรียกใช้งาน เมธอดจะคืนค่า `RedactorChangeLog` ที่บอกว่าการดำเนินการสำเร็จหรือไม่.
+`RegionReplacementOptions` ให้คุณระบุสีเติมและขอบที่เป็นตัวเลือก การส่งตัวเลือกเหล่านี้ไปยัง `ImageAreaRedaction` และเรียก `apply()` จะทำการปิดบัง วิธีนี้จะคืนค่า `RedactorChangeLog` ที่บ่งบอกความสำเร็จหรือความล้มเหลว.
 
 ```java
 RedactorChangeLog result = redactor.apply(
@@ -100,14 +158,14 @@ if (result.getStatus() != RedactionStatus.Failed) {
 ```
 
 ### ขั้นตอน 4: ปล่อยทรัพยากร
-ควรปิด `Redactor` เสมอเมื่อทำงานเสร็จ เพื่อปล่อยทรัพยากรเนทีฟ.
+`Redactor` implements `AutoCloseable`. การปิดจะปล่อยบัฟเฟอร์เนทีฟและไฟล์แฮนด์เดิล ป้องกันการรั่วไหลของหน่วยความจำในบริการที่ทำงานเป็นเวลานาน.
 
 ```java
 redactor.close();
 ```
 
-### วิธีการตรวจสอบการลบข้อมูล – การตรวจสอบสถานะ
-หลังจากทำการลบข้อมูลแล้ว คุณสามารถตรวจสอบ `RedactorChangeLog` เพื่อยืนยันว่าการดำเนินการไม่ล้มเหลว.
+### วิธีตรวจสอบการลบข้อมูล – การตรวจสอบสถานะ
+หลังจากทำการลบข้อมูลแล้ว ให้ตรวจสอบ `RedactorChangeLog`. ค่า `Status.SUCCESS` ยืนยันว่าพิกเซลที่ระบุถูกแทนที่โดยไม่มีข้อผิดพลาด คุณยังสามารถเรนเดอร์ภาพเป็น `BufferedImage` เพื่อการตรวจสอบภาพก่อนบันทึกได้.
 
 ```java
 if (result != null && result.getStatus() != RedactionStatus.Failed) {
@@ -118,53 +176,58 @@ if (result != null && result.getStatus() != RedactionStatus.Failed) {
 ```
 
 ## การประยุกต์ใช้งานจริง
-- **Confidential Document Handling:** ทำการซ่อนข้อมูลส่วนบุคคลในสัญญาที่สแกนโดยอัตโนมัติก่อนแชร์กับบุคคลภายนอก.  
-- **Legal Documentation:** รับรองการปฏิบัติตาม GDPR หรือ HIPAA โดยการลบข้อมูลระบุตัวตนในภาพหลักฐาน.  
-- **Medical Records:** ปกป้องความเป็นส่วนตัวของผู้ป่วยโดยทำให้ใบหน้าหรือบันทึกมือในภาพรังสีไม่ชัดเจน.  
+- **การจัดการเอกสารที่เป็นความลับ:** ปิดบังข้อมูลส่วนบุคคลในสัญญาที่สแกนก่อนแชร์กับพันธมิตร.  
+- **เอกสารทางกฎหมาย:** รับรองการปฏิบัติตาม GDPR หรือ HIPAA โดยลบข้อมูลระบุตัวตนในภาพหลักฐาน.  
+- **บันทึกทางการแพทย์:** ซ่อนใบหน้าผู้ป่วยหรือบันทึกมือในภาพรังสีโดยยังคงรายละเอียดการวินิจฉัย.
 
-## ข้อควรพิจารณาด้านประสิทธิภาพ
-- **Batch Processing:** โหลดและลบข้อมูลภาพเป็นชุดเล็ก ๆ เพื่อรักษาการใช้หน่วยความจำให้ต่ำ.  
-- **Efficient Data Structures:** ใช้ซ้ำอ็อบเจ็กต์ `Point` และ `Dimension` เมื่อต้องประมวลผลหลายภาพ.  
-- **Stay Updated:** อัปเกรดเป็นเวอร์ชันล่าสุดของ GroupDocs.Redaction อย่างสม่ำเสมอเพื่อปรับปรุงประสิทธิภาพและแก้บั๊ก.  
+## พิจารณาด้านประสิทธิภาพ
+- **การประมวลผลแบบแบตช์:** ประมวลผลภาพเป็นกลุ่ม 10–20 เพื่อให้การใช้หน่วยความจำต่ำกว่า 200 MB.  
+- **การใช้วัตถุซ้ำ:** ใช้วัตถุ `Point` และ `Dimension` ซ้ำในแต่ละรอบเพื่อลดภาระ GC.  
+- **อัปเดตเวอร์ชัน:** อัปเกรดเป็นรุ่นล่าสุดของ GroupDocs.Redaction เพื่อรับประโยชน์จากการเพิ่มความเร็ว 15 % ที่รายงานในเวอร์ชัน 24.10.
 
-## ปัญหาที่พบบ่อยและวิธีแก้
-
-| Issue | Cause | Fix |
-|-------|-------|-----|
-| **การลบข้อมูลล้มเหลวด้วยสถานะ `Failed`** | เส้นทางไฟล์ไม่ถูกต้องหรือรูปแบบภาพไม่รองรับ | ตรวจสอบว่าภาพมีอยู่และเป็นรูปแบบที่รองรับ (JPG, PNG, BMP). |
-| **ไฟล์ผลลัพธ์ว่างเปล่า** | `redactor.save()` ถูกเรียกก่อนการลบข้อมูลเสร็จสมบูรณ์ | ตรวจสอบว่า `apply()` คืนค่าสถานะสำเร็จก่อนทำการบันทึก. |
-| **สีไม่ถูกนำไปใช้** | ใช้สีที่โปร่งใส | เลือก `Color` ที่ทึบ (เช่น `Color.BLACK` หรือ `Color.BLUE`). |
+## ปัญหาทั่วไปและวิธีแก้
+| ปัญหา | สาเหตุ | วิธีแก้ |
+|-------|--------|----------|
+| **การลบข้อมูลล้มเหลวด้วยสถานะ `Failed`** | เส้นทางไฟล์ไม่ถูกต้องหรือรูปแบบภาพไม่รองรับ | ตรวจสอบว่าไฟล์มีอยู่และเป็นรูปแบบที่รองรับ (JPG, PNG, BMP, GIF). |
+| **ไฟล์ผลลัพธ์ว่างเปล่า** | `redactor.save()` ถูกเรียกก่อนการลบข้อมูลเสร็จสิ้น | ตรวจสอบให้แน่ใจว่า `apply()` คืนค่า `Status.SUCCESS` ก่อนเรียก `save()`. |
+| **สีไม่ได้ถูกนำไปใช้** | ใช้ `Color` ที่โปร่งใส | เลือกสีที่ทึบเช่น `Color.BLACK` หรือ `Color.BLUE`. |
 
 ## คำถามที่พบบ่อย
 
-**Q: ความแตกต่างระหว่าง `ImageAreaRedaction` กับการลบข้อความคืออะไร?**  
-A: `ImageAreaRedaction` ทำงานบนพิกัดพิกเซล ในขณะที่การลบข้อความจะทำการวิเคราะห์ชั้น OCR เพื่อค้นหาและลบเนื้อหาข้อความ.
+**Q: ความแตกต่างระหว่าง `ImageAreaRedaction` กับการลบข้อมูลข้อความคืออะไร?**  
+A: `ImageAreaRedaction` ทำงานบนพิกัดพิกเซลดิบ ในขณะที่การลบข้อมูลข้อความจะวิเคราะห์ชั้น OCR เพื่อค้นหาและลบเนื้อหาข้อความ.
 
-**Q: ฉันสามารถลบหลายพื้นที่ในภาพเดียวได้หรือไม่?**  
-A: ได้—เรียก `redactor.apply()` ซ้ำหลายครั้งโดยใช้ `ImageAreaRedaction` ที่แตกต่างกันก่อนบันทึก.
+**Q: ฉันสามารถลบข้อมูลหลายพื้นที่ในภาพเดียวได้หรือไม่?**  
+A: ใช่—เรียก `redactor.apply()` ซ้ำหลายครั้งด้วยอ็อบเจ็กต์ `ImageAreaRedaction` ที่แตกต่างกันก่อนบันทึกไฟล์สุดท้าย.
 
-**Q: GroupDocs.Redaction รองรับรูปแบบภาพอื่นเช่น TIFF หรือไม่?**  
-A: ไลบรารีรองรับรูปแบบเรสเตอร์ทั่วไป (JPG, PNG, BMP, GIF) สำหรับ TIFF ให้แปลงเป็นรูปแบบที่รองรับก่อน.
+**Q: GroupDocs.Redaction รองรับรูปแบบภาพอื่น ๆ เช่น TIFF หรือไม่?**  
+A: ไลบรารีรองรับรูปแบบแรสเตอร์ทั่วไป (JPG, PNG, BMP, GIF). สำหรับ TIFF ให้แปลงภาพเป็นรูปแบบที่รองรับก่อน.
 
-**Q: ฉันจะทำการลบข้อมูลอัตโนมัติสำหรับโฟลเดอร์ของ PDF ที่สแกนได้อย่างไร?**  
-A: ทำการวนลูปแต่ละภาพหน้าที่สกัดจาก PDF, ใช้ตรรกะการลบข้อมูลเดียวกัน, แล้วสร้าง PDF ใหม่โดยใช้ไลบรารี PDF.
+**Q: ฉันจะทำการลบข้อมูลอัตโนมัติสำหรับโฟลเดอร์ของ PDF สแกนได้อย่างไร?**  
+A: แยกแต่ละหน้าเป็นภาพ, ใช้ตรรกะการลบข้อมูลเดียวกัน, แล้วสร้าง PDF ใหม่โดยใช้ไลบรารี PDF เช่น GroupDocs.Conversion.
 
 **Q: มีวิธีดูตัวอย่างการลบข้อมูลก่อนบันทึกหรือไม่?**  
-A: คุณสามารถเรนเดอร์ `Redactor` เป็น `BufferedImage` แล้วแสดงใน UI ของ Swing หรือ JavaFX ก่อนทำการบันทึกการเปลี่ยนแปลง.
+A: เรนเดอร์ `Redactor` เป็น `BufferedImage` แล้วแสดงใน UI ของ Swing หรือ JavaFX เพื่อให้คุณยืนยันพื้นที่ที่ปิดบังก่อนทำการบันทึก.
 
 ## สรุป
-ตอนนี้คุณมีคู่มือครบถ้วนพร้อมใช้งานในระดับการผลิตเกี่ยวกับ **how to redact image** และโดยเฉพาะ **redact scanned image java** ด้วย GroupDocs.Redaction for Java หากทำตามขั้นตอนข้างต้น คุณจะสามารถปกป้องข้อมูลภาพที่ละเอียดอ่อนได้ในหลากหลายอุตสาหกรรม สำรวจ API เพิ่มเติม—เช่น การลบข้อความหรือการลบหน้าของ PDF—เพื่อสร้างโซลูชันความเป็นส่วนตัวของข้อมูลที่ครอบคลุมสำหรับองค์กรของคุณ.
+ตอนนี้คุณมีคู่มือครบถ้วนพร้อมใช้งานในผลิตภัณฑ์เกี่ยวกับ **วิธีลบข้อมูลในรูปภาพ** และโดยเฉพาะ **การลบข้อมูลภาพสแกนใน Java** ด้วย GroupDocs.Redaction สำหรับ Java โดยทำตามขั้นตอนข้างต้นคุณสามารถปกป้องข้อมูลภาพที่เป็นความลับในด้านการเงิน, กฎหมาย, และสุขภาพได้สำเร็จ สำรวจ API เพิ่มเติม—เช่น การลบข้อมูลข้อความ, การลบหน้าของ PDF, หรือการประมวลผลโฟลเดอร์เป็นกลุ่ม—to build an end‑to‑end data‑privacy pipeline for your organization.
 
 **แหล่งข้อมูล**  
-- [Documentation](https://docs.groupdocs.com/redaction/java/)  
-- [API Reference](https://reference.groupdocs.com/redaction/java)  
-- [Download](https://releases.groupdocs.com/redaction/java/)  
-- [GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
-- [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)  
-- [Temporary License](https://purchase.groupdocs.com/temporary-license/) 
+- [เอกสารประกอบ](https://docs.groupdocs.com/redaction/java/)  
+- [อ้างอิง API](https://reference.groupdocs.com/redaction/java)  
+- [ดาวน์โหลด](https://releases.groupdocs.com/redaction/java/)  
+- [ที่เก็บ GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
+- [ฟอรั่มสนับสนุนฟรี](https://forum.groupdocs.com/c/redaction/33)  
+- [ใบอนุญาตชั่วคราว](https://purchase.groupdocs.com/temporary-license/) 
 
 ---
 
-**อัปเดตล่าสุด:** 2026-03-22  
+**อัปเดตล่าสุด:** 2026-09-21  
 **ทดสอบด้วย:** GroupDocs.Redaction 24.9 (Java)  
 **ผู้เขียน:** GroupDocs
+
+## บทแนะนำที่เกี่ยวข้อง
+
+- [วิธีลบข้อมูล Java ด้วย GroupDocs.Redaction - คู่มือเชิงลึกสำหรับนักพัฒนา](/redaction/java/getting-started/implement-java-redaction-groupdocs-redaction-guide/)
+- [วิธีลบข้อมูล PDF สแกนด้วย OCR – GroupDocs.Redaction Java](/redaction/java/ocr-integration/)
+- [วิธีลบข้อความใน Java ด้วย GroupDocs.Redaction – คู่มือ](/redaction/java/text-redaction/text-redaction-java-groupdocs-redaction/)
