@@ -1,49 +1,102 @@
 ---
-date: '2026-03-22'
-description: Μάθετε πώς να διαβάζετε μεταδεδομένα αρχείου με Java, να λαμβάνετε τον
-  τύπο αρχείου και να υπολογίζετε τον αριθμό σελίδων χρησιμοποιώντας το GroupDocs.Redaction
-  για Java. Οδηγός βήμα‑προς‑βήμα με παραδείγματα κώδικα.
+date: '2026-09-21'
+description: Μάθετε πώς να λάβετε file type java και να διαβάσετε file metadata java
+  χρησιμοποιώντας GroupDocs.Redaction. Extract page count, file size, και process
+  streams αποδοτικά.
 keywords:
-- GroupDocs.Redaction Java
-- document metadata extraction
-- Java stream APIs
-title: java ανάγνωση μεταδεδομένων αρχείου – τύπος αρχείου με GroupDocs.Redaction
+- get file type java
+- read file metadata java
+- java get page count
+- read file size java
+- metadata extraction java
+lastmod: '2026-09-21'
+og_description: Λάβετε file type java και διαβάστε file metadata java γρήγορα χρησιμοποιώντας
+  GroupDocs.Redaction. Αυτός ο οδηγός δείχνει πώς να extract page count, size, και
+  άλλα.
+og_image_alt: Guide to extracting file type and metadata in Java with GroupDocs.Redaction
+og_title: Λάβετε file type java και διαβάστε metadata με GroupDocs.Redaction
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-21'
+  description: Learn how to get file type java and read file metadata java using GroupDocs.Redaction.
+    Extract page count, file size, and process streams efficiently.
+  headline: Get file type java and read metadata with GroupDocs.Redaction
+  type: TechArticle
+- description: Learn how to get file type java and read file metadata java using GroupDocs.Redaction.
+    Extract page count, file size, and process streams efficiently.
+  name: Get file type java and read metadata with GroupDocs.Redaction
+  steps:
+  - name: open a file stream
+    text: Start by creating an `InputStream` for the target document. Using a buffered
+      stream improves I/O performance for large files.
+  - name: initialize the Redactor
+    text: Create a `Redactor` instance using the stream. This object gives you access
+      to the document’s metadata.
+  - name: retrieve document information
+    text: '**`IDocumentInfo` provides properties such as file type, page count, size,
+      and custom metadata.** > **Pro tip:** Uncomment the `System.out.println` lines
+      only when you need console output; keeping them commented in production reduces
+      I/O overhead.'
+  - name: close resources
+    text: Always close the `Redactor` and the stream in a `finally` block (as shown)
+      to avoid memory leaks, especially when processing many documents in parallel.
+  type: HowTo
+- questions:
+  - answer: Primarily for redacting sensitive content, it also provides robust APIs
+      to **java read document properties** such as file type and page count.
+    question: What is GroupDocs.Redaction used for?
+  - answer: Yes, the library works seamlessly with Spring, Jakarta EE, and plain Java
+      SE projects.
+    question: Can I use GroupDocs.Redaction with other Java frameworks?
+  - answer: Wrap the file stream in a `BufferedInputStream`, close resources promptly,
+      and process files in a streaming fashion rather than loading the entire document
+      into memory.
+    question: How do I handle very large documents efficiently?
+  - answer: Absolutely—GroupDocs.Redaction handles multiple languages and character
+      sets out of the box.
+    question: Does the library support non‑English documents?
+  - answer: Missing licenses, incorrect file paths, and forgetting to close streams
+      are the most common. Always follow the resource‑cleanup pattern shown above.
+    question: What are typical pitfalls when extracting metadata?
+  type: FAQPage
+tags:
+- get file type
+- GroupDocs.Redaction
+- Java metadata extraction
+- document processing
+- Java file handling
+title: Λάβετε file type java και διαβάστε metadata με GroupDocs.Redaction
 type: docs
 url: /el/java/metadata-redaction/groupdocs-redaction-java-document-metadata-extraction/
 weight: 1
 ---
 
-# java read file metadata – Λήψη τύπου αρχείου με GroupDocs.Redaction σε Java
+# Λήψη τύπου αρχείου java και ανάγνωση μεταδεδομένων με GroupDocs.Redaction
 
-Σε σύγχρονες εφαρμογές Java, η **java read file metadata** γρήγορα—ιδιαίτερα ο τύπος αρχείου, ο αριθμός σελίδων, το μέγεθος και τυχόν προσαρμοσμένες ιδιότητες—είναι απαραίτητη για την κατασκευή αξιόπιστων pipelines διαχείρισης εγγράφων ή ανάλυσης δεδομένων. Αυτό το tutorial σας καθοδηγεί στη λήψη αυτών των ιδιοτήτων με το GroupDocs.Redaction, εξηγεί **πώς να πάρετε τον τύπο αρχείου java**, και δείχνει πώς να **java get page count** και **read file size java** με καθαρό, φιλικό προς το stream τρόπο.
+Σε σύγχρονες εφαρμογές Java, **get file type java** γρήγορα—μαζί με τον αριθμό σελίδων, το μέγεθος αρχείου και τυχόν προσαρμοσμένες ιδιότητες—είναι απαραίτητο για την κατασκευή αξιόπιστων pipelines διαχείρισης εγγράφων ή ανάλυσης δεδομένων. Αυτό το tutorial δείχνει πώς να **read file metadata java**, να ανακτήσετε τον τύπο του εγγράφου και **java get page count** χρησιμοποιώντας το stream‑friendly API του GroupDocs.Redaction.
 
-## Γρήγορες Απαντήσεις
-- **Πώς μπορώ να λάβω τον τύπο αρχείου ενός εγγράφου σε Java;** Χρησιμοποιήστε `redactor.getDocumentInfo().getFileType()`.  
-- **Ποια βιβλιοθήκη διαχειρίζεται την εξαγωγή μεταδεδομένων και την επεξεργασία μαζί;** GroupDocs.Redaction για Java.  
-- **Χρειάζεται άδεια για ανάπτυξη;** Μια δωρεάν δοκιμή λειτουργεί για αξιολόγηση· απαιτείται μόνιμη άδεια για παραγωγή.  
-- **Μπορώ επίσης να ανακτήσω τον αριθμό σελίδων;** Ναι, καλέστε `getPageCount()` στο αντικείμενο `IDocumentInfo`.  
-- **Είναι αυτή η προσέγγιση συμβατή με Java 8+;** Απόλυτα—το GroupDocs.Redaction υποστηρίζει Java 8 και νεότερες εκδόσεις.
+## Σύντομες απαντήσεις
+- **Πώς μπορώ να λάβω τον τύπο αρχείου ενός εγγράφου σε Java;** Call `redactor.getDocumentInfo().getFileType()`.  
+- **Ποια βιβλιοθήκη εξάγει μεταδεδομένα και επίσης υποστηρίζει διαγραφή;** GroupDocs.Redaction for Java provides both capabilities in a single API.  
+- **Χρειάζομαι άδεια για ανάπτυξη;** Μια δωρεάν δοκιμή λειτουργεί για αξιολόγηση· απαιτείται μόνιμη άδεια για παραγωγή.  
+- **Μπορώ επίσης να ανακτήσω τον αριθμό σελίδων;** Ναι—use `getPageCount()` on the `IDocumentInfo` object.  
+- **Είναι αυτή η προσέγγιση συμβατή με Java 8+;** Απόλυτα—GroupDocs.Redaction supports Java 8 and newer.
 
-## Πώς να java read file metadata με το GroupDocs.Redaction
-Η κατανόηση των βημάτων για **java read file metadata** σας βοηθά να αποφασίσετε πού θα τοποθετήσετε τη λογική στην εφαρμογή σας—είτε είναι μικρο‑υπηρεσία που επικυρώνει ανεβάσματα είτε batch job που ευρετηριάζει μεγάλες συλλογές εγγράφων.
+## Τι είναι το “get file type java” και γιατί είναι σημαντικό;
+`getFileType()` επιστρέφει ένα φιλικό enum που προσδιορίζει την ακριβή μορφή του εγγράφου (π.χ., PDF, DOCX, XLSX). Η γνώση του ακριβούς τύπου επιτρέπει στην εφαρμογή σας να δρομολογεί αυτόματα το αρχείο στην κατάλληλη pipeline επεξεργασίας, να επιβάλλει πολιτικές ασφαλείας βάσει μορφής, να δημιουργεί σωστά μικρογραφίες και να παρουσιάζει ακριβείς πληροφορίες στους τελικούς χρήστες στις λίστες UI.
 
-### Τι είναι το “get file type java” και γιατί έχει σημασία;
-Όταν καλείτε `getFileType()` σε ένα έγγραφο, η βιβλιοθήκη εξετάζει την κεφαλίδα του αρχείου και επιστρέφει ένα φιλικό enum (π.χ., **DOCX**, **PDF**, **XLSX**). Η γνώση του ακριβούς τύπου σας επιτρέπει να δρομολογήσετε το αρχείο στη σωστή pipeline επεξεργασίας, να επιβάλετε πολιτικές ασφαλείας ή απλώς να εμφανίσετε ακριβείς πληροφορίες στους τελικούς χρήστες.
-
-### Γιατί να χρησιμοποιήσετε το GroupDocs.Redaction για java read document properties;
-- **All‑in‑one solution:** Redaction, εξαγωγή μεταδεδομένων και μετατροπή μορφών βρίσκονται κάτω από ένα ενιαίο API.  
-- **Stream‑friendly:** Λειτουργεί απευθείας με `InputStream`, ώστε να μπορείτε να επεξεργάζεστε αρχεία από δίσκο, δίκτυο ή αποθήκευση cloud χωρίς προσωρινά αρχεία.  
-- **Performance‑tuned:** Ελάχιστο αποτύπωμα μνήμης και αυτόματος καθαρισμός πόρων όταν κλείνετε το παράδειγμα `Redactor`.  
+## Γιατί να χρησιμοποιήσετε το GroupDocs.Redaction για java read document properties;
+Το GroupDocs.Redaction είναι μια **all‑in‑one solution** που διαχειρίζεται τη διαγραφή, την εξαγωγή μεταδεδομένων και τη μετατροπή μορφών υπό ένα ενιαίο, stream‑friendly API. Υποστηρίζει **45+ μορφές εισόδου και εξόδου**, επεξεργάζεται αρχεία με εκατοντάδες σελίδες χωρίς να φορτώνει ολόκληρο το έγγραφο στη μνήμη, και απελευθερώνει αυτόματα τους πόρους όταν το αντικείμενο `Redactor` κλείνει.
 
 ## Προαπαιτούμενα
-1. **GroupDocs.Redaction for Java** (έκδοση 24.9 ή νεότερη).  
-2. JDK 8 ή νεότερο.  
-3. Βασικές γνώσεις Java και εξοικείωση με ροές I/O αρχείων.  
+- GroupDocs.Redaction for Java (version 24.9 ή νεότερη).  
+- JDK 8 ή νεότερο.  
+- Βασικές γνώσεις Java και εξοικείωση με ροές αρχείων I/O.  
 
 ## Ρύθμιση του GroupDocs.Redaction για Java
 
-### Maven Installation
-Προσθέστε το αποθετήριο και την εξάρτηση στο `pom.xml` σας:
+### Εγκατάσταση μέσω Maven
+Add the repository and dependency to your `pom.xml`:
 
 ```xml
 <repositories>
@@ -63,15 +116,17 @@ weight: 1
 </dependencies>
 ```
 
-### Άμεση Λήψη
+### Άμεση λήψη
 Εναλλακτικά, κατεβάστε την τελευταία έκδοση απευθείας από [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
-### Απόκτηση Άδειας
-- **Free Trial:** Ιδανικό για αξιολόγηση του API.  
-- **Temporary License:** Διαθέσιμη στον επίσημο ιστότοπο για βραχυπρόθεσμο testing.  
-- **Full License:** Αγοράστε όταν είστε έτοιμοι για χρήση σε παραγωγή.
+### Απόκτηση άδειας
+- **Free trial:** Ιδανικό για αξιολόγηση του API.  
+- **Temporary license:** Διαθέσιμη στον επίσημο ιστότοπο για βραχυπρόθεσμη δοκιμή.  
+- **Full license:** Αγοράστε όταν είστε έτοιμοι για χρήση σε παραγωγή.
 
-## Βασική Αρχικοποίηση (Java)
+## Βασική αρχικοποίηση (Java)
+
+**`Redactor` είναι η κεντρική κλάση που ανοίγει μια ροή εγγράφου και εκθέτει μεταδεδομένα, διαγραφή και δυνατότητες μετατροπής.**  
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -82,24 +137,24 @@ final Redactor redactor = new Redactor(stream);
 // Proceed with document operations...
 ```
 
-## Οδηγός βήμα‑βήμα για ανάκτηση μεταδεδομένων
+## Οδηγός βήμα‑βήμα για την ανάκτηση μεταδεδομένων
 
-### Βήμα 1: Άνοιγμα Ροής Αρχείου
-Ξεκινήστε δημιουργώντας ένα `InputStream` για το στοχευόμενο έγγραφο:
+### Βήμα 1: άνοιγμα ροής αρχείου
+Ξεκινήστε δημιουργώντας ένα `InputStream` για το στοχευόμενο έγγραφο. Η χρήση μιας buffered ροής βελτιώνει την απόδοση I/O για μεγάλα αρχεία.
 
 ```java
 FileInputStream stream = new FileInputStream("YOUR_DOCUMENT_DIRECTORY/Sample.docx");
 ```
 
-### Βήμα 2: Αρχικοποίηση του Redactor
+### Βήμα 2: αρχικοποίηση του Redactor
 Δημιουργήστε ένα αντικείμενο `Redactor` χρησιμοποιώντας τη ροή. Αυτό το αντικείμενο σας δίνει πρόσβαση στα μεταδεδομένα του εγγράφου.
 
 ```java
 final Redactor redactor = new Redactor(stream);
 ```
 
-### Βήμα 3: Ανάκτηση Πληροφοριών Εγγράφου
-Καλέστε `getDocumentInfo()` για να λάβετε ένα αντικείμενο `IDocumentInfo`. Εδώ είναι που **java read file metadata**, **java get document type**, **java get page count**, και ακόμη **read file size java**.
+### Βήμα 3: ανάκτηση πληροφοριών εγγράφου
+**`IDocumentInfo` παρέχει ιδιότητες όπως τύπο αρχείου, αριθμό σελίδων, μέγεθος και προσαρμοσμένα μεταδεδομένα.**  
 
 ```java
 try {
@@ -118,64 +173,71 @@ Document size: " + info.getSize() + " bytes");
 }
 ```
 
-> **Pro tip:** Αποσχολιάστε τις γραμμές `System.out.println` μόνο όταν χρειάζεστε έξοδο στην κονσόλα· το να τις αφήνετε σχολιασμένες στην παραγωγή μειώνει το φορτίο I/O.
+> **Pro tip:** Αποσχολιάστε τις γραμμές `System.out.println` μόνο όταν χρειάζεστε έξοδο στην κονσόλα· η διατήρησή τους σχολιασμένες στην παραγωγή μειώνει το φορτίο I/O.
 
-### Βήμα 4: Κλείσιμο Πόρων
+### Βήμα 4: κλείσιμο πόρων
 Πάντα κλείστε το `Redactor` και τη ροή σε ένα `finally` block (όπως φαίνεται) για να αποφύγετε διαρροές μνήμης, ειδικά όταν επεξεργάζεστε πολλά έγγραφα παράλληλα.
 
-## Πρακτικές Εφαρμογές (java read document properties)
+## Πρακτικές εφαρμογές (java read document properties)
 
-1. **Συστήματα Διαχείρισης Εγγράφων:** Αυτόματη κατηγοριοποίηση αρχείων κατά τύπο, αριθμό σελίδων και μέγεθος.  
-2. **Διαδρομές Ανάλυσης Δεδομένων:** Ενσωμάτωση μεταδεδομένων σε dashboards για αναφορές.  
-3. **Πλατφόρμες Δημιουργίας Περιεχομένου:** Εμφάνιση λεπτομερειών αρχείου στους τελικούς χρήστες πριν από λήψη ή προεπισκόπηση.  
+1. **Document management systems:** Αυτόματη κατηγοριοποίηση αρχείων κατά τύπο, αριθμό σελίδων και μέγεθος.  
+2. **Data‑analytics pipelines:** Παροχή μεταδεδομένων σε πίνακες ελέγχου για αναφορές.  
+3. **Content‑creation platforms:** Εμφάνιση λεπτομερειών αρχείου στους τελικούς χρήστες πριν τη λήψη ή προεπισκόπηση.  
 
-## Σκέψεις για Απόδοση
+## Σκέψεις απόδοσης
 - Χρησιμοποιήστε **buffered streams** (`BufferedInputStream`) για μεγάλα αρχεία ώστε να βελτιώσετε την ταχύτητα I/O.  
-- Απελευθερώστε πόρους άμεσα (`close()` τόσο στο `Redactor` όσο και στη ροή).  
-- Όταν επεξεργάζεστε παρτίδες, σκεφτείτε την επαναχρησιμοποίηση ενός μοναδικού αντικειμένου `Redactor` ανά νήμα για μείωση του κόστους δημιουργίας αντικειμένων.
+- Απελευθερώστε τους πόρους άμεσα (`close()` τόσο στο `Redactor` όσο και στη ροή).  
+- Κατά την επεξεργασία παρτίδων, σκεφτείτε την επαναχρήση ενός μόνο αντικειμένου `Redactor` ανά νήμα για μείωση του κόστους δημιουργίας αντικειμένων.
 
-## Συνηθισμένα Προβλήματα & Λύσεις
-| Symptom | Likely Cause | Fix |
-|---------|--------------|-----|
-| `FileNotFoundException` | Λανθασμένη διαδρομή ή ελλιπές αρχείο | Επαληθεύστε τη απόλυτη/σχετική διαδρομή και τα δικαιώματα του αρχείου. |
-| `LicenseException` | Δεν φορτώθηκε έγκυρη άδεια | Φορτώστε δοκιμαστική ή αγορασμένη άδεια πριν δημιουργήσετε το `Redactor`. |
-| `OutOfMemoryError` on large PDFs | Μη bufferized stream ή επεξεργασία πολλών αρχείων ταυτόχρονα | Μεταβείτε σε `BufferedInputStream` και περιορίστε τα ταυτόχρονα νήματα. |
+## Συχνά προβλήματα & λύσεις
 
-## Συχνές Ερωτήσεις
+| Σύμπτωμα | Πιθανή αιτία | Διόρθωση |
+|----------|--------------|----------|
+| `FileNotFoundException` | Λανθασμένη διαδρομή ή έλλειψη αρχείου | Επαληθεύστε τη απόλυτη/σχετική διαδρομή και τα δικαιώματα αρχείου. |
+| `LicenseException` | Δεν φορτώθηκε έγκυρη άδεια | Φορτώστε μια δοκιμαστική ή αγορασμένη άδεια πριν δημιουργήσετε το `Redactor`. |
+| `OutOfMemoryError` on large PDFs | Μη buffered ροή ή επεξεργασία πολλών αρχείων ταυτόχρονα | Μεταβείτε σε `BufferedInputStream` και περιορίστε τα ταυτόχρονα νήματα. |
 
-**Ε: Τι χρησιμοποιείται το GroupDocs.Redaction;**  
-Α: Κυρίως για την επεξεργασία ευαίσθητου περιεχομένου, παρέχει επίσης ισχυρά API για **java read document properties** όπως τύπο αρχείου και αριθμό σελίδων.
+## Συχνές ερωτήσεις
 
-**Ε: Μπορώ να χρησιμοποιήσω το GroupDocs.Redaction με άλλα frameworks Java;**  
-Α: Ναι, η βιβλιοθήκη λειτουργεί άψογα με Spring, Jakarta EE και ακόμη με απλά έργα Java SE.
+**Q: Τι χρησιμοποιείται το GroupDocs.Redaction;**  
+A: Πρωτίστως για τη διαγραφή ευαίσθητου περιεχομένου, παρέχει επίσης ισχυρά APIs για **java read document properties** όπως τύπο αρχείου και αριθμό σελίδων.
 
-**Ε: Πώς να διαχειριστώ πολύ μεγάλα έγγραφα αποδοτικά;**  
-Α: Τυλίξτε τη ροή αρχείου σε `BufferedInputStream`, κλείστε τους πόρους άμεσα, και σκεφτείτε επεξεργασία σε streaming mode αντί για φόρτωση ολόκληρου του εγγράφου στη μνήμη.
+**Q: Μπορώ να χρησιμοποιήσω το GroupDocs.Redaction με άλλα πλαίσια Java;**  
+A: Ναι, η βιβλιοθήκη λειτουργεί άψογα με Spring, Jakarta EE και απλά έργα Java SE.
 
-**Ε: Υποστηρίζει η βιβλιοθήκη έγγραφα μη‑αγγλικής γλώσσας;**  
-Α: Απόλυτα—το GroupDocs.Redaction διαχειρίζεται πολλαπλές γλώσσες και σύνολα χαρακτήρων έτοιμο.
+**Q: Πώς να διαχειριστώ πολύ μεγάλα έγγραφα αποδοτικά;**  
+A: Τυλίξτε τη ροή αρχείου σε `BufferedInputStream`, κλείστε τους πόρους άμεσα, και επεξεργαστείτε τα αρχεία με streaming αντί να φορτώσετε ολόκληρο το έγγραφο στη μνήμη.
 
-**Ε: Ποια είναι τα τυπικά λάθη κατά την εξαγωγή μεταδεδομένων;**  
-Α: Ελλιπείς άδειες, λανθασμένες διαδρομές αρχείων και η παράλειψη κλεισίματος ροών είναι τα πιο συχνά. Ακολουθείτε πάντα το πρότυπο καθαρισμού πόρων που παρουσιάστηκε παραπάνω.
+**Q: Η βιβλιοθήκη υποστηρίζει έγγραφα μη‑Αγγλικών γλωσσών;**  
+A: Απόλυτα—το GroupDocs.Redaction διαχειρίζεται πολλαπλές γλώσσες και σύνολα χαρακτήρων έτοιμα προς χρήση.
+
+**Q: Ποια είναι τα τυπικά προβλήματα κατά την εξαγωγή μεταδεδομένων;**  
+A: Έλλειψη αδειών, λανθασμένες διαδρομές αρχείων και η παράλειψη κλεισίματος ροών είναι τα πιο συχνά. Πάντα ακολουθείτε το πρότυπο καθαρισμού πόρων που φαίνεται παραπάνω.
 
 ## Συμπέρασμα
-Τώρα έχετε μια πλήρη, έτοιμη για παραγωγή συνταγή για **java read file metadata**, ανάγνωση άλλων ιδιοτήτων εγγράφου, και **java get page count** χρησιμοποιώντας το GroupDocs.Redaction. Ενσωματώστε αυτά τα αποσπάσματα στις υπάρχουσες υπηρεσίες σας και θα αποκτήσετε άμεση ορατότητα σε κάθε έγγραφο που διαρρέει το σύστημά σας.
+Τώρα έχετε μια πλήρη, έτοιμη για παραγωγή συνταγή για **get file type java**, ανάγνωση άλλων ιδιοτήτων εγγράφου, και **java get page count** χρησιμοποιώντας το GroupDocs.Redaction. Ενσωματώστε αυτά τα αποσπάσματα στις υπάρχουσες υπηρεσίες σας, και θα αποκτήσετε άμεση ορατότητα σε κάθε έγγραφο που διασχίζει το σύστημά σας.
 
-**Επόμενα Βήματα**  
-- Πειραματιστείτε με άλλα πεδία μεταδεδομένων που εκτίθενται από το `IDocumentInfo`.  
-- Συνδυάστε την εξαγωγή μεταδεδομένων με workflows επεξεργασίας για ολοκληρωμένη ασφάλεια εγγράφων.  
-- Εξερευνήστε μοτίβα batch processing για περιβάλλοντα υψηλού όγκου.
+**Επόμενα βήματα**  
+- Εξερευνήστε πρόσθετα πεδία που εκτίθενται από το `IDocumentInfo`.  
+- Συνδυάστε την εξαγωγή μεταδεδομένων με τις ροές εργασίας διαγραφής για ολοκληρωμένη ασφάλεια εγγράφων.  
+- Διερευνήστε πρότυπα επεξεργασίας παρτίδων για περιβάλλοντα υψηλού όγκου.
 
 **Πόροι**  
-- [Documentation](https://docs.groupdocs.com/redaction/java/)  
-- [API Reference](https://reference.groupdocs.com/redaction/java)  
-- [Download GroupDocs.Redaction for Java](https://releases.groupdocs.com/redaction/java/)  
-- [GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
-- [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)  
-- [Temporary License Information](https://purchase.groupdocs.com/temporary-license/)  
+- [Τεκμηρίωση](https://docs.groupdocs.com/redaction/java/)  
+- [Αναφορά API](https://reference.groupdocs.com/redaction/java)  
+- [Λήψη GroupDocs.Redaction για Java](https://releases.groupdocs.com/redaction/java/)  
+- [Αποθετήριο GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
+- [Δωρεάν Φόρουμ Υποστήριξης](https://forum.groupdocs.com/c/redaction/33)  
+- [Πληροφορίες Προσωρινής Άδειας](https://purchase.groupdocs.com/temporary-license/)  
 
 ---
 
-**Τελευταία Ενημέρωση:** 2026-03-22  
-**Δοκιμασμένο Με:** GroupDocs.Redaction 24.9 for Java  
+**Τελευταία Ενημέρωση:** 2026-09-21  
+**Δοκιμή με:** GroupDocs.Redaction 24.9 for Java  
 **Συγγραφέας:** GroupDocs
+
+## Σχετικά Μαθήματα
+
+- [Ανάκτηση Πληροφοριών Εγγράφου Χρησιμοποιώντας το Groupdocs Redaction Java](/redaction/java/document-information/retrieve-document-info-using-groupdocs-redaction-java/)
+- [Δημιουργία Προεπισκόπησης & Αριθμού Σελίδων Εγγράφου – GroupDocs Java](/redaction/java/document-information/)
+- [Πώς να Διαγράψετε Μεταδεδομένα Java με το GroupDocs.Redaction](/redaction/java/metadata-redaction/)
