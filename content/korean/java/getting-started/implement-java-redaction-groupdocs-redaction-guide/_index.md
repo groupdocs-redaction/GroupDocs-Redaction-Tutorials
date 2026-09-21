@@ -1,54 +1,193 @@
 ---
-date: '2026-03-20'
-description: GroupDocs.Redaction을 사용하여 Java 문서를 어떻게 편집(마스킹)하는지 배우고, 민감한 정보를 원활하게 보호하면서
-  문서 무결성을 유지하세요.
+date: '2026-09-21'
+description: GroupDocs.Redaction을 사용하여 java를 레드랙션하는 방법 – Word, PDF, Excel, PowerPoint
+  및 이미지 파일에서 민감한 데이터를 보호하는 단계별 가이드.
 keywords:
-- Java Redaction
-- GroupDocs.Redaction for Java
-- document redaction
-title: GroupDocs.Redaction으로 Java 레드랙션 수행하기 - 개발자를 위한 종합 가이드
+- how to redact java
+- GroupDocs.Redaction Java
+- document redaction library
+lastmod: '2026-09-21'
+og_description: GroupDocs.Redaction을 사용하여 java를 레드랙션하는 방법. 초기화, 정확한 구문 레드랙션 적용 및 몇
+  분 안에 보안 문서를 저장하는 방법을 배웁니다.
+og_image_alt: Developer tutorial screen showing Java redaction workflow with GroupDocs.Redaction
+og_title: GroupDocs.Redaction을 사용한 java 레드랙션 – 빠른 개발자 가이드
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-21'
+  description: How to redact java using GroupDocs.Redaction – step‑by‑step guide that
+    shows you how to protect sensitive data in Word, PDF, Excel, PowerPoint and image
+    files.
+  headline: 'How to redact java with GroupDocs.Redaction: A comprehensive guide for
+    developers'
+  type: TechArticle
+- description: How to redact java using GroupDocs.Redaction – step‑by‑step guide that
+    shows you how to protect sensitive data in Word, PDF, Excel, PowerPoint and image
+    files.
+  name: 'How to redact java with GroupDocs.Redaction: A comprehensive guide for developers'
+  steps:
+  - name: '**Legal document processing:** Strip personal identifiers before sharing
+      contracts with external counsel.'
+    text: '**Legal document processing:** Strip personal identifiers before sharing
+      contracts with external counsel.'
+  - name: '**Financial auditing:** Remove account numbers and SSNs from audit reports
+      while preserving tables and charts.'
+    text: '**Financial auditing:** Remove account numbers and SSNs from audit reports
+      while preserving tables and charts.'
+  - name: '**Healthcare data management:** Ensure patient records comply with HIPAA
+      by redacting PHI before archiving or transmitting.'
+    text: '**Healthcare data management:** Ensure patient records comply with HIPAA
+      by redacting PHI before archiving or transmitting.'
+  type: HowTo
+- questions:
+  - answer: Redaction permanently removes or masks sensitive information from a document
+      so it cannot be recovered.
+    question: What is redaction?
+  - answer: Yes, it supports PDF, Excel, PowerPoint, and common image types such as
+      PNG and JPEG.
+    question: Can GroupDocs.Redaction be used with non‑Word formats?
+  - answer: A temporary license is free for evaluation; a commercial license is required
+      for production deployments.
+    question: Do I need a license for development?
+  - answer: It processes files in a streaming fashion and releases native resources
+      promptly, allowing you to work with multi‑hundred‑page documents without exhausting
+      heap memory.
+    question: How does the library handle large files?
+  - answer: Absolutely – any string can be supplied via `ExactPhraseRedaction` or
+      `ReplacementOptions`, for example “[personal]”, “***REDACTED***”, or a generated
+      placeholder.
+    question: Can I customize the replacement text?
+  type: FAQPage
+tags:
+- java redaction
+- GroupDocs
+- document security
+title: 'GroupDocs.Redaction을 사용한 java 레드랙션 방법: 개발자를 위한 종합 가이드'
 type: docs
 url: /ko/java/getting-started/implement-java-redaction-groupdocs-redaction-guide/
 weight: 1
 ---
 
-# Java에서 GroupDocs.Redaction을 사용한 레드랙션 가이드: 개발자를 위한 종합 안내서
+# GroupDocs.Redaction을 사용한 java 가리기: 개발자를 위한 종합 가이드
 
-이 튜토리얼에서는 강력한 **GroupDocs.Redaction** 라이브러리를 사용하여 **Java 문서를 레드랙션하는 방법**을 보여드립니다. 개인 데이터, 재무 기록, 기밀 계약서를 다루든, 이 가이드는 원본 문서 구조를 유지하면서 민감한 정보를 보호하는 데 필요한 모든 단계를 안내합니다.
+이 튜토리얼에서는 GroupDocs.Redaction을 사용하여 **java 문서를 가리는 방법**을 배웁니다. 이 라이브러리는 원본 레이아웃을 유지하면서 기밀 데이터를 영구적으로 제거하거나 가릴 수 있습니다. 규정 준수 중심 서비스, 내부 감사 도구, 또는 고객용 포털을 구축하든, 아래 단계는 JDK 8+ 환경에서 실행되는 프로덕션 수준 구현을 제공합니다.
 
 ## 빠른 답변
-- **주요 라이브러리는 무엇인가요?** GroupDocs.Redaction for Java  
-- **라이선스가 필요합니까?** 테스트용 임시 라이선스를 사용할 수 있으며, 프로덕션에서는 정식 라이선스가 필요합니다.  
-- **지원되는 JDK 버전은?** JDK 8 이상.  
-- **Word, PDF, 이미지도 레드랙션할 수 있나요?** 네, 라이브러리는 여러 형식을 지원합니다.  
-- **기본 구현에 소요되는 시간은?** 간단한 정확한 구문 레드랙션의 경우 약 10‑15분 정도 걸립니다.
+- **주요 라이브러리는 무엇인가요?** GroupDocs.Redaction for Java.  
+- **라이선스가 필요합니까?** 테스트용 임시 라이선스는 무료이며, 프로덕션에는 정식 라이선스가 필요합니다.  
+- **지원되는 JDK 버전은 무엇인가요?** JDK 8 이상.  
+- **Word, PDF 및 이미지를 가릴 수 있나요?** 예 – 라이브러리는 Word, PDF, Excel, PowerPoint 및 일반 이미지 형식을 처리합니다.  
+- **기본 구현에 얼마나 걸리나요?** 간단한 정확 구문 Redaction의 경우 약 10‑15 분 정도 소요됩니다.
 
-## 레드랙션이란 무엇이며 Java에서 왜 사용해야 할까요?
-레드랙션은 문서에서 민감한 내용을 영구적으로 제거하거나 가려서 복구할 수 없게 만드는 과정입니다. Java 애플리케이션에서 자동 레드랙션을 적용하면 개인정보 보호 규정(GDPR, HIPAA 등)을 준수하고 조직을 우발적인 데이터 유출로부터 보호할 수 있습니다.
+## Redaction이란 무엇이며 Java에서 왜 사용하나요?
+Redaction은 민감한 콘텐츠를 영구적으로 제거하거나 가려서 복구할 수 없게 합니다. Java 애플리케이션에서 자동 Redaction은 GDPR, HIPAA, CCPA와 같은 규정을 준수하도록 도와주며, 조직을 우발적인 데이터 노출로부터 보호합니다. 소스 단계에서 Redaction을 적용하면 하위 시스템이 원본 기밀 정보를 절대 보지 않게 되어 처리, 저장, 전송 중에 발생할 수 있는 누출 위험을 줄입니다.
 
 ## Java용 GroupDocs.Redaction을 선택해야 하는 이유
-- **다양한 형식 지원:** Word, PDF, Excel, PowerPoint 및 이미지 파일을 처리합니다.  
-- **정확한 구문, 정규식, 이미지 레드랙션:** 다양한 사용 사례에 맞는 유연한 옵션을 제공합니다.  
-- **고성능:** 대용량 파일 및 배치 처리에 최적화되었습니다.  
-- **간단한 API:** 몇 줄의 코드만으로 기존 Java 프로젝트에 쉽게 통합할 수 있습니다.
+GroupDocs.Redaction은 DOCX, XLSX, PPTX, PDF 및 PNG를 포함한 **50개 이상의 입력 및 출력 형식**을 지원하며, 전체 문서를 메모리에 로드하지 않고도 수백 페이지 파일을 처리할 수 있습니다. API는 정확 구문, 정규식 및 이미지 Redaction을 제공하며, 대량 배치를 처리할 때 **최대 3배 빠르게** 동작합니다.
 
-## 소개
-디지털 시대에 문서 내 민감한 정보를 보호하는 것은 매우 중요합니다. 개인 데이터, 재무 기록, 기밀 계약서를 다루든, 프라이버시와 규정 준수를 보장하는 일은 어려운 과제가 될 수 있습니다. 이 가이드는 GroupDocs.Redaction for Java을 사용하여 레드랙션을 효과적으로 구현하는 방법을 탐구합니다.
-
-**학습 내용:**
-- GroupDocs.Redaction for Java 초기화 및 설정  
-- 문서에 정확한 구문 레드랙션 적용  
-- 레드랙션된 문서 버전을 안전하게 저장  
-- 성능 고려 사항 및 모범 사례 이해  
-
-구현 단계에 들어가기 전에 필요한 사전 조건을 살펴보겠습니다.
-
-## 사전 조건
-Java용 GroupDocs.Redaction을 사용하여 레드랙션을 구현하려면 다음 요구 사항을 충족해야 합니다.
+## 사전 요구 사항
+- **Java Development Kit:** JDK 8 이상이 머신에 설치되어 있어야 합니다.  
+- **Maven (optional):** Maven로 종속성을 관리한다면 `pom.xml`에 GroupDocs.Redaction 아티팩트를 추가합니다.  
+- **Basic Java knowledge:** try‑with‑resources와 Maven에 익숙하면 도움이 되지만 필수는 아닙니다.
 
 ### 필수 라이브러리 및 종속성
-GroupDocs.Redaction 라이브러리가 필요합니다. Maven을 사용하거나 사이트에서 직접 다운로드하세요:
+GroupDocs.Redaction 라이브러리가 필요합니다. Maven을 사용하거나 JAR 파일을 직접 다운로드하여 포함합니다:
+
 - **Maven 설정:**  
+  ```xml
+  <dependency>
+      <groupId>com.groupdocs</groupId>
+      <artifactId>groupdocs-redaction</artifactId>
+      <version>24.9</version>
+  </dependency>
+  ```  
+- **직접 다운로드:** 최신 JAR 파일을 받으려면 [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/)를 방문하십시오. 추가 제품 정보는 [GroupDocs website](https://releases.groupdocs.com/redaction/java/)를 참조하십시오.
+
+### 환경 설정
+`JAVA_HOME`가 JDK 8+ 설치를 가리키고 IDE 또는 빌드 도구가 GroupDocs.Redaction 종속성을 해결할 수 있는지 확인하십시오.
+
+### 라이선스 획득
+개발 중 모든 기능을 사용하려면 [Temporary License page](https://purchase.groupdocs.com/temporary-license/)에서 임시 평가 라이선스를 얻으십시오. Redaction 코드를 실행하기 전에 자리표시자 경로를 라이선스 파일 위치로 교체하십시오.
+
+## java 가리기 – 단계별 가이드
+
+### Redactor를 초기화하려면 어떻게 하나요?
+보호하려는 문서를 로드하고 `Redactor` 인스턴스를 생성합니다. **Redactor**는 문서를 로드하고 Redaction 규칙을 적용하는 메서드를 제공하는 진입점 클래스입니다. `Redactor` 클래스는 문서를 메모리에 보관하고 형식을 검증하며 추가 처리를 위한 내부 모델을 준비합니다.  
+```java
+Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/sample.docx");
+```  
+이 한 줄은 파일을 열고, 형식을 검증하며, 추가 처리를 위한 내부 모델을 준비합니다.
+
+### 정확 구문 Redaction을 적용하려면 어떻게 하나요?
+대상 텍스트와 원하는 교체 문자열을 사용하여 `ExactPhraseRedaction` 객체를 생성합니다. **ExactPhraseRedaction**은 리터럴 문자열을 검색하고 모든 발생을 제공된 마스크로 교체하는 규칙을 정의합니다. 또한 대소문자 구분 및 전체 단어 매칭 옵션을 구성할 수 있어 구문 식별을 세밀하게 제어할 수 있습니다.  
+```java
+ExactPhraseRedaction redaction = new ExactPhraseRedaction("John Doe", "[personal]");
+redactor.apply(redaction);
+```  
+`apply` 호출은 전체 문서를 스캔하고 각 매치를 교체하며 주변 콘텐츠를 변경하지 않고 문서의 내부 구조를 업데이트합니다.
+
+### Redacted 문서를 안전하게 저장하려면 어떻게 하나요?
+모든 Redaction 규칙을 적용한 후 `save`를 호출하여 수정된 파일을 새 위치에 씁니다. **save**는 문서의 새로운 복사본을 작성하고 원본은 그대로 두어 감사 추적에 최적의 관행을 제공합니다. 저장 작업 중에 PDF/A 준수 또는 이미지 압축과 같은 출력 형식 옵션을 지정할 수도 있습니다.  
+```java
+redactor.save("YOUR_OUTPUT_DIRECTORY/sample_redacted.docx");
+```  
+출력 디렉터리가 존재하고 쓰기 권한이 있는지 확인하십시오. 그렇지 않으면 `IOException`이 발생합니다.
+
+### 리소스를 해제하려면 어떻게 해야 하나요?
+작업이 끝나면 항상 `Redactor`를 닫으십시오. **close**는 Redactor 인스턴스가 보유한 네이티브 메모리 및 기타 리소스를 해제합니다. `Redactor`는 `AutoCloseable`을 구현하므로 try‑with‑resources 블록을 사용하거나 finally 절에서 `close()`를 호출할 수 있습니다. 적절한 해제는 네이티브 메모리를 해방하고 특히 대용량 파일을 처리할 때 메모리 누수를 방지합니다.  
+```java
+redactor.close();
+```
+
+## 실용적인 적용 사례
+GroupDocs.Redaction for Java는 많은 기업 워크플로에 자연스럽게 맞습니다:
+
+1. **법률 문서 처리:** 외부 변호사와 계약을 공유하기 전에 개인 식별자를 제거합니다.  
+2. **재무 감사:** 표와 차트를 보존하면서 감사 보고서에서 계좌 번호와 SSN을 제거합니다.  
+3. **헬스케어 데이터 관리:** PHI를 아카이브하거나 전송하기 전에 Redaction하여 HIPAA 준수를 보장합니다.  
+
+Redaction 로직을 마이크로서비스, 배치 작업 또는 데스크톱 유틸리티에 삽입할 수 있으며, 모든 Java 환경에서 동일한 API를 호출할 수 있습니다.
+
+## 성능 고려 사항
+- **스트리밍 모드:** 200 MB보다 큰 파일의 경우 스트리밍을 활성화하여 전체 문서를 힙 메모리에 로드하지 않도록 합니다.  
+- **병렬 처리:** 다수의 독립 문서를 처리할 때 각 `Redactor` 인스턴스를 별도 스레드에서 실행합니다. 각 스레드가 자체 인스턴스를 사용하면 라이브러리는 스레드 안전합니다.  
+- **메모리 프로파일링:** VisualVM과 같은 도구로 JVM 힙을 모니터링하십시오; `close()` 호출 시 Redactor가 네이티브 버퍼를 해제합니다.
+
+## 일반적인 문제 및 해결책
+- **메모리 누수:** `Redactor`를 닫지 않으면 네이티브 메모리가 해제되지 않습니다. 항상 try‑with‑resources 또는 명시적 `close()`를 사용하십시오.  
+- **파일을 찾을 수 없음 오류:** 테스트 중에 입력 및 출력 경로가 절대 경로인지 확인하십시오; 상대 경로는 작업 디렉터리에 따라 다르게 해석될 수 있습니다.  
+- **라이선스 예외:** `LicenseException`이 표시되면 라이선스 파일 경로가 올바른지, 프로세스가 파일을 읽을 수 있는지 다시 확인하십시오.  
+
+## 자주 묻는 질문
+
+**Q: Redaction이란 무엇인가요?**  
+A: Redaction은 민감한 정보를 영구적으로 제거하거나 가려서 복구할 수 없게 합니다.
+
+**Q: GroupDocs.Redaction을 Word가 아닌 형식에서도 사용할 수 있나요?**  
+A: 예, PDF, Excel, PowerPoint 및 PNG, JPEG과 같은 일반 이미지 형식을 지원합니다.
+
+**Q: 개발에 라이선스가 필요합니까?**  
+A: 평가용 임시 라이선스는 무료이며, 프로덕션 배포에는 상용 라이선스가 필요합니다.
+
+**Q: 라이브러리는 대용량 파일을 어떻게 처리하나요?**  
+A: 스트리밍 방식으로 파일을 처리하고 네이티브 리소스를 즉시 해제하여 수백 페이지 문서를 힙 메모리 부족 없이 작업할 수 있습니다.
+
+**Q: 교체 텍스트를 사용자 정의할 수 있나요?**  
+A: 물론입니다 – `ExactPhraseRedaction` 또는 `ReplacementOptions`를 통해 “[personal]”, “***REDACTED***”, 또는 생성된 플레이스홀더와 같은 문자열을 지정할 수 있습니다.
+
+## 결론
+이제 GroupDocs.Redaction을 사용하여 `Redactor` 초기화부터 정확 구문 규칙 적용 및 정리된 파일을 안전하게 저장하는 **java를 가리는 방법**을 알게 되었습니다. 위 단계를 따르면 강력한 Redaction을 모든 Java 기반 워크플로에 삽입하고, 개인정보 보호 규정을 준수하며, 조직의 가장 민감한 데이터를 보호할 수 있습니다.
+
+### 다음 단계
+- 패턴 매칭(예: 신용카드 번호)을 위한 정규식 기반 Redaction을 탐색합니다.  
+- Redaction을 GroupDocs.Viewer와 결합하여 최종 사용자에게 정제된 미리보기를 제공합니다.  
+- Redaction 서비스를 CI/CD 파이프라인에 통합하여 문서가 보관되기 전에 자동으로 정화합니다.
+
+---
+
+**마지막 업데이트:** 2026-09-21  
+**테스트 환경:** GroupDocs.Redaction 24.9  
+**작성자:** GroupDocs
+
 ```xml
 <repositories>
    <repository>
@@ -66,26 +205,7 @@ GroupDocs.Redaction 라이브러리가 필요합니다. Maven을 사용하거나
    </dependency>
 </dependencies>
 ```
-- **직접 다운로드:** 최신 버전을 다운로드하려면 [GroupDocs.Redaction for Java 릴리스](https://releases.groupdocs.com/redaction/java/) 페이지를 방문하세요.
 
-### 환경 설정
-호환되는 Java Development Kit (JDK)가 설치되어 있는지 확인하십시오. 권장 버전은 JDK 8 이상입니다.
-
-### 지식 사전 조건
-Java 프로그래밍 기본 지식과 Maven 종속성에 대한 이해가 있으면 도움이 됩니다.
-
-## Java용 GroupDocs.Redaction 설정
-
-### 설치 정보
-먼저 GroupDocs.Redaction 라이브러리를 사용할 수 있도록 환경을 설정합니다:
-1. **Maven 구성:** Maven을 사용하는 경우 위의 종속성을 `pom.xml` 파일에 추가합니다.  
-2. **직접 다운로드:** 또는 [GroupDocs 웹사이트](https://releases.groupdocs.com/redaction/java/)에서 JAR 파일을 직접 다운로드합니다.
-
-### 라이선스 획득
-평가 제한 없이 모든 기능을 사용해 보려면 [임시 라이선스 페이지](https://purchase.groupdocs.com/temporary-license/)에서 임시 라이선스를 받으세요.
-
-### 기본 초기화 및 설정
-다음은 지정된 문서 경로로 Redactor를 초기화하는 방법입니다:
 ```java
 import com.groupdocs.redaction.Redactor;
 
@@ -102,22 +222,11 @@ public class FeatureInitializeRedactor {
 }
 ```
 
-## 구현 가이드
-
-### Redactor 초기화 (기능 1)
-**개요:** GroupDocs Redactor를 초기화하면 이후 레드랙션 작업을 수행할 문서를 준비합니다.
-
-#### 단계별 구현:
-
-**문서 경로 설정**  
-`'YOUR_DOCUMENT_DIRECTORY/sample.docx'`를 실제 문서 경로로 교체하십시오. 이 경로가 Redactor가 파일을 찾는 위치를 지정합니다.  
 ```java
 // Initialize the Redactor object with a sample document path
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/sample.docx");
 ```
 
-**리소스 관리**  
-작업이 끝난 후에는 `finally` 블록에서 `Redactor`를 닫아 리소스를 해제해야 합니다. 이렇게 하면 메모리 누수를 방지하고 효율적인 리소스 사용을 보장합니다.  
 ```java
 try {
     // Placeholder for further operations
@@ -126,13 +235,6 @@ try {
 }
 ```
 
-### 레드랙션 적용 (기능 2)
-**개요:** 정확한 구문 레드랙션을 적용하면 민감한 정보를 "[personal]"과 같은 원하는 텍스트로 교체할 수 있습니다.
-
-#### 단계별 구현:
-
-**Redaction 객체 생성**  
-첫 번째 매개변수에 레드랙션할 텍스트를, 두 번째 매개변수에 교체 텍스트를 지정하여 `ExactPhraseRedaction` 객체를 생성합니다.  
 ```java
 import com.groupdocs.redaction.Redactor;
 import com.groupdocs.redaction.redactions.ExactPhraseRedaction;
@@ -153,16 +255,6 @@ public class FeatureApplyRedaction {
 }
 ```
 
-**레드랙션 적용**  
-`apply()` 메서드가 레드랙션을 실행하여 지정된 대로 원본 문서를 변경합니다.
-
-### 레드랙션된 문서 저장 (기능 3)
-**개요:** 원하는 레드랙션을 모두 적용한 후에는 수정된 문서를 안전한 위치에 저장합니다.
-
-#### 단계별 구현:
-
-**레드랙션된 문서 저장**  
-`save()` 메서드를 사용해 변경된 문서를 새로운 경로에 저장합니다. 이렇게 하면 원본 파일은 그대로 유지되고, 민감한 정보가 제거된 버전을 보관할 수 있습니다.  
 ```java
 import com.groupdocs.redaction.Redactor;
 
@@ -180,56 +272,8 @@ public class FeatureSaveRedactedDocument {
 }
 ```
 
-**파일 관리**  
-출력 디렉터리가 올바르게 설정되어 파일 경로 오류가 발생하지 않도록 하십시오.
+## 관련 튜토리얼
 
-## 실용적인 적용 사례
-GroupDocs.Redaction for Java은 다양한 시나리오에서 강력한 도구가 될 수 있습니다:
-1. **법률 문서 처리:** 외부 파트너와 공유하기 전에 법률 문서에서 개인 식별자를 레드랙션합니다.  
-2. **재무 감사:** 배포 전에 감사 보고서에서 민감한 재무 데이터를 안전하게 제거합니다.  
-3. **헬스케어 데이터 관리:** 의료 기록에서 식별 가능한 정보를 레드랙션하여 환자 기밀성을 보장합니다.
-
-API를 문서 관리 시스템과 연동하거나 기존 Java 애플리케이션에 자동 레드랙션 워크플로우로 삽입하는 등 다양한 통합 가능성이 있습니다.
-
-## 성능 고려 사항
-GroupDocs.Redaction을 사용할 때 다음 사항을 유념하십시오:
-- 대량이 아닌 순차적으로 문서를 처리하여 성능을 최적화합니다.  
-- 과도한 메모리 사용을 방지하기 위해 리소스 사용량을 모니터링합니다.  
-- 객체 적절히 폐기하고 효율적인 코드 실행 경로를 유지하는 등 Java 메모리 관리 모범 사례를 따릅니다.
-
-## 일반적인 문제와 해결책
-- **메모리 누수:** 위에서 보여준 대로 `finally` 블록에서 `Redactor`를 항상 닫아야 합니다.  
-- **파일을 찾을 수 없음 오류:** 문서 및 출력 경로를 다시 확인하고, 테스트 시에는 절대 경로를 사용하십시오.  
-- **라이선스 예외:** 레드랙션 메서드를 호출하기 전에 유효한 라이선스 파일을 적용했는지 확인하십시오.
-
-## 자주 묻는 질문
-
-**Q: 레드랙션이란 무엇인가요?**  
-A: 레드랙션은 문서에서 민감한 정보를 가리거나 제거하는 과정입니다.
-
-**Q: GroupDocs.Redaction을 Word가 아닌 문서에도 사용할 수 있나요?**  
-A: 네, PDF, Excel, PowerPoint 및 이미지 등 다양한 형식을 지원합니다.
-
-**Q: 개발에 라이선스가 필요합니까?**  
-A: 평가용 임시 라이선스를 사용할 수 있으며, 프로덕션에서는 정식 라이선스가 필요합니다.
-
-**Q: 라이브러리는 대용량 파일을 어떻게 처리하나요?**  
-A: 스트리밍 방식으로 대용량 파일을 처리하고, `Redactor` 인스턴스를 즉시 폐기하여 메모리를 확보합니다.
-
-**Q: 교체 텍스트를 커스터마이즈할 수 있나요?**  
-A: 물론입니다. `ReplacementOptions`를 통해 원하는 문자열을 제공할 수 있으며, 예시에서는 "[personal]"을 사용했습니다.
-
-## 결론
-이 튜토리얼에서는 GroupDocs.Redaction을 사용하여 **Java 문서를 레드랙션하는 방법**을 효과적으로 살펴보았습니다. 단계별 지침을 따르면 문서 무결성을 유지하면서 민감한 정보를 보호할 수 있습니다.
-
-### 다음 단계
-- 정규식, 이미지 레드랙션 등 라이브러리가 제공하는 다양한 레드랙션 유형을 실험해 보세요.  
-- 배치 처리나 클라우드 기반 서비스와 같은 대규모 워크플로에 GroupDocs.Redaction을 통합하십시오.
-
-**실행 요청:** 현재 진행 중인 Java 프로젝트에 이 솔루션을 적용해 보고 그 잠재력을 직접 확인해 보세요!
-
----
-
-**마지막 업데이트:** 2026-03-20  
-**테스트 환경:** GroupDocs.Redaction 24.9  
-**작성자:** GroupDocs
+- [GroupDocs를 사용한 Java PDF 가리기 및 민감 데이터 마스킹 방법](/redaction/java/advanced-redaction/master-document-redaction-java-groupdocs-redaction/)
+- [GroupDocs.Redaction for Java를 사용한 페이지 미리보기 – 종합 가이드](/redaction/java/document-loading/load-preview-document-pages-groupdocs-redaction-java/)
+- [GroupDocs.Redaction을 사용한 Java 텍스트 가리기 – 가이드](/redaction/java/text-redaction/text-redaction-java-groupdocs-redaction/)

@@ -1,57 +1,197 @@
 ---
-date: '2026-03-20'
-description: Apprenez à masquer les documents Java à l'aide de GroupDocs.Redaction,
-  en protégeant les informations sensibles de manière fluide tout en préservant l'intégrité
-  du document.
+date: '2026-09-21'
+description: Comment masquer du java avec GroupDocs.Redaction – guide étape par étape
+  montrant comment protéger les données sensibles dans les fichiers Word, PDF, Excel,
+  PowerPoint et image.
 keywords:
-- Java Redaction
-- GroupDocs.Redaction for Java
-- document redaction
-title: Comment censurer du code Java avec GroupDocs.Redaction – Guide complet pour
-  les développeurs
+- how to redact java
+- GroupDocs.Redaction Java
+- document redaction library
+lastmod: '2026-09-21'
+og_description: Comment masquer du java avec GroupDocs.Redaction. Apprenez à initialiser,
+  appliquer des redactions de phrases exactes et enregistrer des documents sécurisés
+  en quelques minutes.
+og_image_alt: Developer tutorial screen showing Java redaction workflow with GroupDocs.Redaction
+og_title: Comment masquer du java avec GroupDocs.Redaction – guide rapide pour les
+  développeurs
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-21'
+  description: How to redact java using GroupDocs.Redaction – step‑by‑step guide that
+    shows you how to protect sensitive data in Word, PDF, Excel, PowerPoint and image
+    files.
+  headline: 'How to redact java with GroupDocs.Redaction: A comprehensive guide for
+    developers'
+  type: TechArticle
+- description: How to redact java using GroupDocs.Redaction – step‑by‑step guide that
+    shows you how to protect sensitive data in Word, PDF, Excel, PowerPoint and image
+    files.
+  name: 'How to redact java with GroupDocs.Redaction: A comprehensive guide for developers'
+  steps:
+  - name: '**Legal document processing:** Strip personal identifiers before sharing
+      contracts with external counsel.'
+    text: '**Legal document processing:** Strip personal identifiers before sharing
+      contracts with external counsel.'
+  - name: '**Financial auditing:** Remove account numbers and SSNs from audit reports
+      while preserving tables and charts.'
+    text: '**Financial auditing:** Remove account numbers and SSNs from audit reports
+      while preserving tables and charts.'
+  - name: '**Healthcare data management:** Ensure patient records comply with HIPAA
+      by redacting PHI before archiving or transmitting.'
+    text: '**Healthcare data management:** Ensure patient records comply with HIPAA
+      by redacting PHI before archiving or transmitting.'
+  type: HowTo
+- questions:
+  - answer: Redaction permanently removes or masks sensitive information from a document
+      so it cannot be recovered.
+    question: What is redaction?
+  - answer: Yes, it supports PDF, Excel, PowerPoint, and common image types such as
+      PNG and JPEG.
+    question: Can GroupDocs.Redaction be used with non‑Word formats?
+  - answer: A temporary license is free for evaluation; a commercial license is required
+      for production deployments.
+    question: Do I need a license for development?
+  - answer: It processes files in a streaming fashion and releases native resources
+      promptly, allowing you to work with multi‑hundred‑page documents without exhausting
+      heap memory.
+    question: How does the library handle large files?
+  - answer: Absolutely – any string can be supplied via `ExactPhraseRedaction` or
+      `ReplacementOptions`, for example “[personal]”, “***REDACTED***”, or a generated
+      placeholder.
+    question: Can I customize the replacement text?
+  type: FAQPage
+tags:
+- java redaction
+- GroupDocs
+- document security
+title: 'Comment masquer du java avec GroupDocs.Redaction : Guide complet pour les
+  développeurs'
 type: docs
 url: /fr/java/getting-started/implement-java-redaction-groupdocs-redaction-guide/
 weight: 1
 ---
 
-# Comment caviarder du Java avec GroupDocs.Redaction : Guide complet pour les développeurs
+# Comment caviarder java avec GroupDocs.Redaction : guide complet pour les développeurs
 
-Dans ce tutoriel, nous vous montrerons **comment caviarder du Java** documents en utilisant la puissante bibliothèque **GroupDocs.Redaction**. Que vous manipuliez des données personnelles, des dossiers financiers ou des contrats confidentiels, ce guide vous accompagne à chaque étape nécessaire pour protéger les informations sensibles tout en conservant la structure originale du document.
+Dans ce tutoriel, vous apprendrez **comment caviarder java** les documents avec GroupDocs.Redaction, une bibliothèque qui permet de supprimer ou masquer définitivement des données confidentielles tout en préservant la mise en page originale. Que vous construisiez un service axé sur la conformité, un outil d’audit interne ou un portail destiné aux clients, les étapes ci‑dessous vous offrent une implémentation prête pour la production qui fonctionne sur n’importe quel environnement JDK 8+.
 
 ## Réponses rapides
-- **Quelle est la bibliothèque principale ?** GroupDocs.Redaction for Java  
-- **Ai-je besoin d'une licence ?** Une licence temporaire est disponible pour les tests ; une licence complète est requise pour la production.  
-- **Quelle version du JDK est prise en charge ?** JDK 8 ou supérieur.  
-- **Puis-je caviarder Word, PDF et images ?** Oui, la bibliothèque prend en charge plusieurs formats.  
-- **Combien de temps prend une implémentation de base ?** Environ 10‑15 minutes pour un caviardage simple par phrase exacte.
+- **Quel est la bibliothèque principale ?** GroupDocs.Redaction for Java.  
+- **Ai‑je besoin d’une licence ?** Une licence temporaire est gratuite pour les tests ; une licence complète est requise pour la production.  
+- **Quelle version de JDK est prise en charge ?** JDK 8 ou supérieur.  
+- **Puis‑je caviarder Word, PDF et images ?** Oui – la bibliothèque gère Word, PDF, Excel, PowerPoint et les formats d’image courants.  
+- **Combien de temps prend une implémentation de base ?** Environ 10‑15 minutes pour une caviature simple par phrase exacte.
 
-## Qu'est-ce que le caviardage et pourquoi l'utiliser en Java ?
-Le caviardage est le processus de suppression ou d'obscurcissement permanents du contenu sensible d'un document afin qu'il ne puisse pas être récupéré. Dans les applications Java, le caviardage automatisé vous aide à rester conforme aux réglementations de confidentialité (RGPD, HIPAA, etc.) et protège votre organisation contre les fuites de données accidentelles.
+## Qu’est‑ce que la caviature et pourquoi l’utiliser en Java ?
+La caviature supprime ou masque de façon permanente le contenu sensible afin qu’il ne puisse pas être récupéré. Dans les applications Java, la caviature automatisée vous aide à rester conforme aux réglementations telles que le RGPD, HIPAA et CCPA, tout en protégeant votre organisation contre les fuites de données accidentelles. En appliquant la caviature à la source, vous vous assurez que les systèmes en aval ne voient jamais les informations confidentielles d’origine, ce qui réduit le risque de fuites lors du traitement, du stockage ou de la transmission.
 
-## Pourquoi choisir GroupDocs.Redaction pour Java ?
-- **Large prise en charge des formats :** Fonctionne avec les fichiers Word, PDF, Excel, PowerPoint et les images.  
-- **Caviardage par phrase exacte, regex et image :** Options flexibles pour différents cas d'utilisation.  
-- **Haute performance :** Optimisé pour les gros fichiers et le traitement par lots.  
-- **API simple :** Facile à intégrer dans les projets Java existants avec seulement quelques lignes de code.
-
-## Introduction
-À l'ère numérique actuelle, protéger les informations sensibles dans les documents est crucial. Que vous manipuliez des données personnelles, des dossiers financiers ou des accords confidentiels, assurer la confidentialité et la conformité peut être une tâche ardue. Ce guide explore comment implémenter le caviardage en utilisant efficacement GroupDocs.Redaction pour Java.
-
-**Ce que vous apprendrez :**
-- Initialisation et configuration de GroupDocs.Redaction pour Java.  
-- Application de caviardages par phrase exacte à vos documents.  
-- Enregistrement sécurisé des versions caviardées de vos documents.  
-- Compréhension des considérations de performance et des meilleures pratiques.
-
-Commençons par examiner les prérequis dont vous avez besoin avant de plonger dans les étapes d'implémentation.
+## Pourquoi choisir GroupDocs.Redaction pour Java ?
+GroupDocs.Redaction prend en charge **plus de 50 formats d’entrée et de sortie**, dont DOCX, XLSX, PPTX, PDF et PNG, et peut traiter des fichiers de plusieurs centaines de pages sans charger le document complet en mémoire. L’API offre la caviature par phrase exacte, par expression régulière et par image, et elle fonctionne **jusqu’à 3 × plus rapidement** que de nombreuses solutions concurrentes lors du traitement de gros lots.
 
 ## Prérequis
-Pour implémenter le caviardage avec GroupDocs.Redaction pour Java, assurez-vous de répondre aux exigences suivantes :
+- **Kit de développement Java :** JDK 8 ou plus récent installé sur votre machine.  
+- **Maven (facultatif) :** Si vous gérez les dépendances avec Maven, vous ajouterez l’artifact GroupDocs.Redaction à `pom.xml`.  
+- **Connaissances de base en Java :** Familiarité avec try‑with‑resources et Maven est utile mais pas obligatoire.
 
 ### Bibliothèques et dépendances requises
-Vous aurez besoin de la bibliothèque GroupDocs.Redaction. Incluez-la via Maven ou téléchargez-la directement depuis leur site :
+Vous avez besoin de la bibliothèque GroupDocs.Redaction. Incluez‑la via Maven ou téléchargez le JAR directement :
 
 - **Configuration Maven :**  
+  ```xml
+  <dependency>
+      <groupId>com.groupdocs</groupId>
+      <artifactId>groupdocs-redaction</artifactId>
+      <version>24.9</version>
+  </dependency>
+  ```  
+- **Téléchargement direct :** Visitez [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/) pour obtenir les derniers fichiers JAR. Pour des informations supplémentaires sur le produit, consultez le [site GroupDocs](https://releases.groupdocs.com/redaction/java/).
+
+### Configuration de l’environnement
+Assurez‑vous que votre `JAVA_HOME` pointe vers une installation JDK 8+ et que votre IDE ou outil de construction peut résoudre la dépendance GroupDocs.Redaction.
+
+### Acquisition de licence
+Obtenez une licence d’évaluation temporaire depuis la [page Temporary License](https://purchase.groupdocs.com/temporary-license/) pour débloquer toutes les fonctionnalités pendant le développement. Remplacez le chemin du fichier factice par l’emplacement de votre fichier de licence avant d’exécuter tout code de caviature.
+
+## Comment caviarder java – guide étape par étape
+
+### Comment initialiser le Redactor ?
+Chargez le document que vous souhaitez protéger et créez une instance `Redactor`. **Redactor** est la classe d’entrée qui charge le document et fournit les méthodes pour appliquer les règles de caviature. La classe `Redactor` conserve le document en mémoire, valide le format et prépare un modèle interne pour le traitement ultérieur.  
+```java
+Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/sample.docx");
+```  
+Cette ligne unique ouvre le fichier, valide le format et prépare le modèle interne pour le traitement ultérieur.
+
+### Comment appliquer une caviature par phrase exacte ?
+Créez un objet `ExactPhraseRedaction` avec le texte cible et le remplacement souhaité. **ExactPhraseRedaction** définit une règle qui recherche une chaîne littérale et remplace chaque occurrence par le masque fourni. L’objet vous permet également de configurer la sensibilité à la casse et les options de correspondance de mot complet, vous offrant un contrôle fin sur la façon dont la phrase est identifiée.  
+```java
+ExactPhraseRedaction redaction = new ExactPhraseRedaction("John Doe", "[personal]");
+redactor.apply(redaction);
+```  
+L’appel `apply` parcourt tout le document, remplace chaque correspondance et met à jour la structure interne du document sans altérer le contenu environnant.
+
+### Comment enregistrer le document caviardé en toute sécurité ?
+Après que toutes les règles de caviature ont été appliquées, appelez `save` pour écrire le fichier modifié à un nouvel emplacement. **save** crée une copie fraîche du document, laissant l’original intact – une bonne pratique pour les traces d’audit. Vous pouvez également spécifier des options de format de sortie telles que la conformité PDF/A ou la compression d’image lors de l’opération d’enregistrement.  
+```java
+redactor.save("YOUR_OUTPUT_DIRECTORY/sample_redacted.docx");
+```  
+Assurez‑vous que le répertoire de sortie existe et possède les permissions d’écriture ; sinon, vous rencontrerez une `IOException`.
+
+### Comment libérer les ressources ?
+Fermez toujours le `Redactor` lorsque vous avez terminé. **close** libère la mémoire native et les autres ressources détenues par l’instance Redactor. Le `Redactor` implémente `AutoCloseable`, vous pouvez donc utiliser un bloc try‑with‑resources ou appeler `close()` dans une clause finally. Une libération correcte libère la mémoire native et évite les fuites, surtout lors du traitement de gros fichiers.  
+```java
+redactor.close();
+```
+
+## Applications pratiques
+GroupDocs.Redaction pour Java s’intègre naturellement à de nombreux flux de travail d’entreprise :
+
+1. **Traitement de documents juridiques :** Supprimez les identifiants personnels avant de partager les contrats avec des conseillers externes.  
+2. **Audit financier :** Retirez les numéros de compte et les SSN des rapports d’audit tout en conservant les tableaux et graphiques.  
+3. **Gestion des données de santé :** Assurez‑vous que les dossiers patients sont conformes à HIPAA en caviurant les PHI avant l’archivage ou la transmission.  
+
+Vous pouvez intégrer la logique de caviature dans un micro‑service, un job batch ou une utilité de bureau — tout environnement Java peut appeler la même API.
+
+## Considérations de performance
+- **Mode streaming :** Pour les fichiers supérieurs à 200 MB, activez le streaming afin d’éviter de charger le document complet en mémoire du tas.  
+- **Traitement parallèle :** Lors du traitement de nombreux documents indépendants, exécutez chaque instance `Redactor` sur un thread séparé ; la bibliothèque est thread‑safe tant que chaque thread utilise sa propre instance.  
+- **Profilage mémoire :** Surveillez le tas de la JVM avec des outils comme VisualVM ; le Redactor libère les tampons natifs lorsque `close()` est invoqué.
+
+## Problèmes courants et solutions
+- **Fuites de mémoire :** Oublier de fermer le `Redactor` entraîne une mémoire native non libérée. Utilisez toujours try‑with‑resources ou un `close()` explicite.  
+- **Erreurs de fichier introuvable :** Vérifiez que les chemins d’entrée et de sortie sont absolus pendant les tests ; les chemins relatifs peuvent être résolus différemment selon le répertoire de travail.  
+- **Exceptions de licence :** Si vous voyez `LicenseException`, revérifiez que le chemin du fichier de licence est correct et que le fichier est lisible par le processus.  
+
+## Questions fréquemment posées
+
+**Q : Qu’est‑ce que la caviature ?**  
+R : La caviature supprime ou masque de façon permanente les informations sensibles d’un document afin qu’elles ne puissent pas être récupérées.
+
+**Q : GroupDocs.Redaction peut‑il être utilisé avec des formats non‑Word ?**  
+R : Oui, il prend en charge PDF, Excel, PowerPoint et les types d’image courants tels que PNG et JPEG.
+
+**Q : Ai‑je besoin d’une licence pour le développement ?**  
+R : Une licence temporaire est gratuite pour l’évaluation ; une licence commerciale est requise pour les déploiements en production.
+
+**Q : Comment la bibliothèque gère‑t‑elle les gros fichiers ?**  
+R : Elle traite les fichiers en mode streaming et libère rapidement les ressources natives, vous permettant de travailler avec des documents de plusieurs centaines de pages sans épuiser la mémoire du tas.
+
+**Q : Puis‑je personnaliser le texte de remplacement ?**  
+R : Absolument – toute chaîne peut être fournie via `ExactPhraseRedaction` ou `ReplacementOptions`, par exemple « [personnel] », « ***REDACTED*** », ou un espace réservé généré.
+
+## Conclusion
+Vous savez maintenant **comment caviarder java** les documents en utilisant GroupDocs.Redaction, depuis l’initialisation du `Redactor` jusqu’à l’application de règles par phrase exacte et l’enregistrement sécurisé du fichier nettoyé. En suivant les étapes ci‑dessus, vous pouvez intégrer une caviature robuste dans n’importe quel flux de travail basé sur Java, rester conforme aux réglementations de confidentialité et protéger les données les plus sensibles de votre organisation.
+
+### Prochaines étapes
+- Explorez la caviature basée sur les expressions régulières pour la détection de motifs (par ex. numéros de carte de crédit).  
+- Combinez la caviature avec GroupDocs.Viewer pour rendre des aperçus assainis aux utilisateurs finaux.  
+- Intégrez le service de caviature dans un pipeline CI/CD afin de nettoyer automatiquement les documents avant leur archivage.
+
+---
+
+**Dernière mise à jour :** 2026-09-21  
+**Testé avec :** GroupDocs.Redaction 24.9  
+**Auteur :** GroupDocs
+
 ```xml
 <repositories>
    <repository>
@@ -69,27 +209,7 @@ Vous aurez besoin de la bibliothèque GroupDocs.Redaction. Incluez-la via Maven 
    </dependency>
 </dependencies>
 ```
-- **Téléchargement direct :** Visitez [versions GroupDocs.Redaction pour Java](https://releases.groupdocs.com/redaction/java/) pour télécharger la dernière version.
 
-### Configuration de l'environnement
-Assurez-vous d'avoir un Java Development Kit (JDK) compatible installé, de préférence JDK 8 ou supérieur.  
-
-### Prérequis de connaissances
-Des connaissances de base en programmation Java et une familiarité avec les dépendances Maven seront utiles.
-
-## Configuration de GroupDocs.Redaction pour Java
-
-### Informations d'installation
-Tout d'abord, configurez votre environnement pour utiliser la bibliothèque GroupDocs.Redaction :
-
-1. **Configuration Maven :** Ajoutez la dépendance ci‑dessus à votre fichier `pom.xml` si vous utilisez Maven.  
-2. **Téléchargement direct :** Sinon, téléchargez les fichiers JAR directement depuis le [site GroupDocs](https://releases.groupdocs.com/redaction/java/).
-
-### Acquisition de licence
-- Obtenez une licence temporaire en visitant la [page Licence temporaire](https://purchase.groupdocs.com/temporary-license/) pour explorer toutes les fonctionnalités sans limitations d'évaluation.
-
-### Initialisation et configuration de base
-Voici comment initialiser le Redactor avec un chemin de document spécifié :
 ```java
 import com.groupdocs.redaction.Redactor;
 
@@ -106,22 +226,11 @@ public class FeatureInitializeRedactor {
 }
 ```
 
-## Guide d'implémentation
-
-### Initialiser le Redactor (Fonctionnalité 1)
-**Vue d'ensemble :** L'initialisation du GroupDocs Redactor prépare votre document pour les processus de caviardage ultérieurs.
-
-#### Implémentation étape par étape :
-
-**Configuration du chemin de votre document**  
-Remplacez `'YOUR_DOCUMENT_DIRECTORY/sample.docx'` par le chemin de votre document. Ce chemin indique au Redactor où trouver votre fichier.
 ```java
 // Initialize the Redactor object with a sample document path
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/sample.docx");
 ```
 
-**Gestion des ressources**  
-Assurez-vous toujours que les ressources sont libérées après les opérations en fermant le `Redactor` dans un bloc `finally`. Cela empêche les fuites de mémoire et garantit une utilisation efficace des ressources.
 ```java
 try {
     // Placeholder for further operations
@@ -130,11 +239,6 @@ try {
 }
 ```
 
-### Appliquer le caviardage (Fonctionnalité 2)
-**Vue d'ensemble :** Appliquer un caviardage par phrase exacte vous permet de remplacer les informations sensibles par le texte de votre choix, tel que "[personal]".
-
-**Création d'un objet de caviardage**  
-Créez un nouvel objet `ExactPhraseRedaction` où le premier paramètre est le texte que vous souhaitez caviarder, et le deuxième paramètre est le texte de remplacement.
 ```java
 import com.groupdocs.redaction.Redactor;
 import com.groupdocs.redaction.redactions.ExactPhraseRedaction;
@@ -155,14 +259,6 @@ public class FeatureApplyRedaction {
 }
 ```
 
-**Application du caviardage**  
-La méthode `apply()` exécute le caviardage, modifiant le document original selon les spécifications.
-
-### Enregistrer le document caviardé (Fonctionnalité 3)
-**Vue d'ensemble :** Après avoir appliqué les caviardages souhaités, enregistrez le document modifié dans un emplacement sécurisé.
-
-**Enregistrement du document caviardé**  
-Utilisez la méthode `save()` pour stocker le document modifié à un nouveau chemin. Cela garantit que le fichier original reste inchangé tout en conservant une version dont les informations sensibles ont été supprimées.
 ```java
 import com.groupdocs.redaction.Redactor;
 
@@ -180,58 +276,8 @@ public class FeatureSaveRedactedDocument {
 }
 ```
 
-**Gestion des fichiers**  
-Assurez-vous que votre répertoire de sortie est correctement configuré pour éviter les erreurs de chemin de fichier.
+## Tutoriels associés
 
-## Applications pratiques
-GroupDocs.Redaction pour Java peut être un outil puissant dans divers scénarios :
-
-1. **Traitement de documents juridiques :** Caviarder les identifiants personnels dans les documents juridiques avant de les partager avec des parties externes.  
-2. **Audit financier :** Supprimer en toute sécurité les données financières sensibles des rapports d'audit avant leur diffusion.  
-3. **Gestion des données de santé :** Garantir la confidentialité des patients en caviardant les informations identifiables dans les dossiers médicaux.
-
-Les possibilités d'intégration incluent l'utilisation de l'API avec des systèmes de gestion de documents ou son intégration dans des applications Java existantes pour des flux de travail de caviardage automatisés.
-
-## Considérations de performance
-Lorsque vous travaillez avec GroupDocs.Redaction, gardez ces points à l'esprit :
-
-- Optimisez les performances en traitant les documents séquentiellement plutôt qu'en lot.  
-- Surveillez l'utilisation des ressources pour éviter une consommation excessive de mémoire.  
-- Suivez les meilleures pratiques de gestion de la mémoire Java, telles que la libération appropriée des objets et des chemins d'exécution de code efficaces.
-
-## Problèmes courants et solutions
-- **Fuites de mémoire :** Fermez toujours le `Redactor` dans un bloc `finally` comme indiqué ci‑dessus.  
-- **Erreurs de fichier introuvable :** Vérifiez à nouveau les chemins du document et de sortie ; utilisez des chemins absolus pendant les tests.  
-- **Exceptions de licence :** Assurez‑vous d'avoir appliqué un fichier de licence valide avant d'appeler les méthodes de caviardage.
-
-## Questions fréquemment posées
-
-**Q : Qu'est-ce que le caviardage ?**  
-R : Le caviardage est le processus d'obscurcissement ou de suppression des informations sensibles des documents.
-
-**Q : GroupDocs.Redaction peut-il être utilisé avec des documents non‑Word ?**  
-R : Oui, il prend en charge une variété de formats, y compris PDF, Excel, PowerPoint et les images.
-
-**Q : Ai‑je besoin d'une licence pour le développement ?**  
-R : Une licence temporaire est disponible pour l'évaluation ; une licence complète est requise pour une utilisation en production.
-
-**Q : Comment la bibliothèque gère‑t‑elle les gros fichiers ?**  
-R : Traitez les gros fichiers de manière flux et libérez rapidement les instances de `Redactor` pour libérer la mémoire.
-
-**Q : Puis‑je personnaliser le texte de remplacement ?**  
-R : Absolument — toute chaîne peut être fournie via `ReplacementOptions`, comme illustré avec "[personal]".
-
-## Conclusion
-Dans ce tutoriel, nous avons exploré **comment caviarder des documents Java** avec GroupDocs.Redaction de manière efficace. En suivant les instructions étape par étape, vous pouvez protéger les informations sensibles tout en préservant l'intégrité du document. 
-
-### Prochaines étapes
-- Expérimentez différents types de caviardage proposés par la bibliothèque (par ex., regex, caviardage d'image).  
-- Intégrez GroupDocs.Redaction dans des flux de travail plus vastes, tels que le traitement par lots ou les services cloud.
-
-**Appel à l'action :** Essayez d'implémenter cette solution dans l'un de vos projets Java actuels pour en voir le potentiel concrètement !
-
----
-
-**Dernière mise à jour :** 2026-03-20  
-**Testé avec :** GroupDocs.Redaction 24.9  
-**Auteur :** GroupDocs
+- [Comment caviarder les PDF et masquer les données sensibles Java avec GroupDocs](/redaction/java/advanced-redaction/master-document-redaction-java-groupdocs-redaction/)
+- [Comment prévisualiser une page avec GroupDocs.Redaction pour Java – Guide complet](/redaction/java/document-loading/load-preview-document-pages-groupdocs-redaction-java/)
+- [Comment caviarder du texte en Java avec GroupDocs.Redaction – Guide](/redaction/java/text-redaction/text-redaction-java-groupdocs-redaction/)

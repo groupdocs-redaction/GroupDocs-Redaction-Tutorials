@@ -1,48 +1,100 @@
 ---
-date: '2026-03-22'
-description: Tìm hiểu cách Java đọc siêu dữ liệu tệp, lấy loại tệp và đếm số trang
-  bằng GroupDocs.Redaction cho Java. Hướng dẫn từng bước kèm ví dụ mã.
+date: '2026-09-21'
+description: Tìm hiểu cách lấy loại tệp java và đọc metadata tệp java bằng GroupDocs.Redaction.
+  Trích xuất số trang, kích thước tệp và xử lý luồng một cách hiệu quả.
 keywords:
-- GroupDocs.Redaction Java
-- document metadata extraction
-- Java stream APIs
-title: java đọc siêu dữ liệu tệp – loại tệp với GroupDocs.Redaction
+- get file type java
+- read file metadata java
+- java get page count
+- read file size java
+- metadata extraction java
+lastmod: '2026-09-21'
+og_description: Lấy loại tệp java và đọc metadata tệp java nhanh chóng bằng GroupDocs.Redaction.
+  Hướng dẫn này chỉ cách trích xuất số trang, kích thước và các thông tin khác.
+og_image_alt: Guide to extracting file type and metadata in Java with GroupDocs.Redaction
+og_title: Lấy loại tệp java và đọc metadata với GroupDocs.Redaction
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-21'
+  description: Learn how to get file type java and read file metadata java using GroupDocs.Redaction.
+    Extract page count, file size, and process streams efficiently.
+  headline: Get file type java and read metadata with GroupDocs.Redaction
+  type: TechArticle
+- description: Learn how to get file type java and read file metadata java using GroupDocs.Redaction.
+    Extract page count, file size, and process streams efficiently.
+  name: Get file type java and read metadata with GroupDocs.Redaction
+  steps:
+  - name: open a file stream
+    text: Start by creating an `InputStream` for the target document. Using a buffered
+      stream improves I/O performance for large files.
+  - name: initialize the Redactor
+    text: Create a `Redactor` instance using the stream. This object gives you access
+      to the document’s metadata.
+  - name: retrieve document information
+    text: '**`IDocumentInfo` provides properties such as file type, page count, size,
+      and custom metadata.** > **Pro tip:** Uncomment the `System.out.println` lines
+      only when you need console output; keeping them commented in production reduces
+      I/O overhead.'
+  - name: close resources
+    text: Always close the `Redactor` and the stream in a `finally` block (as shown)
+      to avoid memory leaks, especially when processing many documents in parallel.
+  type: HowTo
+- questions:
+  - answer: Primarily for redacting sensitive content, it also provides robust APIs
+      to **java read document properties** such as file type and page count.
+    question: What is GroupDocs.Redaction used for?
+  - answer: Yes, the library works seamlessly with Spring, Jakarta EE, and plain Java
+      SE projects.
+    question: Can I use GroupDocs.Redaction with other Java frameworks?
+  - answer: Wrap the file stream in a `BufferedInputStream`, close resources promptly,
+      and process files in a streaming fashion rather than loading the entire document
+      into memory.
+    question: How do I handle very large documents efficiently?
+  - answer: Absolutely—GroupDocs.Redaction handles multiple languages and character
+      sets out of the box.
+    question: Does the library support non‑English documents?
+  - answer: Missing licenses, incorrect file paths, and forgetting to close streams
+      are the most common. Always follow the resource‑cleanup pattern shown above.
+    question: What are typical pitfalls when extracting metadata?
+  type: FAQPage
+tags:
+- get file type
+- GroupDocs.Redaction
+- Java metadata extraction
+- document processing
+- Java file handling
+title: Lấy loại tệp java và đọc metadata với GroupDocs.Redaction
 type: docs
 url: /vi/java/metadata-redaction/groupdocs-redaction-java-document-metadata-extraction/
 weight: 1
 ---
 
-# java read file metadata – Lấy loại tệp với GroupDocs.Redaction trong Java
+# Lấy loại tệp java và đọc siêu dữ liệu với GroupDocs.Redaction
 
-Trong các ứng dụng Java hiện đại, **java read file metadata** nhanh chóng—đặc biệt là loại tệp, số trang, kích thước và bất kỳ thuộc tính tùy chỉnh nào—là yếu tố quan trọng để xây dựng các pipeline quản lý tài liệu hoặc phân tích dữ liệu đáng tin cậy. Hướng dẫn này sẽ chỉ cho bạn cách đọc các thuộc tính đó bằng GroupDocs.Redaction, giải thích **cách lấy loại tệp java**, và cho bạn biết cách **java get page count** và **read file size java** một cách sạch sẽ, thân thiện với stream.
+Trong các ứng dụng Java hiện đại, **get file type java** nhanh chóng—cùng với số trang, kích thước tệp và bất kỳ thuộc tính tùy chỉnh nào—là điều cần thiết để xây dựng các pipeline quản lý tài liệu hoặc phân tích dữ liệu đáng tin cậy. Hướng dẫn này cho bạn cách **read file metadata java**, lấy loại tài liệu, và **java get page count** bằng API thân thiện với luồng của GroupDocs.Redaction.
 
-## Quick Answers
-- **Làm sao để lấy loại tệp của một tài liệu trong Java?** Sử dụng `redactor.getDocumentInfo().getFileType()`.  
-- **Thư viện nào xử lý việc trích xuất metadata và redaction cùng lúc?** GroupDocs.Redaction cho Java.  
-- **Có cần giấy phép cho việc phát triển không?** Bản dùng thử miễn phí đủ cho việc đánh giá; giấy phép vĩnh viễn cần thiết cho môi trường production.  
-- **Tôi có thể lấy số trang không?** Có, gọi `getPageCount()` trên đối tượng `IDocumentInfo`.  
-- **Cách tiếp cận này có tương thích với Java 8+ không?** Hoàn toàn—GroupDocs.Redaction hỗ trợ Java 8 và các phiên bản mới hơn.
+## Câu trả lời nhanh
+- **Làm sao tôi có thể lấy loại tệp của một tài liệu trong Java?** Call `redactor.getDocumentInfo().getFileType()`.  
+- **Thư viện nào trích xuất siêu dữ liệu và cũng hỗ trợ tẩy dữ liệu?** GroupDocs.Redaction for Java provides both capabilities in a single API.  
+- **Tôi có cần giấy phép cho việc phát triển không?** A free trial works for evaluation; a permanent license is required for production.  
+- **Tôi cũng có thể lấy số trang không?** Yes—use `getPageCount()` on the `IDocumentInfo` object.  
+- **Phương pháp này có tương thích với Java 8+ không?** Absolutely—GroupDocs.Redaction supports Java 8 and newer.
 
-## How to java read file metadata with GroupDocs.Redaction
-Hiểu các bước **java read file metadata** giúp bạn quyết định nơi đặt logic trong ứng dụng—cho dù là một micro‑service kiểm tra tải lên hay một batch job lập chỉ mục cho bộ sưu tập tài liệu lớn.
+## “get file type java” là gì và tại sao nó quan trọng?
+`getFileType()` trả về một enum thân thiện xác định định dạng tài liệu chính xác (ví dụ: PDF, DOCX, XLSX). Biết loại chính xác cho phép ứng dụng của bạn tự động chuyển tệp đến pipeline xử lý phù hợp, thực thi chính sách bảo mật dựa trên định dạng, tạo thumbnail đúng và hiển thị thông tin chính xác cho người dùng cuối trong danh sách UI.
 
-### What is “get file type java” and why does it matter?
-Khi bạn gọi `getFileType()` trên một tài liệu, thư viện sẽ kiểm tra header của tệp và trả về một enum thân thiện (ví dụ: **DOCX**, **PDF**, **XLSX**). Biết chính xác loại tệp cho phép bạn định tuyến tệp tới pipeline xử lý phù hợp, thực thi các chính sách bảo mật, hoặc chỉ đơn giản là hiển thị thông tin chính xác cho người dùng cuối.
+## Tại sao nên sử dụng GroupDocs.Redaction để java read document properties?
+GroupDocs.Redaction là một **all‑in‑one solution** xử lý tẩy dữ liệu, trích xuất siêu dữ liệu và chuyển đổi định dạng dưới một API duy nhất, thân thiện với luồng. Nó hỗ trợ **45+ input and output formats**, xử lý các tệp hàng trăm trang mà không cần tải toàn bộ tài liệu vào bộ nhớ, và tự động giải phóng tài nguyên khi đối tượng `Redactor` được đóng.
 
-### Why use GroupDocs.Redaction for java read document properties?
-- **All‑in‑one solution:** Redaction, metadata extraction, và format conversion đều nằm trong một API duy nhất.  
-- **Stream‑friendly:** Hoạt động trực tiếp với `InputStream`, vì vậy bạn có thể xử lý tệp từ đĩa, mạng, hoặc lưu trữ đám mây mà không cần tạo file tạm.  
-- **Performance‑tuned:** Dấu chân bộ nhớ tối thiểu và tự động dọn dẹp tài nguyên khi bạn đóng instance `Redactor`.  
+## Yêu cầu trước
+- GroupDocs.Redaction for Java (phiên bản 24.9 hoặc mới hơn).  
+- JDK 8 hoặc mới hơn.  
+- Kiến thức cơ bản về Java và quen thuộc với các luồng I/O file.
 
-## Prerequisites
-1. **GroupDocs.Redaction for Java** (phiên bản 24.9 hoặc mới hơn).  
-2. JDK 8 hoặc mới hơn.  
-3. Kiến thức Java cơ bản và quen thuộc với các stream I/O.
+## Cài đặt GroupDocs.Redaction cho Java
 
-## Setting Up GroupDocs.Redaction for Java
-
-### Maven Installation
-Thêm repository và dependency vào file `pom.xml` của bạn:
+### Cài đặt Maven
+Add the repository and dependency to your `pom.xml`:
 
 ```xml
 <repositories>
@@ -62,15 +114,17 @@ Thêm repository và dependency vào file `pom.xml` của bạn:
 </dependencies>
 ```
 
-### Direct Download
-Hoặc tải phiên bản mới nhất trực tiếp từ [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+### Tải trực tiếp
+Hoặc, tải phiên bản mới nhất trực tiếp từ [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
-### License Acquisition
-- **Free Trial:** Phù hợp để đánh giá API.  
-- **Temporary License:** Có sẵn trên trang chính thức cho việc thử nghiệm ngắn hạn.  
-- **Full License:** Mua khi bạn sẵn sàng đưa vào production.
+### Nhận giấy phép
+- **Free trial:** Lý tưởng để đánh giá API.  
+- **Temporary license:** Có sẵn trên trang chính thức cho việc thử nghiệm ngắn hạn.  
+- **Full license:** Mua khi bạn đã sẵn sàng sử dụng trong môi trường sản xuất.
 
-## Basic Initialization (Java)
+## Khởi tạo cơ bản (Java)
+
+**`Redactor` là lớp cốt lõi mở luồng tài liệu và cung cấp các tính năng siêu dữ liệu, tẩy dữ liệu và chuyển đổi.**  
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -81,24 +135,24 @@ final Redactor redactor = new Redactor(stream);
 // Proceed with document operations...
 ```
 
-## Step‑by‑step guide to retrieve metadata
+## Hướng dẫn từng bước để lấy siêu dữ liệu
 
-### Step 1: Open a File Stream
-Bắt đầu bằng việc tạo một `InputStream` cho tài liệu mục tiêu:
+### Bước 1: mở luồng tệp
+Start by creating an `InputStream` for the target document. Using a buffered stream improves I/O performance for large files.
 
 ```java
 FileInputStream stream = new FileInputStream("YOUR_DOCUMENT_DIRECTORY/Sample.docx");
 ```
 
-### Step 2: Initialize the Redactor
-Tạo một instance `Redactor` bằng stream. Đối tượng này cung cấp quyền truy cập vào metadata của tài liệu.
+### Bước 2: khởi tạo Redactor
+Create a `Redactor` instance using the stream. This object gives you access to the document’s metadata.
 
 ```java
 final Redactor redactor = new Redactor(stream);
 ```
 
-### Step 3: Retrieve Document Information
-Gọi `getDocumentInfo()` để nhận một đối tượng `IDocumentInfo`. Đây là nơi bạn **java read file metadata**, **java get document type**, **java get page count**, và thậm chí **read file size java**.
+### Bước 3: lấy thông tin tài liệu
+**`IDocumentInfo` cung cấp các thuộc tính như loại tệp, số trang, kích thước và siêu dữ liệu tùy chỉnh.**  
 
 ```java
 try {
@@ -117,55 +171,55 @@ Document size: " + info.getSize() + " bytes");
 }
 ```
 
-> **Pro tip:** Bỏ comment các dòng `System.out.println` chỉ khi bạn cần xuất ra console; để chúng ở trạng thái comment trong production sẽ giảm tải I/O.
+> **Pro tip:** Bỏ chú thích các dòng `System.out.println` chỉ khi bạn cần đầu ra console; giữ chúng được chú thích trong môi trường sản xuất sẽ giảm tải I/O.
 
-### Step 4: Close Resources
-Luôn đóng `Redactor` và stream trong khối `finally` (như trong ví dụ) để tránh rò rỉ bộ nhớ, đặc biệt khi xử lý nhiều tài liệu đồng thời.
+### Bước 4: đóng tài nguyên
+Luôn đóng `Redactor` và luồng trong khối `finally` (như trong ví dụ) để tránh rò rỉ bộ nhớ, đặc biệt khi xử lý nhiều tài liệu đồng thời.
 
-## Practical Applications (java read document properties)
+## Ứng dụng thực tiễn (java read document properties)
 
-1. **Document Management Systems:** Tự động phân loại tệp theo loại, số trang và kích thước.  
-2. **Data‑Analytics Pipelines:** Đưa metadata vào dashboard để báo cáo.  
-3. **Content‑Creation Platforms:** Hiển thị chi tiết tệp cho người dùng trước khi tải xuống hoặc xem trước.  
+1. **Document management systems:** Tự động danh mục hoá tệp theo loại, số trang và kích thước.  
+2. **Data‑analytics pipelines:** Đưa siêu dữ liệu vào bảng điều khiển để báo cáo.  
+3. **Content‑creation platforms:** Hiển thị chi tiết tệp cho người dùng cuối trước khi tải xuống hoặc xem trước.  
 
-## Performance Considerations
+## Các cân nhắc về hiệu năng
 - Sử dụng **buffered streams** (`BufferedInputStream`) cho các tệp lớn để cải thiện tốc độ I/O.  
-- Giải phóng tài nguyên kịp thời (`close()` cả `Redactor` và stream).  
-- Khi xử lý batch, cân nhắc tái sử dụng một instance `Redactor` duy nhất cho mỗi thread để giảm chi phí tạo đối tượng.
+- Giải phóng tài nguyên kịp thời (`close()` trên cả `Redactor` và luồng).  
+- Khi xử lý hàng loạt, cân nhắc tái sử dụng một đối tượng `Redactor` duy nhất cho mỗi luồng để giảm chi phí tạo đối tượng.
 
-## Common Issues & Solutions
-| Symptom | Likely Cause | Fix |
-|---------|--------------|-----|
-| `FileNotFoundException` | Đường dẫn không đúng hoặc tệp thiếu | Kiểm tra lại đường dẫn tuyệt đối/relative và quyền truy cập tệp. |
-| `LicenseException` | Không có giấy phép hợp lệ | Tải giấy phép trial hoặc mua trước khi tạo `Redactor`. |
-| `OutOfMemoryError` on large PDFs | Stream không được buffer hoặc xử lý quá nhiều tệp đồng thời | Chuyển sang `BufferedInputStream` và giới hạn số thread đồng thời. |
+## Các vấn đề thường gặp & giải pháp
+| Triệu chứng | Nguyên nhân có thể | Giải pháp |
+|------------|--------------------|----------|
+| `FileNotFoundException` | Đường dẫn không đúng hoặc tệp thiếu | Xác minh đường dẫn tuyệt đối/relative và quyền truy cập tệp. |
+| `LicenseException` | Không có giấy phép hợp lệ được tải | Tải giấy phép dùng thử hoặc mua trước khi tạo `Redactor`. |
+| `OutOfMemoryError` on large PDFs | Luồng không được buffer hoặc xử lý nhiều tệp đồng thời | Chuyển sang `BufferedInputStream` và giới hạn số luồng đồng thời. |
 
-## Frequently Asked Questions
+## Câu hỏi thường gặp
 
 **Q: GroupDocs.Redaction được dùng để làm gì?**  
-A: Chủ yếu để redaction nội dung nhạy cảm, nó cũng cung cấp API mạnh mẽ để **java read document properties** như loại tệp và số trang.
+A: Chủ yếu để tẩy dữ liệu nhạy cảm, nó cũng cung cấp các API mạnh mẽ để **java read document properties** như loại tệp và số trang.
 
-**Q: Tôi có thể dùng GroupDocs.Redaction với các framework Java khác không?**  
-A: Có, thư viện hoạt động liền mạch với Spring, Jakarta EE, và thậm chí các dự án Java SE thuần.
+**Q: Tôi có thể sử dụng GroupDocs.Redaction với các framework Java khác không?**  
+A: Có, thư viện hoạt động liền mạch với Spring, Jakarta EE và các dự án Java SE thuần.
 
-**Q: Làm sao để xử lý tài liệu rất lớn một cách hiệu quả?**  
-A: Đặt file stream trong một `BufferedInputStream`, đóng tài nguyên kịp thời, và cân nhắc xử lý theo kiểu streaming thay vì tải toàn bộ tài liệu vào bộ nhớ.
+**Q: Làm thế nào để xử lý các tài liệu rất lớn một cách hiệu quả?**  
+A: Bao bọc luồng tệp trong `BufferedInputStream`, đóng tài nguyên kịp thời, và xử lý tệp theo kiểu streaming thay vì tải toàn bộ tài liệu vào bộ nhớ.
 
 **Q: Thư viện có hỗ trợ tài liệu không phải tiếng Anh không?**  
-A: Hoàn toàn—GroupDocs.Redaction xử lý đa ngôn ngữ và bộ ký tự ngay từ đầu.
+A: Chắc chắn—GroupDocs.Redaction xử lý nhiều ngôn ngữ và bộ ký tự ngay từ đầu.
 
-**Q: Những cạm bẫy thường gặp khi trích xuất metadata là gì?**  
-A: Thiếu giấy phép, đường dẫn tệp sai, và quên đóng stream là những vấn đề phổ biến. Luôn tuân thủ mẫu dọn dẹp tài nguyên như trên.
+**Q: Những khó khăn thường gặp khi trích xuất siêu dữ liệu là gì?**  
+A: Thiếu giấy phép, đường dẫn tệp không đúng, và quên đóng luồng là những vấn đề phổ biến nhất. Luôn tuân theo mẫu dọn dẹp tài nguyên như trên.
 
-## Conclusion
-Bạn đã có một công thức hoàn chỉnh, sẵn sàng cho production để **java read file metadata**, đọc các thuộc tính tài liệu khác, và **java get page count** bằng GroupDocs.Redaction. Hãy tích hợp các đoạn mã này vào dịch vụ hiện có, và bạn sẽ có được cái nhìn ngay lập tức về mọi tài liệu đi qua hệ thống của mình.
+## Kết luận
+Bạn đã có một công thức hoàn chỉnh, sẵn sàng cho sản xuất để **get file type java**, đọc các thuộc tính tài liệu khác, và **java get page count** bằng GroupDocs.Redaction. Tích hợp các đoạn mã này vào dịch vụ hiện có, và bạn sẽ có khả năng nhìn thấy ngay mọi tài liệu đi qua hệ thống của mình.
 
-**Next Steps**  
-- Thử nghiệm các trường metadata khác mà `IDocumentInfo` cung cấp.  
-- Kết hợp trích xuất metadata với quy trình redaction để đạt bảo mật tài liệu đầu‑cuối.  
-- Khám phá các mẫu xử lý batch cho môi trường khối lượng lớn.
+**Next steps**  
+- Khám phá các trường bổ sung được `IDocumentInfo` cung cấp.  
+- Kết hợp việc trích xuất siêu dữ liệu với quy trình tẩy dữ liệu để bảo mật tài liệu đầu‑cuối.  
+- Nghiên cứu các mẫu xử lý hàng loạt cho môi trường khối lượng lớn.
 
-**Resources**  
+**Tài nguyên**  
 - [Documentation](https://docs.groupdocs.com/redaction/java/)  
 - [API Reference](https://reference.groupdocs.com/redaction/java)  
 - [Download GroupDocs.Redaction for Java](https://releases.groupdocs.com/redaction/java/)  
@@ -175,6 +229,12 @@ Bạn đã có một công thức hoàn chỉnh, sẵn sàng cho production đ�
 
 ---
 
-**Last Updated:** 2026-03-22  
-**Tested With:** GroupDocs.Redaction 24.9 for Java  
-**Author:** GroupDocs
+**Cập nhật lần cuối:** 2026-09-21  
+**Kiểm tra với:** GroupDocs.Redaction 24.9 for Java  
+**Tác giả:** GroupDocs
+
+## Hướng dẫn liên quan
+
+- [Lấy thông tin tài liệu bằng Groupdocs Redaction Java](/redaction/java/document-information/retrieve-document-info-using-groupdocs-redaction-java/)
+- [Tạo bản xem trước & Đếm số trang tài liệu – GroupDocs Java](/redaction/java/document-information/)
+- [Cách tẩy dữ liệu Metadata Java với GroupDocs.Redaction](/redaction/java/metadata-redaction/)
