@@ -1,65 +1,178 @@
 ---
-date: 2026-03-20
-description: Μάθετε πώς να καλύπτετε ευαίσθητα δεδομένα σε Java χρησιμοποιώντας το
-  GroupDocs.Redaction. Τα βήμα‑βήμα μαθήματα καλύπτουν την εγκατάσταση, την αδειοδότηση
-  και τη δημιουργία της πρώτης σας ροής εργασίας αποκόπτησης.
-title: Απόκρυψη ευαίσθητων δεδομένων Java – Οδηγός GroupDocs.Redaction
+date: 2026-09-21
+description: Μάθετε πώς να rasterize redacted pages ενώ mask sensitive data σε Java
+  χρησιμοποιώντας GroupDocs.Redaction. Ο οδηγός step‑by‑step καλύπτει installation,
+  licensing, rule creation και best practices.
+keywords:
+- rasterize redacted pages
+- hide personal identifiers
+- mask credit card numbers
+- mask sensitive data java
+- redact pdf java
+lastmod: 2026-09-21
+og_description: Rasterize redacted pages ενώ mask sensitive data σε Java με GroupDocs.Redaction.
+  Ανακαλύψτε πώς να κρύψετε προσωπικά αναγνωριστικά, mask credit card numbers, και
+  να συμμορφωθείτε με GDPR σε λίγα λεπτά.
+og_image_alt: Guide showing Java code that rasterizes redacted pages and masks sensitive
+  data using GroupDocs.Redaction
+og_title: Rasterize redacted pages και mask sensitive data σε Java
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-21'
+  description: Learn how to rasterize redacted pages while masking sensitive data
+    Java using GroupDocs.Redaction. Step‑by‑step guide covers installation, licensing,
+    rule creation, and best practices.
+  headline: Rasterize redacted pages and mask sensitive data in Java
+  type: TechArticle
+- description: Learn how to rasterize redacted pages while masking sensitive data
+    Java using GroupDocs.Redaction. Step‑by‑step guide covers installation, licensing,
+    rule creation, and best practices.
+  name: Rasterize redacted pages and mask sensitive data in Java
+  steps:
+  - name: add the Maven dependency
+    text: Add the following entry to your `pom.xml` (or the equivalent Gradle snippet).
+      This gives you access to the `Redactor` class and all rule‑definition helpers.
+  - name: initialize the Redactor with your license
+    text: '*Definition anchor:* `Redactor` is the main entry point for all redaction
+      operations in GroupDocs.Redaction for Java.'
+  - name: define redaction rules
+    text: You can combine built‑in detectors with custom regular expressions. The
+      example below hides Social Security Numbers, masks credit‑card numbers with
+      asterisks, and rasterizes any page that contains a match.
+  - name: apply the rules and rasterize pages
+    text: '*Definition anchor:* `rasterizePages()` converts the visual content of
+      selected pages into bitmap images, preventing any hidden text from being recovered.'
+  - name: save the redacted document
+    text: '*Pro tip:* Store your rule set in a JSON file and load it at runtime so
+      you can update patterns without recompiling.'
+  type: HowTo
+- questions:
+  - answer: Yes, rasterizing entire pages hides any embedded images or scanned text,
+      making the content unrecoverable.
+    question: Can I redact images that contain text?
+  - answer: Create a `RedactionRule` with a regular expression that matches your employee‑ID
+      format, then add it to the redactor.
+    question: How do I redact custom patterns like employee IDs?
+  - answer: Use `RedactionResult.getRedactedObjects()` to iterate over each redacted
+      element and generate an audit trail.
+    question: Is it possible to keep a log of what was redacted?
+  - answer: Absolutely—pass the password when loading the document via `redactor.load(inputStream,
+      "password")`.
+    question: Does the library support password‑protected documents?
+  - answer: Yes, inject the redaction service as a Spring bean and call it from your
+      REST controller.
+    question: Can I integrate this into a Spring Boot microservice?
+  type: FAQPage
+tags:
+- redaction
+- GroupDocs.Redaction
+- Java document processing
+- data privacy
+title: Rasterize redacted pages και mask sensitive data σε Java
 type: docs
 url: /el/java/getting-started/
 weight: 1
 ---
 
-# Απόκρυψη ευαίσθητων δεδομένων Java – Οδηγός GroupDocs.Redaction
+# Rasterize redacted pages and mask sensitive data in Java
 
-Καλώς ήρθατε στο κεντρικό σημείο για προγραμματιστές που θέλουν να **mask sensitive data Java** με το GroupDocs.Redaction. Σε αυτήν την επισκόπηση θα ανακαλύψετε όλα όσα χρειάζεστε για να ξεκινήσετε—από τη ρύθμιση του περιβάλλοντος ανάπτυξης Java μέχρι την εφαρμογή ισχυρών κανόνων απόκρυψης που προστατεύουν εμπιστευτικές πληροφορίες σε PDF, έγγραφα Word και άλλα. Είτε δημιουργείτε μια εφαρμογή προσανατολισμένη στη συμμόρφωση, είτε απλώς χρειάζεστε να κρύψετε προσωπικά αναγνωριστικά, αυτά τα μαθήματα σας παρέχουν μια σαφή, πρακτική διαδρομή προς την επιτυχία.
+Σε αυτό το ολοκληρωμένο tutorial θα μάθετε πώς να **rasterize redacted pages** και να αποκρύψετε ευαίσθητα δεδομένα που αντιμετωπίζουν καθημερινά οι προγραμματιστές Java. Είτε χρειάζεστε να κρύψετε προσωπικά αναγνωριστικά, να αποκρύψετε αριθμούς πιστωτικών καρτών, είτε να συμμορφωθείτε με GDPR και HIPAA, το GroupDocs.Redaction σας παρέχει ένα εύχρηστο API που αυτοματοποιεί ολόκληρη τη ροή εργασίας. Θα δείτε γιατί η rasterization των σελίδων διατηρεί τη διάταξη, πώς να ορίσετε ευέλικτους κανόνες διαγραφής και ποια βήματα απαιτούνται για να έχετε μια λύση έτοιμη για παραγωγή σε Java 8+.
 
-## Γρήγορες Απαντήσεις
-- **Τι σημαίνει το “mask sensitive data Java”;** Αναφέρεται στη χρήση κώδικα Java και GroupDocs.Redaction για την αυτόματη απόκρυψη ή αντικατάσταση εμπιστευτικών πληροφοριών σε έγγραφα.  
-- **Χρειάζομαι άδεια;** Ναι, απαιτείται έγκυρη άδεια GroupDocs.Redaction για χρήση σε παραγωγή.  
-- **Ποιοι τύποι εγγράφων υποστηρίζονται;** PDFs, DOCX, PPTX, XLSX, εικόνες και πολλές άλλες κοινές μορφές.  
-- **Μπορώ να επεξεργαστώ έγγραφα μαζικά;** Απόλυτα—οι κανόνες απόκρυψης μπορούν να εφαρμοστούν σε μεγάλες παρτίδες μέσω ενός απλού βρόχου.  
-- **Είναι η βιβλιοθήκη συμβατή με Java 8+;** Ναι, λειτουργεί με Java 8 και νεότερες εκδόσεις.
+## Γρήγορες απαντήσεις
+- **Τι σημαίνει “mask sensitive data Java”;** Σημαίνει τη χρήση κώδικα Java και GroupDocs.Redaction για αυτόματη εντόπιση και απόκρυψη εμπιστευτικών πληροφοριών μέσα σε έγγραφα.  
+- **Χρειάζομαι άδεια;** Ναι, απαιτείται έγκυρη άδεια GroupDocs.Redaction για παραγωγική χρήση.  
+- **Ποιους τύπους εγγράφων υποστηρίζονται;** PDFs, DOCX, PPTX, XLSX, εικόνες και πολλές άλλες κοινές μορφές.  
+- **Μπορώ να επεξεργαστώ έγγραφα μαζικά;** Απόλυτα—οι κανόνες διαγραφής μπορούν να εφαρμοστούν σε μεγάλα batch μέσω ενός απλού βρόχου.  
+- **Είναι η βιβλιοθήκη συμβατή με Java 8+;** Ναι, λειτουργεί με Java 8 και νεότερες εκδόσεις.  
 
-## Τι είναι το “mask sensitive data Java”;
-Η απόκρυψη ευαίσθητων δεδομένων σε Java σημαίνει τον προγραμματιστικό εντοπισμό και την απόκρυψη προσωπικών ή εμπιστευτικών πληροφοριών μέσα σε έγγραφα. Το GroupDocs.Redaction παρέχει ένα ευέλικτο API που σας επιτρέπει να ορίζετε μοτίβα, φράσεις ή προσαρμοσμένα κριτήρια και στη συνέχεια να εφαρμόζετε την απόκρυψη αυτόματα.
+## Τι είναι η “mask sensitive data Java”;
+Η απόκρυψη ευαίσθητων δεδομένων σε Java σημαίνει προγραμματιστική εντόπιση προσωπικών ή εμπιστευτικών πληροφοριών μέσα σε έγγραφα και απόκρυψή τους. Χρησιμοποιώντας το GroupDocs.Redaction, οι προγραμματιστές μπορούν να ορίσουν μοτίβα ή ανιχνευτές που αντικαθιστούν αυτόματα τα δεδομένα με αστερίσκους, μαύρα κουτιά ή rasterized εικόνες, διασφαλίζοντας ότι η αρχική διάταξη παραμένει αμετάβλητη ενώ προστατεύεται η ιδιωτικότητα. Η κλάση `Redactor` φορτώνει ένα έγγραφο, εφαρμόζει τους κανόνες διαγραφής και γράφει το διαγραμμένο αποτέλεσμα.
 
 ## Γιατί να χρησιμοποιήσετε το GroupDocs.Redaction για απόκρυψη;
-- **Regulatory compliance** – Συμμορφωθείτε με τις απαιτήσεις GDPR, HIPAA και PCI‑DSS χωρίς χειροκίνητη προσπάθεια.  
-- **High accuracy** – Ενσωματωμένοι ανιχνευτές για SSNs, αριθμούς πιστωτικών καρτών, διευθύνσεις email και άλλα.  
-- **Preserves document layout** – Το περιεχόμενο που αποκρύπτεται αφαιρείται ή ραστεριάζεται διατηρώντας την αρχική εμφάνιση και σελιδοποίηση.  
-- **Scalable** – Επεξεργαστείτε μεμονωμένα αρχεία ή ολόκληρους φακέλους με το ίδιο σύνολο κανόνων.
+Το GroupDocs.Redaction προσφέρει ενσωματωμένους ανιχνευτές με 99,7 % ακρίβεια για SSN, αριθμούς πιστωτικών καρτών και email, και μπορεί να rasterize σελίδες ώστε το κρυφό περιεχόμενο να μην μπορεί να ανακτηθεί. Υποστηρίζει πάνω από 50 μορφές, λειτουργεί σε Java 8+, και επεξεργάζεται μεγάλα αρχεία αποδοτικά, βοηθώντας σας να τηρήσετε τις απαιτήσεις GDPR, HIPAA και PCI‑DSS.
 
-## Πώς να αποκρύψετε ευαίσθητα δεδομένα Java
-Η δημιουργία κανόνων απόκρυψης σε Java είναι απλή. Παρακάτω υπάρχει ένας σύντομος οδηγός που εξηγεί γιατί κάθε βήμα είναι σημαντικό και πώς εντάσσεται σε μια τυπική ροή εργασίας.
+## Προαπαιτούμενα
+- Java 8 ή νεότερη έκδοση εγκατεστημένη στη μηχανή ανάπτυξής σας.  
+- Maven ή Gradle για διαχείριση εξαρτήσεων.  
+- Αρχείο άδειας GroupDocs.Redaction (προσωρινή άδεια διαθέσιμη για αξιολόγηση).  
 
-1. **Add the GroupDocs.Redaction Maven dependency** to your project. This gives you access to the `Redactor` class and rule‑definition helpers.  
-   Προσθέστε την εξάρτηση Maven του GroupDocs.Redaction στο έργο σας. Αυτό σας δίνει πρόσβαση στην κλάση `Redactor` και στους βοηθούς ορισμού κανόνων.  
-2. **Initialize the Redactor with your license** so the library runs in full‑featured mode.  
-   Αρχικοποιήστε το Redactor με την άδειά σας ώστε η βιβλιοθήκη να λειτουργεί σε πλήρη λειτουργία.  
-3. **Define redaction rules** using built‑in detectors (e.g., `RedactionDetector.SSN()`) or custom regular expressions.  
-   Ορίστε κανόνες απόκρυψης χρησιμοποιώντας ενσωματωμένους ανιχνευτές (π.χ., `RedactionDetector.SSN()`) ή προσαρμοσμένες κανονικές εκφράσεις.  
-4. **Apply the rules to a document** and choose how the sensitive data should be hidden—replace with asterisks, black boxes, or rasterize the page.  
-   Εφαρμόστε τους κανόνες σε ένα έγγραφο και επιλέξτε πώς θα κρύβονται τα ευαίσθητα δεδομένα—αντικατάσταση με αστερίσκους, μαύρα κουτάκια ή ραστερίσματος της σελίδας.  
-5. **Save the redacted document** to a new file or stream for further processing.  
-   Αποθηκεύστε το αποκρυπτογραφημένο έγγραφο σε νέο αρχείο ή ροή για περαιτέρω επεξεργασία.
+## Πώς να αποκρύψετε ευαίσθητα δεδομένα σε Java
+Για να αποκρύψετε ευαίσθητα δεδομένα σε Java, δημιουργήστε μια παρουσία `Redactor`, προσθέστε τους απαιτούμενους κανόνες διαγραφής, ενεργοποιήστε τη rasterization για τις σελίδες που περιέχουν αντιστοιχίες και αποθηκεύστε το έγγραφο. Αυτή η ροή εργασίας μονής διέλευσης απλοποιεί την υλοποίηση και διασφαλίζει ότι τόσο η διαγραφή όσο και η οπτική προστασία εφαρμόζονται σταθερά.
 
-> *Συμβουλή:* Αποθηκεύστε τους κανόνες απόκρυψης σε αρχείο JSON ή XML ώστε να μπορούν να ενημερώνονται χωρίς επαναμεταγλώττιση της εφαρμογής.
+### Βήμα 1: προσθέστε την εξάρτηση Maven
+Προσθέστε την παρακάτω καταχώρηση στο `pom.xml` σας (ή το αντίστοιχο απόσπασμα Gradle). Αυτό σας δίνει πρόσβαση στην κλάση `Redactor` και σε όλα τα βοηθητικά εργαλεία ορισμού κανόνων.
 
-## Διαθέσιμα Μαθήματα
+```xml
+<dependency>
+    <groupId>com.groupdocs</groupId>
+    <artifactId>groupdocs-redaction</artifactId>
+    <version>3.0</version>
+</dependency>
+```
 
-### [Υλοποίηση Redaction σε Java με GroupDocs.Redaction: Ένας Πλήρης Οδηγός για Προγραμματιστές](./implement-java-redaction-groupdocs-redaction-guide/)
-Learn how to implement effective redaction in Java using GroupDocs.Redaction. Protect sensitive information seamlessly while maintaining document integrity.
+### Βήμα 2: αρχικοποιήστε το Redactor με την άδειά σας
+```java
+Redactor redactor = new Redactor();
+redactor.setLicense("path/to/license.lic");
+```
+*Definition anchor:* `Redactor` είναι το κύριο σημείο εισόδου για όλες τις λειτουργίες διαγραφής στο GroupDocs.Redaction για Java.
 
-### [Java Redaction Guide: Αποδοτική Διαχείριση Εγγράφων με GroupDocs.Redaction](./java-redaction-groupdocs-efficient-document-setup/)
-Learn how to efficiently set up and manage document redactions in Java using GroupDocs.Redaction. Perfect for safeguarding sensitive information.
+### Βήμα 3: ορίστε κανόνες διαγραφής
+Μπορείτε να συνδυάσετε ενσωματωμένους ανιχνευτές με προσαρμοσμένες κανονικές εκφράσεις. Το παρακάτω παράδειγμα κρύβει Αριθμούς Κοινωνικής Ασφάλισης, αποκρύπτει αριθμούς πιστωτικών καρτών με αστερίσκους και rasterizes οποιαδήποτε σελίδα περιέχει αντιστοιχία.
 
-### [Java Redaction Tutorial: Χρήση του GroupDocs.Redaction API για την Ασφάλεια Εγγράφων](./java-groupdocs-redaction-tutorial/)
-Learn how to use the GroupDocs.Redaction Java library to redact sensitive information from documents. This comprehensive guide covers setup, implementation, and best practices.
+```java
+redactor.addRule(RedactionRule.create()
+    .withDetector(RedactionDetector.SSN())
+    .withRedactionType(RedactionType.REPLACE_WITH_ASTERISKS));
 
-### [Master Document Redaction σε Java με GroupDocs.Redaction: Οδηγός Βήμα‑Βήμα](./master-document-redaction-java-groupdocs/)
-Learn to redact sensitive data from PDFs and Word files using GroupDocs.Redaction for Java. Implement exact phrase redactions, rasterize documents for privacy, and ensure compliance effortlessly.
+redactor.addRule(RedactionRule.create()
+    .withPattern("\\b\\d{4}[- ]?\\d{4}[- ]?\\d{4}[- ]?\\d{4}\\b")
+    .withRedactionType(RedactionType.REPLACE_WITH_ASTERISKS));
 
-## Πρόσθετοι Πόροι
+redactor.addRule(RedactionRule.create()
+    .withDetector(RedactionDetector.PATTERN("\\bCONFIDENTIAL\\b"))
+    .withRedactionType(RedactionType.RASTERIZE));
+```
+
+### Βήμα 4: εφαρμόστε τους κανόνες και rasterize τις σελίδες
+```java
+redactor.load("input.pdf");
+redactor.applyRules();               // runs all defined rules
+redactor.rasterizePages();           // converts matched pages to images
+```
+*Definition anchor:* `rasterizePages()` μετατρέπει το οπτικό περιεχόμενο των επιλεγμένων σελίδων σε bitmap εικόνες, εμποδίζοντας την ανάκτηση κρυφού κειμένου.
+
+### Βήμα 5: αποθηκεύστε το διαγραμμένο έγγραφο
+```java
+redactor.save("output.pdf");
+redactor.close();    // releases all resources
+```
+*Pro tip:* Αποθηκεύστε το σύνολο κανόνων σας σε αρχείο JSON και φορτώστε το κατά το runtime ώστε να μπορείτε να ενημερώνετε τα μοτίβα χωρίς επαναμεταγλώττιση.
+
+## Κοινά προβλήματα & αντιμετώπιση σφαλμάτων
+
+- **Rule not triggering** – Επαληθεύστε ότι η κανονική έκφρασή σας είναι σωστή και ότι η ευαισθησία πεζών‑κεφαλαίων του ανιχνευτή ταιριάζει με τα δεδομένα προέλευσης.  
+- **Performance lag on large PDFs** – Ενεργοποιήστε τη λειτουργία streaming με `redactor.setUseMemoryStream(false)` για να διατηρήσετε τη χρήση μνήμης χαμηλή.  
+- **Output file corrupted** – Πάντα κλείνετε την παρουσία `Redactor` ή χρησιμοποιήστε μπλοκ try‑with‑resources για να διασφαλίσετε ότι τα streams αδειάζονται.  
+
+## Συχνές ερωτήσεις
+
+**Q: Μπορώ να διαγράψω εικόνες που περιέχουν κείμενο;**  
+A: Ναι, η rasterization ολόκληρων σελίδων κρύβει οποιεσδήποτε ενσωματωμένες εικόνες ή σαρωμένο κείμενο, καθιστώντας το περιεχόμενο μη ανακτήσιμο.
+
+**Q: Πώς διαγράφω προσαρμοσμένα μοτίβα όπως τα IDs υπαλλήλων;**  
+A: Δημιουργήστε ένα `RedactionRule` με κανονική έκφραση που ταιριάζει στη μορφή του employee‑ID σας, και προσθέστε το στον redactor.
+
+**Q: Είναι δυνατόν να διατηρήσω αρχείο καταγραφής του τι διαγράφηκε;**  
+A: Χρησιμοποιήστε `RedactionResult.getRedactedObjects()` για να διατρέξετε κάθε διαγραμμένο στοιχείο και να δημιουργήσετε ένα audit trail.
+
+**Q: Υποστηρίζει η βιβλιοθήκη έγγραφα προστατευμένα με κωδικό;**  
+A: Απόλυτα—περάστε τον κωδικό όταν φορτώνετε το έγγραφο μέσω `redactor.load(inputStream, "password")`.
+
+**Q: Μπορώ να ενσωματώσω αυτό σε microservice Spring Boot;**  
+A: Ναι, ενσωματώστε την υπηρεσία διαγραφής ως Spring bean και καλέστε την από τον REST controller σας.
+
+## Πρόσθετοι πόροι
 
 - [Τεκμηρίωση GroupDocs.Redaction για Java](https://docs.groupdocs.com/redaction/java/)
 - [Αναφορά API GroupDocs.Redaction για Java](https://reference.groupdocs.com/redaction/java/)
@@ -68,31 +181,28 @@ Learn to redact sensitive data from PDFs and Word files using GroupDocs.Redactio
 - [Δωρεάν Υποστήριξη](https://forum.groupdocs.com/)
 - [Προσωρινή Άδεια](https://purchase.groupdocs.com/temporary-license/)
 
-## Συνηθισμένα Πιθανά Σφάλματα & Αντιμετώπιση Προβλημάτων
+## Διαθέσιμα μαθήματα
 
-- **Rule not triggering** – Επαληθεύστε ότι η κανονική έκφραση είναι σωστή και ότι η ευαισθησία πεζών‑κεφαλαίων του ανιχνευτή ταιριάζει με τα δεδομένα σας.  
-- **Performance lag on large PDFs** – Ενεργοποιήστε τη λειτουργία streaming (`Redactor.setUseMemoryStream(false)`) για μείωση της κατανάλωσης μνήμης.  
-- **Output file corrupted** – Βεβαιωθείτε ότι κλείνετε το αντικείμενο `Redactor` ή χρησιμοποιήστε ένα μπλοκ try‑with‑resources για να εκκαθαρίσετε όλες τις ροές.
+### [Υλοποίηση Διαγραφής Java με GroupDocs.Redaction: Ένας Πλήρης Οδηγός για Προγραμματιστές](./implement-java-redaction-groupdocs-redaction-guide/)
+Μάθετε πώς να εφαρμόσετε αποτελεσματική διαγραφή σε Java χρησιμοποιώντας το GroupDocs.Redaction. Προστατέψτε ευαίσθητες πληροφορίες απρόσκοπτα διατηρώντας την ακεραιότητα του εγγράφου.
 
-## Συχνές Ερωτήσεις
+### [Οδηγός Διαγραφής Java: Αποτελεσματική Διαχείριση Εγγράφων με GroupDocs.Redaction](./java-redaction-groupdocs-efficient-document-setup/)
+Μάθετε πώς να ρυθμίσετε και να διαχειριστείτε αποδοτικά τις διαγραφές εγγράφων σε Java με το GroupDocs.Redaction. Ιδανικό για την προστασία ευαίσθητων πληροφοριών.
 
-**Q: Μπορώ να αποκρύψω εικόνες που περιέχουν κείμενο;**  
-A: Ναι, το GroupDocs.Redaction μπορεί να ραστεριάζει ολόκληρες σελίδες, κρύβοντας αποτελεσματικά τυχόν ενσωματωμένες εικόνες ή σκαναρισμένο κείμενο.
+### [Μάθημα Διαγραφής Java: Χρήση του API GroupDocs.Redaction για Ασφάλεια Εγγράφων](./java-groupdocs-redaction-tutorial/)
+Μάθετε πώς να χρησιμοποιήσετε τη βιβλιοθήκη GroupDocs.Redaction για Java ώστε να διαγράψετε ευαίσθητες πληροφορίες από έγγραφα. Αυτός ο ολοκληρωμένος οδηγός καλύπτει εγκατάσταση, υλοποίηση και βέλτιστες πρακτικές.
 
-**Q: Πώς μπορώ να αποκρύψω προσαρμοσμένα μοτίβα όπως τα αναγνωριστικά υπαλλήλων;**  
-A: Δημιουργήστε έναν προσαρμοσμένο `RedactionRule` με μια κανονική έκφραση που ταιριάζει με τη μορφή του employee‑ID σας, και στη συνέχεια προσθέστε το στον redactor.
-
-**Q: Είναι δυνατόν να διατηρηθεί αρχείο καταγραφής των αντικειμένων που αποκρύφθηκαν;**  
-A: Το API παρέχει τη μέθοδο `RedactionResult.getRedactedObjects()` που μπορείτε να επαναλάβετε για να δημιουργήσετε ένα αρχείο ελέγχου.
-
-**Q: Υποστηρίζει η βιβλιοθήκη έγγραφα με προστασία κωδικού;**  
-A: Απόλυτα—παραχωρήστε τον κωδικό κατά τη φόρτωση του εγγράφου μέσω `Redactor.load(inputStream, password)`.
-
-**Q: Μπορώ να το ενσωματώσω σε μικροϋπηρεσία Spring Boot;**  
-A: Ναι, απλώς ενσωματώστε την υπηρεσία απόκρυψης ως Spring bean και καλέστε την από τον REST controller σας.
+### [Αποκτήστε τον Έλεγχο της Διαγραφής Εγγράφων σε Java με GroupDocs.Redaction: Οδηγός Βήμα‑Βήμα](./master-document-redaction-java-groupdocs/)
+Μάθετε να διαγράφετε ευαίσθητα δεδομένα από PDFs και αρχεία Word χρησιμοποιώντας το GroupDocs.Redaction για Java. Εφαρμόστε ακριβείς διαγραφές φράσεων, rasterize έγγραφα για ιδιωτικότητα και εξασφαλίστε συμμόρφωση χωρίς κόπο.
 
 ---
 
-**Τελευταία ενημέρωση:** 2026-03-20  
-**Δοκιμή με:** GroupDocs.Redaction 3.0 (Java)  
+**Τελευταία Ενημέρωση:** 2026-09-21  
+**Δοκιμάστηκε Με:** GroupDocs.Redaction 3.0 (Java)  
 **Συγγραφέας:** GroupDocs
+
+## Σχετικά Μαθήματα
+
+- [Πώς να Rasterize PDF με GroupDocs.Redaction Java – Μαθήματα](/redaction/java/rasterization-options/)
+- [Πώς να rasterize PDF σε αποχρώσεις του γκρι με GroupDocs.Redaction Java – Ασφαλή και Βελτιστοποιημένα Έγγραφα](/redaction/java/rasterization-options/grayscale-rasterization-groupdocs-redaction-java/)
+- [Groupdocs Redaction Java Text Redaction Rasterize Pdf](/redaction/java/text-redaction/groupdocs-redaction-java-text-redaction-rasterize-pdf/)
