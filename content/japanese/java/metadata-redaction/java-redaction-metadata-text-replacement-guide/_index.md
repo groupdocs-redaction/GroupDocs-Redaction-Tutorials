@@ -1,45 +1,99 @@
 ---
-date: '2026-03-25'
-description: GroupDocs.Redaction を使用して Java でメタデータテキストを置換する方法を学びましょう。このステップバイステップガイドでは、セキュアなメタデータのリダクションとベストプラクティスを示します。
+date: '2026-09-26'
+description: Java metadata redaction チュートリアルでは、GroupDocs.Redaction を使用して metadata
+  テキストを置換する方法と、Java の hidden properties を安全に削除するためのヒントを紹介します。
 keywords:
-- Java metadata redaction
-- GroupDocs.Redaction for Java
+- java metadata redaction tutorial
+- remove hidden properties java
 - metadata text replacement
-title: Javaでメタデータテキストを置換 – GroupDocsによる安全な編集
+lastmod: '2026-09-26'
+og_description: Java metadata redaction チュートリアルでは、GroupDocs.Redaction を使用して metadata
+  テキストを置換する方法と、Java の hidden properties を安全に削除するためのヒントを紹介します。
+og_image_alt: Guide to replace metadata text in Java documents with GroupDocs.Redaction
+og_title: Java metadata redaction チュートリアル – メタデータテキストの置換
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-26'
+  description: Java metadata redaction tutorial shows how to replace metadata text
+    using GroupDocs.Redaction, plus tips for removing hidden properties java securely.
+  headline: Java metadata redaction tutorial – replace metadata text
+  type: TechArticle
+- description: Java metadata redaction tutorial shows how to replace metadata text
+    using GroupDocs.Redaction, plus tips for removing hidden properties java securely.
+  name: Java metadata redaction tutorial – replace metadata text
+  steps:
+  - name: '**Legal document management:** Clean drafts before sending them to opposing
+      counsel.'
+    text: '**Legal document management:** Clean drafts before sending them to opposing
+      counsel.'
+  - name: '**Compliance & privacy:** Strip personal identifiers to meet GDPR or HIPAA
+      requirements.'
+    text: '**Compliance & privacy:** Strip personal identifiers to meet GDPR or HIPAA
+      requirements.'
+  - name: '**Template processing:** Swap placeholder values without exposing original
+      corporate branding.'
+    text: '**Template processing:** Swap placeholder values without exposing original
+      corporate branding.'
+  type: HowTo
+- questions:
+  - answer: It’s a Java library that enables developers to locate and redact text,
+      images, and metadata across over 100 document formats.
+    question: What is GroupDocs.Redaction for Java?
+  - answer: Yes, the library supports PDFs, Word documents, spreadsheets, and many
+      other formats.
+    question: Can I use GroupDocs.Redaction with non‑text files?
+  - answer: Close the `Redactor` after each file, run batch jobs during low‑traffic
+      periods, and choose file types that are lightweight for metadata operations.
+    question: How do I handle large documents efficiently?
+  - answer: Legal redaction, privacy compliance, and automated template processing
+      are the most common scenarios.
+    question: What are typical use cases for replacing metadata text?
+  - answer: GroupDocs offers free support through their [forum](https://forum.groupdocs.com/c/redaction/33).
+    question: Where can I get help if I run into problems?
+  type: FAQPage
+tags:
+- metadata redaction
+- GroupDocs.Redaction
+- Java document processing
+title: Java metadata redaction チュートリアル – メタデータテキストの置換
 type: docs
 url: /ja/java/metadata-redaction/java-redaction-metadata-text-replacement-guide/
 weight: 1
 ---
 
-# replace metadata text java – GroupDocsによる安全な赤字処理
+# Java メタデータ削除チュートリアル – メタデータテキストの置換
 
-In today’s digital landscape, learning **replace metadata text java** is a critical skill for protecting confidential information hidden inside document properties. Whether you’re safeguarding contracts, personal records, or internal reports, removing or swapping sensitive metadata prevents accidental data leaks. In this tutorial you’ll discover how to redact metadata and replace metadata text using GroupDocs.Redaction for Java, from environment setup to saving the cleaned document.
+この **java metadata redaction tutorial** では、GroupDocs.Redaction を使用して Java ドキュメントのメタデータテキストを置換する方法を学びます。著者名、会社情報、カスタムフィールドなどの非表示プロパティを保護することは、GDPR、HIPAA、企業コンプライアンスにとって重要です。このガイドの最後までに、元のファイル形式を維持しながらすべての機密メタデータエントリをサニタイズする、実稼働可能なソリューションを手に入れることができます。
 
 ## クイック回答
-- **What library handles metadata redaction in Java?** GroupDocs.Redaction for Java.  
-- **Which primary method replaces text in metadata?** `MetadataSearchRedaction`.  
-- **Do I need a license for development?** A temporary license works for testing; a full license is required for production.  
-- **Can I keep the original file format after redaction?** Yes—set `saveOptions.setRasterizeToPDF(false)`.  
-- **Is batch processing supported?** Absolutely; just loop over files and reuse the same Redactor instance pattern.  
+- **Java でメタデータ削除を処理するライブラリは何ですか？** GroupDocs.Redaction for Java.  
+- **メタデータ内のテキストを置換する主なメソッドはどれですか？** `MetadataSearchRedaction`.  
+- **開発にライセンスは必要ですか？** テスト用には一時ライセンスで動作しますが、本番環境ではフルライセンスが必要です。  
+- **削除後に元のファイル形式を保持できますか？** はい—`saveOptions.setRasterizeToPDF(false)` を設定します。  
+- **バッチ処理はサポートされていますか？** もちろんです。ファイルをループし、同じ Redactor インスタンスパターンを再利用するだけです。  
 
-## replace metadata text javaとは？
-Redacting metadata means scanning a document’s hidden properties (author, company name, custom fields, etc.) and either removing or substituting sensitive values. Unlike visible content, metadata often travels unnoticed, so explicit redaction is essential for compliance with GDPR, HIPAA, and other privacy regulations.
+`MetadataSearchRedaction` は、ドキュメントのメタデータ内で指定されたテキストを検索し置換する削除ルールです。
 
-## なぜ replace metadata text を置換するのか？
-Replacing metadata text lets you keep the document structure intact while sanitizing confidential identifiers. This is especially useful when you need to share a draft with external partners but must hide internal project codes, vendor names, or personal identifiers.
+## replace metadata text java とは？
+
+Replace metadata text java は、ドキュメント内の非表示プロパティ値を見つけ、安全なプレースホルダーに置き換えるプロセスです。この操作は、本文には表示されませんがファイルに付随する著者、会社、カスタムフィールドなどのドキュメント属性を対象とします。
+
+## なぜメタデータテキストを置換するのか？
+
+内部識別子、プロジェクトコード、個人データを公開せずにドラフトを共有するためにメタデータテキストを置換します。この方法は、ドキュメントのレイアウト、ファイルタイプ、バージョン履歴を保持しつつ、受取側がファイルの非表示プロパティから機密情報を取得できないようにします。
 
 ## 前提条件
 
-- **GroupDocs.Redaction library** version 24.9 or later.  
-- **Java Development Kit (JDK)** installed (preferably JDK 11+).  
-- An IDE such as **IntelliJ IDEA** or **Eclipse**.  
-- Basic familiarity with Java (helpful but not mandatory).
+- **GroupDocs.Redaction ライブラリ** バージョン 24.9 以降（100 以上の形式をサポート）。
+- **Java Development Kit (JDK)** 11 以上。
+- **IntelliJ IDEA** や **Eclipse** などの IDE。
+- Java の基本的な知識（あると便利ですが必須ではありません）。
 
 ## GroupDocs.Redaction for Java の設定
 
 ### Maven 設定
 
-Add the GroupDocs repository and dependency to your `pom.xml`:
+`pom.xml` に GroupDocs リポジトリと依存関係を追加します:
 
 ```xml
 <repositories>
@@ -61,16 +115,16 @@ Add the GroupDocs repository and dependency to your `pom.xml`:
 
 ### 直接ダウンロード
 
-Alternatively, download the latest version from [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+または、最新バージョンを [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/) からダウンロードしてください。
 
 #### ライセンス取得手順
-- **Free Trial:** Explore core features at no cost.  
-- **Temporary License:** Use during development for full API access.  
-- **Purchase:** Obtain a production license from the GroupDocs website.
+- **無料トライアル:** コア機能を無料で試せます。  
+- **一時ライセンス:** 開発中にフル API アクセスを使用できます。  
+- **購入:** GroupDocs のウェブサイトから本番用ライセンスを取得してください。
 
 ### 基本的な初期化と設定
 
-Create a `Redactor` instance that points to the document you want to clean:
+`Redactor` クラスは、ドキュメントを読み込み、削除ルールを適用し、サニタイズされた出力を書き込むコアエントリーポイントです。クリーンアップしたいドキュメントを指す `Redactor` インスタンスを作成します:
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -83,9 +137,9 @@ final Redactor redactor = new Redactor(inputFilePath);
 
 ### メタデータテキスト置換機能
 
-Our goal is to replace every occurrence of “Company Ltd.” in any metadata field with the placeholder “--company--”.
+目的は、すべてのメタデータフィールド内の “Company Ltd.” の出現をプレースホルダー “--company--” に置換することです。
 
-#### 手順 1: 必要なクラスをインポート
+#### 手順 1: 必要なクラスのインポート
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -93,7 +147,7 @@ import com.groupdocs.redaction.options.SaveOptions;
 import com.groupdocs.redaction.redactions.MetadataSearchRedaction;
 ```
 
-#### 手順 2: 赤字処理と保存オプションを設定
+#### 手順 2: 削除と保存オプションの設定
 
 ```java
 String inputFilePath = "YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX";
@@ -117,62 +171,70 @@ try {
 ```
 
 #### トラブルシューティングのヒント
-- **File Not Found:** Double‑check the absolute paths for both input and output files.  
-- **Unsupported Format:** Verify that your document type is listed in the GroupDocs.Redaction supported formats table.  
+- **ファイルが見つかりません:** 入力および出力ファイルの絶対パスを再確認してください。  
+- **サポートされていない形式:** ドキュメントタイプが GroupDocs.Redaction のサポート形式表（100 以上の入力・出力形式）に記載されているか確認してください。  
 
 ## 実用的な応用例
 
-Replacing metadata text is valuable in many scenarios:
+メタデータテキストの置換は多くのシナリオで有用です:
 
-1. **Legal Document Management:** Clean drafts before sending them to opposing counsel.  
-2. **Compliance & Privacy:** Strip personal identifiers to meet GDPR or HIPAA requirements.  
-3. **Template Processing:** Swap placeholder values without exposing original corporate branding.
+1. **法務文書管理:** 相手方の弁護士に送る前にドラフトをクリーンアップします。  
+2. **コンプライアンスとプライバシー:** 個人識別子を除去し、GDPR や HIPAA の要件を満たします。  
+3. **テンプレート処理:** 元の企業ブランディングを公開せずにプレースホルダー値を置換します。
 
-## パフォーマンス考慮事項
+## パフォーマンス上の考慮点
 
-- Close each `Redactor` promptly (`redactor.close()`) to free memory.  
-- Schedule batch jobs during off‑peak hours to reduce server load.  
-- Prefer file formats that allow efficient metadata editing (e.g., DOCX over PDF when possible).
+大きなファイルやバッチを処理する際は:
+
+- 各 `Redactor` を速やかに閉じ (`redactor.close()`) メモリを解放します。  
+- サーバー負荷を減らすため、オフピーク時間にバッチジョブをスケジュールします。  
+- 効率的なメタデータ編集が可能なファイル形式を優先します（可能であれば PDF より DOCX など）。
 
 ## よくある問題と解決策
 
-| Issue | Solution |
+| 問題 | 解決策 |
 |-------|----------|
-| **Redaction not applied** | Ensure the exact text (“Company Ltd.”) matches case‑sensitivity; use regex options if needed. |
-| **Output file unchanged** | Verify `saveOptions.setAddSuffix(true)` adds a new file; check the output directory path. |
-| **Memory spikes** | Process files sequentially and dispose of the `Redactor` after each iteration. |
+| **削除が適用されません** | テキスト “Company Ltd.” が大文字小文字を正確に一致していることを確認してください。必要に応じて正規表現オプションを使用します。 |
+| **出力ファイルが変更されません** | `saveOptions.setAddSuffix(true)` が新しいファイルを作成しているか確認し、出力ディレクトリのパスをチェックしてください。 |
+| **メモリスパイク** | ファイルを順次処理し、各イテレーション後に `Redactor` を破棄してください。 |
 
 ## よくある質問
 
-**Q: What is GroupDocs.Redaction for Java?**  
-A: It’s a Java library that enables developers to locate and redact text, images, and metadata across over 100 document formats.
+**Q: GroupDocs.Redaction for Java とは何ですか？**  
+A: 100 以上のドキュメント形式にわたり、テキスト、画像、メタデータを検索・削除できる Java ライブラリです。
 
-**Q: Can I use GroupDocs.Redaction with non‑text files?**  
-A: Yes, the library supports PDFs, Word documents, spreadsheets, and many other formats.
+**Q: 非テキストファイルでも GroupDocs.Redaction を使用できますか？**  
+A: はい、PDF、Word 文書、スプレッドシートなど多数の形式をサポートしています。
 
-**Q: How do I handle large documents efficiently?**  
-A: Close the `Redactor` after each file, run batch jobs during low‑traffic periods, and choose file types that are lightweight for metadata operations.
+**Q: 大きなドキュメントを効率的に処理するには？**  
+A: 各ファイル処理後に `Redactor` を閉じ、トラフィックが少ない時間帯にバッチジョブを実行し、メタデータ操作に軽量なファイルタイプを選択してください。
 
-**Q: What are typical use cases for replacing metadata text?**  
-A: Legal redaction, privacy compliance, and automated template processing are the most common scenarios.
+**Q: メタデータテキスト置換の典型的なユースケースは何ですか？**  
+A: 法的削除、プライバシーコンプライアンス、そして自動テンプレート処理が最も一般的なシナリオです。
 
-**Q: Where can I get help if I run into problems?**  
-A: GroupDocs offers free support through their [forum](https://forum.groupdocs.com/c/redaction/33).
+**Q: 問題が発生した場合、どこでサポートを受けられますか？**  
+A: GroupDocs は [forum](https://forum.groupdocs.com/c/redaction/33) を通じて無料サポートを提供しています。
 
 ## 結論
 
-You now have a complete, production‑ready method for **replace metadata text java** and securely redact metadata in Java documents using GroupDocs.Redaction. By following the steps above, you can protect sensitive information hidden in document properties while preserving the original file format.
+これで、**replace metadata text java** の完全な実稼働可能な手法と、GroupDocs.Redaction を使用した Java ドキュメントのメタデータ安全な削除方法が手に入りました。上記の手順に従うことで、ドキュメントプロパティに隠された機密情報を保護しつつ、元のファイル形式を保持できます。
 
 **リソース**  
-- **ドキュメント:** Explore more at [GroupDocs.Redaction Documentation](https://docs.groupdocs.com/redaction/java/)  
-- **API Reference:** Detailed API information is available at [API Reference](https://reference.groupdocs.com/redaction/java)  
-- **Download:** Get the latest version from [Downloads](https://releases.groupdocs.com/redaction/java/)  
-- **GitHub:** Access source code on [GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
-- **Free Support:** Join discussions at [Support Forum](https://forum.groupdocs.com/c/redaction/33)  
-- **Temporary License:** Obtain a license for testing purposes from [Temporary License](https://purchase.groupdocs.com/temporary-license/)  
+- **ドキュメンテーション:** 詳細は [GroupDocs.Redaction Documentation](https://docs.groupdocs.com/redaction/java/) をご覧ください。  
+- **API リファレンス:** 詳細な API 情報は [API Reference](https://reference.groupdocs.com/redaction/java) にあります。  
+- **ダウンロード:** 最新バージョンは [Downloads](https://releases.groupdocs.com/redaction/java/) から取得できます。  
+- **GitHub:** ソースコードは [GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java) で入手できます。  
+- **無料サポート:** [Support Forum](https://forum.groupdocs.com/c/redaction/33) でディスカッションに参加してください。  
+- **一時ライセンス:** テスト用ライセンスは [Temporary License](https://purchase.groupdocs.com/temporary-license/) から取得してください。  
 
 ---
 
-**最終更新日:** 2026-03-25  
+**最終更新日:** 2026-09-26  
 **テスト環境:** GroupDocs.Redaction 24.9 for Java  
-**作者:** GroupDocs
+**著者:** GroupDocs
+
+## 関連チュートリアル
+
+- [GroupDocs.Redaction を使用した Java メタデータの削除方法](/redaction/java/metadata-redaction/metadata-redaction-groupdocs-java-guide/)
+- [Java で PDF メタデータを削除 – GroupDocs.Redaction チュートリアル](/redaction/java/pdf-specific-redaction/)
+- [Java 削除の実装 – GroupDocs Redaction ガイド](/redaction/java/getting-started/implement-java-redaction-groupdocs-redaction-guide/)

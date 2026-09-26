@@ -1,38 +1,91 @@
 ---
-date: '2026-03-25'
-description: Leer hoe je metadata‑tekst in Java kunt vervangen met GroupDocs.Redaction.
-  Deze stapsgewijze gids toont veilige metadata‑redactie en best practices.
+date: '2026-09-26'
+description: Java metadata redaction tutorial laat zien hoe je metadata-tekst vervangt
+  met GroupDocs.Redaction, plus tips voor het veilig verwijderen van hidden properties
+  java.
 keywords:
-- Java metadata redaction
-- GroupDocs.Redaction for Java
+- java metadata redaction tutorial
+- remove hidden properties java
 - metadata text replacement
-title: metadata‑tekst vervangen in Java – Veilige redactie met GroupDocs
+lastmod: '2026-09-26'
+og_description: Java metadata redaction tutorial laat zien hoe je metadata-tekst vervangt
+  met GroupDocs.Redaction, plus tips voor het veilig verwijderen van hidden properties
+  java.
+og_image_alt: Guide to replace metadata text in Java documents with GroupDocs.Redaction
+og_title: Java metadata redaction tutorial – vervang metadata-tekst
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-26'
+  description: Java metadata redaction tutorial shows how to replace metadata text
+    using GroupDocs.Redaction, plus tips for removing hidden properties java securely.
+  headline: Java metadata redaction tutorial – replace metadata text
+  type: TechArticle
+- description: Java metadata redaction tutorial shows how to replace metadata text
+    using GroupDocs.Redaction, plus tips for removing hidden properties java securely.
+  name: Java metadata redaction tutorial – replace metadata text
+  steps:
+  - name: '**Legal document management:** Clean drafts before sending them to opposing
+      counsel.'
+    text: '**Legal document management:** Clean drafts before sending them to opposing
+      counsel.'
+  - name: '**Compliance & privacy:** Strip personal identifiers to meet GDPR or HIPAA
+      requirements.'
+    text: '**Compliance & privacy:** Strip personal identifiers to meet GDPR or HIPAA
+      requirements.'
+  - name: '**Template processing:** Swap placeholder values without exposing original
+      corporate branding.'
+    text: '**Template processing:** Swap placeholder values without exposing original
+      corporate branding.'
+  type: HowTo
+- questions:
+  - answer: It’s a Java library that enables developers to locate and redact text,
+      images, and metadata across over 100 document formats.
+    question: What is GroupDocs.Redaction for Java?
+  - answer: Yes, the library supports PDFs, Word documents, spreadsheets, and many
+      other formats.
+    question: Can I use GroupDocs.Redaction with non‑text files?
+  - answer: Close the `Redactor` after each file, run batch jobs during low‑traffic
+      periods, and choose file types that are lightweight for metadata operations.
+    question: How do I handle large documents efficiently?
+  - answer: Legal redaction, privacy compliance, and automated template processing
+      are the most common scenarios.
+    question: What are typical use cases for replacing metadata text?
+  - answer: GroupDocs offers free support through their [forum](https://forum.groupdocs.com/c/redaction/33).
+    question: Where can I get help if I run into problems?
+  type: FAQPage
+tags:
+- metadata redaction
+- GroupDocs.Redaction
+- Java document processing
+title: Java metadata redaction tutorial – vervang metadata-tekst
 type: docs
 url: /nl/java/metadata-redaction/java-redaction-metadata-text-replacement-guide/
 weight: 1
 ---
 
-# replace metadata text java – Beveiligde Redactie met GroupDocs
+# Java-metadataredactie tutorial – metadata-tekst vervangen
 
-In het digitale landschap van vandaag is het leren van **replace metadata text java** een cruciale vaardigheid voor het beschermen van vertrouwelijke informatie die verborgen zit in documenteigenschappen. Of je nu contracten, persoonlijke dossiers of interne rapporten beveiligt, het verwijderen of vervangen van gevoelige metadata voorkomt accidentele datalekken. In deze tutorial ontdek je hoe je metadata kunt redigeren en metadata‑tekst kunt vervangen met GroupDocs.Redaction voor Java, van het opzetten van de omgeving tot het opslaan van het opgeschoonde document.
+In deze **java metadata redaction tutorial** leer je hoe je metadata-tekst vervangt in Java-documenten met GroupDocs.Redaction. Het beschermen van verborgen eigenschappen zoals auteursnamen, bedrijfsdetails of aangepaste velden is essentieel voor GDPR, HIPAA en bedrijfsnaleving. Aan het einde van deze gids heb je een productieklare oplossing die het oorspronkelijke bestandsformaat intact houdt terwijl elke gevoelige metadata‑invoer wordt gesaniteerd.
 
-## Snelle Antwoorden
-- **Welke bibliotheek behandelt metadata‑redactie in Java?** GroupDocs.Redaction for Java.  
+## Snelle antwoorden
+- **Welke bibliotheek verwerkt metadata‑redactie in Java?** GroupDocs.Redaction for Java.  
 - **Welke primaire methode vervangt tekst in metadata?** `MetadataSearchRedaction`.  
 - **Heb ik een licentie nodig voor ontwikkeling?** Een tijdelijke licentie werkt voor testen; een volledige licentie is vereist voor productie.  
 - **Kan ik het oorspronkelijke bestandsformaat behouden na redactie?** Ja—stel `saveOptions.setRasterizeToPDF(false)` in.  
 - **Wordt batchverwerking ondersteund?** Absoluut; loop gewoon over bestanden en hergebruik hetzelfde Redactor‑instance‑patroon.  
 
+`MetadataSearchRedaction` is een redactie‑regel die opgegeven tekst binnen documentmetadata vindt en vervangt.
+
 ## Wat is replace metadata text java?
-Metadata redigeren betekent het scannen van de verborgen eigenschappen van een document (auteur, bedrijfsnaam, aangepaste velden, enz.) en het verwijderen of vervangen van gevoelige waarden. In tegenstelling tot zichtbare inhoud, reist metadata vaak onopgemerkt, dus expliciete redactie is essentieel voor naleving van GDPR, HIPAA en andere privacy‑regelgeving.
+Replace metadata text java is het proces waarbij verborgen eigenschapswaarden in een document worden opgespoord en vervangen door een veilig tijdelijke aanduiding. Deze bewerking richt zich op documentattributen zoals auteur, bedrijf en aangepaste velden die niet zichtbaar zijn in de hoofdinhoud maar met het bestand meereizen.
 
 ## Waarom metadata‑tekst vervangen?
-Het vervangen van metadata‑tekst stelt je in staat de documentstructuur intact te houden terwijl vertrouwelijke identificatoren worden gesanitiseerd. Dit is vooral nuttig wanneer je een concept moet delen met externe partners maar interne projectcodes, leveranciersnamen of persoonlijke identificatoren moet verbergen.
+Je vervangt metadata‑tekst om een concept te delen zonder interne identifiers, projectcodes of persoonlijke gegevens bloot te stellen. De aanpak behoudt de lay-out, het bestandstype en de versiegeschiedenis van het document, terwijl ervoor wordt gezorgd dat een downstream‑ontvanger geen vertrouwelijke informatie uit de verborgen eigenschappen van het bestand kan halen.
 
 ## Vereisten
 
-- **GroupDocs.Redaction bibliotheek** versie 24.9 of later.  
-- **Java Development Kit (JDK)** geïnstalleerd (bij voorkeur JDK 11+).  
+- **GroupDocs.Redaction library** versie 24.9 of later (ondersteunt 100+ formaten).  
+- **Java Development Kit (JDK)** 11 of nieuwer.  
 - Een IDE zoals **IntelliJ IDEA** of **Eclipse**.  
 - Basiskennis van Java (handig maar niet verplicht).
 
@@ -40,7 +93,7 @@ Het vervangen van metadata‑tekst stelt je in staat de documentstructuur intact
 
 ### Maven-configuratie
 
-Voeg de GroupDocs-repository en afhankelijkheid toe aan je `pom.xml`:
+Add the GroupDocs repository and dependency to your `pom.xml`:
 
 ```xml
 <repositories>
@@ -64,14 +117,14 @@ Voeg de GroupDocs-repository en afhankelijkheid toe aan je `pom.xml`:
 
 Alternatief kun je de nieuwste versie downloaden van [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
-#### Stappen voor het verkrijgen van een licentie
-- **Gratis proefversie:** Verken de kernfuncties zonder kosten.  
-- **Tijdelijke licentie:** Gebruik tijdens ontwikkeling voor volledige API-toegang.  
-- **Aankoop:** Verkrijg een productielicentie via de GroupDocs-website.
+#### Stappen voor licentie‑acquisitie
+- **Free trial:** Verken kernfuncties zonder kosten.  
+- **Temporary license:** Gebruik tijdens ontwikkeling voor volledige API-toegang.  
+- **Purchase:** Verkrijg een productielicentie via de GroupDocs-website.
 
-### Basisinitialisatie en -instelling
+### Basisinitialisatie en -configuratie
 
-Maak een `Redactor`-instance aan die verwijst naar het document dat je wilt opschonen:
+De `Redactor`‑klasse is het kern‑instappunt dat een document laadt, redactie‑regels toepast en de gesaniteerde output schrijft. Maak een `Redactor`‑instance die naar het document wijst dat je wilt opschonen:
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -80,13 +133,13 @@ String inputFilePath = "YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX";
 final Redactor redactor = new Redactor(inputFilePath);
 ```
 
-## Implementatiegids
+## Implementatie‑gids
 
-### Functie voor het vervangen van metadata‑tekst
+### Functie voor metadata‑tekstvervanging
 
-Ons doel is elke vermelding van “Company Ltd.” in een metadata‑veld te vervangen door de tijdelijke aanduiding “--company--”.
+Ons doel is om elke vermelding van “Company Ltd.” in elk metadata‑veld te vervangen door de tijdelijke aanduiding “--company--”.
 
-#### Stap 1: Importeer benodigde klassen
+#### Stap 1: importeer benodigde klassen
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -94,7 +147,7 @@ import com.groupdocs.redaction.options.SaveOptions;
 import com.groupdocs.redaction.redactions.MetadataSearchRedaction;
 ```
 
-#### Stap 2: Configureer redactie‑ en opslaan‑opties
+#### Stap 2: configureer redactie‑ en opslaan‑opties
 
 ```java
 String inputFilePath = "YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX";
@@ -118,18 +171,18 @@ try {
 ```
 
 #### Tips voor probleemoplossing
-- **Bestand niet gevonden:** Controleer de absolute paden voor zowel invoer‑ als uitvoerbestanden.  
-- **Niet‑ondersteund formaat:** Verifieer dat je documenttype voorkomt in de tabel met ondersteunde formaten van GroupDocs.Redaction.  
+- **File not found:** Controleer de absolute paden voor zowel input‑ als output‑bestanden.  
+- **Unsupported format:** Verifieer dat jouw documenttype voorkomt in de tabel met ondersteunde formaten van GroupDocs.Redaction (meer dan 100 invoer‑ en uitvoerformaten).  
 
 ## Praktische toepassingen
 
 Het vervangen van metadata‑tekst is waardevol in veel scenario's:
 
-1. **Juridisch documentbeheer:** Maak concepten schoon voordat je ze naar de tegenpartij stuurt.  
-2. **Naleving & privacy:** Verwijder persoonlijke identificatoren om te voldoen aan GDPR‑ of HIPAA‑vereisten.  
-3. **Sjabloonverwerking:** Wissel tijdelijke waarden uit zonder de oorspronkelijke bedrijfsbranding bloot te stellen.
+1. **Legal document management:** Maak concepten schoon voordat je ze naar de tegenpartij stuurt.  
+2. **Compliance & privacy:** Verwijder persoonlijke identifiers om te voldoen aan GDPR‑ of HIPAA‑vereisten.  
+3. **Template processing:** Wissel tijdelijke waarden uit zonder de oorspronkelijke bedrijfsbranding bloot te stellen.
 
-## Prestatieoverwegingen
+## Prestatie‑overwegingen
 
 Bij het verwerken van grote bestanden of batches:
 
@@ -141,9 +194,9 @@ Bij het verwerken van grote bestanden of batches:
 
 | Probleem | Oplossing |
 |----------|-----------|
-| **Redactie niet toegepast** | Zorg ervoor dat de exacte tekst (“Company Ltd.”) hoofdlettergevoelig overeenkomt; gebruik regex‑opties indien nodig. |
-| **Uitvoerbestand ongewijzigd** | Controleer of `saveOptions.setAddSuffix(true)` een nieuw bestand toevoegt; controleer het pad van de uitvoermap. |
-| **Geheugenspikes** | Verwerk bestanden sequentieel en verwijder de `Redactor` na elke iteratie. |
+| **Redaction not applied** | Zorg ervoor dat de exacte tekst (“Company Ltd.”) hoofdlettergevoelig overeenkomt; gebruik regex‑opties indien nodig. |
+| **Output file unchanged** | Controleer of `saveOptions.setAddSuffix(true)` een nieuw bestand toevoegt; controleer het pad van de output‑directory. |
+| **Memory spikes** | Verwerk bestanden opeenvolgend en verwijder de `Redactor` na elke iteratie. |
 
 ## Veelgestelde vragen
 
@@ -151,31 +204,37 @@ Bij het verwerken van grote bestanden of batches:
 A: Het is een Java‑bibliotheek die ontwikkelaars in staat stelt tekst, afbeeldingen en metadata te lokaliseren en te redigeren in meer dan 100 documentformaten.
 
 **Q: Kan ik GroupDocs.Redaction gebruiken met niet‑tekstbestanden?**  
-A: Ja, de bibliotheek ondersteunt PDF’s, Word‑documenten, spreadsheets en vele andere formaten.
+A: Ja, de bibliotheek ondersteunt PDF's, Word‑documenten, spreadsheets en vele andere formaten.
 
 **Q: Hoe ga ik efficiënt om met grote documenten?**  
-A: Sluit de `Redactor` na elk bestand, voer batch‑taken uit tijdens perioden met weinig verkeer, en kies bestandstypen die lichtgewicht zijn voor metadata‑bewerkingen.
+A: Sluit de `Redactor` na elk bestand, voer batch‑taken uit tijdens periodes met weinig verkeer, en kies bestandstypen die lichtgewicht zijn voor metadata‑operaties.
 
-**Q: Wat zijn typische use‑cases voor het vervangen van metadata‑tekst?**  
-A: Juridische redactie, privacy‑naleving en geautomatiseerde sjabloonverwerking zijn de meest voorkomende scenario's.
+**Q: Wat zijn typische use cases voor het vervangen van metadata‑tekst?**  
+A: Juridische redactie, privacy‑naleving en geautomatiseerde template‑verwerking zijn de meest voorkomende scenario's.
 
-**Q: Waar kan ik hulp krijgen als ik problemen ondervind?**  
+**Q: Waar kan ik hulp krijgen als ik tegen problemen aanloop?**  
 A: GroupDocs biedt gratis ondersteuning via hun [forum](https://forum.groupdocs.com/c/redaction/33).
 
 ## Conclusie
 
-Je hebt nu een volledige, productie‑klare methode voor **replace metadata text java** en kun metadata veilig redigeren in Java‑documenten met GroupDocs.Redaction. Door de bovenstaande stappen te volgen, kun je gevoelige informatie die verborgen is in documenteigenschappen beschermen terwijl je het oorspronkelijke bestandsformaat behoudt.
+Je hebt nu een complete, productieklare methode voor **replace metadata text java** en kun veilig metadata redigeren in Java-documenten met GroupDocs.Redaction. Door de bovenstaande stappen te volgen kun je gevoelige informatie die verborgen is in documenteigenschappen beschermen terwijl je het oorspronkelijke bestandsformaat behoudt.
 
-**Bronnen**  
-- **Documentatie:** Ontdek meer op [GroupDocs.Redaction Documentation](https://docs.groupdocs.com/redaction/java/)  
-- **API‑referentie:** Gedetailleerde API‑informatie is beschikbaar op [API Reference](https://reference.groupdocs.com/redaction/java)  
-- **Download:** Haal de nieuwste versie op via [Downloads](https://releases.groupdocs.com/redaction/java/)  
+**Resources**  
+- **Documentation:** Verken meer op [GroupDocs.Redaction Documentation](https://docs.groupdocs.com/redaction/java/)  
+- **API reference:** Gedetailleerde API‑informatie is beschikbaar op [API Reference](https://reference.groupdocs.com/redaction/java)  
+- **Download:** Download de nieuwste versie van [Downloads](https://releases.groupdocs.com/redaction/java/)  
 - **GitHub:** Toegang tot de broncode op [GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
-- **Gratis ondersteuning:** Doe mee aan discussies op [Support Forum](https://forum.groupdocs.com/c/redaction/33)  
-- **Tijdelijke licentie:** Verkrijg een licentie voor testdoeleinden via [Temporary License](https://purchase.groupdocs.com/temporary-license/)  
+- **Free support:** Doe mee aan discussies op [Support Forum](https://forum.groupdocs.com/c/redaction/33)  
+- **Temporary license:** Verkrijg een licentie voor testdoeleinden via [Temporary License](https://purchase.groupdocs.com/temporary-license/)  
 
 ---
 
-**Laatst bijgewerkt:** 2026-03-25  
-**Getest met:** GroupDocs.Redaction 24.9 for Java  
-**Auteur:** GroupDocs
+**Last Updated:** 2026-09-26  
+**Tested with:** GroupDocs.Redaction 24.9 for Java  
+**Author:** GroupDocs
+
+## Gerelateerde tutorials
+
+- [Hoe metadata verwijderen in Java met GroupDocs.Redaction](/redaction/java/metadata-redaction/metadata-redaction-groupdocs-java-guide/)
+- [pdf-metadata verwijderen java – GroupDocs.Redaction tutorial](/redaction/java/pdf-specific-redaction/)
+- [Java Redaction implementeren GroupDocs Redaction gids](/redaction/java/getting-started/implement-java-redaction-groupdocs-redaction-guide/)
