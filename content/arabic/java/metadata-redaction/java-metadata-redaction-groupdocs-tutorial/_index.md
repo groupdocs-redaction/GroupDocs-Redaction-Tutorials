@@ -1,44 +1,110 @@
 ---
-date: '2026-03-22'
-description: تعلم كيفية تنفيذ حذف البيانات الوصفية باستخدام GroupDocs في Java، وإزالة
-  بيانات المستند السرية بأمان باستخدام GroupDocs.Redaction.
+date: '2026-09-26'
+description: تعلم كيفية إزالة metadata باستخدام GroupDocs في Java، مع حذف metadata
+  للوثائق document confidential بأمان مع الحفاظ على original format دون تغيير.
 keywords:
-- metadata redaction Java
-- GroupDocs Redaction tutorial
-- secure document metadata
-title: كيفية تنفيذ إخفاء البيانات الوصفية باستخدام GroupDocs في Java
+- how to redact metadata
+- GroupDocs Redaction Java
+- secure document processing
+- metadata removal Java
+lastmod: '2026-09-26'
+og_description: كيفية إزالة metadata باستخدام GroupDocs في Java – دليل خطوة بخطوة
+  يوضح لك كيفية حذف metadata للوثائق document confidential بأمان والحفاظ على original
+  format.
+og_image_alt: Guide showing metadata redaction using GroupDocs in Java
+og_title: كيفية إزالة metadata باستخدام GroupDocs في Java
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-26'
+  description: Learn how to redact metadata with GroupDocs in Java, securely removing
+    confidential document metadata while keeping the original format intact.
+  headline: How to redact metadata with GroupDocs in Java
+  type: TechArticle
+- description: Learn how to redact metadata with GroupDocs in Java, securely removing
+    confidential document metadata while keeping the original format intact.
+  name: How to redact metadata with GroupDocs in Java
+  steps:
+  - name: import necessary classes
+    text: These imports give you access to the redaction engine, save options, and
+      metadata utilities.
+  - name: initialize redactor
+    text: Instantiate the `Redactor` with the path to your source file.
+  - name: configure metadata search and redaction
+    text: Create a `MetadataSearchRedaction` that looks for the exact string **"Company
+      Ltd."** and replaces it with **"--company--"**. The `setFilter` call limits
+      the operation to the *Company* metadata field only.
+  - name: apply the redaction
+    text: Run the redaction against the opened document.
+  - name: save with custom options
+    text: '`SaveOptions` allows you to specify output format, file naming, and other
+      saving parameters for the redacted document. Configure `SaveOptions` so the
+      redacted file gets a “_Redacted” suffix while preserving its original format.'
+  - name: release resources
+    text: Always close the `Redactor` to free native resources and avoid memory leaks.
+  type: HowTo
+- questions:
+  - answer: It’s a powerful library that enables you to redact text, metadata, and
+      images in documents using Java applications.
+    question: What is GroupDocs.Redaction for Java?
+  - answer: Yes, but with limitations. A free trial or temporary license allows full
+      access for testing purposes.
+    question: Can I use GroupDocs.Redaction without purchasing a license?
+  - answer: Use `SaveOptions` to specify your requirements, such as avoiding rasterization
+      when saving to PDF.
+    question: How do I ensure document formats are preserved during redaction?
+  - answer: It supports a wide range, including Word, Excel, PowerPoint, PDF, and
+      many more.
+    question: What types of documents can be redacted using GroupDocs.Redaction?
+  - answer: Visit the [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33)
+      for assistance.
+    question: Where can I find support if I run into issues?
+  type: FAQPage
+tags:
+- metadata redaction
+- GroupDocs
+- Java document security
+- redaction tutorial
+title: كيفية إزالة metadata باستخدام GroupDocs في Java
 type: docs
 url: /ar/java/metadata-redaction/java-metadata-redaction-groupdocs-tutorial/
 weight: 1
 ---
 
-# كيفية تنفيذ إخفاء البيانات الوصفية باستخدام GroupDocs في Java
+# كيفية حذف بيانات التعريف باستخدام GroupDocs في Java
 
-في هذا الدليل الشامل ستكتشف **كيفية استخدام إخفاء البيانات الوصفية مع GroupDocs** لإزالة البيانات الوصفية السرية—مثل أسماء الشركات—من مستندات Word و PDF وغيرها من صيغ المستندات باستخدام GroupDocs.Redaction for Java. بنهاية البرنامج التعليمي ستكون قادرًا على دمج إخفاء البيانات الوصفية في أي سير عمل مبني على Java والحفاظ على المعلومات الحساسة آمنة.
+في هذا الدرس الشامل ستتعلم **كيفية حذف بيانات التعريف** من Word و PDF والعديد من أنواع المستندات الأخرى باستخدام GroupDocs.Redaction للغة Java. بنهاية الدليل ستكون قادرًا على دمج حذف بيانات التعريف في أي خدمة مبنية على Java، مما يضمن أن المعلومات السرية مثل أسماء الشركات والمؤلفين أو الخصائص المخصصة لا تغادر مؤسستك.
 
 ## إجابات سريعة
-- **ماذا يفعل MetadataSearchRedaction؟** يبحث عن حقول بيانات وصفية محددة ويستبدل قيمها بنص مخصص.  
-- **ما المكتبة المطلوبة؟** GroupDocs.Redaction for Java (الإصدار 24.9 أو أحدث).  
-- **هل أحتاج إلى ترخيص؟** نسخة تجريبية مجانية تكفي للتقييم؛ الترخيص الكامل مطلوب للإنتاج.  
-- **هل يمكنني الحفاظ على صيغة الملف الأصلية؟** نعم—استخدم `SaveOptions` للحفاظ على الصيغة الأصلية.  
-- **هل هذه الطريقة آمنة للخطوط المتعددة؟** كل كائن `Redactor` مستقل، لذا يمكنك معالجة المستندات بشكل متوازي.
+- **ماذا يفعل MetadataSearchRedaction؟** يبحث عن حقول بيانات التعريف المحددة ويستبدل قيمها بنص مخصص.  
+- **ما المكتبة المطلوبة؟** GroupDocs.Redaction for Java (v24.9 or newer).  
+- **هل أحتاج إلى ترخيص؟** الإصدار التجريبي المجاني يعمل للتقييم؛ الترخيص الكامل مطلوب للإنتاج.  
+- **هل يمكنني الاحتفاظ بتنسيق الملف الأصلي؟** نعم—استخدم `SaveOptions` للحفاظ على التنسيق الأصلي.  
+- **هل هذا النهج آمن للخطوط المتعددة؟** كل مثيل من `Redactor` مستقل، لذا يمكنك معالجة المستندات بشكل متوازي.
 
-## ما هو إخفاء البيانات الوصفية باستخدام GroupDocs؟
-`MetadataSearchRedaction` هي فئة متخصصة تتيح لك استهداف خاصية بيانات وصفية معينة (مثل *Company* أو *Author*) واستبدال محتواها ببديل. إنها مثالية عندما تحتاج إلى إخفاء هوية البيانات المؤسسية قبل مشاركة المستندات مع شركاء خارجيين.
+## كيفية حذف بيانات التعريف باستخدام GroupDocs؟
+`Redactor` هو الفئة الأساسية التي تقوم بتحميل المستند وتوفر عمليات حذف مختلفة.  
+حمّل مستند المصدر باستخدام مثيل `Redactor`، قم بتهيئة `MetadataSearchRedaction` التي تستهدف مفتاح بيانات التعريف المحدد الذي تريد تنظيفه، طبّق الحذف، وأخيرًا احفظ الملف باستخدام `SaveOptions`. يمكن التعبير عن سير العمل بالكامل في بضع أسطر فقط ويعمل مع أي تنسيق مدعوم، من DOCX إلى PDF وما بعده.
 
-## لماذا نستخدم إخفاء البيانات الوصفية مع GroupDocs؟
-- **الدقة** – إخفاء فقط الحقول التي تحددها، مع ترك باقي المستند دون تعديل.  
-- **الامتثال** – يساعد على تلبية متطلبات GDPR و HIPAA وغيرها من اللوائح الخصوصية عن طريق إزالة المعرفات المخفية.  
-- **جاهز للأتمتة** – يندمج بسلاسة في خطوط معالجة الدُفعات أو الخدمات الدقيقة (micro‑services).
+## ما هو حذف بيانات التعريف باستخدام GroupDocs؟
+`MetadataSearchRedaction` هي فئة متخصصة تتيح لك استهداف خاصية بيانات تعريف معينة (مثل *Company*، *Author*) واستبدال محتواها ببديل. إنها مثالية عندما تحتاج إلى إخفاء هوية البيانات المؤسسية قبل مشاركة المستندات مع شركاء خارجيين. عملية الحذف لا تغير عناصر المستند الأخرى، مما يضمن بقاء التخطيط البصري والمحتوى كما هو بعد إزالة بيانات التعريف.
+
+## لماذا نستخدم حذف بيانات التعريف باستخدام GroupDocs؟
+يوفر حذف بيانات التعريف باستخدام GroupDocs طريقة موثوقة لإزالة المعلومات الحساسة من المستندات مع الحفاظ على مظهرها الأصلي وبنيتها. من خلال التركيز على حقول بيانات التعريف، يمكنك الامتثال بسرعة لمعايير الخصوصية دون تعديل المحتوى الظاهر أو تعريض نفسك لتسريبات بيانات غير مقصودة.
+
+- **Precision** – احذف فقط الحقول التي تحددها، مع ترك باقي المستند دون تعديل.  
+- **Compliance** – يساعد على تلبية متطلبات GDPR و HIPAA وغيرها من لوائح الخصوصية عن طريق إزالة المعرفات المخفية.  
+- **Automation‑ready** – يندمج بسلاسة في خطوط معالجة الدفعات أو الخدمات المصغرة.  
+- **Broad format support** – يدعم GroupDocs.Redaction **أكثر من 50 تنسيقًا للإدخال والإخراج** (بما في ذلك DOCX و PDF و PPTX و XLSX وأنواع الصور) ويمكنه معالجة ملفات مئات الصفحات دون تحميل المستند بالكامل في الذاكرة.
 
 ## المتطلبات المسبقة
 - **GroupDocs.Redaction for Java** ≥ 24.9.  
 - Java 8 أو أحدث مثبت على جهازك.  
 - بيئة تطوير متكاملة (IDE) مثل IntelliJ IDEA أو Eclipse (اختياري لكن يُنصح به).  
-- إلمام أساسي بـ Maven (أو القدرة على إضافة ملفات JAR يدويًا).
+- إلمام أساسي بـ Maven (أو القدرة على إضافة ملفات JAR يدويًا).  
 
-## إعداد GroupDocs.Redaction للـ Java
-أضف المستودع والاعتماد إلى ملف `pom.xml` الخاص بك. هذه الخطوة تضمن أن Maven يمكنه تحميل المكتبة تلقائيًا.
+## إعداد GroupDocs.Redaction للغة Java
+
+أضف المستودع والاعتماد إلى ملف `pom.xml` الخاص بك. تضمن هذه الخطوة أن Maven يمكنه تنزيل المكتبة تلقائيًا.
 
 ```xml
 <repositories>
@@ -59,15 +125,16 @@ weight: 1
 ```
 
 *بدلاً من ذلك، يمكنك تنزيل ملف JAR مباشرةً من صفحة الإصدار الرسمية:*  
-[GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/)
+[إصدارات GroupDocs.Redaction للغة Java](https://releases.groupdocs.com/redaction/java/)
 
 ### الحصول على الترخيص
-- **نسخة تجريبية مجانية** – قم بتنزيل ترخيص تجريبي لاستكشاف جميع الميزات.  
-- **ترخيص مؤقت** – استخدمه للاختبار الموسع.  
-- **ترخيص كامل** – مطلوب للنشر في بيئة الإنتاج.
+- **Free trial** – قم بتنزيل ترخيص تجريبي لاستكشاف جميع الميزات.  
+- **Temporary license** – استخدمه للاختبار الموسع.  
+- **Full license** – مطلوب للنشر في بيئات الإنتاج.
 
 ## التهيئة الأساسية
-أنشئ كائن `Redactor` يشير إلى المستند الذي تريد معالجته.
+`Redactor` يحمل مستندًا ويكشف عن طرق لتطبيق عمليات حذف مختلفة.  
+أنشئ مثيل `Redactor` يشير إلى المستند الذي تريد معالجته.
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -79,7 +146,7 @@ final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX");
 ## دليل التنفيذ
 
 ### الخطوة 1: استيراد الفئات الضرورية
-توفر لك هذه الاستيرادات الوصول إلى محرك الإخفاء، خيارات الحفظ، وأدوات البيانات الوصفية.
+تمنحك هذه الاستيرادات الوصول إلى محرك الحذف، خيارات الحفظ، وأدوات بيانات التعريف.
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -88,30 +155,31 @@ import com.groupdocs.redaction.redactions.MetadataFilters;
 import com.groupdocs.redaction.redactions.MetadataSearchRedaction;
 ```
 
-### الخطوة 2: تهيئة Redactor
-أنشئ كائن `Redactor` مع مسار ملف المصدر الخاص بك.
+### الخطوة 2: تهيئة الـ Redactor
+أنشئ مثيل `Redactor` مع مسار ملف المصدر الخاص بك.
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX");
 ```
 
-### الخطوة 3: تكوين بحث البيانات الوصفية والإخفاء
-أنشئ كائن `MetadataSearchRedaction` يبحث عن السلسلة الدقيقة **"Company Ltd."** ويستبدلها بـ **"--company--"**. استدعاء `setFilter` يقتصر العملية على حقل البيانات الوصفية *Company* فقط.
+### الخطوة 3: تكوين بحث بيانات التعريف والحذف
+أنشئ `MetadataSearchRedaction` يبحث عن السلسلة الدقيقة **"Company Ltd."** ويستبدلها بـ **"--company--"**. تستدعي `setFilter` لتقصر العملية على حقل بيانات التعريف *Company* فقط.
 
 ```java
 MetadataSearchRedaction redaction = new MetadataSearchRedaction("Company Ltd.", "--company--");
 redaction.setFilter(MetadataFilters.Company);
 ```
 
-### الخطوة 4: تطبيق الإخفاء
-نفّذ الإخفاء على المستند المفتوح.
+### الخطوة 4: تطبيق الحذف
+نفّذ عملية الحذف على المستند المفتوح.
 
 ```java
 redactor.apply(redaction);
 ```
 
 ### الخطوة 5: الحفظ باستخدام خيارات مخصصة
-قم بتكوين `SaveOptions` بحيث يحصل الملف المُخفى على لاحقة “_Redacted” مع الحفاظ على صيغته الأصلية.
+`SaveOptions` يتيح لك تحديد تنسيق الإخراج، تسمية الملف، وغيرها من معلمات الحفظ للمستند المحذوف.  
+قم بتكوين `SaveOptions` بحيث يحصل الملف المحذوف على لاحقة “_Redacted” مع الحفاظ على تنسيقه الأصلي.
 
 ```java
 SaveOptions tmp0 = new SaveOptions();
@@ -122,7 +190,7 @@ redactor.save(tmp0);
 ```
 
 ### الخطوة 6: تحرير الموارد
-دائمًا أغلق كائن `Redactor` لتحرير الموارد الأصلية وتجنب تسرب الذاكرة.
+دائمًا أغلق `Redactor` لتحرير الموارد الأصلية وتجنب تسرب الذاكرة.
 
 ```java
 finally {
@@ -131,58 +199,61 @@ finally {
 ```
 
 ## المشكلات الشائعة والحلول
-- **FileNotFoundException** – تحقق مرة أخرى من المسار الذي تمرره إلى `Redactor`. استخدم مسارات مطلقة أو `Paths.get(...)` لضمان الموثوقية.  
-- **لا توجد تغييرات ملحوظة** – تأكد من أن حقل البيانات الوصفية المستهدف يحتوي فعليًا على سلسلة البحث؛ البيانات الوصفية حساسة لحالة الأحرف بشكل افتراضي.  
-- **أخطاء نفاد الذاكرة في الملفات الكبيرة** – عالج المستندات على دفعات أصغر واستدعِ `redactor.close()` فورًا بعد كل ملف.
+- **FileNotFoundException** – تحقق مرة أخرى من المسار الذي تمرره إلى `Redactor`. استخدم مسارات مطلقة أو `Paths.get(...)` للموثوقية.  
+- **No changes observed** – تأكد من أن حقل بيانات التعريف المستهدف يحتوي فعليًا على سلسلة البحث؛ بيانات التعريف حساسة لحالة الأحرف بشكل افتراضي.  
+- **Out‑of‑memory errors on large files** – عالج المستندات على دفعات أصغر واستدعِ `redactor.close()` فورًا بعد كل ملف.
 
 ## التطبيقات العملية
-1. **الوثائق القانونية** – إزالة أسماء شركات العملاء قبل إرسال العقود إلى أطراف ثالثة.  
-2. **التقارير المالية** – إخفاء الهوية للمعرفات الداخلية في ملفات التدقيق.  
-3. **المشاريع التعاونية** – حماية المعلومات الملكية عند مشاركة المسودات مع موردين خارجيين.
+1. **Legal documentation** – إزالة أسماء شركات العملاء قبل إرسال العقود إلى أطراف ثالثة.  
+2. **Financial reporting** – إخفاء الهوية للمعرفات الداخلية في ملفات التدقيق.  
+3. **Collaborative projects** – حماية المعلومات المملوكة عند مشاركة المسودات مع البائعين الخارجيين.
 
 ## اعتبارات الأداء
-- **إدارة الذاكرة** – تحتفظ المكتبة بالمستند بالكامل في الذاكرة؛ إغلاق `Redactor` بعد كل ملف أمر ضروري.  
-- **المعالجة الدُفعية** – في سيناريوهات الحجم العالي، قم بالتكرار عبر مجموعة من الملفات وأعد استخدام كائن `SaveOptions` واحد.  
-- **ابقَ محدثًا** – الإصدارات الجديدة تجلب تحسينات في الأداء وإصلاحات الأخطاء؛ استهدف دائمًا أحدث نسخة مستقرة.
-
-## الخلاصة
-أنت الآن تعرف **كيفية استخدام إخفاء البيانات الوصفية مع GroupDocs** لإزالة بيانات الشركة بأمان من المستندات باستخدام GroupDocs.Redaction for Java. دمج هذه الخطوات في خطوط معالجة المستندات الخاصة بك لتظل متوافقًا وتحمي المعلومات الحساسة.
-
-**الخطوات التالية**
-- جرب حقول بيانات وصفية أخرى مثل *Author* أو *Creator*.  
-- اجمع بين إخفاء البيانات الوصفية وإخفاء النص أو الصورة للحصول على حل شامل.  
-
-## قسم الأسئلة المتكررة
-1. **ما هو GroupDocs.Redaction للـ Java؟**  
-   - إنها مكتبة قوية تمكّنك من إخفاء النص والبيانات الوصفية والصور في المستندات باستخدام تطبيقات Java.  
-2. **هل يمكنني استخدام GroupDocs.Redaction دون شراء ترخيص؟**  
-   - نعم، لكن مع قيود. نسخة تجريبية مجانية أو ترخيص مؤقت يتيح الوصول الكامل لأغراض الاختبار.  
-3. **كيف أضمن الحفاظ على صيغ المستندات أثناء الإخفاء؟**  
-   - استخدم `SaveOptions` لتحديد متطلباتك، مثل تجنب التحويل إلى PDF بنمط rasterization.  
-4. **ما أنواع المستندات التي يمكن إخفاؤها باستخدام GroupDocs.Redaction؟**  
-   - تدعم مجموعة واسعة، بما في ذلك Word و Excel و PowerPoint و PDF وغيرها الكثير.  
-5. **أين يمكنني العثور على الدعم إذا واجهت مشاكل؟**  
-   - زر [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33) للحصول على المساعدة.
+- **Memory management** – تحتفظ المكتبة بالمستند بالكامل في الذاكرة؛ إغلاق `Redactor` بعد كل ملف أمر أساسي.  
+- **Batch processing** – في سيناريوهات الأحجام الكبيرة، قم بالتكرار عبر مجموعة من الملفات وأعد استخدام مثيل واحد من `SaveOptions`.  
+- **Stay updated** – الإصدارات الجديدة تجلب تحسينات في الأداء وإصلاحات الأخطاء؛ استهدف دائمًا أحدث نسخة مستقرة.
 
 ## الأسئلة المتكررة
+
+**س: ما هو GroupDocs.Redaction للغة Java؟**  
+A: إنها مكتبة قوية تتيح لك حذف النصوص وبيانات التعريف والصور في المستندات باستخدام تطبيقات Java.
+
+**س: هل يمكنني استخدام GroupDocs.Redaction دون شراء ترخيص؟**  
+A: نعم، ولكن مع قيود. يتيح الإصدار التجريبي المجاني أو الترخيص المؤقت الوصول الكامل لأغراض الاختبار.
+
+**س: كيف أضمن الحفاظ على تنسيقات المستندات أثناء الحذف؟**  
+A: استخدم `SaveOptions` لتحديد متطلباتك، مثل تجنب التحويل إلى صورة rasterization عند الحفظ إلى PDF.
+
+**س: ما هي أنواع المستندات التي يمكن حذفها باستخدام GroupDocs.Redaction؟**  
+A: تدعم مجموعة واسعة، بما في ذلك Word و Excel و PowerPoint و PDF والعديد غيرها.
+
+**س: أين يمكنني العثور على الدعم إذا واجهت مشاكل؟**  
+A: قم بزيارة [منتدى دعم GroupDocs](https://forum.groupdocs.com/c/redaction/33) للحصول على المساعدة.
+
 **س: هل يعمل MetadataSearchRedaction مع المستندات المشفرة؟**  
-ج: نعم. حمّل المستند باستخدام كلمة المرور المناسبة عبر مُنشئ `Redactor` الذي يقبل معلمة كلمة المرور.
+A: نعم. حمّل المستند باستخدام كلمة المرور المناسبة عبر مُنشئ `Redactor` الذي يقبل معامل كلمة المرور.
 
-**س: هل يمكن ربط عدة عمليات إخفاء بيانات وصفية في تشغيل واحد؟**  
-ج: بالتأكيد. أنشئ عدة كائنات `MetadataSearchRedaction`، عيّن فلاتر مختلفة، وطبقها بالتتابع قبل الحفظ.
+**س: هل يمكنني ربط عدة عمليات حذف بيانات تعريف في تشغيل واحد؟**  
+A: بالطبع. أنشئ عدة كائنات `MetadataSearchRedaction`، عيّن فلاتر مختلفة، وطبقها تسلسليًا قبل الحفظ.
 
-**س: هل يمكن معاينة الإخفاءات قبل الحفظ؟**  
-ج: يمكنك استدعاء `redactor.getRedactions()` للحصول على قائمة بالإخفاءات المعلقة وفحصها برمجيًا.
+**س: هل يمكن معاينة عمليات الحذف قبل الحفظ؟**  
+A: يمكنك استدعاء `redactor.getRedactions()` للحصول على قائمة بالحذف المعلق وتفقدها برمجيًا.
 
-## الموارد
-- **التوثيق**: استكشف الأدلة التفصيلية على [GroupDocs Documentation](https://docs.groupdocs.com/redaction/java/).  
-- **مرجع API**: تحقق من مرجع API الكامل على [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java).  
-- **تحميل المكتبة**: احصل على أحدث إصدار من [GroupDocs Downloads](https://releases.groupdocs.com/redaction/java/).  
-- **الكود المصدري**: عرض والمساهمة على [GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java).  
-- **الدعم**: احصل على المساعدة عبر قناة الدعم المجانية على [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33).
+## موارد إضافية
+- **Documentation**: استكشف أدلة مفصلة في [وثائق GroupDocs](https://docs.groupdocs.com/redaction/java/).  
+- **API reference**: تحقق من مرجع API الكامل على [مرجع API الخاص بـ GroupDocs](https://reference.groupdocs.com/redaction/java).  
+- **Download library**: احصل على أحدث إصدار من [تنزيلات GroupDocs](https://releases.groupdocs.com/redaction/java/).  
+- **Source code**: عرض والمساهمة على [GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java).  
+- **Support**: احصل على المساعدة عبر قناة الدعم المجانية في [منتدى دعم GroupDocs](https://forum.groupdocs.com/c/redaction/33).
 
 ---
 
-**آخر تحديث:** 2026-03-22  
-**تم الاختبار مع:** GroupDocs.Redaction 24.9 for Java  
+**آخر تحديث:** 2026-09-26  
+**تم الاختبار مع:** GroupDocs.Redaction 24.9 للغة Java  
 **المؤلف:** GroupDocs
+
+## دروس ذات صلة
+
+- [استخراج بيانات تعريف المستند باستخدام Groupdocs Redaction Java](/redaction/java/metadata-redaction/groupdocs-redaction-java-document-metadata-extraction/)
+- [استبدال نص بيانات التعريف Java – حذف آمن باستخدام GroupDocs](/redaction/java/metadata-redaction/java-redaction-metadata-text-replacement-guide/)
+- [استرجاع معلومات المستند باستخدام Groupdocs Redaction Java](/redaction/java/document-information/retrieve-document-info-using-groupdocs-redaction-java/)
