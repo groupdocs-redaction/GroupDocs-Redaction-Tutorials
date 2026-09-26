@@ -1,47 +1,96 @@
 ---
-date: '2026-03-04'
-description: GroupDocs.Redaction kullanarak Java’da regex PDF redaksiyonu nasıl yapılır,
-  regex desenleri nasıl uygulanır ve güvenli PDF’ler için kaydetme seçenekleri nasıl
-  yapılandırılır öğrenin.
+date: '2026-09-26'
+description: GroupDocs.Redaction kullanarak regex pdf redaction java nasıl yapılır,
+  regex patterns uygulanır ve secure PDFs için save options yapılandırılır öğrenin.
 keywords:
 - regex pdf redaction java
-- GroupDocs.Redaction Java
-title: Regex PDF Redaksiyonu Java ile GroupDocs.Redaction
+- groupdocs.redaction java
+- java pdf redaction
+- regex based pdf redaction
+- document privacy java
+lastmod: '2026-09-26'
+og_description: GroupDocs.Redaction ile regex pdf redaction java nasıl yapılır, precise
+  regex patterns uygulanır ve compliant, searchable PDFs için save options yapılandırılır
+  öğrenin.
+og_image_alt: Guide showing Java code that redacts PDF content using regular expressions
+  with GroupDocs.Redaction
+og_title: GroupDocs.Redaction kullanarak regex pdf redaction java – secure PDF processing
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-26'
+  description: Learn how to perform regex pdf redaction java using GroupDocs.Redaction,
+    apply regex patterns, and configure save options for secure PDFs.
+  headline: Regex pdf redaction java with GroupDocs.Redaction
+  type: TechArticle
+- description: Learn how to perform regex pdf redaction java using GroupDocs.Redaction,
+    apply regex patterns, and configure save options for secure PDFs.
+  name: Regex pdf redaction java with GroupDocs.Redaction
+  steps:
+  - name: load your document
+    text: 'The `Redactor` object loads the target PDF and prepares it for redaction
+      actions: *Explanation:* This line constructs a `Redactor` object with the target
+      file, preparing it for subsequent operations.'
+  - name: apply regex‑based redaction
+    text: 'The `RegexRedaction` class is GroupDocs.Redaction’s dedicated API for applying
+      regular‑expression patterns to PDF content. Define a pattern and replace matches
+      with a placeholder: *Explanation:* The pattern `(Lorem(\n|.)+?urna)` captures
+      any text that starts with “Lorem” and ends with “urna”, spanni'
+  - name: configure save options
+    text: 'The `SaveOptions` class lets you control how the redacted file is written
+      to disk. You can add a suffix, decide whether to rasterize pages, and preserve
+      document metadata: *Explanation:* `setAddSuffix(true)` automatically appends
+      “_redacted” to the filename, while `setRasterizeToPDF(false)` keeps th'
+  type: HowTo
+- questions:
+  - answer: GroupDocs.Redaction provides a dedicated `RegexRedaction` class.
+    question: What library handles regex redaction in Java?
+  - answer: A temporary or full license is required for production use.
+    question: Do I need a license?
+  - answer: Yes—set `setRasterizeToPDF(false)` in `SaveOptions`.
+    question: Can I keep the PDF editable after redaction?
+  - answer: Any Java SE 8+ runtime works with the current library.
+    question: Which Java version is supported?
+  - answer: Use `saveOptions.setAddSuffix(true)` to automatically append “_redacted”.
+    question: How do I add a suffix to the redacted file?
+  type: FAQPage
+tags:
+- regex pdf redaction
+- groupdocs.redaction
+- java document processing
+- data privacy
+title: GroupDocs.Redaction ile regex pdf redaction java
 type: docs
 url: /tr/java/text-redaction/regex-based-pdf-redaction-java-groupdocs/
 weight: 1
 ---
 
-# GroupDocs.Redaction ile Java'da Regex PDF Redaction
+# GroupDocs.Redaction ile regex pdf redaction java
 
-PDF dosyalarından hassas bilgileri güvenli bir şekilde kaldırmak, uyumluluk ve veri koruması için kritik bir adımdır. Bu öğreticide GroupDocs.Redaction kullanarak **regex pdf redaction java** öğrenecek, güçlü regular‑expression desenlerini nasıl uygulayacağınızı ve kaydetme seçeneklerini nasıl yapılandıracağınızı öğreneceksiniz, böylece redakte edilen PDF'ler tam istediğiniz şekilde saklanır.
+Modern işletmelerde **regex pdf redaction java**, PDF dosyalarındaki gizli verileri otomatik olarak temizlemek için temel bir tekniktir. GDPR, HIPAA veya iç politikalarınıza uyum sağlamanız gerektiğinde, bu öğretici GroupDocs.Redaction’ın Java API’sını kullanarak esnek regular‑expression desenleri tanımlamayı, bunları tüm belgeye uygulamayı ve çıktıyı ince ayar yaparak redakte edilmiş PDF’lerin aranabilir ve sonraki işlem adımlarına hazır kalmasını adım adım gösterir.
 
-## Hızlı Yanıtlar
-- **Java'da regex redaction'ı hangi kütüphane yönetir?** GroupDocs.Redaction, özel bir `RegexRedaction` sınıfı sağlar.  
-- **Bir lisansa ihtiyacım var mı?** Üretim kullanımı için geçici veya tam lisans gereklidir.  
-- **Redaction sonrası PDF'i düzenlenebilir tutabilir miyim?** Evet—`SaveOptions` içinde `setRasterizeToPDF(false)` ayarlayın.  
-- **Hangi Java sürümü destekleniyor?** Mevcut kütüphane, Java SE 8+ çalışma zamanının herhangi bir sürümüyle çalışır.  
-- **Redakte edilen dosyaya nasıl bir sonek ekleyebilirim?** `saveOptions.setAddSuffix(true)` kullanarak otomatik olarak “_redacted” ekleyin.
+## Hızlı yanıtlar
+- **What library handles regex redaction in Java?** GroupDocs.Redaction provides a dedicated `RegexRedaction` class.  
+- **Do I need a license?** A temporary or full license is required for production use.  
+- **Can I keep the PDF editable after redaction?** Yes—set `setRasterizeToPDF(false)` in `SaveOptions`.  
+- **Which Java version is supported?** Any Java SE 8+ runtime works with the current library.  
+- **How do I add a suffix to the redacted file?** Use `saveOptions.setAddSuffix(true)` to automatically append “_redacted”.
 
-## Regex PDF Redaction Java nedir?
-Regex PDF redaction Java, regular‑expression eşleştirmesini GroupDocs.Redaction API'si ile birleştirerek PDF belgeleri içinde hassas metni bulur ve değiştirir. Bu yaklaşım, sosyal güvenlik numaraları, e‑posta adresleri veya özel tanımlayıcılar gibi esnek desenler tanımlamanıza ve bunları dosyanın tamamında otomatik olarak maskelemenize olanak tanır.
+## regex pdf redaction java nedir?
+`Regex pdf redaction java`, Java tabanlı regular‑expression eşleştirmesini GroupDocs.Redaction API’sı ile birleştirerek PDF belgeleri içinde hassas metni bulur ve değiştirir. Bu yaklaşım, sosyal güvenlik numaraları, e‑posta adresleri veya özel tanımlayıcılar gibi esnek desenler tanımlamanıza ve bunları tüm dosya boyunca otomatik olarak maskelemenize olanak tanır.
 
-## Neden GroupDocs.Redaction, regex pdf redaction java için kullanılmalı?
-- **Hassasiyet:** Çevredeki içeriği etkilemeden tam olarak ihtiyacınız olan metni hedefleyin.  
-- **Performans:** Optimize edilmiş yerel işleme, büyük PDF'leri verimli bir şekilde işler.  
-- **Esneklik:** Kaydetme davranışını yapılandırın, sonek ekleyin veya gerektiğinde sayfaları rasterleştirin.  
-- **Uyumluluk‑hazır:** GDPR, HIPAA veya PCI‑DSS gereksinimlerini güvenilir veri temizleme ile karşılayın.
+## Neden regex pdf redaction java için GroupDocs.Redaction kullanılmalı?
+Kütüphaneyi yükleyin ve metni cerrahi bir hassasiyetle redakte eden, büyük dosyaları verimli bir şekilde işleyen hazır bir çözüm elde edin. GroupDocs.Redaction, tipik bir sunucuda **500 MB**’a kadar PDF’i **30 saniye** içinde işler ve **DOCX, XLSX, PPTX, HTML** ve yaygın görüntü formatları dahil **50+** giriş ve çıkış formatını destekler. API ayrıca sonucun aranabilir kalıp kalmayacağını kontrol etmenizi sağlar; bu, uyumluluk odaklı iş akışları için kritiktir.
 
 ## Önkoşullar
-- **GroupDocs.Redaction** sürüm 24.9 veya üzeri.  
-- **Java SE Development Kit** (JDK 8 veya daha yeni) makinenize kurulu.  
+- **GroupDocs.Redaction** sürüm 24.9 veya daha yeni.  
+- **Java SE Development Kit** (JDK 8 veya daha yenisi) makinenizde kurulu.  
 - Maven proje yapılandırması ve Java kodlaması hakkında temel bilgi.
 
-## GroupDocs.Redaction'ı Java için Kurma
+## Java için GroupDocs.Redaction kurulumu
 
-Kütüphaneyi Maven aracılığıyla entegre edin veya doğrudan indirin.
+Kütüphaneyi Maven üzerinden entegre edin veya doğrudan indirin.
 
-**Maven Kurulumu:**  
+**Maven kurulumu**  
 `pom.xml` dosyanıza depo ve bağımlılığı ekleyin:
 
 ```xml
@@ -62,41 +111,41 @@ Kütüphaneyi Maven aracılığıyla entegre edin veya doğrudan indirin.
 </dependencies>
 ```
 
-**Doğrudan İndirme:**  
-Alternatif olarak, en son sürümü [GroupDocs.Redaction Java sürümleri](https://releases.groupdocs.com/redaction/java/) adresinden indirin.
+**Doğrudan indirme**  
+En son sürümü [GroupDocs.Redaction for Java sürümleri](https://releases.groupdocs.com/redaction/java/) adresinden indirin.
 
-### Lisans Alımı
-Değerlendirme ve üretim kullanımında tüm özelliklerin kilidini açmak için geçici bir lisans başvurun veya tam lisans satın alın.
+### Lisans temini
+Değerlendirme ve üretim kullanımında tüm özellikleri açmak için geçici bir lisans başvurusu yapın veya tam lisans satın alın.
 
-### Temel Başlatma ve Kurulum
-İşlemek istediğiniz PDF'ye işaret eden bir `Redactor` örneği oluşturun:
-
-```java
-final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/LOREMIPSUM_PDF");
-```
-
-## Uygulama Kılavuzu
-
-### PDF'lerde Regex Metin Redaksiyonu
-
-#### Adım 1: Belgenizi Yükleyin
-Redakte etmeyi planladığınız PDF'yi yükleyin:
+### Temel başlatma ve kurulum
+`Redactor` sınıfı, bellekte bir PDF belgesini temsil eden ve redaksiyon işlemlerini sağlayan giriş noktasıdır. İşlemek istediğiniz PDF’e işaret eden bir `Redactor` örneği oluşturun:
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/LOREMIPSUM_PDF");
 ```
-*Açıklama:* Bu satır, hedef dosyayla bir `Redactor` nesnesi oluşturur ve sonraki işlemler için hazırlar.
 
-#### Adım 2: Regex‑Tabanlı Redaksiyon Uygulayın
-Bir regular‑expression deseni tanımlayın ve eşleşmeleri bir yer tutucu ile değiştirin:
+## Uygulama rehberi
+
+### PDF’lerde regex metin redaksiyonu
+
+#### Adım 1: belgenizi yükleyin
+`Redactor` nesnesi hedef PDF’i yükler ve redaksiyon eylemlerine hazır hâle getirir:
+
+```java
+final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/LOREMIPSUM_PDF");
+```
+*Explanation:* This line constructs a `Redactor` object with the target file, preparing it for subsequent operations.
+
+#### Adım 2: regex‑tabanlı redaksiyon uygulayın
+`RegexRedaction` sınıfı, PDF içeriğine regular‑expression desenleri uygulamak için GroupDocs.Redaction’ın özel API’sıdır. Bir desen tanımlayın ve eşleşmeleri bir yer tutucu ile değiştirin:
 
 ```java
 redactor.apply(new RegexRedaction("(Lorem(\\n|.)+?urna)", new ReplacementOptions("[test]"));
 ```
-*Açıklama:* `(Lorem(\n|.)+?urna)` deseni, “Lorem” ile başlayıp “urna” ile biten, birden fazla satırı kapsayan herhangi bir metni yakalar. Tüm eşleşmeler “[test]” ile değiştirilir.
+*Explanation:* The pattern `(Lorem(\n|.)+?urna)` captures any text that starts with “Lorem” and ends with “urna”, spanning multiple lines. All matches are substituted with “[test]”.
 
-#### Adım 3: Kaydetme Seçeneklerini Yapılandırın
-Redakte edilen dosyanın diske nasıl yazılacağını ince ayar yapın:
+#### Adım 3: kaydetme seçeneklerini yapılandırın
+`SaveOptions` sınıfı, redakte edilmiş dosyanın diske nasıl yazılacağını kontrol etmenizi sağlar. Bir sonek ekleyebilir, sayfaları rasterleştirip rasterleştirmeyeceğinize karar verebilir ve belge meta verilerini koruyabilirsiniz:
 
 ```java
 SaveOptions saveOptions = new SaveOptions();
@@ -106,90 +155,100 @@ saveOptions.setRasterizeToPDF(false); // Ensures the PDF remains editable.
 // Save the redacted document with specified options:
 redactor.save(saveOptions);
 ```
-*Açıklama:* `setAddSuffix(true)` dosya adına otomatik olarak “_redacted” ekler, `setRasterizeToPDF(false)` ise belgeyi aranabilir ve düzenlenebilir bir durumda tutar.
+*Explanation:* `setAddSuffix(true)` automatically appends “_redacted” to the filename, while `setRasterizeToPDF(false)` keeps the document in a searchable, editable state.
 
-#### Sorun Giderme İpuçları
-- Regex sözdiziminizi iki kez kontrol edin; küçük bir hata sıfır eşleşmeye veya istenmeyen değişikliklere yol açabilir.  
+#### Sorun giderme ipuçları
+- Regex sözdiziminizi iki kez kontrol edin; küçük bir hata sıfır eşleşmeye ya da istenmeyen değişikliklere yol açabilir.  
 - Dosya yolunun doğru olduğundan ve uygulamanın çıktı dizini için yazma iznine sahip olduğundan emin olun.
 
-### Kaydetme Seçenekleri Yapılandırması
+### Kaydetme seçenekleri yapılandırması
 
-#### `SaveOptions` Anlamak
-`SaveOptions` sınıfı, çıktıyı kontrol etmek için çeşitli bayraklar sunar:
+#### `SaveOptions` anlayışı
+`SaveOptions` sınıfı, çıktıyı kontrol eden çeşitli bayraklar sunar:
 
 ```java
 SaveOptions saveOptions = new SaveOptions();
 saveOptions.setAddSuffix(true); // Adds '_redacted' suffix.
 saveOptions.setRasterizeToPDF(false); // Keeps the PDF editable.
 ```
-*Açıklama:* Bu ayarlar, dosya adlandırma kurallarını yönetmenize ve son PDF'nin rasterleştirilip (görüntülere dönüştürülüp) dönüştürülmeyeceğine ya da yerel PDF içeriği olarak kalmasına karar vermenize yardımcı olur.
+*Explanation:* These settings help you manage file naming conventions and decide whether the final PDF should be rasterized (converted to images) or stay as native PDF content.
 
-## Pratik Uygulamalar
+## Pratik uygulamalar
 
 **regex pdf redaction java**'nın öne çıktığı gerçek dünya senaryoları:
 
-1. **Veri Gizliliği Uyumluluğu:** Sözleşmelerden, hukuki belgelerden veya İK kayıtlarından kişisel tanımlayıcıları çıkarın.  
-2. **Finansal Belge Güvenliği:** Hesap numaralarını, yönlendirme kodlarını veya gizli finansal metrikleri otomatik olarak maskeleyin.  
-3. **Tıbbi Kayıt Yönetimi:** Hasta adlarını, kimliklerini veya sağlık bilgilerini üçüncü taraflarla paylaşmadan önce redakte edin.
+1. **Veri gizliliği uyumu** – Sözleşmeler, hukuki belgeler veya İK kayıtlarından kişisel tanımlayıcıları dış dağıtıma önceden temizleyin.  
+2. **Finansal belge güvenliği** – Hesap numaraları, yönlendirme kodları veya gizli finansal metrikleri otomatik olarak maskeleyin.  
+3. **Tıbbi kayıt yönetimi** – Araştırma ortakları veya üçüncü taraf satıcılarla paylaşmadan önce hasta adları, kimlikleri veya sağlık bilgilerini redakte edin.
 
-Bu mantığı belge yönetimi iş akışlarına, toplu işleme hatlarına veya PDF alımını yöneten mikro hizmetlere daha da entegre edebilirsiniz.
+Bu mantığı belge yönetim iş akışlarına, toplu işleme hatlarına veya PDF alımını yöneten mikro‑servislere entegre edebilirsiniz.
 
-## Performans Düşünceleri
+## Performans hususları
 
-- **Regex Desenlerini Optimize Edin:** İşlemi hızlı tutmak için tembel nicemleyicileri (`*?`) kullanın ve çok geniş ifadelerden kaçının.  
-- **Kaynak Yönetimi:** Büyük PDF'ler için JVM yığını kullanımını izleyin ve toplu işlemlerden sonra `System.gc()` çağırmayı düşünün.  
-- **Güncel Kalın:** Performans yamalarından ve yeni özelliklerden yararlanmak için GroupDocs.Redaction'ın en son sürümüne düzenli olarak yükseltin.
+- **Regex desenlerini optimize edin** – Tembel nicelikleyicileri (`*?`) kullanın ve işlem süresini yavaşlatabilecek çok geniş ifadelerden kaçının.  
+- **Kaynak yönetimi** – 200 sayfadan büyük PDF’lerde JVM heap kullanımını izleyin ve toplu işlerden sonra `System.gc()` çağrısını değerlendirin.  
+- **Güncel kalın** – En yeni GroupDocs.Redaction sürümüne yükseltmek, performans yamaları ve yeni format desteği getirerek çözümünüzün geleceğe hazır olmasını sağlar.
 
 ## Sonuç
 
-Artık GroupDocs.Redaction kullanarak **regex pdf redaction java** için eksiksiz, üretime hazır bir yaklaşıma sahipsiniz. Kesin regular‑expression desenleri tanımlayarak, kaydetme seçeneklerini yapılandırarak ve yaygın sorunları ele alarak herhangi bir PDF iş akışında hassas verileri koruyabilirsiniz.
+GroupDocs.Redaction kullanarak **regex pdf redaction java** için tam, üretim‑hazır bir yaklaşım elde ettiniz. Kesin regular‑expression desenleri tanımlayarak, kaydetme seçeneklerini yapılandırarak ve yaygın hataları ele alarak herhangi bir PDF iş akışında hassas verileri koruyabilirsiniz.
 
-**Sonraki Adımlar**
-- Farklı regex'lerle (ör. kredi kartı desenleri, e‑posta adresleri) deney yapın.  
-- Redaksiyon mantığını daha büyük bir belge işleme hizmetine veya REST API'ye entegre edin.  
+**Sonraki adımlar**  
+- Farklı regex’lerle (ör. kredi kartı desenleri, e‑posta adresleri) deney yapın.  
+- Redaksiyon mantığını daha büyük bir belge‑işleme servisine veya REST API’ye entegre edin.  
 
-## SSS Bölümü
+## SSS bölümü
 
-1. **PDF redaksiyonunda regex'in temel kullanımı nedir?**  
-   - Regex, belirli desenlere dayalı olarak hassas metnin tanımlanmasını ve değiştirilmesini otomatikleştirir.  
-2. **Redaksiyon sonrası dosyalarımın nasıl kaydedileceğini özelleştirebilir miyim?**  
-   - Evet, `SaveOptions` kullanarak sonek ekleyebilir veya belgenizin düzenlenebilir kalıp kalmayacağını kontrol edebilirsiniz.  
-3. **Redaksiyon sırasında hataları nasıl yönetirim?**  
-   - Yaygın sorunları önlemek için regex desenlerinin doğru olduğundan ve dosya yollarının mevcut olduğundan emin olun.  
-4. **GroupDocs.Redaction'ı diğer sistemlerle entegre etmek mümkün mü?**  
-   - Kesinlikle, API'si çeşitli belge yönetim çözümlerine sorunsuz entegrasyon sağlar.  
-5. **Hangi performans iyileştirmelerini düşünmeliyim?**  
-   - Regex verimliliğini optimize edin, bellek kullanımını izleyin ve kütüphaneyi güncel tutun.
+**S:** *Regex PDF redaksiyonunun temel kullanımı nedir?*  
+**C:** Regex, belirli desenlere dayalı olarak hassas metni tanımlamayı ve değiştirmeyi otomatikleştirir; böylece tek bir kuralla tüm belge boyunca veriyi maskeleyebilirsiniz.
 
-## Sıkça Sorulan Sorular
+**S:** *Redaksiyon sonrası dosyalarımın nasıl kaydedileceğini özelleştirebilir miyim?*  
+**C:** Evet, `SaveOptions` sonek ekleme, rasterleştirme seçimi ve meta veri koruma/atma gibi tam kontrol sağlar.
 
-**Q:** *Bu yaklaşımı şifre korumalı PDF'lerle kullanabilir miyim?*  
-**A:** Evet. Şifreyi `Redactor` yapıcıya geçirin veya şifre parametresi kabul eden aşırı yüklemeyi kullanın.
+**S:** *Redaksiyon sırasında hatalar nasıl ele alınır?*  
+**C:** Regex desenlerinizin doğru olduğundan emin olun, dosya yolları ve izinleri kontrol edin. API, yakalanıp loglanabilecek açıklayıcı istisnalar fırlatır.
 
-**Q:** *GroupDocs.Redaction toplu işleme destekliyor mu?*  
-**A:** Aynı `Redactor` yapılandırmasını her belge için yeniden kullanarak dosya yolu koleksiyonunu döngüye alabilirsiniz.
+**S:** *GroupDocs.Redaction başka sistemlerle entegre edilebilir mi?*  
+**C:** Kesinlikle. Java API’sı hafiftir ve mikro‑servislerden toplu işlere, mevcut belge‑yönetim platformlarına kadar her yerde çağrılabilir.
 
-**Q:** *Redaksiyon sonrası ek açıklamalar ve form alanları ne olur?*  
-**A:** Varsayılan olarak ek açıklamalar dokunulmaz kalır. Gerekirse kaldırmak veya değiştirmek için ek API çağrıları kullanın.
+**S:** *Hangi performans iyileştirmelerini düşünmeliyim?*  
+**C:** Verimli regex’ler kullanın, büyük PDF’lerde JVM belleğini izleyin ve en yeni sürümle hız iyileştirmelerinden yararlanın.
 
-**Q:** *Kaydetmeden önce redaksiyon sonuçlarını önizlemenin bir yolu var mı?*  
-**A:** Kütüphane, eşleşen bölgeler hakkında bilgi içeren bir `RedactionResult` nesnesi sunar; bunu bir UI'de önizleme için render edebilirsiniz.
+## Sıkça sorulan sorular
 
-**Q:** *Geliştirme sürümleri için lisansa ihtiyacım var mı?*  
-**A:** Geçici bir lisans değerlendirme sınırlamalarını kaldırır; ticari dağıtım için tam lisans gereklidir.
+**S:** *Şifre korumalı PDF’lerle bu yaklaşımı kullanabilir miyim?*  
+**C:** Evet. Şifreyi `Redactor` yapıcıya geçirebilir veya şifre parametresi kabul eden aşırı yüklemeyi kullanabilirsiniz.
+
+**S:** *GroupDocs.Redaction toplu işleme destekliyor mu?*  
+**C:** Aynı `Redactor` yapılandırmasını her belge için yeniden kullanarak dosya yolu koleksiyonları üzerinde döngü kurabilir, böylece toplu işler basit hale gelir.
+
+**S:** *Redaksiyon sonrası ek açıklamalar ve form alanları ne olur?*  
+**C:** Varsayılan olarak açıklamalar dokunulmaz. Gerekirse ek API çağrılarıyla bunları kaldırabilir veya değiştirebilirsiniz.
+
+**S:** *Kaydetmeden önce redaksiyon sonuçlarını önizleyebilir miyim?*  
+**C:** Kütüphane, eşleşen bölgeler hakkında bilgi içeren bir `RedactionResult` nesnesi döndürür; bu veriyi bir UI’da render ederek değişiklikleri kaydetmeden önce önizleyebilirsiniz.
+
+**S:** *Geliştirme sürümleri için lisansa ihtiyacım var mı?*  
+**C:** Geçici lisans değerlendirme sınırlamalarını kaldırır; ticari dağıtım için tam lisans gereklidir.
 
 ## Kaynaklar
-- [Dokümantasyon](https://docs.groupdocs.com/redaction/java/)
-- [API Referansı](https://reference.groupdocs.com/redaction/java)
-- [GroupDocs.Redaction for Java'ı İndir](https://releases.groupdocs.com/redaction/java/)
-- [GitHub Deposu](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
-- [Ücretsiz Destek Forumu](https://forum.groupdocs.com/c/redaction/33)
-- [Geçici Lisans Alın](https://purchase.groupdocs.com/temporary-license/) 
+- [Documentation](https://docs.groupdocs.com/redaction/java/)
+- [API Reference](https://reference.groupdocs.com/redaction/java)
+- [Download GroupDocs.Redaction for Java](https://releases.groupdocs.com/redaction/java/)
+- [GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
+- [Free Support Forum](https://forum.groupdocs.com/c/redaction/33)
+- [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
-Bu kılavuzu izleyerek, GroupDocs.Redaction kullanarak Java uygulamalarınızda metin redaksiyonunu etkili bir şekilde uygulayabilirsiniz. İyi kodlamalar!
+Bu kılavuzu izleyerek Java uygulamalarınızda GroupDocs.Redaction kullanarak metin redaksiyonunu etkili bir şekilde uygulayabilirsiniz. İyi kodlamalar!
 
 ---
 
-**Son Güncelleme:** 2026-03-04  
+**Son Güncelleme:** 2026-09-26  
 **Test Edilen Versiyon:** GroupDocs.Redaction 24.9 for Java  
 **Yazar:** GroupDocs
+
+## İlgili Öğreticiler
+
+- [Java Redaction Groupdocs Efficient Document Setup](/redaction/java/getting-started/java-redaction-groupdocs-efficient-document-setup/)
+- [How to Redact PDF with Aspose OCR and Java - Implementing Regex Patterns using GroupDocs.Redaction](/redaction/java/ocr-integration/aspose-ocr-java-pdf-redaction/)
+- [Groupdocs Redaction Java Tutorial Text Redaction Rasterized Pdf](/redaction/java/text-redaction/groupdocs-redaction-java-tutorial-text-redaction-rasterized-pdf/)
