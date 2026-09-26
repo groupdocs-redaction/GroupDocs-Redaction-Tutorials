@@ -1,45 +1,99 @@
 ---
-date: '2026-03-25'
-description: Μάθετε πώς να αντικαταστήσετε το κείμενο μεταδεδομένων Java χρησιμοποιώντας
-  το GroupDocs.Redaction. Αυτός ο οδηγός βήμα‑βήμα δείχνει ασφαλή διαγραφή μεταδεδομένων
-  και βέλτιστες πρακτικές.
+date: '2026-09-26'
+description: Java metadata redaction tutorial δείχνει πώς να αντικαταστήσετε το κείμενο
+  μεταδεδομένων χρησιμοποιώντας το GroupDocs.Redaction, καθώς και συμβουλές για την
+  ασφαλή αφαίρεση κρυφών ιδιοτήτων java.
 keywords:
-- Java metadata redaction
-- GroupDocs.Redaction for Java
+- java metadata redaction tutorial
+- remove hidden properties java
 - metadata text replacement
-title: Αντικατάσταση κειμένου μεταδεδομένων Java – Ασφαλής Αποκάλυψη με το GroupDocs
+lastmod: '2026-09-26'
+og_description: Java metadata redaction tutorial δείχνει πώς να αντικαταστήσετε το
+  κείμενο μεταδεδομένων χρησιμοποιώντας το GroupDocs.Redaction, καθώς και συμβουλές
+  για την ασφαλή αφαίρεση κρυφών ιδιοτήτων java.
+og_image_alt: Guide to replace metadata text in Java documents with GroupDocs.Redaction
+og_title: Java metadata redaction tutorial – αντικατάσταση κειμένου μεταδεδομένων
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-26'
+  description: Java metadata redaction tutorial shows how to replace metadata text
+    using GroupDocs.Redaction, plus tips for removing hidden properties java securely.
+  headline: Java metadata redaction tutorial – replace metadata text
+  type: TechArticle
+- description: Java metadata redaction tutorial shows how to replace metadata text
+    using GroupDocs.Redaction, plus tips for removing hidden properties java securely.
+  name: Java metadata redaction tutorial – replace metadata text
+  steps:
+  - name: '**Legal document management:** Clean drafts before sending them to opposing
+      counsel.'
+    text: '**Legal document management:** Clean drafts before sending them to opposing
+      counsel.'
+  - name: '**Compliance & privacy:** Strip personal identifiers to meet GDPR or HIPAA
+      requirements.'
+    text: '**Compliance & privacy:** Strip personal identifiers to meet GDPR or HIPAA
+      requirements.'
+  - name: '**Template processing:** Swap placeholder values without exposing original
+      corporate branding.'
+    text: '**Template processing:** Swap placeholder values without exposing original
+      corporate branding.'
+  type: HowTo
+- questions:
+  - answer: It’s a Java library that enables developers to locate and redact text,
+      images, and metadata across over 100 document formats.
+    question: What is GroupDocs.Redaction for Java?
+  - answer: Yes, the library supports PDFs, Word documents, spreadsheets, and many
+      other formats.
+    question: Can I use GroupDocs.Redaction with non‑text files?
+  - answer: Close the `Redactor` after each file, run batch jobs during low‑traffic
+      periods, and choose file types that are lightweight for metadata operations.
+    question: How do I handle large documents efficiently?
+  - answer: Legal redaction, privacy compliance, and automated template processing
+      are the most common scenarios.
+    question: What are typical use cases for replacing metadata text?
+  - answer: GroupDocs offers free support through their [forum](https://forum.groupdocs.com/c/redaction/33).
+    question: Where can I get help if I run into problems?
+  type: FAQPage
+tags:
+- metadata redaction
+- GroupDocs.Redaction
+- Java document processing
+title: Java metadata redaction tutorial – αντικατάσταση κειμένου μεταδεδομένων
 type: docs
 url: /el/java/metadata-redaction/java-redaction-metadata-text-replacement-guide/
 weight: 1
 ---
 
-# replace metadata text java – Ασφαλής Κατάστρωση με GroupDocs
+# Java metadata redaction tutorial – αντικατάσταση κειμένου μεταδεδομένων
 
-Στο σημερινό ψηφιακό τοπίο, η εκμάθηση **replace metadata text java** είναι μια κρίσιμη δεξιότητα για την προστασία εμπιστευτικών πληροφοριών που κρύβονται μέσα στις ιδιότητες των εγγράφων. Είτε προστατεύετε συμβόλαια, προσωπικά αρχεία ή εσωτερικές αναφορές, η αφαίρεση ή η αντικατάσταση ευαίσθητων μεταδεδομένων αποτρέπει τυχαίες διαρροές δεδομένων. Σε αυτό το tutorial θα ανακαλύψετε πώς να καταστρέψετε (redact) μεταδεδομένα και να αντικαταστήσετε κείμενο μεταδεδομένων χρησιμοποιώντας το GroupDocs.Redaction για Java, από τη ρύθμιση του περιβάλλοντος μέχρι την αποθήκευση του καθαρισμένου εγγράφου.
+In this **java metadata redaction tutorial**, you’ll learn how to replace metadata text in Java documents using GroupDocs.Redaction. Protecting hidden properties such as author names, company details, or custom fields is essential for GDPR, HIPAA, and corporate compliance. By the end of this guide you’ll have a production‑ready solution that keeps the original file format intact while sanitising every sensitive metadata entry.
 
-## Γρήγορες Απαντήσεις
-- **Ποια βιβλιοθήκη διαχειρίζεται την κατάστρωση μεταδεδομένων σε Java;** GroupDocs.Redaction for Java.  
+## Γρήγορες απαντήσεις
+- **Ποια βιβλιοθήκη διαχειρίζεται την αφαίρεση μεταδεδομένων σε Java;** GroupDocs.Redaction for Java.  
 - **Ποια κύρια μέθοδος αντικαθιστά κείμενο στα μεταδεδομένα;** `MetadataSearchRedaction`.  
 - **Χρειάζομαι άδεια για ανάπτυξη;** Μια προσωρινή άδεια λειτουργεί για δοκιμές· απαιτείται πλήρης άδεια για παραγωγή.  
-- **Μπορώ να διατηρήσω την αρχική μορφή αρχείου μετά την κατάστρωση;** Ναι—ορίστε `saveOptions.setRasterizeToPDF(false)`.  
-- **Υποστηρίζεται η επεξεργασία σε παρτίδες;** Απόλυτα· απλώς κάντε βρόχο στα αρχεία και επαναχρησιμοποιήστε το ίδιο πρότυπο Redactor.  
+- **Μπορώ να διατηρήσω την αρχική μορφή αρχείου μετά την αφαίρεση;** Ναι—ορίστε `saveOptions.setRasterizeToPDF(false)`.  
+- **Υποστηρίζεται η επεξεργασία παρτίδας;** Απόλυτα· απλώς επαναλάβετε τα αρχεία και χρησιμοποιήστε το ίδιο πρότυπο αντικειμένου Redactor.  
 
-## Τι είναι το replace metadata text java;
-Η κατάστρωση μεταδεδομένων σημαίνει σάρωση των κρυφών ιδιοτήτων ενός εγγράφου (συγγραφέας, όνομα εταιρείας, προσαρμοσμένα πεδία κ.λπ.) και είτε η αφαίρεση είτε η αντικατάσταση ευαίσθητων τιμών. Σε αντίθεση με το ορατό περιεχόμενο, τα μεταδεδομένα συχνά περνούν απαρατήρητα, έτσι η ρητή κατάστρωση είναι απαραίτητη για τη συμμόρφωση με το GDPR, το HIPAA και άλλους κανονισμούς απορρήτου.
+`MetadataSearchRedaction` είναι ένας κανόνας αφαίρεσης που εντοπίζει και αντικαθιστά καθορισμένο κείμενο μέσα στα μεταδεδομένα του εγγράφου.
 
-## Γιατί να αντικαταστήσετε κείμενο μεταδεδομένων;
-Η αντικατάσταση κειμένου μεταδεδομένων σας επιτρέπει να διατηρήσετε την δομή του εγγράφου αμετάβλητη ενώ καθαρίζετε τα εμπιστευτικά αναγνωριστικά. Αυτό είναι ιδιαίτερα χρήσιμο όταν πρέπει να μοιραστείτε ένα προσχέδιο με εξωτερικούς συνεργάτες αλλά πρέπει να κρύψετε εσωτερικούς κωδικούς έργων, ονόματα προμηθευτών ή προσωπικά αναγνωριστικά.
+## Τι είναι η αντικατάσταση κειμένου μεταδεδομένων java;
+Η αντικατάσταση κειμένου μεταδεδομένων java είναι η διαδικασία εντοπισμού κρυφών τιμών ιδιοτήτων μέσα σε ένα έγγραφο και αντικατάστασής τους με έναν ασφαλή σύμβολο κράτησης θέσης. Αυτή η λειτουργία στοχεύει σε χαρακτηριστικά εγγράφου όπως ο συγγραφέας, η εταιρεία και προσαρμοσμένα πεδία που δεν είναι ορατά στο κύριο περιεχόμενο αλλά μεταφέρονται με το αρχείο.
+
+## Γιατί να αντικαταστήσετε το κείμενο μεταδεδομένων;
+Αντικαθιστάτε το κείμενο μεταδεδομένων για να μοιραστείτε ένα προσχέδιο χωρίς να εκθέτετε εσωτερικά αναγνωριστικά, κωδικούς έργου ή προσωπικά δεδομένα. Η προσέγγιση διατηρεί τη διάταξη του εγγράφου, τον τύπο αρχείου και το ιστορικό εκδόσεων, εξασφαλίζοντας ότι οποιοσδήποτε παραλήπτης δεν μπορεί να ανακτήσει εμπιστευτικές πληροφορίες από τις κρυφές ιδιότητες του αρχείου.
 
 ## Προαπαιτούμενα
-- **GroupDocs.Redaction library** έκδοση 24.9 ή νεότερη.  
-- **Java Development Kit (JDK)** εγκατεστημένο (κατά προτίμηση JDK 11+).  
+
+- **GroupDocs.Redaction library** έκδοση 24.9 ή νεότερη (υποστηρίζει 100+ μορφές).  
+- **Java Development Kit (JDK)** 11 ή νεότερο.  
 - Ένα IDE όπως **IntelliJ IDEA** ή **Eclipse**.  
 - Βασική εξοικείωση με τη Java (χρήσιμη αλλά όχι υποχρεωτική).
 
 ## Ρύθμιση του GroupDocs.Redaction για Java
 
 ### Διαμόρφωση Maven
-Προσθέστε το αποθετήριο GroupDocs και την εξάρτηση στο `pom.xml` σας:
+
+Add the GroupDocs repository and dependency to your `pom.xml`:
 
 ```xml
 <repositories>
@@ -59,16 +113,18 @@ weight: 1
 </dependencies>
 ```
 
-### Άμεση Λήψη
-Εναλλακτικά, κατεβάστε την πιο πρόσφατη έκδοση από [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+### Άμεση λήψη
 
-#### Βήματα Απόκτησης Άδειας
-- **Δωρεάν Δοκιμή:** Εξερευνήστε τις βασικές λειτουργίες χωρίς κόστος.  
-- **Προσωρινή Άδεια:** Χρησιμοποιήστε την κατά την ανάπτυξη για πλήρη πρόσβαση στο API.  
-- **Αγορά:** Αποκτήστε άδεια παραγωγής από τον ιστότοπο του GroupDocs.
+Alternatively, download the latest version from [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
-### Βασική Αρχικοποίηση και Ρύθμιση
-Δημιουργήστε ένα αντικείμενο `Redactor` που δείχνει στο έγγραφο που θέλετε να καθαρίσετε:
+#### Βήματα απόκτησης άδειας
+- **Δωρεάν δοκιμή:** Εξερευνήστε τις βασικές λειτουργίες χωρίς κόστος.  
+- **Προσωρινή άδεια:** Χρησιμοποιήστε την κατά τη διάρκεια της ανάπτυξης για πλήρη πρόσβαση στο API.  
+- **Αγορά:** Αποκτήστε άδεια παραγωγής από τον ιστότοπο GroupDocs.
+
+### Βασική αρχικοποίηση και ρύθμιση
+
+The `Redactor` class is the core entry point that loads a document, applies redaction rules, and writes the sanitized output. Create a `Redactor` instance that points to the document you want to clean:
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -77,19 +133,22 @@ String inputFilePath = "YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX";
 final Redactor redactor = new Redactor(inputFilePath);
 ```
 
-## Οδηγός Υλοποίησης
+## Οδηγός υλοποίησης
 
-### Λειτουργία Αντικατάστασης Κειμένου Μεταδεδομένων
-Ο στόχος μας είναι να αντικαταστήσουμε κάθε εμφάνιση του “Company Ltd.” σε οποιοδήποτε πεδίο μεταδεδομένων με το σύμβολο κράτησης θέσης “--company--”.
+### Λειτουργία αντικατάστασης κειμένου μεταδεδομένων
 
-#### Βήμα 1: Εισαγωγή Απαραίτητων Κλάσεων
+Our goal is to replace every occurrence of “Company Ltd.” in any metadata field with the placeholder “--company--”.
+
+#### Βήμα 1: εισαγωγή απαραίτητων κλάσεων
+
 ```java
 import com.groupdocs.redaction.Redactor;
 import com.groupdocs.redaction.options.SaveOptions;
 import com.groupdocs.redaction.redactions.MetadataSearchRedaction;
 ```
 
-#### Βήμα 2: Διαμόρφωση Κατάστρωσης και Επιλογών Αποθήκευσης
+#### Βήμα 2: διαμόρφωση αφαίρεσης και επιλογών αποθήκευσης
+
 ```java
 String inputFilePath = "YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX";
 String outputFilePath = "YOUR_OUTPUT_DIRECTORY/SAMPLE_DOCX_Redacted";
@@ -111,62 +170,71 @@ try {
 }
 ```
 
-#### Συμβουλές Επίλυσης Προβλημάτων
-- **Αρχείο Δεν Βρέθηκε:** Ελέγξτε ξανά τις απόλυτες διαδρομές για τα αρχεία εισόδου και εξόδου.  
-- **Μη Υποστηριζόμενη Μορφή:** Βεβαιωθείτε ότι ο τύπος του εγγράφου σας εμφανίζεται στον πίνακα υποστηριζόμενων μορφών του GroupDocs.Redaction.
+#### Συμβουλές αντιμετώπισης προβλημάτων
+- **Αρχείο δεν βρέθηκε:** Ελέγξτε ξανά τις απόλυτες διαδρομές για τα αρχεία εισόδου και εξόδου.  
+- **Μη υποστηριζόμενη μορφή:** Βεβαιωθείτε ότι ο τύπος του εγγράφου σας εμφανίζεται στον πίνακα υποστηριζόμενων μορφών του GroupDocs.Redaction (πάνω από 100 μορφές εισόδου και εξόδου).  
 
-## Πρακτικές Εφαρμογές
-Η αντικατάσταση κειμένου μεταδεδομένων είναι πολύτιμη σε πολλές περιπτώσεις:
+## Πρακτικές εφαρμογές
 
-1. **Διαχείριση Νομικών Εγγράφων:** Καθαρίστε προσχέδια πριν τα στείλετε στην αντίθετη πλευρά.  
-2. **Συμμόρφωση & Ιδιωτικότητα:** Αφαιρέστε προσωπικά αναγνωριστικά για να πληροίτε τις απαιτήσεις GDPR ή HIPAA.  
-3. **Επεξεργασία Προτύπων:** Αντικαταστήστε τιμές κράτησης θέσης χωρίς να εκθέσετε την αρχική εταιρική ταυτότητα.
+Replacing metadata text is valuable in many scenarios:
 
-## Σκέψεις Απόδοσης
-Κατά την επεξεργασία μεγάλων αρχείων ή παρτίδων:
+1. **Διαχείριση νομικών εγγράφων:** Καθαρίστε τα προσχέδια πριν τα στείλετε στην αντίθετη πλευρά.  
+2. **Συμμόρφωση & ιδιωτικότητα:** Αφαιρέστε προσωπικά αναγνωριστικά για να πληροίτε τις απαιτήσεις GDPR ή HIPAA.  
+3. **Επεξεργασία προτύπων:** Αντικαταστήστε τιμές κράτησης θέσης χωρίς να εκθέτετε την αρχική εταιρική επωνυμία.
+
+## Σκέψεις απόδοσης
+
+When processing large files or batches:
 
 - Κλείστε άμεσα κάθε `Redactor` (`redactor.close()`) για να ελευθερώσετε μνήμη.  
-- Προγραμματίστε εργασίες παρτίδας κατά τις ώρες χαμηλής κίνησης για να μειώσετε το φορτίο του διακομιστή.  
-- Προτιμήστε μορφές αρχείων που επιτρέπουν αποδοτική επεξεργασία μεταδεδομένων (π.χ., DOCX αντί PDF όταν είναι δυνατόν).
+- Προγραμματίστε εργασίες παρτίδας σε ώρες χαμηλής κίνησης για να μειώσετε το φορτίο του διακομιστή.  
+- Προτιμήστε μορφές αρχείων που επιτρέπουν αποδοτική επεξεργασία μεταδεδομένων (π.χ., DOCX αντί PDF όταν είναι δυνατό).
 
-## Συχνά Προβλήματα και Λύσεις
+## Συχνά προβλήματα και λύσεις
 
 | Πρόβλημα | Λύση |
 |----------|------|
-| **Η κατάστρωση δεν εφαρμόστηκε** | Βεβαιωθείτε ότι το ακριβές κείμενο (“Company Ltd.”) ταιριάζει με τη διάκριση πεζών‑κεφαλαίων· χρησιμοποιήστε επιλογές regex αν χρειάζεται. |
+| **Η αφαίρεση δεν εφαρμόστηκε** | Βεβαιωθείτε ότι το ακριβές κείμενο (“Company Ltd.”) ταιριάζει με τη διάκριση πεζών‑κεφαλαίων· χρησιμοποιήστε επιλογές regex αν χρειάζεται. |
 | **Το αρχείο εξόδου δεν άλλαξε** | Επαληθεύστε ότι το `saveOptions.setAddSuffix(true)` προσθέτει νέο αρχείο· ελέγξτε τη διαδρομή του καταλόγου εξόδου. |
-| **Αιχμές μνήμης** | Επεξεργαστείτε τα αρχεία διαδοχικά και αποδεσμεύστε το `Redactor` μετά από κάθε επανάληψη. |
+| **Αιχμές μνήμης** | Επεξεργαστείτε τα αρχεία διαδοχικά και απελευθερώστε το `Redactor` μετά από κάθε επανάληψη. |
 
-## Συχνές Ερωτήσεις
+## Συχνές ερωτήσεις
 
 **Ε: Τι είναι το GroupDocs.Redaction για Java;**  
-Α: Είναι μια βιβλιοθήκη Java που επιτρέπει στους προγραμματιστές να εντοπίζουν και να καταστρέφουν κείμενο, εικόνες και μεταδεδομένα σε πάνω από 100 μορφές εγγράφων.
+A: Είναι μια βιβλιοθήκη Java που επιτρέπει στους προγραμματιστές να εντοπίζουν και να αφαιρούν κείμενο, εικόνες και μεταδεδομένα σε πάνω από 100 μορφές εγγράφων.
 
 **Ε: Μπορώ να χρησιμοποιήσω το GroupDocs.Redaction με αρχεία μη‑κειμένου;**  
-Α: Ναι, η βιβλιοθήκη υποστηρίζει PDFs, έγγραφα Word, λογιστικά φύλλα και πολλές άλλες μορφές.
+A: Ναι, η βιβλιοθήκη υποστηρίζει PDFs, έγγραφα Word, λογιστικά φύλλα και πολλές άλλες μορφές.
 
 **Ε: Πώς να διαχειριστώ μεγάλα έγγραφα αποδοτικά;**  
-Α: Κλείστε το `Redactor` μετά από κάθε αρχείο, εκτελέστε εργασίες παρτίδας κατά τις περιόδους χαμηλής κίνησης και επιλέξτε τύπους αρχείων που είναι ελαφροί για λειτουργίες μεταδεδομένων.
+A: Κλείστε το `Redactor` μετά από κάθε αρχείο, εκτελέστε εργασίες παρτίδας σε περιόδους χαμηλής κίνησης και επιλέξτε τύπους αρχείων που είναι ελαφροί για λειτουργίες μεταδεδομένων.
 
 **Ε: Ποια είναι τα τυπικά σενάρια χρήσης για την αντικατάσταση κειμένου μεταδεδομένων;**  
-Α: Η νομική κατάστρωση, η συμμόρφωση με την ιδιωτικότητα και η αυτοματοποιημένη επεξεργασία προτύπων είναι τα πιο κοινά σενάρια.
+A: Η νομική αφαίρεση, η συμμόρφωση με την ιδιωτικότητα και η αυτοματοποιημένη επεξεργασία προτύπων είναι τα πιο κοινά σενάρια.
 
 **Ε: Πού μπορώ να λάβω βοήθεια αν αντιμετωπίσω προβλήματα;**  
-Α: Η GroupDocs προσφέρει δωρεάν υποστήριξη μέσω του [forum](https://forum.groupdocs.com/c/redaction/33).
+A: Το GroupDocs προσφέρει δωρεάν υποστήριξη μέσω του [forum](https://forum.groupdocs.com/c/redaction/33).
 
 ## Συμπέρασμα
-Τώρα έχετε μια πλήρη, έτοιμη για παραγωγή μέθοδο για **replace metadata text java** και ασφαλή κατάστρωση μεταδεδομένων σε έγγραφα Java χρησιμοποιώντας το GroupDocs.Redaction. Ακολουθώντας τα παραπάνω βήματα, μπορείτε να προστατεύσετε ευαίσθητες πληροφορίες κρυμμένες στις ιδιότητες των εγγράφων ενώ διατηρείτε την αρχική μορφή αρχείου.
+
+You now have a complete, production‑ready method for **replace metadata text java** and securely redact metadata in Java documents using GroupDocs.Redaction. By following the steps above, you can protect sensitive information hidden in document properties while preserving the original file format.
 
 **Πόροι**  
-- **Τεκμηρίωση:** Εξερευνήστε περισσότερα στο [GroupDocs.Redaction Documentation](https://docs.groupdocs.com/redaction/java/)  
-- **Αναφορά API:** Λεπτομερείς πληροφορίες API διατίθενται στο [API Reference](https://reference.groupdocs.com/redaction/java)  
-- **Λήψη:** Λάβετε την πιο πρόσφατη έκδοση από [Downloads](https://releases.groupdocs.com/redaction/java/)  
-- **GitHub:** Πρόσβαση στον πηγαίο κώδικα στο [GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
-- **Δωρεάν Υποστήριξη:** Συμμετέχετε σε συζητήσεις στο [Support Forum](https://forum.groupdocs.com/c/redaction/33)  
-- **Προσωρινή Άδεια:** Αποκτήστε άδεια για δοκιμές από το [Temporary License](https://purchase.groupdocs.com/temporary-license/)  
+- **Τεκμηρίωση:** Explore more at [GroupDocs.Redaction Documentation](https://docs.groupdocs.com/redaction/java/)  
+- **Αναφορά API:** Detailed API information is available at [API Reference](https://reference.groupdocs.com/redaction/java)  
+- **Λήψη:** Get the latest version from [Downloads](https://releases.groupdocs.com/redaction/java/)  
+- **GitHub:** Access source code on [GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
+- **Δωρεάν υποστήριξη:** Join discussions at [Support Forum](https://forum.groupdocs.com/c/redaction/33)  
+- **Προσωρινή άδεια:** Obtain a license for testing purposes from [Temporary License](https://purchase.groupdocs.com/temporary-license/)  
 
 ---
 
-**Τελευταία Ενημέρωση:** 2026-03-25  
-**Δοκιμάστηκε Με:** GroupDocs.Redaction 24.9 for Java  
+**Τελευταία ενημέρωση:** 2026-09-26  
+**Δοκιμάστηκε με:** GroupDocs.Redaction 24.9 for Java  
 **Συγγραφέας:** GroupDocs
+
+## Σχετικά μαθήματα
+
+- [Πώς να αφαιρέσετε μεταδεδομένα Java χρησιμοποιώντας το GroupDocs.Redaction](/redaction/java/metadata-redaction/metadata-redaction-groupdocs-java-guide/)
+- [αφαίρεση pdf μεταδεδομένων java – GroupDocs.Redaction tutorial](/redaction/java/pdf-specific-redaction/)
+- [Εφαρμογή Java Redaction Groupdocs Redaction Guide](/redaction/java/getting-started/implement-java-redaction-groupdocs-redaction-guide/)

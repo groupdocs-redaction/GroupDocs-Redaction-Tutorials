@@ -1,45 +1,97 @@
 ---
-date: '2026-03-25'
-description: تعلم كيفية استبدال نص البيانات الوصفية في جافا باستخدام GroupDocs.Redaction.
-  يوضح هذا الدليل خطوة بخطوة عملية حذف البيانات الوصفية بأمان وأفضل الممارسات.
+date: '2026-09-26'
+description: يوضح دليل Java metadata redaction كيفية استبدال نص metadata باستخدام
+  GroupDocs.Redaction، بالإضافة إلى نصائح لإزالة الخصائص المخفية في Java بأمان.
 keywords:
-- Java metadata redaction
-- GroupDocs.Redaction for Java
+- java metadata redaction tutorial
+- remove hidden properties java
 - metadata text replacement
-title: استبدال نص البيانات الوصفية جافا – التمويه الآمن باستخدام GroupDocs
+lastmod: '2026-09-26'
+og_description: يوضح دليل Java metadata redaction كيفية استبدال نص metadata باستخدام
+  GroupDocs.Redaction، بالإضافة إلى نصائح لإزالة الخصائص المخفية في Java بأمان.
+og_image_alt: Guide to replace metadata text in Java documents with GroupDocs.Redaction
+og_title: دليل Java metadata redaction – استبدال نص metadata
+schemas:
+- author: GroupDocs
+  dateModified: '2026-09-26'
+  description: Java metadata redaction tutorial shows how to replace metadata text
+    using GroupDocs.Redaction, plus tips for removing hidden properties java securely.
+  headline: Java metadata redaction tutorial – replace metadata text
+  type: TechArticle
+- description: Java metadata redaction tutorial shows how to replace metadata text
+    using GroupDocs.Redaction, plus tips for removing hidden properties java securely.
+  name: Java metadata redaction tutorial – replace metadata text
+  steps:
+  - name: '**Legal document management:** Clean drafts before sending them to opposing
+      counsel.'
+    text: '**Legal document management:** Clean drafts before sending them to opposing
+      counsel.'
+  - name: '**Compliance & privacy:** Strip personal identifiers to meet GDPR or HIPAA
+      requirements.'
+    text: '**Compliance & privacy:** Strip personal identifiers to meet GDPR or HIPAA
+      requirements.'
+  - name: '**Template processing:** Swap placeholder values without exposing original
+      corporate branding.'
+    text: '**Template processing:** Swap placeholder values without exposing original
+      corporate branding.'
+  type: HowTo
+- questions:
+  - answer: It’s a Java library that enables developers to locate and redact text,
+      images, and metadata across over 100 document formats.
+    question: What is GroupDocs.Redaction for Java?
+  - answer: Yes, the library supports PDFs, Word documents, spreadsheets, and many
+      other formats.
+    question: Can I use GroupDocs.Redaction with non‑text files?
+  - answer: Close the `Redactor` after each file, run batch jobs during low‑traffic
+      periods, and choose file types that are lightweight for metadata operations.
+    question: How do I handle large documents efficiently?
+  - answer: Legal redaction, privacy compliance, and automated template processing
+      are the most common scenarios.
+    question: What are typical use cases for replacing metadata text?
+  - answer: GroupDocs offers free support through their [forum](https://forum.groupdocs.com/c/redaction/33).
+    question: Where can I get help if I run into problems?
+  type: FAQPage
+tags:
+- metadata redaction
+- GroupDocs.Redaction
+- Java document processing
+title: دليل Java metadata redaction – استبدال نص metadata
 type: docs
 url: /ar/java/metadata-redaction/java-redaction-metadata-text-replacement-guide/
 weight: 1
 ---
 
-# استبدال نص البيانات الوصفية java – إزالة المعلومات الحساسة بأمان مع GroupDocs
+# دليل إخفاء بيانات التعريف في جافا – استبدال نص بيانات التعريف
 
-في المشهد الرقمي اليوم، يعتبر تعلم **replace metadata text java** مهارة حاسمة لحماية المعلومات السرية المخفية داخل خصائص المستند. سواءً كنت تحمي العقود أو السجلات الشخصية أو التقارير الداخلية، فإن إزالة أو استبدال البيانات الوصفية الحساسة يمنع تسرب البيانات عن طريق الخطأ. في هذا الدرس ستكتشف كيفية إزالة البيانات الوصفية واستبدال نص البيانات الوصفية باستخدام GroupDocs.Redaction for Java، بدءًا من إعداد البيئة وحتى حفظ المستند المنقّح.
+في هذا **دليل إخفاء بيانات التعريف في جافا**، ستتعلم كيفية استبدال نص بيانات التعريف في مستندات جافا باستخدام GroupDocs.Redaction. حماية الخصائص المخفية مثل أسماء المؤلفين، تفاصيل الشركة، أو الحقول المخصصة أمر أساسي للامتثال لـ GDPR، HIPAA، ومتطلبات الشركات. بنهاية هذا الدليل ستحصل على حل جاهز للإنتاج يحافظ على تنسيق الملف الأصلي مع تنقية كل إدخال حساس في بيانات التعريف.
 
 ## إجابات سريعة
-- **ما المكتبة التي تتعامل مع إزالة البيانات الوصفية في Java؟** GroupDocs.Redaction for Java.  
-- **ما هي الطريقة الأساسية التي تستبدل النص في البيانات الوصفية؟** `MetadataSearchRedaction`.  
+- **ما المكتبة التي تتعامل مع إخفاء بيانات التعريف في جافا؟** GroupDocs.Redaction for Java.  
+- **ما هي الطريقة الأساسية التي تستبدل النص في بيانات التعريف؟** `MetadataSearchRedaction`.  
 - **هل أحتاج إلى ترخيص للتطوير؟** ترخيص مؤقت يعمل للاختبار؛ الترخيص الكامل مطلوب للإنتاج.  
-- **هل يمكنني الاحتفاظ بتنسيق الملف الأصلي بعد الإزالة؟** نعم—قم بتعيين `saveOptions.setRasterizeToPDF(false)`.  
-- **هل يدعم المعالجة الدفعية؟** بالتأكيد؛ فقط قم بالتكرار عبر الملفات وأعد استخدام نمط كائن Redactor نفسه.  
+- **هل يمكنني الحفاظ على تنسيق الملف الأصلي بعد الإخفاء؟** نعم—اضبط `saveOptions.setRasterizeToPDF(false)`.  
+- **هل يدعم المعالجة الدفعية؟** بالتأكيد؛ فقط قم بتكرار الملفات وإعادة استخدام نمط كائن Redactor نفسه.  
 
-## ما هو replace metadata text java؟
-إزالة البيانات الوصفية تعني فحص الخصائص المخفية للمستند (المؤلف، اسم الشركة، الحقول المخصصة، إلخ) وإما حذف القيم الحساسة أو استبدالها. على عكس المحتوى المرئي، غالبًا ما تنتقل البيانات الوصفية دون أن يلاحظها أحد، لذا فإن الإزالة الصريحة ضرورية للامتثال للائحة GDPR، HIPAA، وغيرها من اللوائح الخصوصية.
+`MetadataSearchRedaction` هي قاعدة إخفاء تجد وتستبدل النص المحدد داخل بيانات تعريف المستند.
 
-## لماذا استبدال نص البيانات الوصفية؟
-استبدال نص البيانات الوصفية يتيح لك الحفاظ على بنية المستند دون تغيير مع تنقية المعرفات السرية. هذا مفيد بشكل خاص عندما تحتاج إلى مشاركة مسودة مع شركاء خارجيين ولكن يجب إخفاء رموز المشاريع الداخلية، أسماء الموردين، أو المعرفات الشخصية.
+## ما هو استبدال نص بيانات التعريف في جافا؟
+استبدال نص بيانات التعريف في جافا هو عملية تحديد قيم الخصائص المخفية داخل مستند وتبديلها ببديل آمن. تستهدف هذه العملية سمات المستند مثل المؤلف، الشركة، والحقول المخصصة التي لا تظهر في المحتوى الرئيسي ولكنها تسافر مع الملف.
+
+## لماذا نستبدل نص بيانات التعريف؟
+تستبدل نص بيانات التعريف لمشاركة مسودة دون كشف المعرفات الداخلية، رموز المشروع، أو البيانات الشخصية. يحافظ النهج على تخطيط المستند، نوع الملف، وتاريخ الإصدارات مع ضمان عدم قدرة المستلم النهائي على استخراج معلومات سرية من الخصائص المخفية للملف.
 
 ## المتطلبات المسبقة
-- **مكتبة GroupDocs.Redaction** الإصدار 24.9 أو أحدث.  
-- **Java Development Kit (JDK)** مثبت (يفضل JDK 11+).  
-- بيئة تطوير متكاملة (IDE) مثل **IntelliJ IDEA** أو **Eclipse**.  
-- إلمام أساسي بـ Java (مفيد لكن ليس إلزاميًا).
 
-## إعداد GroupDocs.Redaction للـ Java
+- **مكتبة GroupDocs.Redaction** الإصدار 24.9 أو أحدث (تدعم أكثر من 100 تنسيق).  
+- **مجموعة تطوير جافا (JDK)** 11 أو أحدث.  
+- بيئة تطوير متكاملة مثل **IntelliJ IDEA** أو **Eclipse**.  
+- إلمام أساسي بجافا (مفيد لكن غير إلزامي).
+
+## إعداد GroupDocs.Redaction لجافا
 
 ### تكوين Maven
 
-Add the GroupDocs repository and dependency to your `pom.xml`:
+أضف مستودع GroupDocs والاعتماد إلى ملف `pom.xml` الخاص بك:
 
 ```xml
 <repositories>
@@ -61,7 +113,7 @@ Add the GroupDocs repository and dependency to your `pom.xml`:
 
 ### التحميل المباشر
 
-بدلاً من ذلك، قم بتنزيل أحدث نسخة من [إصدارات GroupDocs.Redaction للـ Java](https://releases.groupdocs.com/redaction/java/).
+بدلاً من ذلك، قم بتحميل أحدث نسخة من [إصدارات GroupDocs.Redaction لجافا](https://releases.groupdocs.com/redaction/java/).
 
 #### خطوات الحصول على الترخيص
 - **تجربة مجانية:** استكشف الميزات الأساسية دون تكلفة.  
@@ -70,7 +122,7 @@ Add the GroupDocs repository and dependency to your `pom.xml`:
 
 ### التهيئة الأساسية والإعداد
 
-أنشئ كائن `Redactor` يشير إلى المستند الذي تريد تنظيفه:
+فئة `Redactor` هي نقطة الدخول الأساسية التي تحمل المستند، تطبق قواعد الإخفاء، وتكتب النتيجة المنقاة. أنشئ كائن `Redactor` يشير إلى المستند الذي تريد تنظيفه:
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -81,11 +133,11 @@ final Redactor redactor = new Redactor(inputFilePath);
 
 ## دليل التنفيذ
 
-### ميزة استبدال نص البيانات الوصفية
+### ميزة استبدال نص بيانات التعريف
 
-هدفنا هو استبدال كل ظهور لـ “Company Ltd.” في أي حقل بيانات وصفية بالعنصر النائب “--company--”. 
+هدفنا هو استبدال كل ظهور لـ “Company Ltd.” في أي حقل بيانات تعريف بالبديل “--company--”.
 
-#### الخطوة 1: استيراد الفئات الضرورية
+#### الخطوة 1: استيراد الفئات اللازمة
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -93,7 +145,7 @@ import com.groupdocs.redaction.options.SaveOptions;
 import com.groupdocs.redaction.redactions.MetadataSearchRedaction;
 ```
 
-#### الخطوة 2: تكوين الإزالة وخيارات الحفظ
+#### الخطوة 2: تكوين الإخفاء وخيارات الحفظ
 
 ```java
 String inputFilePath = "YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX";
@@ -116,63 +168,71 @@ try {
 }
 ```
 
-#### نصائح استكشاف الأخطاء وإصلاحها
+#### نصائح استكشاف الأخطاء
 - **الملف غير موجود:** تحقق مرة أخرى من المسارات المطلقة لكل من ملفات الإدخال والإخراج.  
-- **تنسيق غير مدعوم:** تأكد من أن نوع المستند الخاص بك مدرج في جدول الصيغ المدعومة من GroupDocs.Redaction.  
+- **تنسيق غير مدعوم:** تأكد من أن نوع المستند الخاص بك مدرج في جدول التنسيقات المدعومة من GroupDocs.Redaction (أكثر من 100 تنسيق إدخال وإخراج).  
 
 ## تطبيقات عملية
 
-استبدال نص البيانات الوصفية ذو قيمة في العديد من السيناريوهات:
-1. **إدارة المستندات القانونية:** تنظيف المسودات قبل إرسالها إلى المحاماة الخصم.  
+استبدال نص بيانات التعريف ذو قيمة في العديد من السيناريوهات:
+
+1. **إدارة المستندات القانونية:** تنظيف المسودات قبل إرسالها إلى الطرف المقابل.  
 2. **الامتثال والخصوصية:** إزالة المعرفات الشخصية لتلبية متطلبات GDPR أو HIPAA.  
-3. **معالجة القوالب:** استبدال القيم النائبة دون كشف العلامة التجارية الأصلية للشركة.  
+3. **معالجة القوالب:** استبدال القيم النائبة دون كشف العلامة التجارية الأصلية للشركة.
 
 ## اعتبارات الأداء
 
-عند معالجة ملفات أو دفعات كبيرة:
-- أغلق كل كائن `Redactor` فورًا (`redactor.close()`) لتفريغ الذاكرة.  
-- جدولة وظائف الدفعات خلال ساعات انخفاض الحمل لتقليل عبء الخادم.  
-- يفضَّل استخدام صيغ ملفات تسمح بتحرير البيانات الوصفية بكفاءة (مثل DOCX بدلاً من PDF عندما يكون ذلك ممكنًا).  
+عند معالجة ملفات كبيرة أو دفعات:
+
+- أغلق كل كائن `Redactor` فوراً (`redactor.close()`) لتفريغ الذاكرة.  
+- جدولة وظائف الدفعات خلال ساعات انخفاض الحمل لتقليل العبء على الخادم.  
+- فضل تنسيقات الملفات التي تسمح بتحرير بيانات التعريف بكفاءة (مثل DOCX بدلاً من PDF عندما يكون ذلك ممكنًا).
 
 ## المشكلات الشائعة والحلول
 
-| Issue | Solution |
+| المشكلة | الحل |
 |-------|----------|
-| **لم يتم تطبيق Redaction** | تأكد من أن النص الدقيق (“Company Ltd.”) يطابق حساسية الحالة؛ استخدم خيارات regex إذا لزم الأمر. |
-| **ملف الإخراج لم يتغير** | تحقق من أن `saveOptions.setAddSuffix(true)` يضيف ملفًا جديدًا؛ افحص مسار دليل الإخراج. |
-| **ارتفاع مفاجئ في الذاكرة** | عالج الملفات بشكل متسلسل وتخلص من كائن `Redactor` بعد كل تكرار. |
+| **لم يتم تطبيق الإخفاء** | تأكد من أن النص الدقيق (“Company Ltd.”) يطابق حساسية الحالة؛ استخدم خيارات regex إذا لزم الأمر. |
+| **ملف الإخراج غير متغير** | تحقق من أن `saveOptions.setAddSuffix(true)` يضيف ملفًا جديدًا؛ افحص مسار دليل الإخراج. |
+| **ارتفاع استهلاك الذاكرة** | عالج الملفات تسلسليًا وتخلص من كائن `Redactor` بعد كل تكرار. |
 
 ## الأسئلة المتكررة
 
-**س: ما هو GroupDocs.Redaction للـ Java؟**  
-ج: إنها مكتبة Java تمكّن المطورين من تحديد وإزالة النصوص، الصور، والبيانات الوصفية عبر أكثر من 100 صيغة مستند.
+**س: ما هو GroupDocs.Redaction لجافا؟**  
+ج: إنها مكتبة جافا تمكّن المطورين من تحديد وإخفاء النصوص، الصور، وبيانات التعريف عبر أكثر من 100 تنسيق مستند.
 
 **س: هل يمكنني استخدام GroupDocs.Redaction مع ملفات غير نصية؟**  
-ج: نعم، تدعم المكتبة ملفات PDF، مستندات Word، جداول البيانات، والعديد من الصيغ الأخرى.
+ج: نعم، تدعم المكتبة ملفات PDF، مستندات Word، جداول البيانات، والعديد من التنسيقات الأخرى.
 
-**س: كيف يمكنني التعامل مع المستندات الكبيرة بكفاءة؟**  
-ج: أغلق كائن `Redactor` بعد كل ملف، شغّل وظائف الدفعات خلال فترات انخفاض الحركة، واختر صيغ ملفات خفيفة لعمليات البيانات الوصفية.
+**س: كيف أتعامل مع المستندات الكبيرة بكفاءة؟**  
+ج: أغلق كائن `Redactor` بعد كل ملف، شغّل وظائف الدفعات خلال فترات انخفاض الحركة، واختر تنسيقات ملفات خفيفة لعمليات بيانات التعريف.
 
-**س: ما هي حالات الاستخدام النموذجية لاستبدال نص البيانات الوصفية؟**  
-ج: الإزالة القانونية، الامتثال للخصوصية، ومعالجة القوالب الآلية هي السيناريوهات الأكثر شيوعًا.
+**س: ما هي الاستخدامات النموذجية لاستبدال نص بيانات التعريف؟**  
+ج: الإخفاء القانوني، الامتثال للخصوصية، ومعالجة القوالب الآلية هي السيناريوهات الأكثر شيوعًا.
 
 **س: أين يمكنني الحصول على المساعدة إذا واجهت مشاكل؟**  
 ج: تقدم GroupDocs دعمًا مجانيًا عبر [المنتدى](https://forum.groupdocs.com/c/redaction/33).
 
 ## الخلاصة
 
-أصبح لديك الآن طريقة كاملة وجاهزة للإنتاج لـ **replace metadata text java** وإزالة البيانات الوصفية بأمان في مستندات Java باستخدام GroupDocs.Redaction. باتباع الخطوات أعلاه، يمكنك حماية المعلومات الحساسة المخفية في خصائص المستند مع الحفاظ على تنسيق الملف الأصلي.
+أصبح لديك الآن طريقة كاملة وجاهزة للإنتاج لـ **replace metadata text java** وتقوم بإخفاء بيانات التعريف بأمان في مستندات جافا باستخدام GroupDocs.Redaction. باتباع الخطوات أعلاه، يمكنك حماية المعلومات الحساسة المخفية في خصائص المستند مع الحفاظ على تنسيق الملف الأصلي.
 
 **الموارد**  
-- **الوثائق:** استكشف المزيد في [توثيق GroupDocs.Redaction](https://docs.groupdocs.com/redaction/java/)  
+- **التوثيق:** استكشف المزيد في [توثيق GroupDocs.Redaction](https://docs.groupdocs.com/redaction/java/)  
 - **مرجع API:** معلومات مفصلة عن API متاحة في [مرجع API](https://reference.groupdocs.com/redaction/java)  
 - **التنزيل:** احصل على أحدث نسخة من [التنزيلات](https://releases.groupdocs.com/redaction/java/)  
-- **GitHub:** الوصول إلى شفرة المصدر على [GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
+- **GitHub:** الوصول إلى الشيفرة المصدرية على [GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
 - **دعم مجاني:** انضم إلى المناقشات في [منتدى الدعم](https://forum.groupdocs.com/c/redaction/33)  
-- **ترخيص مؤقت:** احصل على ترخيص للاختبار من [الترخيص المؤقت](https://purchase.groupdocs.com/temporary-license/)  
+- **ترخيص مؤقت:** احصل على ترخيص للاختبار من [ترخيص مؤقت](https://purchase.groupdocs.com/temporary-license/)  
 
 ---
 
-**آخر تحديث:** 2026-03-25  
-**تم الاختبار مع:** GroupDocs.Redaction 24.9 للـ Java  
+**آخر تحديث:** 2026-09-26  
+**تم الاختبار مع:** GroupDocs.Redaction 24.9 لجافا  
 **المؤلف:** GroupDocs
+
+## دروس ذات صلة
+
+- [كيفية إزالة بيانات التعريف في جافا باستخدام GroupDocs.Redaction](/redaction/java/metadata-redaction/metadata-redaction-groupdocs-java-guide/)
+- [remove pdf metadata java – دليل GroupDocs.Redaction](/redaction/java/pdf-specific-redaction/)
+- [تنفيذ إخفاء جافا دليل GroupDocs Redaction](/redaction/java/getting-started/implement-java-redaction-groupdocs-redaction-guide/)
