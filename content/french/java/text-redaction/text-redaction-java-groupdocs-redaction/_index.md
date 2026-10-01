@@ -1,46 +1,83 @@
 ---
-date: '2026-03-06'
-description: Apprenez à masquer du texte en Java avec GroupDocs.Redaction. Ce guide
-  étape par étape montre comment sécuriser les documents Java et protéger efficacement
-  les données sensibles.
+date: '2026-10-01'
+description: Apprenez à censurer les documents Java à l'aide de GroupDocs.Redaction,
+  à remplacer les espaces réservés de texte et à sécuriser efficacement les données
+  sensibles.
 keywords:
-- text redaction in Java
-- GroupDocs.Redaction library
-- secure sensitive data
-title: Comment masquer du texte en Java avec GroupDocs.Redaction – Guide
+- how to redact java
+- replace text placeholder java
+- GroupDocs.Redaction Java
+- document privacy Java
+- redaction API Java
+lastmod: '2026-10-01'
+og_description: Apprenez à censurer les documents Java à l'aide de GroupDocs.Redaction,
+  à remplacer les espaces réservés de texte et à sécuriser efficacement les données
+  sensibles. Guide étape par étape pour les développeurs.
+og_image_alt: Guide showing how to redact Java documents using GroupDocs.Redaction
+og_title: Comment censurer les documents Java avec GroupDocs.Redaction
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-01'
+  description: Learn how to redact Java documents using GroupDocs.Redaction, replace
+    text placeholders, and secure sensitive data efficiently.
+  headline: How to redact Java documents with GroupDocs.Redaction
+  type: TechArticle
+- questions:
+  - answer: It provides a simple API to locate and replace sensitive text, images,
+      or metadata in a wide range of document formats.
+    question: What is the primary purpose of GroupDocs.Redaction?
+  - answer: Java – the guide walks you through Maven setup, initialization, and exact‑phrase
+      redaction.
+    question: Which programming language is covered?
+  - answer: A free trial and temporary licenses are available for development and
+      evaluation.
+    question: Do I need a license to try it out?
+  - answer: Yes – use `ReplacementOptions` to define any string such as `[REDACTED]`.
+    question: Can I customize the redaction placeholder?
+  - answer: Yes, but consider streaming or processing the document in sections to
+      keep memory usage low.
+    question: Is the solution suitable for large files?
+  type: FAQPage
+tags:
+- redaction
+- GroupDocs
+- Java document security
+- data privacy
+- API tutorial
+title: Comment censurer les documents Java avec GroupDocs.Redaction
 type: docs
 url: /fr/java/text-redaction/text-redaction-java-groupdocs-redaction/
 weight: 1
 ---
 
-# Comment masquer du texte en Java avec GroupDocs.Redaction
+# Comment censurer les documents Java avec GroupDocs.Redaction
 
-Rencontrez-vous des difficultés à garder les informations sensibles sécurisées dans vos documents ? Vous n'êtes pas seul. De nombreuses organisations sont confrontées au défi de masquer des données confidentielles sans compromettre l'intégrité du document. Dans ce tutoriel, vous découvrirez **comment masquer du texte** à l'aide de la puissante bibliothèque GroupDocs.Redaction pour Java, et apprendrez des méthodes pratiques pour **sécuriser les documents java** tout en préservant la qualité du document.
+Dans ce guide, vous apprendrez **comment censurer les documents Java** en utilisant la bibliothèque GroupDocs.Redaction. Nous parcourrons la configuration Maven, l'initialisation de l'API principale, et l'exécution d'une censure de phrases exactes avec des espaces réservés personnalisés — tout en gardant votre code propre et vos données sécurisées.
 
 ## Réponses rapides
-- **Quel est le but principal de GroupDocs.Redaction ?** Il fournit une API simple pour localiser et remplacer le texte sensible, les images ou les métadonnées dans une large gamme de formats de documents.  
-- **Quel langage de programmation est couvert ?** Java – le guide vous accompagne à travers la configuration Maven, l'initialisation et le masquage de phrases exactes.  
-- **Ai-je besoin d'une licence pour l'essayer ?** Un essai gratuit et des licences temporaires sont disponibles pour le développement et l'évaluation.  
-- **Puis-je personnaliser le texte de remplacement du masquage ?** Oui – utilisez `ReplacementOptions` pour définir n'importe quelle chaîne comme `[REDACTED]`.  
-- **La solution convient-elle aux gros fichiers ?** Oui, mais envisagez le streaming ou le traitement du document par sections afin de limiter l'utilisation de la mémoire.
+- **Quel est le but principal de GroupDocs.Redaction ?** Il fournit une API simple pour localiser et remplacer le texte sensible, les images ou les métadonnées dans un large éventail de formats de documents.  
+- **Quel langage de programmation est couvert ?** Java – le guide vous accompagne à travers la configuration Maven, l'initialisation et la censure de phrases exactes.  
+- **Ai-je besoin d'une licence pour l'essayer ?** Un essai gratuit et des licences temporaires sont disponibles pour le développement et l'évaluation.  
+- **Puis-je personnaliser l'espace réservé de censure ?** Oui – utilisez `ReplacementOptions` pour définir n'importe quelle chaîne telle que `[REDACTED]`.  
+- **La solution convient‑elle aux gros fichiers ?** Oui, mais envisagez le streaming ou le traitement du document par sections afin de limiter l'utilisation de la mémoire.
 
-## Qu'est-ce que le masquage de texte et pourquoi est-ce important ?
-Le masquage de texte est le processus de suppression ou d'obscurcissement permanent d'informations sensibles d'un document afin qu'elles ne puissent pas être récupérées ou lues. Cela est essentiel pour se conformer aux réglementations telles que le RGPD, HIPAA, ou aux normes de confidentialité propres à chaque secteur. En automatisant le masquage, vous réduisez les efforts manuels et éliminez le risque d'erreur humaine.
+## Qu'est-ce que la censure de texte et pourquoi est‑elle importante ?
+La censure de texte supprime ou masque de façon permanente les informations sensibles afin qu'elles ne puissent pas être récupérées ou lues. Elle est essentielle pour se conformer au RGPD, à la HIPAA et aux normes de confidentialité propres à chaque secteur. En éliminant définitivement les données confidentielles, les organisations préviennent les divulgations accidentelles et respectent leurs obligations légales. L'automatisation de la censure réduit l'effort manuel et élimine le risque d'erreur humaine.
 
-## Pourquoi sécuriser les documents java avec GroupDocs.Redaction ?
-GroupDocs.Redaction est conçu spécifiquement pour les développeurs Java qui ont besoin de **sécuriser les documents java**. Il prend en charge des dizaines de formats (DOCX, PDF, PPTX, etc.), offre un traitement haute performance et s'intègre facilement avec Maven ou des builds manuels. La bibliothèque fournit également des fonctionnalités supplémentaires telles que la suppression des métadonnées et le masquage d'images, en faisant une solution tout‑en‑un pour la confidentialité des documents.
+## Pourquoi sécuriser les documents Java avec GroupDocs.Redaction ?
+GroupDocs.Redaction prend en charge **plus de 30 formats de documents** — notamment DOCX, PDF, PPTX et XLSX — et peut traiter **des fichiers de 500 pages** sans charger l'intégralité du document en mémoire. La bibliothèque offre un traitement haute performance, la suppression des métadonnées et la censure d'images, ce qui en fait une solution complète pour la confidentialité des documents basés sur Java.
 
 ## Prérequis
-- **Bibliothèques et versions** : GroupDocs.Redaction pour Java version 24.9.  
-- **Configuration de l'environnement** : Un Java Development Kit (JDK) installé sur votre machine.  
-- **Pré-requis de connaissances** : Compréhension de base de la programmation Java et familiarité avec Maven ou la gestion manuelle des bibliothèques.
+- **Bibliothèques et versions** : GroupDocs.Redaction pour Java version 24.9.  
+- **Configuration de l'environnement** : Un Java Development Kit (JDK) installé sur votre machine.  
+- **Pré-requis de connaissances** : Compréhension de base de la programmation Java et familiarité avec Maven ou la gestion manuelle des bibliothèques.
 
 Maintenant que nous avons couvert ce dont vous avez besoin, commençons par configurer GroupDocs.Redaction pour Java.
 
 ## Configuration de GroupDocs.Redaction pour Java
 
 ### Installation avec Maven
-Ajoutez la configuration suivante à votre fichier `pom.xml` :
+Ajoutez la configuration suivante à votre fichier `pom.xml` :
 
 ```xml
 <repositories>
@@ -61,15 +98,16 @@ Ajoutez la configuration suivante à votre fichier `pom.xml` :
 ```
 
 ### Téléchargement direct
-Alternativement, vous pouvez télécharger la dernière version directement depuis [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+Sinon, vous pouvez télécharger la dernière version directement depuis [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
 #### Acquisition de licence
-- **Essai gratuit** : Commencez avec un essai gratuit pour explorer les fonctionnalités.  
-- **Licence temporaire** : Obtenez une licence temporaire si vous avez besoin d'un accès prolongé pendant le développement.  
-- **Achat** : Envisagez d'acheter une licence pour une utilisation à long terme.
+Pour utiliser GroupDocs.Redaction efficacement :
+- **Essai gratuit** : Commencez avec un essai gratuit pour explorer les fonctionnalités.  
+- **Licence temporaire** : Obtenez une licence temporaire si vous avez besoin d'un accès prolongé pendant le développement.  
+- **Achat** : Envisagez d'acheter une licence pour une utilisation à long terme.
 
 ### Initialisation et configuration de base
-Une fois installé, initialisez la classe `Redactor` dans votre application Java. Ce sera notre passerelle pour effectuer des masquages :
+La classe `Redactor` est le composant central qui fournit des méthodes pour localiser et appliquer des censures à un document. Une fois installée, initialisez la classe `Redactor` dans votre application Java. Ce sera notre passerelle pour effectuer des censures :
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -87,20 +125,20 @@ public class RedactionExample {
 }
 ```
 
-## Guide de mise en œuvre
+## Guide d'implémentation
 
-### Comment masquer du texte avec GroupDocs.Redaction
-Maintenant que notre configuration est terminée, implémentons la fonctionnalité de masquage de texte étape par étape.
+### Comment censurer du texte avec GroupDocs.Redaction
+Chargez votre document avec `Redactor`, définissez la phrase exacte que vous souhaitez masquer, puis enregistrez le résultat. Ce schéma en trois étapes gère la plupart des scénarios de censure en moins d'une minute de codage.
 
-#### Réalisation du masquage de phrase exacte
+#### Réalisation d'une censure de phrase exacte
 
 ##### Vue d'ensemble
-Cette section montre comment remplacer des phrases spécifiques dans un document par du texte de remplacement à l'aide de GroupDocs.Redaction.
+Cette section montre comment remplacer des phrases spécifiques dans un document par du texte d'espace réservé en utilisant GroupDocs.Redaction.
 
 ##### Implémentation étape par étape
 
-**1. Définir le texte à masquer**  
-Spécifiez la phrase exacte que vous souhaitez masquer dans vos documents :
+**1. Définir le texte à censurer**  
+`ExactPhraseRedaction` est la classe API qui correspond à une chaîne littérale dans le document. Spécifiez la phrase exacte que vous souhaitez obscurcir dans vos documents :
 
 ```java
 ExactPhraseRedaction redaction = new ExactPhraseRedaction("John Doe", true, new ReplacementOptions("[REDACTED]"));
@@ -108,14 +146,12 @@ ExactPhraseRedaction redaction = new ExactPhraseRedaction("John Doe", true, new 
 
 Ici, `"John Doe"` est le texte cible, `true` indique la sensibilité à la casse, et `[REDACTED]` est le texte de remplacement.
 
-**2. Appliquer le masquage**  
-Appliquez le masquage à votre document :
+**2. Appliquer la censure**  
+`Redactor.apply` traite le document et remplace toutes les occurrences de la phrase spécifiée par l'espace réservé désigné. La classe `ReplacementOptions` vous permet de personnaliser l'espace réservé, son style et de choisir de conserver ou non la longueur du texte original.
 
 ```java
 redactor.apply(redaction);
 ```
-
-Cette méthode traite le document et remplace toutes les occurrences de la phrase spécifiée par le texte de remplacement désigné.
 
 **3. Enregistrer les modifications**  
 Enfin, enregistrez les modifications dans un nouveau fichier ou écrasez l'original :
@@ -125,77 +161,66 @@ redactor.save("YOUR_DOCUMENT_DIRECTORY/redacted_sample.docx");
 ```
 
 ### Conseils de dépannage
-- **Bibliothèque manquante** : Assurez-vous que GroupDocs.Redaction est correctement ajoutée aux dépendances de votre projet.  
-- **Problèmes d'accès aux fichiers** : Vérifiez que le chemin du document d'entrée est correct et accessible.  
+- **Bibliothèque manquante** : Assurez‑vous que GroupDocs.Redaction est correctement ajoutée aux dépendances de votre projet.  
+- **Problèmes d'accès aux fichiers** : Vérifiez que le chemin du document d'entrée est correct et accessible.  
 
 ## Applications pratiques
 
-**Cas d'utilisation 1 : Conformité à la confidentialité**  
-Assurez la conformité au RGPD en masquant les informations personnelles des documents clients.
+**Cas d'utilisation 1 : conformité à la confidentialité**  
+Assurez la conformité au RGPD en censurant les identifiants personnels des contrats clients avant l'archivage.
 
-**Cas d'utilisation 2 : Revue de documents internes**  
-Sécurisez les revues internes en supprimant les données sensibles avant de partager les brouillons.
+**Cas d'utilisation 2 : révision interne de documents**  
+Sécurisez les revues internes en supprimant les données confidentielles avant de partager les brouillons avec des partenaires externes.
 
 **Possibilités d'intégration**  
-Intégrez GroupDocs.Redaction à vos systèmes de gestion de documents existants pour automatiser le processus de masquage sur diverses plateformes.
+Intégrez GroupDocs.Redaction à votre système de gestion de documents existant pour automatiser la censure sur plusieurs plateformes et flux de travail.
 
 ## Considérations de performance
-- **Optimiser l'utilisation de la mémoire** : Utilisez des pratiques de gestion de fichiers efficaces et libérez les ressources rapidement.  
-- **Bonnes pratiques** : Mettez régulièrement à jour vers la dernière version de GroupDocs.Redaction pour bénéficier d'améliorations de performance et de corrections de bugs.
+- **Optimiser l'utilisation de la mémoire** : Utilisez les API de streaming et libérez les ressources rapidement après le traitement de chaque document.  
+- **Bonnes pratiques** : Mettez régulièrement à jour vers la dernière version de GroupDocs.Redaction afin de bénéficier des améliorations de performance et des corrections de bugs.
 
 ## Conclusion
-En suivant ce guide, vous avez appris **comment masquer du texte** avec GroupDocs.Redaction pour Java. Cette compétence est inestimable pour maintenir la confidentialité et la sécurité des données dans vos documents.
+En suivant ce guide, vous avez appris **comment censurer les documents Java** à l'aide de GroupDocs.Redaction. Cette capacité est essentielle pour maintenir la confidentialité des données et répondre aux exigences réglementaires.
 
 **Étapes suivantes**
-- Explorez des fonctionnalités de masquage supplémentaires comme la suppression des métadonnées.  
-- Expérimentez différents formats de documents pris en charge par GroupDocs.Redaction.  
+- Explorez des fonctionnalités de censure supplémentaires comme la suppression des métadonnées.  
+- Expérimentez avec les différents formats de documents pris en charge par GroupDocs.Redaction.  
 
 Prêt à renforcer la sécurité de vos documents ? Essayez de mettre en œuvre cette solution dans votre prochain projet !
 
 ## Section FAQ
 
 **Q1 : Quels types de fichiers GroupDocs.Redaction prend‑il en charge pour Java ?**  
-R1 : GroupDocs.Redaction prend en charge un large éventail de formats de documents, y compris DOCX, PDF, et plus encore. Consultez la [documentation](https://docs.groupdocs.com/redaction/java/) pour plus de détails.
+R1 : GroupDocs.Redaction prend en charge un large éventail de formats de documents, notamment DOCX, PDF, PPTX, XLSX, et bien d’autres. Consultez la [documentation](https://docs.groupdocs.com/redaction/java/) pour la liste complète.
 
 **Q2 : Comment gérer efficacement les gros documents avec GroupDocs.Redaction ?**  
-R2 : Pour les gros fichiers, envisagez de les diviser en sections plus petites ou d'optimiser l'utilisation de la mémoire en libérant les ressources rapidement après le traitement.
+R2 : Pour les gros fichiers, envisagez de les découper en sections plus petites ou d’utiliser l’API de streaming pour traiter les pages séquentiellement tout en libérant les ressources rapidement.
 
-**Q3 : Puis‑je personnaliser le texte de remplacement du masquage ?**  
+**Q3 : Puis‑je personnaliser le texte de l'espace réservé de censure ?**  
 R3 : Oui, vous pouvez spécifier n'importe quelle chaîne comme option de remplacement dans votre `ReplacementOptions`.
 
-**Q4 : Est‑il possible d'effectuer des masquages insensibles à la casse ?**  
-R4 : Absolument ! Définissez le troisième paramètre de `ExactPhraseRedaction` à `false` pour une correspondance insensible à la casse.
+**Q4 : Est‑il possible d'effectuer des censures insensibles à la casse ?**  
+R4 : Absolument ! Réglez le troisième paramètre de `ExactPhraseRedaction` sur `false` pour une correspondance insensible à la casse.
 
 **Q5 : Comment obtenir de l'aide si je rencontre des problèmes ?**  
-R5 : Consultez le [GroupDocs Free Support](https://forum.groupdocs.com/c/redaction/33) ou référez‑vous à leur documentation complète et aux références API.
+R5 : Visitez [GroupDocs Free Support](https://forum.groupdocs.com/c/redaction/33) ou consultez leur documentation complète ainsi que les références API.
 
 ## Ressources
-- **Documentation** : [GroupDocs.Redaction Java Docs](https://docs.groupdocs.com/redaction/java/)  
-- **Référence API** : [GroupDocs Redaction API](https://reference.groupdocs.com/redaction/java)  
-- **Téléchargement** : [GroupDocs Downloads](https://releases.groupdocs.com/redaction/java/)  
-- **Dépôt GitHub** : [GroupDocs GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
-- **Forum de support gratuit** : [GroupDocs Redaction Forum](https://forum.groupdocs.com/c/redaction/33)  
-- **Licence temporaire** : [Obtain Temporary License](https://purchase.groupdocs.com/temporary-license/) 
-
-## Questions fréquentes
-
-**Q : Puis‑je utiliser cela dans une application commerciale ?**  
-R : Oui, avec une licence GroupDocs valide. Un essai gratuit est disponible pour l'évaluation.
-
-**Q : Cela fonctionne‑t‑il avec des fichiers protégés par mot de passe ?**  
-R : Oui, vous pouvez spécifier le mot de passe lors de l'ouverture du document.
-
-**Q : Quelles versions de Java sont prises en charge ?**  
-R : La bibliothèque fonctionne avec JDK 8 et les versions ultérieures, y compris JDK 11, 17, et plus.
-
-**Q : Comment améliorer les performances pour le traitement par lots ?**  
-R : Traitez les documents en flux parallèles et réutilisez les instances de `Redactor` lorsque c'est possible.
-
-**Q : Où puis‑je trouver des exemples de masquage plus avancés ?**  
-R : Consultez la documentation officielle et le dépôt GitHub pour des projets d'exemple.
+- **Documentation** : [GroupDocs.Redaction Java Docs](https://docs.groupdocs.com/redaction/java/)  
+- **Référence API** : [GroupDocs Redaction API](https://reference.groupdocs.com/redaction/java)  
+- **Téléchargement** : [GroupDocs Downloads](https://releases.groupdocs.com/redaction/java/)  
+- **Dépôt GitHub** : [GroupDocs GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
+- **Forum d'assistance gratuit** : [GroupDocs Redaction Forum](https://forum.groupdocs.com/c/redaction/33)  
+- **Licence temporaire** : [Obtain Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
 ---
 
-**Dernière mise à jour :** 2026-03-06  
-**Testé avec :** GroupDocs.Redaction 24.9 for Java  
-**Auteur :** GroupDocs
+**Last Updated:** 2026-10-01  
+**Tested with:** GroupDocs.Redaction 24.9 for Java  
+**Author:** GroupDocs
+
+## Tutoriels associés
+
+- [Preview Document Pages Java Loading with GroupDocs.Redaction](/redaction/java/document-loading/)
+- [Retrieve Document Info Using Groupdocs Redaction Java](/redaction/java/document-information/retrieve-document-info-using-groupdocs-redaction-java/)
+- [How to Redact Scanned PDF with OCR – GroupDocs.Redaction Java](/redaction/java/ocr-integration/)

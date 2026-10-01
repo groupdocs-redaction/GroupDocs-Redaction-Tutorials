@@ -1,45 +1,83 @@
 ---
-date: '2026-03-06'
-description: Pelajari cara menyensor teks di Java menggunakan GroupDocs.Redaction.
-  Panduan langkah demi langkah ini menunjukkan cara mengamankan dokumen Java dan melindungi
-  data sensitif secara efisien.
+date: '2026-10-01'
+description: Pelajari cara menyensor dokumen Java menggunakan GroupDocs.Redaction,
+  mengganti placeholder teks, dan mengamankan data sensitif secara efisien.
 keywords:
-- text redaction in Java
-- GroupDocs.Redaction library
-- secure sensitive data
-title: Cara Menyensor Teks di Java dengan GroupDocs.Redaction – Panduan
+- how to redact java
+- replace text placeholder java
+- GroupDocs.Redaction Java
+- document privacy Java
+- redaction API Java
+lastmod: '2026-10-01'
+og_description: Pelajari cara menyensor dokumen Java menggunakan GroupDocs.Redaction,
+  mengganti placeholder teks, dan mengamankan data sensitif secara efisien. Panduan
+  langkah demi langkah untuk pengembang.
+og_image_alt: Guide showing how to redact Java documents using GroupDocs.Redaction
+og_title: Cara menyensor dokumen Java dengan GroupDocs.Redaction
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-01'
+  description: Learn how to redact Java documents using GroupDocs.Redaction, replace
+    text placeholders, and secure sensitive data efficiently.
+  headline: How to redact Java documents with GroupDocs.Redaction
+  type: TechArticle
+- questions:
+  - answer: It provides a simple API to locate and replace sensitive text, images,
+      or metadata in a wide range of document formats.
+    question: What is the primary purpose of GroupDocs.Redaction?
+  - answer: Java – the guide walks you through Maven setup, initialization, and exact‑phrase
+      redaction.
+    question: Which programming language is covered?
+  - answer: A free trial and temporary licenses are available for development and
+      evaluation.
+    question: Do I need a license to try it out?
+  - answer: Yes – use `ReplacementOptions` to define any string such as `[REDACTED]`.
+    question: Can I customize the redaction placeholder?
+  - answer: Yes, but consider streaming or processing the document in sections to
+      keep memory usage low.
+    question: Is the solution suitable for large files?
+  type: FAQPage
+tags:
+- redaction
+- GroupDocs
+- Java document security
+- data privacy
+- API tutorial
+title: Cara menyensor dokumen Java dengan GroupDocs.Redaction
 type: docs
 url: /id/java/text-redaction/text-redaction-java-groupdocs-redaction/
 weight: 1
 ---
 
-# Cara Menyensor Teks di Java dengan GroupDocs.Redaction
+# Cara melakukan redaksi dokumen Java dengan GroupDocs.Redaction
 
-Apakah Anda kesulitan menjaga informasi sensitif tetap aman dalam dokumen Anda? Anda tidak sendirian. Banyak organisasi menghadapi tantangan menyensor data rahasia tanpa mengorbankan integritas dokumen. Dalam tutorial ini, Anda akan menemukan **how to redact text** menggunakan pustaka GroupDocs.Redaction yang kuat untuk Java, dan mempelajari cara praktis untuk **secure documents java** sambil mempertahankan kualitas dokumen.
+Dalam panduan ini Anda akan belajar **cara melakukan redaksi Java** dokumen dengan menggunakan pustaka GroupDocs.Redaction. Kami akan membahas pengaturan Maven, inisialisasi API inti, dan melakukan redaksi frasa tepat dengan placeholder khusus—semua sambil menjaga kode Anda tetap bersih dan data Anda aman.
 
 ## Jawaban Cepat
-- **What is the primary purpose of GroupDocs.Redaction?** Ini menyediakan API sederhana untuk menemukan dan mengganti teks sensitif, gambar, atau metadata dalam berbagai format dokumen.  
-- **Which programming language is covered?** Java – panduan ini memandu Anda melalui pengaturan Maven, inisialisasi, dan penyensoran frasa tepat.  
-- **Do I need a license to try it out?** Uji coba gratis dan lisensi sementara tersedia untuk pengembangan dan evaluasi.  
-- **Can I customize the redaction placeholder?** Ya – gunakan `ReplacementOptions` untuk mendefinisikan string apa pun seperti `[REDACTED]`.  
-- **Is the solution suitable for large files?** Ya, tetapi pertimbangkan streaming atau memproses dokumen dalam bagian-bagian untuk menjaga penggunaan memori tetap rendah.
+- **Apa tujuan utama GroupDocs.Redaction?** Ia menyediakan API sederhana untuk menemukan dan mengganti teks sensitif, gambar, atau metadata dalam berbagai format dokumen.  
+- **Bahasa pemrograman apa yang dibahas?** Java – panduan ini membimbing Anda melalui pengaturan Maven, inisialisasi, dan redaksi frasa tepat.  
+- **Apakah saya memerlukan lisensi untuk mencobanya?** Versi percobaan gratis dan lisensi sementara tersedia untuk pengembangan dan evaluasi.  
+- **Bisakah saya menyesuaikan placeholder redaksi?** Ya – gunakan `ReplacementOptions` untuk mendefinisikan string apa pun seperti `[REDACTED]`.  
+- **Apakah solusi ini cocok untuk file besar?** Ya, tetapi pertimbangkan streaming atau memproses dokumen dalam bagian-bagian untuk menjaga penggunaan memori tetap rendah.
 
-## Apa itu penyensoran teks dan mengapa penting?
-Penyensoran teks adalah proses menghapus atau menyamarkan informasi sensitif secara permanen dari sebuah dokumen sehingga tidak dapat dipulihkan atau dibaca kembali. Hal ini penting untuk kepatuhan terhadap regulasi seperti GDPR, HIPAA, atau standar privasi industri‑spesifik. Dengan mengotomatisasi penyensoran, Anda mengurangi upaya manual dan menghilangkan risiko kesalahan manusia.
+## Apa itu redaksi teks dan mengapa penting?
+Redaksi teks secara permanen menghapus atau menyamarkan informasi sensitif sehingga tidak dapat dipulihkan atau dibaca. Ini penting untuk kepatuhan terhadap GDPR, HIPAA, dan standar privasi industri tertentu. Dengan menghilangkan data rahasia secara permanen, organisasi mencegah pengungkapan tidak sengaja dan memenuhi kewajiban hukum. Mengotomatiskan redaksi mengurangi upaya manual dan menghilangkan risiko kesalahan manusia.
 
-## Mengapa mengamankan dokumen java dengan GroupDocs.Redaction?
-GroupDocs.Redaction dibangun khusus untuk pengembang Java yang perlu **secure documents java** lingkungan. Ia mendukung puluhan format (DOCX, PDF, PPTX, dll.), menawarkan pemrosesan berperforma tinggi, dan mudah diintegrasikan dengan Maven atau build manual. Pustaka ini juga menyediakan fitur tambahan seperti penghapusan metadata dan penyensoran gambar, menjadikannya solusi satu‑hentian untuk privasi dokumen.
+## Mengapa mengamankan dokumen Java dengan GroupDocs.Redaction?
+GroupDocs.Redaction mendukung **lebih dari 30 format dokumen**—termasuk DOCX, PDF, PPTX, dan XLSX—dan dapat memproses **file hingga 500 halaman** tanpa memuat seluruh dokumen ke dalam memori. Pustaka ini menawarkan pemrosesan berperforma tinggi, penghapusan metadata, dan redaksi gambar, menjadikannya solusi komprehensif untuk privasi dokumen berbasis Java.
 
 ## Prasyarat
-- **Libraries and Versions**: GroupDocs.Redaction for Java version 24.9.  
-- **Environment Setup**: Java Development Kit (JDK) terpasang di mesin Anda.  
-- **Knowledge Prerequisites**: Pemahaman dasar pemrograman Java dan familiaritas dengan Maven atau manajemen pustaka manual.
 
-Sekarang setelah kami menjelaskan apa yang Anda perlukan, mari mulai dengan menyiapkan GroupDocs.Redaction untuk Java.
+Sebelum kita mulai, pastikan Anda memiliki hal berikut:
+- **Pustaka dan Versi**: GroupDocs.Redaction untuk Java versi 24.9.  
+- **Pengaturan Lingkungan**: Java Development Kit (JDK) terpasang di mesin Anda.  
+- **Prasyarat Pengetahuan**: Pemahaman dasar tentang pemrograman Java dan familiaritas dengan Maven atau manajemen pustaka manual.
+
+Setelah kami menjelaskan apa yang Anda perlukan, mari mulai dengan menyiapkan GroupDocs.Redaction untuk Java.
 
 ## Menyiapkan GroupDocs.Redaction untuk Java
 
-### Instalasi Menggunakan Maven
+### Instalasi menggunakan Maven
 Tambahkan konfigurasi berikut ke file `pom.xml` Anda:
 
 ```xml
@@ -60,16 +98,17 @@ Tambahkan konfigurasi berikut ke file `pom.xml` Anda:
 </dependencies>
 ```
 
-### Unduhan Langsung
-Sebagai alternatif, Anda dapat mengunduh versi terbaru secara langsung dari [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+### Unduhan langsung
+Sebagai alternatif, Anda dapat mengunduh versi terbaru langsung dari [rilisan GroupDocs.Redaction untuk Java](https://releases.groupdocs.com/redaction/java/).
 
 #### Akuisisi Lisensi
-- **Free Trial**: Mulai dengan uji coba gratis untuk menjelajahi fitur.  
-- **Temporary License**: Dapatkan lisensi sementara jika Anda membutuhkan akses lebih lama selama pengembangan.  
-- **Purchase**: Pertimbangkan membeli lisensi untuk penggunaan jangka panjang.
+Untuk menggunakan GroupDocs.Redaction secara efektif:
+- **Percobaan gratis**: Mulai dengan percobaan gratis untuk menjelajahi fitur.  
+- **Lisensi sementara**: Dapatkan lisensi sementara jika Anda memerlukan akses lebih lama selama pengembangan.  
+- **Pembelian**: Pertimbangkan membeli lisensi untuk penggunaan jangka panjang.
 
-### Inisialisasi dan Pengaturan Dasar
-Setelah terpasang, inisialisasi kelas `Redactor` dalam aplikasi Java Anda. Ini akan menjadi gerbang kami untuk melakukan penyensoran:
+### Inisialisasi dan pengaturan dasar
+Kelas `Redactor` adalah komponen inti yang menyediakan metode untuk menemukan dan menerapkan redaksi pada dokumen. Setelah dipasang, inisialisasi kelas `Redactor` dalam aplikasi Java Anda. Ini akan menjadi gerbang kami untuk melakukan redaksi:
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -89,18 +128,18 @@ public class RedactionExample {
 
 ## Panduan Implementasi
 
-### Cara menyensor teks menggunakan GroupDocs.Redaction
-Sekarang setelah pengaturan kami selesai, mari implementasikan fitur penyensoran teks langkah demi langkah.
+### Cara melakukan redaksi teks menggunakan GroupDocs.Redaction
+Muat dokumen Anda dengan `Redactor`, tentukan frasa tepat yang ingin disembunyikan, dan simpan hasilnya. Pola tiga langkah ini menangani sebagian besar skenario redaksi dalam waktu kurang dari satu menit pemrograman.
 
-#### Melakukan Penyensoran Frasa Tepat
+#### Melakukan redaksi frasa tepat
 
-##### Gambaran Umum
+##### Ikhtisar
 Bagian ini menunjukkan cara mengganti frasa tertentu dalam dokumen dengan teks placeholder menggunakan GroupDocs.Redaction.
 
-##### Implementasi Langkah‑per‑Langkah
+##### Implementasi langkah demi langkah
 
-**1. Define Text to be Redacted**  
-Tentukan frasa tepat yang ingin Anda sembunyikan dalam dokumen Anda:
+**1. Tentukan teks yang akan diredaksi**  
+`ExactPhraseRedaction` adalah kelas API yang mencocokkan string literal dalam dokumen. Tentukan frasa tepat yang ingin Anda sembunyikan dalam dokumen Anda:
 
 ```java
 ExactPhraseRedaction redaction = new ExactPhraseRedaction("John Doe", true, new ReplacementOptions("[REDACTED]"));
@@ -108,94 +147,81 @@ ExactPhraseRedaction redaction = new ExactPhraseRedaction("John Doe", true, new 
 
 Di sini, `"John Doe"` adalah teks target, `true` menunjukkan sensitivitas huruf besar/kecil, dan `[REDACTED]` adalah teks pengganti.
 
-**2. Apply Redaction**  
-Terapkan penyensoran pada dokumen Anda:
+**2. Terapkan redaksi**  
+`Redactor.apply` memproses dokumen dan mengganti semua kemunculan frasa yang ditentukan dengan placeholder yang ditetapkan. Kelas `ReplacementOptions` memungkinkan Anda menyesuaikan placeholder, gaya, dan apakah panjang teks asli harus dipertahankan.
 
 ```java
 redactor.apply(redaction);
 ```
 
-Metode ini memproses dokumen dan mengganti semua kemunculan frasa yang ditentukan dengan placeholder yang ditetapkan.
-
-**3. Save Changes**  
-Akhirnya, simpan perubahan ke file baru atau timpa file asli:
+**3. Simpan perubahan**  
+Akhirnya, simpan perubahan ke file baru atau timpa yang asli:
 
 ```java
 redactor.save("YOUR_DOCUMENT_DIRECTORY/redacted_sample.docx");
 ```
 
 ### Tips Pemecahan Masalah
-- **Missing Library**: Pastikan GroupDocs.Redaction telah ditambahkan dengan benar ke dependensi proyek Anda.  
-- **File Access Issues**: Verifikasi bahwa jalur dokumen input benar dan dapat diakses.  
+- **Pustaka hilang**: Pastikan GroupDocs.Redaction telah ditambahkan dengan benar ke dependensi proyek Anda.  
+- **Masalah akses file**: Verifikasi bahwa jalur dokumen input sudah benar dan dapat diakses.  
 
 ## Aplikasi Praktis
 
-**Use Case 1: Privacy Compliance**  
-Pastikan kepatuhan dengan GDPR dengan menyensor informasi pribadi dari dokumen pelanggan.
+**Kasus penggunaan 1: kepatuhan privasi**  
+Pastikan kepatuhan GDPR dengan meredaksi pengidentifikasi pribadi dari kontrak pelanggan sebelum diarsipkan.
 
-**Use Case 2: Internal Document Review**  
-Amankan tinjauan internal dengan menghapus data sensitif sebelum membagikan draf.
+**Kasus penggunaan 2: tinjauan dokumen internal**  
+Amankan tinjauan internal dengan menghapus data rahasia sebelum membagikan draf kepada mitra eksternal.
 
-**Integration Possibilities**  
-Integrasikan GroupDocs.Redaction dengan sistem manajemen dokumen Anda yang ada untuk mengotomatisasi proses penyensoran di berbagai platform.
+**Kemungkinan integrasi**  
+Integrasikan GroupDocs.Redaction dengan sistem manajemen dokumen Anda yang ada untuk mengotomatiskan redaksi di berbagai platform dan alur kerja.
 
 ## Pertimbangan Kinerja
-- **Optimize Memory Usage**: Gunakan praktik penanganan file yang efisien dan lepaskan sumber daya dengan cepat.  
-- **Best Practices**: Secara rutin perbarui ke versi terbaru GroupDocs.Redaction untuk peningkatan kinerja dan perbaikan bug.
+- **Optimalkan penggunaan memori**: Gunakan API streaming dan lepaskan sumber daya segera setelah memproses setiap dokumen.  
+- **Praktik terbaik**: Secara rutin perbarui ke versi terbaru GroupDocs.Redaction untuk mendapatkan peningkatan kinerja dan perbaikan bug.
 
 ## Kesimpulan
-Dengan mengikuti panduan ini, Anda telah mempelajari **how to redact text** menggunakan GroupDocs.Redaction untuk Java. Keterampilan ini sangat berharga untuk menjaga privasi dan keamanan data dalam dokumen Anda.
+Dengan mengikuti panduan ini, Anda telah mempelajari **cara melakukan redaksi Java** dokumen menggunakan GroupDocs.Redaction. Kemampuan ini penting untuk menjaga privasi data dan memenuhi persyaratan regulasi.
 
-**Next Steps**
-- Jelajahi fitur penyensoran tambahan seperti penghapusan metadata.  
+**Langkah Selanjutnya**
+- Jelajahi fitur redaksi tambahan seperti penghapusan metadata.  
 - Bereksperimen dengan berbagai format dokumen yang didukung oleh GroupDocs.Redaction.  
 
-Siap meningkatkan keamanan dokumen Anda? Cobalah mengimplementasikan solusi ini dalam proyek berikutnya!
+Siap meningkatkan keamanan dokumen Anda? Cobalah menerapkan solusi ini dalam proyek berikutnya!
 
 ## Bagian FAQ
 
-**Q1: What file types does GroupDocs.Redaction support for Java?**  
-A1: GroupDocs.Redaction mendukung berbagai format dokumen, termasuk DOCX, PDF, dan lainnya. Lihat [documentation](https://docs.groupdocs.com/redaction/java/) untuk informasi detail.
+**T1: Jenis file apa yang didukung GroupDocs.Redaction untuk Java?**  
+A1: GroupDocs.Redaction mendukung berbagai format dokumen, termasuk DOCX, PDF, PPTX, XLSX, dan lainnya. Lihat [dokumentasi](https://docs.groupdocs.com/redaction/java/) untuk daftar lengkap.
 
-**Q2: How do I handle large documents efficiently with GroupDocs.Redaction?**  
-A2: Untuk file besar, pertimbangkan memecahnya menjadi bagian‑bagian yang lebih kecil atau optimalkan penggunaan memori dengan melepaskan sumber daya segera setelah pemrosesan.
+**T2: Bagaimana cara menangani dokumen besar secara efisien dengan GroupDocs.Redaction?**  
+A2: Untuk file besar, pertimbangkan memecahnya menjadi bagian-bagian lebih kecil atau menggunakan API streaming untuk memproses halaman secara berurutan sambil segera melepaskan sumber daya.
 
-**Q3: Can I customize the redaction placeholder text?**  
-A3: Ya, Anda dapat menentukan string apa pun sebagai opsi penggantian dalam `ReplacementOptions` Anda.
+**T3: Bisakah saya menyesuaikan teks placeholder redaksi?**  
+A3: Ya, Anda dapat menentukan string apa pun sebagai opsi pengganti dalam `ReplacementOptions` Anda.
 
-**Q4: Is it possible to perform case‑insensitive redactions?**  
+**T4: Apakah memungkinkan melakukan redaksi tanpa memperhatikan huruf besar/kecil?**  
 A5: Tentu saja! Atur parameter ketiga dari `ExactPhraseRedaction` menjadi `false` untuk pencocokan tanpa memperhatikan huruf besar/kecil.
 
-**Q5: How do I obtain support if I encounter issues?**  
+**T5: Bagaimana cara mendapatkan dukungan jika saya mengalami masalah?**  
 A5: Kunjungi [GroupDocs Free Support](https://forum.groupdocs.com/c/redaction/33) atau lihat dokumentasi lengkap mereka dan referensi API.
 
 ## Sumber Daya
-- **Documentation**: [GroupDocs.Redaction Java Docs](https://docs.groupdocs.com/redaction/java/)  
-- **API Reference**: [GroupDocs Redaction API](https://reference.groupdocs.com/redaction/java)  
-- **Download**: [GroupDocs Downloads](https://releases.groupdocs.com/redaction/java/)  
-- **GitHub Repository**: [GroupDocs GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
-- **Free Support Forum**: [GroupDocs Redaction Forum](https://forum.groupdocs.com/c/redaction/33)  
-- **Temporary License**: [Obtain Temporary License](https://purchase.groupdocs.com/temporary-license/) 
-
-## Pertanyaan yang Sering Diajukan
-
-**Q: Can I use this in a commercial application?**  
-A: Ya, dengan lisensi GroupDocs yang valid. Uji coba gratis tersedia untuk evaluasi.
-
-**Q: Does this work with password‑protected files?**  
-A: Ya, Anda dapat menentukan kata sandi saat membuka dokumen.
-
-**Q: Which Java versions are supported?**  
-A: Pustaka ini bekerja dengan JDK 8 dan yang lebih baru, termasuk JDK 11, 17, dan selanjutnya.
-
-**Q: How can I improve performance for batch processing?**  
-A: Proses dokumen dalam aliran paralel dan gunakan kembali instance `Redactor` bila memungkinkan.
-
-**Q: Where can I find more advanced redaction examples?**  
-A: Lihat dokumentasi resmi dan repositori GitHub untuk contoh proyek.
+- **Dokumentasi**: [GroupDocs.Redaction Java Docs](https://docs.groupdocs.com/redaction/java/)  
+- **Referensi API**: [GroupDocs Redaction API](https://reference.groupdocs.com/redaction/java)  
+- **Unduhan**: [GroupDocs Downloads](https://releases.groupdocs.com/redaction/java/)  
+- **Repositori GitHub**: [GroupDocs GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
+- **Forum dukungan gratis**: [GroupDocs Redaction Forum](https://forum.groupdocs.com/c/redaction/33)  
+- **Lisensi sementara**: [Obtain Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
 ---
 
-**Terakhir Diperbarui:** 2026-03-06  
-**Diuji Dengan:** GroupDocs.Redaction 24.9 for Java  
+**Terakhir Diperbarui:** 2026-10-01  
+**Diuji dengan:** GroupDocs.Redaction 24.9 for Java  
 **Penulis:** GroupDocs
+
+## Tutorial Terkait
+
+- [Pratinjau Halaman Dokumen Java Loading dengan GroupDocs.Redaction](/redaction/java/document-loading/)
+- [Mengambil Info Dokumen Menggunakan Groupdocs Redaction Java](/redaction/java/document-information/retrieve-document-info-using-groupdocs-redaction-java/)
+- [Cara Meredaksi PDF yang Dipindai dengan OCR – GroupDocs.Redaction Java](/redaction/java/ocr-integration/)

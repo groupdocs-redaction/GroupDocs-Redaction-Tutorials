@@ -1,47 +1,83 @@
 ---
-date: '2026-03-06'
-description: เรียนรู้วิธีการลบข้อมูลในข้อความด้วย Java โดยใช้ GroupDocs.Redaction
-  คู่มือแบบขั้นตอนต่อขั้นตอนนี้แสดงวิธีการปกป้องเอกสาร Java และปกป้องข้อมูลที่สำคัญอย่างมีประสิทธิภาพ
+date: '2026-10-01'
+description: เรียนรู้วิธีทำการลบข้อมูลในเอกสาร Java ด้วย GroupDocs.Redaction, แทนที่ตัวแปรข้อความ,
+  และปกป้องข้อมูลที่สำคัญอย่างมีประสิทธิภาพ
 keywords:
-- text redaction in Java
-- GroupDocs.Redaction library
-- secure sensitive data
-title: วิธีลบข้อมูลข้อความใน Java ด้วย GroupDocs.Redaction – คู่มือ
+- how to redact java
+- replace text placeholder java
+- GroupDocs.Redaction Java
+- document privacy Java
+- redaction API Java
+lastmod: '2026-10-01'
+og_description: เรียนรู้วิธีทำการลบข้อมูลในเอกสาร Java ด้วย GroupDocs.Redaction, แทนที่ตัวแปรข้อความ,
+  และปกป้องข้อมูลที่สำคัญอย่างมีประสิทธิภาพ. คู่มือขั้นตอนต่อขั้นตอนสำหรับนักพัฒนา
+og_image_alt: Guide showing how to redact Java documents using GroupDocs.Redaction
+og_title: วิธีทำการลบข้อมูลในเอกสาร Java ด้วย GroupDocs.Redaction
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-01'
+  description: Learn how to redact Java documents using GroupDocs.Redaction, replace
+    text placeholders, and secure sensitive data efficiently.
+  headline: How to redact Java documents with GroupDocs.Redaction
+  type: TechArticle
+- questions:
+  - answer: It provides a simple API to locate and replace sensitive text, images,
+      or metadata in a wide range of document formats.
+    question: What is the primary purpose of GroupDocs.Redaction?
+  - answer: Java – the guide walks you through Maven setup, initialization, and exact‑phrase
+      redaction.
+    question: Which programming language is covered?
+  - answer: A free trial and temporary licenses are available for development and
+      evaluation.
+    question: Do I need a license to try it out?
+  - answer: Yes – use `ReplacementOptions` to define any string such as `[REDACTED]`.
+    question: Can I customize the redaction placeholder?
+  - answer: Yes, but consider streaming or processing the document in sections to
+      keep memory usage low.
+    question: Is the solution suitable for large files?
+  type: FAQPage
+tags:
+- redaction
+- GroupDocs
+- Java document security
+- data privacy
+- API tutorial
+title: วิธีทำการลบข้อมูลในเอกสาร Java ด้วย GroupDocs.Redaction
 type: docs
 url: /th/java/text-redaction/text-redaction-java-groupdocs-redaction/
 weight: 1
 ---
 
-# วิธีทำการลบข้อความใน Java ด้วย GroupDocs.Redaction
+# วิธีการลบข้อมูลในเอกสาร Java ด้วย GroupDocs.Redaction
 
-คุณกำลังประสบปัญหาในการรักษาข้อมูลที่เป็นความลับให้ปลอดภัยในเอกสารของคุณหรือไม่? คุณไม่ได้อยู่คนเดียว หลายองค์กรต้องเผชิญกับความท้าทายในการลบข้อมูลที่เป็นความลับโดยไม่ทำให้ความสมบูรณ์ของเอกสารเสียหาย ในบทเรียนนี้ คุณจะได้ค้นพบ **how to redact text** ด้วยไลบรารี GroupDocs.Redaction ที่ทรงพลังสำหรับ Java และเรียนรู้วิธีปฏิบัติที่ **secure documents java** ขณะยังคงคุณภาพของเอกสาร
+ในคู่มือนี้คุณจะได้เรียนรู้ **วิธีการลบข้อมูลใน Java** เอกสารโดยใช้ไลบรารี GroupDocs.Redaction เราจะอธิบายการตั้งค่า Maven, การเริ่มต้น core API, และการทำการลบข้อมูลแบบวลีที่ตรงกันโดยใช้ตัวแทนที่กำหนดเอง—ทั้งหมดนี้พร้อมกับรักษาโค้ดของคุณให้สะอาดและข้อมูลของคุณให้ปลอดภัย.
 
-## Quick Answers
+## คำตอบสั้น
 - **วัตถุประสงค์หลักของ GroupDocs.Redaction คืออะไร?** It provides a simple API to locate and replace sensitive text, images, or metadata in a wide range of document formats.  
-- **ภาษาโปรแกรมที่ครอบคลุมคืออะไร?** Java – the guide walks you through Maven setup, initialization, and exact‑phrase redaction.  
-- **ต้องมีลิขสิทธิ์เพื่อทดลองใช้หรือไม่?** A free trial and temporary licenses are available for development and evaluation.  
-- **ฉันสามารถปรับแต่งข้อความแทนที่สำหรับการลบข้อมูลได้หรือไม่?** Yes – use `ReplacementOptions` to define any string such as `[REDACTED]`.  
+- **ภาษาโปรแกรมที่ครอบคลุมคืออะไร?** Java – คู่มือนี้จะพาคุณผ่านการตั้งค่า Maven, การเริ่มต้น, และการลบข้อมูลแบบวลีที่ตรงกัน.  
+- **ฉันต้องการไลเซนส์เพื่อทดลองใช้งานหรือไม่?** A free trial and temporary licenses are available for development and evaluation.  
+- **ฉันสามารถปรับแต่งตัวแทนการลบข้อมูลได้หรือไม่?** Yes – use `ReplacementOptions` to define any string such as `[REDACTED]`.  
 - **โซลูชันนี้เหมาะกับไฟล์ขนาดใหญ่หรือไม่?** Yes, but consider streaming or processing the document in sections to keep memory usage low.
 
-## การลบข้อความคืออะไรและทำไมจึงสำคัญ?
-Text redaction is the process of permanently removing or obscuring sensitive information from a document so that it cannot be recovered or read. This is essential for compliance with regulations like GDPR, HIPAA, or industry‑specific privacy standards. By automating redaction, you reduce manual effort and eliminate the risk of human error.
+## การลบข้อมูลข้อความคืออะไรและทำไมจึงสำคัญ?
+การลบข้อมูลข้อความจะลบหรือทำให้ข้อมูลที่เป็นความลับหายไปอย่างถาวรเพื่อไม่ให้สามารถกู้คืนหรืออ่านได้ มันเป็นสิ่งจำเป็นสำหรับการปฏิบัติตาม GDPR, HIPAA, และมาตรฐานความเป็นส่วนตัวเฉพาะอุตสาหกรรม โดยการกำจัดข้อมูลลับอย่างถาวร องค์กรจะป้องกันการเปิดเผยโดยบังเอิญและปฏิบัติตามข้อบังคับทางกฎหมาย การทำการลบข้อมูลโดยอัตโนมัติช่วยลดความพยายามในการทำงานด้วยมือและขจัดความเสี่ยงจากข้อผิดพลาดของมนุษย์.
 
-## ทำไมต้อง **secure documents java** ด้วย GroupDocs.Redaction?
-GroupDocs.Redaction is built specifically for Java developers who need to **secure documents java** environments. It supports dozens of formats (DOCX, PDF, PPTX, etc.), offers high‑performance processing, and integrates easily with Maven or manual builds. The library also provides additional features such as metadata removal and image redaction, making it a one‑stop solution for document privacy.
+## ทำไมต้องรักษาความปลอดภัยเอกสาร Java ด้วย GroupDocs.Redaction?
+GroupDocs.Redaction รองรับ **รูปแบบเอกสารกว่า 30 ประเภท**—รวมถึง DOCX, PDF, PPTX, และ XLSX—และสามารถประมวลผล **ไฟล์ที่มี 500 หน้า** ได้โดยไม่ต้องโหลดเอกสารทั้งหมดเข้าสู่หน่วยความจำ ไลบรารีนี้ให้การประมวลผลที่มีประสิทธิภาพสูง, การลบ metadata, และการลบรูปภาพ, ทำให้เป็นโซลูชันที่ครอบคลุมสำหรับความเป็นส่วนตัวของเอกสารที่ใช้ Java.
 
 ## ข้อกำหนดเบื้องต้น
 
-ก่อนเริ่ม โปรดตรวจสอบว่าคุณมีสิ่งต่อไปนี้:
-- **Libraries and Versions**: GroupDocs.Redaction for Java version 24.9.  
-- **Environment Setup**: A Java Development Kit (JDK) installed on your machine.  
-- **Knowledge Prerequisites**: Basic understanding of Java programming and familiarity with Maven or manual library management.
+ก่อนที่เราจะเริ่ม, โปรดตรวจสอบว่าคุณมีสิ่งต่อไปนี้:
+- **ไลบรารีและเวอร์ชัน**: GroupDocs.Redaction for Java เวอร์ชัน 24.9.  
+- **การตั้งค่าสภาพแวดล้อม**: Java Development Kit (JDK) ที่ติดตั้งบนเครื่องของคุณ.  
+- **ความรู้เบื้องต้น**: ความเข้าใจพื้นฐานเกี่ยวกับการเขียนโปรแกรม Java และความคุ้นเคยกับ Maven หรือการจัดการไลบรารีด้วยตนเอง.
 
-ตอนนี้เราได้ครอบคลุมสิ่งที่คุณต้องการแล้ว ให้เริ่มต้นตั้งค่า GroupDocs.Redaction for Java กันเลย
+เมื่อเราครอบคลุมสิ่งที่คุณต้องการแล้ว, มาเริ่มต้นโดยการตั้งค่า GroupDocs.Redaction สำหรับ Java กันเถอะ.
 
-## Setting Up GroupDocs.Redaction for Java
+## การตั้งค่า GroupDocs.Redaction สำหรับ Java
 
-### Installation Using Maven
-Add the following configuration to your `pom.xml` file:
+### การติดตั้งโดยใช้ Maven
+เพิ่มการกำหนดค่าต่อไปนี้ลงในไฟล์ `pom.xml` ของคุณ:
 
 ```xml
 <repositories>
@@ -61,17 +97,17 @@ Add the following configuration to your `pom.xml` file:
 </dependencies>
 ```
 
-### Direct Download
-Alternatively, you can download the latest version directly from [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+### ดาวน์โหลดโดยตรง
+หรือคุณสามารถดาวน์โหลดเวอร์ชันล่าสุดโดยตรงจาก [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
-#### License Acquisition
-To use GroupDocs.Redaction effectively:
-- **Free Trial**: Start with a free trial to explore features.  
-- **Temporary License**: Obtain a temporary license if you need extended access during development.  
-- **Purchase**: Consider purchasing a license for long‑term usage.
+#### การรับไลเซนส์
+เพื่อใช้ GroupDocs.Redaction อย่างมีประสิทธิภาพ:
+- **ทดลองใช้ฟรี**: เริ่มต้นด้วยการทดลองใช้ฟรีเพื่อสำรวจคุณลักษณะ.  
+- **ไลเซนส์ชั่วคราว**: รับไลเซนส์ชั่วคราวหากคุณต้องการการเข้าถึงต่อเนื่องระหว่างการพัฒนา.  
+- **ซื้อ**: พิจารณาซื้อไลเซนส์สำหรับการใช้งานระยะยาว.
 
-### Basic Initialization and Setup
-Once installed, initialize the `Redactor` class in your Java application. This will be our gateway to performing redactions:
+### การเริ่มต้นและตั้งค่าพื้นฐาน
+`Redactor` class เป็นส่วนประกอบหลักที่ให้เมธอดสำหรับค้นหาและใช้การลบข้อมูลในเอกสาร เมื่อติดตั้งแล้ว, ให้เริ่มต้นคลาส `Redactor` ในแอปพลิเคชัน Java ของคุณ นี่จะเป็นประตูสู่การทำการลบข้อมูล:
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -89,115 +125,102 @@ public class RedactionExample {
 }
 ```
 
-## Implementation Guide
+## คู่มือการนำไปใช้
 
-### How to redact text using GroupDocs.Redaction
-Now that our setup is complete, let's implement the text redaction feature step by step.
+### วิธีการลบข้อความโดยใช้ GroupDocs.Redaction
+โหลดเอกสารของคุณด้วย `Redactor`, กำหนดวลีที่ต้องการซ่อน, และบันทึกผลลัพธ์ รูปแบบสามขั้นตอนนี้จัดการกับสถานการณ์การลบข้อมูลส่วนใหญ่ภายในเวลาน้อยกว่าสักหนึ่งนาทีของการเขียนโค้ด.
 
-#### Performing Exact Phrase Redaction
+#### Performing exact phrase redaction
 
 ##### Overview
-This section demonstrates how to replace specific phrases in a document with placeholder text using GroupDocs.Redaction.
+ส่วนนี้จะแสดงวิธีการแทนที่วลีเฉพาะในเอกสารด้วยข้อความตัวแทนโดยใช้ GroupDocs.Redaction.
 
-##### Step‑by‑Step Implementation
+##### Step‑by‑step implementation
 
-**1. Define Text to be Redacted**  
-Specify the exact phrase you want to obscure within your documents:
+**1. กำหนดข้อความที่ต้องการลบ**  
+`ExactPhraseRedaction` เป็นคลาส API ที่จับคู่สตริงตามตัวอักษรในเอกสาร ระบุวลีที่ต้องการทำให้มืดในเอกสารของคุณ:
 
 ```java
 ExactPhraseRedaction redaction = new ExactPhraseRedaction("John Doe", true, new ReplacementOptions("[REDACTED]"));
 ```
 
-Here, `"John Doe"` is the target text, `true` indicates case sensitivity, and `[REDACTED]` is the replacement text.
+ที่นี่, `"John Doe"` คือข้อความเป้าหมาย, `true` แสดงว่าต้องคำนึงถึงตัวพิมพ์ใหญ่/เล็ก, และ `[REDACTED]` คือข้อความที่ใช้แทน.
 
-**2. Apply Redaction**  
-Apply the redaction to your document:
+**2. ใช้การลบข้อมูล**  
+`Redactor.apply` ประมวลผลเอกสารและแทนที่ทุกกรณีของวลีที่ระบุด้วยตัวแทนที่กำหนด คลาส `ReplacementOptions` ให้คุณปรับแต่งตัวแทน, สไตล์ของมัน, และว่าจะเก็บความยาวของข้อความเดิมหรือไม่.
 
 ```java
 redactor.apply(redaction);
 ```
 
-This method processes the document and replaces all instances of the specified phrase with the designated placeholder.
-
-**3. Save Changes**  
-Finally, save the changes to a new file or overwrite the original:
+**3. บันทึกการเปลี่ยนแปลง**  
+สุดท้าย, บันทึกการเปลี่ยนแปลงลงในไฟล์ใหม่หรือเขียนทับไฟล์เดิม:
 
 ```java
 redactor.save("YOUR_DOCUMENT_DIRECTORY/redacted_sample.docx");
 ```
 
-### Troubleshooting Tips
-- **Missing Library**: Ensure GroupDocs.Redaction is correctly added to your project dependencies.  
-- **File Access Issues**: Verify that the input document path is correct and accessible.  
+### เคล็ดลับการแก้ไขปัญหา
+- **ไลบรารีหาย**: ตรวจสอบว่า GroupDocs.Redaction ถูกเพิ่มเข้าไปใน dependencies ของโปรเจคอย่างถูกต้อง.  
+- **ปัญหาการเข้าถึงไฟล์**: ยืนยันว่าเส้นทางไฟล์อินพุตถูกต้องและสามารถเข้าถึงได้.  
 
-## Practical Applications
+## การประยุกต์ใช้จริง
 
-**Use Case 1: Privacy Compliance**  
-Ensure compliance with GDPR by redacting personal information from customer documents.
+**กรณีใช้งาน 1: การปฏิบัติตามความเป็นส่วนตัว**  
+รับรองการปฏิบัติตาม GDPR โดยลบข้อมูลส่วนบุคคลจากสัญญาลูกค้าก่อนจัดเก็บ.
 
-**Use Case 2: Internal Document Review**  
-Secure internal reviews by removing sensitive data before sharing drafts.
+**กรณีใช้งาน 2: การตรวจสอบเอกสารภายใน**  
+รักษาความปลอดภัยการตรวจสอบภายในโดยลบข้อมูลลับก่อนแชร์ร่างให้กับพันธมิตรภายนอก.
 
-**Integration Possibilities**  
-Integrate GroupDocs.Redaction with your existing document management systems to automate the redaction process across various platforms.
+**โอกาสการรวมระบบ**  
+รวม GroupDocs.Redaction กับระบบจัดการเอกสารที่มีอยู่ของคุณเพื่อทำการลบข้อมูลอัตโนมัติบนหลายแพลตฟอร์มและเวิร์กโฟลว์.
 
-## Performance Considerations
-- **Optimize Memory Usage**: Use efficient file handling practices and release resources promptly.  
-- **Best Practices**: Regularly update to the latest version of GroupDocs.Redaction for performance improvements and bug fixes.
+## ข้อควรพิจารณาด้านประสิทธิภาพ
+- **เพิ่มประสิทธิภาพการใช้หน่วยความจำ**: ใช้ streaming APIs และปล่อยทรัพยากรโดยเร็วหลังจากประมวลผลแต่ละเอกสาร.  
+- **แนวทางปฏิบัติที่ดีที่สุด**: อัปเดตเป็นเวอร์ชันล่าสุดของ GroupDocs.Redaction อย่างสม่ำเสมอเพื่อรับประโยชน์จากการปรับปรุงประสิทธิภาพและการแก้ไขบั๊ก.
 
-## Conclusion
-By following this guide, you've learned **how to redact text** using GroupDocs.Redaction for Java. This skill is invaluable for maintaining data privacy and security within your documents.
+## สรุป
+โดยการทำตามคู่มือนี้, คุณได้เรียนรู้ **วิธีการลบข้อมูลใน Java** เอกสารโดยใช้ GroupDocs.Redaction ความสามารถนี้เป็นสิ่งสำคัญสำหรับการรักษาความเป็นส่วนตัวของข้อมูลและการปฏิบัติตามข้อกำหนดทางกฎหมาย.
 
-**Next Steps**
-- Explore additional redaction features like metadata removal.  
-- Experiment with different document formats supported by GroupDocs.Redaction.  
+**ขั้นตอนต่อไป**
+- สำรวจคุณลักษณะการลบข้อมูลเพิ่มเติมเช่นการลบ metadata.  
+- ทดลองกับรูปแบบเอกสารต่าง ๆ ที่ GroupDocs.Redaction รองรับ.
 
-Ready to enhance your document security? Try implementing this solution in your next project!
+พร้อมที่จะเพิ่มความปลอดภัยให้กับเอกสารของคุณหรือยัง? ลองนำโซลูชันนี้ไปใช้ในโปรเจคต่อไปของคุณ!
 
-## FAQ Section
+## ส่วนคำถามที่พบบ่อย
 
-**Q1: ประเภทไฟล์ใดบ้างที่ GroupDocs.Redaction รองรับสำหรับ Java?**  
-A1: GroupDocs.Redaction supports a wide range of document formats, including DOCX, PDF, and more. Check the [documentation](https://docs.groupdocs.com/redaction/java/) for detailed information.
+**Q1: GroupDocs.Redaction รองรับไฟล์ประเภทใดบ้างสำหรับ Java?**  
+A1: GroupDocs.Redaction รองรับรูปแบบเอกสารหลากหลายรวมถึง DOCX, PDF, PPTX, XLSX, และอื่น ๆ ตรวจสอบที่ [documentation](https://docs.groupdocs.com/redaction/java/) สำหรับรายการเต็ม.
 
-**Q2: ฉันจะจัดการกับเอกสารขนาดใหญ่อย่างมีประสิทธิภาพด้วย GroupDocs.Redaction ได้อย่างไร?**  
-A2: For large files, consider breaking them into smaller sections or optimize memory usage by releasing resources promptly after processing.
+**Q2: ฉันจะจัดการกับเอกสารขนาดใหญ่อย่างมีประสิทธิภาพด้วย GroupDocs.Redaction อย่างไร?**  
+A2: สำหรับไฟล์ขนาดใหญ่, พิจารณาแบ่งเป็นส่วนย่อยหรือใช้ streaming API เพื่อประมวลผลหน้าอย่างต่อเนื่องพร้อมกับปล่อยทรัพยากรโดยเร็ว.
 
-**Q3: ฉันสามารถปรับแต่งข้อความแทนที่สำหรับการลบข้อมูลได้หรือไม่?**  
+**Q3: ฉันสามารถปรับแต่งข้อความตัวแทนการลบข้อมูลได้หรือไม่?**  
 A3: Yes, you can specify any string as a replacement option in your `ReplacementOptions`.
 
-**Q4: สามารถทำการลบข้อมูลโดยไม่คำนึงถึงตัวพิมพ์ใหญ่‑เล็กได้หรือไม่?**  
+**Q4: สามารถทำการลบข้อมูลโดยไม่คำนึงถึงตัวพิมพ์ใหญ่/เล็กได้หรือไม่?**  
 A5: Absolutely! Set the third parameter of `ExactPhraseRedaction` to `false` for case‑insensitive matching.
 
 **Q5: ฉันจะขอรับการสนับสนุนหากพบปัญหาได้อย่างไร?**  
 A5: Visit [GroupDocs Free Support](https://forum.groupdocs.com/c/redaction/33) or refer to their comprehensive documentation and API references.
 
-## Resources
-- **Documentation**: [GroupDocs.Redaction Java Docs](https://docs.groupdocs.com/redaction/java/)  
-- **API Reference**: [GroupDocs Redaction API](https://reference.groupdocs.com/redaction/java)  
-- **Download**: [GroupDocs Downloads](https://releases.groupdocs.com/redaction/java/)  
-- **GitHub Repository**: [GroupDocs GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
-- **Free Support Forum**: [GroupDocs Redaction Forum](https://forum.groupdocs.com/c/redaction/33)  
-- **Temporary License**: [Obtain Temporary License](https://purchase.groupdocs.com/temporary-license/) 
-
-## Frequently Asked Questions
-
-**Q: ฉันสามารถใช้สิ่งนี้ในแอปพลิเคชันเชิงพาณิชย์ได้หรือไม่?**  
-A: Yes, with a valid GroupDocs license. A free trial is available for evaluation.
-
-**Q: โซลูชันนี้ทำงานกับไฟล์ที่มีการป้องกันด้วยรหัสผ่านหรือไม่?**  
-A: Yes, you can specify the password when opening the document.
-
-**Q: รองรับเวอร์ชัน Java ใดบ้าง?**  
-A: The library works with JDK 8 and newer, including JDK 11, 17, and later.
-
-**Q: ฉันจะเพิ่มประสิทธิภาพการทำงานสำหรับการประมวลผลเป็นชุดได้อย่างไร?**  
-A: Process documents in parallel streams and reuse `Redactor` instances when possible.
-
-**Q: จะหา ตัวอย่างการลบข้อมูลขั้นสูงเพิ่มเติมได้จากที่ไหน?**  
-A: Check the official documentation and the GitHub repository for sample projects.
+## แหล่งข้อมูล
+- **เอกสาร**: [GroupDocs.Redaction Java Docs](https://docs.groupdocs.com/redaction/java/)  
+- **อ้างอิง API**: [GroupDocs Redaction API](https://reference.groupdocs.com/redaction/java)  
+- **ดาวน์โหลด**: [GroupDocs Downloads](https://releases.groupdocs.com/redaction/java/)  
+- **ที่เก็บ GitHub**: [GroupDocs GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
+- **ฟอรั่มสนับสนุนฟรี**: [GroupDocs Redaction Forum](https://forum.groupdocs.com/c/redaction/33)  
+- **ไลเซนส์ชั่วคราว**: [Obtain Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
 ---
 
-**อัปเดตล่าสุด:** 2026-03-06  
-**ทดสอบด้วย:** GroupDocs.Redaction 24.9 for Java  
+**อัปเดตล่าสุด:** 2026-10-01  
+**ทดสอบกับ:** GroupDocs.Redaction 24.9 for Java  
 **ผู้เขียน:** GroupDocs
+
+## บทเรียนที่เกี่ยวข้อง
+
+- [ดูตัวอย่างหน้าเอกสาร Java Loading ด้วย GroupDocs.Redaction](/redaction/java/document-loading/)
+- [ดึงข้อมูลเอกสารโดยใช้ Groupdocs Redaction Java](/redaction/java/document-information/retrieve-document-info-using-groupdocs-redaction-java/)
+- [วิธีลบข้อมูล PDF สแกนด้วย OCR – GroupDocs.Redaction Java](/redaction/java/ocr-integration/)

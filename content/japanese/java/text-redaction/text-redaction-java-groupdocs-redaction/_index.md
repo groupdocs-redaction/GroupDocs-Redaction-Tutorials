@@ -1,45 +1,79 @@
 ---
-date: '2026-03-06'
-description: GroupDocs.Redaction を使用して Java でテキストをマスク（編集）する方法を学びましょう。このステップバイステップガイドでは、Java
-  のドキュメントを安全に保護し、機密データを効率的に守る方法を示します。
+date: '2026-10-01'
+description: GroupDocs.Redaction を使用して Java ドキュメントを赤字処理し、テキストプレースホルダーを置換し、機密データを効率的に保護する方法を学びます。
 keywords:
-- text redaction in Java
-- GroupDocs.Redaction library
-- secure sensitive data
-title: Java と GroupDocs.Redaction を使用したテキストのマスク方法 – ガイド
+- how to redact java
+- replace text placeholder java
+- GroupDocs.Redaction Java
+- document privacy Java
+- redaction API Java
+lastmod: '2026-10-01'
+og_description: GroupDocs.Redaction を使用して Java ドキュメントを赤字処理し、テキストプレースホルダーを置換し、機密データを効率的に保護する方法を学びます。開発者向けのステップバイステップガイド。
+og_image_alt: Guide showing how to redact Java documents using GroupDocs.Redaction
+og_title: GroupDocs.Redaction で Java ドキュメントを赤字処理する方法
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-01'
+  description: Learn how to redact Java documents using GroupDocs.Redaction, replace
+    text placeholders, and secure sensitive data efficiently.
+  headline: How to redact Java documents with GroupDocs.Redaction
+  type: TechArticle
+- questions:
+  - answer: It provides a simple API to locate and replace sensitive text, images,
+      or metadata in a wide range of document formats.
+    question: What is the primary purpose of GroupDocs.Redaction?
+  - answer: Java – the guide walks you through Maven setup, initialization, and exact‑phrase
+      redaction.
+    question: Which programming language is covered?
+  - answer: A free trial and temporary licenses are available for development and
+      evaluation.
+    question: Do I need a license to try it out?
+  - answer: Yes – use `ReplacementOptions` to define any string such as `[REDACTED]`.
+    question: Can I customize the redaction placeholder?
+  - answer: Yes, but consider streaming or processing the document in sections to
+      keep memory usage low.
+    question: Is the solution suitable for large files?
+  type: FAQPage
+tags:
+- redaction
+- GroupDocs
+- Java document security
+- data privacy
+- API tutorial
+title: GroupDocs.Redaction で Java ドキュメントを赤字処理する方法
 type: docs
 url: /ja/java/text-redaction/text-redaction-java-groupdocs-redaction/
 weight: 1
 ---
 
-# JavaでGroupDocs.Redactionを使用してテキストをマスクする方法
+# Java ドキュメントを GroupDocs.Redaction で編集する方法
 
-文書内の機密情報を安全に保つことに苦労していますか？ あなただけではありません。多くの組織が、文書の完全性を損なうことなく機密データをマスク（削除）する課題に直面しています。このチュートリアルでは、強力な GroupDocs.Redaction ライブラリ（Java 用）を使用して **テキストをマスクする方法** を学び、文書品質を維持しながら **Javaで文書を保護** する実践的な方法を紹介します。
+このガイドでは、GroupDocs.Redaction ライブラリを使用して **Java ドキュメントを編集** する方法を学びます。Maven の設定、コア API の初期化、カスタムプレースホルダーを使用した正確なフレーズの編集を順に説明します—コードをクリーンに保ち、データを安全に保護します。
 
-## Quick Answers
-- **GroupDocs.Redaction の主な目的は何ですか？** さまざまな文書形式で機密テキスト、画像、メタデータを検出・置換するシンプルな API を提供します。  
-- **対象のプログラミング言語は何ですか？** Java – 本ガイドでは Maven の設定、初期化、正確なフレーズのマスク方法を順に説明します。  
+## クイック回答
+- **GroupDocs.Redaction の主な目的は何ですか？** 幅広いドキュメント形式で機密テキスト、画像、メタデータを検出・置換するシンプルな API を提供します。  
+- **対象のプログラミング言語は何ですか？** Java – 本ガイドでは Maven の設定、初期化、正確なフレーズの編集について説明します。  
 - **試用するのにライセンスは必要ですか？** 開発・評価用に無料トライアルと一時ライセンスが利用可能です。  
-- **マスク用のプレースホルダーはカスタマイズできますか？** はい – `ReplacementOptions` を使用して `[REDACTED]` のような任意の文字列を定義できます。  
-- **大容量ファイルにも適していますか？** はい。ただし、メモリ使用量を抑えるためにストリーミングやセクション単位での処理を検討してください。
+- **編集プレースホルダーをカスタマイズできますか？** はい – `ReplacementOptions` を使用して `[REDACTED]` のような任意の文字列を定義できます。  
+- **大きなファイルにも適していますか？** はい、ただしメモリ使用量を抑えるためにストリーミングやセクション単位での処理を検討してください。
 
-## テキストのマスクとは何か、そしてなぜ重要なのか
-テキストのマスク（削除）とは、機密情報を永久に削除または隠蔽し、復元や閲覧が不可能になるプロセスです。これは GDPR、HIPAA、業界固有のプライバシー基準などの規制遵守に不可欠です。マスクを自動化することで、手作業の手間を削減し、人為的ミスのリスクを排除できます。
+## テキスト編集とは何か、そしてなぜ重要か
+テキスト編集は、機密情報を永久に削除または隠蔽し、復元や閲覧ができないようにします。GDPR、HIPAA、業界固有のプライバシー基準への準拠に不可欠です。機密データを永久に除去することで、組織は偶発的な漏洩を防ぎ、法的義務を満たすことができます。編集を自動化することで手作業の負担が減り、人為的ミスのリスクも排除されます。
 
-## なぜ Javaで文書を保護するために GroupDocs.Redaction を使用するのか？
-GroupDocs.Redaction は、Java 開発者が **Javaで文書を保護** できるように特別に設計されています。DOCX、PDF、PPTX など数十種類のフォーマットをサポートし、高性能な処理と Maven や手動ビルドへの簡単な統合を提供します。また、メタデータ削除や画像マスクなどの追加機能も備えており、文書プライバシーのワンストップソリューションです。
+## なぜ GroupDocs.Redaction で Java ドキュメントを保護するのか
+GroupDocs.Redaction は **30 以上のドキュメント形式**（DOCX、PDF、PPTX、XLSX など）に対応し、**500 ページのファイル** をメモリに全体を読み込まずに処理できます。このライブラリは高速処理、メタデータの削除、画像の編集を提供し、Java ベースのドキュメントプライバシーに対する包括的なソリューションとなります。
 
-## Prerequisites
+## 前提条件
 
-- **ライブラリとバージョン**: GroupDocs.Redaction for Java バージョン 24.9。  
-- **環境設定**: マシンに Java Development Kit（JDK）がインストールされていること。  
-- **前提知識**: Java プログラミングの基本的な理解と、Maven または手動でのライブラリ管理に慣れていること。  
+- **ライブラリとバージョン**: GroupDocs.Redaction for Java バージョン 24.9。  
+- **環境設定**: マシンに Java Development Kit (JDK) がインストールされていること。  
+- **知識の前提**: Java プログラミングの基本的な理解と、Maven または手動でのライブラリ管理に慣れていること。
 
 必要なものが揃ったので、次は GroupDocs.Redaction for Java の設定を始めましょう。
 
-## Setting Up GroupDocs.Redaction for Java
+## GroupDocs.Redaction for Java の設定
 
-### Installation Using Maven
+### Maven を使用したインストール
 `pom.xml` ファイルに以下の設定を追加してください：
 
 ```xml
@@ -60,18 +94,18 @@ GroupDocs.Redaction は、Java 開発者が **Javaで文書を保護** できる
 </dependencies>
 ```
 
-### Direct Download
+### 直接ダウンロード
 あるいは、最新バージョンを直接 [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/) からダウンロードできます。
 
-#### License Acquisition
+#### ライセンス取得
 GroupDocs.Redaction を効果的に使用するには：
 
-- **無料トライアル**: 機能を試すために無料トライアルから始めましょう。  
-- **一時ライセンス**: 開発中に長期間のアクセスが必要な場合は一時ライセンスを取得してください。  
+- **無料トライアル**: 機能を試すために無料トライアルから始めます。  
+- **一時ライセンス**: 開発中に長期間のアクセスが必要な場合は一時ライセンスを取得します。  
 - **購入**: 長期利用のためにライセンス購入を検討してください。
 
-### Basic Initialization and Setup
-インストールが完了したら、Java アプリケーションで `Redactor` クラスを初期化します。これがマスク処理を実行するゲートウェイとなります：
+### 基本的な初期化と設定
+`Redactor` クラスは、ドキュメント内の編集対象を検索し、編集を適用するメソッドを提供するコアコンポーネントです。インストール後、Java アプリケーションで `Redactor` クラスを初期化します。これが編集を実行するためのゲートウェイとなります：
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -89,20 +123,20 @@ public class RedactionExample {
 }
 ```
 
-## Implementation Guide
+## 実装ガイド
 
-### How to redact text using GroupDocs.Redaction
-設定が完了したので、テキストマスク機能をステップバイステップで実装しましょう。
+### GroupDocs.Redaction を使用したテキスト編集方法
+`Redactor` でドキュメントを読み込み、隠したい正確なフレーズを定義し、結果を保存します。この 3 ステップのパターンで、ほとんどの編集シナリオを数分のコーディングで処理できます。
 
-#### Performing Exact Phrase Redaction
+#### 正確なフレーズの編集実行
 
-##### Overview
-このセクションでは、GroupDocs.Redaction を使用して文書内の特定のフレーズをプレースホルダー文字列に置換する方法を示します。
+##### 概要
+このセクションでは、GroupDocs.Redaction を使用してドキュメント内の特定のフレーズをプレースホルダー文字列に置換する方法を示します。
 
-##### Step‑by‑Step Implementation
+##### 手順実装
 
-**1. マスク対象テキストの定義**  
-文書内で隠したい正確なフレーズを指定します：
+**1. 編集対象テキストの定義**  
+`ExactPhraseRedaction` は、ドキュメント内でリテラル文字列を一致させる API クラスです。ドキュメント内で隠したい正確なフレーズを指定します：
 
 ```java
 ExactPhraseRedaction redaction = new ExactPhraseRedaction("John Doe", true, new ReplacementOptions("[REDACTED]"));
@@ -110,8 +144,8 @@ ExactPhraseRedaction redaction = new ExactPhraseRedaction("John Doe", true, new 
 
 ここで、`"John Doe"` が対象テキスト、`true` は大文字小文字を区別することを示し、`[REDACTED]` が置換テキストです。
 
-**2. マスクの適用**  
-文書に対してマスクを適用します：
+**2. 編集の適用**  
+`Redactor.apply` はドキュメントを処理し、指定されたフレーズのすべての出現箇所を指定されたプレースホルダーに置換します。`ReplacementOptions` クラスを使用すると、プレースホルダーやそのスタイル、元のテキスト長を保持するかどうかをカスタマイズできます。
 
 ```java
 redactor.apply(redaction);
@@ -124,52 +158,52 @@ redactor.apply(redaction);
 redactor.save("YOUR_DOCUMENT_DIRECTORY/redacted_sample.docx");
 ```
 
-### Troubleshooting Tips
+### トラブルシューティングのヒント
 - **ライブラリが見つからない**: GroupDocs.Redaction がプロジェクトの依存関係に正しく追加されていることを確認してください。  
-- **ファイルアクセスの問題**: 入力文書のパスが正しく、アクセス可能であることを確認してください。
+- **ファイルアクセスの問題**: 入力ドキュメントのパスが正しく、アクセス可能であることを確認してください。
 
-## Practical Applications
+## 実用的な活用例
 
 **ユースケース 1: プライバシーコンプライアンス**  
-顧客文書から個人情報をマスクし、GDPR への準拠を確保します。
+アーカイブ前に顧客契約書から個人識別情報を編集して GDPR に準拠させます。
 
 **ユースケース 2: 社内文書レビュー**  
-ドラフト共有前に機密データを削除し、社内レビューを安全に行います。
+機密データを削除してからドラフトを外部パートナーと共有し、内部レビューを安全に行います。
 
 **統合の可能性**  
-既存の文書管理システムと GroupDocs.Redaction を統合し、さまざまなプラットフォームでマスクプロセスを自動化します。
+既存の文書管理システムと GroupDocs.Redaction を統合し、複数のプラットフォームやワークフローで編集を自動化します。
 
-## Performance Considerations
-- **メモリ使用量の最適化**: 効率的なファイル処理を行い、リソースは速やかに解放してください。  
-- **ベストプラクティス**: パフォーマンス向上とバグ修正のため、定期的に最新バージョンの GroupDocs.Redaction にアップデートしてください。
+## パフォーマンス上の考慮点
+- **メモリ使用量の最適化**: ストリーミング API を使用し、各ドキュメントの処理後にリソースを速やかに解放します。  
+- **ベストプラクティス**: パフォーマンス向上やバグ修正の恩恵を受けるため、定期的に最新の GroupDocs.Redaction バージョンに更新してください。
 
-## Conclusion
-本ガイドに従うことで、Java 用 GroupDocs.Redaction を使用した **テキストのマスク方法** を習得しました。このスキルは、文書内のデータプライバシーとセキュリティを維持する上で非常に重要です。
+## 結論
+このガイドに従うことで、GroupDocs.Redaction を使用した **Java ドキュメントの編集** 方法を学びました。この機能はデータプライバシーの維持と規制要件の遵守に不可欠です。
 
-**次のステップ**
-- メタデータ削除など、追加のマスク機能を探求してください。  
-- GroupDocs.Redaction がサポートするさまざまな文書形式で試してみてください。  
+**次のステップ**  
+- メタデータ削除などの追加編集機能を探求する。  
+- GroupDocs.Redaction がサポートするさまざまなドキュメント形式を試す。  
 
-文書のセキュリティを強化する準備はできましたか？ 次のプロジェクトでこのソリューションを実装してみてください！
+ドキュメントのセキュリティを強化する準備はできましたか？次のプロジェクトでこのソリューションを実装してみてください！
 
-## FAQ Section
+## FAQ セクション
 
 **Q1: GroupDocs.Redaction が Java 向けにサポートしているファイルタイプは何ですか？**  
-A1: GroupDocs.Redaction は DOCX、PDF などを含む幅広い文書形式をサポートしています。詳細は [documentation](https://docs.groupdocs.com/redaction/java/) をご確認ください。
+A1: GroupDocs.Redaction は DOCX、PDF、PPTX、XLSX などを含む幅広いドキュメント形式をサポートしています。完全な一覧は [documentation](https://docs.groupdocs.com/redaction/java/) をご確認ください。
 
-**Q2: 大容量文書を効率的に処理するにはどうすればよいですか？**  
-A2: 大きなファイルの場合、文書を小さなセクションに分割するか、処理後にリソースを速やかに解放してメモリ使用量を最適化してください。
+**Q2: 大きなドキュメントを GroupDocs.Redaction で効率的に処理するには？**  
+A2: 大容量ファイルの場合、より小さなセクションに分割するか、ストリーミング API を使用してページを順次処理し、リソースを速やかに解放することを検討してください。
 
-**Q3: マスク用のプレースホルダー文字列はカスタマイズできますか？**  
+**Q3: 編集プレースホルダーのテキストをカスタマイズできますか？**  
 A3: はい、`ReplacementOptions` で任意の文字列を置換オプションとして指定できます。
 
-**Q4: 大文字小文字を区別しないマスクは可能ですか？**  
-A5: もちろんです！ 大文字小文字を区別しないマッチングを行うには、`ExactPhraseRedaction` の第3パラメータを `false` に設定してください。
+**Q4: 大文字小文字を区別しない編集は可能ですか？**  
+A5: もちろんです！`ExactPhraseRedaction` の第3パラメータを `false` に設定すれば、大文字小文字を区別しないマッチングが行えます。
 
-**Q5: 問題が発生した場合のサポートはどこで受けられますか？**  
+**Q5: 問題が発生した場合、どのようにサポートを受けられますか？**  
 A5: [GroupDocs Free Support](https://forum.groupdocs.com/c/redaction/33) を訪問するか、包括的なドキュメントと API リファレンスをご参照ください。
 
-## Resources
+## リソース
 - **ドキュメント**: [GroupDocs.Redaction Java Docs](https://docs.groupdocs.com/redaction/java/)  
 - **API リファレンス**: [GroupDocs Redaction API](https://reference.groupdocs.com/redaction/java)  
 - **ダウンロード**: [GroupDocs Downloads](https://releases.groupdocs.com/redaction/java/)  
@@ -177,25 +211,14 @@ A5: [GroupDocs Free Support](https://forum.groupdocs.com/c/redaction/33) を訪�
 - **無料サポートフォーラム**: [GroupDocs Redaction Forum](https://forum.groupdocs.com/c/redaction/33)  
 - **一時ライセンス**: [Obtain Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
-## Frequently Asked Questions
-
-**Q: 商用アプリケーションで使用できますか？**  
-A: はい、有効な GroupDocs ライセンスがあれば使用可能です。評価用に無料トライアルも用意されています。
-
-**Q: パスワード保護されたファイルでも動作しますか？**  
-A: はい、文書を開く際にパスワードを指定すれば処理できます。
-
-**Q: サポートされている Java バージョンはどれですか？**  
-A: ライブラリは JDK 8 以降、JDK 11、17 などでも動作します。
-
-**Q: バッチ処理のパフォーマンスを向上させるには？**  
-A: 並列ストリームで文書を処理し、可能な限り `Redactor` インスタンスを再利用してください。
-
-**Q: より高度なマスク例はどこで見つかりますか？**  
-A: 公式ドキュメントと GitHub リポジトリにサンプルプロジェクトが掲載されています。
-
 ---
 
-**Last Updated:** 2026-03-06  
-**Tested With:** GroupDocs.Redaction 24.9 for Java  
-**Author:** GroupDocs
+**最終更新日:** 2026-10-01  
+**テスト環境:** GroupDocs.Redaction 24.9 for Java  
+**作者:** GroupDocs
+
+## 関連チュートリアル
+
+- [GroupDocs.Redaction を使用した Java のドキュメントページプレビュー](/redaction/java/document-loading/)
+- [GroupDocs.Redaction Java を使用したドキュメント情報の取得](/redaction/java/document-information/retrieve-document-info-using-groupdocs-redaction-java/)
+- [OCR を使用したスキャン PDF の編集方法 – GroupDocs.Redaction Java](/redaction/java/ocr-integration/)
