@@ -1,100 +1,164 @@
 ---
-date: 2026-03-06
-description: Узнайте, как создать политику редактирования, как редактировать данные
-  и удалять метаданные документов с помощью GroupDocs.Redaction для .NET.
-title: Создание политики редактирования с помощью GroupDocs.Redaction .NET
+date: 2026-10-01
+description: Пошаговое руководство по замаскировке PDF‑файлов, автоматизации редактирования
+  документов и удалению метаданных PDF с использованием GroupDocs.Redaction for .NET.
+keywords:
+- how to redact pdf
+- metadata removal pdf
+- automate document redaction
+lastmod: 2026-10-01
+og_description: Узнайте, как замаскировать PDF‑файлы, автоматизировать редактирование
+  документов и удалить метаданные PDF с помощью GroupDocs.Redaction for .NET за несколько
+  простых шагов.
+og_image_alt: Guide to redacting PDF documents with GroupDocs.Redaction for .NET
+og_title: Как замаскировать PDF с помощью политики в GroupDocs.Redaction .NET
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-01'
+  description: Step-by-step guide on how to redact PDF files, automate document redaction,
+    and perform metadata removal PDF using GroupDocs.Redaction for .NET.
+  headline: How to redact PDF with a policy in GroupDocs.Redaction .NET
+  type: TechArticle
+- description: Step-by-step guide on how to redact PDF files, automate document redaction,
+    and perform metadata removal PDF using GroupDocs.Redaction for .NET.
+  name: How to redact PDF with a policy in GroupDocs.Redaction .NET
+  steps:
+  - name: '**Add the NuGet package** – Install the latest `GroupDocs.Redaction` package
+      via the NuGet Package Manager or the CLI (`dotnet add package GroupDocs.Redaction`).'
+    text: '**Add the NuGet package** – Install the latest `GroupDocs.Redaction` package
+      via the NuGet Package Manager or the CLI (`dotnet add package GroupDocs.Redaction`).'
+  - name: '**Instantiate the RedactionEngine** – `RedactionEngine` is the core class
+      that loads a document and performs redaction operations.'
+    text: '**Instantiate the RedactionEngine** – `RedactionEngine` is the core class
+      that loads a document and performs redaction operations.'
+  - name: '**Define redaction items**'
+    text: '**Define redaction items**'
+  - name: '**Combine items into a RedactionPolicy** – Group the redaction items into
+      a `RedactionPolicy` object, which can be saved (`policy.Save("MyPolicy.xml")`)
+      and later loaded for reuse.'
+    text: '**Combine items into a RedactionPolicy** – Group the redaction items into
+      a `RedactionPolicy` object, which can be saved (`policy.Save("MyPolicy.xml")`)
+      and later loaded for reuse.'
+  - name: '**Apply the policy** – Call `engine.ApplyPolicy(policy)`; the engine scans
+      the document, redacts matching content, and erases the specified metadata.'
+    text: '**Apply the policy** – Call `engine.ApplyPolicy(policy)`; the engine scans
+      the document, redacts matching content, and erases the specified metadata.'
+  - name: '**Save the redacted document** – Use `engine.Save("RedactedFile.pdf")`
+      to write the cleaned file to storage.'
+    text: '**Save the redacted document** – Use `engine.Save("RedactedFile.pdf")`
+      to write the cleaned file to storage.'
+  type: HowTo
+- questions:
+  - answer: Yes, you can merge policies programmatically or load several policy files
+      sequentially before applying them to a document.
+    question: Can I combine multiple redaction policies together?
+  - answer: It does when paired with OCR; the OCR engine extracts text, which can
+      then be redacted using the same policy rules.
+    question: Does GroupDocs.Redaction support redacting scanned images?
+  - answer: Metadata redaction removes hidden properties (author, timestamps, custom
+      fields) that are not visible in the content but may still expose sensitive information.
+    question: How does “erase document metadata” differ from normal redaction?
+  - answer: AI models provide a strong first pass; you should still review flagged
+      items, especially for high‑risk compliance scenarios.
+    question: Is AI‑assisted redaction accurate enough for compliance?
+  - answer: GroupDocs.Redaction .NET works with .NET Framework 4.6.1+, .NET Core 3.1+,
+      and .NET 5/6+.
+    question: What .NET versions are supported?
+  type: FAQPage
+tags:
+- redaction policy
+- GroupDocs.Redaction
+- .NET document security
+- PDF privacy
+title: Как замаскировать PDF с помощью политики в GroupDocs.Redaction .NET
 type: docs
 url: /ru/net/advanced-redaction/
 weight: 9
 ---
 
-# Создание политики редактирования с GroupDocs.Redaction .NET
+# Как редактировать PDF с помощью политики в GroupDocs.Redaction .NET
 
-В этом полном руководстве вы узнаете **как создать политику редактирования** объектов, позволяющих автоматизировать удаление конфиденциального содержимого из PDF, файлов Word, изображений и прочего. Независимо от того, нужно ли вам соответствовать GDPR, HIPAA или внутренним стандартам безопасности, освоение политик редактирования в GroupDocs.Redaction для .NET дает вам тонкий контроль над тем, что скрывается, как это скрывается и даже как стираются метаданные. Мы пройдёмся по причинам, сути и пошаговому процессу, чтобы вы могли начать создавать надёжные решения по защите конфиденциальности документов уже сегодня.
+В этом полном руководстве вы узнаете **как редактировать PDF** файлы, создавая переиспользуемые политики редактирования, автоматизируя редактирование документов пакетами и удаляя скрытые метаданные PDF. Независимо от того, нужно ли вам соответствовать GDPR, HIPAA или внутренним стандартам безопасности, освоение политик редактирования в GroupDocs.Redaction для .NET дает вам точный контроль над тем, что скрывается, как это скрывается и как удаляются метаданные. Давайте рассмотрим концепции, их важность и точные шаги по их реализации уже сегодня.
 
-## Quick Answers
-- **Что такое политика редактирования?** Повторно используемый набор правил, определяющих, какой текст, изображения или метаданные следует удалить из документа.  
-- **Зачем создавать политику редактирования?** Чтобы применять согласованные, повторяемые правила защиты данных ко множеству файлов без необходимости переписывать код каждый раз.  
-- **Могу ли я использовать ИИ для поиска конфиденциальных данных?** Да — GroupDocs.Redaction поддерживает интеграции **ai document redaction**, которые автоматически находят персональные идентификаторы.  
-- **Как удалить метаданные документа?** Включите правило “erase document metadata” в вашу политику, чтобы удалить автора, дату создания и скрытые свойства.  
+## Быстрые ответы
+- **Что такое политика редактирования?** Переиспользуемый набор правил, который указывает движку, какой текст, изображения или метаданные удалить из документа.  
+- **Зачем создавать политику редактирования?** Она позволяет применять согласованные, повторяемые правила защиты данных ко множеству файлов без переписывания кода каждый раз.  
+- **Могу ли я использовать ИИ для поиска конфиденциальных данных?** Да — GroupDocs.Redaction поддерживает **ai document redaction** интеграции, которые автоматически находят персональные идентификаторы.  
+- **Как удалить метаданные документа?** Добавьте правило «erase document metadata» в вашу политику; оно удалит автора, дату создания и скрытые свойства.  
 - **Нужна ли лицензия?** Для использования в продакшене требуется действующая лицензия GroupDocs.Redaction; временная лицензия доступна для тестирования.
 
 ## Что такое политика редактирования?
-Политика редактирования — это набор элементов редактирования, таких как точные фразы, шаблоны регулярных выражений или поля метаданных, которые движок применяет автоматически. Определив политику один раз, вы можете повторно использовать её в нескольких документах, обеспечивая согласованную обработку конфиденциальных данных.
+Политика редактирования — это набор элементов редактирования, таких как точные фразы, шаблоны регулярных выражений или поля метаданных, которые движок применяет автоматически. Определив политику один раз, вы можете переиспользовать её в нескольких документах, обеспечивая единообразную обработку конфиденциальных данных. Политику можно сохранять на диск, контролировать версии и загружать различными приложениями, что упрощает поддержание соответствия требованиям в командах и проектах.
 
 ## Почему использовать GroupDocs.Redaction для создания политик редактирования?
-- **Централизованный контроль:** Одна политика, множество документов.  
-- **Масштабируемая безопасность:** Обрабатывает большие партии без ручного вмешательства.  
-- **AI‑поддерживаемое обнаружение:** Используйте **ai document redaction** для автоматической маркировки персонально идентифицируемой информации (PII).  
-- **Удаление метаданных:** Встроенная поддержка **erase document metadata**, защищающая скрытую информацию, которая иначе могла бы быть раскрыта.  
-- **Расширяемость:** Комбинируйте пользовательские обработчики, обратные вызовы и журналирование для сложных рабочих процессов.
+GroupDocs.Redaction позволяет централизовать правила безопасности, обрабатывать большие партии файлов и интегрировать AI‑поддерживаемое обнаружение, одновременно удаляя метаданные PDF за один проход. Движок поддерживает **50+ input and output formats** и может обрабатывать документы до 2 GB без загрузки полного файла в память, обеспечивая масштабируемую производительность для корпоративных нагрузок.
 
-## Как создать политику редактирования в GroupDocs.Redaction .NET
-Ниже представлено краткое, разговорное руководство. Блоки кода здесь не требуются, поскольку оригинальный учебник не содержит примеров кода, и мы должны сохранить неизменным количество блоков кода.
+## Как редактировать PDF с помощью политики редактирования в GroupDocs.Redaction .NET
+Загрузите целевой PDF, создайте политику, описывающую, что должно быть скрыто, и примените её одним вызовом. Такой подход уменьшает дублирование кода, гарантирует, что каждый документ следует одинаковым правилам соответствия, и завершает редактирование в потоках с эффективным использованием памяти.
 
-1. **Добавьте пакет NuGet**  
-   Установите последнюю версию пакета `GroupDocs.Redaction` через NuGet Package Manager или CLI (`dotnet add package GroupDocs.Redaction`).  
+1. **Add the NuGet package** – Install the latest `GroupDocs.Redaction` package via the NuGet Package Manager or the CLI (`dotnet add package GroupDocs.Redaction`).  
 
-2. **Создайте экземпляр RedactionEngine**  
-   Создайте объект `RedactionEngine`, указывающий на документ, который вы хотите защитить.  
+2. **Instantiate the RedactionEngine** – `RedactionEngine` is the core class that loads a document and performs redaction operations.  
+   *Definition anchor:* `RedactionEngine` is the core class that loads a document and performs redaction operations.
 
-3. **Определите элементы редактирования**  
-   - Используйте `ExactPhraseRedaction` для фиксированных строк (например, «Social Security Number»).  
-   - Используйте `RegexRedaction` для шаблонов (например, номера кредитных карт).  
-   - Добавьте элемент `MetadataRedaction` для **erase document metadata**, такого как автор или дата создания.  
+3. **Define redaction items**  
+   - **ExactPhraseRedaction** – Use this class for fixed strings such as “Social Security Number”.  
+     *Definition anchor:* `ExactPhraseRedaction` matches literal text occurrences in the document.  
+   - **RegexRedaction** – Apply regular‑expression patterns to catch variable data like credit‑card numbers.  
+     *Definition anchor:* `RegexRedaction` evaluates a .NET regular expression against the document content.  
+   - **MetadataRedaction** – Include this item to erase document metadata such as author, creation date, and hidden custom fields.  
+     *Definition anchor:* `MetadataRedaction` removes non‑visible properties that could expose sensitive information.  
 
-4. **Объедините элементы в политику**  
-   Сгруппируйте элементы редактирования в объект `RedactionPolicy`. Эта политика может быть сохранена на диск (`policy.Save("MyPolicy.xml")`) и позже загружена для повторного использования.  
+4. **Combine items into a RedactionPolicy** – Group the redaction items into a `RedactionPolicy` object, which can be saved (`policy.Save("MyPolicy.xml")`) and later loaded for reuse.  
+   *Definition anchor:* `RedactionPolicy` is a container that stores a set of redaction rules and can be persisted to disk.
 
-5. **Примените политику**  
-   Вызовите `engine.ApplyPolicy(policy)`, чтобы обработать документ. Движок удалит всё соответствующее содержимое и очистит указанные метаданные.  
+5. **Apply the policy** – Call `engine.ApplyPolicy(policy)`; the engine scans the document, redacts matching content, and erases the specified metadata.  
 
-6. **Сохраните отредактированный документ**  
-   Используйте `engine.Save("RedactedFile.pdf")`, чтобы записать очищенный файл в хранилище.  
+6. **Save the redacted document** – Use `engine.Save("RedactedFile.pdf")` to write the cleaned file to storage.
 
 ### Как редактировать данные с помощью политики
-Когда вам нужно **how to redact data** в конкретной ситуации — например, удалить идентификаторы сотрудников в партии HR PDF — вы просто загружаете сохранённую политику и применяете её к каждому файлу. Это устраняет повторяющийся код и гарантирует, что каждый документ следует одинаковым правилам безопасности.
+Load the saved policy and invoke it on each PDF you need to cleanse. This single‑line call guarantees that every file receives identical protection without additional coding.
 
 ### Интеграция AI‑поддерживаемого редактирования
-Если ваш проект требует интеллектуального обнаружения PII, подключите AI‑сервис (например, Azure Cognitive Services, AWS Comprehend) к механизму обратного вызова. Обратный вызов может передать AI‑определённые места обратно в политику перед запуском движка, предоставляя вам мощные возможности **ai document redaction** без изменения основного рабочего процесса.
+Plug an AI service (e.g., Azure Cognitive Services or AWS Comprehend) into the `IRedactionCallback` interface. The callback can feed AI‑identified locations back into the policy before the engine runs, giving you powerful **ai document redaction** capabilities without altering the core workflow.
 
-## Common Use Cases
-- **Отчётность по соответствию:** Автоматически удалять имена пациентов, номера медицинских карт или финансовые идентификаторы перед передачей отчётов.  
-- **Юридическое раскрытие:** Удалять конфиденциальные пункты и идентификаторы клиентов из больших наборов документов.  
-- **Публикация документов:** Очищать черновики, удаляя заметки автора, комментарии и скрытые метаданные перед публичным выпуском.  
+## Общие сценарии использования
+- **Compliance reporting:** Automatically strip patient names, medical record numbers, or financial identifiers before sharing reports.  
+- **Legal discovery:** Remove confidential clauses and client identifiers from large document sets.  
+- **Document publishing:** Clean drafts by erasing author notes, comments, and hidden metadata before public release.  
 
-## Tips & Best Practices
-- **Совет:** Храните политики в репозитории с контролем версий, чтобы можно было отслеживать изменения со временем.  
-- **Предупреждение:** Всегда сначала тестируйте политику на копии документа; редактирование необратимо.  
-- **Совет по производительности:** Пакетно обрабатывайте файлы с помощью асинхронных вызовов, чтобы увеличить пропускную способность при работе с большими наборами данных.  
+## Советы и лучшие практики
+- **Pro tip:** Store policies in a version‑controlled repository so you can audit changes over time.  
+- **Warning:** Always test a policy on a copy of the document first; redaction is irreversible.  
+- **Performance tip:** Batch‑process files using asynchronous calls to improve throughput on large datasets.  
 
-## Available Tutorials
+## Доступные учебные материалы
 
-### [Как создать политику редактирования с использованием GroupDocs.Redaction .NET&#58; Пошаговое руководство](./groupdocs-redaction-net-create-save-policy/)
+### [Как создать политику редактирования с помощью GroupDocs.Redaction .NET: пошаговое руководство](./groupdocs-redaction-net-create-save-policy/)
 Learn how to create and save custom redaction policies with GroupDocs.Redaction for .NET. Secure your documents by redacting sensitive information efficiently.
 
-### [Реализация пользовательского журналирования в GroupDocs.Redaction для .NET&#58; Полное руководство](./custom-logging-groupdocs-redaction-net/)
+### [Реализация пользовательского логирования в GroupDocs.Redaction для .NET: полное руководство](./custom-logging-groupdocs-redaction-net/)
 Learn how to implement custom logging with GroupDocs.Redaction for .NET to enhance document redaction workflows. Discover practical steps and key features.
 
 ### [Реализация IRedactionCallback в GroupDocs.Redaction .NET для безопасного редактирования документов с C#](./groupdocs-redaction-net-implement-iredactioncallback-csharp/)
 Learn how to implement the IRedactionCallback interface using GroupDocs.Redaction .NET for secure and efficient document redaction workflows. Discover best practices and practical applications.
 
-### [Мастер редактирования в .NET с GroupDocs&#58; Эффективное применение политик к файлам](./net-redaction-groupdocs-apply-policy-files/)
+### [Мастер редактирования .NET с GroupDocs: эффективное применение политик к файлам](./net-redaction-groupdocs-apply-policy-files/)
 Learn how to automate redaction in .NET using GroupDocs.Redaction, ensuring data privacy and compliance across files.
 
-### [Мастер пользовательского редактирования в .NET с использованием GroupDocs&#58; Полное руководство](./master-custom-redaction-dotnet-groupdocs/)
+### [Мастер пользовательского редактирования в .NET с использованием GroupDocs: полное руководство](./master-custom-redaction-dotnet-groupdocs/)
 Learn how to secure sensitive information in documents using GroupDocs.Redaction for .NET. Implement custom redactions with ease and ensure document privacy.
 
-### [Мастер редактирования документов в .NET с использованием GroupDocs.Redaction&#58; Полное руководство](./master-document-redaction-groupdocs-redaction-net/)
+### [Мастер редактирования документов в .NET с использованием GroupDocs.Redaction: полное руководство](./master-document-redaction-groupdocs-redaction-net/)
 Learn how to secure your sensitive documents with GroupDocs.Redaction for .NET. This guide covers setup, redaction techniques, and best practices.
 
-### [Мастер редактирования документов в .NET с использованием GroupDocs.Redaction&#58; Пошаговое руководство](./mastering-document-redaction-dotnet-groupdocs-redaction/)
+### [Мастер редактирования документов в .NET с использованием GroupDocs.Redaction: пошаговое руководство](./mastering-document-redaction-dotnet-groupdocs-redaction/)
 Learn how to implement secure document redaction in .NET with GroupDocs.Redaction. This guide covers custom format handlers and exact phrase redactions for developers.
 
-### [Освоение безопасности документов с GroupDocs.Redaction .NET&#58; Полное руководство по редактированию фраз и метаданных](./groupdocs-redaction-net-document-security-guide/)
-Learn how to secure sensitive documents using GroupDocs.Redaction for .NET. This guide covers exact phrase, regex-based redactions, annotation deletions, and metadata erasures.
+### [Освоение безопасности документов с GroupDocs.Redaction .NET: полное руководство по редактированию фраз и метаданных](./groupdocs-redaction-net-document-security-guide/)
+Learn how to secure sensitive documents using GroupDocs.Redaction for .NET. This guide covers exact phrase, regex‑based redactions, annotation deletions, and metadata erasures.
 
-## Additional Resources
+## Дополнительные ресурсы
 
 - [Документация GroupDocs.Redaction для .NET](https://docs.groupdocs.com/redaction/net/)
 - [Справочник API GroupDocs.Redaction для .NET](https://reference.groupdocs.com/redaction/net/)
@@ -103,25 +167,29 @@ Learn how to secure sensitive documents using GroupDocs.Redaction for .NET. This
 - [Бесплатная поддержка](https://forum.groupdocs.com/)
 - [Временная лицензия](https://purchase.groupdocs.com/temporary-license/)
 
-## Frequently Asked Questions
+## Часто задаваемые вопросы
 
-**В: Можно ли объединить несколько политик редактирования?**  
-О: Да, вы можете программно объединять политики или последовательно загружать несколько файлов политик перед их применением к документу.
+**Q: Can I combine multiple redaction policies together?**  
+A: Yes, you can merge policies programmatically or load several policy files sequentially before applying them to a document.
 
-**В: Поддерживает ли GroupDocs.Redaction редактирование отсканированных изображений?**  
-О: Да, при использовании OCR; OCR‑движок извлекает текст, который затем можно редактировать с помощью тех же правил политики.
+**Q: Does GroupDocs.Redaction support redacting scanned images?**  
+A: It does when paired with OCR; the OCR engine extracts text, which can then be redacted using the same policy rules.
 
-**В: Чем отличается “erase document metadata” от обычного редактирования?**  
-О: Удаление метаданных удаляет скрытые свойства (автор, метки времени, пользовательские поля), которые не видны в содержимом документа, но могут раскрывать конфиденциальную информацию.
+**Q: How does “erase document metadata” differ from normal redaction?**  
+A: Metadata redaction removes hidden properties (author, timestamps, custom fields) that are not visible in the content but may still expose sensitive information.
 
-**В: Достаточно ли точна AI‑поддерживаемая редактирование для соответствия требованиям?**  
-О: Модели ИИ дают хороший первый результат; однако следует проверять отмеченные элементы, особенно в сценариях с высоким риском соответствия.
+**Q: Is AI‑assisted redaction accurate enough for compliance?**  
+A: AI models provide a strong first pass; you should still review flagged items, especially for high‑risk compliance scenarios.
 
-**В: Какие версии .NET поддерживаются?**  
-О: GroupDocs.Redaction .NET работает с .NET Framework 4.6.1+, .NET Core 3.1+ и .NET 5/6+.
+**Q: What .NET versions are supported?**  
+A: GroupDocs.Redaction .NET works with .NET Framework 4.6.1+, .NET Core 3.1+, and .NET 5/6+.
 
----
+**Last Updated:** 2026-10-01  
+**Tested With:** GroupDocs.Redaction 2.0 for .NET  
+**Author:** GroupDocs
 
-**Последнее обновление:** 2026-03-06  
-**Тестировано с:** GroupDocs.Redaction 2.0 для .NET  
-**Автор:** GroupDocs
+## Связанные учебные материалы
+
+- [Создать политику редактирования с GroupDocs.Redaction .NET – пошаговое руководство](/redaction/net/advanced-redaction/groupdocs-redaction-net-create-save-policy/)
+- [Автоматизировать редактирование документов в .NET с GroupDocs – эффективное применение политик](/redaction/net/advanced-redaction/net-redaction-groupdocs-apply-policy-files/)
+- [Как редактировать PDF и сохранять как растровый PDF с GroupDocs.Redaction для .NET](/redaction/net/document-saving/groupdocs-redaction-net-rasterized-pdfs/)

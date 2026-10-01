@@ -1,100 +1,166 @@
 ---
-date: 2026-03-06
-description: Apprenez à créer une politique de rédaction, à censurer des données et
-  à effacer les métadonnées du document en utilisant GroupDocs.Redaction pour .NET.
-title: Créer une politique de rédaction avec GroupDocs.Redaction .NET
+date: 2026-10-01
+description: Guide étape par étape sur la façon de caviarder des fichiers PDF, d'automatiser
+  le caviardage de documents et de supprimer les métadonnées PDF à l'aide de GroupDocs.Redaction
+  pour .NET.
+keywords:
+- how to redact pdf
+- metadata removal pdf
+- automate document redaction
+lastmod: 2026-10-01
+og_description: Apprenez à caviarder des fichiers PDF, à automatiser le caviardage
+  de documents et à supprimer les métadonnées PDF à l'aide de GroupDocs.Redaction
+  pour .NET en quelques étapes simples.
+og_image_alt: Guide to redacting PDF documents with GroupDocs.Redaction for .NET
+og_title: Comment caviarder un PDF avec une politique dans GroupDocs.Redaction .NET
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-01'
+  description: Step-by-step guide on how to redact PDF files, automate document redaction,
+    and perform metadata removal PDF using GroupDocs.Redaction for .NET.
+  headline: How to redact PDF with a policy in GroupDocs.Redaction .NET
+  type: TechArticle
+- description: Step-by-step guide on how to redact PDF files, automate document redaction,
+    and perform metadata removal PDF using GroupDocs.Redaction for .NET.
+  name: How to redact PDF with a policy in GroupDocs.Redaction .NET
+  steps:
+  - name: '**Add the NuGet package** – Install the latest `GroupDocs.Redaction` package
+      via the NuGet Package Manager or the CLI (`dotnet add package GroupDocs.Redaction`).'
+    text: '**Add the NuGet package** – Install the latest `GroupDocs.Redaction` package
+      via the NuGet Package Manager or the CLI (`dotnet add package GroupDocs.Redaction`).'
+  - name: '**Instantiate the RedactionEngine** – `RedactionEngine` is the core class
+      that loads a document and performs redaction operations.'
+    text: '**Instantiate the RedactionEngine** – `RedactionEngine` is the core class
+      that loads a document and performs redaction operations.'
+  - name: '**Define redaction items**'
+    text: '**Define redaction items**'
+  - name: '**Combine items into a RedactionPolicy** – Group the redaction items into
+      a `RedactionPolicy` object, which can be saved (`policy.Save("MyPolicy.xml")`)
+      and later loaded for reuse.'
+    text: '**Combine items into a RedactionPolicy** – Group the redaction items into
+      a `RedactionPolicy` object, which can be saved (`policy.Save("MyPolicy.xml")`)
+      and later loaded for reuse.'
+  - name: '**Apply the policy** – Call `engine.ApplyPolicy(policy)`; the engine scans
+      the document, redacts matching content, and erases the specified metadata.'
+    text: '**Apply the policy** – Call `engine.ApplyPolicy(policy)`; the engine scans
+      the document, redacts matching content, and erases the specified metadata.'
+  - name: '**Save the redacted document** – Use `engine.Save("RedactedFile.pdf")`
+      to write the cleaned file to storage.'
+    text: '**Save the redacted document** – Use `engine.Save("RedactedFile.pdf")`
+      to write the cleaned file to storage.'
+  type: HowTo
+- questions:
+  - answer: Yes, you can merge policies programmatically or load several policy files
+      sequentially before applying them to a document.
+    question: Can I combine multiple redaction policies together?
+  - answer: It does when paired with OCR; the OCR engine extracts text, which can
+      then be redacted using the same policy rules.
+    question: Does GroupDocs.Redaction support redacting scanned images?
+  - answer: Metadata redaction removes hidden properties (author, timestamps, custom
+      fields) that are not visible in the content but may still expose sensitive information.
+    question: How does “erase document metadata” differ from normal redaction?
+  - answer: AI models provide a strong first pass; you should still review flagged
+      items, especially for high‑risk compliance scenarios.
+    question: Is AI‑assisted redaction accurate enough for compliance?
+  - answer: GroupDocs.Redaction .NET works with .NET Framework 4.6.1+, .NET Core 3.1+,
+      and .NET 5/6+.
+    question: What .NET versions are supported?
+  type: FAQPage
+tags:
+- redaction policy
+- GroupDocs.Redaction
+- .NET document security
+- PDF privacy
+title: Comment caviarder un PDF avec une politique dans GroupDocs.Redaction .NET
 type: docs
 url: /fr/net/advanced-redaction/
 weight: 9
 ---
 
-# Créer une politique de rédaction avec GroupDocs.Redaction .NET
+# Comment caviarder un PDF avec une politique dans GroupDocs.Redaction .NET
 
-Dans ce guide complet, vous découvrirez **comment créer une politique de rédaction** qui vous permet d’automatiser la suppression de contenus sensibles des PDF, fichiers Word, images, et plus encore. Que vous deviez vous conformer au GDPR, à la HIPAA ou aux normes de sécurité internes, maîtriser les politiques de rédaction dans GroupDocs.Redaction pour .NET vous offre un contrôle granulaire sur ce qui est masqué, comment il est masqué, et même comment les métadonnées sont effacées. Nous parcourrons le pourquoi, le quoi et le processus étape par étape afin que vous puissiez commencer à créer dès aujourd’hui des solutions robustes de confidentialité des documents.
+Dans ce guide complet, vous apprendrez **comment caviarder des PDF** en créant des politiques de caviardage réutilisables, automatiser le caviardage de documents par lots et effacer les métadonnées cachées des PDF. Que vous deviez respecter le GDPR, le HIPAA ou les normes de sécurité internes, maîtriser les politiques de caviardage dans GroupDocs.Redaction pour .NET vous donne un contrôle granulaire sur ce qui est masqué, comment cela est masqué et comment les métadonnées sont supprimées. Parcourons les concepts, pourquoi ils sont importants et les étapes exactes pour les mettre en œuvre dès aujourd'hui.
 
 ## Réponses rapides
-- **Qu'est‑ce qu'une politique de rédaction ?** Un ensemble réutilisable de règles qui définissent quel texte, quelles images ou quelles métadonnées doivent être supprimés d'un document.  
-- **Pourquoi créer une politique de rédaction ?** Pour appliquer des règles de protection des données cohérentes et répétables sur de nombreux fichiers sans réécrire le code à chaque fois.  
-- **Puis‑je utiliser l'IA pour localiser les données sensibles ?** Oui—GroupDocs.Redaction prend en charge les intégrations **ai document redaction** qui trouvent automatiquement les identifiants personnels.  
-- **Comment effacer les métadonnées du document ?** Incluez une règle « erase document metadata » dans votre politique pour supprimer l’auteur, la date de création et les propriétés cachées.  
-- **Ai‑je besoin d’une licence ?** Une licence valide GroupDocs.Redaction est requise pour une utilisation en production ; une licence temporaire est disponible pour les tests.
+- **Qu'est‑une politique de caviardage ?** Un ensemble de règles réutilisable qui indique au moteur quel texte, image ou métadonnée supprimer d'un document.  
+- **Pourquoi créer une politique de caviardage ?** Elle vous permet d'appliquer des règles de protection des données cohérentes et répétables sur de nombreux fichiers sans réécrire le code à chaque fois.  
+- **Puis‑je utiliser l'IA pour localiser les données sensibles ?** Oui—GroupDocs.Redaction prend en charge les intégrations de **ai document redaction** qui trouvent automatiquement les identifiants personnels.  
+- **Comment effacer les métadonnées d'un document ?** Ajoutez une règle « erase document metadata » à votre politique ; elle supprime l'auteur, la date de création et les propriétés cachées.  
+- **Ai‑je besoin d'une licence ?** Une licence valide GroupDocs.Redaction est requise pour une utilisation en production ; une licence temporaire est disponible pour les tests.
 
-## Qu'est‑ce qu'une politique de rédaction ?
-Une politique de rédaction est une collection d'éléments de rédaction — tels que des phrases exactes, des modèles d'expression régulière ou des champs de métadonnées — que le moteur applique automatiquement. En définissant la politique une fois, vous pouvez la réutiliser sur plusieurs documents, garantissant une gestion cohérente de la confidentialité des données.
+## Qu'est‑une politique de caviardage ?
+Une politique de caviardage est une collection d'éléments de caviardage—tels que des expressions exactes, des modèles d'expressions régulières ou des champs de métadonnées—que le moteur applique automatiquement. En définissant la politique une fois, vous pouvez la réutiliser sur plusieurs documents, assurant une gestion cohérente de la confidentialité des données. Elle peut être enregistrée sur disque, contrôlée par version et chargée par différentes applications, facilitant le maintien de la conformité au sein des équipes et des projets.
 
-## Pourquoi utiliser GroupDocs.Redaction pour créer des politiques de rédaction ?
-- **Contrôle centralisé :** Une politique, plusieurs documents.  
-- **Sécurité évolutive :** Gère de gros lots sans intervention manuelle.  
-- **Détection assistée par IA :** Exploitez **ai document redaction** pour signaler automatiquement les informations personnellement identifiables (PII).  
-- **Effacement des métadonnées :** Prise en charge intégrée de **erase document metadata**, protégeant les informations cachées qui pourraient autrement être exposées.  
-- **Extensible :** Combinez des gestionnaires personnalisés, des callbacks et la journalisation pour des flux de travail complexes.
+## Pourquoi utiliser GroupDocs.Redaction pour créer des politiques de caviardage ?
+GroupDocs.Redaction vous permet de centraliser les règles de sécurité, de traiter de gros lots et d'intégrer la détection assistée par IA tout en gérant la suppression des métadonnées PDF en une seule passe. Le moteur prend en charge **plus de 50 formats d'entrée et de sortie** et peut traiter des documents jusqu'à 2 Go sans charger le fichier complet en mémoire, vous offrant des performances évolutives pour les charges de travail d'entreprise.
 
-## Comment créer une politique de rédaction dans GroupDocs.Redaction .NET
-Voici un guide concis et conversationnel. Aucun bloc de code n’est requis ici car le tutoriel original ne comprend pas de code d’exemple, et nous devons conserver le même nombre de blocs de code.
+## Comment caviarder un PDF à l'aide d'une politique de caviardage dans GroupDocs.Redaction .NET
+Chargez le PDF cible, créez une politique qui décrit ce qui doit être masqué, et appliquez la politique en un seul appel. Cette approche réduit la duplication du code, garantit que chaque document suit les mêmes règles de conformité et effectue le caviardage dans des flux à faible consommation de mémoire.
 
-1. **Ajouter le package NuGet**  
-   Installez le dernier package `GroupDocs.Redaction` via le Gestionnaire de packages NuGet ou la CLI (`dotnet add package GroupDocs.Redaction`).  
+1. **Ajouter le package NuGet** – Installez le dernier package `GroupDocs.Redaction` via le Gestionnaire de packages NuGet ou la CLI (`dotnet add package GroupDocs.Redaction`).  
 
-2. **Instancier le RedactionEngine**  
-   Créez une instance de `RedactionEngine` pointant vers le document que vous souhaitez protéger.  
+2. **Instancier le RedactionEngine** – `RedactionEngine` est la classe principale qui charge un document et effectue les opérations de caviardage.  
+   *Definition anchor:* `RedactionEngine` est la classe principale qui charge un document et effectue les opérations de caviardage.
 
-3. **Définir les éléments de rédaction**  
-   - Utilisez `ExactPhraseRedaction` pour des chaînes fixes (par ex., « Social Security Number »).  
-   - Utilisez `RegexRedaction` pour des modèles (par ex., numéros de carte de crédit).  
-   - Ajoutez un élément `MetadataRedaction` pour **erase document metadata** tel que l’auteur ou la date de création.  
+3. **Définir les éléments de caviardage**  
+   - **ExactPhraseRedaction** – Utilisez cette classe pour des chaînes fixes telles que « Social Security Number ».  
+     *Definition anchor:* `ExactPhraseRedaction` correspond aux occurrences de texte littéral dans le document.  
+   - **RegexRedaction** – Appliquez des modèles d'expression régulière pour capturer des données variables comme les numéros de carte de crédit.  
+     *Definition anchor:* `RegexRedaction` évalue une expression régulière .NET contre le contenu du document.  
+   - **MetadataRedaction** – Incluez cet élément pour effacer les métadonnées du document telles que l'auteur, la date de création et les champs personnalisés cachés.  
+     *Definition anchor:* `MetadataRedaction` supprime les propriétés non visibles qui pourraient exposer des informations sensibles.  
 
-4. **Combiner les éléments en une politique**  
-   Regroupez les éléments de rédaction dans un objet `RedactionPolicy`. Cette politique peut être enregistrée sur le disque (`policy.Save("MyPolicy.xml")`) et chargée ultérieurement pour réutilisation.  
+4. **Combiner les éléments dans une RedactionPolicy** – Regroupez les éléments de caviardage dans un objet `RedactionPolicy`, qui peut être enregistré (`policy.Save("MyPolicy.xml")`) et chargé ultérieurement pour réutilisation.  
+   *Definition anchor:* `RedactionPolicy` est un conteneur qui stocke un ensemble de règles de caviardage et peut être persistant sur disque.
 
-5. **Appliquer la politique**  
-   Appelez `engine.ApplyPolicy(policy)` pour traiter le document. Le moteur masquera tout le contenu correspondant et supprimera les métadonnées spécifiées.  
+5. **Appliquer la politique** – Appelez `engine.ApplyPolicy(policy)` ; le moteur analyse le document, caviarde le contenu correspondant et efface les métadonnées spécifiées.  
 
-6. **Enregistrer le document masqué**  
-   Utilisez `engine.Save("RedactedFile.pdf")` pour écrire le fichier nettoyé dans le stockage.
+6. **Enregistrer le document caviardé** – Utilisez `engine.Save("RedactedFile.pdf")` pour écrire le fichier nettoyé dans le stockage.
 
-### Comment masquer des données à l'aide de la politique
-Lorsque vous devez **masquer des données** dans un scénario spécifique — par exemple, masquer les identifiants des employés dans un lot de PDF RH — vous chargez simplement la politique enregistrée et l’appliquez à chaque fichier. Cela élimine le codage répétitif et garantit que chaque document suit les mêmes règles de sécurité.
+### Comment caviarder les données à l'aide de la politique
+Chargez la politique enregistrée et invoquez‑la sur chaque PDF que vous devez nettoyer. Cet appel en une seule ligne garantit que chaque fichier reçoit une protection identique sans code supplémentaire.
 
-### Intégration de la rédaction assistée par IA
-Si votre projet nécessite une détection intelligente du PII, connectez un service d'IA (par ex., Azure Cognitive Services, AWS Comprehend) au mécanisme de rappel. Le callback peut renvoyer les emplacements identifiés par l'IA dans la politique avant l’exécution du moteur, vous offrant de puissantes capacités **ai document redaction** sans modifier le flux de travail principal.
+### Intégration du caviardage assisté par IA
+Connectez un service d'IA (par ex., Azure Cognitive Services ou AWS Comprehend) à l'interface `IRedactionCallback`. Le rappel peut renvoyer les emplacements identifiés par l'IA dans la politique avant l'exécution du moteur, vous offrant de puissantes capacités de **ai document redaction** sans modifier le flux de travail principal.
 
 ## Cas d'utilisation courants
-- **Rapports de conformité :** Supprimez automatiquement les noms de patients, numéros de dossiers médicaux ou identifiants financiers avant de partager les rapports.  
-- **Recherche juridique :** Supprimez les clauses confidentielles et les identifiants de clients des grands ensembles de documents.  
-- **Publication de documents :** Nettoyez les brouillons en effaçant les notes d’auteur, les commentaires et les métadonnées cachées avant la diffusion publique.  
+- **Rapports de conformité :** Supprimez automatiquement les noms de patients, les numéros de dossiers médicaux ou les identifiants financiers avant de partager les rapports.  
+- **Recherche juridique :** Retirez les clauses confidentielles et les identifiants clients des grands ensembles de documents.  
+- **Publication de documents :** Nettoyez les brouillons en effaçant les notes d'auteur, les commentaires et les métadonnées cachées avant la diffusion publique.  
 
-## Astuces et bonnes pratiques
-- **Astuce pro :** Stockez les politiques dans un dépôt sous contrôle de version afin de pouvoir auditer les changements au fil du temps.  
-- **Avertissement :** Testez toujours une politique sur une copie du document d’abord ; la rédaction est irréversible.  
+## Conseils et bonnes pratiques
+- **Astuce pro :** Stockez les politiques dans un dépôt contrôlé par version afin de pouvoir auditer les changements au fil du temps.  
+- **Avertissement :** Testez toujours une politique sur une copie du document d'abord ; le caviardage est irréversible.  
 - **Astuce de performance :** Traitez les fichiers par lots en utilisant des appels asynchrones pour améliorer le débit sur de grands ensembles de données.  
 
 ## Tutoriels disponibles
 
-### [Comment créer une politique de rédaction avec GroupDocs.Redaction .NET : Guide étape par étape](./groupdocs-redaction-net-create-save-policy/)
-Apprenez à créer et enregistrer des politiques de rédaction personnalisées avec GroupDocs.Redaction pour .NET. Sécurisez vos documents en masquant efficacement les informations sensibles.
+### [Comment créer une politique de caviardage avec GroupDocs.Redaction .NET : guide étape par étape](./groupdocs-redaction-net-create-save-policy/)
+Apprenez à créer et enregistrer des politiques de caviardage personnalisées avec GroupDocs.Redaction pour .NET. Sécurisez vos documents en caviardant efficacement les informations sensibles.
 
-### [Implémenter la journalisation personnalisée dans GroupDocs.Redaction pour .NET : Guide complet](./custom-logging-groupdocs-redaction-net/)
-Apprenez à implémenter une journalisation personnalisée avec GroupDocs.Redaction pour .NET afin d'améliorer les flux de travail de rédaction de documents. Découvrez les étapes pratiques et les fonctionnalités clés.
+### [Implémenter la journalisation personnalisée dans GroupDocs.Redaction pour .NET : guide complet](./custom-logging-groupdocs-redaction-net/)
+Apprenez à implémenter la journalisation personnalisée avec GroupDocs.Redaction pour .NET afin d'améliorer les flux de travail de caviardage de documents. Découvrez les étapes pratiques et les fonctionnalités clés.
 
-### [Implémentation de IRedactionCallback dans GroupDocs.Redaction .NET pour la rédaction sécurisée de documents avec C#](./groupdocs-redaction-net-implement-iredactioncallback-csharp/)
-Apprenez à implémenter l'interface IRedactionCallback en utilisant GroupDocs.Redaction .NET pour des flux de travail de rédaction de documents sécurisés et efficaces. Découvrez les meilleures pratiques et les applications pratiques.
+### [Implémentation de IRedactionCallback dans GroupDocs.Redaction .NET pour le caviardage sécurisé de documents avec C#](./groupdocs-redaction-net-implement-iredactioncallback-csharp/)
+Apprenez à implémenter l'interface IRedactionCallback en utilisant GroupDocs.Redaction .NET pour des flux de travail de caviardage de documents sécurisés et efficaces. Découvrez les meilleures pratiques et les applications pratiques.
 
-### [Maîtriser la rédaction .NET avec GroupDocs : Appliquer les politiques aux fichiers efficacement](./net-redaction-groupdocs-apply-policy-files/)
-Apprenez à automatiser la rédaction en .NET avec GroupDocs.Redaction, assurant la confidentialité des données et la conformité à travers les fichiers.
+### [Maîtriser le caviardage .NET avec GroupDocs : appliquer les politiques aux fichiers efficacement](./net-redaction-groupdocs-apply-policy-files/)
+Apprenez à automatiser le caviardage en .NET avec GroupDocs.Redaction, en assurant la confidentialité des données et la conformité à travers les fichiers.
 
-### [Maîtriser la rédaction personnalisée en .NET avec GroupDocs : Guide complet](./master-custom-redaction-dotnet-groupdocs/)
-Apprenez à sécuriser les informations sensibles dans les documents avec GroupDocs.Redaction pour .NET. Implémentez des rédactions personnalisées facilement et assurez la confidentialité des documents.
+### [Maîtriser le caviardage personnalisé en .NET avec GroupDocs : guide complet](./master-custom-redaction-dotnet-groupdocs/)
+Apprenez à sécuriser les informations sensibles dans les documents en utilisant GroupDocs.Redaction pour .NET. Implémentez des caviardages personnalisés avec facilité et assurez la confidentialité des documents.
 
-### [Maîtriser la rédaction de documents en .NET avec GroupDocs.Redaction : Guide complet](./master-document-redaction-groupdocs-redaction-net/)
-Apprenez à sécuriser vos documents sensibles avec GroupDocs.Redaction pour .NET. Ce guide couvre l'installation, les techniques de rédaction et les meilleures pratiques.
+### [Maîtriser le caviardage de documents en .NET avec GroupDocs.Redaction : guide complet](./master-document-redaction-groupdocs-redaction-net/)
+Apprenez à sécuriser vos documents sensibles avec GroupDocs.Redaction pour .NET. Ce guide couvre l'installation, les techniques de caviardage et les meilleures pratiques.
 
-### [Maîtriser la rédaction de documents en .NET avec GroupDocs.Redaction : Guide étape par étape](./mastering-document-redaction-dotnet-groupdocs-redaction/)
-Apprenez à implémenter une rédaction sécurisée de documents en .NET avec GroupDocs.Redaction. Ce guide couvre les gestionnaires de formats personnalisés et les rédactions de phrases exactes pour les développeurs.
+### [Maîtriser le caviardage de documents en .NET avec GroupDocs.Redaction : guide étape par étape](./mastering-document-redaction-dotnet-groupdocs-redaction/)
+Apprenez à implémenter le caviardage sécurisé de documents en .NET avec GroupDocs.Redaction. Ce guide couvre les gestionnaires de formats personnalisés et les caviardages d'expressions exactes pour les développeurs.
 
-### [Maîtriser la sécurité des documents avec GroupDocs.Redaction .NET : Guide complet de la rédaction de phrases et de métadonnées](./groupdocs-redaction-net-document-security-guide/)
-Apprenez à sécuriser les documents sensibles avec GroupDocs.Redaction pour .NET. Ce guide couvre les rédactions de phrases exactes, les rédactions basées sur les expressions régulières, la suppression d'annotations et l'effacement des métadonnées.
+### [Maîtriser la sécurité des documents avec GroupDocs.Redaction .NET : guide complet du caviardage d'expressions et de métadonnées](./groupdocs-redaction-net-document-security-guide/)
+Apprenez à sécuriser les documents sensibles en utilisant GroupDocs.Redaction pour .NET. Ce guide couvre le caviardage d'expressions exactes, les caviardages basés sur les expressions régulières, la suppression d'annotations et l'effacement des métadonnées.
 
 ## Ressources supplémentaires
+
 - [Documentation GroupDocs.Redaction pour .NET](https://docs.groupdocs.com/redaction/net/)
 - [Référence API GroupDocs.Redaction pour .NET](https://reference.groupdocs.com/redaction/net/)
 - [Télécharger GroupDocs.Redaction pour .NET](https://releases.groupdocs.com/redaction/net/)
@@ -102,23 +168,31 @@ Apprenez à sécuriser les documents sensibles avec GroupDocs.Redaction pour .NE
 - [Support gratuit](https://forum.groupdocs.com/)
 - [Licence temporaire](https://purchase.groupdocs.com/temporary-license/)
 
-## Questions fréquentes
+## Questions fréquemment posées
 
-**Q : Puis‑je combiner plusieurs politiques de rédaction ensemble ?**  
-A : Oui, vous pouvez fusionner les politiques par programmation ou charger plusieurs fichiers de politique séquentiellement avant de les appliquer à un document.
+**Q : Puis‑je combiner plusieurs politiques de caviardage ensemble ?**  
+R : Oui, vous pouvez fusionner les politiques par programmation ou charger plusieurs fichiers de politique séquentiellement avant de les appliquer à un document.
 
-**Q : GroupDocs.Redaction prend‑il en charge la rédaction d'images numérisées ?**  
-A : Oui, lorsqu'il est associé à l'OCR ; le moteur OCR extrait le texte, qui peut ensuite être masqué en utilisant les mêmes règles de politique.
+**Q : GroupDocs.Redaction prend‑il en charge le caviardage d'images numérisées ?**  
+R : Oui, lorsqu'il est associé à l'OCR ; le moteur OCR extrait le texte, qui peut ensuite être caviardé en utilisant les mêmes règles de politique.
 
-**Q : En quoi « erase document metadata » diffère‑t‑il d’une rédaction normale ?**  
-A : La rédaction des métadonnées supprime les propriétés cachées (auteur, horodatages, champs personnalisés) qui ne sont pas visibles dans le contenu du document mais peuvent néanmoins exposer des informations sensibles.
+**Q : En quoi « erase document metadata » diffère‑t‑il du caviardage normal ?**  
+R : Le caviardage des métadonnées supprime les propriétés cachées (auteur, horodatages, champs personnalisés) qui ne sont pas visibles dans le contenu mais peuvent néanmoins exposer des informations sensibles.
 
-**Q : La rédaction assistée par IA est‑elle suffisamment précise pour la conformité ?**  
-A : Les modèles d'IA offrent une première passe solide ; vous devez néanmoins examiner les éléments signalés, surtout dans les scénarios de conformité à haut risque.
+**Q : Le caviardage assisté par IA est‑il suffisamment précis pour la conformité ?**  
+R : Les modèles d'IA offrent une première passe solide ; vous devez néanmoins examiner les éléments signalés, surtout dans les scénarios de conformité à haut risque.
 
 **Q : Quelles versions de .NET sont prises en charge ?**  
-A : GroupDocs.Redaction .NET fonctionne avec .NET Framework 4.6.1+, .NET Core 3.1+, et .NET 5/6+.
+R : GroupDocs.Redaction .NET fonctionne avec .NET Framework 4.6.1+, .NET Core 3.1+ et .NET 5/6+.
 
-**Dernière mise à jour :** 2026-03-06  
+---  
+
+**Dernière mise à jour :** 2026-10-01  
 **Testé avec :** GroupDocs.Redaction 2.0 pour .NET  
 **Auteur :** GroupDocs
+
+## Tutoriels associés
+
+- [Créer une politique de caviardage avec GroupDocs.Redaction .NET – guide étape par étape](/redaction/net/advanced-redaction/groupdocs-redaction-net-create-save-policy/)
+- [Automatiser le caviardage de documents en .NET avec GroupDocs – appliquer les politiques efficacement](/redaction/net/advanced-redaction/net-redaction-groupdocs-apply-policy-files/)
+- [Comment caviarder un PDF et l'enregistrer en PDF rasterisé avec GroupDocs.Redaction pour .NET](/redaction/net/document-saving/groupdocs-redaction-net-rasterized-pdfs/)

@@ -1,128 +1,198 @@
 ---
-date: 2026-03-06
-description: Μάθετε πώς να δημιουργήσετε πολιτική διαγραφής, πώς να διαγράψετε δεδομένα
-  και να διαγράψετε τα μεταδεδομένα του εγγράφου χρησιμοποιώντας το GroupDocs.Redaction
+date: 2026-10-01
+description: Οδηγός βήμα προς βήμα για το πώς να αποκρύψετε αρχεία PDF, να αυτοματοποιήσετε
+  την απόκρυψη εγγράφων και να αφαιρέσετε μεταδεδομένα PDF χρησιμοποιώντας το GroupDocs.Redaction
   για .NET.
-title: Δημιουργία πολιτικής απόκρυψης με το GroupDocs.Redaction .NET
+keywords:
+- how to redact pdf
+- metadata removal pdf
+- automate document redaction
+lastmod: 2026-10-01
+og_description: Μάθετε πώς να αποκρύψετε αρχεία PDF, να αυτοματοποιήσετε την απόκρυψη
+  εγγράφων και να αφαιρέσετε μεταδεδομένα PDF χρησιμοποιώντας το GroupDocs.Redaction
+  για .NET σε λίγα απλά βήματα.
+og_image_alt: Guide to redacting PDF documents with GroupDocs.Redaction for .NET
+og_title: Πώς να αποκρύψετε PDF με πολιτική στο GroupDocs.Redaction .NET
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-01'
+  description: Step-by-step guide on how to redact PDF files, automate document redaction,
+    and perform metadata removal PDF using GroupDocs.Redaction for .NET.
+  headline: How to redact PDF with a policy in GroupDocs.Redaction .NET
+  type: TechArticle
+- description: Step-by-step guide on how to redact PDF files, automate document redaction,
+    and perform metadata removal PDF using GroupDocs.Redaction for .NET.
+  name: How to redact PDF with a policy in GroupDocs.Redaction .NET
+  steps:
+  - name: '**Add the NuGet package** – Install the latest `GroupDocs.Redaction` package
+      via the NuGet Package Manager or the CLI (`dotnet add package GroupDocs.Redaction`).'
+    text: '**Add the NuGet package** – Install the latest `GroupDocs.Redaction` package
+      via the NuGet Package Manager or the CLI (`dotnet add package GroupDocs.Redaction`).'
+  - name: '**Instantiate the RedactionEngine** – `RedactionEngine` is the core class
+      that loads a document and performs redaction operations.'
+    text: '**Instantiate the RedactionEngine** – `RedactionEngine` is the core class
+      that loads a document and performs redaction operations.'
+  - name: '**Define redaction items**'
+    text: '**Define redaction items**'
+  - name: '**Combine items into a RedactionPolicy** – Group the redaction items into
+      a `RedactionPolicy` object, which can be saved (`policy.Save("MyPolicy.xml")`)
+      and later loaded for reuse.'
+    text: '**Combine items into a RedactionPolicy** – Group the redaction items into
+      a `RedactionPolicy` object, which can be saved (`policy.Save("MyPolicy.xml")`)
+      and later loaded for reuse.'
+  - name: '**Apply the policy** – Call `engine.ApplyPolicy(policy)`; the engine scans
+      the document, redacts matching content, and erases the specified metadata.'
+    text: '**Apply the policy** – Call `engine.ApplyPolicy(policy)`; the engine scans
+      the document, redacts matching content, and erases the specified metadata.'
+  - name: '**Save the redacted document** – Use `engine.Save("RedactedFile.pdf")`
+      to write the cleaned file to storage.'
+    text: '**Save the redacted document** – Use `engine.Save("RedactedFile.pdf")`
+      to write the cleaned file to storage.'
+  type: HowTo
+- questions:
+  - answer: Yes, you can merge policies programmatically or load several policy files
+      sequentially before applying them to a document.
+    question: Can I combine multiple redaction policies together?
+  - answer: It does when paired with OCR; the OCR engine extracts text, which can
+      then be redacted using the same policy rules.
+    question: Does GroupDocs.Redaction support redacting scanned images?
+  - answer: Metadata redaction removes hidden properties (author, timestamps, custom
+      fields) that are not visible in the content but may still expose sensitive information.
+    question: How does “erase document metadata” differ from normal redaction?
+  - answer: AI models provide a strong first pass; you should still review flagged
+      items, especially for high‑risk compliance scenarios.
+    question: Is AI‑assisted redaction accurate enough for compliance?
+  - answer: GroupDocs.Redaction .NET works with .NET Framework 4.6.1+, .NET Core 3.1+,
+      and .NET 5/6+.
+    question: What .NET versions are supported?
+  type: FAQPage
+tags:
+- redaction policy
+- GroupDocs.Redaction
+- .NET document security
+- PDF privacy
+title: Πώς να αποκρύψετε PDF με πολιτική στο GroupDocs.Redaction .NET
 type: docs
 url: /el/net/advanced-redaction/
 weight: 9
 ---
 
-# Δημιουργία Πολιτικής Επεξεργασίας με το GroupDocs.Redaction .NET
+# Πώς να διαγράψετε PDF με μια πολιτική στο GroupDocs.Redaction .NET
 
-Σε αυτόν τον ολοκληρωμένο οδηγό θα ανακαλύψετε **πώς να δημιουργήσετε πολιτικές επεξεργασίας** αντικείμενα που σας επιτρέπουν να αυτοματοποιήσετε την αφαίρεση ευαίσθητου περιεχομένου από PDF, αρχεία Word, εικόνες και άλλα. Είτε χρειάζεστε συμμόρφωση με GDPR, HIPAA ή εσωτερικά πρότυπα ασφαλείας, η κατανόηση των πολιτικών επεξεργασίας στο GroupDocs.Redaction για .NET σας δίνει λεπτομερή έλεγχο πάνω σε τι κρύβεται, πώς κρύβεται και ακόμη και πώς διαγράφονται τα μεταδεδομένα. Θα περάσουμε από το γιατί, το τι και τη διαδικασία βήμα‑βήμα ώστε να αρχίσετε να δημιουργείτε ισχυρές λύσεις ιδιωτικότητας εγγράφων σήμερα.
+Σε αυτόν τον ολοκληρωμένο οδηγό θα μάθετε **πώς να διαγράψετε PDF** αρχεία δημιουργώντας επαναχρησιμοποιήσιμες πολιτικές διαγραφής, αυτοματοποιώντας τη διαγραφή εγγράφων σε παρτίδες και διαγράφοντας κρυμμένα μεταδεδομένα PDF. Είτε χρειάζεστε συμμόρφωση με GDPR, HIPAA ή εσωτερικά πρότυπα ασφαλείας, η κατανόηση των πολιτικών διαγραφής στο GroupDocs.Redaction για .NET σας δίνει λεπτομερή έλεγχο πάνω σε τι κρύβεται, πώς κρύβεται και πώς αφαιρούνται τα μεταδεδομένα. Ας εξερευνήσουμε τις έννοιες, τη σημασία τους και τα ακριβή βήματα για την υλοποίησή τους σήμερα.
 
-## Γρήγορες Απαντήσεις
-- **What is a redaction policy?** Ένα επαναχρησιμοποιήσιμο σύνολο κανόνων που ορίζουν ποιο κείμενο, εικόνες ή μεταδεδομένα πρέπει να αφαιρεθούν από ένα έγγραφο.  
-- **Why create a redaction policy?** Για να εφαρμόζετε συνεπείς, επαναλαμβανόμενους κανόνες προστασίας δεδομένων σε πολλά αρχεία χωρίς να χρειάζεται να ξαναγράψετε κώδικα κάθε φορά.  
-- **Can I use AI to locate sensitive data?** Ναι—το GroupDocs.Redaction υποστηρίζει ενσωματώσεις **ai document redaction** που εντοπίζουν αυτόματα προσωπικά αναγνωριστικά.  
-- **How do I erase document metadata?** Συμπεριλάβετε έναν κανόνα “erase document metadata” στην πολιτική σας για να αφαιρέσετε τον συγγραφέα, την ημερομηνία δημιουργίας και κρυφές ιδιότητες.  
-- **Do I need a license?** Απαιτείται έγκυρη άδεια GroupDocs.Redaction για χρήση σε παραγωγή· διατίθεται προσωρινή άδεια για δοκιμές.
+## Γρήγορες απαντήσεις
+- **Τι είναι μια πολιτική διαγραφής;** Ένα επαναχρησιμοποιήσιμο σύνολο κανόνων που λέει στη μηχανή ποιο κείμενο, εικόνες ή μεταδεδομένα να αφαιρέσει από ένα έγγραφο.  
+- **Γιατί να δημιουργήσετε μια πολιτική διαγραφής;** Σας επιτρέπει να εφαρμόζετε συνεπείς, επαναλαμβανόμενους κανόνες προστασίας δεδομένων σε πολλά αρχεία χωρίς να ξαναγράφετε κώδικα κάθε φορά.  
+- **Μπορώ να χρησιμοποιήσω AI για τον εντοπισμό ευαίσθητων δεδομένων;** Ναι—το GroupDocs.Redaction υποστηρίζει ενσωματώσεις **ai document redaction** που εντοπίζουν αυτόματα προσωπικά αναγνωριστικά.  
+- **Πώς διαγράφω τα μεταδεδομένα του εγγράφου;** Προσθέστε έναν κανόνα “erase document metadata” στην πολιτική σας· αφαιρεί τον συγγραφέα, την ημερομηνία δημιουργίας και κρυφές ιδιότητες.  
+- **Χρειάζομαι άδεια;** Απαιτείται έγκυρη άδεια GroupDocs.Redaction για παραγωγική χρήση· διατίθεται προσωρινή άδεια για δοκιμές.
 
-## Τι είναι μια Πολιτική Επεξεργασίας;
-Μια πολιτική επεξεργασίας είναι μια συλλογή στοιχείων επεξεργασίας—όπως ακριβείς φράσεις, πρότυπα regular‑expression ή πεδία μεταδεδομένων—που η μηχανή εφαρμόζει αυτόματα. Ορίζοντας την πολιτική μία φορά, μπορείτε να την επαναχρησιμοποιήσετε σε πολλά έγγραφα, εξασφαλίζοντας συνεπή διαχείριση ιδιωτικότητας δεδομένων.
+## Τι είναι μια πολιτική διαγραφής;
+Μια πολιτική διαγραφής είναι μια συλλογή στοιχείων διαγραφής—όπως ακριβείς φράσεις, πρότυπα κανονικής έκφρασης ή πεδία μεταδεδομένων—που η μηχανή εφαρμόζει αυτόματα. Ορίζοντας την πολιτική μία φορά, μπορείτε να την επαναχρησιμοποιήσετε σε πολλά έγγραφα, εξασφαλίζοντας συνεπή διαχείριση ιδιωτικότητας δεδομένων. Μπορεί να αποθηκευτεί στο δίσκο, να ελεγχθεί μέσω ελέγχου εκδόσεων και να φορτωθεί από διαφορετικές εφαρμογές, καθιστώντας εύκολη τη διατήρηση συμμόρφωσης μεταξύ ομάδων και έργων.
 
-## Γιατί να χρησιμοποιήσετε το GroupDocs.Redaction για τη δημιουργία Πολιτικών Επεξεργασίας;
-- **Centralized control:** Μία πολιτική, πολλά έγγραφα.  
-- **Scalable security:** Διαχειρίζεται μεγάλες δόσεις χωρίς χειροκίνητη παρέμβαση.  
-- **AI‑assisted detection:** Εκμεταλλευτείτε το **ai document redaction** για αυτόματη επισήμανση προσωπικών πληροφοριών (PII).  
-- **Metadata erasure:** Ενσωματωμένη υποστήριξη για **erase document metadata**, προστατεύοντας κρυφές πληροφορίες που διαφορετικά θα μπορούσαν να εκτεθούν.  
-- **Extensible:** Συνδυάστε προσαρμοσμένους χειριστές, callbacks και καταγραφή για σύνθετες ροές εργασίας.
+## Γιατί να χρησιμοποιήσετε το GroupDocs.Redaction για τη δημιουργία πολιτικών διαγραφής;
+Το GroupDocs.Redaction σας επιτρέπει να κεντρικοποιήσετε κανόνες ασφαλείας, να επεξεργαστείτε μεγάλες παρτίδες και να ενσωματώσετε ανίχνευση με υποβοήθηση AI, ενώ ταυτόχρονα διαχειρίζεται τη διαγραφή μεταδεδομένων PDF σε μία μόνο διεργασία. Η μηχανή υποστηρίζει **50+ μορφές εισόδου και εξόδου** και μπορεί να επεξεργαστεί έγγραφα έως 2 GB χωρίς να φορτώνει ολόκληρο το αρχείο στη μνήμη, παρέχοντάς σας κλιμακούμενη απόδοση για επιχειρησιακά φορτία.
 
-## Πώς να δημιουργήσετε μια Πολιτική Επεξεργασίας στο GroupDocs.Redaction .NET
-Παρακάτω υπάρχει μια σύντομη, συνομιλιακή περιγραφή. Δεν απαιτούνται μπλοκ κώδικα εδώ επειδή το αρχικό tutorial δεν περιλαμβάνει δείγματα κώδικα, και πρέπει να διατηρήσουμε τον αριθμό των μπλοκ κώδικα αμετάβλητο.
+## Πώς να διαγράψετε PDF χρησιμοποιώντας μια πολιτική διαγραφής στο GroupDocs.Redaction .NET
+Φορτώστε το PDF-στόχο, δημιουργήστε μια πολιτική που περιγράφει τι πρέπει να κρυφτεί, και εφαρμόστε την πολιτική με μία κλήση. Αυτή η προσέγγιση μειώνει την επανάληψη κώδικα, εγγυάται ότι κάθε έγγραφο ακολουθεί τους ίδιους κανόνες συμμόρφωσης και ολοκληρώνει τη διαγραφή σε ροές με αποδοτική χρήση μνήμης.
 
-1. **Προσθήκη του πακέτου NuGet**  
-   Εγκαταστήστε το πιο πρόσφατο πακέτο `GroupDocs.Redaction` μέσω του NuGet Package Manager ή της γραμμής εντολών (`dotnet add package GroupDocs.Redaction`).  
+1. **Προσθέστε το πακέτο NuGet** – Εγκαταστήστε το πιο πρόσφατο πακέτο `GroupDocs.Redaction` μέσω του NuGet Package Manager ή της γραμμής εντολών (`dotnet add package GroupDocs.Redaction`).  
 
-2. **Δημιουργία ενός RedactionEngine**  
-   Δημιουργήστε μια παρουσία του `RedactionEngine` που δείχνει στο έγγραφο που θέλετε να προστατεύσετε.  
+2. **Δημιουργήστε ένα αντικείμενο RedactionEngine** – `RedactionEngine` είναι η βασική κλάση που φορτώνει ένα έγγραφο και εκτελεί λειτουργίες διαγραφής.  
+   *Definition anchor:* `RedactionEngine` είναι η βασική κλάση που φορτώνει ένα έγγραφο και εκτελεί λειτουργίες διαγραφής.
 
-3. **Ορισμός στοιχείων επεξεργασίας**  
-   - Χρησιμοποιήστε το `ExactPhraseRedaction` για σταθερές αλφαριθμητικές ακολουθίες (π.χ., “Social Security Number”).  
-   - Χρησιμοποιήστε το `RegexRedaction` για πρότυπα (π.χ., αριθμούς πιστωτικών καρτών).  
-   - Προσθέστε ένα στοιχείο `MetadataRedaction` για **erase document metadata**, όπως συγγραφέα ή ημερομηνία δημιουργίας.  
+3. **Ορίστε στοιχεία διαγραφής**  
+   - **ExactPhraseRedaction** – Χρησιμοποιήστε αυτήν την κλάση για σταθερές αλφαριθμητικές ακολουθίες όπως “Social Security Number”.  
+     *Definition anchor:* `ExactPhraseRedaction` ταιριάζει με κυριολεκτικές εμφανίσεις κειμένου στο έγγραφο.  
+   - **RegexRedaction** – Εφαρμόστε πρότυπα κανονικής έκφρασης για να εντοπίσετε μεταβλητά δεδομένα όπως αριθμούς πιστωτικών καρτών.  
+     *Definition anchor:* `RegexRedaction` αξιολογεί μια .NET κανονική έκφραση στο περιεχόμενο του εγγράφου.  
+   - **MetadataRedaction** – Συμπεριλάβετε αυτό το στοιχείο για να διαγράψετε τα μεταδεδομένα του εγγράφου όπως συγγραφέας, ημερομηνία δημιουργίας και κρυφά προσαρμοσμένα πεδία.  
+     *Definition anchor:* `MetadataRedaction` αφαιρεί μη ορατές ιδιότητες που θα μπορούσαν να εκθέσουν ευαίσθητες πληροφορίες.  
 
-4. **Συνδυάστε τα στοιχεία σε μια πολιτική**  
-   Ομαδοποιήστε τα στοιχεία επεξεργασίας σε ένα αντικείμενο `RedactionPolicy`. Αυτή η πολιτική μπορεί να αποθηκευτεί στο δίσκο (`policy.Save("MyPolicy.xml")`) και αργότερα να φορτωθεί για επαναχρησιμοποίηση.  
+4. **Συνδυάστε τα στοιχεία σε μια RedactionPolicy** – Ομαδοποιήστε τα στοιχεία διαγραφής σε ένα αντικείμενο `RedactionPolicy`, το οποίο μπορεί να αποθηκευτεί (`policy.Save("MyPolicy.xml")`) και αργότερα να φορτωθεί για επαναχρησιμοποίηση.  
+   *Definition anchor:* `RedactionPolicy` είναι ένας container που αποθηκεύει ένα σύνολο κανόνων διαγραφής και μπορεί να αποθηκευτεί στο δίσκο.
 
-5. **Εφαρμογή της πολιτικής**  
-   Καλέστε το `engine.ApplyPolicy(policy)` για να επεξεργαστείτε το έγγραφο. Η μηχανή θα επεξεργαστεί όλο το περιεχόμενο που ταιριάζει και θα αφαιρέσει τα καθορισμένα μεταδεδομένα.  
+5. **Εφαρμόστε την πολιτική** – Καλέστε `engine.ApplyPolicy(policy)`· η μηχανή σαρώσει το έγγραφο, διαγράφει το αντίστοιχο περιεχόμενο και αφαιρεί τα καθορισμένα μεταδεδομένα.  
 
-6. **Αποθήκευση του επεξεργασμένου εγγράφου**  
-   Χρησιμοποιήστε το `engine.Save("RedactedFile.pdf")` για να γράψετε το καθαρισμένο αρχείο στην αποθήκευση.  
+6. **Αποθηκεύστε το διαγραμμένο έγγραφο** – Χρησιμοποιήστε `engine.Save("RedactedFile.pdf")` για να γράψετε το καθαρισμένο αρχείο στην αποθήκευση.
 
-### Πώς να επεξεργαστείτε δεδομένα χρησιμοποιώντας την Πολιτική
-Όταν χρειάζεται να **πώς να επεξεργαστείτε δεδομένα** σε ένα συγκεκριμένο σενάριο—π.χ., επεξεργασία των ταυτοτήτων υπαλλήλων σε μια δέσμη PDF HR—απλώς φορτώνετε την αποθηκευμένη πολιτική και την εφαρμόζετε σε κάθε αρχείο. Αυτό εξαλείφει την επαναλαμβανόμενη κωδικοποίηση και εγγυάται ότι κάθε έγγραφο ακολουθεί τους ίδιους κανόνες ασφαλείας.
+### Πώς να διαγράψετε δεδομένα χρησιμοποιώντας την πολιτική
+Φορτώστε την αποθηκευμένη πολιτική και εφαρμόστε την σε κάθε PDF που χρειάζεται να καθαριστεί. Αυτή η κλήση μίας γραμμής εγγυάται ότι κάθε αρχείο λαμβάνει την ίδια προστασία χωρίς επιπλέον κώδικα.
 
-### Ενσωμάτωση AI‑Assisted Redaction
-Εάν το έργο σας απαιτεί έξυπνη ανίχνευση PII, ενσωματώστε μια υπηρεσία AI (π.χ., Azure Cognitive Services, AWS Comprehend) στον μηχανισμό callback. Το callback μπορεί να τροφοδοτήσει τις τοποθεσίες που εντοπίζονται από το AI πίσω στην πολιτική πριν εκτελεστεί η μηχανή, παρέχοντάς σας ισχυρές δυνατότητες **ai document redaction** χωρίς αλλαγή της κύριας ροής εργασίας.
+### Ενσωμάτωση AI‑βασισμένης διαγραφής
+Συνδέστε μια υπηρεσία AI (π.χ., Azure Cognitive Services ή AWS Comprehend) στη διεπαφή `IRedactionCallback`. Η κλήση επιστροφής μπορεί να τροφοδοτήσει τις τοποθεσίες που εντοπίζονται από AI πίσω στην πολιτική πριν εκτελεστεί η μηχανή, παρέχοντάς σας ισχυρές δυνατότητες **ai document redaction** χωρίς να αλλάξετε τη βασική ροή εργασίας.
 
-## Συνηθισμένες Περιπτώσεις Χρήσης
-- **Compliance reporting:** Αυτόματη αφαίρεση ονομάτων ασθενών, αριθμών ιατρικών φακέλων ή οικονομικών αναγνωριστικών πριν από την κοινοποίηση των αναφορών.  
-- **Legal discovery:** Αφαίρεση εμπιστευτικών ρητρών και αναγνωριστικών πελατών από μεγάλα σύνολα εγγράφων.  
-- **Document publishing:** Καθαρισμός προγραμμάτων αφαιρώντας σημειώσεις συγγραφέα, σχόλια και κρυφά μεταδεδομένα πριν από τη δημόσια κυκλοφορία.  
+## Συνηθισμένες περιπτώσεις χρήσης
+- **Αναφορά συμμόρφωσης:** Αφαιρέστε αυτόματα ονόματα ασθενών, αριθμούς ιατρικών φακέλων ή οικονομικά αναγνωριστικά πριν τη διανομή των αναφορών.  
+- **Νομική ανακάλυψη:** Αφαιρέστε εμπιστευτικούς όρους και αναγνωριστικά πελατών από μεγάλα σύνολα εγγράφων.  
+- **Δημοσίευση εγγράφων:** Καθαρίστε τα προσχέδια διαγράφοντας σημειώσεις συγγραφέα, σχόλια και κρυφά μεταδεδομένα πριν τη δημόσια κυκλοφορία.  
 
-## Συμβουλές & Καλές Πρακτικές
-- **Pro tip:** Αποθηκεύστε τις πολιτικές σε αποθετήριο ελεγχόμενο εκδόσεων ώστε να μπορείτε να ελέγχετε τις αλλαγές με την πάροδο του χρόνου.  
-- **Warning:** Πάντα δοκιμάζετε μια πολιτική σε αντίγραφο του εγγράφου πρώτα· η επεξεργασία είναι μη αναστρέψιμη.  
-- **Performance tip:** Επεξεργαστείτε τα αρχεία σε δέσμες χρησιμοποιώντας ασύγχρονες κλήσεις για να βελτιώσετε τη διαπερατότητα σε μεγάλα σύνολα δεδομένων.  
+## Συμβουλές & βέλτιστες πρακτικές
+- **Συμβουλή επαγγελματία:** Αποθηκεύστε τις πολιτικές σε αποθετήριο ελεγχόμενο εκδόσεων ώστε να μπορείτε να ελέγχετε τις αλλαγές με την πάροδο του χρόνου.  
+- **Προειδοποίηση:** Πάντα δοκιμάζετε μια πολιτική σε αντίγραφο του εγγράφου πρώτα· η διαγραφή είναι μη αναστρέψιμη.  
+- **Συμβουλή απόδοσης:** Επεξεργαστείτε τα αρχεία σε παρτίδες χρησιμοποιώντας ασύγχρονες κλήσεις για να βελτιώσετε τη ροή εργασίας σε μεγάλα σύνολα δεδομένων.  
 
-## Διαθέσιμα Μαθήματα
+## Διαθέσιμα tutorials
 
-### [Πώς να δημιουργήσετε μια Πολιτική Επεξεργασίας χρησιμοποιώντας το GroupDocs.Redaction .NET&#58; Οδηγός βήμα‑βήμα](./groupdocs-redaction-net-create-save-policy/)
-Μάθετε πώς να δημιουργήσετε και να αποθηκεύσετε προσαρμοσμένες πολιτικές επεξεργασίας με το GroupDocs.Redaction για .NET. Ασφαλίστε τα έγγραφά σας αφαιρώντας ευαίσθητες πληροφορίες αποδοτικά.
+### [Πώς να δημιουργήσετε μια πολιτική διαγραφής χρησιμοποιώντας το GroupDocs.Redaction .NET: Οδηγός βήμα‑βήμα](./groupdocs-redaction-net-create-save-policy/)
+Μάθετε πώς να δημιουργήσετε και να αποθηκεύσετε προσαρμοσμένες πολιτικές διαγραφής με το GroupDocs.Redaction για .NET. Ασφαλίστε τα έγγραφά σας διαγράφοντας ευαίσθητες πληροφορίες αποδοτικά.
 
-### [Εφαρμογή Προσαρμοσμένης Καταγραφής στο GroupDocs.Redaction για .NET&#58; Ένας Πλήρης Οδηγός](./custom-logging-groupdocs-redaction-net/)
-Μάθετε πώς να εφαρμόσετε προσαρμοσμένη καταγραφή με το GroupDocs.Redaction για .NET για να ενισχύσετε τις ροές εργασίας επεξεργασίας εγγράφων. Ανακαλύψτε πρακτικά βήματα και βασικά χαρακτηριστικά.
+### [Υλοποίηση προσαρμοσμένης καταγραφής στο GroupDocs.Redaction για .NET: Αναλυτικός οδηγός](./custom-logging-groupdocs-redaction-net/)
+Μάθετε πώς να υλοποιήσετε προσαρμοσμένη καταγραφή με το GroupDocs.Redaction για .NET για τη βελτίωση των ροών εργασίας διαγραφής εγγράφων. Ανακαλύψτε πρακτικά βήματα και βασικά χαρακτηριστικά.
 
-### [Υλοποίηση IRedactionCallback στο GroupDocs.Redaction .NET για Ασφαλή Επεξεργασία Εγγράφων με C#](./groupdocs-redaction-net-implement-iredactioncallback-csharp/)
-Μάθετε πώς να υλοποιήσετε τη διεπαφή IRedactionCallback χρησιμοποιώντας το GroupDocs.Redaction .NET για ασφαλείς και αποδοτικές ροές εργασίας επεξεργασίας εγγράφων. Ανακαλύψτε βέλτιστες πρακτικές και πρακτικές εφαρμογές.
+### [Υλοποίηση IRedactionCallback στο GroupDocs.Redaction .NET για ασφαλή διαγραφή εγγράφων με C#](./groupdocs-redaction-net-implement-iredactioncallback-csharp/)
+Μάθετε πώς να υλοποιήσετε τη διεπαφή IRedactionCallback χρησιμοποιώντας το GroupDocs.Redaction .NET για ασφαλείς και αποδοτικές ροές εργασίας διαγραφής εγγράφων. Ανακαλύψτε βέλτιστες πρακτικές και πρακτικές εφαρμογές.
 
-### [Κατακτήστε την Επεξεργασία .NET με το GroupDocs&#58; Εφαρμογή Πολιτικών σε Αρχεία Αποτελεσματικά](./net-redaction-groupdocs-apply-policy-files/)
-Μάθετε πώς να αυτοματοποιήσετε την επεξεργασία σε .NET χρησιμοποιώντας το GroupDocs.Redaction, εξασφαλίζοντας ιδιωτικότητα δεδομένων και συμμόρφωση σε αρχεία.
+### [Κατακτήστε τη διαγραφή .NET με το GroupDocs: Εφαρμόστε πολιτικές σε αρχεία αποδοτικά](./net-redaction-groupdocs-apply-policy-files/)
+Μάθετε πώς να αυτοματοποιήσετε τη διαγραφή σε .NET χρησιμοποιώντας το GroupDocs.Redaction, εξασφαλίζοντας ιδιωτικότητα δεδομένων και συμμόρφωση σε όλα τα αρχεία.
 
-### [Κατακτήστε την Προσαρμοσμένη Επεξεργασία σε .NET χρησιμοποιώντας το GroupDocs&#58; Ένας Πλήρης Οδηγός](./master-custom-redaction-dotnet-groupdocs/)
-Μάθετε πώς να ασφαλίσετε ευαίσθητες πληροφορίες σε έγγραφα χρησιμοποιώντας το GroupDocs.Redaction για .NET. Εφαρμόστε προσαρμοσμένες επεξεργασίες με ευκολία και διασφαλίστε την ιδιωτικότητα των εγγράφων.
+### [Κατακτήστε την προσαρμοσμένη διαγραφή σε .NET χρησιμοποιώντας το GroupDocs: Αναλυτικός οδηγός](./master-custom-redaction-dotnet-groupdocs/)
+Μάθετε πώς να ασφαλίζετε ευαίσθητες πληροφορίες σε έγγραφα χρησιμοποιώντας το GroupDocs.Redaction για .NET. Εφαρμόστε προσαρμοσμένες διαγραφές με ευκολία και εξασφαλίστε την ιδιωτικότητα των εγγράφων.
 
-### [Κατακτήστε την Επεξεργασία Εγγράφων σε .NET χρησιμοποιώντας το GroupDocs.Redaction&#58; Ένας Πλήρης Οδηγός](./master-document-redaction-groupdocs-redaction-net/)
-Μάθετε πώς να ασφαλίσετε τα ευαίσθητα έγγραφά σας με το GroupDocs.Redaction για .NET. Αυτός ο οδηγός καλύπτει εγκατάσταση, τεχνικές επεξεργασίας και βέλτιστες πρακτικές.
+### [Κατακτήστε τη διαγραφή εγγράφων σε .NET χρησιμοποιώντας το GroupDocs.Redaction: Πλήρης οδηγός](./master-document-redaction-groupdocs-redaction-net/)
+Μάθετε πώς να ασφαλίζετε τα ευαίσθητα έγγραφά σας με το GroupDocs.Redaction για .NET. Αυτός ο οδηγός καλύπτει τη ρύθμιση, τις τεχνικές διαγραφής και τις βέλτιστες πρακτικές.
 
-### [Κατακτήστε την Επεξεργασία Εγγράφων σε .NET χρησιμοποιώντας το GroupDocs.Redaction&#58; Οδηγός βήμα‑βήμα](./mastering-document-redaction-dotnet-groupdocs-redaction/)
-Μάθετε πώς να υλοποιήσετε ασφαλή επεξεργασία εγγράφων σε .NET με το GroupDocs.Redaction. Αυτός ο οδηγός καλύπτει προσαρμοσμένους χειριστές μορφής και επεξεργασία ακριβών φράσεων για προγραμματιστές.
+### [Κατακτήστε τη διαγραφή εγγράφων σε .NET χρησιμοποιώντας το GroupDocs.Redaction: Οδηγός βήμα‑βήμα](./mastering-document-redaction-dotnet-groupdocs-redaction/)
+Μάθετε πώς να υλοποιήσετε ασφαλή διαγραφή εγγράφων σε .NET με το GroupDocs.Redaction. Αυτός ο οδηγός καλύπτει προσαρμοσμένους χειριστές μορφών και ακριβείς φράσεις διαγραφής για προγραμματιστές.
 
-### [Κατακτώντας την Ασφάλεια Εγγράφων με το GroupDocs.Redaction .NET&#58; Ένας Πλήρης Οδηγός για Επεξεργασία Φράσεων και Μεταδεδομένων](./groupdocs-redaction-net-document-security-guide/)
-Μάθετε πώς να ασφαλίσετε ευαίσθητα έγγραφα χρησιμοποιώντας το GroupDocs.Redaction για .NET. Αυτός ο οδηγός καλύπτει επεξεργασία ακριβών φράσεων, επεξεργασία με βάση regex, διαγραφή σχολίων και διαγραφή μεταδεδομένων.
+### [Κατακτώντας την ασφάλεια εγγράφων με το GroupDocs.Redaction .NET: Αναλυτικός οδηγός για διαγραφή φράσεων και μεταδεδομένων](./groupdocs-redaction-net-document-security-guide/)
+Μάθετε πώς να ασφαλίζετε ευαίσθητα έγγραφα χρησιμοποιώντας το GroupDocs.Redaction για .NET. Αυτός ο οδηγός καλύπτει ακριβείς φράσεις, διαγραφές βάσει regex, διαγραφές σχολίων και διαγραφές μεταδεδομένων.
 
-## Πρόσθετοι Πόροι
+## Πρόσθετοι πόροι
 
 - [Τεκμηρίωση GroupDocs.Redaction για .NET](https://docs.groupdocs.com/redaction/net/)
 - [Αναφορά API GroupDocs.Redaction για .NET](https://reference.groupdocs.com/redaction/net/)
 - [Λήψη GroupDocs.Redaction για .NET](https://releases.groupdocs.com/redaction/net/)
 - [Φόρουμ GroupDocs.Redaction](https://forum.groupdocs.com/c/redaction/33)
-- [Δωρεάν Υποστήριξη](https://forum.groupdocs.com/)
-- [Προσωρινή Άδεια](https://purchase.groupdocs.com/temporary-license/)
+- [Δωρεάν υποστήριξη](https://forum.groupdocs.com/)
+- [Προσωρινή άδεια](https://purchase.groupdocs.com/temporary-license/)
 
-## Συχνές Ερωτήσεις
+## Συχνές ερωτήσεις
 
-**Q: Μπορώ να συνδυάσω πολλές πολιτικές επεξεργασίας μαζί;**  
+**Q: Μπορώ να συνδυάσω πολλές πολιτικές διαγραφής μαζί;**  
 A: Ναι, μπορείτε να συγχωνεύσετε τις πολιτικές προγραμματιστικά ή να φορτώσετε πολλά αρχεία πολιτικής διαδοχικά πριν τις εφαρμόσετε σε ένα έγγραφο.
 
-**Q: Υποστηρίζει το GroupDocs.Redaction την επεξεργασία σαρωμένων εικόνων;**  
-A: Ναι, όταν συνδυάζεται με OCR· η μηχανή OCR εξάγει το κείμενο, το οποίο μπορεί στη συνέχεια να επεξεργαστεί με τους ίδιους κανόνες πολιτικής.
+**Q: Υποστηρίζει το GroupDocs.Redaction τη διαγραφή σαρωμένων εικόνων;**  
+A: Ναι, όταν συνδυάζεται με OCR· η μηχανή OCR εξάγει το κείμενο, το οποίο μπορεί στη συνέχεια να διαγραφεί χρησιμοποιώντας τους ίδιους κανόνες πολιτικής.
 
-**Q: Πώς διαφέρει το “erase document metadata” από την κανονική επεξεργασία;**  
-A: Η επεξεργασία μεταδεδομένων αφαιρεί κρυφές ιδιότητες (συγγραφέας, χρονικές σφραγίδες, προσαρμοσμένα πεδία) που δεν είναι ορατές στο περιεχόμενο του εγγράφου αλλά μπορεί να εκθέτουν ευαίσθητες πληροφορίες.
+**Q: Πώς διαφέρει η “erase document metadata” από τη συνήθη διαγραφή;**  
+A: Η διαγραφή μεταδεδομένων αφαιρεί κρυφές ιδιότητες (συγγραφέας, χρονικές σφραγίδες, προσαρμοσμένα πεδία) που δεν είναι ορατές στο περιεχόμενο αλλά μπορεί να εκθέτουν ευαίσθητες πληροφορίες.
 
-**Q: Είναι η AI‑assisted επεξεργασία αρκετά ακριβής για συμμόρφωση;**  
+**Q: Είναι η AI‑βασισμένη διαγραφή αρκετά ακριβής για συμμόρφωση;**  
 A: Τα μοντέλα AI παρέχουν ένα ισχυρό πρώτο βήμα· θα πρέπει όμως να ελέγχετε τα επισημασμένα στοιχεία, ειδικά σε σενάρια υψηλού κινδύνου συμμόρφωσης.
 
 **Q: Ποιες εκδόσεις .NET υποστηρίζονται;**  
-A: Το GroupDocs.Redaction .NET λειτουργεί με .NET Framework 4.6.1+, .NET Core 3.1+, και .NET 5/6+.
+A: Το GroupDocs.Redaction .NET λειτουργεί με .NET Framework 4.6.1+, .NET Core 3.1+, και .NET 5/6+.
 
 ---
 
-**Τελευταία Ενημέρωση:** 2026-03-06  
-**Δοκιμάστηκε Με:** GroupDocs.Redaction 2.0 for .NET  
+**Τελευταία ενημέρωση:** 2026-10-01  
+**Δοκιμάστηκε με:** GroupDocs.Redaction 2.0 for .NET  
 **Συγγραφέας:** GroupDocs
+
+## Σχετικά Tutorials
+
+- [Δημιουργία πολιτικής διαγραφής με GroupDocs.Redaction .NET – Οδηγός βήμα‑βήμα](/redaction/net/advanced-redaction/groupdocs-redaction-net-create-save-policy/)
+- [Αυτοματοποίηση διαγραφής εγγράφων σε .NET με GroupDocs – Εφαρμογή πολιτικών αποδοτικά](/redaction/net/advanced-redaction/net-redaction-groupdocs-apply-policy-files/)
+- [Πώς να διαγράψετε PDF και να το αποθηκεύσετε ως Rasterized PDF με το GroupDocs.Redaction για .NET](/redaction/net/document-saving/groupdocs-redaction-net-rasterized-pdfs/)
