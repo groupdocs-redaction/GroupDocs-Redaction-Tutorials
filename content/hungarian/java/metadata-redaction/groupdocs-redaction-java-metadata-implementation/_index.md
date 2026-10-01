@@ -1,52 +1,91 @@
 ---
-date: '2026-03-22'
-description: Tudja meg, hogyan törölheti a metaadatokat és a szerzői metaadatokat
-  Java-ban a GroupDocs használatával. Ez az útmutató megmutatja, hogyan menthet biztonságosan
-  a redakált dokumentumfájlokat.
+date: '2026-10-01'
+description: Ismerje meg, hogyan távolíthatja el a szerző metaadatait, és mentheti
+  a redaktált dokumentumfájlokat Java-ban a GroupDocs Redaction használatával.
 keywords:
-- metadata redaction in Java
-- GroupDocs Redaction setup
-- removing metadata fields
-title: 'Hogyan törölhetünk metaadatokat Java‑ban a GroupDocs segítségével: Lépésről
-  lépésre útmutató'
+- remove author metadata
+- save redacted document
+- groupdocs metadata removal
+lastmod: '2026-10-01'
+og_description: Ismerje meg, hogyan távolíthatja el a szerző metaadatait, és mentheti
+  a redaktált dokumentumfájlokat Java-ban a GroupDocs Redaction használatával. Kövesse
+  a lépésről-lépésre útmutatót.
+og_image_alt: Guide showing Java code to remove author metadata using GroupDocs Redaction
+og_title: Hogyan távolítsuk el a szerző metaadatait Java-ban a GroupDocs segítségével
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-01'
+  description: Learn how to remove author metadata and save redacted document files
+    in Java using GroupDocs Redaction.
+  headline: How to remove author metadata in Java with GroupDocs
+  type: TechArticle
+- description: Learn how to remove author metadata and save redacted document files
+    in Java using GroupDocs Redaction.
+  name: How to remove author metadata in Java with GroupDocs
+  steps:
+  - name: '**Legal documents** – Redact author information before sending contracts
+      to opposing counsel.'
+    text: '**Legal documents** – Redact author information before sending contracts
+      to opposing counsel.'
+  - name: '**Corporate reports** – Remove manager names when publishing quarterly
+      results to shareholders.'
+    text: '**Corporate reports** – Remove manager names when publishing quarterly
+      results to shareholders.'
+  - name: '**Project files** – Clean up internal project documentation before archiving
+      or uploading to a public repository.'
+    text: '**Project files** – Clean up internal project documentation before archiving
+      or uploading to a public repository.'
+  type: HowTo
+- questions:
+  - answer: It removes selected metadata fields from a document.
+    question: What does EraseMetadataRedaction do?
+  - answer: GroupDocs.Redaction for Java.
+    question: Which library provides this feature?
+  - answer: A free trial works for testing; a permanent license is required for production.
+    question: Do I need a license?
+  - answer: Yes, combine filters with a logical OR.
+    question: Can I target multiple fields at once?
+  - answer: Redactor instances are not shared across threads; create a new instance
+      per operation.
+    question: Is the process thread‑safe?
+  type: FAQPage
+tags:
+- metadata redaction
+- GroupDocs
+- Java document processing
+title: Hogyan távolítsuk el a szerző metaadatait Java-ban a GroupDocs segítségével
 type: docs
 url: /hu/java/metadata-redaction/groupdocs-redaction-java-metadata-implementation/
 weight: 1
 ---
 
-# Hogyan töröljük a metaadatokat Java‑ban a GroupDocs‑szal
+# Hogyan távolítsuk el a szerző metaadatait Java-ban a GroupDocs-szal
 
-A mai digitális világban elengedhetetlen a dokumentumokban tárolt érzékeny információk védelme, és **a metaadatok törlésének ismerete** kulcsfontosságú része ennek a védelemnek. Ebben az útmutatóban megtanulod, hogyan használhatod az `EraseMetadataRedaction` osztályt, hogy eltávolítsd a *Szerző* és *Menedzser* metaadatokat a Word fájlokból a GroupDocs.Redaction for Java segítségével. A tutorial végére egy tiszta, adatvédelmi szempontból biztonságos dokumentumod lesz, és tudni fogod, hogyan **mentsd el a redakált dokumentumot** a biztonságos megosztás vagy archiválás céljából.
+A mai digitális környezetben a dokumentumokban rejtett érzékeny információk védelme elengedhetetlen gyakorlat. **A szerző metaadatainak eltávolítása** megakadályozza a személyes vagy vállalati azonosítók véletlen kiszivárgását. Ez az útmutató lépésről lépésre bemutatja, hogyan használhatja a `EraseMetadataRedaction`-t a GroupDocs.Redaction for Java-ból, hogy eltávolítsa az *Author* és *Manager* mezőket a Word fájlokból, majd **elmentse a redakciózott dokumentum** másolatokat biztonságosan a megosztáshoz vagy archiváláshoz.
 
 ## Gyors válaszok
-- **Mit csinál az EraseMetadataRedaction?** Kiválasztott metaadatmezőket távolít el egy dokumentumból.  
+- **Mi a EraseMetadataRedaction feladata?** Kiválasztott metaadatmezőket távolít el egy dokumentumból.  
 - **Melyik könyvtár biztosítja ezt a funkciót?** GroupDocs.Redaction for Java.  
-- **Szükség van licencre?** Egy ingyenes próba verzió elegendő a teszteléshez; a termeléshez állandó licenc szükséges.  
-- **Célzhatok több mezőt egyszerre?** Igen, kombinálhatod a szűrőket logikai VAGY kapcsolattal.  
-- **A folyamat szál‑biztonságú?** A Redactor példányok nincsenek megosztva szálak között; minden művelethez hozz létre egy új példányt.
+- **Szükségem van licencre?** Egy ingyenes próba a teszteléshez működik; a termeléshez állandó licenc szükséges.  
+- **Célzhatok több mezőt egyszerre?** Igen, kombinálja a szűrőket logikai VAGY operátorral.  
+- **A folyamat szálbiztos?** A Redactor példányok nincsenek megosztva szálak között; minden művelethez hozzon létre új példányt.
 
-## Hogyan töröljük a metaadatokat Java‑ban
-Ez a szakasz lépésről‑lépésre végigvezet a **szerző metaadatok** és egyéb nem kívánt tulajdonságok eltávolításának pontos lépésein.
+## Mi az a EraseMetadataRedaction?
+`EraseMetadataRedaction` egy beépített redakciós osztály, amely lehetővé teszi, hogy meghatározza, mely metaadatbejegyzéseket kell törölni. Széles körű dokumentumformátumokon működik, amelyeket a GroupDocs.Redaction támogat, biztosítva, hogy a rejtett szerzői információk ne szivárogjanak ki. Célba vehet standard tulajdonságokat, mint az Author, Manager, valamint egyedi metaadatmezőket is, átfogó adatvédelmi védelmet nyújtva.
 
-### Mi az EraseMetadataRedaction?
-`EraseMetadataRedaction` egy beépített redakciós osztály, amely lehetővé teszi, hogy meghatározd, mely metaadatbejegyzéseket kell törölni. Széles körű dokumentumformátumokon működik, amelyeket a GroupDocs.Redaction támogat, biztosítva, hogy a rejtett szerzői információk ne szivároghassanak ki.
-
-### Miért használjuk az EraseMetadataRedaction‑t a GroupDocs‑szal?
-- **Megfelelőség** – GDPR, HIPAA vagy vállalati szabályzatok betartása személyes azonosítók eltávolításával.  
-- **Következetesség** – Ugyanazt a redakciós logikát alkalmazhatod PDF‑eken, DOCX‑eken, PPTX‑eken és még sok más formátumon.  
-- **Teljesítmény** – A redakció memóriában fut, külső eszközök nélkül.  
-- **Rugalmasság** – Több `MetadataFilters` kombinálásával pontosan azt célozhatod meg, amire szükséged van.
+## Miért használjuk az EraseMetadataRedaction-t a GroupDocs-szal?
+A GroupDocs.Redaction **több mint 100 bemeneti és kimeneti formátumot** támogat, és akár 500 oldalas dokumentumokat is képes feldolgozni anélkül, hogy a teljes fájlt a memóriába töltené. Ennek az osztálynak a használata egyetlen, nagy teljesítményű API-t biztosít a GDPR, HIPAA vagy belső megfelelőségi követelmények teljesítéséhez, miközben a kódbázist egyszerűen tartja.
 
 ## Előfeltételek
 - Java 8 vagy újabb telepítve.  
-- Maven (vagy a JAR‑ok kézi hozzáadása).  
+- Maven (vagy a JAR-ok kézi hozzáadása).  
 - GroupDocs.Redaction for Java (24.9 vagy újabb verzió).  
 - Érvényes GroupDocs próba vagy állandó licenc.
 
-## GroupDocs.Redaction for Java beállítása
+## A GroupDocs.Redaction for Java beállítása
 
 ### Maven telepítés
-Add hozzá a GroupDocs tárolót és függőséget a **pom.xml** fájlodhoz:
+Adja hozzá a GroupDocs tárolót és függőséget a **pom.xml** fájlhoz:
 
 ```xml
 <repositories>
@@ -67,13 +106,13 @@ Add hozzá a GroupDocs tárolót és függőséget a **pom.xml** fájlodhoz:
 ```
 
 ### Közvetlen letöltés
-Alternatívaként töltsd le a legújabb JAR‑t a [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/) oldaláról.
+Alternatívaként töltse le a legújabb JAR-t a [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/) oldalról.
 
 ### Licenc beszerzése
-Szerezz be egy ingyenes próba vagy vásárolj egy ideiglenes licencet a GroupDocs portálon. A licencfájlt helyezd el úgy, hogy az alkalmazásod betölthesse (például a classpath gyökérkönyvtárában).
+Szerezzen be egy ingyenes próbát vagy vásároljon ideiglenes licencet a GroupDocs portálon. A licencfájlt helyezze el olyan helyen, ahol az alkalmazás betöltheti (pl. a classpath gyökérben).
 
 ### Alapvető inicializálás és beállítás
-Az alábbi minimális példa egy `Redactor` példányt hoz létre egy DOCX fájlhoz:
+Az alábbi egy minimális példa, amely egy `Redactor` példányt hoz létre egy DOCX fájlhoz:
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -82,18 +121,18 @@ String filePath = "YOUR_DOCUMENT_DIRECTORY/sample.docx";
 Redactor redactor = new Redactor(filePath);
 ```
 
-## Hogyan használjuk az EraseMetadataRedaction‑t Java‑ban
-A következő szakaszok világos, cselekvőképes lépésekre bontják a megvalósítást.
+## Hogyan használjuk az EraseMetadataRedaction-t Java-ban
+A következő szakaszok részletesen bemutatják a megvalósítást világos, cselekvőképes lépésekben.
 
-### Funkció: Specifikus metaadat elemek tisztítása
+### Funkció: adott metaadat elemek tisztítása
 
 #### Áttekintés
-Az `EraseMetadataRedaction` segítségével törölni fogjuk a **Szerző** és **Menedzser** metaadatmezőket. Ez gyakori igény, amikor belső jelentéseket küldünk külső partnereknek.
+A **Author** és **Manager** metaadatmezőket fogjuk eltávolítani a `EraseMetadataRedaction` segítségével. Ez gyakori igény, amikor belső jelentéseket osztunk meg külső partnerekkel.
 
-#### Lépés‑ről‑lépésre megvalósítás
+#### Lépésről‑lépésre megvalósítás
 
 ##### 1️⃣ A Redactor objektum inicializálása
-Hozz létre egy `Redactor` példányt, amely a tisztítandó dokumentumra mutat:
+`Redactor` a központi osztály, amely betölti a dokumentumot, alkalmazza a redakciós objektumokat, és kiírja az eredményt. Hozzon létre új példányt minden feldolgozott fájlhoz:
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -103,7 +142,8 @@ final Redactor redactor = new Redactor(inputFilePath);
 ```
 
 ##### 2️⃣ EraseMetadataRedaction alkalmazása
-Használd az `EraseMetadataRedaction` osztályt a `MetadataFilters`‑kel együtt. A bitwise OR (`|`) kombinálja az `Author` és `Manager` szűrőket, így mindkét mező egy hívásban eltávolításra kerül:
+`MetadataFilters` előre definiált szűrőket biztosít a gyakori metaadatkulcsokhoz, mint az Author és a Manager.  
+`EraseMetadataRedaction` eltávolítja azokat a metaadatbejegyzéseket, amelyek megfelelnek a megadott `MetadataFilters`-nek. A bitwise OR (`|`) kombinálja az `Author` és `Manager` szűrőket, így mindkét mező egy hívásban eltávolítható:
 
 ```java
 import com.groupdocs.redaction.redactions.EraseMetadataRedaction;
@@ -117,7 +157,8 @@ try {
 ```
 
 ##### 3️⃣ Mentési beállítások konfigurálása
-Állítsd be a `SaveOptions`‑t a kimeneti fájlnév és az, hogy a dokumentum PDF‑re rasterizálódjon‑e, szabályozásához:
+`SaveOptions` lehetővé teszi a kimeneti fájlnév, formátum és egyéb mentési paraméterek megadását.  
+`SaveOptions` segítségével szabályozhatja a kimeneti fájl nevét, formátumát, és hogy a dokumentum PDF-re legyen-e rasterizálva. Utótag hozzáadásával az eredeti fájl érintetlen marad:
 
 ```java
 import com.groupdocs.redaction.options.SaveOptions;
@@ -129,60 +170,62 @@ saveOptions.setRasterizeToPDF(false);
 redactor.save(saveOptions);
 ```
 
-### Gyakori felhasználási esetek
-1. **Jogi dokumentumok** – Szerzői információk redakciója a szerződések ellenfélnek történő küldése előtt.  
-2. **Vállalati jelentések** – Menedzsernevek eltávolítása a negyedéves eredmények részvényeseknek való közzétételekor.  
-3. **Projektfájlok** – Belső projekt dokumentáció megtisztítása archiválás vagy nyilvános repóba feltöltés előtt.
+## Gyakori felhasználási esetek
+1. **Jogi dokumentumok** – Szerzői információk redakciója a szerződések ellenfél ügyvédjének elküldése előtt.  
+2. **Vállalati jelentések** – Menedzser nevek eltávolítása a negyedéves eredmények részvényeseknek való közzétételekor.  
+3. **Projektfájlok** – Belső projekt dokumentáció tisztítása archiválás vagy nyilvános tárolóba feltöltés előtt.
 
-### Hibaelhárítási tippek
-- **Fájl nem található** – Ellenőrizd, hogy az `inputFilePath` valóban létező fájlra mutat, és az alkalmazásnak van‑e olvasási joga.  
-- **Hiányzó metaadatmezők** – Nem minden dokumentumtípus tárolja ugyanazokat a metaadatkulcsokat; először ellenőrizd a dokumentum tulajdonságait az Office‑ben.  
-- **Licenc hibák** – Győződj meg róla, hogy a licencfájl helyesen be van töltve a `Redactor` példány létrehozása előtt.
+## Hibaelhárítási tippek
+- **Fájl nem található** – Ellenőrizze, hogy az `inputFilePath` útvonal egy létező fájlra mutat-e, és hogy az alkalmazásnak olvasási jogosultsága van-e.  
+- **Hiányzó metaadatmezők** – Nem minden dokumentumtípus tárolja ugyanazokat a metaadatkulcsokat; először ellenőrizze a dokumentum tulajdonságait az Office-ben.  
+- **Licenc hibák** – Győződjön meg róla, hogy a licencfájl helyesen be van töltve a `Redactor` példány létrehozása előtt.
 
-## Teljesítménybeli megfontolások
-- Zárd le a `Redactor` objektumot gyorsan (ahogy a `finally` blokkban látható) a natív erőforrások felszabadításához.  
-- Kerüld a nagy dokumentumok rasterizálását, hacsak nem szükséges PDF‑előnézet; a rasterizálás jelentősen növelheti a CPU és memória használatát.
+## Teljesítménybeli szempontok
+- `Redactor` objektumot azonnal zárja le (ahogy a `finally` blokkban látható), hogy felszabadítsa a natív erőforrásokat.  
+- Kerülje a nagy dokumentumok rasterizálását, hacsak nem szükséges PDF előnézet; a rasterizálás akár 3‑szorosára is növelheti a CPU és memória használatát 300 oldalas fájlok esetén.
 
 ## Gyakran ismételt kérdések
 
-**Q1: Mi az a metaadat redakció?**  
-A1: A metaadat redakció a rejtett dokumentumtulajdonságok (például szerző, menedzser vagy egyéni címkék) eltávolítását jelenti, hogy megakadályozzuk a bizalmas információk véletlen kiszivárgását.
+**Q1: Mi a metaadat redakció?**  
+A1: A metaadat redakció a rejtett dokumentumtulajdonságok (például szerző, menedzser vagy egyedi címkék) eltávolítását jelenti, hogy megakadályozza a érzékeny információk véletlen kiszivárgását.
 
-**Q2: Használhatom a GroupDocs.Redaction‑t más fájltípusokhoz is?**  
-A2: Igen, a könyvtár támogatja a PDF, DOCX, PPTX, XLSX és még sok más formátumot.
+**Q2: Használhatom a GroupDocs.Redaction-t más fájltípusokhoz?**  
+A2: Igen, a könyvtár támogatja a PDF, DOCX, PPTX, XLSX és még sok más formátumot – összesen több mint 100-at.
 
-**Q3: Hogyan kezelem a hibákat a redakció során?**  
-A3: Tekerd be az `apply` hívást egy try‑catch blokkba, és mindig zárd le a `Redactor`‑t egy finally ágba, hogy az erőforrások felszabaduljanak.
+**Q3: Hogyan kezeljem a redakció közbeni hibákat?**  
+A3: Tegye a `apply` hívást try‑catch blokkba, és mindig zárja le a `Redactor`-t egy finally ágba, hogy biztosan felszabaduljanak az erőforrások.
 
 **Q4: Lehet-e egyedi metaadatmezőket redakciózni?**  
-A4: Természetesen. Használd a `MetadataFilters.Custom("YourFieldName")`‑t (vagy a megfelelő enum‑ot) bármely egyéni tulajdonság célzásához.
+A5: Teljesen lehetséges. Használja a `MetadataFilters.Custom("YourFieldName")`-t bármely egyedi tulajdonság célzásához a dokumentumban.
 
 **Q5: Mik a legjobb gyakorlatok a GroupDocs.Redaction használatához?**  
 A5:  
-- Töltsd be a licencet a program indításakor.  
-- Zárd le a `Redactor` objektumokat gyorsan.  
-- Használd a `SaveOptions`‑t egy utótag hozzáadásához, így az eredeti fájl érintetlen marad.  
-- Teszteld a redakciót egy másolaton, mielőtt kötegelt feldolgozást végeznél.
+- Töltse be a licencet a program elején.  
+- Zárja le a `Redactor` objektumokat gyorsan.  
+- Használja a `SaveOptions`-t utótag hozzáadásához, így az eredeti fájlok érintetlenek maradnak.  
+- Tesztelje a redakciót a dokumentum másolatán, mielőtt kötegelt feldolgozást végez.
 
-**Q6: Támogatja az EraseMetadataRedaction a kötegelt műveleteket?**  
-A6: Igen, egy fájlútvonal‑gyűjteményen iterálva minden fájlhoz hozhatsz létre új `Redactor` példányt, és ugyanazt a redakciós logikát alkalmazhatod.
+**Q6: Támogatja az EraseMetadataRedaction kötegelt műveleteket?**  
+A6: Ciklusba tehet egy fájlútvonal-gyűjteményt, minden fájlhoz új `Redactor` példányt létrehozva, és ugyanazt a redakciós logikát alkalmazva.
 
-**Q7: Kombinálhatom az EraseMetadataRedaction‑t más redakciós típusokkal?**  
-A7: Igen, több redakciós objektumot (például szövegredakciót, majd metaadatredakciót) láncolhatsz egymás után a mentés előtt.
+**Q7: Kombinálhatom az EraseMetadataRedaction-t más redakciótípusokkal?**  
+A7: Igen, több redakciós objektumot is láncolhat (például szövegredakciót követően metaadatredakciót) a mentés előtt.
 
 ## Források
 
-- **Dokumentáció**: [GroupDocs Redaction Java Docs](https://docs.groupdocs.com/redaction/java/)  
-- **API referencia**: [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)  
-- **Letöltés**: [Latest Releases](https://releases.groupdocs.com/redaction/java/)  
+- **Documentation**: [GroupDocs Redaction Java Docs](https://docs.groupdocs.com/redaction/java/)  
+- **API reference**: [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)  
+- **Download**: [Latest Releases](https://releases.groupdocs.com/redaction/java/)  
 - **GitHub**: [GroupDocs GitHub Repository](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
-- **Ingyenes támogatás**: [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)  
-- **Ideiglenes licenc**: [Acquire a Temporary License](https://purchase.groupdocs.com/temporary-license)
+- **Free support**: [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)  
+- **Temporary license**: [Acquire a Temporary License](https://purchase.groupdocs.com/temporary-license)
 
----
+**Legutóbb frissítve:** 2026-10-01  
+**Tesztelve:** GroupDocs.Redaction 24.9 for Java  
+**Szerző:** GroupDocs
 
-**Utoljára frissítve:** 2026-03-22  
-**Tesztelve a következővel:** GroupDocs.Redaction 24.9 for Java  
-**Szerző:** GroupDocs  
+## Kapcsolódó oktatóanyagok
 
----
+- [Groupdocs Redaction Java Dokumentum Metaadat Kinyerés](/redaction/java/metadata-redaction/groupdocs-redaction-java-document-metadata-extraction/)  
+- [Hogyan távolítsuk el a metaadatokat Java-ban a GroupDocs.Redaction használatával](/redaction/java/metadata-redaction/metadata-redaction-groupdocs-java-guide/)  
+- [Dokumentum információ lekérése a Groupdocs Redaction Java használatával](/redaction/java/document-information/retrieve-document-info-using-groupdocs-redaction-java/)

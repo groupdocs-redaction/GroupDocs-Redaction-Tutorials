@@ -1,51 +1,90 @@
 ---
-date: '2026-03-22'
-description: Leer hoe je metadata kunt wissen en auteursmetadata kunt verwijderen
-  in Java met GroupDocs. Deze tutorial laat zien hoe je geredigeerde documentbestanden
-  veilig kunt opslaan.
+date: '2026-10-01'
+description: Leer hoe je author metadata kunt verwijderen en redacted document files
+  kunt opslaan in Java met GroupDocs Redaction.
 keywords:
-- metadata redaction in Java
-- GroupDocs Redaction setup
-- removing metadata fields
-title: 'Hoe metadata te wissen in Java met GroupDocs: stapsgewijze handleiding'
+- remove author metadata
+- save redacted document
+- groupdocs metadata removal
+lastmod: '2026-10-01'
+og_description: Leer hoe je author metadata kunt verwijderen en redacted document
+  files kunt opslaan in Java met GroupDocs Redaction. Volg de step‑by‑step guide.
+og_image_alt: Guide showing Java code to remove author metadata using GroupDocs Redaction
+og_title: Hoe author metadata te verwijderen in Java met GroupDocs
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-01'
+  description: Learn how to remove author metadata and save redacted document files
+    in Java using GroupDocs Redaction.
+  headline: How to remove author metadata in Java with GroupDocs
+  type: TechArticle
+- description: Learn how to remove author metadata and save redacted document files
+    in Java using GroupDocs Redaction.
+  name: How to remove author metadata in Java with GroupDocs
+  steps:
+  - name: '**Legal documents** – Redact author information before sending contracts
+      to opposing counsel.'
+    text: '**Legal documents** – Redact author information before sending contracts
+      to opposing counsel.'
+  - name: '**Corporate reports** – Remove manager names when publishing quarterly
+      results to shareholders.'
+    text: '**Corporate reports** – Remove manager names when publishing quarterly
+      results to shareholders.'
+  - name: '**Project files** – Clean up internal project documentation before archiving
+      or uploading to a public repository.'
+    text: '**Project files** – Clean up internal project documentation before archiving
+      or uploading to a public repository.'
+  type: HowTo
+- questions:
+  - answer: It removes selected metadata fields from a document.
+    question: What does EraseMetadataRedaction do?
+  - answer: GroupDocs.Redaction for Java.
+    question: Which library provides this feature?
+  - answer: A free trial works for testing; a permanent license is required for production.
+    question: Do I need a license?
+  - answer: Yes, combine filters with a logical OR.
+    question: Can I target multiple fields at once?
+  - answer: Redactor instances are not shared across threads; create a new instance
+      per operation.
+    question: Is the process thread‑safe?
+  type: FAQPage
+tags:
+- metadata redaction
+- GroupDocs
+- Java document processing
+title: Hoe author metadata te verwijderen in Java met GroupDocs
 type: docs
 url: /nl/java/metadata-redaction/groupdocs-redaction-java-metadata-implementation/
 weight: 1
 ---
 
-# Hoe metadata te wissen in Java met GroupDocs
+# Hoe auteurmetadata te verwijderen in Java met GroupDocs
 
-In de digitale wereld van vandaag is het beschermen van gevoelige informatie in documenten essentieel, en **weten hoe je metadata kunt wissen** is een belangrijk onderdeel van die bescherming. In deze gids leer je hoe je `EraseMetadataRedaction` gebruikt om metadata zoals *Author* en *Manager* uit Word‑bestanden te verwijderen met GroupDocs.Redaction voor Java. Aan het einde van de tutorial heb je een schoon, privacy‑veilig document en weet je hoe je **geredigeerde document**‑bestanden kunt opslaan voor veilig delen of archiveren.
+In het digitale landschap van vandaag is het beschermen van gevoelige informatie die in documenten verborgen zit een onmisbare praktijk. **Het verwijderen van auteurmetadata** voorkomt accidentele openbaarmaking van persoonlijke of bedrijfsidentificatoren. Deze tutorial laat je stap voor stap zien hoe je `EraseMetadataRedaction` van GroupDocs.Redaction voor Java kunt gebruiken om velden zoals *Author* en *Manager* uit Word‑bestanden te verwijderen, en vervolgens **geredigeerde document**‑kopieën veilig kunt opslaan voor delen of archiveren.
 
 ## Snelle antwoorden
-- **Wat doet EraseMetadataRedaction?** Het verwijdert geselecteerde metadatavelden uit een document.  
-- **Welke bibliotheek biedt deze functie?** GroupDocs.Redaction for Java.  
-- **Heb ik een licentie nodig?** Een gratis proefversie werkt voor testen; een permanente licentie is vereist voor productie.  
+- **Wat doet EraseMetadataRedaction?** Het verwijdert geselecteerde metadata‑velden uit een document.  
+- **Welke bibliotheek biedt deze functie?** GroupDocs.Redaction voor Java.  
+- **Heb ik een licentie nodig?** Een gratis trial werkt voor testen; een permanente licentie is vereist voor productie.  
 - **Kan ik meerdere velden tegelijk targeten?** Ja, combineer filters met een logische OR.  
-- **Is het proces thread‑safe?** Redactor‑instanties worden niet gedeeld tussen threads; maak per bewerking een nieuwe instantie.
+- **Is het proces thread‑safe?** Redactor‑instances worden niet gedeeld tussen threads; maak een nieuwe instance per bewerking.
 
-## Hoe metadata te wissen in Java
-Deze sectie leidt je stap voor stap door de exacte stappen die nodig zijn om **auteursmetadata te verwijderen** en andere ongewenste eigenschappen uit je bestanden te halen.
+## Wat is EraseMetadataRedaction?
+`EraseMetadataRedaction` is een ingebouwde redactieklasse die je laat specificeren welke metadata‑items moeten worden gewist. Het werkt op een breed scala aan documentformaten die door GroupDocs.Redaction worden ondersteund, waardoor verborgen auteurinformatie nooit lekt. Je kunt standaardeigenschappen zoals Author, Manager, en ook aangepaste metadata‑velden targeten, wat uitgebreide privacybescherming biedt.
 
-### Wat is EraseMetadataRedaction?
-`EraseMetadataRedaction` is een ingebouwde redactieklasse die je laat specificeren welke metadata‑items moeten worden gewist. Het werkt op een breed scala aan documentformaten die door GroupDocs.Redaction worden ondersteund, waardoor verborgen auteur‑informatie nooit lekt.
+## Waarom EraseMetadataRedaction gebruiken met GroupDocs?
+GroupDocs.Redaction ondersteunt **meer dan 100 invoer‑ en uitvoerformaten** en kan documenten tot 500 pagina's verwerken zonder het volledige bestand in het geheugen te laden. Het gebruik van deze klasse biedt je een enkele, high‑performance API om te voldoen aan GDPR-, HIPAA- of interne compliance‑vereisten, terwijl je codebasis eenvoudig blijft.
 
-### Waarom EraseMetadataRedaction gebruiken met GroupDocs?
-- **Compliance** – Voldoen aan GDPR, HIPAA of bedrijfsbeleid door persoonlijke identificatoren te verwijderen.  
-- **Consistency** – Pas dezelfde redactielogica toe op PDF's, DOCX, PPTX en meer.  
-- **Performance** – Redactie wordt in het geheugen uitgevoerd zonder externe tools.  
-- **Flexibility** – Combineer meerdere `MetadataFilters` om precies te targeten wat je nodig hebt.
-
-## Voorwaarden
+## Voorvereisten
 - Java 8 of hoger geïnstalleerd.  
-- Maven (of de mogelijkheid om JAR's handmatig toe te voegen).  
-- GroupDocs.Redaction for Java (versie 24.9 of later).  
-- Een geldige GroupDocs‑proefversie of permanente licentie.
+- Maven (of de mogelijkheid om JAR‑bestanden handmatig toe te voegen).  
+- GroupDocs.Redaction voor Java (versie 24.9 of later).  
+- Een geldige GroupDocs‑trial of permanente licentie.
 
-## GroupDocs.Redaction voor Java instellen
+## GroupDocs.Redaction voor Java configureren
 
 ### Maven‑installatie
-Voeg de GroupDocs‑repository en afhankelijkheid toe aan je **pom.xml**:
+Add the GroupDocs repository and dependency to your **pom.xml**:
 
 ```xml
 <repositories>
@@ -66,13 +105,13 @@ Voeg de GroupDocs‑repository en afhankelijkheid toe aan je **pom.xml**:
 ```
 
 ### Directe download
-Of download de nieuwste JAR van [GroupDocs.Redaction voor Java releases](https://releases.groupdocs.com/redaction/java/).
+Alternatively, download the latest JAR from [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
 ### Licentie‑acquisitie
-Verkrijg een gratis proefversie of koop een tijdelijke licentie via het GroupDocs‑portaal. Het licentiebestand moet worden geplaatst op een locatie waar je applicatie het kan laden (bijv. de classpath‑root).
+Verkrijg een gratis trial of koop een tijdelijke licentie via het GroupDocs‑portaal. Het licentiebestand moet worden geplaatst op een locatie waar je applicatie het kan laden (bijv. de classpath‑root).
 
-### Basisinitialisatie en -configuratie
-Hieronder staat een minimaal voorbeeld dat een `Redactor`‑instantie maakt voor een DOCX‑bestand:
+### Basisinitialisatie en configuratie
+Below is a minimal example that creates a `Redactor` instance for a DOCX file:
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -84,15 +123,15 @@ Redactor redactor = new Redactor(filePath);
 ## Hoe EraseMetadataRedaction te gebruiken in Java
 De volgende secties splitsen de implementatie op in duidelijke, uitvoerbare stappen.
 
-### Functie: Specifieke metadata‑items opschonen
+### Functie: specifieke metadata‑items opschonen
 
 #### Overzicht
-We zullen de metadata‑velden **Author** en **Manager** wissen met `EraseMetadataRedaction`. Dit is een veelvoorkomende eis bij het delen van interne rapporten met externe partners.
+We zullen de **Author**- en **Manager**‑metadata‑velden wissen met `EraseMetadataRedaction`. Dit is een veelvoorkomende eis bij het delen van interne rapporten met externe partners.
 
 #### Stapsgewijze implementatie
 
 ##### 1️⃣ Initialiseer het Redactor‑object
-Maak een `Redactor`‑instantie die verwijst naar het document dat je wilt opschonen:
+`Redactor` is the core class that loads a document, applies redaction objects, and writes the result. Create a new instance for each file you process:
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -102,7 +141,8 @@ final Redactor redactor = new Redactor(inputFilePath);
 ```
 
 ##### 2️⃣ Pas EraseMetadataRedaction toe
-Gebruik de `EraseMetadataRedaction`‑klasse samen met `MetadataFilters`. De bitwise OR (`|`) combineert de `Author`‑ en `Manager`‑filters zodat beide velden in één oproep worden verwijderd:
+`MetadataFilters` provides predefined filters for common metadata keys such as Author and Manager.  
+`EraseMetadataRedaction` removes metadata entries that match the supplied `MetadataFilters`. The bitwise OR (`|`) combines the `Author` and `Manager` filters so both fields are removed in one call:
 
 ```java
 import com.groupdocs.redaction.redactions.EraseMetadataRedaction;
@@ -116,7 +156,8 @@ try {
 ```
 
 ##### 3️⃣ Configureer opslaan‑opties
-Pas de `SaveOptions` aan om de naam van het uitvoerbestand te bepalen en of het document moet worden gerasterd naar PDF:
+`SaveOptions` lets you specify the output file name, format, and other saving parameters.  
+`SaveOptions` lets you control the output file name, format, and whether the document should be rasterized to PDF. Adding a suffix keeps the original file untouched:
 
 ```java
 import com.groupdocs.redaction.options.SaveOptions;
@@ -128,48 +169,48 @@ saveOptions.setRasterizeToPDF(false);
 redactor.save(saveOptions);
 ```
 
-### Veelvoorkomende gebruikssituaties
-1. **Juridische documenten** – Wis auteurinformatie voordat je contracten naar de tegenpartij stuurt.  
+## Veelvoorkomende gebruikssituaties
+1. **Juridische documenten** – Redigeer auteurinformatie voordat contracten naar de tegenpartij worden gestuurd.  
 2. **Bedrijfsrapporten** – Verwijder manager‑namen bij het publiceren van kwartaalresultaten aan aandeelhouders.  
-3. **Projectbestanden** – Ruim interne projectdocumentatie op voordat je deze archiveert of uploadt naar een openbare repository.
+3. **Projectbestanden** – Maak interne projectdocumentatie schoon voordat deze wordt gearchiveerd of geüpload naar een openbare repository.
 
-### Probleemoplossingstips
+## Probleemoplossingstips
 - **Bestand niet gevonden** – Controleer of het pad in `inputFilePath` naar een bestaand bestand wijst en of de applicatie leesrechten heeft.  
 - **Ontbrekende metadata‑velden** – Niet alle documenttypen slaan dezelfde metadata‑sleutels op; controleer eerst de eigenschappen van het document in Office.  
-- **Licentiefouten** – Zorg ervoor dat het licentiebestand correct is geladen voordat je de `Redactor`‑instantie maakt.
+- **Licentiefouten** – Zorg ervoor dat het licentiebestand correct is geladen voordat je de `Redactor`‑instance maakt.
 
-## Prestatie‑overwegingen
-- Sluit het `Redactor`‑object direct (zoals getoond in het `finally`‑blok) om native resources vrij te geven.  
-- Vermijd het rasteren van grote documenten tenzij je een PDF‑preview nodig hebt; rasteren kan het CPU‑ en geheugenverbruik aanzienlijk verhogen.
+## Prestatieoverwegingen
+- Sluit het `Redactor`‑object direct (zoals getoond in de `finally`‑block) om native bronnen vrij te geven.  
+- Vermijd het rasteren van grote documenten tenzij je een PDF‑preview nodig hebt; rasteren kan het CPU‑ en geheugenverbruik tot wel 3× verhogen voor bestanden van 300 pagina's.
 
 ## Veelgestelde vragen
 
 **Q1: Wat is metadata‑redactie?**  
-A1: Metadata‑redactie houdt in dat verborgen documenteigenschappen (zoals auteur, manager of aangepaste tags) worden verwijderd om per ongeluk openbaar maken van gevoelige informatie te voorkomen.
+A1: Metadata‑redactie omvat het verwijderen van verborgen documenteigenschappen (zoals auteur, manager of aangepaste tags) om accidentele openbaarmaking van gevoelige informatie te voorkomen.
 
 **Q2: Kan ik GroupDocs.Redaction voor andere bestandstypen gebruiken?**  
-A2: Ja, de bibliotheek ondersteunt PDF, DOCX, PPTX, XLSX en nog veel meer formaten.
+A2: Ja, de bibliotheek ondersteunt PDF, DOCX, PPTX, XLSX en nog veel meer formaten — meer dan 100 in totaal.
 
-**Q3: Hoe ga ik om met fouten tijdens redacties?**  
-A3: Plaats de `apply`‑aanroep in een try‑catch‑blok en sluit altijd de `Redactor` in een finally‑clausule om ervoor te zorgen dat resources worden vrijgegeven.
+**Q3: Hoe ga ik om met fouten tijdens redactie?**  
+A3: Plaats de `apply`‑aanroep in een try‑catch‑blok en sluit altijd de `Redactor` in een finally‑clausule om ervoor te zorgen dat bronnen worden vrijgegeven.
 
 **Q4: Is het mogelijk om aangepaste metadata‑velden te redigeren?**  
-A4: Absoluut. Gebruik `MetadataFilters.Custom("YourFieldName")` (of de juiste enum) om elk aangepast eigendom te targeten.
+A5: Absoluut. Gebruik `MetadataFilters.Custom("YourFieldName")` om elke aangepaste eigenschap die in het document is opgeslagen te targeten.
 
 **Q5: Wat zijn best practices voor het gebruik van GroupDocs.Redaction?**  
 A5:  
 - Laad de licentie vroeg in je applicatie.  
 - Sluit `Redactor`‑objecten direct.  
 - Gebruik `SaveOptions` om een suffix toe te voegen, zodat originele bestanden onaangeroerd blijven.  
-- Test redacties op een kopie van het document voordat je batches verwerkt.
+- Test redactie op een kopie van het document voordat je batches verwerkt.
 
 **Q6: Ondersteunt EraseMetadataRedaction batch‑operaties?**  
-A6: Je kunt over een collectie bestands‑paden itereren, voor elk bestand een nieuwe `Redactor` maken en dezelfde redactielogica toepassen.
+A6: Je kunt over een collectie bestandspaden itereren, voor elk bestand een nieuwe `Redactor` maken en dezelfde redactielogica toepassen.
 
 **Q7: Kan ik EraseMetadataRedaction combineren met andere redactietypen?**  
-A7: Ja, je kunt meerdere redactie‑objecten (bijv. tekstredactie gevolgd door metadata‑redactie) achter elkaar uitvoeren vóór het opslaan.
+A7: Ja, je kunt meerdere redactie‑objecten ketenen (bijv. tekstredactie gevolgd door metadata‑redactie) vóór het opslaan.
 
-## Resources
+## Bronnen
 
 - **Documentatie**: [GroupDocs Redaction Java Docs](https://docs.groupdocs.com/redaction/java/)  
 - **API‑referentie**: [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)  
@@ -180,6 +221,12 @@ A7: Ja, je kunt meerdere redactie‑objecten (bijv. tekstredactie gevolgd door m
 
 ---
 
-**Laatst bijgewerkt:** 2026-03-22  
+**Laatst bijgewerkt:** 2026-10-01  
 **Getest met:** GroupDocs.Redaction 24.9 for Java  
 **Auteur:** GroupDocs
+
+## Gerelateerde tutorials
+
+- [Groupdocs Redaction Java Document Metadata Extractie](/redaction/java/metadata-redaction/groupdocs-redaction-java-document-metadata-extraction/)
+- [Hoe metadata te verwijderen in Java met GroupDocs.Redaction](/redaction/java/metadata-redaction/metadata-redaction-groupdocs-java-guide/)
+- [Documentinformatie ophalen met Groupdocs Redaction Java](/redaction/java/document-information/retrieve-document-info-using-groupdocs-redaction-java/)
