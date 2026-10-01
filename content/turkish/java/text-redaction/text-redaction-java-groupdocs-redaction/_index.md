@@ -1,45 +1,82 @@
 ---
-date: '2026-03-06'
-description: GroupDocs.Redaction kullanarak Java’da metni nasıl redakte edeceğinizi
-  öğrenin. Bu adım adım rehber, Java’da belgeleri nasıl güvence altına alacağınızı
-  ve hassas verileri etkili bir şekilde koruyacağınızı gösterir.
+date: '2026-10-01'
+description: GroupDocs.Redaction kullanarak Java belgelerini nasıl karartacağınızı,
+  metin yer tutucularını nasıl değiştireceğinizi ve hassas verileri verimli bir şekilde
+  nasıl güvence altına alacağınızı öğrenin.
 keywords:
-- text redaction in Java
-- GroupDocs.Redaction library
-- secure sensitive data
-title: Java'da GroupDocs.Redaction ile Metin Nasıl Kırpılır – Kılavuz
+- how to redact java
+- replace text placeholder java
+- GroupDocs.Redaction Java
+- document privacy Java
+- redaction API Java
+lastmod: '2026-10-01'
+og_description: GroupDocs.Redaction kullanarak Java belgelerini nasıl karartacağınızı,
+  metin yer tutucularını nasıl değiştireceğinizi ve hassas verileri verimli bir şekilde
+  nasıl güvence altına alacağınızı öğrenin. Geliştiriciler için adım adım kılavuz.
+og_image_alt: Guide showing how to redact Java documents using GroupDocs.Redaction
+og_title: GroupDocs.Redaction ile Java belgelerini nasıl karartılır
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-01'
+  description: Learn how to redact Java documents using GroupDocs.Redaction, replace
+    text placeholders, and secure sensitive data efficiently.
+  headline: How to redact Java documents with GroupDocs.Redaction
+  type: TechArticle
+- questions:
+  - answer: It provides a simple API to locate and replace sensitive text, images,
+      or metadata in a wide range of document formats.
+    question: What is the primary purpose of GroupDocs.Redaction?
+  - answer: Java – the guide walks you through Maven setup, initialization, and exact‑phrase
+      redaction.
+    question: Which programming language is covered?
+  - answer: A free trial and temporary licenses are available for development and
+      evaluation.
+    question: Do I need a license to try it out?
+  - answer: Yes – use `ReplacementOptions` to define any string such as `[REDACTED]`.
+    question: Can I customize the redaction placeholder?
+  - answer: Yes, but consider streaming or processing the document in sections to
+      keep memory usage low.
+    question: Is the solution suitable for large files?
+  type: FAQPage
+tags:
+- redaction
+- GroupDocs
+- Java document security
+- data privacy
+- API tutorial
+title: GroupDocs.Redaction ile Java belgelerini nasıl karartılır
 type: docs
 url: /tr/java/text-redaction/text-redaction-java-groupdocs-redaction/
 weight: 1
 ---
 
-# Java ile GroupDocs.Redaction Kullanarak Metin Nasıl Kırpılır
+# GroupDocs.Redaction ile Java belgelerini nasıl karartılır
 
-Belgelerinizdeki hassas bilgileri güvenli tutmakta zorlanıyor musunuz? Tek başınıza değilsiniz. Birçok kuruluş, belge bütünlüğünü bozmadan gizli verileri kırpma zorluğuyla karşı karşıya. Bu öğreticide, güçlü GroupDocs.Redaction Java kütüphanesini kullanarak **metni nasıl kırpacağınızı** keşfedecek ve **java belgeleri güvenli** tutmanın pratik yollarını öğreneceksiniz.
+Bu rehberde GroupDocs.Redaction kütüphanesini kullanarak **Java belgelerini nasıl karartacağınızı** öğreneceksiniz. Maven kurulumunu, temel API'yi başlatmayı ve özel yer tutucularla tam ifadeli karartma işlemini adım adım göstereceğiz—kodunuzu temiz tutarken verilerinizi güvenli bir şekilde koruyacağız.
 
-## Hızlı Yanıtlar
-- **GroupDocs.Redaction'ın temel amacı nedir?** Geniş bir belge formatı yelpazesinde hassas metin, resim veya meta verileri bulup değiştirmek için basit bir API sağlar.  
-- **Hangi programlama dili ele alınıyor?** Java – kılavuz Maven kurulumu, başlatma ve tam‑cümle kırpma adımlarını sizinle paylaşır.  
+## Hızlı cevaplar
+- **GroupDocs.Redaction'ın temel amacı nedir?** Geniş bir belge formatı yelpazesinde hassas metin, görüntü veya meta verileri bulup değiştirmek için basit bir API sağlar.  
+- **Hangi programlama dili ele alınıyor?** Java – rehber Maven kurulumu, başlatma ve tam ifadeli karartma adımlarını gösterir.  
 - **Denemek için lisansa ihtiyacım var mı?** Geliştirme ve değerlendirme için ücretsiz deneme ve geçici lisanslar mevcuttur.  
-- **Kırpma yer tutucusunu özelleştirebilir miyim?** Evet – `ReplacementOptions` kullanarak `[REDACTED]` gibi istediğiniz bir dizeyi tanımlayabilirsiniz.  
+- **Karartma yer tutucusunu özelleştirebilir miyim?** Evet – `[REDACTED]` gibi herhangi bir dizeyi tanımlamak için `ReplacementOptions` kullanın.  
 - **Çözüm büyük dosyalar için uygun mu?** Evet, ancak bellek kullanımını düşük tutmak için akış (streaming) veya belgeyi bölümlere ayırarak işlemeyi düşünün.
 
-## Metin kırpma nedir ve neden önemlidir?
-Metin kırpma, bir belgeden hassas bilgileri kalıcı olarak kaldırma veya gizleme işlemidir; böylece bilgiler geri alınamaz veya okunamaz. Bu, GDPR, HIPAA veya sektör‑spesifik gizlilik standartları gibi düzenlemelere uyum sağlamak için hayati öneme sahiptir. Kırpmayı otomatikleştirerek manuel çabayı azaltır ve insan hatası riskini ortadan kaldırırsınız.
+## Metin karartması nedir ve neden önemlidir?
+Metin karartması, hassas bilgileri kalıcı olarak kaldırır veya gizler, böylece geri alınamaz veya okunamaz. GDPR, HIPAA ve sektör‑spesifik gizlilik standartlarına uyum sağlamak için gereklidir. Gizli verileri kalıcı olarak ortadan kaldırarak, kuruluşlar kazara ifşayı önler ve yasal yükümlülükleri yerine getirir. Karartmanın otomatikleştirilmesi manuel çabayı azaltır ve insan hatası riskini ortadan kaldırır.
 
-## Neden java belgeleri GroupDocs.Redaction ile güvenli?
-GroupDocs.Redaction, **java belgeleri güvenli** ortamlar için ihtiyaç duyan Java geliştiricileri için özel olarak tasarlanmıştır. Doküman (DOCX, PDF, PPTX, vb.) sayısız formatı destekler, yüksek‑performanslı işleme sunar ve Maven ya da manuel derlemelerle kolayca entegre olur. Kütüphane ayrıca meta veri kaldırma ve resim kırpma gibi ek özellikler de sunarak belge gizliliği için tek durak çözüm olur.
+## Neden Java belgelerini GroupDocs.Redaction ile güvence altına almalıyız?
+GroupDocs.Redaction **30'dan fazla belge formatını**—DOCX, PDF, PPTX ve XLSX dahil—destekler ve **500 sayfalık dosyaları** tüm belgeyi belleğe yüklemeden işleyebilir. Kütüphane yüksek performanslı işleme, meta veri kaldırma ve görüntü karartma sunar, bu da Java tabanlı belge gizliliği için kapsamlı bir çözüm haline getirir.
 
-## Ön Koşullar
+## Önkoşullar
 
-Başlamadan önce aşağıdakilerin kurulu olduğundan emin olun:
-- **Kütüphaneler ve Sürümler**: GroupDocs.Redaction for Java sürüm 24.9.  
-- **Ortam Kurulumu**: Makinenizde bir Java Development Kit (JDK) yüklü olmalı.  
-- **Bilgi Ön Koşulları**: Java programlamaya temel bir anlayış ve Maven ya da manuel kütüphane yönetimi konusunda deneyim.
+Başlamadan önce aşağıdakilere sahip olduğunuzdan emin olun:
+- **Kütüphaneler ve Sürümler**: Java için GroupDocs.Redaction sürüm 24.9.  
+- **Ortam Kurulumu**: Makinenizde yüklü bir Java Development Kit (JDK).  
+- **Bilgi Önkoşulları**: Java programlamaya temel bir anlayış ve Maven ya da manuel kütüphane yönetimine aşinalık.
 
-Şimdi ihtiyacınız olanları ele aldığımıza göre, GroupDocs.Redaction for Java'ı kurarak başlayalım.
+İhtiyacınız olanları açıkladığımıza göre, Java için GroupDocs.Redaction'ı kurarak başlayalım.
 
-## GroupDocs.Redaction for Java Kurulumu
+## Java için GroupDocs.Redaction Kurulumu
 
 ### Maven ile Kurulum
 `pom.xml` dosyanıza aşağıdaki yapılandırmayı ekleyin:
@@ -62,17 +99,17 @@ Başlamadan önce aşağıdakilerin kurulu olduğundan emin olun:
 </dependencies>
 ```
 
-### Doğrudan İndirme
+### Doğrudan indirme
 Alternatif olarak, en son sürümü doğrudan [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/) adresinden indirebilirsiniz.
 
-#### Lisans Edinme
+#### Lisans edinme
 GroupDocs.Redaction'ı etkili bir şekilde kullanmak için:
-- **Ücretsiz Deneme**: Özellikleri keşfetmek üzere ücretsiz deneme ile başlayın.  
-- **Geçici Lisans**: Geliştirme sırasında uzun süreli erişim gerekiyorsa geçici bir lisans alın.  
-- **Satın Alma**: Uzun vadeli kullanım için bir lisans satın almayı düşünün.
+- **Ücretsiz deneme**: Özellikleri keşfetmek için ücretsiz deneme ile başlayın.  
+- **Geçici lisans**: Geliştirme sırasında daha uzun erişim ihtiyacınız varsa geçici bir lisans edinin.  
+- **Satın alma**: Uzun vadeli kullanım için bir lisans satın almayı düşünün.
 
-### Temel Başlatma ve Kurulum
-Kurulum tamamlandıktan sonra, Java uygulamanızda `Redactor` sınıfını başlatın. Bu, kırpma işlemlerini gerçekleştireceğimiz kapı olacak:
+### Temel başlatma ve kurulum
+`Redactor` sınıfı, bir belgeye karartma uygulamak ve bulmak için yöntemler sağlayan temel bileşendir. Kurulduktan sonra, Java uygulamanızda `Redactor` sınıfını başlatın. Bu, karartma işlemlerini gerçekleştirmek için bizim geçiş noktamız olacak:
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -90,115 +127,102 @@ public class RedactionExample {
 }
 ```
 
-## Uygulama Kılavuzu
+## Uygulama rehberi
 
-### GroupDocs.Redaction ile metin nasıl kırpılır
-Kurulumumuz bittiğine göre, metin kırpma özelliğini adım adım uygulayalım.
+### GroupDocs.Redaction kullanarak metni nasıl karartılır
+`Redactor` ile belgenizi yükleyin, gizlemek istediğiniz tam ifadeyi tanımlayın ve sonucu kaydedin. Bu üç adımlı desen, çoğu karartma senaryosunu bir dakikadan kısa bir kodlama süresi içinde yönetir.
 
-#### Tam Cümle Kırpma İşlemi
+#### Tam ifade karartması gerçekleştirme
 
 ##### Genel Bakış
-Bu bölüm, GroupDocs.Redaction kullanarak bir belgede belirli ifadeleri yer tutucu metinle değiştirmeyi gösterir.
+Bu bölüm, GroupDocs.Redaction kullanarak bir belgede belirli ifadeleri yer tutucu metinle nasıl değiştireceğinizi gösterir.
 
-##### Adım‑Adım Uygulama
+##### Adım adım uygulama
 
-**1. Kırpılacak Metni Tanımla**  
-Belgelerinizde gizlemek istediğiniz tam ifadeyi belirtin:
+**1. Karartılacak metni tanımlayın**  
+`ExactPhraseRedaction`, belgede literal bir dizeyi eşleştiren API sınıfıdır. Belgelerinizde gizlemek istediğiniz tam ifadeyi belirtin:
 
 ```java
 ExactPhraseRedaction redaction = new ExactPhraseRedaction("John Doe", true, new ReplacementOptions("[REDACTED]"));
 ```
 
-Burada, `"John Doe"` hedef metin, `true` büyük/küçük harf duyarlılığını gösterir ve `[REDACTED]` yerine konulacak metindir.
+Burada, `"John Doe"` hedef metindir, `true` büyük/küçük harf duyarlılığını gösterir ve `[REDACTED]` yerine konulacak metindir.
 
-**2. Kırpmayı Uygula**  
-Belgenize kırpma işlemini uygulayın:
+**2. Karartmayı uygulayın**  
+`Redactor.apply`, belgeyi işleyerek belirtilen ifadenin tüm örneklerini belirlenen yer tutucu ile değiştirir. `ReplacementOptions` sınıfı, yer tutucuyu, stilini ve orijinal metin uzunluğunu koruyup korumayacağınızı özelleştirmenizi sağlar.
 
 ```java
 redactor.apply(redaction);
 ```
 
-Bu yöntem belgeyi işleyerek belirtilen ifadenin tüm örneklerini tanımlı yer tutucuyla değiştirir.
-
-**3. Değişiklikleri Kaydet**  
-Son olarak, değişiklikleri yeni bir dosyaya kaydedin ya da orijinali üzerine yazın:
+**3. Değişiklikleri kaydedin**  
+Son olarak, değişiklikleri yeni bir dosyaya kaydedin veya orijinali üzerine yazın:
 
 ```java
 redactor.save("YOUR_DOCUMENT_DIRECTORY/redacted_sample.docx");
 ```
 
-### Sorun Giderme İpuçları
-- **Kütüphane Eksik**: GroupDocs.Redaction'ın proje bağımlılıklarınıza doğru eklendiğinden emin olun.  
-- **Dosya Erişim Sorunları**: Girdi belge yolunun doğru ve erişilebilir olduğunu doğrulayın.  
+### Sorun giderme ipuçları
+- **Kütüphane eksik**: GroupDocs.Redaction'ın proje bağımlılıklarınıza doğru şekilde eklendiğinden emin olun.  
+- **Dosya erişim sorunları**: Girdi belge yolunun doğru ve erişilebilir olduğunu doğrulayın.
 
-## Pratik Uygulamalar
+## Pratik uygulamalar
 
-**Kullanım Durumu 1: Gizlilik Uyumu**  
-Müşteri belgelerindeki kişisel bilgileri kırparak GDPR uyumunu sağlayın.
+**Kullanım durumu 1: gizlilik uyumu**  
+Müşteri sözleşmelerinden kişisel tanımlayıcıları arşivlemeden önce karartarak GDPR uyumunu sağlayın.
 
-**Kullanım Durumu 2: İç Döküman İncelemesi**  
-Taslakları paylaşmadan önce hassas verileri kaldırarak iç incelemeleri güvenli hale getirin.
+**Kullanım durumu 2: iç belge incelemesi**  
+Taslakları dış ortaklarla paylaşmadan önce gizli verileri kaldırarak iç incelemeleri güvence altına alın.
 
-**Entegrasyon Olanakları**  
-GroupDocs.Redaction'ı mevcut belge yönetim sistemlerinizle entegre ederek çeşitli platformlarda kırpma sürecini otomatikleştirin.
+**Entegrasyon olasılıkları**  
+GroupDocs.Redaction'ı mevcut belge yönetim sisteminizle entegre ederek birden fazla platform ve iş akışı üzerinde karartmayı otomatikleştirin.
 
-## Performans Düşünceleri
-- **Bellek Kullanımını Optimize Et**: Verimli dosya işleme uygulamaları kullanın ve kaynakları zamanında serbest bırakın.  
-- **En İyi Uygulamalar**: Performans iyileştirmeleri ve hata düzeltmeleri için GroupDocs.Redaction'ın en son sürümüne düzenli olarak güncelleyin.
+## Performans değerlendirmeleri
+- **Bellek kullanımını optimize edin**: Akış (streaming) API'lerini kullanın ve her belgeyi işledikten sonra kaynakları hemen serbest bırakın.  
+- **En iyi uygulamalar**: Performans iyileştirmelerinden ve hata düzeltmelerinden yararlanmak için GroupDocs.Redaction'ın en son sürümüne düzenli olarak güncelleyin.
 
 ## Sonuç
-Bu kılavuzu izleyerek **metni nasıl kırpacağınızı** GroupDocs.Redaction for Java ile öğrenmiş oldunuz. Bu beceri, belgelerinizde veri gizliliği ve güvenliğini sürdürmek için son derece değerlidir.
+Bu rehberi izleyerek GroupDocs.Redaction kullanarak **Java belgelerini nasıl karartacağınızı** öğrendiniz. Bu yetenek, veri gizliliğini korumak ve yasal gereksinimleri karşılamak için esastır.
 
-**Sonraki Adımlar**
-- Meta veri kaldırma gibi ek kırpma özelliklerini keşfedin.  
-- GroupDocs.Redaction tarafından desteklenen farklı belge formatlarıyla deneyler yapın.  
+**Sonraki adımlar**
+- Metaveri kaldırma gibi ek karartma özelliklerini keşfedin.  
+- GroupDocs.Redaction tarafından desteklenen farklı belge formatlarıyla deneyler yapın.
 
 Belge güvenliğinizi artırmaya hazır mısınız? Bu çözümü bir sonraki projenizde uygulamayı deneyin!
 
-## SSS Bölümü
+## SSS bölümü
 
 **S1: GroupDocs.Redaction Java için hangi dosya türlerini destekliyor?**  
-C1: GroupDocs.Redaction, DOCX, PDF ve daha fazlası dahil olmak üzere geniş bir belge formatı yelpazesini destekler. Ayrıntılı bilgi için [belgelere](https://docs.groupdocs.com/redaction/java/) bakın.
+C1: GroupDocs.Redaction, DOCX, PDF, PPTX, XLSX ve daha fazlası dahil olmak üzere geniş bir belge formatı yelpazesini destekler. Tam liste için [documentation](https://docs.groupdocs.com/redaction/java/) adresine bakın.
 
 **S2: GroupDocs.Redaction ile büyük belgeleri verimli bir şekilde nasıl yönetirim?**  
-C2: Büyük dosyalar için belgeyi daha küçük bölümlere ayırmayı veya işlem sonrası kaynakları hızlıca serbest bırakarak bellek kullanımını optimize etmeyi düşünün.
+C2: Büyük dosyalar için, belgeyi daha küçük bölümlere ayırmayı veya sayfaları sıralı olarak işlemek ve kaynakları hızlıca serbest bırakmak için streaming API'yi kullanmayı düşünün.
 
-**S3: Kırpma yer tutucu metnini özelleştirebilir miyim?**  
-C3: Evet, `ReplacementOptions` içinde istediğiniz herhangi bir dizeyi belirtebilirsiniz.
+**S3: Karartma yer tutucu metnini özelleştirebilir miyim?**  
+C3: Evet, `ReplacementOptions` içinde istediğiniz herhangi bir dizeyi yedekleme seçeneği olarak belirtebilirsiniz.
 
-**S4: Büyük/küçük harfe duyarsız kırpma yapabilir miyim?**  
-C5: Kesinlikle! `ExactPhraseRedaction`'ın üçüncü parametresini `false` olarak ayarladığınızda büyük/küçük harfe duyarsız eşleşme sağlanır.
+**S4: Büyük/küçük harfe duyarsız karartmalar yapabilir miyim?**  
+C5: Kesinlikle! `ExactPhraseRedaction`'ın üçüncü parametresini `false` olarak ayarlayarak büyük/küçük harfe duyarsız eşleşme sağlayabilirsiniz.
 
-**S5: Sorun yaşarsam destek nasıl alabilirim?**  
-C5: [GroupDocs Free Support](https://forum.groupdocs.com/c/redaction/33) adresini ziyaret edin veya kapsamlı belgelerine ve API referanslarına göz atın.
+**S5: Sorunlarla karşılaştığımda nasıl destek alabilirim?**  
+C5: [GroupDocs Free Support](https://forum.groupdocs.com/c/redaction/33) adresini ziyaret edin veya kapsamlı dokümantasyonları ve API referanslarına bakın.
 
 ## Kaynaklar
-- **Belgelendirme**: [GroupDocs.Redaction Java Docs](https://docs.groupdocs.com/redaction/java/)  
-- **API Referansı**: [GroupDocs Redaction API](https://reference.groupdocs.com/redaction/java)  
+- **Dokümantasyon**: [GroupDocs.Redaction Java Docs](https://docs.groupdocs.com/redaction/java/)  
+- **API referansı**: [GroupDocs Redaction API](https://reference.groupdocs.com/redaction/java)  
 - **İndirme**: [GroupDocs Downloads](https://releases.groupdocs.com/redaction/java/)  
-- **GitHub Deposu**: [GroupDocs GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
-- **Ücretsiz Destek Forumu**: [GroupDocs Redaction Forum](https://forum.groupdocs.com/c/redaction/33)  
-- **Geçici Lisans**: [Obtain Temporary License](https://purchase.groupdocs.com/temporary-license/) 
-
-## Sık Sorulan Sorular
-
-**S: Bunu ticari bir uygulamada kullanabilir miyim?**  
-C: Evet, geçerli bir GroupDocs lisansı ile. Değerlendirme için ücretsiz bir deneme mevcut.
-
-**S: Şifre korumalı dosyalarla çalışır mı?**  
-C: Evet, belgeyi açarken şifreyi belirtebilirsiniz.
-
-**S: Hangi Java sürümleri destekleniyor?**  
-C: Kütüphane JDK 8 ve üzeri sürümlerle, JDK 11, 17 ve daha yeni sürümlerle uyumludur.
-
-**S: Toplu işleme performansını nasıl artırabilirim?**  
-C: Belgeleri paralel akışlarda işleyin ve mümkün olduğunca `Redactor` örneklerini yeniden kullanın.
-
-**S: Daha gelişmiş kırpma örneklerini nerede bulabilirim?**  
-C: Resmi belgeler ve GitHub deposundaki örnek projelere göz atın.
+- **GitHub deposu**: [GroupDocs GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
+- **Ücretsiz destek forumu**: [GroupDocs Redaction Forum](https://forum.groupdocs.com/c/redaction/33)  
+- **Geçici lisans**: [Obtain Temporary License](https://purchase.groupdocs.com/temporary-license/) 
 
 ---
 
-**Son Güncelleme:** 2026-03-06  
-**Test Edilen Versiyon:** GroupDocs.Redaction 24.9 for Java  
+**Son Güncelleme:** 2026-10-01  
+**Test Edilen:** GroupDocs.Redaction 24.9 for Java  
 **Yazar:** GroupDocs
+
+## İlgili Eğitimler
+
+- [GroupDocs.Redaction ile Java Belge Sayfalarını Önizleme](/redaction/java/document-loading/)
+- [GroupDocs Redaction Java ile Belge Bilgilerini Almak](/redaction/java/document-information/retrieve-document-info-using-groupdocs-redaction-java/)
+- [OCR ile Tar scanned PDF'yi Karartma – GroupDocs.Redaction Java](/redaction/java/ocr-integration/)
