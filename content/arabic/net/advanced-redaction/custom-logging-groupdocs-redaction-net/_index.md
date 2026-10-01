@@ -1,13 +1,69 @@
 ---
-date: '2026-03-28'
-description: تعلم كيفية تنفيذ مسجل مخصص بلغة C# في GroupDocs.Redaction لـ .NET، مما
-  يتيح تسجيل مخصص مفصل في .NET وتسهيل إعداد تقارير الامتثال.
+date: '2026-10-01'
+description: تعلم كيفية تنفيذ مسجل مخصص c# في GroupDocs.Redaction لـ .NET، مما يتيح
+  تسجيلًا تفصيليًا مخصصًا في .NET وتسهيل إعداد تقارير الامتثال.
 keywords:
 - custom logger c#
-- custom logging .net
+- implement custom logger
 - save redacted document
+- custom logger .net core
 - log warnings c#
-title: تنفيذ مسجل مخصص C# في GroupDocs.Redaction لـ .NET
+lastmod: '2026-10-01'
+og_description: نفّذ مسجلًا مخصصًا c# في GroupDocs.Redaction لـ .NET لالتقاط سجلات
+  تفصيلية، وحفظ المستندات المُحذوفة دون تحويلها إلى رستر، وتلبية متطلبات الامتثال.
+og_image_alt: Guide showing how to add a custom logger to GroupDocs.Redaction in a
+  .NET application
+og_title: تنفيذ مسجل مخصص c# في GroupDocs.Redaction لـ .NET
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-01'
+  description: Learn how to implement a custom logger c# in GroupDocs.Redaction for
+    .NET, enabling detailed custom logging .net and easier compliance reporting.
+  headline: Implement custom logger c# in GroupDocs.Redaction for .NET
+  type: TechArticle
+- description: Learn how to implement a custom logger c# in GroupDocs.Redaction for
+    .NET, enabling detailed custom logging .net and easier compliance reporting.
+  name: Implement custom logger c# in GroupDocs.Redaction for .NET
+  steps:
+  - name: Define a custom logger class (log warnings c#)
+    text: The `CustomLogger` class implements `ILogger`. CustomLogger is a user‑defined
+      class that implements the `ILogger` interface to capture redaction events. **Definition
+      anchor:** `CustomLogger` is a user‑defined implementation of the `ILogger` interface
+      that records redaction events. **Explanation:** T
+  - name: Prepare file paths and open the source document
+    text: '**Definition anchor:** `Redactor` is the primary class in GroupDocs.Redaction
+      that performs redaction operations on a PDF document. **Why this matters:**
+      Using utility methods keeps your code clean and guarantees the output folder
+      exists before you attempt to **save redacted document**.'
+  - name: Apply redactions while using the custom logger
+    text: '**Direct answer:** The redaction workflow starts by creating a `Redactor`
+      instance with `RedactorSettings(logger)`, then applying redaction objects, checking
+      `logger.HasErrors`, and finally calling `redactor.Save` with rasterization disabled.
+      This pattern ensures every step is logged and that you on'
+  type: HowTo
+- questions:
+  - answer: Custom logging captures detailed redaction events, satisfies audit requirements,
+      and simplifies troubleshooting by exposing errors and warnings in real time.
+    question: What is the purpose of custom logging with GroupDocs.Redaction?
+  - answer: Implement `LogError` in your `CustomLogger` class; the `HasErrors` flag
+      lets you abort processing if a critical issue is detected.
+    question: How do I handle errors using a custom logger?
+  - answer: Yes—you can forward log messages to CRM, ERP, or centralized monitoring
+      tools by extending the logger methods.
+    question: Can custom logging be integrated with other systems?
+  - answer: Missing method overrides, forgetting to pass `RedactorSettings(logger)`,
+      and insufficient file permissions are the most frequent issues.
+    question: What are common pitfalls when implementing custom logging?
+  - answer: Detailed logs provide real‑time visibility, streamline debugging, and
+      generate the audit trails required by regulations such as GDPR and HIPAA.
+    question: How does custom logging improve document redaction workflows?
+  type: FAQPage
+tags:
+- custom logger
+- GroupDocs.Redaction
+- .NET logging
+- document redaction
+title: تنفيذ مسجل مخصص c# في GroupDocs.Redaction لـ .NET
 type: docs
 url: /ar/net/advanced-redaction/custom-logging-groupdocs-redaction-net/
 weight: 1
@@ -15,54 +71,56 @@ weight: 1
 
 # تنفيذ مسجل مخصص c# في GroupDocs.Redaction لـ .NET
 
-إدارة عمليات إخفاء المستندات بكفاءة أمر حاسم، خاصةً عند التعامل مع معلومات حساسة. في هذا الدليل ستتعلم **كيفية تنفيذ مسجل مخصص c#** مع GroupDocs.Redaction لـ .NET، مما يمنحك سيطرة كاملة على التسجيل، ومعالجة الأخطاء، وسجلات التدقيق.
+إدارة عمليات إخفاء المستندات بكفاءة أمر حاسم، خاصة عند التعامل مع المعلومات الحساسة. في هذا الدليل ستتعلم **كيفية تنفيذ مسجل مخصص c#** مع GroupDocs.Redaction لـ .NET، مما يمنحك سيطرة كاملة على التسجيل، ومعالجة الأخطاء، وسلاسل التدقيق. بنهاية البرنامج التعليمي ستكون قادرًا على التقاط التحذيرات، الأخطاء، والرسائل المعلوماتية، دمج المسجل مع أطر تسجيل .NET الحالية، وحفظ المستند المُخفى دون تحويل إلى نقطية.
 
 ## إجابات سريعة
-- **ماذا يفعل مسجل مخصص c#؟** يلتقط الأخطاء والتحذيرات والرسائل المعلوماتية أثناء الإخفاء.  
-- **أي مكتبة توفر واجهة ILogger؟** GroupDocs.Redaction لـ .NET.  
-- **هل يمكنني حفظ المستند المُخفى دون التحويل إلى نقطية؟** نعم – استخدم `redactor.Save(..., new Options.RasterizationOptions { Enabled = false })`.  
-- **هل أحتاج إلى ترخيص للاستخدام في الإنتاج؟** يلزم ترخيص كامل للإنتاج؛ يتوفر نسخة تجريبية للتقييم.  
-- **هل هذا النهج متوافق مع .NET Core / .NET 6+؟** بالتأكيد – نفس الـ API يعمل عبر .NET Framework و .NET Core/5/6.
+- **ماذا يفعل مسجل مخصص c#؟** يقوم بالتقاط الأخطاء والتحذيرات والرسائل المعلوماتية أثناء الإخفاء، مما يمنحك سجل تدقيق قابل للبحث.  
+- **أي مكتبة توفر واجهة ILogger؟** توفر GroupDocs.Redaction لـ .NET واجهة `ILogger`.  
+- **هل يمكنني حفظ المستند المُخفى دون تحويل إلى نقطية؟** نعم – استدعِ `redactor.Save(..., new Options.RasterizationOptions { Enabled = false })`.  
+- **هل أحتاج إلى ترخيص للاستخدام في الإنتاج؟** يتطلب الترخيص الكامل للإنتاج؛ يتوفر ترخيص تجريبي للتقييم.  
+- **هل هذا النهج متوافق مع .NET Core / .NET 6+؟** بالطبع – نفس الـ API يعمل عبر .NET Framework و .NET Core و .NET 5 و .NET 6.
 
 ## ما هو مسجل مخصص c#؟
-مسجل مخصص **c#** هو فئة تقوم بتنفيذ واجهة `ILogger` التي توفرها GroupDocs.Redaction. يتيح لك توجيه رسائل السجل إلى أي مكان تحتاجه—الكونسول، الملف، قاعدة البيانات، أو أنظمة المراقبة الخارجية—مع توفير رؤية واضحة لسير عمل الإخفاء.
+إن **مسجل مخصص c#** هو فئة تُنفّذ واجهة `ILogger` التي توفرها GroupDocs.Redaction. يسمح لك بتوجيه رسائل السجل إلى أي مكان تحتاجه—الكونسول، الملف، قاعدة البيانات، أو أنظمة المراقبة الخارجية—مع توفير رؤية واضحة للمسار العام لعملية الإخفاء.
 
-## لماذا استخدام تسجيل مخصص .net مع GroupDocs.Redaction؟
-- **الامتثال والتدقيق:** السجلات التفصيلية تلبي المتطلبات التنظيمية.  
-- **رؤية الأخطاء:** `LogError` و `LogWarning` يقدمان لك رد فعل فوري على المشكلات.  
-- **مرونة التكامل:** تحويل السجلات إلى أطر تسجيل .NET الموجودة (Serilog، NLog، إلخ).
+## لماذا تستخدم تسجيل مخصص .net مع GroupDocs.Redaction؟
+قم بتحميل عملية الإخفاء الخاصة بك بسجلات مفصلة وقابلة للبحث تلبي تدقيقات التنظيم وتسرّع من حل المشكلات. تدعم GroupDocs.Redaction **أكثر من 70 تنسيقًا للإدخال والإخراج** ويمكنها معالجة مستندات تصل إلى 500 صفحة دون تحميل الملف بالكامل في الذاكرة، لذا فإن مسجلًا مصممًا جيدًا يضيف حملاً ضئيلًا مع توفير رؤية لا تقدر بثمن.
 
 ## المتطلبات المسبقة
-- **GroupDocs.Redaction لـ .NET** مثبت (انظر التثبيت أدناه).  
-- بيئة تطوير .NET (Visual Studio، VS Code، أو سطر الأوامر).  
-- معرفة أساسية بـ C# وإلمام بتدفقات الملفات.
+- GroupDocs.Redaction لـ .NET مثبت (انظر قسم **Installation** أدناه).  
+- بيئة تطوير .NET (Visual Studio أو VS Code أو .NET CLI).  
+- معرفة أساسية بـ C# وإلمام بتدفقات الملفات.  
 
 ## التثبيت
 
-**.NET CLI**
+**.NET CLI**  
 ```bash
 dotnet add package GroupDocs.Redaction
-```
+```  
 
-**Package Manager**
+**Package Manager**  
 ```powershell
 Install-Package GroupDocs.Redaction
-```
+```  
 
 **NuGet Package Manager UI**  
 ابحث عن **"GroupDocs.Redaction"** وقم بتثبيت أحدث نسخة.
 
 ## الحصول على الترخيص
-- **نسخة تجريبية مجانية:** اختبار الـ API بترخيص مؤقت.  
-- **ترخيص مؤقت:** الحصول على الوصول الكامل للميزات لفترة محدودة.  
-- **شراء:** الحصول على ترخيص دائم للنشر في بيئات الإنتاج.
+- **Free trial:** اختبار الـ API باستخدام ترخيص مؤقت.  
+- **Temporary license:** احصل على وصول كامل للميزات لفترة محدودة.  
+- **Purchase:** احصل على ترخيص دائم للنشر في بيئة الإنتاج.
 
 ## دليل خطوة بخطوة
 
+### كيفية تنفيذ مسجل مخصص في .NET Core؟
+
+حمّل فئة `CustomLogger` في مشروع .NET Core الخاص بك وربطها بـ `RedactorSettings`. يعمل المسجل بنفس الطريقة على .NET Framework و .NET 5 و .NET 6، لذا يمكنك مشاركة نفس الكود عبر جميع المنصات.
+
 ### الخطوة 1: تعريف فئة مسجل مخصص (log warnings c#)
 
-إنشاء فئة تقوم بتنفيذ `ILogger`. ستقوم هذه الفئة بالتقاط الأخطاء والتحذيرات والرسائل المعلوماتية.
-
+فئة `CustomLogger` تُنفّذ `ILogger`.  
+`CustomLogger` هي فئة معرفة من قبل المستخدم تُنفّذ واجهة `ILogger` لالتقاط أحداث الإخفاء.  
 ```csharp
 using System;
 using GroupDocs.Redaction;
@@ -90,20 +148,22 @@ class CustomLogger : ILogger
         Console.WriteLine("Info: " + message);
     }
 }
-```
+```  
 
-**شرح:** علم `HasErrors` يساعدك على اتخاذ قرار ما إذا كنت ستستمر في المعالجة. الطرق الثلاثة تتطابق مع مستويات السجل الثلاث التي ستحتاجها في معظم سيناريوهات الإخفاء.
+**تعريف المرجع:** `CustomLogger` هي تنفيذ معرف من قبل المستخدم لواجهة `ILogger` تسجل أحداث الإخفاء.  
+**شرح:** علامة `HasErrors` تساعدك على اتخاذ قرار ما إذا كنت ستستمر في المعالجة. الطرق الثلاثة تتطابق مع مستويات السجل الثلاث التي ستحتاجها في معظم سيناريوهات الإخفاء.
 
 ### الخطوة 2: إعداد مسارات الملفات وفتح المستند المصدر
 
 ```csharp
 string sourceFile = Utils.PrepareOutputDirectory("YOUR_DOCUMENT_DIRECTORY");
 string outputFile = Utils.GetOutputFile(sourceFile);
-```
+```  
 
-**لماذا هذا مهم:** استخدام طرق المساعدة يحافظ على نظافة الكود ويضمن وجود مجلد الإخراج قبل محاولة **حفظ المستند المُخفى**.
+**تعريف المرجع:** `Redactor` هي الفئة الأساسية في GroupDocs.Redaction التي تقوم بعمليات الإخفاء على مستند PDF.  
+**لماذا هذا مهم:** استخدام طرق المساعدة يحافظ على نظافة الكود ويضمن وجود مجلد الإخراج قبل محاولة **save redacted document**.
 
-### الخطوة 3: تطبيق الإخفاءات أثناء استخدام المسجل المخصص
+### الخطوة 3: تطبيق عمليات الإخفاء أثناء استخدام المسجل المخصص
 
 ```csharp
 using (Stream stream = File.Open(sourceFile, FileMode.Open, FileAccess.ReadWrite))
@@ -125,26 +185,28 @@ using (Stream stream = File.Open(sourceFile, FileMode.Open, FileAccess.ReadWrite
         }
     }
 }
-```
+```  
+
+**الإجابة المباشرة:** تبدأ سير عمل الإخفاء بإنشاء كائن `Redactor` باستخدام `RedactorSettings(logger)`، ثم تطبيق كائنات الإخفاء، والتحقق من `logger.HasErrors`، وأخيرًا استدعاء `redactor.Save` مع تعطيل التحويل إلى نقطية. يضمن هذا النمط تسجيل كل خطوة وأنك تحتفظ بمستند نظيف فقط عندما لا تحدث أخطاء.  
 
 **شرح:**  
-1. يتم إنشاء كائن `Redactor` باستخدام `RedactorSettings(logger)`، مما يربط `CustomLogger` الخاص بك.  
-2. بعد تطبيق الإخفاء، يتحقق الكود من `logger.HasErrors`. إذا لم تحدث أخطاء، يتم حفظ المستند—مما يوضح منطق **حفظ المستند المُخفى** دون التحويل إلى نقطية.
+1. يتم إنشاء `Redactor` باستخدام `RedactorSettings(logger)`, مما يربط `CustomLogger` الخاص بك.  
+2. بعد تطبيق عملية إخفاء، يتحقق الكود من `logger.HasErrors`. إذا لم تحدث أخطاء، يتم حفظ المستند—مما يوضح منطق **save redacted document** دون تحويل إلى نقطية.
 
-### المشكلات الشائعة وإصلاح الأخطاء
-- **غياب مخرجات السجل:** تأكد من أن كل طريقة `Log*` تم تجاوزها بشكل صحيح.  
-- **استثناءات الوصول إلى الملفات:** تأكد من أن التطبيق يمتلك صلاحيات القراءة/الكتابة لكل من مسارات المصدر والإخراج.  
+## المشكلات الشائعة & استكشاف الأخطاء
+- **غياب مخرجات السجل:** تحقق من أن كل طريقة `Log*` تم تجاوزها بشكل صحيح.  
+- **استثناءات الوصول إلى الملفات:** تأكد من أن التطبيق يمتلك أذونات القراءة/الكتابة لكل من مسارات المصدر والإخراج.  
 - **المسجل غير موصول:** معامل `RedactorSettings(logger)` أساسي؛ إهماله يعطل التسجيل المخصص.
 
 ## التطبيقات العملية
-1. **تقارير الامتثال:** تصدير سجلات السجل إلى CSV أو قاعدة بيانات لسجلات التدقيق.  
-2. **تتبع الأخطاء:** تحديد الملفات المشكلة بسرعة عبر فحص مخرجات `LogError`.  
+1. **تقارير الامتثال:** تصدير سجلات السجل إلى CSV أو قاعدة بيانات لسلاسل التدقيق.  
+2. **تتبع الأخطاء:** تحديد الملفات المسببة للمشكلات بسرعة عبر فحص مخرجات `LogError`.  
 3. **أتمتة سير العمل:** تشغيل عمليات لاحقة (مثل إبلاغ مسؤول الامتثال) عند استدعاء `LogWarning`.
 
 ## اعتبارات الأداء
-- **تخلص من التدفقات بسرعة** لتحرير الذاكرة، خاصةً عند معالجة دفعات كبيرة.  
-- **راقب وحدة المعالجة المركزية والذاكرة** أثناء الإخفاءات الضخمة؛ فكر في معالجة المستندات بشكل متوازي مع مزامنة دقيقة للمسجل.  
-- **ابقَ محدثًا:** الإصدارات الأحدث من GroupDocs.Redaction غالبًا ما تتضمن تحسينات في الأداء وإضافات لسجلات إضافية.
+- **إغلاق التدفقات فورًا** لتحرير الذاكرة، خاصة عند معالجة دفعات كبيرة.  
+- **مراقبة CPU والذاكرة** أثناء عمليات الإخفاء الضخمة؛ فكر في معالجة المستندات بالتوازي مع مزامنة المسجل بعناية.  
+- **ابق محدثًا:** الإصدارات الأحدث من GroupDocs.Redaction غالبًا ما تتضمن تحسينات أداء وإضافات لسجلات إضافية.
 
 ## الخلاصة
 
@@ -155,19 +217,19 @@ using (Stream stream = File.Open(sourceFile, FileMode.Open, FileAccess.ReadWrite
 ## الأسئلة المتكررة
 
 **س: ما هو هدف التسجيل المخصص مع GroupDocs.Redaction؟**  
-ج: يساعد التسجيل المخصص في تتبع وإدارة الإخفاءات للامتثال، وتتبع الأخطاء، وتحسين سير العمل.
+A: التسجيل المخصص يلتقط أحداث الإخفاء التفصيلية، يلبي متطلبات التدقيق، ويسهل استكشاف الأخطاء من خلال كشف الأخطاء والتحذيرات في الوقت الحقيقي.
 
 **س: كيف أتعامل مع الأخطاء باستخدام مسجل مخصص؟**  
-ج: نفّذ `LogError` في فئة `CustomLogger` الخاصة بك؛ علم `HasErrors` يتيح لك إيقاف المعالجة إذا لزم الأمر.
+A: نفّذ `LogError` في فئة `CustomLogger` الخاصة بك؛ علامة `HasErrors` تتيح لك إيقاف المعالجة إذا تم اكتشاف مشكلة حرجة.
 
 **س: هل يمكن دمج التسجيل المخصص مع أنظمة أخرى؟**  
-ج: نعم، يمكنك توجيه رسائل السجل إلى أنظمة CRM أو ERP أو أدوات المراقبة المركزية عن طريق توسيع طرق المسجل.
+A: نعم—يمكنك توجيه رسائل السجل إلى CRM أو ERP أو أدوات مراقبة مركزية عبر توسيع طرق المسجل.
 
-**س: ما هي بعض المشكلات الشائعة عند تنفيذ التسجيل المخصص؟**  
-ج: تنفيذ طرق غير صحيح، فقدان `RedactorSettings(logger)`، ومشكلات صلاحيات الملفات هي الأكثر شيوعًا.
+**س: ما هي المشكلات الشائعة عند تنفيذ التسجيل المخصص؟**  
+A: غياب تجاوزات الطرق، نسيان تمرير `RedactorSettings(logger)`، وعدم كفاية أذونات الملفات هي أكثر المشكلات شيوعًا.
 
 **س: كيف يحسن التسجيل المخصص سير عمل إخفاء المستندات؟**  
-ج: السجلات التفصيلية توفر رؤية في الوقت الحقيقي، تبسط استكشاف الأخطاء، وتلبي متطلبات التدقيق.
+A: السجلات التفصيلية توفر رؤية في الوقت الحقيقي، تُبسّط عملية تصحيح الأخطاء، وتولد سلاسل تدقيق مطلوبة من قبل اللوائح مثل GDPR و HIPAA.
 
 ## الموارد
 
@@ -177,6 +239,14 @@ using (Stream stream = File.Open(sourceFile, FileMode.Open, FileAccess.ReadWrite
 
 ---
 
-**آخر تحديث:** 2026-03-28  
-**تم الاختبار مع:** GroupDocs.Redaction 23.11 لـ .NET  
-**المؤلف:** GroupDocs
+**آخر تحديث:** 2026-10-01  
+**تم الاختبار مع:** GroupDocs.Redaction 23.11 for .NET  
+**المؤلف:** GroupDocs  
+
+---
+
+## الدروس ذات الصلة
+
+- [كيفية تحميل مستند باستخدام GroupDocs.Redaction لـ .NET](/redaction/net/document-loading/)
+- [كيفية تصدير المستندات المُخفية باستخدام GroupDocs.Redaction .NET](/redaction/net/document-saving/)
+- [تنفيذ إخفاء المستند باستخدام GroupDocs.Redaction .NET&#58; دليل خطوة بخطوة](/redaction/net/getting-started/implement-document-redaction-groupdocs-redaction-net/)
