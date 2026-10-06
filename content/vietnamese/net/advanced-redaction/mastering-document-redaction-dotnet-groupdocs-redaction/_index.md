@@ -1,55 +1,116 @@
 ---
-date: '2026-04-01'
-description: Tìm hiểu cách xóa thông tin trong tài liệu .net bằng GroupDocs.Redaction.
-  Hướng dẫn này bao gồm các trình xử lý định dạng tùy chỉnh, việc xóa cụm từ chính
-  xác và cách xóa an toàn các hợp đồng pháp lý.
+date: '2026-10-06'
+description: Tìm hiểu cách xóa thông tin nhạy cảm các hợp đồng pháp lý .net bằng GroupDocs.Redaction.
+  Hướng dẫn này bao gồm custom format handlers, exact‑phrase redactions và secure
+  processing các tài liệu nhạy cảm.
 keywords:
-- redact documents .net
-- redact legal contracts
+- redact legal contracts .net
 - GroupDocs.Redaction custom handler
-title: Cách xóa thông tin nhạy cảm tài liệu .net với GroupDocs.Redaction – Hướng dẫn
-  từng bước
+- .NET document redaction
+- secure PDF redaction
+- legal document privacy
+lastmod: '2026-10-06'
+og_description: Tìm hiểu cách xóa thông tin nhạy cảm các hợp đồng pháp lý .net bằng
+  GroupDocs.Redaction. Thực hiện step‑by‑step instructions, custom format handlers
+  và exact‑phrase redaction để secure processing tài liệu.
+og_image_alt: Developer guide showing .NET code for redacting legal contracts with
+  GroupDocs.Redaction
+og_title: Cách xóa thông tin nhạy cảm các hợp đồng pháp lý .net với GroupDocs.Redaction
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-06'
+  description: Learn how to redact legal contracts .net using GroupDocs.Redaction.
+    This guide covers custom format handlers, exact‑phrase redactions, and secure
+    processing of sensitive documents.
+  headline: How to redact legal contracts .net with GroupDocs.Redaction
+  type: TechArticle
+- description: Learn how to redact legal contracts .net using GroupDocs.Redaction.
+    This guide covers custom format handlers, exact‑phrase redactions, and secure
+    processing of sensitive documents.
+  name: How to redact legal contracts .net with GroupDocs.Redaction
+  steps:
+  - name: define configuration
+    text: '`RedactorConfiguration` holds the settings that guide the redaction engine.
+      - **ExtensionFilter** – the file extension to handle. - **DocumentType** – the
+      custom document class that implements the processing logic.'
+  - name: register format handler
+    text: '`AvailableFormats` is the collection that the `Redactor` checks when opening
+      a file. Now any `.dump` file opened by the `Redactor` will be processed using
+      `CustomTextualDocument`.'
+  - name: initialize redactor
+    text: '`Redactor` loads the target document and prepares it for redaction operations.'
+  - name: apply exact‑phrase redaction
+    text: '`ExactPhraseRedaction` is the method that searches for a literal string
+      and replaces it according to the supplied `ReplacementOptions`. - **"dolor"**
+      – the phrase you want to redact (replace with your own term). - **false** –
+      case‑insensitive search; set to `true` for case‑sensitive matching. - **Re'
+  - name: save changes
+    text: '`SaveOptions` controls how the redacted file is written to disk or streamed
+      back to the caller. `outputFile` now contains the path to the newly saved, redacted
+      document.'
+  type: HowTo
+- questions:
+  - answer: It’s a configuration that tells GroupDocs.Redaction how to interpret and
+      process non‑standard file types, enabling redaction on proprietary formats.
+    question: What is a custom format handler?
+  - answer: Yes. Exact‑phrase redaction preserves the original metadata, keeping the
+      document’s audit trail intact.
+    question: Can I apply redactions without altering document metadata?
+  - answer: A free trial is available, but a purchased license is required for full‑feature,
+      production‑level use.
+    question: Is GroupDocs.Redaction free to use?
+  - answer: Setting the flag to `true` restricts matches to the exact case; `false`
+      allows case‑insensitive matching, which can catch more variations.
+    question: How does case sensitivity affect redaction results?
+  - answer: Absolutely. With a valid commercial license you can embed redaction capabilities
+      in any .NET‑based product.
+    question: Can I use GroupDocs.Redaction in commercial applications?
+  type: FAQPage
+tags:
+- redact legal contracts
+- GroupDocs.Redaction
+- .NET document processing
+- data privacy
+- legal compliance
+title: Cách xóa thông tin nhạy cảm các hợp đồng pháp lý .net với GroupDocs.Redaction
 type: docs
 url: /vi/net/advanced-redaction/mastering-document-redaction-dotnet-groupdocs-redaction/
 weight: 1
 ---
 
-# Làm Chủ Việc Che Đậy Tài Liệu trong .NET Sử Dụng GroupDocs.Redaction
+# Làm chủ việc xóa thông tin tài liệu trong .NET bằng GroupDocs.Redaction
 
-## Giới thiệu
-Trong thế giới dựa trên dữ liệu ngày nay, khả năng **redact documents .net** nhanh chóng và an toàn là một kỹ năng cần có cho bất kỳ nhà phát triển nào làm việc với thông tin nhạy cảm. Cho dù bạn đang bảo vệ chi tiết khách hàng trong hợp đồng pháp lý, bảo vệ dữ liệu bệnh nhân trong hồ sơ y tế, hay ẩn các con số tài chính trong báo cáo, một giải pháp che đậy đáng tin cậy sẽ giúp ứng dụng của bạn tuân thủ và bảo vệ quyền riêng tư của người dùng.  
+Trong thế giới hiện nay dựa trên dữ liệu, khả năng **redact legal contracts .net** nhanh chóng và an toàn là một kỹ năng cần có cho bất kỳ nhà phát triển nào xử lý thông tin nhạy cảm. Cho dù bạn đang bảo vệ chi tiết khách hàng trong các hợp đồng pháp lý, bảo vệ dữ liệu bệnh nhân trong hồ sơ y tế, hoặc ẩn các con số tài chính trong báo cáo, một giải pháp xóa thông tin đáng tin cậy sẽ giúp ứng dụng của bạn tuân thủ và bảo vệ quyền riêng tư của người dùng.
 
-GroupDocs.Redaction for .NET cung cấp cho bạn một API đầy đủ tính năng cho phép đăng ký trình xử lý định dạng tùy chỉnh và áp dụng việc che đậy cụm từ chính xác mà không cần chuyển đổi định dạng tệp gốc. Trong hướng dẫn này, chúng tôi sẽ trình bày mọi thứ bạn cần biết để **redact documents .net** một cách hiệu quả, từ cài đặt đến các trường hợp sử dụng thực tế.
+GroupDocs.Redaction for .NET cung cấp một API đầy đủ tính năng cho phép bạn đăng ký trình xử lý định dạng tùy chỉnh và áp dụng việc xóa thông tin theo cụm từ chính xác mà không cần chuyển đổi định dạng tệp gốc. Trong hướng dẫn này, chúng tôi sẽ trình bày mọi thứ bạn cần biết để **redact legal contracts .net** một cách hiệu quả, từ cài đặt đến các trường hợp sử dụng thực tế.
 
-### Câu trả lời nhanh
-- **Thư viện nào cho phép che đậy .NET?** GroupDocs.Redaction for .NET  
-- **Tôi có thể che đậy hợp đồng pháp lý không?** Có – sử dụng che đậy cụm từ chính xác để nhắm mục tiêu các điều khoản hợp đồng.  
-- **Tôi có cần giấy phép cho môi trường sản xuất không?** Cần một giấy phép thương mại để sử dụng đầy đủ tính năng.  
-- **Các phiên bản .NET nào được hỗ trợ?** .NET Framework 4.5+, .NET Core 3.1+, .NET 5/6+.  
-- **Siêu dữ liệu của tài liệu gốc có được giữ nguyên không?** Có, che đậy cụm từ chính xác giữ nguyên siêu dữ liệu.
+## Câu trả lời nhanh
+- **Thư viện nào cho phép xóa thông tin .NET?** GroupDocs.Redaction for .NET.  
+- **Tôi có thể xóa thông tin hợp đồng pháp lý không?** Có – sử dụng xóa thông tin theo cụm từ chính xác để nhắm mục tiêu các điều khoản hợp đồng một cách chính xác.  
+- **Tôi có cần giấy phép cho môi trường sản xuất không?** Cần giấy phép thương mại để sử dụng đầy đủ tính năng.  
+- **Các phiên bản .NET nào được hỗ trợ?** .NET Framework 4.5+, .NET Core 3.1+, .NET 5/6+.  
+- **Siêu dữ liệu tài liệu gốc có được giữ nguyên không?** Có, xóa thông tin theo cụm từ chính xác giữ nguyên siêu dữ liệu.
 
-## “redact documents .net” là gì?
-Che đậy tài liệu .net có nghĩa là tìm kiếm và loại bỏ hoặc che khuất văn bản nhạy cảm trong một tệp một cách lập trình, trong khi giữ phần còn lại của tài liệu không thay đổi. GroupDocs.Redaction cung cấp một API sạch sẽ, hiệu suất cao để thực hiện việc này trực tiếp trên PDF, tệp Word, văn bản thuần và nhiều định dạng khác.
+## “redact legal contracts .net” là gì?
+**Redact legal contracts .net** có nghĩa là tìm kiếm và che giấu văn bản bí mật trong một tệp hợp đồng một cách lập trình, trong khi để lại phần còn lại của tài liệu không thay đổi. GroupDocs.Redaction cung cấp một API sạch sẽ, hiệu suất cao để thực hiện việc này trực tiếp trên PDF, tệp Word, văn bản thuần và nhiều định dạng khác.
 
-## Tại sao nên sử dụng GroupDocs.Redaction để che đậy hợp đồng pháp lý?
-- **Precision** – Nhắm mục tiêu các cụm từ hoặc mẫu chính xác, lý tưởng cho các điều khoản hợp đồng.  
-- **No format conversion** – Giữ nguyên bố cục và siêu dữ liệu gốc, điều này quan trọng cho việc tuân thủ pháp lý.  
-- **Scalable** – Xử lý hàng loạt hợp đồng lớn mà không tiêu tốn quá nhiều bộ nhớ.  
+## Tại sao nên sử dụng GroupDocs.Redaction để xóa thông tin hợp đồng pháp lý?
+GroupDocs.Redaction hỗ trợ **hơn 50 định dạng đầu vào và đầu ra** — bao gồm PDF, DOCX, TXT và các loại hình ảnh — và có thể xử lý các hợp đồng hàng trăm trang mà không cần tải toàn bộ tệp vào bộ nhớ. Động cơ chính xác của nó cho phép bạn nhắm mục tiêu các cụm từ chính xác hoặc mẫu biểu thức chính quy, giữ nguyên bố cục và siêu dữ liệu gốc, điều này rất quan trọng cho việc tuân thủ pháp lý và theo dõi kiểm toán.
 
 ## Yêu cầu trước
-Trước khi bắt đầu, hãy chắc chắn bạn có những thứ sau:
+Trước khi bắt đầu, hãy chắc chắn rằng bạn có những thứ sau:
 
 ### Thư viện và phụ thuộc cần thiết
 - **GroupDocs.Redaction for .NET** – cài đặt qua .NET CLI hoặc NuGet Package Manager.  
-- **C# Development Environment** – Visual Studio (Community hoặc cao hơn) được khuyến nghị.
+- **Môi trường phát triển C#** – Visual Studio (Community hoặc cao hơn) được khuyến nghị.
 
-### Yêu cầu cài đặt môi trường
-- .NET Framework 4.5+ **or** .NET Core/5+/6+.  
+### Yêu cầu thiết lập môi trường
+- .NET Framework 4.5+ **hoặc** .NET Core/5+/6+.  
 - Quyền quản trị trên máy để cài đặt gói NuGet (nếu cần).
 
-### Kiến thức tiên quyết
-- Cú pháp C# cơ bản và cấu trúc dự án.  
-- Quen thuộc với các khái niệm xử lý tài liệu (ví dụ: luồng tệp, tìm kiếm văn bản).
+### Kiến thức yêu cầu
+- Kiến thức cơ bản về cú pháp C# và cấu trúc dự án.  
+- Quen thuộc với các khái niệm xử lý tài liệu như luồng tệp và tìm kiếm văn bản.
 
 ## Cài đặt GroupDocs.Redaction cho .NET
 Để bắt đầu sử dụng GroupDocs.Redaction, bạn cần thêm thư viện vào dự án của mình.
@@ -65,32 +126,33 @@ dotnet add package GroupDocs.Redaction
 Install-Package GroupDocs.Redaction
 ```
 
-Hoặc trong giao diện UI của NuGet Package Manager trong Visual Studio, tìm kiếm **"GroupDocs.Redaction"** và cài đặt phiên bản mới nhất.
+Ngoài ra, trong giao diện UI của NuGet Package Manager trong Visual Studio, tìm kiếm **"GroupDocs.Redaction"** và cài đặt phiên bản mới nhất.
 
 ### Nhận giấy phép
-- **Free Trial** – Đánh giá các tính năng cốt lõi mà không cần giấy phép.  
-- **Temporary License** – Nhận khóa có thời hạn để thử nghiệm đầy đủ tính năng.  
-- **Purchase** – Mua giấy phép thương mại cho triển khai sản xuất.
+- **Dùng thử miễn phí** – đánh giá các tính năng cốt lõi mà không cần giấy phép.  
+- **Giấy phép tạm thời** – nhận khóa có thời hạn để thử nghiệm đầy đủ tính năng.  
+- **Mua** – nhận giấy phép thương mại cho triển khai sản xuất.
 
 **Khởi tạo cơ bản:**  
+`Redactor` là lớp cốt lõi điều phối các hoạt động xóa thông tin trên tài liệu.  
 ```csharp
 using GroupDocs.Redaction;
 
 // Initialize Redactor with file path
 Redactor redactor = new Redactor("path/to/your/document");
 ```
-Đoạn mã này cho thấy cách tạo một thể hiện `Redactor`, điểm vào cho tất cả các thao tác che đậy.
+Đoạn mã này cho thấy cách tạo một thể hiện `Redactor`, điểm vào cho tất cả các hoạt động xóa thông tin.
 
 ## Hướng dẫn triển khai
-Chúng tôi sẽ chia triển khai thành hai tính năng cốt lõi: **Custom Format Handler Registration** và **Exact Phrase Redaction**. Cả hai đều cần thiết khi bạn cần **redact documents .net** chứa các định dạng độc quyền hoặc văn bản thuần.
+Chúng tôi sẽ chia triển khai thành hai tính năng cốt lõi: **đăng ký trình xử lý định dạng tùy chỉnh** và **xóa thông tin theo cụm từ chính xác**. Cả hai đều thiết yếu khi bạn cần **redact legal contracts .net** chứa các định dạng sở hữu hoặc văn bản thuần.
 
-### Tính năng 1: Đăng ký Trình xử lý Định dạng Tùy chỉnh
+### Tính năng 1: đăng ký trình xử lý định dạng tùy chỉnh
 #### Tổng quan
-Đăng ký một trình xử lý định dạng tùy chỉnh cho GroupDocs.Redaction cách xử lý các loại tệp không chuẩn (ví dụ: `.dump`). Điều này đặc biệt hữu ích khi bạn cần **redact legal contracts** được lưu trong định dạng văn bản tùy chỉnh.
+Việc đăng ký một trình xử lý định dạng tùy chỉnh cho GroupDocs.Redaction biết cách xử lý các loại tệp không chuẩn (ví dụ, `.dump`). Điều này đặc biệt hữu ích khi bạn cần **redact legal contracts** được lưu trong định dạng văn bản tùy chỉnh.
 
 #### Các bước triển khai
-##### Bước 1: Định nghĩa Cấu hình  
-Thiết lập các tham số cấu hình cần thiết cho GroupDocs.Redaction.
+##### Bước 1: định nghĩa cấu hình  
+`RedactorConfiguration` chứa các cài đặt hướng dẫn động cơ xóa thông tin.  
 ```csharp
 using System;
 using GroupDocs.Redaction.Configuration;
@@ -105,20 +167,20 @@ var config = new DocumentFormatConfiguration()
 - **ExtensionFilter** – phần mở rộng tệp cần xử lý.  
 - **DocumentType** – lớp tài liệu tùy chỉnh thực hiện logic xử lý.
 
-##### Bước 2: Đăng ký Trình xử lý Định dạng  
-Thêm cấu hình của bạn vào danh sách các định dạng khả dụng.
+##### Bước 2: đăng ký trình xử lý định dạng  
+`AvailableFormats` là tập hợp mà `Redactor` kiểm tra khi mở tệp.  
 ```csharp
 RedactorConfiguration.GetInstance().AvailableFormats.Add(config);
 ```
-Bây giờ bất kỳ tệp `.dump` nào được mở bởi `Redactor` sẽ được xử lý bằng `CustomTextualDocument`.
+Bây giờ bất kỳ tệp `.dump` nào được `Redactor` mở sẽ được xử lý bằng `CustomTextualDocument`.
 
-### Tính năng 2: Ứng dụng Che Đậy
+### Tính năng 2: áp dụng xóa thông tin
 #### Tổng quan
-Che đậy cụm từ chính xác cho phép bạn xác định và che khuất các chuỗi cụ thể (như một điều khoản hợp đồng) mà không thay đổi phần còn lại của tài liệu.
+Xóa thông tin theo cụm từ chính xác cho phép bạn xác định và che giấu các chuỗi cụ thể (như một điều khoản hợp đồng) mà không làm thay đổi phần còn lại của tài liệu.
 
 #### Các bước triển khai
-##### Bước 1: Khởi tạo Redactor  
-Tải tài liệu của bạn bằng thể hiện `Redactor`.
+##### Bước 1: khởi tạo redactor  
+`Redactor` tải tài liệu mục tiêu và chuẩn bị cho các hoạt động xóa thông tin.  
 ```csharp
 using GroupDocs.Redaction;
 
@@ -129,57 +191,57 @@ using (Redactor redactor = new Redactor(sourceFile))
 }
 ```
 
-##### Bước 2: Áp dụng Che Đậy Cụm Từ Chính Xác  
-Sử dụng `ExactPhraseRedaction` để thay thế văn bản mục tiêu.
+##### Bước 2: áp dụng xóa thông tin theo cụm từ chính xác  
+`ExactPhraseRedaction` là phương thức tìm kiếm một chuỗi nguyên văn và thay thế nó theo `ReplacementOptions` được cung cấp.  
 ```csharp
 redactor.Apply(new ExactPhraseRedaction("dolor", false, new ReplacementOptions("[redacted]")));
 ```
-- **"dolor"** – cụm từ bạn muốn che đậy (thay bằng thuật ngữ của bạn).  
+- **"dolor"** – cụm từ bạn muốn xóa (thay bằng thuật ngữ của bạn).  
 - **false** – tìm kiếm không phân biệt chữ hoa/thường; đặt thành `true` để khớp phân biệt chữ hoa/thường.  
-- **ReplacementOptions** – xác định cách hiển thị văn bản đã che đậy.
+- **ReplacementOptions** – xác định cách hiển thị văn bản đã xóa.
 
-##### Bước 3: Lưu Thay Đổi  
-Lưu lại tệp đã che đậy, tùy chọn thay đổi định dạng.
+##### Bước 3: lưu thay đổi  
+`SaveOptions` kiểm soát cách tệp đã xóa được ghi vào đĩa hoặc truyền lại cho người gọi.  
 ```csharp
 var outputFile = redactor.Save(new SaveOptions(false, "AnyText"));
 ```
-`outputFile` bây giờ chứa đường dẫn tới tài liệu đã che đậy và lưu mới.
+`outputFile` hiện chứa đường dẫn tới tài liệu đã xóa mới được lưu.
 
-## Ứng dụng Thực tiễn
+## Ứng dụng thực tiễn
 GroupDocs.Redaction có thể được tích hợp vào nhiều quy trình làm việc:
 
-1. **Legal Document Management** – Tự động **redact legal contracts** trước khi chia sẻ với bên thứ ba.  
-2. **Healthcare Data Protection** – Che khuất định danh bệnh nhân trong hồ sơ y tế.  
-3. **Financial Reporting** – Ẩn danh thông tin cá nhân và tài chính trong báo cáo.  
-4. **Internal Audits** – Loại bỏ thông tin độc quyền khỏi các tệp kiểm toán trước khi đánh giá bên ngoài.  
+1. **Quản lý tài liệu pháp lý** – tự động **redact legal contracts** trước khi chia sẻ với bên thứ ba.  
+2. **Bảo vệ dữ liệu y tế** – che giấu thông tin nhận dạng bệnh nhân trong hồ sơ y tế.  
+3. **Báo cáo tài chính** – ẩn danh thông tin cá nhân và tài chính trong báo cáo.  
+4. **Kiểm toán nội bộ** – loại bỏ thông tin sở hữu khỏi các tệp kiểm toán trước khi đánh giá bên ngoài.
 
-## Các yếu tố về hiệu năng
-- **Chunk Processing** – Đối với các tệp rất lớn, xử lý chúng thành các đoạn nhỏ hơn để giảm mức sử dụng bộ nhớ.  
-- **Stay Updated** – Các phiên bản mới thường bao gồm tối ưu hoá hiệu năng; hãy giữ cho gói NuGet luôn cập nhật.  
-- **Resource Monitoring** – Giám sát việc sử dụng CPU và RAM trong quá trình che đậy hàng loạt, đặc biệt trên các máy chủ cấu hình thấp.
+## Các cân nhắc về hiệu năng
+- **Xử lý theo khối** – đối với các tệp rất lớn, xử lý chúng thành các đoạn nhỏ hơn để giảm mức sử dụng bộ nhớ.  
+- **Cập nhật thường xuyên** – các bản phát hành mới thường bao gồm tối ưu hoá hiệu năng; giữ cho gói NuGet luôn cập nhật.  
+- **Giám sát tài nguyên** – theo dõi việc sử dụng CPU và RAM trong quá trình xóa hàng loạt, đặc biệt trên các máy chủ cấu hình thấp.
 
 ## Các vấn đề thường gặp và giải pháp
 | Vấn đề | Nguyên nhân | Giải pháp |
 |-------|-------------|----------|
-| **Redaction không được áp dụng** | Cờ phân biệt chữ hoa/thường sai | Đặt tham số thứ ba của `ExactPhraseRedaction` thành `true` để khớp phân biệt chữ hoa/thường. |
-| **Tệp đầu ra bị hỏng** | Sử dụng cấu hình SaveOptions lỗi thời | Sử dụng hàm khởi tạo `SaveOptions` mới nhất như đã trình bày ở trên. |
-| **Custom format không được nhận dạng** | Cấu hình chưa được thêm vào `AvailableFormats` | Đảm bảo `RedactorConfiguration.GetInstance().AvailableFormats.Add(config);` được thực thi trước khi mở tệp. |
+| **Xóa thông tin không được áp dụng** | Cờ phân biệt chữ hoa/thường sai | Đặt tham số thứ ba của `ExactPhraseRedaction` thành `true` để khớp phân biệt chữ hoa/thường. |
+| **Tệp đầu ra bị hỏng** | Sử dụng cấu hình `SaveOptions` lỗi thời | Sử dụng trình khởi tạo `SaveOptions` mới nhất như đã trình bày ở trên. |
+| **Định dạng tùy chỉnh không được nhận dạng** | Cấu hình chưa được thêm vào `AvailableFormats` | Đảm bảo `RedactorConfiguration.GetInstance().AvailableFormats.Add(config);` được thực thi trước khi mở tệp. |
 
 ## Câu hỏi thường gặp
-**Q: Custom format là gì?**  
-A: Đó là một cấu hình cho phép GroupDocs.Redaction hiểu và xử lý các loại tệp không chuẩn, giúp thực hiện che đậy trên các định dạng độc quyền.
+**Q: Trình xử lý định dạng tùy chỉnh là gì?**  
+A: Đó là một cấu hình cho phép GroupDocs.Redaction hiểu và xử lý các loại tệp không chuẩn, cho phép xóa thông tin trên các định dạng sở hữu.
 
-**Q: Tôi có thể áp dụng che đậy mà không thay đổi siêu dữ liệu tài liệu không?**  
-A: Có. Che đậy cụm từ chính xác giữ nguyên siêu dữ liệu gốc, bảo toàn chuỗi kiểm tra của tài liệu.
+**Q: Tôi có thể áp dụng xóa thông tin mà không thay đổi siêu dữ liệu tài liệu không?**  
+A: Có. Xóa thông tin theo cụm từ chính xác giữ nguyên siêu dữ liệu gốc, duy trì chuỗi kiểm toán của tài liệu.
 
-**Q: GroupDocs.Redaction có miễn phí không?**  
-A: Có bản dùng thử miễn phí, nhưng cần mua giấy phép để sử dụng đầy đủ tính năng ở môi trường sản xuất.
+**Q: GroupDocs.Redaction có miễn phí để sử dụng không?**  
+A: Có phiên bản dùng thử miễn phí, nhưng cần mua giấy phép để sử dụng đầy đủ tính năng ở môi trường sản xuất.
 
-**Q: Độ nhạy chữ hoa/thường ảnh hưởng như thế nào đến kết quả che đậy?**  
-A: Đặt cờ thành `true` sẽ chỉ khớp chính xác chữ hoa/thường; `false` cho phép tìm kiếm không phân biệt, giúp bắt được nhiều biến thể hơn.
+**Q: Độ phân biệt chữ hoa/thường ảnh hưởng như thế nào đến kết quả xóa thông tin?**  
+A: Đặt cờ thành `true` sẽ chỉ khớp chính xác chữ hoa/thường; `false` cho phép khớp không phân biệt chữ hoa/thường, có thể bắt được nhiều biến thể hơn.
 
 **Q: Tôi có thể sử dụng GroupDocs.Redaction trong các ứng dụng thương mại không?**  
-A: Chắc chắn. Với giấy phép thương mại hợp lệ, bạn có thể nhúng khả năng che đậy vào bất kỳ sản phẩm .NET nào.
+A: Chắc chắn. Với giấy phép thương mại hợp lệ, bạn có thể nhúng khả năng xóa thông tin vào bất kỳ sản phẩm nào dựa trên .NET.
 
 ## Tài nguyên
 - [Tài liệu GroupDocs.Redaction cho .NET](https://docs.groupdocs.com/redaction/net/)
@@ -191,6 +253,11 @@ A: Chắc chắn. Với giấy phép thương mại hợp lệ, bạn có thể 
 
 ---
 
-**Cập nhật lần cuối:** 2026-04-01  
+**Cập nhật lần cuối:** 2026-10-06  
 **Kiểm tra với:** GroupDocs.Redaction 5.3 for .NET  
 **Tác giả:** GroupDocs
+
+## Hướng dẫn liên quan
+- [Xóa tài liệu nhạy cảm trong .NET bằng GroupDocs.Redaction](/redaction/net/advanced-redaction/master-document-redaction-groupdocs-redaction-net/)
+- [Xóa các cụm từ chính xác trong tài liệu .NET bằng GroupDocs.Redaction](/redaction/net/text-redaction/guide-redact-exact-phrases-groupdocs-redaction-dotnet/)
+- [Xóa tài liệu .NET bằng Streams – Hướng dẫn GroupDocs.Redaction](/redaction/net/document-saving/secure-document-redaction-net-streams-groupdocs-redaction/)
