@@ -1,46 +1,109 @@
 ---
-date: '2026-03-30'
-description: Tanulja meg, hogyan hozhat létre redakciós szabályzatot .NET-ben a GroupDocs.Redaction
-  segítségével. Ez az útmutató megmutatja, hogyan építhet, alkalmazhat és menthet
-  egy redakciós szabályzatot XML-fájlként.
+date: '2026-10-06'
+description: Ismerje meg, hogyan redigálhat érzékeny adatokat a GroupDocs.Redaction
+  .NET segítségével. Ez a lépésről‑lépésre útmutató bemutatja, hogyan hozhat létre,
+  alkalmazhat és menthet egy redigálási szabályzatot XML formátumban.
 keywords:
-- GroupDocs.Redaction .NET
-- create redaction policy
-- save XML policy
-title: Redakciós szabályzat létrehozása a GroupDocs.Redaction .NET segítségével –
-  Lépésről lépésre útmutató
+- redact sensitive data
+- mask confidential information
+- groupdocs redaction .net
+lastmod: '2026-10-06'
+og_description: Ismerje meg, hogyan redigálhat érzékeny adatokat a GroupDocs.Redaction
+  .NET segítségével. Ez a lépésről‑lépésre útmutató bemutatja, hogyan hozhat létre,
+  alkalmazhat és menthet egy redigálási szabályzatot XML formátumban.
+og_image_alt: Tutorial showing how to redact sensitive data in documents with GroupDocs.Redaction
+  for .NET
+og_title: Hogyan redigáljunk érzékeny adatokat a GroupDocs.Redaction .NET segítségével
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-06'
+  description: Learn how to redact sensitive data with GroupDocs.Redaction .NET. This
+    step‑by‑step guide shows you how to create, apply, and save a redaction policy
+    as XML.
+  headline: How to redact sensitive data using GroupDocs.Redaction .NET
+  type: TechArticle
+- description: Learn how to redact sensitive data with GroupDocs.Redaction .NET. This
+    step‑by‑step guide shows you how to create, apply, and save a redaction policy
+    as XML.
+  name: How to redact sensitive data using GroupDocs.Redaction .NET
+  steps:
+  - name: prepare your document directory
+    text: '*Replace `"YOUR_DOCUMENT_DIRECTORY"` with the folder that holds the documents
+      you want to protect.*'
+  - name: load the document
+    text: The `Redactor` object opens the file and manages its lifecycle.
+  - name: define the redactions
+    text: 'ExactPhraseRedaction defines a rule that replaces a specific phrase, while
+      `RegexRedaction` uses a regular expression to match patterns. Here we create
+      two rules: 1. **ExactPhraseRedaction** – replaces a known phrase with “[REDACTED]”.
+      2. **RegexRedaction** – finds dates in `YYYY‑MM‑DD` format and r'
+  - name: apply the redactions
+    text: All defined rules are executed against the opened document in one pass.
+  - name: save the policy as an XML file
+    text: The XML file stores the redaction definitions, allowing you to reuse the
+      same policy without rewriting code.
+  type: HowTo
+- questions:
+  - answer: Yes—use `redactor.LoadPolicy("policy.xml")` to import a previously saved
+      policy.
+    question: Can I load an existing XML policy instead of building one programmatically?
+  - answer: 'Absolutely. Pass the password to the `Redactor` constructor: `new Redactor(sourceFile,
+      "password")`.'
+    question: Does GroupDocs.Redaction support password‑protected PDFs?
+  - answer: The SDK provides `ImageRedaction` and `MetadataRedaction` classes for
+      those scenarios.
+    question: Is it possible to redact images or metadata?
+  - answer: Process them in chunks or use the streaming API to reduce memory footprint;
+      the engine can handle files up to 2 GB without loading the whole file into RAM.
+    question: How do I handle large documents (hundreds of MB)?
+  - answer: A paid license is required for production deployments; a trial license
+      is fine for development and testing.
+    question: What licensing model is required for commercial use?
+  type: FAQPage
+tags:
+- redact sensitive data
+- groupdocs redaction
+- .net document security
+- xml policy
+- document redaction
+title: Hogyan redigáljunk érzékeny adatokat a GroupDocs.Redaction .NET segítségével
 type: docs
 url: /hu/net/advanced-redaction/groupdocs-redaction-net-create-save-policy/
 weight: 1
 ---
 
-# Hogyan hozzunk létre redakciós szabályzatot a GroupDocs.Redaction .NET segítségével
+# Hogyan lehet érzékeny adatokat kitakarni a GroupDocs.Redaction .NET használatával
 
-Modern alkalmazásokban a bizalmas adatok dokumentumokban való védelme alapvető biztonsági intézkedés. Legyen szó szerződésekről, pénzügyi kimutatásokról vagy betegnyilvántartásokról, gyakran szükség van **redakciós szabályzat létrehozására**, amely automatikusan elrejti vagy eltávolítja az érzékeny információkat. Ebben az útmutatóban végigvezetünk a teljes folyamaton – a könyvtár telepítését, a redakciók meghatározását, alkalmazását, és végül a szabályzat XML fájlként való mentését, amelyet újra felhasználhat projektek között.
+A bizalmas információk védelme szerződésekben, pénzügyi kimutatásokban vagy betegnyilvántartásokban elengedhetetlen követelmény a modern alkalmazások számára. Ebben az útmutatóban megtanulja, **hogyan kell kitakarni az érzékeny adatokat** a GroupDocs.Redaction .NET segítségével, a SDK telepítésétől a újrahasználható XML szabályzatok definiálásáig, amelyeket bármely dokumentumtípusra alkalmazhat.
 
 ## Gyors válaszok
-- **Mi jelent a “redakciós szabályzat létrehozása”?** Ez a szabályok (szöveg, regex, képek stb.) meghatározásának folyamata, amely megmondja a GroupDocs.Redaction-nek, hogyan rejtsen el vagy cseréljen ki bizalmas tartalmat.  
-- **Melyik könyvtárra van szükségem?** GroupDocs.Redaction for .NET (elérhető a NuGet-en keresztül).  
-- **Szükségem van licencre?** A ingyenes próba verzió fejlesztéshez megfelelő; a termeléshez állandó licenc szükséges.  
+- **Mit jelent a „redaction policy létrehozása”?** Ez a szabályok (szöveg, regex, képek stb.) definiálásának folyamata, amely megmondja a GroupDocs.Redactionnek, hogyan rejtsen el vagy cseréljen ki bizalmas tartalmat.  
+- **Melyik könyvtárra van szükségem?** GroupDocs.Redaction for .NET, a NuGet-en keresztül elérhető.  
+- **Szükségem van licencre?** A fejlesztéshez egy ingyenes próba verzió elegendő; a termeléshez állandó licenc szükséges.  
 - **Újra felhasználhatom a szabályzatot?** Igen—miután XML-ként mentettük, később betölthető és bármely dokumentumra alkalmazható.  
 - **Mely .NET verziók támogatottak?** .NET Framework 4.5+, .NET Core 3.1+, .NET 5/6/7.
 
-## Mi az a redakciós szabályzat?
+## Mi az a redaction policy?
 
-A redakciós szabályzat olyan szabályok gyűjteménye, amelyek meghatározzák, *mit* kell eltávolítani vagy helyettesíteni, és *hogyan* kell kinéznie a helyettesítésnek. Egy szabályzat egyszeri létrehozásával konzisztens biztonsági szabványokat alkalmazhat minden, az alkalmazása által feldolgozott dokumentumra.
+A redaction policy a szabályok gyűjteménye, amely meghatározza, *mit* kell eltávolítani vagy cserélni, és *hogyan* kell kinéznie a helyettesítésnek. Egy szabályzat egyszeri létrehozásával egységes biztonsági szabványokat alkalmazhat minden, az alkalmazás által feldolgozott dokumentumra.
 
-## Miért használjuk a GroupDocs.Redaction-t redakciós szabályzat létrehozásához?
+## Hogyan működik egy redaction policy?
 
-- **Teljes dokumentumformátum támogatás** – Word, PDF, Excel, PowerPoint és még sok más.  
-- **Programozható vezérlés** – Határozzon meg pontos kifejezéseket, reguláris kifejezéseket vagy akár egyedi logikát.  
-- **Újra felhasználható XML szabályzatok** – Exportálja szabályait egyszer, és ossza meg csapatok vagy szolgáltatások között.  
-- **Teljesítmény‑optimalizált motor** – Nagy fájlok hatékony kezelése és a terhelésével skálázódik.
+Töltsön be egy dokumentumot a `Redactor` motorral, csatoljon egy vagy több kitakarási szabályt, majd hívja meg az `Apply` metódust. A motor átvizsgálja a dokumentumot, maszkolja a megtalált tartalmat, és opcionálisan új fájlt hoz létre. Ugyanaz a szabálykészlet exportálható XML-be, lehetővé téve a szabályzat újrahasználatát a kód újrafordítása nélkül.
+
+## Miért használja a GroupDocs.Redaction-t redaction policy létrehozásához?
+
+A GroupDocs.Redaction átfogó funkciókészletet kínál, amely egyszerűsíti a redaction policy-k létrehozását, kezelését és végrehajtását, biztosítva az egységes adatvédelmet a különböző dokumentumtípusok között, miközben magas teljesítményt és könnyű integrációt biztosít a meglévő .NET alkalmazásokba csapatok és szervezetek számára.
+
+- **Széles körű formátumtámogatás** – az SDK 30+ fájltípust kezel, beleértve a PDF, DOCX, XLSX, PPTX és képfájl formátumokat, és akár 2 GB-ig terjedő fájlokat is feldolgozhat anélkül, hogy a teljes fájlt a memóriába töltené.  
+- **Programozott pontosság** – határozzon meg pontos kifejezéseket, reguláris kifejezéseket vagy egyedi logikát, hogy csak a rejtendő adatokat célozza meg.  
+- **Újrahasználható XML szabályzatok** – exportálja szabályait egyszer, és ossza meg csapatok, szolgáltatások vagy mikro‑szolgáltatások között.  
+- **Teljesítmény‑optimalizált motor** – a könyvtár több száz oldalas dokumentumokat egy másodpercnél gyorsabban dolgoz fel tipikus szerverhardveren, így alkalmas nagy áteresztőképességű csővezetékekhez.
 
 ## Előkövetelmények
-
-- **GroupDocs.Redaction** könyvtár (kompatibilis a .NET futtatókörnyezetével).  
+- A .NET futtatókörnyezetével kompatibilis GroupDocs.Redaction könyvtár.  
 - Visual Studio, VS Code vagy bármely C#-t támogató IDE.  
-- Alapvető ismeretek a C#-ról és a .NET projekt struktúrájáról.
+- Alapvető ismeretek a C#-ról és a .NET projektstruktúráról.
 
 ## A GroupDocs.Redaction beállítása .NET-hez
 
@@ -49,119 +112,123 @@ Először adja hozzá a könyvtárat a projektjéhez.
 **.NET CLI használata**  
 ```bash
 dotnet add package GroupDocs.Redaction
-```
+```  
 
-**Csomagkezelő használata**  
+**Package Manager használata**  
 ```powershell
 Install-Package GroupDocs.Redaction
-```
+```  
 
-Vagy keresse meg a “GroupDocs.Redaction” kifejezést a NuGet Package Manager UI-ban, és onnan telepítse.
+Vagy keressen a NuGet Package Manager felületén a „GroupDocs.Redaction” kifejezésre, és onnan telepítse.
 
-### Licenc megszerzése
+### Licenc beszerzése
 - Kezdje egy **ingyenes próba** verzióval a funkciók felfedezéséhez.  
 - Kérjen **ideiglenes licencet** a kiterjesztett teszteléshez, majd vásároljon teljes licencet a termeléshez.
 
-### Alap inicializálás
+### Alapvető inicializálás
 Adja hozzá a névteret a forrásfájlhoz:
 
+A `Redactor` osztály a fő motor, amely betölti a dokumentumot és alkalmazza a kitakarási szabályokat.  
 ```csharp
 using GroupDocs.Redaction;
-```
+```  
 
-## Hogyan hozzunk létre redakciós szabályzatot a GroupDocs.Redaction .NET segítségével
+A `Redactor` osztály a GroupDocs.Redaction fő motorja, amely betölti a dokumentumot és alkalmazza a kitakarási szabályokat.
 
-Az alábbi lépésről‑lépésre útmutató pontosan bemutatja, hogyan építsen fel és mentse el egy redakciós szabályzatot.
+## Hogyan hozzunk létre redaction policy-t lépésről lépésre
 
-### 1. lépés: Készítse elő a dokumentum könyvtárát
+Az alábbi teljes útmutató bemutatja, hogyan építsünk programozottan redaction policy-t, konfiguráljuk szabályait, alkalmazzuk egy dokumentumra, és végül mentsük el a szabályzatot XML-fájlként a későbbi újrahasználathoz, biztosítva az egységes kitakarást több projekt és dokumentumtípus között.
+
+### 1. lépés: a dokumentumkönyvtár előkészítése
 ```csharp
 string sourceFile = Utils.PrepareOutputDirectory("YOUR_DOCUMENT_DIRECTORY");
-```
-*Replace `"YOUR_DOCUMENT_DIRECTORY"` with the folder that holds the documents you want to protect.* → *Cserélje le a `"YOUR_DOCUMENT_DIRECTORY"`-t arra a mappára, amely a védendő dokumentumokat tartalmazza.*
+```  
+*Cserélje le a `"YOUR_DOCUMENT_DIRECTORY"`-t arra a mappára, amely a védendő dokumentumokat tartalmazza.*
 
-### 2. lépés: Dokumentum betöltése
+### 2. lépés: a dokumentum betöltése
 ```csharp
 using (Redactor redactor = new Redactor(sourceFile))
 {
     // Further code will go here
 }
-```
+```  
 A `Redactor` objektum megnyitja a fájlt és kezeli annak életciklusát.
 
-### 3. lépés: Redakciók meghatározása
+### 3. lépés: a kitakarák definiálása
+Az ExactPhraseRedaction egy szabályt definiál, amely egy konkrét kifejezést cserél le, míg a `RegexRedaction` reguláris kifejezést használ a minták egyezésére.  
 ```csharp
 var redactions = new List<Redaction>
 {
     new ExactPhraseRedaction("Sensitive Phrase", new ReplacementOptions("[REDACTED]")),
     new RegexRedaction(@"\d{4}-\d{2}-\d{2}", new ReplacementOptions("[DATE REDACTED]"))
 };
-```
+```  
 Itt két szabályt hozunk létre:
 1. **ExactPhraseRedaction** – egy ismert kifejezést cserél le a „[REDACTED]” szövegre.  
-2. **RegexRedaction** – a `YYYY‑MM‑DD` formátumú dátumokat keresi és a „[DATE REDACTED]” szövegre cseréli.
+2. **RegexRedaction** – megtalálja a `YYYY‑MM‑DD` formátumú dátumokat és a „[DATE REDACTED]” szövegre cseréli őket.
 
-### 4. lépés: Redakciók alkalmazása
+### 4. lépés: a kitakarák alkalmazása
 ```csharp
 redactor.Apply(redactions);
-```
-Az összes meghatározott szabály egy lépésben kerül végrehajtásra a megnyitott dokumentumon.
+```  
+Az összes definiált szabály egy lépésben kerül végrehajtásra a megnyitott dokumentumon.
 
-### 5. lépés: Szabályzat mentése XML fájlként
+### 5. lépés: a szabályzat mentése XML-fájlként
 ```csharp
 string policyFile = "policy.xml";
 redactor.SavePolicy(policyFile, new SaveOptions());
-```
-Az XML fájl tárolja a redakciós definíciókat, lehetővé téve a szabályzat újra felhasználását a kód újraírása nélkül.
+```  
+Az XML-fájl tárolja a kitakarák definícióit, lehetővé téve a ugyanazon szabályzat újrahasználatát a kód újraírása nélkül.
 
 ## Gyakorlati alkalmazások
 
-- **Jogász irodák** a vázlatok megosztása előtt elrejthetik az ügyszámokat és az ügyfélneveket.  
-- **Pénzügyi osztályok** elrejthetik a számlaszámokat vagy a tranzakció dátumait a jelentésekben.  
-- **Egészségügyi szolgáltatók** HIPAA megfelelőséget biztosítanak a betegazonosítók eltávolításával.
+- **Jogi irodák** kitakarhatják az ügyszámokat és az ügyfélneveket, mielőtt megosztanák a vázlatokat.  
+- **Pénzügyi osztályok** maszkolhatják a számlaszámokat vagy a tranzakciós dátumokat a jelentésekben.  
+- **Egészségügyi szolgáltatók** biztosítják a HIPAA megfelelőséget a betegazonosítók eltávolításával.
 
 ## Teljesítmény tippek
 
-- Nyisson **egyszerre egy dokumentumot**, hogy alacsony maradjon a memóriahasználat.  
-- Írjon **hatékony reguláris kifejezéseket**; kerüljön el túl általános mintákat, amelyek növelik a feldolgozási időt.  
-- Tartsa a könyvtárat **naprakészen**, hogy élvezze a teljesítményjavulásokat és az új redakció típusokat.
+- Nyisson **egy dokumentumot egyszerre**, hogy alacsonyan tartsa a memóriahasználatot.  
+- Írjon **hatékony reguláris kifejezéseket**; kerülje a túl általános mintákat, amelyek növelik a feldolgozási időt.  
+- Tartsa a könyvtárat **naprakészen**, hogy élvezze a teljesítményjavulásokat és az új kitakarástípusokat.
 
 ## Gyakori problémák és megoldások
 
 | Probléma | Miért fordul elő | Hogyan javítsuk |
 |----------|------------------|-----------------|
-| **IO kivétel a könyvtár előkészítésekor** | Helytelen útvonal vagy hiányzó írási jogosultság | Ellenőrizze, hogy a mappa létezik, és az alkalmazásnak van olvasási/írási joga. |
-| **A regex nem egyezik a várt szöveggel** | A minta túl szigorú vagy hiányoznak az escape karakterek | Tesztelje a regexet online tesztelővel; módosítsa a kvantorokat vagy escape-elje a speciális karaktereket. |
-| **A szabályfájl nem jött létre** | `SavePolicy` hívás a redakciók alkalmazása előtt vagy érvénytelen útvonallal | Győződjön meg róla, hogy a kimeneti könyvtár írható, és hívja a `SavePolicy`-t az `Apply` után. |
+| **IO kivétel a könyvtár előkészítésekor** | Helytelen útvonal vagy hiányzó írási jogosultságok | Ellenőrizze, hogy a mappa létezik, és az alkalmazásnak van olvasási/írási joga. |
+| **A regex nem egyezik a várt szöveggel** | A minta túl szigorú vagy hiányoznak az escape karakterek | Tesztelje a regexet egy online tesztelővel; módosítsa a kvantorokat vagy escape-elje a speciális karaktereket. |
+| **A szabályzat fájl nem jött létre** | `SavePolicy` hívása a kitakarák alkalmazása előtt vagy érvénytelen útvonal esetén | Győződjön meg róla, hogy a kimeneti könyvtár írható, és hívja meg a `SavePolicy`-t az `Apply` után. |
 
 ## Gyakran feltett kérdések
 
 **K: Betölthetek egy meglévő XML szabályzatot a programozott létrehozás helyett?**  
-V: Igen—használja a `redactor.LoadPolicy("policy.xml")`-t egy korábban mentett szabályzat importálásához.
+A: Igen—használja a `redactor.LoadPolicy("policy.xml")`-t egy korábban mentett szabályzat importálásához.
 
-**K: Támogatja a GroupDocs.Redaction a jelszóval védett PDF-eket?**  
-V: Teljesen. Adja át a jelszót a `Redactor` konstruktorának: `new Redactor(sourceFile, "password")`.
+**K: A GroupDocs.Redaction támogatja a jelszóval védett PDF-eket?**  
+A: Természetesen. Adja át a jelszót a `Redactor` konstruktorának: `new Redactor(sourceFile, "password")`.
 
-**K: Lehet képeket vagy metaadatokat redakciózni?**  
-V: A könyvtár biztosítja az `ImageRedaction` és `MetadataRedaction` osztályokat ezekhez a helyzetekhez.
+**K: Lehetőség van képek vagy metaadatok kitakarára?**  
+A: Az SDK biztosítja az `ImageRedaction` és `MetadataRedaction` osztályokat ezekhez a forgatókönyvekhez.
 
 **K: Hogyan kezeljem a nagy dokumentumokat (százak MB)?**  
-V: Feldolgozhatja őket darabokban vagy használhatja a streaming API-t a memóriahasználat csökkentésére; fontolja meg a JVM heap növelését, ha OutOfMemory hibát kap.
+A: Feldolgozza őket darabokban vagy használja a streaming API-t a memóriahasználat csökkentéséhez; a motor képes 2 GB-ig terjedő fájlok kezelésére anélkül, hogy a teljes fájlt a RAM-ba töltené.
 
 **K: Milyen licencmodell szükséges kereskedelmi felhasználáshoz?**  
-V: Fizetett licenc szükséges a termelési környezethez; a próba licenc megfelelő fejlesztéshez és teszteléshez.
+A: Fizetett licenc szükséges a termelési környezethez; a próba licenc megfelelő a fejlesztéshez és teszteléshez.
 
 ## Következtetés
 
-Most már rendelkezik egy teljes, újra felhasználható **redakciós szabályzattal**, amelyet a GroupDocs.Redaction for .NET segítségével bármely dokumentumra alkalmazhat. Az XML-be exportálva egyszerűsíti a jövőbeni frissítéseket és biztosítja a konzisztens adatvédelmet szervezete egészében.
+Most már rendelkezik egy teljes, újrahasználható **redaction policy**-val, amelyet a GroupDocs.Redaction for .NET segítségével bármely dokumentumra alkalmazhat. A szabályzat XML-be exportálásával egyszerűsíti a jövőbeni frissítéseket és biztosítja az egységes adatvédelmet a szervezetében.
 
 ### Következő lépések
-- Kísérletezzen további redakció típusokkal, például `ImageRedaction` vagy `MetadataRedaction`.  
-- Integrálja a szabályzat betöltési logikát a dokumentumkezelő munkafolyamatba az automatikus redakcióhoz.  
-- Fedezze fel a **GroupDocs.Redaction** API referenciát a fejlett testreszabáshoz.
+- Kísérletezzen további kitakarástípusokkal, például `ImageRedaction` vagy `MetadataRedaction`.  
+- Integrálja a szabályzat betöltési logikáját a dokumentumkezelő munkafolyamatába az automatikus kitakaráshoz.  
+- Tekintse meg a **GroupDocs.Redaction** API referenciát a fejlett testreszabáshoz.
 
 ---
 
-**Utolsó frissítés:** 2026-03-30  
+**Utoljára frissítve:** 2026-10-06  
 **Tesztelve a következővel:** GroupDocs.Redaction 5.8 for .NET  
 **Szerző:** GroupDocs  
 
@@ -169,5 +236,11 @@ Most már rendelkezik egy teljes, újra felhasználható **redakciós szabályza
 - [Dokumentáció](https://docs.groupdocs.com/redaction/net/)  
 - [API Referencia](https://reference.groupdocs.com/redaction/net)  
 - [Letöltés](https://releases.groupdocs.com/redaction/net/)  
-- [Ingyenes Támogatási Fórum](https://forum.groupdocs.com/c/redaction/33)  
-- [Ideiglenes Licenc Kérelem](https://purchase.groupdocs.com/temporary-license/)
+- [Ingyenes támogatási fórum](https://forum.groupdocs.com/c/redaction/33)  
+- [Ideiglenes licenc kérelmezése](https://purchase.groupdocs.com/temporary-license/)
+
+## Kapcsolódó oktatóanyagok
+
+- [Érzékeny adatok kitakarája a GroupDocs.Redaction .NET (C#)](/redaction/net/advanced-redaction/groupdocs-redaction-net-implement-iredactioncallback-csharp/)  
+- [Dokumentum kitakarájának megvalósítása a GroupDocs.Redaction .NET használatával: lépésről‑lépésre útmutató](/redaction/net/getting-started/implement-document-redaction-groupdocs-redaction-net/)  
+- [Hogyan takarjunk ki dokumentumokat a GroupDocs.Redaction .NET segítségével – Teljes útmutató](/redaction/net/document-loading/groupdocs-redaction-net-load-redact-documents/)

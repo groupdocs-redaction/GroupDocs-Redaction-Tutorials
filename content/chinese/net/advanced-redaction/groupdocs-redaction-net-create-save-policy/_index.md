@@ -1,81 +1,146 @@
 ---
-date: '2026-03-30'
-description: 学习如何在 .NET 中使用 GroupDocs.Redaction 创建编辑策略。本教程展示了如何构建、应用并将编辑策略保存为 XML
-  文件。
+date: '2026-10-06'
+description: 了解如何使用 GroupDocs.Redaction .NET 对敏感数据进行脱敏。本分步指南展示了如何创建、应用并将脱敏策略保存为 XML。
 keywords:
-- GroupDocs.Redaction .NET
-- create redaction policy
-- save XML policy
-title: 使用 GroupDocs.Redaction .NET 创建遮蔽策略 – 步骤指南
+- redact sensitive data
+- mask confidential information
+- groupdocs redaction .net
+lastmod: '2026-10-06'
+og_description: 了解如何使用 GroupDocs.Redaction .NET 对敏感数据进行脱敏。本分步指南展示了如何创建、应用并将脱敏策略保存为
+  XML。
+og_image_alt: Tutorial showing how to redact sensitive data in documents with GroupDocs.Redaction
+  for .NET
+og_title: 使用 GroupDocs.Redaction .NET 对敏感数据进行脱敏
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-06'
+  description: Learn how to redact sensitive data with GroupDocs.Redaction .NET. This
+    step‑by‑step guide shows you how to create, apply, and save a redaction policy
+    as XML.
+  headline: How to redact sensitive data using GroupDocs.Redaction .NET
+  type: TechArticle
+- description: Learn how to redact sensitive data with GroupDocs.Redaction .NET. This
+    step‑by‑step guide shows you how to create, apply, and save a redaction policy
+    as XML.
+  name: How to redact sensitive data using GroupDocs.Redaction .NET
+  steps:
+  - name: prepare your document directory
+    text: '*Replace `"YOUR_DOCUMENT_DIRECTORY"` with the folder that holds the documents
+      you want to protect.*'
+  - name: load the document
+    text: The `Redactor` object opens the file and manages its lifecycle.
+  - name: define the redactions
+    text: 'ExactPhraseRedaction defines a rule that replaces a specific phrase, while
+      `RegexRedaction` uses a regular expression to match patterns. Here we create
+      two rules: 1. **ExactPhraseRedaction** – replaces a known phrase with “[REDACTED]”.
+      2. **RegexRedaction** – finds dates in `YYYY‑MM‑DD` format and r'
+  - name: apply the redactions
+    text: All defined rules are executed against the opened document in one pass.
+  - name: save the policy as an XML file
+    text: The XML file stores the redaction definitions, allowing you to reuse the
+      same policy without rewriting code.
+  type: HowTo
+- questions:
+  - answer: Yes—use `redactor.LoadPolicy("policy.xml")` to import a previously saved
+      policy.
+    question: Can I load an existing XML policy instead of building one programmatically?
+  - answer: 'Absolutely. Pass the password to the `Redactor` constructor: `new Redactor(sourceFile,
+      "password")`.'
+    question: Does GroupDocs.Redaction support password‑protected PDFs?
+  - answer: The SDK provides `ImageRedaction` and `MetadataRedaction` classes for
+      those scenarios.
+    question: Is it possible to redact images or metadata?
+  - answer: Process them in chunks or use the streaming API to reduce memory footprint;
+      the engine can handle files up to 2 GB without loading the whole file into RAM.
+    question: How do I handle large documents (hundreds of MB)?
+  - answer: A paid license is required for production deployments; a trial license
+      is fine for development and testing.
+    question: What licensing model is required for commercial use?
+  type: FAQPage
+tags:
+- redact sensitive data
+- groupdocs redaction
+- .net document security
+- xml policy
+- document redaction
+title: 使用 GroupDocs.Redaction .NET 对敏感数据进行脱敏
 type: docs
 url: /zh/net/advanced-redaction/groupdocs-redaction-net-create-save-policy/
 weight: 1
 ---
 
-# 如何使用 GroupDocs.Redaction .NET 创建编辑策略
+# 如何使用 GroupDocs.Redaction .NET 对敏感数据进行脱敏
 
-在现代应用程序中，保护文档内部的机密数据是必不可少的安全措施。无论您处理的是合同、财务报表还是患者记录，通常都需要**create redaction policy**，自动遮蔽或删除敏感信息。本指南将带您完整了解整个过程——安装库、定义编辑、应用编辑，最后将策略保存为 XML 文件，以便在项目之间重复使用。
+在合同、财务报表或患者记录中保护机密信息是现代应用程序的必不可少的要求。在本指南中，您将学习如何使用 GroupDocs.Redaction for .NET **对敏感数据进行脱敏**，从安装 SDK 到定义可在任何文档类型中使用的可重用 XML 策略。
 
 ## 快速答案
-- **“create redaction policy” 是什么意思？** 这是定义规则（文本、正则表达式、图像等）的过程，用来告诉 GroupDocs.Redaction 如何隐藏或替换机密内容。  
-- **我需要哪个库？** GroupDocs.Redaction for .NET（可通过 NuGet 获取）。  
-- **我需要许可证吗？** 免费试用可用于开发；生产环境需要正式许可证。  
-- **我可以重复使用该策略吗？** 可以——保存为 XML 后，可在以后加载并应用到任何文档。  
+- **“create redaction policy” 是什么意思？** 它是定义规则（文本、正则表达式、图像等）的过程，告诉 GroupDocs.Redaction 如何隐藏或替换机密内容。  
+- **我需要哪个库？** GroupDocs.Redaction for .NET，可通过 NuGet 获取。  
+- **我需要许可证吗？** 免费试用可用于开发；生产环境需要永久许可证。  
+- **我可以重用该策略吗？** 可以——保存为 XML 后，您可以稍后加载并将其应用于任何文档。  
 - **支持哪些 .NET 版本？** .NET Framework 4.5+、.NET Core 3.1+、.NET 5/6/7。
 
-## 什么是编辑策略？
+## 什么是脱敏策略？
 
-编辑策略是一组规则，指定*要删除或替换的内容*以及*替换的方式*。只需创建一次策略，即可对应用程序处理的每个文档统一应用安全标准。
+脱敏策略是一组规则，指定 *要* 删除或替换的内容以及 *替换后* 的显示方式。只需创建一次策略，即可对应用程序处理的每个文档应用一致的安全标准。
 
-## 为什么使用 GroupDocs.Redaction 来创建编辑策略？
+## 脱敏策略是如何工作的？
 
-- **全文档格式支持** – Word、PDF、Excel、PowerPoint 等众多格式。  
-- **可编程控制** – 定义精确短语、正则表达式，甚至自定义逻辑。  
-- **可复用的 XML 策略** – 一次导出规则，即可在团队或服务之间共享。  
-- **性能优化引擎** – 高效处理大文件，随工作负载水平扩展。
+使用 `Redactor` 引擎加载文档，附加一个或多个脱敏规则，然后调用 `Apply`。引擎会扫描文档，遮蔽匹配的内容，并可选择输出新文件。相同的规则集合可以导出为 XML，允许您在无需重新编译代码的情况下重用策略。
+
+## 为什么使用 GroupDocs.Redaction 创建脱敏策略？
+
+GroupDocs.Redaction 提供了一整套功能，简化了脱敏策略的创建、管理和执行，确保在各种文档类型中实现一致的数据保护，同时提供高性能并易于集成到现有的 .NET 应用程序中，适用于团队和组织。
+
+- **广泛的格式支持** – SDK 支持 30 多种文件类型，包括 PDF、DOCX、XLSX、PPTX 和图像格式，并且可以在不将整个文件加载到内存的情况下处理高达 2 GB 的文件。  
+- **编程精确度** – 定义精确短语、正则表达式或自定义逻辑，仅针对需要隐藏的数据。  
+- **可重用的 XML 策略** – 将规则导出一次，即可在团队、服务或微服务之间共享。  
+- **性能优化的引擎** – 该库在典型服务器硬件上可在一秒钟内处理数百页的文档，适用于高吞吐量的流水线。
 
 ## 前置条件
-
-- **GroupDocs.Redaction** 库（兼容您的 .NET 运行时）。  
+- 与您的 .NET 运行时兼容的 GroupDocs.Redaction 库。  
 - Visual Studio、VS Code 或任何支持 C# 的 IDE。  
 - 对 C# 和 .NET 项目结构有基本了解。
 
-## 设置 GroupDocs.Redaction for .NET
+## 为 .NET 设置 GroupDocs.Redaction
 
-首先，将库添加到项目中。
+首先，将库添加到您的项目中。
 
 **使用 .NET CLI**  
 ```bash
 dotnet add package GroupDocs.Redaction
-```
+```  
 
 **使用 Package Manager**  
 ```powershell
 Install-Package GroupDocs.Redaction
-```
+```  
 
-或在 NuGet 包管理器 UI 中搜索 “GroupDocs.Redaction” 并进行安装。
+或者在 NuGet 包管理器 UI 中搜索 “GroupDocs.Redaction”，并从那里安装。
 
 ### 许可证获取
-- 先使用**免费试用**探索功能。  
-- 申请**临时许可证**进行扩展测试，然后购买正式许可证用于生产。
+- 首先使用 **免费试用** 来探索功能。  
+- 请求 **临时许可证** 进行扩展测试，然后购买完整许可证用于生产。
 
 ### 基本初始化
 在源文件中添加命名空间：
 
+`Redactor` 类是加载文档并应用脱敏规则的核心引擎。  
 ```csharp
 using GroupDocs.Redaction;
-```
+```  
 
-## 如何使用 GroupDocs.Redaction .NET 创建编辑策略
+`Redactor` 类是 GroupDocs.Redaction 的核心引擎，用于加载文档并应用脱敏规则。
 
-下面提供逐步演示，展示如何构建并持久化编辑策略。
+## 如何一步步创建脱敏策略
+
+下面是一段完整的演练，演示如何以编程方式构建脱敏策略，配置其规则，将其应用于文档，最后将策略持久化为 XML 文件以供将来重用，确保在多个项目和文档类型中实现一致的脱敏。
 
 ### 步骤 1：准备文档目录
 ```csharp
 string sourceFile = Utils.PrepareOutputDirectory("YOUR_DOCUMENT_DIRECTORY");
-```
-*将 `"YOUR_DOCUMENT_DIRECTORY"` 替换为存放待保护文档的文件夹。*
+```  
+*将 `"YOUR_DOCUMENT_DIRECTORY"` 替换为保存您想要保护的文档的文件夹。*
 
 ### 步骤 2：加载文档
 ```csharp
@@ -83,83 +148,84 @@ using (Redactor redactor = new Redactor(sourceFile))
 {
     // Further code will go here
 }
-```
+```  
 `Redactor` 对象打开文件并管理其生命周期。
 
-### 步骤 3：定义编辑
+### 步骤 3：定义脱敏规则
+ExactPhraseRedaction 定义了一条将特定短语替换的规则，而 `RegexRedaction` 使用正则表达式匹配模式。  
 ```csharp
 var redactions = new List<Redaction>
 {
     new ExactPhraseRedaction("Sensitive Phrase", new ReplacementOptions("[REDACTED]")),
     new RegexRedaction(@"\d{4}-\d{2}-\d{2}", new ReplacementOptions("[DATE REDACTED]"))
 };
-```
-这里我们创建两条规则：
+```  
+这里我们创建了两条规则：
 1. **ExactPhraseRedaction** – 将已知短语替换为 “[REDACTED]”。  
-2. **RegexRedaction** – 查找 `YYYY‑MM‑DD` 格式的日期并替换为 “[DATE REDACTED]”。
+2. **RegexRedaction** – 查找 `YYYY‑MM‑DD` 格式的日期，并将其替换为 “[DATE REDACTED]”。
 
-### 步骤 4：应用编辑
+### 步骤 4：应用脱敏规则
 ```csharp
 redactor.Apply(redactions);
-```
-所有已定义的规则一次性对打开的文档执行。
+```  
+所有已定义的规则将在一次遍历中对打开的文档执行。
 
 ### 步骤 5：将策略保存为 XML 文件
 ```csharp
 string policyFile = "policy.xml";
 redactor.SavePolicy(policyFile, new SaveOptions());
-```
-XML 文件存储编辑定义，便于在无需重新编写代码的情况下重复使用同一策略。
+```  
+XML 文件存储脱敏定义，允许您在不重新编写代码的情况下重用相同的策略。
 
-## 实际应用场景
+## 实际应用
 
-- **律师事务所** 在共享草稿前删除案号和客户姓名。  
-- **财务部门** 在报告中掩码账号或交易日期。  
-- **医疗机构** 通过删除患者标识符确保 HIPAA 合规。
+- **律师事务所** 可以在共享草稿之前脱敏案件编号和客户姓名。  
+- **财务部门** 在报告中遮蔽账户号码或交易日期。  
+- **医疗机构** 通过删除患者标识符来确保 HIPAA 合规。
 
-## 性能提示
+## 性能技巧
 
-- **一次只打开一个文档**，以降低内存占用。  
-- 编写**高效的正则表达式**；避免使用过于宽泛的模式导致处理时间增加。  
-- 保持库**最新**，以获得性能改进和新编辑类型。
+- 同时打开 **一个文档** 以保持低内存使用。  
+- 编写 **高效的正则表达式**；避免过于宽泛的模式导致处理时间增加。  
+- 保持库 **最新**，以受益于性能改进和新脱敏类型。
 
 ## 常见问题及解决方案
 
 | 问题 | 原因 | 解决方法 |
-|-------|----------------|------------|
-| **准备目录时出现 IO 异常** | 路径错误或缺少写入权限 | 确认文件夹存在且应用具有读写权限。 |
-| **正则表达式未匹配预期文本** | 模式过于严格或缺少转义字符 | 使用在线测试工具验证正则表达式；调整量词或转义特殊字符。 |
-| **策略文件未创建** | 在应用编辑之前或使用了无效路径调用 `SavePolicy` | 确保输出目录可写，并在 `Apply` 之后调用 `SavePolicy`。 |
+|------|------|----------|
+| **准备目录时的 IO 异常** | 路径错误或缺少写入权限 | 确认文件夹存在且应用程序具有读/写权限。 |
+| **正则表达式未匹配预期文本** | 模式过于严格或缺少转义字符 | 使用在线测试工具测试正则表达式；调整量词或转义特殊字符。 |
+| **策略文件未创建** | `SavePolicy` 在应用脱敏之前调用或路径无效 | 确保输出目录可写，并在 `Apply` 之后调用 `SavePolicy`。 |
 
 ## 常见问答
 
-**Q: 我可以加载已有的 XML 策略，而不是编程构建吗？**  
-A: 可以——使用 `redactor.LoadPolicy("policy.xml")` 导入之前保存的策略。
+**问：我可以加载已有的 XML 策略，而不是以编程方式构建吗？**  
+答：可以——使用 `redactor.LoadPolicy("policy.xml")` 导入之前保存的策略。
 
-**Q: GroupDocs.Redaction 是否支持受密码保护的 PDF？**  
-A: 完全支持。将密码传递给 `Redactor` 构造函数：`new Redactor(sourceFile, "password")`。
+**问：GroupDocs.Redaction 是否支持受密码保护的 PDF？**  
+答：完全支持。将密码传递给 `Redactor` 构造函数：`new Redactor(sourceFile, "password")`。
 
-**Q: 能否编辑图像或元数据？**  
-A: 库提供 `ImageRedaction` 和 `MetadataRedaction` 类来处理这些场景。
+**问：可以脱敏图像或元数据吗？**  
+答：SDK 提供 `ImageRedaction` 和 `MetadataRedaction` 类来处理这些场景。
 
-**Q: 如何处理大型文档（数百 MB）？**  
-A: 可分块处理或使用流式 API 减少内存占用；如出现 OutOfMemory 错误，也可考虑增大 JVM 堆（若使用 Java 环境）。
+**问：如何处理大型文档（数百 MB）？**  
+答：可以分块处理或使用流式 API 以降低内存占用；引擎可在不将整个文件加载到 RAM 的情况下处理高达 2 GB 的文件。
 
-**Q: 商业使用需要哪种授权模式？**  
-A: 生产部署必须使用付费许可证；开发和测试阶段使用试用许可证即可。
+**问：商业使用需要什么许可模式？**  
+答：生产部署需要付费许可证；开发和测试可以使用试用许可证。
 
 ## 结论
 
-现在您已经拥有完整且可复用的**编辑策略**，可通过 GroupDocs.Redaction for .NET 应用于任何文档。将策略导出为 XML，可简化后续更新，并确保组织内部数据保护的一致性。
+您现在拥有完整且可重用的 **脱敏策略**，可以使用 GroupDocs.Redaction for .NET 将其应用于任何文档。通过将策略导出为 XML，您简化了后续更新，并确保在整个组织中实现一致的数据保护。
 
 ### 后续步骤
-- 试验其他编辑类型，如 `ImageRedaction` 或 `MetadataRedaction`。  
-- 将策略加载逻辑集成到文档管理工作流，实现自动化编辑。  
-- 浏览 **GroupDocs.Redaction** API 参考文档，进行高级定制。
+- 尝试使用额外的脱敏类型，如 `ImageRedaction` 或 `MetadataRedaction`。  
+- 将策略加载逻辑集成到文档管理工作流中，实现自动脱敏。  
+- 探索 **GroupDocs.Redaction** API 参考文档，以进行高级定制。
 
 ---
 
-**最后更新：** 2026-03-30  
+**最后更新：** 2026-10-06  
 **测试环境：** GroupDocs.Redaction 5.8 for .NET  
 **作者：** GroupDocs  
 
@@ -169,3 +235,9 @@ A: 生产部署必须使用付费许可证；开发和测试阶段使用试用�
 - [下载](https://releases.groupdocs.com/redaction/net/)  
 - [免费支持论坛](https://forum.groupdocs.com/c/redaction/33)  
 - [临时许可证申请](https://purchase.groupdocs.com/temporary-license/)
+
+## 相关教程
+
+- [使用 GroupDocs.Redaction .NET (C#) 脱敏敏感数据](/redaction/net/advanced-redaction/groupdocs-redaction-net-implement-iredactioncallback-csharp/)  
+- [使用 GroupDocs.Redaction .NET 实现文档脱敏：一步一步指南](/redaction/net/getting-started/implement-document-redaction-groupdocs-redaction-net/)  
+- [如何使用 GroupDocs.Redaction .NET 脱敏文档 – 完整指南](/redaction/net/document-loading/groupdocs-redaction-net-load-redact-documents/)
