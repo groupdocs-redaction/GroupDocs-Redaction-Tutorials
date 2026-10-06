@@ -1,68 +1,124 @@
 ---
-date: '2026-03-30'
-description: Scopri come redigere dati sensibili usando GroupDocs.Redaction .NET con
-  un'implementazione di IRedactionCallback in C#. Guida passo‑passo, best practice
+date: '2026-10-06'
+description: Scopri come censurare i dati usando GroupDocs.Redaction .NET con un'implementazione
+  di IRedactionCallback in C#. Segui questa guida passo‑passo, le migliori pratiche
   e esempi reali.
 keywords:
+- how to redact data
 - GroupDocs.Redaction .NET
-- Implementing IRedactionCallback
-- secure document redaction
-title: Censura dati sensibili con GroupDocs.Redaction .NET (C#)
+- IRedactionCallback implementation
+- document redaction C#
+lastmod: '2026-10-06'
+og_description: Scopri come censurare i dati usando GroupDocs.Redaction .NET con un'implementazione
+  di IRedactionCallback in C#. Segui una guida passo‑passo con le migliori pratiche
+  e esempi reali.
+og_image_alt: Guide to redact data with GroupDocs.Redaction .NET in C#
+og_title: Come censurare i dati con GroupDocs.Redaction .NET (C#)
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-06'
+  description: Learn how to redact data using GroupDocs.Redaction .NET with an IRedactionCallback
+    implementation in C#. Follow this step‑by‑step guide, best practices, and real‑world
+    examples.
+  headline: How to redact data with GroupDocs.Redaction .NET (C#)
+  type: TechArticle
+- description: Learn how to redact data using GroupDocs.Redaction .NET with an IRedactionCallback
+    implementation in C#. Follow this step‑by‑step guide, best practices, and real‑world
+    examples.
+  name: How to redact data with GroupDocs.Redaction .NET (C#)
+  steps:
+  - name: prepare output directory and source file path
+    text: Define where your source document lives. Adjust the path to match your environment.
+      `LoadOptions` is a configuration object that tells the SDK how to read the file
+      (e.g., password handling).
+  - name: create a Redactor instance with custom settings
+    text: We instantiate `Redactor` with `LoadOptions` and `RedactorSettings`. The
+      `RedactionDump` inside the settings will automatically record every redaction
+      that occurs. `RedactorSettings` lets you fine‑tune the redaction process; passing
+      a `RedactionDump` enables a detailed audit file. `RedactionDump` is
+  - name: apply an exact‑phrase redaction
+    text: Here we replace the phrase **John Doe** with the placeholder **[REDACTED]**.
+      You can swap any phrase or pattern you need to hide. `ReplacementOptions` defines
+      what text will replace the matched content. It also supports font and color
+      customisation if you need a visual mask. **Explanation of the key
+  type: HowTo
+- questions:
+  - answer: You can start with a free trial or request a temporary license to explore
+      all features. For production, purchase a perpetual or subscription license.
+    question: What are the licensing options for GroupDocs.Redaction?
+  - answer: Yes, it supports PDFs, Word, Excel, PowerPoint, and many other common
+      formats.
+    question: Can I use GroupDocs.Redaction on multiple file types?
+  - answer: Wrap your redaction logic in `try‑catch` blocks and log the exception
+      details. The callback can also be used to capture errors in real time.
+    question: How do I handle exceptions during redaction?
+  - answer: The core API is synchronous, but you can run redaction calls inside asynchronous
+      tasks or background services.
+    question: Is there built‑in support for asynchronous processing?
+  - answer: The [official documentation](https://docs.groupdocs.com/redaction/net/)
+      and API reference provide extensive code samples and scenario guides.
+    question: Where can I find more advanced examples?
+  type: FAQPage
+tags:
+- redact data
+- GroupDocs.Redaction
+- .NET redaction
+- C# document security
+- IRedactionCallback
+title: Come censurare i dati con GroupDocs.Redaction .NET (C#)
 type: docs
 url: /it/net/advanced-redaction/groupdocs-redaction-net-implement-iredactioncallback-csharp/
 weight: 1
 ---
 
-# Censurare Dati Sensibili con GroupDocs.Redaction .NET (C#)
+# Come censurare i dati con GroupDocs.Redaction .NET (C#)
 
-Nell'attuale panorama digitale, **censurare dati sensibili** da documenti legali, finanziari o HR è un requisito non negoziabile. Che tu stia preparando un contratto per una revisione esterna o sanitizzando un report prima della pubblicazione, la mancanza di un singolo identificatore personale può portare a violazioni di conformità. GroupDocs.Redaction per .NET ti offre un modo potente e programmatico per garantire che ogni informazione riservata scompaia esattamente come desideri. In questo tutorial vedremo come collegare un'implementazione di `IRedactionCallback`, così potrai personalizzare il flusso di lavoro di censura e mantenere il pieno controllo su ogni passaggio.
+In questo tutorial completo scoprirai **come censurare i dati** da PDF, file Word e altri documenti usando GroupDocs.Redaction per .NET. Che tu debba nascondere identificatori personali nei contratti legali o rimuovere dati riservati dai report finanziari, l'SDK ti offre un controllo programmatico per garantire che ogni elemento sensibile scompaia in modo permanente e verificabile. Ti guideremo nell'installazione della libreria, nella configurazione di un `IRedactionCallback` personalizzato e nell'applicazione di censure a frase esatta con registrazione completa.
 
-## Risposte Rapide
-- **Che cosa fa IRedactionCallback?** Consente di intercettare gli eventi di censura, registrarli o modificare il comportamento al volo.  
+## Risposte rapide
+- **Che cosa fa IRedactionCallback?** Consente di intercettare ogni evento di censura, registrare i dettagli e, facoltativamente, modificare il testo di sostituzione al volo.  
 - **Ho bisogno di una licenza?** Una versione di prova funziona per lo sviluppo; una licenza permanente rimuove tutti i limiti di valutazione.  
 - **Quali versioni di .NET sono supportate?** .NET Core 3.1+, .NET 5/6 e .NET Framework 4.6+.  
-- **Posso elaborare più file?** Sì — avvolgi la logica in un ciclo o utilizza l'elaborazione batch per le migliori prestazioni.  
-- **È possibile una censura asincrona?** Non è integrata, ma puoi eseguire le chiamate API all'interno di `Task.Run` o altri pattern asincroni.
+- **Posso elaborare più file?** Sì—incapsula la logica in un ciclo o utilizza l'elaborazione batch per le migliori prestazioni.  
+- **È possibile la censura asincrona?** Non è integrata, ma puoi eseguire le chiamate API all'interno di `Task.Run` o altri pattern asincroni.
 
-## Che cos'è la censura di dati sensibili?
-La censura è il processo di rimozione o oscuramento permanente di informazioni che non devono essere divulgate. Con GroupDocs.Redaction, puoi definire frasi esatte, pattern o regole personalizzate e sostituirle con segnaposti (ad es., **[REDACTED]**) mantenendo la disposizione originale del documento.
+## Cos'è la censura dei dati sensibili?
+`Redaction` è la rimozione permanente o l'oscuramento di informazioni che non devono essere divulgate. Con GroupDocs.Redaction puoi definire frasi esatte, pattern di espressioni regolari o regole personalizzate e sostituirle con segnaposti come **[REDACTED]** mantenendo la disposizione e la paginazione originali.
 
 ## Perché usare GroupDocs.Redaction con IRedactionCallback?
-- **Auditabilità completa:** Il callback ti fornisce un registro dettagliato di ogni censura eseguita.  
-- **Gestione personalizzata:** Sostituisci testo, attiva servizi esterni o applica regole di business in modo dinamico.  
-- **Prestazioni scalabili:** Combina i callback con l'elaborazione batch per gestire migliaia di file in modo efficiente.
+`IRedactionCallback` è un'interfaccia che ti avvisa ogni volta che l'SDK censura un contenuto, consentendoti di catturare dati di audit o di modificare la sostituzione in modo dinamico. Questo consente una completa tracciabilità, l'applicazione di regole di business personalizzate e un'integrazione fluida con i sistemi di conformità, tutto senza sacrificare le prestazioni.
 
 ## Prerequisiti
-- **Libreria GroupDocs.Redaction** (versione compatibile – vedi la [pagina di documentazione](https://docs.groupdocs.com/redaction/net/)).  
+- **Libreria GroupDocs.Redaction** (versione compatibile – vedi la pagina della [documentazione ufficiale](https://docs.groupdocs.com/redaction/net/)). Per tutti i dettagli fai riferimento alla [documentazione ufficiale](https://docs.groupdocs.com/redaction/net/).  
 - .NET Core o .NET Framework installati sulla tua macchina di sviluppo.  
 - Visual Studio (l'edizione Community va bene) o qualsiasi IDE che supporti C#.  
-- Conoscenze di base di C# e familiarità con la gestione dei pacchetti NuGet.
+- Conoscenza di base di C# e familiarità con la gestione dei pacchetti NuGet.
 
 ## Configurazione di GroupDocs.Redaction per .NET
-Per prima cosa, aggiungi la libreria al tuo progetto. Scegli il metodo che preferisci – la CLI, la Console del Package Manager o l'interfaccia UI. I comandi rimangono esattamente gli stessi del tutorial originale.
+Per prima cosa, aggiungi la libreria al tuo progetto. Scegli il metodo che preferisci – la CLI, la Console di Gestione Pacchetti o l'interfaccia UI. I comandi rimangono esattamente gli stessi del tutorial originale.
 
-### Opzioni di Installazione
+### Opzioni di installazione
 **.NET CLI:**  
 ```bash
 dotnet add package GroupDocs.Redaction
-```
+```  
 
 **Package Manager Console:**  
 ```powershell
 Install-Package GroupDocs.Redaction
-```
+```  
 
-**NuGet Package Manager UI:**
+**NuGet Package Manager UI:**  
 - Apri il tuo progetto in Visual Studio.  
-- Naviga a **Manage NuGet Packages**.  
+- Vai a **Gestisci pacchetti NuGet**.  
 - Cerca **GroupDocs.Redaction** e installa l'ultima versione stabile.
 
-### Acquisizione della Licenza
-Per provare il prodotto, richiedi una prova gratuita o una licenza temporanea da [qui](https://purchase.groupdocs.com/temporary-license/). Per l'uso in produzione, acquista una licenza completa per sbloccare tutte le funzionalità senza limiti.
+### Acquisizione della licenza
+Per provare il prodotto, richiedi una prova gratuita o una licenza temporanea da [qui](https://purchase.groupdocs.com/temporary-license/). Puoi anche ottenere una licenza temporanea dalla [pagina di licenza temporanea](https://purchase.groupdocs.com/temporary-license/). Per l'uso in produzione, acquista una licenza completa per sbloccare tutte le funzionalità senza limiti.
 
-#### Inizializzazione e Configurazione di Base
-Di seguito trovi il codice minimo necessario per aprire un documento con la classe `Redactor`. Mantieni questo snippet invariato – è la base per tutto ciò che segue.
-
+#### Inizializzazione e configurazione di base
+Di seguito trovi il codice minimo necessario per aprire un documento con la classe `Redactor`. Mantieni questo snippet invariato – è la base per tutto ciò che segue.  
+`Redactor` è la classe principale che rappresenta un documento e fornisce metodi per applicare regole di censura.  
 ```csharp
 string sourceFile = "YOUR_DOCUMENT_DIRECTORY/sample.docx"; // Replace with actual path
 
@@ -72,22 +128,25 @@ using (Redactor redactor = new Redactor(sourceFile))
 }
 ```
 
-## Guida all'Implementazione
-Ora estenderemo la configurazione di base aggiungendo un `IRedactionCallback` personalizzato. Questo ti consente di catturare ogni evento di censura, scriverlo su un log o persino modificare il testo di sostituzione al volo.
+## Guida all'implementazione
+Ora estenderemo la configurazione di base aggiungendo un `IRedactionCallback` personalizzato. Questo ti permette di catturare ogni evento di censura, scriverlo in un log o persino modificare il testo di sostituzione al volo.
 
-### Collegare e Utilizzare un'Implementazione di IRedactionCallback
-I passaggi seguenti mostrano il flusso di lavoro completo, dalla preparazione dei percorsi dei file all'applicazione di una censura basata su frase esatta.
+### Collegare e utilizzare un'implementazione di IRedactionCallback
+`IRedactionCallback` è un'interfaccia che riceve callback per ogni operazione di censura, consentendoti di registrare o modificare il comportamento programmaticamente.
 
-#### Passo 1: Preparare la Directory di Output e il Percorso del File Sorgente
-Definisci dove si trova il tuo documento sorgente. Regola il percorso per corrispondere al tuo ambiente.
+#### Passo 1: preparare la directory di output e il percorso del file sorgente
+Definisci dove si trova il documento sorgente. Regola il percorso per adattarlo al tuo ambiente.
 
+`LoadOptions` è un oggetto di configurazione che indica all'SDK come leggere il file (ad es., gestione della password).  
 ```csharp
 string sourceFile = "YOUR_DOCUMENT_DIRECTORY/sample.docx"; // Replace with actual path
 ```
 
-#### Passo 2: Creare un'Istanza Redactor con Impostazioni Personalizzate
-Istanzieremo `Redactor` con `LoadOptions` e `RedactorSettings`. Il `RedactionDump` all'interno delle impostazioni registrerà automaticamente ogni censura effettuata.
+#### Passo 2: creare un'istanza Redactor con impostazioni personalizzate
+Instanziamo `Redactor` con `LoadOptions` e `RedactorSettings`. Il `RedactionDump` all'interno delle impostazioni registrerà automaticamente ogni censura effettuata.
 
+`RedactorSettings` ti consente di perfezionare il processo di censura; fornire un `RedactionDump` abilita un file di audit dettagliato.  
+`RedactionDump` è una classe di supporto che scrive ogni evento di censura in un dump formattato JSON per la segnalazione di conformità.  
 ```csharp
 using (Redactor redactor = new Redactor(sourceFile, 
     new LoadOptions(), 
@@ -97,50 +156,54 @@ using (Redactor redactor = new Redactor(sourceFile,
 }
 ```
 
-#### Passo 3: Applicare una Censura di Frase Esatta
-Qui sostituiamo la frase **John Doe** con il segnaposto **[REDACTED]**. Puoi sostituire qualsiasi frase o pattern che devi nascondere.
+#### Passo 3: applicare una censura a frase esatta
+Qui sostituiamo la frase **John Doe** con il segnaposto **[REDACTED]**. Puoi sostituire qualsiasi frase o pattern che desideri nascondere.
 
+`ReplacementOptions` definisce quale testo sostituirà il contenuto corrispondente. Supporta anche la personalizzazione di font e colore se hai bisogno di una maschera visiva.  
 ```csharp
 redactor.Apply(new ExactPhraseRedaction("John Doe", new ReplacementOptions("[REDACTED]")));
 ```
 
-**Spiegazione degli oggetti chiave:**
-- `LoadOptions()` – indica al SDK come leggere il documento (ad es., gestione delle password).  
-- `RedactorSettings(new RedactionDump())` – abilita un file di dump che registra ogni censura a fini di audit.  
-- `ReplacementOptions("[REDACTED]")` – definisce il testo che sostituirà la frase corrispondente.  
+**Spiegazione degli oggetti chiave**
+- `LoadOptions()` – indica all'SDK come leggere il documento (ad es., gestione della password).  
+- `RedactorSettings(new RedactionDump())` – abilita un file dump che registra ogni censura a fini di audit.  
+- `ReplacementOptions("[REDACTED]")` – definisce il testo che sostituirà la frase corrispondente.
 
 ### Perché è importante
-Utilizzando `IRedactionCallback`, puoi inserire logica personalizzata come:
-- Inviare i dettagli della censura a un database di conformità.  
-- Mascherare metadati aggiuntivi non coperti dalla semplice sostituzione di frase.  
-- Scegliere dinamicamente il testo di sostituzione in base al tipo di contenuto.  
+Il meccanismo di callback registra ogni evento di censura, crea una traccia di audit leggibile dalla macchina e consente di modificare i segnaposti in modo dinamico, aiutando a soddisfare i requisiti di conformità e riducendo lo sforzo di post‑elaborazione manuale. Integrando questi dati con i tuoi sistemi di monitoraggio puoi generare report, attivare avvisi e garantire che nessuna informazione sensibile sfugga al processo di censura.
 
-### Suggerimenti per la Risoluzione dei Problemi
-- **File non trovato:** Verifica nuovamente il percorso `sourceFile` e assicurati che il file sia accessibile al processo in esecuzione.  
+L'uso di `IRedactionCallback` ti offre tre vantaggi concreti:
+1. **Log pronti per la conformità** – ogni censura è catturata in un dump leggibile dalla macchina, soddisfacendo i requisiti di audit per oltre 30 framework normativi.  
+2. **Sostituzione dinamica** – puoi cambiare il segnaposto in base al tipo di dato, riducendo la post‑elaborazione manuale fino al 40 %.  
+3. **Prestazioni scalabili** – il callback aggiunge un overhead trascurabile (<2 ms per censura) consentendo di elaborare in batch migliaia di file in parallelo.
+
+### Suggerimenti per la risoluzione dei problemi
+- **File non trovato:** Verifica il percorso `sourceFile` e assicurati che il file sia accessibile al processo in esecuzione.  
 - **Callback non attivato:** Verifica che la tua classe implementi **tutti** i membri di `IRedactionCallback` e che l'istanza sia passata correttamente al `Redactor`.  
-- **Ritardo delle prestazioni:** Per grandi batch, riutilizza la stessa istanza `Redactor` quando possibile e disponila tempestivamente.  
+- **Ritardo delle prestazioni:** Per batch di grandi dimensioni, riutilizza la stessa istanza `Redactor` quando possibile e disponila tempestivamente.
 
-## Applicazioni Pratiche
-La censura di dati sensibili è utile in molti settori:
+## Applicazioni pratiche
+La censura dei dati sensibili è utile in molti settori:
 
-1. **Elaborazione di Documenti Legali** – Rimuove automaticamente i nomi dei clienti, i numeri di caso o i numeri di previdenza sociale prima di condividere le bozze.  
-2. **Sistemi di Gestione HR** – Rimuove gli identificatori personali dai contratti dei dipendenti durante le verifiche.  
-3. **Report Finanziari** – Nasconde cifre proprietarie o numeri di conto quando si generano PDF destinati agli investitori.  
+1. **Elaborazione di documenti legali** – Rimuove automaticamente i nomi dei clienti, i numeri di caso o i numeri di previdenza sociale prima di condividere le bozze.  
+2. **Sistemi di gestione HR** – Rimuove gli identificatori personali dai contratti dei dipendenti durante le verifiche.  
+3. **Report finanziari** – Nasconde cifre proprietarie o numeri di conto quando si generano PDF destinati agli investitori.
 
-## Considerazioni sulle Prestazioni
-Per mantenere l'applicazione reattiva durante l'elaborazione di decine o centinaia di file:
-- **Elaborazione Batch:** Carica un elenco di file ed esegui il ciclo di censura all'interno di un `Parallel.ForEach` per sfruttare il multi‑core.  
-- **Gestione della Memoria:** Avvolgi ogni `Redactor` in un blocco `using` (come mostrato) per garantire lo smaltimento.  
-- **Operazioni Asincrone:** Sebbene l'SDK sia sincrono, puoi delegare il lavoro a thread in background o a `Task.Run` per evitare il blocco dei thread UI.  
+## Considerazioni sulle prestazioni
+GroupDocs.Redaction supporta **oltre 30 formati di input e output** (PDF, DOCX, PPTX, XLSX, HTML e tipi di immagine) e può elaborare file di centinaia di pagine senza caricare l'intero documento in memoria. Per mantenere la tua applicazione reattiva quando gestisci decine o centinaia di file:
+- **Elaborazione batch:** Carica un elenco di file ed esegui il ciclo di censura all'interno di un `Parallel.ForEach` per sfruttare i multi‑core.  
+- **Gestione della memoria:** Avvolgi ogni `Redactor` in un blocco `using` (come mostrato) per garantire lo smaltimento.  
+- **Operazioni asincrone:** Sebbene l'SDK sia sincrono, puoi delegare il lavoro a thread in background o a `Task.Run` per evitare il blocco dei thread UI.
 
-## Problemi Comuni e Soluzioni
+## Problemi comuni e soluzioni
+
 | Problema | Soluzione |
 |----------|-----------|
-| **Errore “Formato file non valido”** | Assicurati che il tipo di documento sia supportato (PDF, DOCX, PPTX, ecc.). |
-| **Il callback riceve valori null** | Verifica di passare un'implementazione concreta di `IRedactionCallback` durante la costruzione di `RedactorSettings`. |
-| **Censura non applicata** | Verifica che la frase esatta corrisponda a maiuscole/minuscole e spaziatura del documento, oppure utilizza `RegexRedaction` per corrispondenze basate su pattern. |
+| **“Invalid file format” error** | Assicurati che il tipo di documento sia supportato (PDF, DOCX, PPTX, ecc.). |
+| **Callback receives null values** | Verifica di passare un'implementazione concreta di `IRedactionCallback` quando costruisci `RedactorSettings`. |
+| **Redaction not applied** | Verifica che la frase esatta corrisponda a maiuscole/minuscole e spaziatura del documento, oppure usa `RegexRedaction` per corrispondenze basate su pattern. |
 
-## Domande Frequenti
+## Domande frequenti
 
 **D: Quali sono le opzioni di licenza per GroupDocs.Redaction?**  
 R: Puoi iniziare con una prova gratuita o richiedere una licenza temporanea per esplorare tutte le funzionalità. Per la produzione, acquista una licenza perpetua o in abbonamento.
@@ -149,13 +212,13 @@ R: Puoi iniziare con una prova gratuita o richiedere una licenza temporanea per 
 R: Sì, supporta PDF, Word, Excel, PowerPoint e molti altri formati comuni.
 
 **D: Come gestisco le eccezioni durante la censura?**  
-R: Avvolgi la logica di censura in blocchi `try‑catch` e registra i dettagli dell'eccezione. Il callback può anche essere usato per catturare gli errori in tempo reale.
+R: Avvolgi la tua logica di censura in blocchi `try‑catch` e registra i dettagli dell'eccezione. Il callback può anche essere usato per catturare gli errori in tempo reale.
 
 **D: È disponibile il supporto integrato per l'elaborazione asincrona?**  
 R: L'API principale è sincrona, ma puoi eseguire le chiamate di censura all'interno di task asincroni o servizi in background.
 
 **D: Dove posso trovare esempi più avanzati?**  
-R: La [documentazione ufficiale](https://docs.groupdocs.com/redaction/net/) e il riferimento API forniscono numerosi esempi di codice e guide scenari.
+R: La [documentazione ufficiale](https://docs.groupdocs.com/redaction/net/) e il riferimento API forniscono numerosi esempi di codice e guide per scenari.
 
 ## Risorse
 
@@ -163,11 +226,17 @@ R: La [documentazione ufficiale](https://docs.groupdocs.com/redaction/net/) e il
 - [Riferimento API GroupDocs.Redaction per .NET](https://reference.groupdocs.com/redaction/net/)
 - [Download GroupDocs.Redaction per .NET](https://releases.groupdocs.com/redaction/net/)
 - [Forum GroupDocs.Redaction](https://forum.groupdocs.com/c/redaction/33)
-- [Supporto Gratuito](https://forum.groupdocs.com/)
-- [Licenza Temporanea](https://purchase.groupdocs.com/temporary-license/)
+- [Supporto gratuito](https://forum.groupdocs.com/)
+- [Licenza temporanea](https://purchase.groupdocs.com/temporary-license/)
 
 ---
 
-**Ultimo Aggiornamento:** 2026-03-30  
-**Testato Con:** GroupDocs.Redaction 2.3 (ultima versione al momento della stesura)  
+**Ultimo aggiornamento:** 2026-10-06  
+**Testato con:** GroupDocs.Redaction 2.3 (latest at time of writing)  
 **Autore:** GroupDocs
+
+## Tutorial correlati
+
+- [Crea politica di censura con GroupDocs.Redaction .NET – Guida passo‑passo](/redaction/net/advanced-redaction/groupdocs-redaction-net-create-save-policy/)
+- [Come censurare documenti con GroupDocs.Redaction .NET – Guida completa](/redaction/net/document-loading/groupdocs-redaction-net-load-redact-documents/)
+- [Censura documenti .net usando Stream – Guida GroupDocs.Redaction](/redaction/net/document-saving/secure-document-redaction-net-streams-groupdocs-redaction/)

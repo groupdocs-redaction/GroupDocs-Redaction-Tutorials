@@ -1,96 +1,158 @@
 ---
-date: '2026-04-01'
-description: Dowiedz się, jak redagować dokumenty .net przy użyciu GroupDocs.Redaction.
-  Ten samouczek obejmuje obsługę niestandardowych formatów, redakcję dokładnych fraz
-  oraz bezpieczną redakcję umów prawnych.
+date: '2026-10-06'
+description: Dowiedz się, jak redagować umowy prawne .net przy użyciu GroupDocs.Redaction.
+  Ten przewodnik obejmuje custom format handlers, exact‑phrase redactions oraz secure
+  processing of sensitive documents.
 keywords:
-- redact documents .net
-- redact legal contracts
+- redact legal contracts .net
 - GroupDocs.Redaction custom handler
-title: Jak redagować dokumenty .NET przy użyciu GroupDocs.Redaction – przewodnik krok
-  po kroku
+- .NET document redaction
+- secure PDF redaction
+- legal document privacy
+lastmod: '2026-10-06'
+og_description: Dowiedz się, jak redagować umowy prawne .net przy użyciu GroupDocs.Redaction.
+  Postępuj zgodnie z instrukcjami krok po kroku, custom format handlers i exact‑phrase
+  redaction dla secure document processing.
+og_image_alt: Developer guide showing .NET code for redacting legal contracts with
+  GroupDocs.Redaction
+og_title: Jak redagować umowy prawne .net przy użyciu GroupDocs.Redaction
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-06'
+  description: Learn how to redact legal contracts .net using GroupDocs.Redaction.
+    This guide covers custom format handlers, exact‑phrase redactions, and secure
+    processing of sensitive documents.
+  headline: How to redact legal contracts .net with GroupDocs.Redaction
+  type: TechArticle
+- description: Learn how to redact legal contracts .net using GroupDocs.Redaction.
+    This guide covers custom format handlers, exact‑phrase redactions, and secure
+    processing of sensitive documents.
+  name: How to redact legal contracts .net with GroupDocs.Redaction
+  steps:
+  - name: define configuration
+    text: '`RedactorConfiguration` holds the settings that guide the redaction engine.
+      - **ExtensionFilter** – the file extension to handle. - **DocumentType** – the
+      custom document class that implements the processing logic.'
+  - name: register format handler
+    text: '`AvailableFormats` is the collection that the `Redactor` checks when opening
+      a file. Now any `.dump` file opened by the `Redactor` will be processed using
+      `CustomTextualDocument`.'
+  - name: initialize redactor
+    text: '`Redactor` loads the target document and prepares it for redaction operations.'
+  - name: apply exact‑phrase redaction
+    text: '`ExactPhraseRedaction` is the method that searches for a literal string
+      and replaces it according to the supplied `ReplacementOptions`. - **"dolor"**
+      – the phrase you want to redact (replace with your own term). - **false** –
+      case‑insensitive search; set to `true` for case‑sensitive matching. - **Re'
+  - name: save changes
+    text: '`SaveOptions` controls how the redacted file is written to disk or streamed
+      back to the caller. `outputFile` now contains the path to the newly saved, redacted
+      document.'
+  type: HowTo
+- questions:
+  - answer: It’s a configuration that tells GroupDocs.Redaction how to interpret and
+      process non‑standard file types, enabling redaction on proprietary formats.
+    question: What is a custom format handler?
+  - answer: Yes. Exact‑phrase redaction preserves the original metadata, keeping the
+      document’s audit trail intact.
+    question: Can I apply redactions without altering document metadata?
+  - answer: A free trial is available, but a purchased license is required for full‑feature,
+      production‑level use.
+    question: Is GroupDocs.Redaction free to use?
+  - answer: Setting the flag to `true` restricts matches to the exact case; `false`
+      allows case‑insensitive matching, which can catch more variations.
+    question: How does case sensitivity affect redaction results?
+  - answer: Absolutely. With a valid commercial license you can embed redaction capabilities
+      in any .NET‑based product.
+    question: Can I use GroupDocs.Redaction in commercial applications?
+  type: FAQPage
+tags:
+- redact legal contracts
+- GroupDocs.Redaction
+- .NET document processing
+- data privacy
+- legal compliance
+title: Jak redagować umowy prawne .net przy użyciu GroupDocs.Redaction
 type: docs
 url: /pl/net/advanced-redaction/mastering-document-redaction-dotnet-groupdocs-redaction/
 weight: 1
 ---
 
-# Mistrzostwo Redagowania Dokumentów w .NET przy użyciu GroupDocs.Redaction
+# Opanowanie redagowania dokumentów w .NET przy użyciu GroupDocs.Redaction
 
-## Wprowadzenie
-W dzisiejszym świecie napędzanym danymi, umiejętność **redact documents .net** szybko i bezpiecznie jest niezbędna dla każdego programisty pracującego z wrażliwymi informacjami. Niezależnie od tego, czy chronisz dane klientów w umowach prawnych, zabezpieczasz dane pacjentów w rekordach medycznych, czy ukrywasz dane finansowe w raportach, niezawodne rozwiązanie do redagowania zapewnia zgodność aplikacji i integralność prywatności użytkowników.  
+W dzisiejszym świecie napędzanym danymi, umiejętność **redact legal contracts .net** szybka i bezpieczna jest niezbędna dla każdego programisty pracującego z wrażliwymi informacjami. Niezależnie od tego, czy chronisz dane klientów w umowach prawnych, zabezpieczasz informacje pacjentów w dokumentacji medycznej, czy ukrywasz dane finansowe w raportach, niezawodne rozwiązanie do redagowania zapewnia zgodność aplikacji i ochronę prywatności użytkowników.
 
-GroupDocs.Redaction for .NET zapewnia pełnoprawne API, które pozwala rejestrować własne obsługi formatów i stosować redakcję dokładnych fraz bez konwertowania oryginalnego formatu pliku. W tym przewodniku przeprowadzimy Cię przez wszystko, co musisz wiedzieć, aby skutecznie **redact documents .net**, od konfiguracji po praktyczne przypadki użycia.
+GroupDocs.Redaction for .NET oferuje w pełni funkcjonalne API, które pozwala rejestrować własne obsługi formatów i stosować redagowanie dokładnych fraz bez konwertowania pierwotnego formatu pliku. W tym przewodniku przeprowadzimy Cię przez wszystko, co musisz wiedzieć, aby **redact legal contracts .net** skutecznie, od konfiguracji po praktyczne przypadki użycia.
 
-### Szybkie odpowiedzi
-- **Jaką bibliotekę umożliwia redakcję w .NET?** GroupDocs.Redaction for .NET  
-- **Czy mogę redagować umowy prawne?** Tak – użyj redakcji dokładnych fraz, aby celować w klauzule umowy.  
-- **Czy potrzebna jest licencja do produkcji?** Wymagana jest licencja komercyjna, aby uzyskać pełne funkcje.  
-- **Jakie wersje .NET są obsługiwane?** .NET Framework 4.5+, .NET Core 3.1+, .NET 5/6+.  
-- **Czy metadane oryginalnego dokumentu są zachowane?** Tak, redakcja dokładnych fraz zachowuje metadane.
+## Szybkie odpowiedzi
+- **What library enables .NET redaction?** GroupDocs.Redaction for .NET.  
+- **Can I redact legal contracts?** Yes – use exact‑phrase redaction to target contract clauses precisely.  
+- **Do I need a license for production?** A commercial license is required for full‑feature use.  
+- **Which .NET versions are supported?** .NET Framework 4.5+, .NET Core 3.1+, .NET 5/6+.  
+- **Is the original document metadata preserved?** Yes, exact‑phrase redaction keeps metadata intact.
 
-## Co to jest “redact documents .net”?
-Redagowanie dokumentów .net oznacza programowe wyszukiwanie i usuwanie lub maskowanie wrażliwego tekstu w pliku, przy zachowaniu pozostałej części dokumentu niezmienionej. GroupDocs.Redaction zapewnia czyste, wysokowydajne API, które umożliwia to bezpośrednio na plikach PDF, Word, zwykłym tekście i wielu innych formatach.
+## Czym jest „redact legal contracts .net”?
+**Redact legal contracts .net** oznacza programowe znajdowanie i maskowanie poufnego tekstu w pliku umowy, przy jednoczesnym pozostawieniu reszty dokumentu niezmienionej. GroupDocs.Redaction udostępnia czyste, wysokowydajne API do wykonywania tego bezpośrednio na plikach PDF, Word, tekstowych i wielu innych formatach.
 
-## Dlaczego warto używać GroupDocs.Redaction do redagowania umów prawnych?
-- **Precyzja** – Celowanie w dokładne frazy lub wzorce, idealne dla klauzul umownych.  
-- **Brak konwersji formatu** – Zachowanie oryginalnego układu i metadanych, co jest kluczowe dla zgodności prawnej.  
-- **Skalowalność** – Przetwarzanie dużych partii umów bez nadmiernego zużycia pamięci.  
+## Dlaczego używać GroupDocs.Redaction do redagowania legal contracts?
+GroupDocs.Redaction obsługuje **ponad 50 formatów wejściowych i wyjściowych** — w tym PDF, DOCX, TXT oraz typy obrazów — i może przetwarzać wielostronicowe umowy bez ładowania całego pliku do pamięci. Jego silnik precyzji pozwala celować w dokładne frazy lub wzorce wyrażeń regularnych, zachowując oryginalny układ i metadane, co jest kluczowe dla zgodności prawnej i ścieżek audytu.
 
 ## Wymagania wstępne
-Zanim zaczniemy, upewnij się, że masz następujące elementy:
+Zanim przejdziemy dalej, upewnij się, że masz następujące elementy:
 
 ### Wymagane biblioteki i zależności
-- **GroupDocs.Redaction for .NET** – zainstaluj za pomocą .NET CLI lub Menedżera pakietów NuGet.  
-- **Środowisko programistyczne C#** – zalecane jest Visual Studio (Community lub wyższe).
+- **GroupDocs.Redaction for .NET** – instalacja przez .NET CLI lub NuGet Package Manager.  
+- **Środowisko programistyczne C#** – zalecany Visual Studio (Community lub wyższy).
 
 ### Wymagania dotyczące konfiguracji środowiska
-- .NET Framework 4.5+ **or** .NET Core/5+/6+.  
+- .NET Framework 4.5+ **lub** .NET Core/5+/6+.  
 - Uprawnienia administratora na maszynie do instalacji pakietu NuGet (jeśli wymagane).
 
-### Wymagania wiedzy
+### Wymagania wiedzy wstępnej
 - Podstawowa składnia C# i struktura projektu.  
-- Znajomość koncepcji przetwarzania dokumentów (np. strumienie plików, wyszukiwanie tekstu).
+- Znajomość koncepcji przetwarzania dokumentów, takich jak strumienie plików i wyszukiwanie tekstu.
 
-## Konfiguracja GroupDocs.Redaction dla .NET
+## Konfigurowanie GroupDocs.Redaction dla .NET
 Aby rozpocząć korzystanie z GroupDocs.Redaction, musisz dodać bibliotekę do swojego projektu.
 
 **Kroki instalacji:**  
-Using **.NET CLI**, add the package with:
+Używając **.NET CLI**, dodaj pakiet:
 ```bash
 dotnet add package GroupDocs.Redaction
 ```
 
-For those using **Package Manager**, execute:
+Dla użytkowników **Package Manager**, wykonaj:
 ```powershell
 Install-Package GroupDocs.Redaction
 ```
 
-Alternatively, in Visual Studio's NuGet Package Manager UI, search for **"GroupDocs.Redaction"** and install the latest version.
+Alternatywnie, w interfejsie NuGet Package Manager w Visual Studio, wyszukaj **"GroupDocs.Redaction"** i zainstaluj najnowszą wersję.
 
 ### Uzyskanie licencji
-- **Bezpłatna wersja próbna** – Oceń podstawowe funkcje bez licencji.  
-- **Licencja tymczasowa** – Uzyskaj klucz czasowo ograniczony do testowania pełnych funkcji.  
-- **Zakup** – Uzyskaj licencję komercyjną do wdrożeń produkcyjnych.
+- **Free trial** – oceń podstawowe funkcje bez licencji.  
+- **Temporary license** – uzyskaj klucz czasowo ograniczony do pełnego testowania.  
+- **Purchase** – zakup licencję komercyjną do wdrożeń produkcyjnych.
 
-**Basic Initialization:**  
+**Podstawowa inicjalizacja:**  
+`Redactor` jest klasą centralną, która koordynuje operacje redagowania dokumentu.  
 ```csharp
 using GroupDocs.Redaction;
 
 // Initialize Redactor with file path
 Redactor redactor = new Redactor("path/to/your/document");
 ```
-This snippet shows how to create a `Redactor` instance, the entry point for all redaction operations.
+Ten fragment pokazuje, jak utworzyć instancję `Redactor`, punkt wejścia dla wszystkich operacji redagowania.
 
 ## Przewodnik implementacji
-Podzielimy implementację na dwie główne funkcje: **Custom Format Handler Registration** i **Exact Phrase Redaction**. Obie są niezbędne, gdy musisz **redact documents .net**, które zawierają własne lub zwykłe formaty tekstowe.
+Podzielimy implementację na dwie główne funkcje: **rejestrację własnego obsługi formatu** oraz **redagowanie dokładnej frazy**. Obie są niezbędne, gdy musisz **redact legal contracts .net** zawierające własne lub tekstowe formaty.
 
-### Funkcja 1: Rejestracja własnego obsługi formatu
+### Funkcja 1: rejestracja obsługi niestandardowego formatu
 #### Przegląd
-Rejestracja własnego obsługi formatu informuje GroupDocs.Redaction, jak traktować niestandardowe typy plików (np. `.dump`). Jest to szczególnie przydatne, gdy musisz **redact legal contracts** przechowywane w własnym formacie tekstowym.
+Rejestracja własnego obsługi formatu informuje GroupDocs.Redaction, jak traktować niestandardowe typy plików (np. `.dump`). Jest to szczególnie przydatne, gdy trzeba **redact legal contracts** przechowywane w własnym formacie tekstowym.
 
 #### Kroki implementacji
-##### Krok 1: Definicja konfiguracji
-Set up the configuration parameters required by GroupDocs.Redaction.
+##### Krok 1: zdefiniuj konfigurację  
+`RedactorConfiguration` przechowuje ustawienia sterujące silnikiem redagowania.  
 ```csharp
 using System;
 using GroupDocs.Redaction.Configuration;
@@ -102,23 +164,23 @@ var config = new DocumentFormatConfiguration()
     DocumentType = typeof(CustomTextualDocument)
 };
 ```
-- **ExtensionFilter** – rozszerzenie pliku do obsługi.  
+- **ExtensionFilter** – rozszerzenie pliku, które ma być obsłużone.  
 - **DocumentType** – własna klasa dokumentu implementująca logikę przetwarzania.
 
-##### Krok 2: Rejestracja obsługi formatu
-Add your configuration to the list of available formats.
+##### Krok 2: zarejestruj obsługę formatu  
+`AvailableFormats` to kolekcja, którą `Redactor` sprawdza przy otwieraniu pliku.  
 ```csharp
 RedactorConfiguration.GetInstance().AvailableFormats.Add(config);
 ```
-Now any `.dump` file opened by the `Redactor` will be processed using `CustomTextualDocument`.
+Teraz każdy plik `.dump` otwarty przez `Redactor` będzie przetwarzany przy użyciu `CustomTextualDocument`.
 
-### Funkcja 2: Zastosowanie redakcji
+### Funkcja 2: zastosowanie redagowania
 #### Przegląd
-Redakcja dokładnych fraz pozwala precyzyjnie wskazać i zamaskować określone ciągi (np. klauzulę umowy) bez zmiany reszty dokumentu.
+Redagowanie dokładnej frazy pozwala precyzyjnie wskazać i zamaskować określone ciągi (np. klauzulę umowy) bez zmiany reszty dokumentu.
 
 #### Kroki implementacji
-##### Krok 1: Inicjalizacja Redactor
-Load your document with the `Redactor` instance.
+##### Krok 1: zainicjuj redaktor  
+`Redactor` ładuje docelowy dokument i przygotowuje go do operacji redagowania.  
 ```csharp
 using GroupDocs.Redaction;
 
@@ -129,70 +191,74 @@ using (Redactor redactor = new Redactor(sourceFile))
 }
 ```
 
-##### Krok 2: Zastosowanie redakcji dokładnej frazy
-Use `ExactPhraseRedaction` to replace the target text.
+##### Krok 2: zastosuj redagowanie dokładnej frazy  
+`ExactPhraseRedaction` to metoda, która wyszukuje dosłowny ciąg znaków i zastępuje go zgodnie z podanymi `ReplacementOptions`.  
 ```csharp
 redactor.Apply(new ExactPhraseRedaction("dolor", false, new ReplacementOptions("[redacted]")));
 ```
 - **"dolor"** – fraza, którą chcesz zredagować (zastąp własnym terminem).  
-- **false** – wyszukiwanie bez uwzględniania wielkości liter; ustaw na `true` dla dopasowania uwzględniającego wielkość liter.  
-- **ReplacementOptions** – definiuje, jak wygląda zredagowany tekst.
+- **false** – wyszukiwanie bez uwzględniania wielkości liter; ustaw na `true`, aby wymusić dopasowanie wrażliwe na wielkość liter.  
+- **ReplacementOptions** – definiuje wygląd zredagowanego tekstu.
 
-##### Krok 3: Zapisz zmiany
-Persist the redacted file, optionally changing the format.
+##### Krok 3: zapisz zmiany  
+`SaveOptions` kontroluje, w jaki sposób zredagowany plik jest zapisywany na dysku lub przesyłany z powrotem do wywołującego.  
 ```csharp
 var outputFile = redactor.Save(new SaveOptions(false, "AnyText"));
 ```
 `outputFile` teraz zawiera ścieżkę do nowo zapisanego, zredagowanego dokumentu.
 
 ## Praktyczne zastosowania
-GroupDocs.Redaction może być zintegrowany w różnych przepływach pracy:
+GroupDocs.Redaction może być zintegrowany z różnorodnymi przepływami pracy:
 
-1. **Zarządzanie dokumentami prawnymi** – Automatyczne **redact legal contracts** przed udostępnieniem stronom trzecim.  
-2. **Ochrona danych medycznych** – Maskowanie identyfikatorów pacjentów w rekordach medycznych.  
-3. **Raportowanie finansowe** – Anonimizacja danych osobowych i finansowych w zestawieniach.  
-4. **Audyt wewnętrzny** – Usuwanie własnościowych informacji z plików audytowych przed przeglądem zewnętrznym.  
+1. **Zarządzanie dokumentami prawnymi** – automatyczne **redact legal contracts** przed udostępnieniem ich stronom trzecim.  
+2. **Ochrona danych medycznych** – maskowanie identyfikatorów pacjentów w dokumentacji medycznej.  
+3. **Raportowanie finansowe** – anonimizacja danych osobowych i finansowych w zestawieniach.  
+4. **Audyt wewnętrzny** – usuwanie własnościowych informacji z plików audytowych przed przeglądem zewnętrznym.  
 
 ## Rozważania dotyczące wydajności
-- **Przetwarzanie w partiach** – Dla bardzo dużych plików przetwarzaj je w mniejszych segmentach, aby utrzymać niskie zużycie pamięci.  
-- **Bądź na bieżąco** – Nowe wydania często zawierają optymalizacje wydajności; utrzymuj pakiet NuGet w najnowszej wersji.  
-- **Monitorowanie zasobów** – Śledź zużycie CPU i RAM podczas batch redakcji, szczególnie na serwerach o niskich parametrach.
+- **Przetwarzanie w partiach** – przy bardzo dużych plikach przetwarzaj je w mniejszych segmentach, aby utrzymać niskie zużycie pamięci.  
+- **Aktualizacje** – nowe wydania często zawierają optymalizacje wydajności; utrzymuj pakiet NuGet w najnowszej wersji.  
+- **Monitorowanie zasobów** – śledź zużycie CPU i RAM podczas masowych redagowań, szczególnie na serwerach o ograniczonych parametrach.
 
 ## Typowe problemy i rozwiązania
 | Problem | Przyczyna | Rozwiązanie |
 |-------|-------|----------|
-| **Redaction not applied** | Nieprawidłowa flaga czułości na wielkość liter | Ustaw trzeci parametr `ExactPhraseRedaction` na `true`, aby uzyskać dopasowanie uwzględniające wielkość liter. |
-| **Output file corrupt** | Użycie przestarzałej konfiguracji SaveOptions | Użyj najnowszego konstruktora `SaveOptions`, jak pokazano powyżej. |
-| **Custom format not recognized** | Konfiguracja nie została dodana do `AvailableFormats` | Upewnij się, że `RedactorConfiguration.GetInstance().AvailableFormats.Add(config);` jest wykonane przed otwarciem pliku. |
+| **Redaction not applied** | Nieprawidłowa flaga czułości na wielkość liter | Ustaw trzeci parametr `ExactPhraseRedaction` na `true`, aby wymusić dopasowanie wrażliwe na wielkość liter. |
+| **Output file corrupt** | Użycie przestarzałej konfiguracji `SaveOptions` | Skorzystaj z najnowszego konstruktora `SaveOptions`, jak pokazano wyżej. |
+| **Custom format not recognized** | Konfiguracja nie została dodana do `AvailableFormats` | Upewnij się, że wywołanie `RedactorConfiguration.GetInstance().AvailableFormats.Add(config);` odbywa się przed otwarciem pliku. |
 
 ## Najczęściej zadawane pytania
-**Q: Czym jest własny obsługowy format?**  
-A: To konfiguracja, która informuje GroupDocs.Redaction, jak interpretować i przetwarzać niestandardowe typy plików, umożliwiając redakcję własnych formatów.
+**Q: What is a custom format handler?**  
+A: It’s a configuration that tells GroupDocs.Redaction how to interpret and process non‑standard file types, enabling redaction on proprietary formats.
 
-**Q: Czy mogę zastosować redakcję bez zmiany metadanych dokumentu?**  
-A: Tak. Redakcja dokładnych fraz zachowuje oryginalne metadane, utrzymując integralność ścieżki audytu dokumentu.
+**Q: Can I apply redactions without altering document metadata?**  
+A: Yes. Exact‑phrase redaction preserves the original metadata, keeping the document’s audit trail intact.
 
-**Q: Czy GroupDocs.Redaction jest darmowy?**  
-A: Dostępna jest wersja próbna, ale wymagana jest zakupiona licencja do pełnych funkcji w środowisku produkcyjnym.
+**Q: Is GroupDocs.Redaction free to use?**  
+A: A free trial is available, but a purchased license is required for full‑feature, production‑level use.
 
-**Q: Jak czułość na wielkość liter wpływa na wyniki redakcji?**  
-A: Ustawienie flagi na `true` ogranicza dopasowania do dokładnej wielkości liter; `false` pozwala na dopasowanie bez uwzględniania wielkości liter, co może wychwycić więcej wariantów.
+**Q: How does case sensitivity affect redaction results?**  
+A: Setting the flag to `true` restricts matches to the exact case; `false` allows case‑insensitive matching, which can catch more variations.
 
-**Q: Czy mogę używać GroupDocs.Redaction w aplikacjach komercyjnych?**  
-A: Oczywiście. Z ważną licencją komercyjną możesz osadzić możliwości redakcji w dowolnym produkcie opartym na .NET.
+**Q: Can I use GroupDocs.Redaction in commercial applications?**  
+A: Absolutely. With a valid commercial license you can embed redaction capabilities in any .NET‑based product.
 
 ## Zasoby
-- [Dokumentacja GroupDocs.Redaction dla .NET](https://docs.groupdocs.com/redaction/net/)
-- [Referencja API GroupDocs.Redaction dla .NET](https://reference.groupdocs.com/redaction/net/)
-- [Pobierz GroupDocs.Redaction dla .NET](https://releases.groupdocs.com/redaction/net/)
-- [Forum GroupDocs.Redaction](https://forum.groupdocs.com/c/redaction/33)
-- [Bezpłatne wsparcie](https://forum.groupdocs.com/)
-- [Licencja tymczasowa](https://purchase.groupdocs.com/temporary-license/)
+- [GroupDocs.Redaction for Net Documentation](https://docs.groupdocs.com/redaction/net/)
+- [GroupDocs.Redaction for Net API Reference](https://reference.groupdocs.com/redaction/net/)
+- [Download GroupDocs.Redaction for Net](https://releases.groupdocs.com/redaction/net/)
+- [GroupDocs.Redaction Forum](https://forum.groupdocs.com/c/redaction/33)
+- [Free Support](https://forum.groupdocs.com/)
+- [Temporary License](https://purchase.groupdocs.com/temporary-license/)
 
 ---
 
-**Ostatnia aktualizacja:** 2026-04-01  
-**Testowano z:** GroupDocs.Redaction 5.3 for .NET  
-**Autor:** GroupDocs  
+**Last Updated:** 2026-10-06  
+**Tested with:** GroupDocs.Redaction 5.3 for .NET  
+**Author:** GroupDocs
 
----
+## Powiązane samouczki
+
+- [Redact Sensitive Documents in .NET with GroupDocs.Redaction](/redaction/net/advanced-redaction/master-document-redaction-groupdocs-redaction-net/)
+- [Redact Exact Phrases in .NET Documents Using GroupDocs.Redaction](/redaction/net/text-redaction/guide-redact-exact-phrases-groupdocs-redaction-dotnet/)
+- [Redact documents .net using Streams – GroupDocs.Redaction Guide](/redaction/net/document-saving/secure-document-redaction-net-streams-groupdocs-redaction/)

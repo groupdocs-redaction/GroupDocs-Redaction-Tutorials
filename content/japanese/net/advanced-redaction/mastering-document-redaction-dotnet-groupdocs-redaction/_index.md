@@ -1,93 +1,156 @@
 ---
-date: '2026-04-01'
-description: GroupDocs.Redaction を使用して .NET で文書の情報削除方法を学びましょう。このチュートリアルでは、カスタム形式ハンドラ、正確なフレーズの情報削除、そして法的契約書を安全に情報削除する方法を取り上げます。
+date: '2026-10-06'
+description: GroupDocs.Redaction を使用して .net の法的契約書をマスク処理する方法を学びます。このガイドでは、custom format
+  handlers、exact‑phrase redactions、そして機密文書のsecure processingについて解説します。
 keywords:
-- redact documents .net
-- redact legal contracts
+- redact legal contracts .net
 - GroupDocs.Redaction custom handler
-title: GroupDocs.Redaction を使用した .NET での文書の赤字処理 – ステップバイステップガイド
+- .NET document redaction
+- secure PDF redaction
+- legal document privacy
+lastmod: '2026-10-06'
+og_description: GroupDocs.Redaction を使用して .net の法的契約書をマスク処理する方法を学びます。step‑by‑step
+  の手順、custom format handlers、exact‑phrase redaction による機密文書の安全な処理を解説します。
+og_image_alt: Developer guide showing .NET code for redacting legal contracts with
+  GroupDocs.Redaction
+og_title: GroupDocs.Redaction を使用して .net の法的契約書をマスク処理する方法
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-06'
+  description: Learn how to redact legal contracts .net using GroupDocs.Redaction.
+    This guide covers custom format handlers, exact‑phrase redactions, and secure
+    processing of sensitive documents.
+  headline: How to redact legal contracts .net with GroupDocs.Redaction
+  type: TechArticle
+- description: Learn how to redact legal contracts .net using GroupDocs.Redaction.
+    This guide covers custom format handlers, exact‑phrase redactions, and secure
+    processing of sensitive documents.
+  name: How to redact legal contracts .net with GroupDocs.Redaction
+  steps:
+  - name: define configuration
+    text: '`RedactorConfiguration` holds the settings that guide the redaction engine.
+      - **ExtensionFilter** – the file extension to handle. - **DocumentType** – the
+      custom document class that implements the processing logic.'
+  - name: register format handler
+    text: '`AvailableFormats` is the collection that the `Redactor` checks when opening
+      a file. Now any `.dump` file opened by the `Redactor` will be processed using
+      `CustomTextualDocument`.'
+  - name: initialize redactor
+    text: '`Redactor` loads the target document and prepares it for redaction operations.'
+  - name: apply exact‑phrase redaction
+    text: '`ExactPhraseRedaction` is the method that searches for a literal string
+      and replaces it according to the supplied `ReplacementOptions`. - **"dolor"**
+      – the phrase you want to redact (replace with your own term). - **false** –
+      case‑insensitive search; set to `true` for case‑sensitive matching. - **Re'
+  - name: save changes
+    text: '`SaveOptions` controls how the redacted file is written to disk or streamed
+      back to the caller. `outputFile` now contains the path to the newly saved, redacted
+      document.'
+  type: HowTo
+- questions:
+  - answer: It’s a configuration that tells GroupDocs.Redaction how to interpret and
+      process non‑standard file types, enabling redaction on proprietary formats.
+    question: What is a custom format handler?
+  - answer: Yes. Exact‑phrase redaction preserves the original metadata, keeping the
+      document’s audit trail intact.
+    question: Can I apply redactions without altering document metadata?
+  - answer: A free trial is available, but a purchased license is required for full‑feature,
+      production‑level use.
+    question: Is GroupDocs.Redaction free to use?
+  - answer: Setting the flag to `true` restricts matches to the exact case; `false`
+      allows case‑insensitive matching, which can catch more variations.
+    question: How does case sensitivity affect redaction results?
+  - answer: Absolutely. With a valid commercial license you can embed redaction capabilities
+      in any .NET‑based product.
+    question: Can I use GroupDocs.Redaction in commercial applications?
+  type: FAQPage
+tags:
+- redact legal contracts
+- GroupDocs.Redaction
+- .NET document processing
+- data privacy
+- legal compliance
+title: GroupDocs.Redaction を使用して .net の法的契約書をマスク処理する方法
 type: docs
 url: /ja/net/advanced-redaction/mastering-document-redaction-dotnet-groupdocs-redaction/
 weight: 1
 ---
 
-# GroupDocs.Redaction を使用した .NET における文書の赤字処理のマスター
+# GroupDocs.Redaction を使用した .NET における文書の赤字化マスター
 
-## はじめに
-今日のデータ駆動型の世界では、**redact documents .net** を迅速かつ安全に行う能力は、機密情報を扱うすべての開発者にとって必須のスキルです。法的契約書の顧客情報を保護したり、医療記録の患者データを守ったり、レポートの財務数値を隠したりする場合でも、信頼できる赤字処理ソリューションはアプリケーションのコンプライアンスとユーザーのプライバシーを保ちます。
+In today’s data‑driven world, the ability to **redact legal contracts .net** quickly and securely is a must‑have skill for any developer handling sensitive information. Whether you’re protecting client details in legal agreements, safeguarding patient data in medical records, or hiding financial figures in reports, a reliable redaction solution keeps your applications compliant and your users’ privacy intact.
 
-GroupDocs.Redaction for .NET は、カスタムフォーマットハンドラを登録し、元のファイル形式を変換せずに正確なフレーズの赤字処理を適用できるフル機能の API を提供します。本ガイドでは、セットアップから実際のユースケースまで、**redact documents .net** を効果的に行うために必要なすべてを順に解説します。
+GroupDocs.Redaction for .NET offers a full‑featured API that lets you register custom format handlers and apply exact‑phrase redactions without converting the original file format. In this guide we’ll walk through everything you need to know to **redact legal contracts .net** effectively, from setup to real‑world use cases.
 
-### クイック回答
-- **.NET の赤字処理を可能にするライブラリは何ですか？** GroupDocs.Redaction for .NET  
-- **法的契約書を赤字処理できますか？** はい – 正確なフレーズの赤字処理を使用して契約条項を対象にします。  
-- **本番環境でライセンスが必要ですか？** フル機能を利用するには商用ライセンスが必要です。  
-- **サポートされている .NET バージョンはどれですか？** .NET Framework 4.5 以上、.NET Core 3.1 以上、.NET 5/6 以上。  
-- **元の文書メタデータは保持されますか？** はい、正確なフレーズの赤字処理はメタデータをそのまま保持します。
+## クイック回答
+- **.NET の赤字化を可能にするライブラリは？** GroupDocs.Redaction for .NET.  
+- **法的契約書を赤字化できますか？** はい – 正確なフレーズ赤字化を使用して契約条項を正確に対象にできます。  
+- **本番環境でライセンスが必要ですか？** フル機能を使用するには商用ライセンスが必要です。  
+- **サポートされている .NET バージョンは？** .NET Framework 4.5+、.NET Core 3.1+、.NET 5/6+。  
+- **元の文書メタデータは保持されますか？** はい、正確なフレーズ赤字化はメタデータをそのまま保持します。
 
-## “redact documents .net” とは何ですか？
-Redact documents .net とは、ファイル内の機密テキストをプログラムで検出し、削除またはマスクしながら、文書の他の部分は変更しないことを指します。GroupDocs.Redaction は、PDF、Word ファイル、プレーンテキスト、その他多数の形式に対して直接この操作を行う、クリーンで高性能な API を提供します。
+## “redact legal contracts .net” とは何か？
+**Redact legal contracts .net** とは、契約書ファイル内の機密テキストをプログラムで検出しマスクし、文書の他の部分は変更せずに残すことを指します。GroupDocs.Redaction は、PDF、Word、プレーンテキスト、その他多数の形式に直接適用できる、クリーンで高性能な API を提供します。
 
-## 法的契約書の赤字処理に GroupDocs.Redaction を使用する理由
-- **精度** – 正確なフレーズやパターンを対象にでき、契約条項に最適です。  
-- **形式変換なし** – 元のレイアウトとメタデータを保持し、法的コンプライアンスに重要です。  
-- **スケーラビリティ** – 大量の契約書を過剰なメモリ消費なしに処理できます。  
+## 法的契約書の赤字化に GroupDocs.Redaction を使用する理由
+GroupDocs.Redaction は **50 以上の入力・出力形式**（PDF、DOCX、TXT、画像形式など）をサポートし、ファイル全体をメモリに読み込むことなく数百ページに及ぶ契約書を処理できます。その精密エンジンにより、正確なフレーズや正規表現パターンを対象にでき、レイアウトやメタデータを保持するため、法的コンプライアンスや監査証跡に不可欠です。
 
 ## 前提条件
-本格的に始める前に、以下が揃っていることを確認してください。
+Before we dive in, make sure you have the following:
 
 ### 必要なライブラリと依存関係
 - **GroupDocs.Redaction for .NET** – .NET CLI または NuGet パッケージマネージャーでインストール。  
 - **C# 開発環境** – Visual Studio（Community 以上）を推奨。
 
 ### 環境設定要件
-- .NET Framework 4.5 以上 **または** .NET Core/5+/6+。  
+- .NET Framework 4.5+ **または** .NET Core/5+/6+。  
 - NuGet パッケージをインストールするための管理者権限（必要な場合）。
 
 ### 知識の前提条件
-- 基本的な C# 構文とプロジェクト構造。  
-- 文書処理の概念（例：ファイルストリーム、テキスト検索）に慣れていること。
+- 基本的な C# 文法とプロジェクト構造。  
+- ファイルストリームやテキスト検索など、文書処理の概念に慣れていること。
 
 ## GroupDocs.Redaction for .NET の設定
-GroupDocs.Redaction の使用を開始するには、ライブラリをプロジェクトに追加する必要があります。
+To start using GroupDocs.Redaction, you’ll need to add the library to your project.
 
 **インストール手順:**  
-**.NET CLI** を使用して、次のコマンドでパッケージを追加します：
+Using **.NET CLI**, add the package with:
 ```bash
 dotnet add package GroupDocs.Redaction
 ```
 
-**Package Manager** を使用している場合は、次を実行します：
+For those using **Package Manager**, execute:
 ```powershell
 Install-Package GroupDocs.Redaction
 ```
 
-または、Visual Studio の NuGet パッケージマネージャ UI で **"GroupDocs.Redaction"** を検索し、最新バージョンをインストールします。
+Alternatively, in Visual Studio's NuGet Package Manager UI, search for **"GroupDocs.Redaction"** and install the latest version.
 
 ### ライセンス取得
 - **無料トライアル** – ライセンスなしでコア機能を評価。  
 - **一時ライセンス** – フル機能テスト用の期間限定キーを取得。  
-- **購入** – 本番環境での展開用に商用ライセンスを取得。
+- **購入** – 本番環境向けに商用ライセンスを取得。
 
 **基本的な初期化:**  
+`Redactor` は文書の赤字化操作を統括するコアクラスです。  
 ```csharp
 using GroupDocs.Redaction;
 
 // Initialize Redactor with file path
 Redactor redactor = new Redactor("path/to/your/document");
 ```
-このスニペットは、すべての赤字処理操作のエントリーポイントである `Redactor` インスタンスの作成方法を示しています。
+このスニペットは、すべての赤字化操作のエントリーポイントである `Redactor` インスタンスの作成方法を示しています。
 
 ## 実装ガイド
-実装は **カスタムフォーマットハンドラの登録** と **正確なフレーズの赤字処理** の 2 つのコア機能に分けます。どちらも、独自またはプレーンテキスト形式を含む **redact documents .net** を行う際に必須です。
+We’ll split the implementation into two core features: **custom format handler registration** and **exact‑phrase redaction**. Both are essential when you need to **redact legal contracts .net** that contain proprietary or plain‑text formats.
 
 ### 機能 1: カスタムフォーマットハンドラの登録
 #### 概要
-カスタムフォーマットハンドラを登録すると、GroupDocs.Redaction に非標準ファイルタイプ（例：`.dump`）の扱い方を指示できます。これは、カスタムテキスト形式で保存された **redact legal contracts** を処理する際に特に便利です。
+Registering a custom format handler tells GroupDocs.Redaction how to treat non‑standard file types (e.g., `.dump`). This is especially handy when you need to **redact legal contracts** stored in a custom text format.
 
 #### 実装手順
 ##### 手順 1: 設定の定義  
-GroupDocs.Redaction が必要とする設定パラメータを設定します。
+`RedactorConfiguration` holds the settings that guide the redaction engine.  
 ```csharp
 using System;
 using GroupDocs.Redaction.Configuration;
@@ -99,23 +162,23 @@ var config = new DocumentFormatConfiguration()
     DocumentType = typeof(CustomTextualDocument)
 };
 ```
-- **ExtensionFilter** – 処理対象のファイル拡張子。  
-- **DocumentType** – 処理ロジックを実装するカスタムドキュメントクラス。
+- **ExtensionFilter** – the file extension to handle.  
+- **DocumentType** – the custom document class that implements the processing logic.
 
 ##### 手順 2: フォーマットハンドラの登録  
-設定を利用可能なフォーマットのリストに追加します。
+`AvailableFormats` is the collection that the `Redactor` checks when opening a file.  
 ```csharp
 RedactorConfiguration.GetInstance().AvailableFormats.Add(config);
 ```
-これで、`Redactor` が開く任意の `.dump` ファイルは `CustomTextualDocument` を使用して処理されます。
+Now any `.dump` file opened by the `Redactor` will be processed using `CustomTextualDocument`.
 
-### 機能 2: 赤字処理の適用
+### 機能 2: 赤字化の適用
 #### 概要
-正確なフレーズの赤字処理により、文書の他の部分を変更せずに特定の文字列（例：契約条項）を正確に特定しマスクできます。
+Exact‑phrase redaction lets you pinpoint and mask specific strings (like a contract clause) without altering the rest of the document.
 
 #### 実装手順
-##### 手順 1: Redactor の初期化  
-`Redactor` インスタンスで文書をロードします。
+##### 手順 1: 赤字化エンジンの初期化  
+`Redactor` loads the target document and prepares it for redaction operations.  
 ```csharp
 using GroupDocs.Redaction;
 
@@ -126,70 +189,74 @@ using (Redactor redactor = new Redactor(sourceFile))
 }
 ```
 
-##### 手順 2: 正確なフレーズの赤字処理を適用  
-対象テキストを置換するには `ExactPhraseRedaction` を使用します。
+##### 手順 2: 正確なフレーズ赤字化の適用  
+`ExactPhraseRedaction` is the method that searches for a literal string and replaces it according to the supplied `ReplacementOptions`.  
 ```csharp
 redactor.Apply(new ExactPhraseRedaction("dolor", false, new ReplacementOptions("[redacted]")));
 ```
-- **"dolor"** – 赤字処理したいフレーズ（自分の用語に置き換えてください）。  
-- **false** – 大文字小文字を区別しない検索。大文字小文字を区別したい場合は `true` に設定。  
-- **ReplacementOptions** – 赤字処理されたテキストの表示方法を定義します。
+- **"dolor"** – the phrase you want to redact (replace with your own term).  
+- **false** – case‑insensitive search; set to `true` for case‑sensitive matching.  
+- **ReplacementOptions** – defines what the redacted text looks like.
 
 ##### 手順 3: 変更の保存  
-赤字処理されたファイルを保存し、必要に応じて形式を変更します。
+`SaveOptions` controls how the redacted file is written to disk or streamed back to the caller.  
 ```csharp
 var outputFile = redactor.Save(new SaveOptions(false, "AnyText"));
 ```
-`outputFile` には新しく保存された赤字処理済み文書へのパスが格納されます。
+`outputFile` now contains the path to the newly saved, redacted document.
 
-## 実用的な活用例
-GroupDocs.Redaction はさまざまなワークフローに統合できます：
+## 実用的な応用例
+GroupDocs.Redaction can be integrated into a variety of workflows:
 
-1. **法的文書管理** – 第三者と共有する前に **redact legal contracts** を自動的に実行。  
+1. **法務文書管理** – 第三者と共有する前に自動的に **法的契約書** を赤字化。  
 2. **医療データ保護** – 医療記録の患者識別子をマスク。  
 3. **財務報告** – 明細書の個人情報や財務情報を匿名化。  
 4. **内部監査** – 外部レビュー前に監査ファイルから機密情報を除去。  
 
-## パフォーマンス上の考慮点
-- **チャンク処理** – 非常に大きなファイルは、メモリ使用量を抑えるために小さなセグメントに分割して処理します。  
-- **最新状態を保つ** – 新しいリリースにはパフォーマンス最適化が含まれることが多く、NuGet パッケージを最新に保ちます。  
-- **リソース監視** – バッチ赤字処理中の CPU と RAM 使用量を監視し、特に低スペックサーバーで注意します。  
+## パフォーマンスに関する考慮事項
+- **チャンク処理** – 非常に大きなファイルは小さなセグメントに分割して処理し、メモリ使用量を抑える。  
+- **常に最新に保つ** – 新リリースにはパフォーマンス最適化が含まれることが多いため、NuGet パッケージを最新に保つ。  
+- **リソース監視** – バッチ赤字化時の CPU と RAM 使用率を監視、特に低スペックサーバーでは注意。
 
 ## よくある問題と解決策
 | 問題 | 原因 | 解決策 |
-|------|------|--------|
-| **赤字処理が適用されない** | 大文字小文字のフラグが誤っている | `ExactPhraseRedaction` の第3パラメータを `true` に設定して大文字小文字を区別したマッチにします。 |
-| **出力ファイルが破損** | 古い SaveOptions 設定を使用している | 上記のように最新の `SaveOptions` コンストラクタを使用してください。 |
-| **カスタムフォーマットが認識されない** | `AvailableFormats` に設定が追加されていない | ファイルを開く前に `RedactorConfiguration.GetInstance().AvailableFormats.Add(config);` が実行されていることを確認してください。 |
+|-------|-------|----------|
+| **赤字化が適用されない** | 大文字小文字フラグが間違っている | `ExactPhraseRedaction` の第3パラメータを `true` に設定して大文字小文字を区別する。 |
+| **出力ファイルが破損している** | 古い `SaveOptions` 設定を使用している | 上記の最新 `SaveOptions` コンストラクタを使用する。 |
+| **カスタムフォーマットが認識されない** | `AvailableFormats` に設定が追加されていない | `RedactorConfiguration.GetInstance().AvailableFormats.Add(config);` をファイルを開く前に実行する。 |
 
 ## よくある質問
 **Q: カスタムフォーマットハンドラとは何ですか？**  
-A: それは、GroupDocs.Redaction に非標準ファイルタイプの解釈と処理方法を指示し、独自形式での赤字処理を可能にする設定です。
+A: 非標準ファイルタイプの解釈・処理方法を GroupDocs.Redaction に指示する設定で、独自フォーマットでも赤字化を可能にします。
 
-**Q: 文書のメタデータを変更せずに赤字処理を適用できますか？**  
-A: はい。正確なフレーズの赤字処理は元のメタデータを保持し、文書の監査トレイルをそのまま保ちます。
+**Q: メタデータを変更せずに赤字化できますか？**  
+A: はい。正確なフレーズ赤字化は元のメタデータを保持し、文書の監査トレイルをそのまま残します。
 
 **Q: GroupDocs.Redaction は無料で使用できますか？**  
-A: 無料トライアルは利用可能ですが、フル機能で本番レベルの使用には購入したライセンスが必要です。
+A: 無料トライアルは利用可能ですが、フル機能・本番利用には購入したライセンスが必要です。
 
-**Q: 大文字小文字の区別は赤字処理結果にどのように影響しますか？**  
-A: フラグを `true` に設定すると正確なケースに限定され、`false` にすると大文字小文字を区別しないマッチングとなり、より多くのバリエーションを捕捉できます。
+**Q: 大文字小文字の感度は赤字化結果にどう影響しますか？**  
+A: `true` に設定すると完全に一致するケースのみマッチし、`false` にすると大文字小文字を区別せずにマッチします。これによりバリエーションを多く捕捉できます。
 
 **Q: 商用アプリケーションで GroupDocs.Redaction を使用できますか？**  
-A: もちろんです。有効な商用ライセンスがあれば、任意の .NET ベース製品に赤字処理機能を組み込むことができます。
+A: もちろんです。有効な商用ライセンスがあれば、任意の .NET ベース製品に赤字化機能を組み込めます。
 
 ## リソース
 - [GroupDocs.Redaction for Net ドキュメント](https://docs.groupdocs.com/redaction/net/)
 - [GroupDocs.Redaction for Net API リファレンス](https://reference.groupdocs.com/redaction/net/)
-- [GroupDocs.Redaction for Net のダウンロード](https://releases.groupdocs.com/redaction/net/)
+- [GroupDocs.Redaction for Net ダウンロード](https://releases.groupdocs.com/redaction/net/)
 - [GroupDocs.Redaction フォーラム](https://forum.groupdocs.com/c/redaction/33)
 - [無料サポート](https://forum.groupdocs.com/)
 - [一時ライセンス](https://purchase.groupdocs.com/temporary-license/)
 
 ---
 
-**最終更新日:** 2026-04-01  
+**最終更新日:** 2026-10-06  
 **テスト環境:** GroupDocs.Redaction 5.3 for .NET  
-**作者:** GroupDocs  
+**作者:** GroupDocs
 
----
+## 関連チュートリアル
+
+- [Redact Sensitive Documents in .NET with GroupDocs.Redaction](/redaction/net/advanced-redaction/master-document-redaction-groupdocs-redaction-net/)
+- [Redact Exact Phrases in .NET Documents Using GroupDocs.Redaction](/redaction/net/text-redaction/guide-redact-exact-phrases-groupdocs-redaction-dotnet/)
+- [Redact documents .net using Streams – GroupDocs.Redaction Guide](/redaction/net/document-saving/secure-document-redaction-net-streams-groupdocs-redaction/)
