@@ -262,9 +262,3 @@ A: Basic text redaction is always available; advanced regex or image redaction m
 - [How to Remove Metadata from Documents Using GroupDocs.Redaction for .NET](/redaction/net/metadata-redaction/clean-metadata-groupdocs-redaction-net/)
 - [How to Redact Sensitive Information and Remove Annotations Using GroupDocs.Redaction for .NET](/redaction/net/annotation-redaction/remove-annotations-groupdocs-redaction-net/)
 - [Redact Embedded Images in Word Documents Using GroupDocs.Redaction .NET API](/redaction/net/image-redaction/redact-embedded-images-groupdocs-redaction-net/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}
