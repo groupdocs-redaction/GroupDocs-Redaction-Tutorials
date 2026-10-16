@@ -65,7 +65,7 @@ tags:
 - document redaction
 - GroupDocs.Redaction
 - .NET PDF security
-title: Create redacted PDF programmatically with GroupDocs.Redaction
+title: How to create a redacted PDF programmatically using GroupDocs.Redaction for .NET
 type: docs
 url: /net/getting-started/implement-document-redaction-groupdocs-redaction-net/
 weight: 1
@@ -151,7 +151,7 @@ To create a redacted PDF programmatically, first load the source document into a
 `Redactor` is the core class that loads, processes, and saves documents while preserving document integrity.
 
 ```csharp
-using (Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY\SampleDocument.docx"))
+using (Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY\\SampleDocument.docx"))
 {
     // Further operations will go here.
 }
@@ -231,6 +231,6 @@ A: Visit the [GroupDocs Free Support Forum](https://forum.groupdocs.com/c/redact
 
 ## Related Tutorials
 
-- [Save Redacted Document in Original Format Using GroupDocs.Redaction .NET](/redaction/net/document-saving/save-redacted-docs-original-format-groupdocs-redaction-net/)
-- [How to Implement Text Redaction Using GroupDocs.Redaction for .NET&#58; A Comprehensive Guide](/redaction/net/text-redaction/groupdocs-redaction-net-text-redaction-guide/)
-- [How to Redact Sensitive Information and Remove Annotations Using GroupDocs.Redaction for .NET](/redaction/net/annotation-redaction/remove-annotations-groupdocs-redaction-net/)
+- [Save Redacted Document in Original Format Using GroupDocs.Redaction .NET]({{< relref "/redaction/net/document-saving/save-redacted-docs-original-format-groupdocs-redaction-net/" >}})
+- [How to Implement Text Redaction Using GroupDocs.Redaction for .NET: A Comprehensive Guide]({{< relref "/redaction/net/text-redaction/groupdocs-redaction-net-text-redaction-guide/" >}})
+- [How to Redact Sensitive Information and Remove Annotations Using GroupDocs.Redaction for .NET]({{< relref "/redaction/net/annotation-redaction/remove-annotations-groupdocs-redaction-net/" >}})

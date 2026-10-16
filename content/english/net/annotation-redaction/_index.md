@@ -56,7 +56,7 @@ tags:
 - delete comments
 - annotation redaction
 - GroupDocs.Redaction
-title: Delete comments from PDF with GroupDocs.Redaction for .NET
+title: How to delete comments from PDF using GroupDocs.Redaction for .NET
 type: docs
 url: /net/annotation-redaction/
 weight: 7
@@ -91,6 +91,24 @@ Redactor is the main class in GroupDocs.Redaction that loads and modifies docume
 ### Step 1: load the PDF document
 Create a `Redactor` instance and open the target PDF file.
 
+```csharp
+using GroupDocs.Redaction;
+using GroupDocs.Redaction.Options;
+
+// Load PDF
+using (Redactor redactor = new Redactor("input.pdf"))
+{
+    // Delete all comment annotations
+    redactor.RemoveAllComments();
+
+    // Or delete a specific comment by ID
+    // redactor.RemoveComment("comment-id-123");
+
+    // Save the sanitized PDF
+    redactor.Save("output.pdf");
+}
+```
+
 ### Step 2: delete comment annotations
 Invoke the API to delete comment objects. You can either delete a specific comment by its identifier or purge every comment in one call.
 
@@ -123,9 +141,9 @@ A: You can enumerate comment objects via the API, inspect their IDs or content, 
 A: Yes, the .NET Core version runs seamlessly in Docker containers on Linux distributions.
 
 ## Available tutorials
-- [Efficient Annotation Removal in Documents using GroupDocs.Redaction .NET](./mastering-annotation-removal-groupdocs-redaction-net/)
-- [Efficiently Remove Annotations from Documents Using GroupDocs.Redaction for .NET](./remove-annotations-groupdocs-redaction-net/)
-- [How to Redact Texts within Annotations using GroupDocs.Redaction .NET&#58; A Comprehensive Guide](./redact-text-annotations-groupdocs-redaction-net/)
+- [Efficient Annotation Removal in Documents using GroupDocs.Redaction .NET]({{< relref "./mastering-annotation-removal-groupdocs-redaction-net/" >}})
+- [Efficiently Remove Annotations from Documents Using GroupDocs.Redaction for .NET]({{< relref "./remove-annotations-groupdocs-redaction-net/" >}})
+- [How to Redact Texts within Annotations using GroupDocs.Redaction .NET: A Comprehensive Guide]({{< relref "./redact-text-annotations-groupdocs-redaction-net/" >}})
 
 ## Additional resources
 
@@ -144,6 +162,6 @@ A: Yes, the .NET Core version runs seamlessly in Docker containers on Linux dist
 
 ## Related Tutorials
 
-- [Remove Annotations from PDF with GroupDocs.Redaction for .NET](/redaction/net/annotation-redaction/mastering-annotation-removal-groupdocs-redaction-net/)
-- [How to Redact Annotations Using GroupDocs.Redaction for .NET](/redaction/net/annotation-redaction/redact-text-annotations-groupdocs-redaction-net/)
-- [How to Load Document with GroupDocs.Redaction for .NET](/redaction/net/document-loading/)
+- [Remove Annotations from PDF with GroupDocs.Redaction for .NET]({{< relref "/redaction/net/annotation-redaction/mastering-annotation-removal-groupdocs-redaction-net/" >}})
+- [How to Redact Annotations Using GroupDocs.Redaction for .NET]({{< relref "/redaction/net/annotation-redaction/redact-text-annotations-groupdocs-redaction-net/" >}})
+- [How to Load Document with GroupDocs.Redaction for .NET]({{< relref "/redaction/net/document-loading/" >}})

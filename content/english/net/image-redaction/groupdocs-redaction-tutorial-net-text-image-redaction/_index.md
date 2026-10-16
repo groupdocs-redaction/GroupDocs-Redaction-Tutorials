@@ -13,17 +13,17 @@ og_description: Learn how to use GroupDocs for .NET to redact text and images, i
   how to replace text placeholder with values, ensuring data privacy and compliance.
 og_image_alt: Guide showing GroupDocs .NET text and image redaction with placeholder
   replacement
-og_title: How to use GroupDocs for .NET text and image redaction
+og_title: How to Redact Text and Images with GroupDocs for .NET
 schemas:
 - author: GroupDocs
   dateModified: '2026-10-16'
   description: Learn how to use GroupDocs for .NET to redact text and images, including
     how to replace text placeholder with values, ensuring data privacy and compliance.
-  headline: How to use GroupDocs for .NET text and image redaction
+  headline: How to Redact Text and Images with GroupDocs for .NET
   type: TechArticle
 - description: Learn how to use GroupDocs for .NET to redact text and images, including
     how to replace text placeholder with values, ensuring data privacy and compliance.
-  name: How to use GroupDocs for .NET text and image redaction
+  name: How to Redact Text and Images with GroupDocs for .NET
   steps:
   - name: '**Legal contracts** – automatically hide client names, SSNs, or contract
       numbers before sharing drafts with external counsel.'
@@ -37,7 +37,7 @@ schemas:
       to comply with GDPR and PCI‑DSS during audit preparation.'
     text: '**Financial statements** – replace account numbers with generic placeholders
       to comply with GDPR and PCI‑DSS during audit preparation.'
-  type: HowTo
+    type: HowTo
 - questions:
   - answer: Yes, provide the password when constructing the `Redactor` instance; the
       SDK will decrypt, redact, and re‑encrypt the file automatically.
@@ -69,13 +69,13 @@ tags:
 - image redaction
 - C# document security
 - privacy compliance
-title: How to use GroupDocs for .NET text and image redaction
+title: How to Redact Text and Images with GroupDocs for .NET
 type: docs
 url: /net/image-redaction/groupdocs-redaction-tutorial-net-text-image-redaction/
 weight: 1
 ---
 
-# How to use GroupDocs for .NET text and image redaction
+# How to Redact Text and Images with GroupDocs for .NET
 
 In today’s data‑driven world, protecting personally identifiable information (PII) inside PDFs, Word files, and image‑based documents is a legal and business imperative. **How to use GroupDocs** for .NET to perform precise text redaction and image masking is the focus of this guide. You’ll learn how to replace text placeholder values, apply color fills to sensitive image regions, and integrate these steps into real‑world workflows while keeping performance and memory usage optimal.
 
@@ -244,9 +244,9 @@ A: Yes, call `redactor.GetRedactedPages()` to retrieve a preview stream that you
    - Yes, it offers libraries for several languages including Java and C++.
 
 ## Resources
-- **Documentation:** [GroupDocs Redaction .NET Documentation](https://docs.groupdocs.com/redaction/net/)
-- **API reference:** [API Reference for GroupDocs Redaction](https://reference.groupdocs.com/redaction/net)
-- **Download:** [Download Latest Version](https://releases.groupdocs.com/redaction/net/)
+- **Documentation:** [GroupDocs Redaction .NET Documentation]({{< relref "redaction/net/pdf-specific-redaction/ai-powered-pdf-redaction-groupdocs-redaction-net/_index.md" >}})
+- **API reference:** [API Reference for GroupDocs Redaction]({{< relref "redaction/net/image-redaction/redact-embedded-images-groupdocs-redaction-net/_index.md" >}})
+- **Download:** [Download Latest Version]({{< relref "redaction/net/document-loading/groupdocs-redaction-net-load-redact-documents/_index.md" >}})
 - **Support forum:** [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)
 - **Temporary license:** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/)
 
@@ -293,9 +293,9 @@ RegionReplacementOptions optionsImg = new RegionReplacementOptions(Color.Chocola
 
 ## Related Tutorials
 
-- [AI-Powered PDF Redaction with GroupDocs.Redaction .NET: Advanced Techniques for Data Privacy and Compliance](/redaction/net/pdf-specific-redaction/ai-powered-pdf-redaction-groupdocs-redaction-net/)
-- [Redact Embedded Images in Word Documents Using GroupDocs.Redaction .NET API](/redaction/net/image-redaction/redact-embedded-images-groupdocs-redaction-net/)
-- [How to Redact Documents with GroupDocs.Redaction .NET – A Complete Guide](/redaction/net/document-loading/groupdocs-redaction-net-load-redact-documents/)
+- [AI-Powered PDF Redaction with GroupDocs.Redaction .NET: Advanced Techniques for Data Privacy and Compliance]({{< relref "redaction/net/pdf-specific-redaction/ai-powered-pdf-redaction-groupdocs-redaction-net/_index.md" >}})
+- [Redact Embedded Images in Word Documents Using GroupDocs.Redaction .NET API]({{< relref "redaction/net/image-redaction/redact-embedded-images-groupdocs-redaction-net/_index.md" >}})
+- [How to Redact Documents with GroupDocs.Redaction .NET – A Complete Guide]({{< relref "redaction/net/document-loading/groupdocs-redaction-net-load-redact-documents/_index.md" >}})
 
 
 {{< /blocks/products/pf/tutorial-page-section >}}
