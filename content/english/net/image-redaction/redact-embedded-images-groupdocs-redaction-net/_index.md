@@ -61,7 +61,7 @@ tags:
 - redact images
 - GroupDocs.Redaction
 - .NET document security
-title: Redact embedded images in Word documents using GroupDocs.Redaction .NET
+title: Learn to redact embedded images in documents
 type: docs
 url: /net/image-redaction/redact-embedded-images-groupdocs-redaction-net/
 weight: 1
@@ -71,7 +71,7 @@ weight: 1
 {{< blocks/products/pf/main-container >}}
 {{< blocks/products/pf/tutorial-page-section >}}
 
-# Redact embedded images in Word documents using GroupDocs.Redaction .NET
+# Learn to redact embedded images in documents
 
 When you need to protect confidential visuals in a Microsoft Word file, **how to use GroupDocs** becomes the first question. This tutorial walks you through every step required to locate, mask, and permanently remove embedded pictures so that sensitive information never leaks.
 

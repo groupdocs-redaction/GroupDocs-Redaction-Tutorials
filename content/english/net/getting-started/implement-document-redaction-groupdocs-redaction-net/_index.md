@@ -65,13 +65,13 @@ tags:
 - document redaction
 - GroupDocs.Redaction
 - .NET PDF security
-title: How to create a redacted PDF programmatically using GroupDocs.Redaction for .NET
+title: How to redact a PDF programmatically with GroupDocs.Redaction for .NET
 type: docs
 url: /net/getting-started/implement-document-redaction-groupdocs-redaction-net/
 weight: 1
 ---
 
-# How to create redacted PDF programmatically with GroupDocs.Redaction .NET
+# How to redact a PDF programmatically with GroupDocs.Redaction for .NET
 
 In today's digital age, **create redacted PDF programmatically** is a must‑have capability for any application that handles personal or confidential data. Whether you need to comply with GDPR, HIPAA, or internal security policies, redacting sensitive information before sharing a PDF protects privacy and reduces legal risk. This tutorial shows you how to use **GroupDocs.Redaction for .NET** to locate, mask, and finally save a document as a secure PDF. You’ll learn how to:
 
