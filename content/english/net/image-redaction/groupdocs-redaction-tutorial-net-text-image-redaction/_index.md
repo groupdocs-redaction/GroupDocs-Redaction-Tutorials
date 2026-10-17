@@ -13,17 +13,17 @@ og_description: Learn how to use GroupDocs for .NET to redact text and images, i
   how to replace text placeholder with values, ensuring data privacy and compliance.
 og_image_alt: Guide showing GroupDocs .NET text and image redaction with placeholder
   replacement
-og_title: Implement GroupDocs Redaction for .NET to Secure Text and Images
+og_title: Implement Redaction to Secure Text and Images
 schemas:
 - author: GroupDocs
   dateModified: '2026-10-16'
   description: Learn how to use GroupDocs for .NET to redact text and images, including
     how to replace text placeholder with values, ensuring data privacy and compliance.
-  headline: Implement GroupDocs Redaction for .NET to Secure Text and Images
+  headline: Implement Redaction to Secure Text and Images
   type: TechArticle
 - description: Learn how to use GroupDocs for .NET to redact text and images, including
     how to replace text placeholder with values, ensuring data privacy and compliance.
-  name: Implement GroupDocs Redaction for .NET to Secure Text and Images
+  name: Implement Redaction to Secure Text and Images
   steps:
   - name: '**Legal contracts** – automatically hide client names, SSNs, or contract
       numbers before sharing drafts with external counsel.'
@@ -69,13 +69,13 @@ tags:
 - image redaction
 - C# document security
 - privacy compliance
-title: Implement GroupDocs Redaction for .NET to Secure Text and Images
+title: Implement Redaction to Secure Text and Images
 type: docs
 url: /net/image-redaction/groupdocs-redaction-tutorial-net-text-image-redaction/
 weight: 1
 ---
 
-# Implement GroupDocs Redaction for .NET to Secure Text and Images
+# Implement Redaction to Secure Text and Images
 
 In today’s data‑driven world, protecting personally identifiable information (PII) inside PDFs, Word files, and image‑based documents is a legal and business imperative. **How to use GroupDocs** for .NET to perform precise text redaction and image masking is the focus of this guide. You’ll learn how to replace text placeholder values, apply color fills to sensitive image regions, and integrate these steps into real‑world workflows while keeping performance and memory usage optimal.
 

@@ -56,7 +56,7 @@ tags:
 - delete comments
 - annotation redaction
 - GroupDocs.Redaction
-title: How to programmatically delete comments from PDF using the GroupDocs.Redaction .NET API
+title: Remove PDF comments using GroupDocs.Redaction for .NET
 type: docs
 url: /net/annotation-redaction/
 weight: 7
