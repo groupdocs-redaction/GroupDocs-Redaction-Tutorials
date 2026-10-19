@@ -100,17 +100,13 @@ Redacting confidential data from Word files prevents accidental disclosure of se
 Add the GroupDocs.Redaction library to your project using one of these methods:
 
 **.NET CLI**
-```csharp
 ```bash
 dotnet add package GroupDocs.Redaction
 ```
-```
 
 **Package Manager Console**
-```csharp
 ```powershell
 Install-Package GroupDocs.Redaction
-```
 ```
 
 **NuGet Package Manager UI**  
@@ -128,7 +124,6 @@ The `RedactionApi` class is the entry point for all redaction operations. Initia
 The `Metered` class handles metered licensing, allowing you to track API usage and consumption.
 
 ```csharp
-```csharp
 using System;
 using GroupDocs.Redaction;
 
@@ -136,12 +131,10 @@ using GroupDocs.Redaction;
 Metered metered = new Metered();
 metered.SetMeteredKey("YOUR_PUBLIC_KEY", "YOUR_PRIVATE_KEY");
 ```
-```
 
 ## How do you set up a metered license with GroupDocs.Redaction?
 To configure a metered license, first create an instance of the `Metered` class with your public and private keys. Then call the provided methods to retrieve current usage and credit information, which helps you stay within your allocated quota and avoid service interruptions. This approach gives you real‑time insight into consumption and ensures billing aligns with actual API calls.
 
-```csharp
 ```csharp
    using System;
    using GroupDocs.Redaction;
@@ -149,7 +142,6 @@ To configure a metered license, first create an instance of the `Metered` class 
    // Set up metered license keys.
    Metered metered = new Metered();
 metered.SetMeteredKey("YOUR_PUBLIC_KEY", "YOUR_PRIVATE_KEY");
-   ```
 ```
 
 *Why this matters*: Linking your app to a valid GroupDocs account lets you monitor usage in real time, helping you control costs.
@@ -158,11 +150,9 @@ metered.SetMeteredKey("YOUR_PUBLIC_KEY", "YOUR_PRIVATE_KEY");
 The `GetConsumptionQuantity` method returns the total number of metered operations performed so far. Monitoring this value helps you plan scaling or purchase additional credits before reaching your limit.
 
 ```csharp
-```csharp
-   // Retrieve the current consumption quantity.
-   decimal consumptionQuantity = Metered.GetConsumptionQuantity();
-   Console.WriteLine($"Current Usage: {consumptionQuantity}");
-   ```
+// Retrieve the current consumption quantity.
+decimal consumptionQuantity = Metered.GetConsumptionQuantity();
+Console.WriteLine($"Current Usage: {consumptionQuantity}");
 ```
 *Why*: Knowing how many redaction operations you’ve performed lets you plan scaling or purchase additional credits.
 
@@ -170,11 +160,9 @@ The `GetConsumptionQuantity` method returns the total number of metered operatio
 The `GetConsumptionCredit` method provides the monetary credit remaining for your account, allowing you to manage budgeting and avoid unexpected charges.
 
 ```csharp
-```csharp
-   // Retrieve the current credit available.
-   decimal consumptionCredit = Metered.GetConsumptionCredit();
-   Console.WriteLine($"Current Credit: {consumptionCredit}");
-   ```
+// Retrieve the current credit available.
+decimal consumptionCredit = Metered.GetConsumptionCredit();
+Console.WriteLine($"Current Credit: {consumptionCredit}");
 ```
 *Why*: Credits represent the monetary value of your usage; monitoring them prevents quota overruns.
 
@@ -182,27 +170,23 @@ The `GetConsumptionCredit` method provides the monetary credit remaining for you
 To redact a specific phrase, load the document with the `Redactor` class, then apply an `ExactPhraseRedaction` rule that specifies the target text and replacement options such as color or placeholder. This method scans the entire document, replaces every occurrence of the phrase, and preserves the original layout, ensuring that the redacted content cannot be recovered.
 
 ```csharp
-```csharp
-   string sourceFile = "@YOUR_DOCUMENT_DIRECTORY/your-document.docx";
-   ```
+string sourceFile = "@YOUR_DOCUMENT_DIRECTORY/your-document.docx";
 ```
 
 The `Redactor` class is GroupDocs.Redaction's core engine that processes redaction rules against a document stream. The `ExactPhraseRedaction` class defines a rule for matching exact text strings.
 
 ```csharp
-```csharp
-   using System;
-   using GroupDocs.Redaction;
-   using GroupDocs.Redaction.Redactions;
+using System;
+using GroupDocs.Redaction;
+using GroupDocs.Redaction.Redactions;
 
-   // Load a Word document.
-   using (Redactor redactor = new Redactor(sourceFile))
-   {
-       // Apply an exact phrase redaction.
-       RedactorChangeLog result = redactor.Apply(new ExactPhraseRedaction("John Doe", new ReplacementOptions(System.Drawing.Color.Black)));
-       Console.WriteLine($"Redaction applied: {result.Status}");
-   }
-   ```
+// Load a Word document.
+using (Redactor redactor = new Redactor(sourceFile))
+{
+    // Apply an exact phrase redaction.
+    RedactorChangeLog result = redactor.Apply(new ExactPhraseRedaction("John Doe", new ReplacementOptions(System.Drawing.Color.Black)));
+    Console.WriteLine($"Redaction applied: {result.Status}");
+}
 ```
 
 *Why*: This approach guarantees that every occurrence of the confidential phrase is securely hidden, preserving the document’s layout.
