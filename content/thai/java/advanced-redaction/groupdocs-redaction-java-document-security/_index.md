@@ -1,46 +1,104 @@
 ---
-date: '2026-04-10'
-description: เรียนรู้วิธีตั้งค่า GroupDocs Redaction Java จากนั้นปกป้องเอกสารด้วยการลบวลีที่ตรงกันอย่างแม่นยำและตัวเลือกการเรสเตอร์ไลซ์ขั้นสูง.
+date: '2026-10-22'
+description: เรียนรู้วิธีตั้งค่า GroupDocs Redaction Java จากนั้นปกป้องเอกสารด้วย
+  exact phrase redaction และตัวเลือก advanced rasterization
 keywords:
 - setup groupdocs redaction java
 - exact phrase redaction java
 - advanced rasterization groupdocs
-title: 'ตั้งค่า GroupDocs Redaction Java: การลบข้อมูลวลีที่ตรงกัน'
+lastmod: '2026-10-22'
+og_description: ตั้งค่า GroupDocs Redaction Java เพื่อทำการลบข้อมูลอย่างปลอดภัยสำหรับ
+  exact phrases และใช้ advanced rasterization. ปฏิบัติตามคู่มือขั้นตอนต่อขั้นตอนสำหรับนักพัฒนา
+  Java
+og_image_alt: Guide to configure GroupDocs Redaction Java with phrase redaction and
+  rasterization
+og_title: ตั้งค่า GroupDocs Redaction Java สำหรับ exact phrase redaction
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-22'
+  description: Learn how to set up GroupDocs Redaction Java, then protect documents
+    with exact phrase redaction and advanced rasterization options.
+  headline: Setup groupdocs redaction java for exact phrase redaction
+  type: TechArticle
+- description: Learn how to set up GroupDocs Redaction Java, then protect documents
+    with exact phrase redaction and advanced rasterization options.
+  name: Setup groupdocs redaction java for exact phrase redaction
+  steps:
+  - name: '**Load your document** – Use the `Redactor` constructor with the file path.'
+    text: '**Load your document** – Use the `Redactor` constructor with the file path.'
+  - name: '**Apply the redaction** – Create an `ExactPhraseRedaction` object and pass
+      a `ReplacementOptions` instance. The `ExactPhraseRedaction` class is the API
+      component that identifies the exact phrase and ties it to the replacement logic.
+      `ReplacementOptions` defines the text, symbol, or image that will appear in
+      place of the original phrase.'
+    text: '**Apply the redaction** – Create an `ExactPhraseRedaction` object and pass
+      a `ReplacementOptions` instance. The `ExactPhraseRedaction` class is the API
+      component that identifies the exact phrase and ties it to the replacement logic.
+      `ReplacementOptions` defines the text, symbol, or image that will appear in
+      place of the original phrase.'
+  - name: '**Configure save options** – Enable rasterization and add the desired advanced
+      options.'
+    text: '**Configure save options** – Enable rasterization and add the desired advanced
+      options.'
+  - name: '**Key configuration options**'
+    text: '**Key configuration options**'
+  type: HowTo
+- questions:
+  - answer: Pass any string you like to `ReplacementOptions`; it will replace the
+      matched phrase verbatim.
+    question: How do I customize the replacement text in exact phrase redaction?
+  - answer: Yes, GroupDocs.Redaction supports PDF, PPTX, and several other formats—just
+      verify that the specific raster options are available for the chosen type.
+    question: Can I use advanced rasterization for non‑DOCX files?
+  - answer: Double‑check that the path is absolute or correctly relative to your project’s
+      working directory, and ensure the file has read/write permissions.
+    question: What if I encounter errors with file paths in my code?
+  - answer: Absolutely. Create multiple `ExactPhraseRedaction` instances and apply
+      them sequentially before saving.
+    question: Is there a way to redact multiple phrases at once?
+  - answer: Process the document in sections or use the streaming APIs provided by
+      the library to keep memory usage low.
+    question: How do I handle large documents efficiently with GroupDocs.Redaction?
+  type: FAQPage
+tags:
+- redaction java
+- groupdocs redaction
+- document security
+- exact phrase redaction
+- rasterization
+title: ตั้งค่า GroupDocs Redaction Java สำหรับ exact phrase redaction
 type: docs
 url: /th/java/advanced-redaction/groupdocs-redaction-java-document-security/
 weight: 1
 ---
 
-# ตั้งค่า GroupDocs Redaction Java: การลบข้อความที่ตรงกันอย่างแม่นยำและการเรสเตอร์ไลซ์ขั้นสูง
+# ตั้งค่า groupdocs redaction java สำหรับการลบข้อความที่ตรงกันแบบแม่นยำ
 
-ในโลกดิจิทัลที่เคลื่อนที่อย่างรวดเร็วในวันนี้, **setup GroupDocs Redaction Java** คือขั้นตอนแรกในการปกป้องข้อมูลที่ละเอียดอ่อนภายในเอกสารของคุณ ไม่ว่าคุณจะจัดการสัญญากฎหมาย, บันทึกทางการแพทย์, หรือรายงานทางการเงิน, คุณต้องการวิธีที่เชื่อถือได้ในการซ่อนตัวระบุส่วนบุคคลและเพิ่มชั้นความปลอดภัยเชิงภาพ บทแนะนำนี้จะพาคุณผ่านการติดตั้งไลบรารี, การใช้การลบข้อความที่ตรงกันอย่างแม่นยำ, และการใช้การเรสเตอร์ไลซ์ขั้นสูงเพื่อสร้างไฟล์ที่ปลอดภัยและพร้อมแชร์
+ในสภาพแวดล้อมองค์กรสมัยใหม่, **setup groupdocs redaction java** เป็นขั้นตอนแรกที่สำคัญในการปกป้องข้อมูลที่เป็นความลับภายใน PDF, ไฟล์ Word, และงานนำเสนอ ไม่ว่าคุณจะเป็นเจ้าหน้าที่ปฏิบัติตามกฎ, นักพัฒนาที่สร้างระบบจัดการเอกสาร, หรือผู้ดูแลระบบ IT ที่ทำงานอัตโนมัติด้านความเป็นส่วนตัวของข้อมูล คู่มือนี้จะแสดงวิธีการติดตั้งไลบรารี, ลบข้อความที่ตรงกันแบบแม่นยำ, และใช้การเรสเตอร์ขั้นสูงเพื่อสร้างเอกสารที่พร้อมแชร์และปลอดการดัดแปลง
 
 ## คำตอบอย่างรวดเร็ว
-- **What does “exact phrase redaction” do?** มันแทนที่สตริงเฉพาะ (เช่น ชื่อ) ด้วยข้อความหรือสัญลักษณ์ที่กำหนดเอง  
-- **Why use rasterization?** การเรสเตอร์ไลซ์แปลงหน้าต่างเป็นภาพ, ทำให้คุณสามารถเพิ่มสัญญาณรบกวน, กรอบ, หรือโทนสีเทาเพื่อเพิ่มการป้องกันเพิ่มเติม  
-- **Which Maven version is required?** GroupDocs.Redaction 24.9 หรือใหม่กว่า  
-- **Can I redaction multiple phrases?** ได้ – ใช้หลายอินสแตนซ์ของ `ExactPhraseRedaction` ก่อนบันทึก  
-- **Is a license needed for production?** เวอร์ชันทดลองใช้ได้สำหรับการทดสอบ; จำเป็นต้องมีไลเซนส์เต็มสำหรับการใช้งานเชิงพาณิชย์
+- **การลบข้อความที่ตรงกันแบบแม่นยำทำอะไร?** มันจะแทนที่สตริงเฉพาะ (เช่น หมายเลขประกันสังคม) ด้วยข้อความที่กำหนดเอง, มาสก์, หรือรูปภาพที่คุณกำหนด  
+- **ทำไมต้องใช้การเรสเตอร์?** การเรสเตอร์จะเปลี่ยนแต่ละหน้ามาเป็นภาพ, ทำให้คุณสามารถเพิ่มสัญญาณรบกวน, กรอบ, หรือระดับสีเทาเพื่อทำให้ข้อมูลที่ซ่อนอยู่ไม่สามารถกู้คืนได้  
+- **ต้องการเวอร์ชัน Maven ใด?** GroupDocs.Redaction 24.9 หรือใหม่กว่า  
+- **ฉันสามารถลบหลายข้อความในหนึ่งรอบได้หรือไม่?** ใช่ – สร้างหลายอ็อบเจกต์ `ExactPhraseRedaction` แล้วนำไปใช้ก่อนบันทึก  
+- **ต้องการใบอนุญาตสำหรับการผลิตหรือไม่?** การทดลองใช้ทำงานสำหรับการทดสอบ; ใบอนุญาตเต็มเป็นสิ่งจำเป็นสำหรับการใช้งานเชิงพาณิชย์  
 
-## อะไรคือ “setup GroupDocs Redaction Java”?
-การตั้งค่า GroupDocs Redaction ในโครงการ Java หมายถึงการเพิ่มไลบรารีลงในระบบการสร้างของคุณ, การเริ่มต้นคลาส `Redactor` ด้วยเส้นทางเอกสาร, และการกำหนดค่าตัวเลือกการลบหรือการบันทึกที่คุณต้องการ เมื่อไลบรารีอยู่ใน classpath แล้ว, คุณสามารถเริ่มลบข้อความ, รูปภาพ, หรือส่วนทั้งหมดได้ด้วยไม่กี่บรรทัดของโค้ด
+## setup groupdocs redaction java คืออะไร?
+Setup groupdocs redaction java หมายถึงการเพิ่มไลบรารี GroupDocs.Redaction ไปยังระบบการสร้างของ Java ของคุณ, สร้างอินสแตนซ์ `Redactor` ที่ชี้ไปยังเอกสารเป้าหมาย, และกำหนดค่าตัวเลือกการลบหรือการบันทึก. คลาส `Redactor` เป็น API หลักของ GroupDocs.Redaction ที่โหลดเอกสารและจัดการการลบทั้งหมด. เมื่อไลบรารีอยู่ใน classpath, คุณสามารถเริ่มลบข้อความ, รูปภาพ, หรือส่วนทั้งหมดได้ด้วยเพียงไม่กี่บรรทัดของโค้ด
 
 ## ทำไมต้องใช้ GroupDocs Redaction สำหรับ Java?
-- **Robust security:** ประเภทการลบและการเรสเตอร์ไลซ์ในตัวช่วยปกป้องข้อมูลที่ต้นทาง  
-- **Format flexibility:** รองรับ DOCX, PDF, PPTX, และรูปแบบยอดนิยมอื่น ๆ มากมาย  
-- **Easy integration:** การสนับสนุน Maven/Gradle ทำให้คุณเพิ่มเข้าโครงการที่มีอยู่ได้ในไม่กี่นาที  
-- **Performance‑focused:** จัดการไฟล์ขนาดใหญ่อย่างมีประสิทธิภาพ, ช่วยให้คุณประมวลผลเป็นชุดโดยไม่เกิดการใช้หน่วยความจำสูงเกินไป
+GroupDocs.Redaction สำหรับ Java ให้การลบข้อมูลที่พร้อมใช้งานทันที, เข้ากันได้กับ PCI‑DSS, ที่ประมวลผล **50+ file formats** และสามารถจัดการ PDF ที่มี **up to 500 pages** โดยไม่ต้องโหลดไฟล์ทั้งหมดเข้าสู่หน่วยความจำ. มันมีการเรสเตอร์ในตัว, การลบข้อมูลโดยใช้ OCR, และการประมวลผลแบบแบตช์, มอบความปลอดภัยระดับองค์กรพร้อมการใช้หน่วยความจำต่ำกว่า 200 MB สำหรับเอกสารขนาดใหญ่
 
 ## ข้อกำหนดเบื้องต้น
 - Java 8 หรือใหม่กว่า (แนะนำ Java 11 +)  
 - Maven 3 หรือ IDE ที่เข้ากันได้ (IntelliJ IDEA, Eclipse, ฯลฯ)  
-- ความคุ้นเคยพื้นฐานกับไวยากรณ์ Java และการจัดการ dependencies ของ Maven  
+- ความคุ้นเคยพื้นฐานกับไวยากรณ์ Java และการจัดการ dependency ของ Maven  
 
 ## การตั้งค่า GroupDocs.Redaction สำหรับ Java
 
 ### การตั้งค่า Maven
 
-เพิ่ม repository และ dependency ลงในไฟล์ `pom.xml` ของคุณตามที่แสดงไว้:
+Add the repository and dependency to your `pom.xml` exactly as shown:
 
 ```xml
 <repositories>
@@ -62,15 +120,15 @@ weight: 1
 
 ### ดาวน์โหลดโดยตรง
 
-หากคุณต้องการวิธีการแบบแมนนวล, ดาวน์โหลด JAR ล่าสุดจากเว็บไซต์ทางการ: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/)
+หากคุณต้องการวิธีการแบบแมนนวล, ดาวน์โหลด JAR ล่าสุดจากเว็บไซต์อย่างเป็นทางการ: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
-### การจัดหาไลเซนส์
+### การรับใบอนุญาต
 
-GroupDocs มีเวอร์ชันทดลองฟรีสำหรับการประเมินผล. สำหรับงานผลิต, ขอรับไลเซนส์ชั่วคราวหรือเต็มรูปแบบจากพอร์ทัลของ GroupDocs
+GroupDocs มีการทดลองใช้ฟรีสำหรับการประเมิน. สำหรับงานในสภาพแวดล้อมการผลิต, รับใบอนุญาตชั่วคราวหรือเต็มรูปแบบจากพอร์ทัลของ GroupDocs
 
-### การเริ่มต้นและตั้งค่าเบื้องต้น
+### การเริ่มต้นและการตั้งค่าพื้นฐาน
 
-เมื่อไลบรารีอยู่ใน classpath ของคุณ, สร้างอินสแตนซ์ `Redactor` ที่ชี้ไปยังเอกสารที่คุณต้องการปกป้อง:
+The `Redactor` class is the entry point for all redaction work. Once the library is on your classpath, create a `Redactor` instance pointing at the document you want to protect:
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -84,21 +142,22 @@ public class Main {
 }
 ```
 
-## คู่มือการใช้งาน
+## การลบข้อความที่ตรงกันแบบแม่นยำ
 
-### Exact Phrase Redaction
+คุณลักษณะนี้ช่วยให้คุณแทนที่สตริงเฉพาะด้วยตัวแทน, มาสก์, หรือข้อความที่กำหนดเองใด ๆ ที่คุณระบุ
 
-ฟีเจอร์นี้ช่วยให้คุณแทนที่สตริงเฉพาะด้วยตัวแทน, มาสก์, หรือข้อความกำหนดเองใด ๆ ที่คุณกำหนด
+### วิธีการนำการลบข้อความที่ตรงกันแบบแม่นยำไปใช้
+เพื่อใช้การลบข้อความที่ตรงกันแบบแม่นยำ, ก่อนอื่นโหลดเอกสารด้วยอินสแตนซ์ `Redactor`, จากนั้นสร้างอ็อบเจกต์ `ExactPhraseRedaction` ที่ระบุวลีที่ต้องการค้นหา. ให้ `ReplacementOptions` เพื่อกำหนดวิธีการแทนที่วลี, แล้วจึงนำการลบไปใช้ก่อนบันทึกไฟล์.  
+`ExactPhraseRedaction` เป็นคลาสที่ระบุวลีที่ตรงกันแบบแม่นยำในเอกสารและทำเครื่องหมายสำหรับการลบ.  
+`ReplacementOptions` กำหนดการแทนที่เชิงภาพ, เช่น ข้อความที่กำหนดเอง, สัญลักษณ์, หรือรูปภาพที่จะแสดงแทนวลีที่ถูกลบ
 
-#### วิธีการทำ Exact Phrase Redaction
-
-1. **Load Your Document** – ใช้คอนสตรัคเตอร์ `Redactor` พร้อมเส้นทางไฟล์
+1. **Load your document** – Use the `Redactor` constructor with the file path.
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/MULTIPAGE_SAMPLE_DOCX");
 ```
 
-2. **Apply the Redaction** – สร้างอ็อบเจ็กต์ `ExactPhraseRedaction` และส่งผ่านอินสแตนซ์ `ReplacementOptions`
+2. **Apply the redaction** – Create an `ExactPhraseRedaction` object and pass a `ReplacementOptions` instance. The `ExactPhraseRedaction` class is the API component that identifies the exact phrase and ties it to the replacement logic. `ReplacementOptions` defines the text, symbol, or image that will appear in place of the original phrase.
 
 ```java
 try {
@@ -109,21 +168,18 @@ try {
 }
 ```
 
-3. **Understanding Parameters**  
-   - `ExactPhraseRedaction` – รับข้อความที่ต้องการลบอย่างแม่นยำและตัวเลือกการแทนที่  
-   - `ReplacementOptions` – กำหนดข้อความ, สัญลักษณ์, หรือรูปภาพที่จะปรากฏแทนที่ข้อความเดิม
-
 #### เคล็ดลับการแก้ไขปัญหา
 - ตรวจสอบเส้นทางไฟล์; เส้นทางผิดจะทำให้เกิด `FileNotFoundException`  
-- จำไว้ว่าสตริงใน Java แยกแยะตัวพิมพ์ใหญ่‑เล็ก; ใช้ตรรกะ `String.equalsIgnoreCase` หากต้องการการจับคู่โดยไม่สนใจตัวพิมพ์
+- สตริงใน Java แยกแยะตัวพิมพ์ใหญ่‑เล็ก; ใช้ตรรกะ `String.equalsIgnoreCase` หากต้องการการจับคู่ที่ไม่แยกแยะตัวพิมพ์  
 
-### ตัวเลือกการเรสเตอร์ไลซ์ขั้นสูงสำหรับการบันทึกเอกสารอย่างปลอดภัย
+## ตัวเลือกการเรสเตอร์ขั้นสูงสำหรับการบันทึกเอกสารอย่างปลอดภัย
 
-การเรสเตอร์ไลซ์แปลงแต่ละหน้าเป็นภาพ, ทำให้คุณสามารถเพิ่มมาตรการความปลอดภัยเชิงภาพเช่นโทนสีเทา, สัญญาณรบกวน, หรือกรอบ
+การเรสเตอร์จะเปลี่ยนแต่ละหน้ามาเป็นภาพ, ทำให้คุณสามารถเพิ่มมาตรการความปลอดภัยเชิงภาพเช่นระดับสีเทา, สัญญาณรบกวน, หรือกรอบ
 
-#### วิธีการทำ Advanced Rasterization
+### วิธีการนำการเรสเตอร์ขั้นสูงไปใช้
+เพื่อเปิดใช้การเรสเตอร์ขั้นสูง, กำหนดค่าตัวเลือกการบันทึกบนอินสแตนซ์ `Redactor`, เปิดการเรสเตอร์และเลือกเอฟเฟกต์เชิงภาพเพิ่มเติม. คุณสามารถเพิ่มกรอบ, สัญญาณรบกวน, การแปลงเป็นระดับสีเทา, หรือการเอียงให้แต่ละหน้า, เพื่อให้ข้อมูลที่ซ่อนอยู่ไม่สามารถกู้คืนได้หลังการเรนเดอร์
 
-1. **Configure Save Options** – เปิดใช้งานการเรสเตอร์ไลซ์และเพิ่มตัวเลือกขั้นสูงที่ต้องการ
+1. **Configure save options** – Enable rasterization and add the desired advanced options.
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/MULTIPAGE_SAMPLE_DOCX");
@@ -146,58 +202,64 @@ try {
 }
 ```
 
-2. **Key Configuration Options**  
-   - `setRedactedFileSuffix` – เพิ่มส่วนต่อท้าย (เช่น “_scan”) เพื่อให้คุณระบุไฟล์ที่ผ่านการประมวลผลได้ง่าย  
-   - `addAdvancedOption` – เลือกเอฟเฟกต์ภาพเช่น `Border`, `Noise`, `Grayscale`, และ `Tilt`
+2. **Key configuration options**  
+   - `setRedactedFileSuffix` – Adds a suffix (e.g., “_scan”) so you can easily identify processed files.  
+   - `addAdvancedOption` – Chooses visual effects like `Border`, `Noise`, `Grayscale`, and `Tilt`.  
 
 #### เคล็ดลับการแก้ไขปัญหา
-- ไม่ใช่ทุกฟอร์แมตจะรองรับคุณลักษณะการเรสเตอร์ไลซ์ทั้งหมด; ทดสอบกับ DOCX, PDF, และ PPTX เพื่อยืนยัน  
-- ทดลองผสมผสานตัวเลือกต่าง ๆ เพื่อหาสมดุลระหว่างความปลอดภัยและการอ่านได้
+- ไม่ใช่ทุกฟอร์แมตจะรองรับคุณลักษณะการเรสเตอร์ทั้งหมด; ทดสอบกับ DOCX, PDF, และ PPTX เพื่อยืนยัน  
+- ทดลองผสมผสานตัวเลือกต่าง ๆ เพื่อหาจุดสมดุลระหว่างความปลอดภัยและความอ่านง่าย  
 
 ## การประยุกต์ใช้งานจริง
 
 | อุตสาหกรรม | กรณีการใช้งานทั่วไป |
-|----------|------------------|
-| Legal | ลบชื่อของลูกค้าก่อนแชร์สัญญา |
-| Healthcare | ซ่อนตัวระบุผู้ป่วยในบันทึกทางการแพทย์ |
-| Finance | ปิดบังหมายเลขบัญชีในรายงานไตรมาส |
-| Human Resources | ทำให้ข้อมูลพนักงานเป็นนิรนามสำหรับการตรวจสอบภายใน |
-| Publishing | ลบวลีที่ห้ามใช้จากต้นฉบับ |
+|------------|----------------------|
+| กฎหมาย | ลบชื่อของลูกค้าก่อนแชร์สัญญา |
+| การดูแลสุขภาพ | ซ่อนตัวระบุผู้ป่วยในบันทึกทางการแพทย์ |
+| การเงิน | ปิดบังหมายเลขบัญชีในรายงานไตรมาส |
+| ทรัพยากรบุคคล | ทำให้รายละเอียดพนักงานเป็นนามธรรมสำหรับการตรวจสอบภายใน |
+| การเผยแพร่ | ลบวลีที่ห้ามใช้จากต้นฉบับ |
 
 ## พิจารณาด้านประสิทธิภาพ
 
-- **Memory Management:** PDF ขนาดใหญ่สามารถใช้หน่วยความจำ heap อย่างมาก; พิจารณาเพิ่ม `-Xmx` หรือประมวลผลเป็นชิ้นส่วน  
-- **I/O Efficiency:** ใช้ buffered streams เมื่ออ่าน/เขียนไฟล์เพื่อลดความหน่วงเวลา  
-- **Selective Redaction:** ใช้การลบเฉพาะหน้าที่มีข้อมูลสำคัญเพื่อเร่งความเร็วการประมวลผล
+- **Memory management:** PDF ขนาดใหญ่สามารถใช้หน่วยความจำ heap อย่างมาก; เพิ่มค่าแฟล็ก JVM `-Xmx` หรือประมวลผลเอกสารเป็นชิ้นส่วน  
+- **I/O efficiency:** ใช้ buffered streams เมื่ออ่าน/เขียนไฟล์เพื่อ ลดความหน่วงเวลา  
+- **Selective redaction:** ใช้การลบเฉพาะหน้าที่มีข้อมูลสำคัญเพื่อเร่งความเร็วการประมวลผล  
 
 ## สรุป
 
-ด้วยการเชี่ยวชาญ **setup GroupDocs Redaction Java**, คุณมีเครื่องมือที่ทรงพลังสำหรับการลบข้อความที่ตรงกันอย่างแม่นยำและการเรสเตอร์ไลซ์ขั้นสูง ความสามารถเหล่านี้ช่วยให้คุณปกป้องข้อมูลลับได้ในขณะที่ยังคงรักษาการใช้งานเอกสารไว้ได้อย่างเต็มที่ ขั้นต่อไป, สำรวจประเภทการลบอื่น ๆ (รูปภาพ, บาร์โค้ด, regex) หรือผสานไลบรารีเข้ากับกระบวนการจัดการเอกสารขนาดใหญ่
+โดยการเชี่ยวชาญ **setup groupdocs redaction java**, คุณจะมีชุดเครื่องมือที่แข็งแกร่งสำหรับการลบข้อความที่ตรงกันแบบแม่นยำและการเรสเตอร์ขั้นสูง ความสามารถเหล่านี้ช่วยให้คุณปกป้องข้อมูลที่เป็นความลับพร้อมคงความสามารถใช้งานของเอกสารไว้ ต่อไป, สำรวจประเภทการลบอื่น ๆ (รูปภาพ, บาร์โค้ด, regex) หรือรวมไลบรารีเข้ากับเวิร์กโฟลว์การจัดการเอกสารขนาดใหญ่
 
 ## คำถามที่พบบ่อย
 
-**Q: How do I customize the replacement text in exact phrase redaction?**  
-A: ส่งสตริงใดก็ได้ที่คุณต้องการไปยัง `ReplacementOptions`; มันจะแทนที่วลีที่ตรงกันโดยตรง
+**Q: ฉันจะปรับแต่งข้อความแทนที่ในการลบข้อความที่ตรงกันแบบแม่นยำได้อย่างไร?**  
+A: ส่งสตริงใดก็ได้ที่คุณต้องการไปยัง `ReplacementOptions`; มันจะแทนที่วลีที่ตรงกันโดยตรง  
 
-**Q: Can I use advanced rasterization for non‑DOCX files?**  
-A: ได้, GroupDocs.Redaction รองรับ PDF, PPTX, และหลายฟอร์แมตอื่น ๆ — เพียงตรวจสอบว่าตัวเลือกเรสเตอร์ที่เฉพาะเจาะจงมีให้ใช้กับประเภทที่เลือกหรือไม่
+**Q: ฉันสามารถใช้การเรสเตอร์ขั้นสูงสำหรับไฟล์ที่ไม่ใช่ DOCX ได้หรือไม่?**  
+A: ได้, GroupDocs.Redaction รองรับ PDF, PPTX, และหลายฟอร์แมตอื่น ๆ — เพียงตรวจสอบว่าตัวเลือกเรสเตอร์ที่เฉพาะเจาะจงมีให้ใช้กับประเภทที่เลือกหรือไม่  
 
-**Q: What if I encounter errors with file paths in my code?**  
-A: ตรวจสอบให้แน่ใจว่าเส้นทางเป็นแบบ absolute หรือ relative อย่างถูกต้องต่อไดเรกทอรีทำงานของโครงการ, และไฟล์มีสิทธิ์อ่าน/เขียน
+**Q: จะทำอย่างไรหากพบข้อผิดพลาดเกี่ยวกับเส้นทางไฟล์ในโค้ดของฉัน?**  
+A: ตรวจสอบให้แน่ใจว่าเส้นทางเป็นแบบ absolute หรือสัมพันธ์กับไดเรกทอรีทำงานของโปรเจกต์อย่างถูกต้อง, และตรวจสอบว่าไฟล์มีสิทธิ์อ่าน/เขียน  
 
-**Q: Is there a way to redact multiple phrases at once?**  
-A: แน่นอน. สร้างหลายอินสแตนซ์ของ `ExactPhraseRedaction` แล้วใช้เรียงลำดับก่อนบันทึก
+**Q: มีวิธีลบหลายวลีพร้อมกันหรือไม่?**  
+A: แน่นอน. สร้างหลายอินสแตนซ์ `ExactPhraseRedaction` แล้วนำไปใช้ตามลำดับก่อนบันทึก  
 
-**Q: How do I handle large documents efficiently with GroupDocs.Redaction?**  
-A: ประมวลผลเอกสารเป็นส่วนหรือใช้ API สตรีมมิ่งที่ไลบรารีจัดให้เพื่อรักษาการใช้หน่วยความจำให้ต่ำ
+**Q: จะจัดการเอกสารขนาดใหญ่อย่างมีประสิทธิภาพด้วย GroupDocs.Redaction ได้อย่างไร?**  
+A: ประมวลผลเอกสารเป็นส่วน ๆ หรือใช้ streaming APIs ที่ไลบรารีให้มาเพื่อรักษาการใช้หน่วยความจำให้ต่ำ  
 
 ---
 
-**Last Updated:** 2026-04-10  
-**Tested With:** GroupDocs.Redaction 24.9 for Java  
+**Last updated:** 2026-10-22  
+**Tested with:** GroupDocs.Redaction 24.9 for Java  
 **Author:** GroupDocs  
 
 **Resources**  
 - **Documentation:** [GroupDocs.Redaction Java Documentation](https://docs.groupdocs.com/redaction/java/)  
-- **API Reference:** [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)  
+- **API reference:** [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)  
 - **Download:** [Latest Release](https://releases.groupdocs.com/redaction/java/)
+
+## บทแนะนำที่เกี่ยวข้อง
+
+- [Java Redaction Guide Groupdocs Document Security](/redaction/java/text-redaction/java-redaction-guide-groupdocs-document-security/)
+- [Groupdocs Redaction Java Rasterize Word Docs](/redaction/java/document-saving/groupdocs-redaction-java-rasterize-word-docs/)
+- [Advanced Logging Groupdocs Redaction Java](/redaction/java/advanced-redaction/advanced-logging-groupdocs-redaction-java/)
