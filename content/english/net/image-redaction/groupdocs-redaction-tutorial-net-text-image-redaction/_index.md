@@ -244,9 +244,9 @@ A: Yes, call `redactor.GetRedactedPages()` to retrieve a preview stream that you
    - Yes, it offers libraries for several languages including Java and C++.
 
 ## Resources
-- **Documentation:** [GroupDocs Redaction .NET Documentation]({{< relref "redaction/net/pdf-specific-redaction/ai-powered-pdf-redaction-groupdocs-redaction-net/_index.md" >}})
-- **API reference:** [API Reference for GroupDocs Redaction]({{< relref "redaction/net/image-redaction/redact-embedded-images-groupdocs-redaction-net/_index.md" >}})
-- **Download:** [Download Latest Version]({{< relref "redaction/net/document-loading/groupdocs-redaction-net-load-redact-documents/_index.md" >}})
+- **Documentation:** [GroupDocs Redaction .NET Documentation](/net/pdf-specific-redaction/ai-powered-pdf-redaction-groupdocs-redaction-net/)
+- **API reference:** [API Reference for GroupDocs Redaction](/net/image-redaction/redact-embedded-images-groupdocs-redaction-net/)
+- **Download:** [Download Latest Version](/net/document-loading/groupdocs-redaction-net-load-redact-documents/)
 - **Support forum:** [GroupDocs Forum](https://forum.groupdocs.com/c/redaction/33)
 - **Temporary license:** [Obtain a Temporary License](https://purchase.groupdocs.com/temporary-license/)
 
@@ -293,6 +293,6 @@ RegionReplacementOptions optionsImg = new RegionReplacementOptions(Color.Chocola
 
 ## Related Tutorials
 
-- [AI-Powered PDF Redaction with GroupDocs.Redaction .NET: Advanced Techniques for Data Privacy and Compliance]({{< relref "redaction/net/pdf-specific-redaction/ai-powered-pdf-redaction-groupdocs-redaction-net/_index.md" >}})
-- [Redact Embedded Images in Word Documents Using GroupDocs.Redaction .NET API]({{< relref "redaction/net/image-redaction/redact-embedded-images-groupdocs-redaction-net/_index.md" >}})
-- [How to Redact Documents with GroupDocs.Redaction .NET – A Complete Guide]({{< relref "redaction/net/document-loading/groupdocs-redaction-net-load-redact-documents/_index.md" >}})
+- [AI-Powered PDF Redaction with GroupDocs.Redaction .NET: Advanced Techniques for Data Privacy and Compliance](/net/pdf-specific-redaction/ai-powered-pdf-redaction-groupdocs-redaction-net/)
+- [Redact Embedded Images in Word Documents Using GroupDocs.Redaction .NET API](/net/image-redaction/redact-embedded-images-groupdocs-redaction-net/)
+- [How to Redact Documents with GroupDocs.Redaction .NET – A Complete Guide](/net/document-loading/groupdocs-redaction-net-load-redact-documents/)

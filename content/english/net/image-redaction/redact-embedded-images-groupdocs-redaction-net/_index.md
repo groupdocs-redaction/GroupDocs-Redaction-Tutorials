@@ -214,6 +214,6 @@ A: Visit the [GroupDocs Free Support](https://forum.groupdocs.com/c/redaction/33
 
 ## Related Tutorials
 
-- [How to Redact Documents with GroupDocs.Redaction .NET – A Complete Guide]({{< relref "/redaction/net/document-loading/groupdocs-redaction-net-load-redact-documents" >}})
-- [Redact Save Documents Groupdocs Redaction Net]({{< relref "/redaction/net/document-saving/redact-save-documents-groupdocs-redaction-net" >}})
-- [Master Case-Sensitive Exact Phrase Redaction with GroupDocs.Redaction .NET for Document Security]({{< relref "/redaction/net/text-redaction/groupdocs-redaction-net-case-sensitive-exact-phrase-redaction" >}})
+- [How to Redact Documents with GroupDocs.Redaction .NET – A Complete Guide](/net/document-loading/groupdocs-redaction-net-load-redact-documents/)
+- [Redact Save Documents Groupdocs Redaction Net](/net/document-saving/redact-save-documents-groupdocs-redaction-net/)
+- [Master Case-Sensitive Exact Phrase Redaction with GroupDocs.Redaction .NET for Document Security](/net/text-redaction/groupdocs-redaction-net-case-sensitive-exact-phrase-redaction/)

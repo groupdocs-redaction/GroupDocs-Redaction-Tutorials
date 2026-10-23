@@ -162,6 +162,6 @@ A: Yes, the .NET Core version runs seamlessly in Docker containers on Linux dist
 
 ## Related Tutorials
 
-- [Remove Annotations from PDF with GroupDocs.Redaction for .NET]({{< relref "/redaction/net/annotation-redaction/mastering-annotation-removal-groupdocs-redaction-net/" >}})
-- [How to Redact Annotations Using GroupDocs.Redaction for .NET]({{< relref "/redaction/net/annotation-redaction/redact-text-annotations-groupdocs-redaction-net/" >}})
-- [How to Load Document with GroupDocs.Redaction for .NET]({{< relref "/redaction/net/document-loading/" >}})
+- [Remove Annotations from PDF with GroupDocs.Redaction for .NET](/net/annotation-redaction/mastering-annotation-removal-groupdocs-redaction-net/)
+- [How to Redact Annotations Using GroupDocs.Redaction for .NET](/net/annotation-redaction/redact-text-annotations-groupdocs-redaction-net/)
+- [How to Load Document with GroupDocs.Redaction for .NET](/net/document-loading/)

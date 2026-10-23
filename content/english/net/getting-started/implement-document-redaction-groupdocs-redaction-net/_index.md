@@ -231,6 +231,6 @@ A: Visit the [GroupDocs Free Support Forum](https://forum.groupdocs.com/c/redact
 
 ## Related Tutorials
 
-- [Save Redacted Document in Original Format Using GroupDocs.Redaction .NET]({{< relref "/redaction/net/document-saving/save-redacted-docs-original-format-groupdocs-redaction-net/" >}})
-- [How to Implement Text Redaction Using GroupDocs.Redaction for .NET: A Comprehensive Guide]({{< relref "/redaction/net/text-redaction/groupdocs-redaction-net-text-redaction-guide/" >}})
-- [How to Redact Sensitive Information and Remove Annotations Using GroupDocs.Redaction for .NET]({{< relref "/redaction/net/annotation-redaction/remove-annotations-groupdocs-redaction-net/" >}})
+- [Save Redacted Document in Original Format Using GroupDocs.Redaction .NET](/net/document-saving/save-redacted-docs-original-format-groupdocs-redaction-net/)
+- [How to Implement Text Redaction Using GroupDocs.Redaction for .NET: A Comprehensive Guide](/net/text-redaction/groupdocs-redaction-net-text-redaction-guide/)
+- [How to Redact Sensitive Information and Remove Annotations Using GroupDocs.Redaction for .NET](/net/annotation-redaction/remove-annotations-groupdocs-redaction-net/)
