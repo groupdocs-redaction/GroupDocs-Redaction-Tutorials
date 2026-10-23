@@ -64,10 +64,6 @@ url: /ja/net/image-redaction/redact-embedded-images-groupdocs-redaction-net/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # .NET で Word の画像を赤字処理するための GroupDocs の使用方法
 
 Microsoft Word ファイル内の機密画像を保護する必要があるとき、**GroupDocs の使い方** が最初の課題になります。このチュートリアルでは、埋め込まれた画像を見つけ、マスクし、永久に削除するために必要なすべての手順を順を追って説明します。
@@ -228,8 +224,3 @@ A: コミュニティ支援は [GroupDocs Free Support](https://forum.groupdocs.
 - [GroupDocs.Redaction .NET でドキュメントを赤字処理する方法 – 完全ガイド](/redaction/net/document-loading/groupdocs-redaction-net-load-redact-documents/)
 - [ドキュメント保存の赤字処理（GroupDocs Redaction .NET）](/redaction/net/document-saving/redact-save-documents-groupdocs-redaction-net/)
 - [ケースセンシティブな正確フレーズ赤字処理をマスター（Document Security 用 GroupDocs.Redaction .NET）](/redaction/net/text-redaction/groupdocs-redaction-net-case-sensitive-exact-phrase-redaction/)
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

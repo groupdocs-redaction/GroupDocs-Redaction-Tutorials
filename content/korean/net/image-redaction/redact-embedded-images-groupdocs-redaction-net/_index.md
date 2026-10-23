@@ -65,10 +65,6 @@ url: /ko/net/image-redaction/redact-embedded-images-groupdocs-redaction-net/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # .NET을 사용하여 Word에서 이미지를 Redact하는 GroupDocs 사용 방법
 
 Microsoft Word 파일에서 기밀 시각 자료를 보호해야 할 때, **GroupDocs 사용 방법**이 가장 먼저 떠오르는 질문입니다. 이 튜토리얼은 삽입된 그림을 찾아서 마스킹하고 영구적으로 제거하는 모든 단계를 안내하여 민감한 정보가 유출되지 않도록 합니다.
@@ -218,9 +214,3 @@ A: 커뮤니티 지원을 위해 [GroupDocs 무료 지원](https://forum.groupdo
 - [GroupDocs.Redaction .NET으로 문서 Redact하는 방법 – 완전 가이드](/redaction/net/document-loading/groupdocs-redaction-net-load-redact-documents/)
 - [문서 저장 Redact Groupdocs Redaction Net](/redaction/net/document-saving/redact-save-documents-groupdocs-redaction-net/)
 - [문서 보안을 위한 GroupDocs.Redaction .NET으로 대소문자 구분 정확 구문 Redact 마스터](/redaction/net/text-redaction/groupdocs-redaction-net-case-sensitive-exact-phrase-redaction/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

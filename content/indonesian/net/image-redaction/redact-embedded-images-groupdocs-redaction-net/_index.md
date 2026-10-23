@@ -66,10 +66,6 @@ url: /id/net/image-redaction/redact-embedded-images-groupdocs-redaction-net/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Cara menggunakan GroupDocs untuk menyunting gambar di Word dengan .NET
 
 Ketika Anda perlu melindungi visual rahasia dalam file Microsoft Word, **how to use GroupDocs** menjadi pertanyaan pertama. Tutorial ini memandu Anda melalui setiap langkah yang diperlukan untuk menemukan, menyamarkan, dan secara permanen menghapus gambar yang disematkan sehingga informasi sensitif tidak pernah bocor.
@@ -219,9 +215,3 @@ Untuk eksplorasi lebih dalam, coba jenis penyuntingan lain (teks, metadata) dan 
 - [Cara Menyunting Dokumen dengan GroupDocs.Redaction .NET – Panduan Lengkap](/redaction/net/document-loading/groupdocs-redaction-net-load-redact-documents/)
 - [Menyunting Simpan Dokumen Groupdocs Redaction Net](/redaction/net/document-saving/redact-save-documents-groupdocs-redaction-net/)
 - [Menguasai Penyuntingan Frasa Tepat Sensitif Huruf Besar/Kecil dengan GroupDocs.Redaction .NET untuk Keamanan Dokumen](/redaction/net/text-redaction/groupdocs-redaction-net-case-sensitive-exact-phrase-redaction/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

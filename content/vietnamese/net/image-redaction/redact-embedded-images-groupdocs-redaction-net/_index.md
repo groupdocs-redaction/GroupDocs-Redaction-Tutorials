@@ -65,10 +65,6 @@ url: /vi/net/image-redaction/redact-embedded-images-groupdocs-redaction-net/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Cách sử dụng GroupDocs để đánh dấu ảnh trong Word với .NET
 
 Khi bạn cần bảo vệ các hình ảnh bí mật trong tệp Microsoft Word, **cách sử dụng GroupDocs** trở thành câu hỏi đầu tiên. Hướng dẫn này sẽ đưa bạn qua từng bước cần thiết để xác định, che khuất và loại bỏ vĩnh viễn các hình ảnh nhúng, đảm bảo thông tin nhạy cảm không bao giờ bị rò rỉ.
@@ -218,9 +214,3 @@ A: Truy cập diễn đàn [Hỗ trợ miễn phí GroupDocs](https://forum.grou
 - [Cách xóa nhạy tài liệu với GroupDocs.Redaction .NET – Hướng dẫn đầy đủ](/redaction/net/document-loading/groupdocs-redaction-net-load-redact-documents/)
 - [Lưu tài liệu đã xóa nhạy Groupdocs Redaction Net](/redaction/net/document-saving/redact-save-documents-groupdocs-redaction-net/)
 - [Thành thạo xóa nhạy cụm từ chính xác phân biệt hoa thường với GroupDocs.Redaction .NET cho bảo mật tài liệu](/redaction/net/text-redaction/groupdocs-redaction-net-case-sensitive-exact-phrase-redaction/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

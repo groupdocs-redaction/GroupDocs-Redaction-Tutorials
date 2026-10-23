@@ -65,10 +65,6 @@ url: /sv/net/image-redaction/redact-embedded-images-groupdocs-redaction-net/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Hur man använder GroupDocs för att radera bilder i Word med .NET
 
 När du behöver skydda konfidentiella bilder i en Microsoft Word‑fil blir **how to use GroupDocs** den första frågan. Denna handledning guidar dig genom varje steg som krävs för att hitta, maskera och permanent ta bort inbäddade bilder så att känslig information aldrig läcker.
@@ -215,8 +211,3 @@ A: Besök forumet [GroupDocs Free Support](https://forum.groupdocs.com/c/redacti
 - [Hur man raderar dokument med GroupDocs.Redaction .NET – En komplett guide](/redaction/net/document-loading/groupdocs-redaction-net-load-redact-documents/)
 - [Radera och spara dokument Groupdocs Redaction Net](/redaction/net/document-saving/redact-save-documents-groupdocs-redaction-net/)
 - [Mästra skiftlägeskänslig exakt frasradering med GroupDocs.Redaction .NET för dokumentssäkerhet](/redaction/net/text-redaction/groupdocs-redaction-net-case-sensitive-exact-phrase-redaction/)
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

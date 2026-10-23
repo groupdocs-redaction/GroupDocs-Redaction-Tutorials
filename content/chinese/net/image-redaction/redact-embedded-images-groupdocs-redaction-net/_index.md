@@ -63,10 +63,6 @@ url: /zh/net/image-redaction/redact-embedded-images-groupdocs-redaction-net/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # 如何使用 GroupDocs 在 Word 中使用 .NET 对图像进行编辑
 
 当您需要保护 Microsoft Word 文件中的机密视觉内容时，**如何使用 GroupDocs** 成为首要问题。本教程将逐步指导您定位、遮蔽并永久删除嵌入的图片，以确保敏感信息不泄露。
@@ -215,8 +211,3 @@ A: 访问 [GroupDocs 免费支持](https://forum.groupdocs.com/c/redaction/33) �
 - [如何使用 GroupDocs.Redaction .NET 编辑文档 – 完整指南](/redaction/net/document-loading/groupdocs-redaction-net-load-redact-documents/)
 - [编辑并保存文档 Groupdocs Redaction Net](/redaction/net/document-saving/redact-save-documents-groupdocs-redaction-net/)
 - [掌握区分大小写的精确短语编辑，使用 GroupDocs.Redaction .NET 实现文档安全](/redaction/net/text-redaction/groupdocs-redaction-net-case-sensitive-exact-phrase-redaction/)
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

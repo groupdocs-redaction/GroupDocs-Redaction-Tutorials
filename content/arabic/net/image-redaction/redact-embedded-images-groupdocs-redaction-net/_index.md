@@ -65,10 +65,6 @@ url: /ar/net/image-redaction/redact-embedded-images-groupdocs-redaction-net/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # كيفية استخدام GroupDocs لإزالة الصور في Word باستخدام .NET
 
 عندما تحتاج إلى حماية الصور السرية في ملف Microsoft Word، يصبح **كيفية استخدام GroupDocs** هو السؤال الأول. يشرح هذا البرنامج التعليمي كل خطوة مطلوبة لتحديد، إخفاء، وإزالة الصور المدمجة بشكل دائم بحيث لا تتسرب المعلومات الحساسة.
@@ -214,9 +210,3 @@ if (result.Status != RedactionStatus.Failed)
 - [كيفية إزالة المستندات باستخدام GroupDocs.Redaction .NET – دليل كامل](/redaction/net/document-loading/groupdocs-redaction-net-load-redact-documents/)
 - [إزالة وحفظ المستندات باستخدام GroupDocs Redaction Net](/redaction/net/document-saving/redact-save-documents-groupdocs-redaction-net/)
 - [إتقان إزالة العبارات الدقيقة حساسة لحالة الأحرف باستخدام GroupDocs.Redaction .NET لأمان المستندات](/redaction/net/text-redaction/groupdocs-redaction-net-case-sensitive-exact-phrase-redaction/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

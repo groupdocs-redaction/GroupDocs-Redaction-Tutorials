@@ -296,9 +296,3 @@ RegionReplacementOptions optionsImg = new RegionReplacementOptions(Color.Chocola
 - [AI-Powered PDF Redaction with GroupDocs.Redaction .NET: Advanced Techniques for Data Privacy and Compliance]({{< relref "redaction/net/pdf-specific-redaction/ai-powered-pdf-redaction-groupdocs-redaction-net/_index.md" >}})
 - [Redact Embedded Images in Word Documents Using GroupDocs.Redaction .NET API]({{< relref "redaction/net/image-redaction/redact-embedded-images-groupdocs-redaction-net/_index.md" >}})
 - [How to Redact Documents with GroupDocs.Redaction .NET – A Complete Guide]({{< relref "redaction/net/document-loading/groupdocs-redaction-net-load-redact-documents/_index.md" >}})
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

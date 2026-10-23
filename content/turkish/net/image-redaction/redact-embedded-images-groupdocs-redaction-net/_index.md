@@ -65,10 +65,6 @@ url: /tr/net/image-redaction/redact-embedded-images-groupdocs-redaction-net/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # GroupDocs'u .NET ile Word'de Görüntüleri Kırpma Nasıl Kullanılır
 
 Microsoft Word dosyasında gizli görselleri korumanız gerektiğinde, **GroupDocs'un nasıl kullanılacağı** ilk soru haline gelir. Bu öğretici, gömülü resimleri bulmak, maskelemek ve kalıcı olarak kaldırmak için gereken tüm adımları size gösterir, böylece hassas bilgiler asla sızmaz.
@@ -219,9 +215,3 @@ C: Topluluk desteği için [GroupDocs Free Support](https://forum.groupdocs.com/
 - [GroupDocs.Redaction .NET ile Belgeleri Kırpma – Tam Kılavuz](/redaction/net/document-loading/groupdocs-redaction-net-load-redact-documents/)
 - [Belgeleri Kaydetme ve Kırpma Groupdocs Redaction Net](/redaction/net/document-saving/redact-save-documents-groupdocs-redaction-net/)
 - [GroupDocs.Redaction .NET ile Büyük/Küçük Harfe Duyarlı Tam İfade Kırpma – Belge Güvenliği](/redaction/net/text-redaction/groupdocs-redaction-net-case-sensitive-exact-phrase-redaction/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

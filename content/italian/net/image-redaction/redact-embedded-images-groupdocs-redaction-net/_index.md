@@ -67,10 +67,6 @@ url: /it/net/image-redaction/redact-embedded-images-groupdocs-redaction-net/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Come utilizzare GroupDocs per redigere le immagini in Word con .NET
 
 Quando è necessario proteggere immagini riservate in un file Microsoft Word, **come utilizzare GroupDocs** diventa la prima domanda. Questo tutorial ti guida attraverso ogni passaggio necessario per individuare, mascherare e rimuovere definitivamente le immagini incorporate, in modo che le informazioni sensibili non trapelino mai.
@@ -220,9 +216,3 @@ A: Visita il forum [GroupDocs Free Support](https://forum.groupdocs.com/c/redact
 - [Come redigere documenti con GroupDocs.Redaction .NET – Guida completa](/redaction/net/document-loading/groupdocs-redaction-net-load-redact-documents/)
 - [Redazione e salvataggio documenti Groupdocs Redaction Net](/redaction/net/document-saving/redact-save-documents-groupdocs-redaction-net/)
 - [Redazione di frasi esatte sensibili al maiuscolo/minuscolo con GroupDocs.Redaction .NET per la sicurezza dei documenti](/redaction/net/text-redaction/groupdocs-redaction-net-case-sensitive-exact-phrase-redaction/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

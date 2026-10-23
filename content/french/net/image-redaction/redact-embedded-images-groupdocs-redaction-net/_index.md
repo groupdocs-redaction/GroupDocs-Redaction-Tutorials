@@ -67,10 +67,6 @@ url: /fr/net/image-redaction/redact-embedded-images-groupdocs-redaction-net/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Comment utiliser GroupDocs pour masquer des images dans Word avec .NET
 
 Lorsque vous devez protéger des visuels confidentiels dans un fichier Microsoft Word, **comment utiliser GroupDocs** devient la première question. Ce tutoriel vous guide à travers chaque étape nécessaire pour localiser, masquer et supprimer définitivement les images intégrées afin que les informations sensibles ne fuient jamais.
@@ -217,8 +213,3 @@ R : Consultez le forum [GroupDocs Free Support](https://forum.groupdocs.com/c/
 - [Comment masquer des documents avec GroupDocs.Redaction .NET – Guide complet](/redaction/net/document-loading/groupdocs-redaction-net-load-redact-documents/)
 - [Masquer et enregistrer des documents Groupdocs Redaction Net](/redaction/net/document-saving/redact-save-documents-groupdocs-redaction-net/)
 - [Maîtriser la rédaction sensible à la casse d’une phrase exacte avec GroupDocs.Redaction .NET pour la sécurité des documents](/redaction/net/text-redaction/groupdocs-redaction-net-case-sensitive-exact-phrase-redaction/)
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

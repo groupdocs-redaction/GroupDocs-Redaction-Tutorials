@@ -68,10 +68,6 @@ url: /el/net/image-redaction/redact-embedded-images-groupdocs-redaction-net/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Πώς να χρησιμοποιήσετε το GroupDocs για να διαγράψετε εικόνες σε Word με .NET
 
 Όταν χρειάζεται να προστατεύσετε εμπιστευτικά οπτικά στοιχεία σε ένα αρχείο Microsoft Word, το **πώς να χρησιμοποιήσετε το GroupDocs** γίνεται το πρώτο ερώτημα. Αυτό το tutorial σας καθοδηγεί βήμα προς βήμα για να εντοπίσετε, να καλύψετε και να αφαιρέσετε μόνιμα τις ενσωματωμένες εικόνες ώστε οι ευαίσθητες πληροφορίες να μην διαρρεύσουν.
@@ -221,9 +217,3 @@ if (result.Status != RedactionStatus.Failed)
 - [Πώς να διαγράψετε έγγραφα με το GroupDocs.Redaction .NET – Ένας πλήρης οδηγός](/redaction/net/document-loading/groupdocs-redaction-net-load-redact-documents/)
 - [Διαγραφή και αποθήκευση εγγράφων Groupdocs Redaction Net](/redaction/net/document-saving/redact-save-documents-groupdocs-redaction-net/)
 - [Μάθετε τη διαγραφή ακριβούς φράσης με διάκριση πεζών-κεφαλαίων με το GroupDocs.Redaction .NET για την ασφάλεια εγγράφων](/redaction/net/text-redaction/groupdocs-redaction-net-case-sensitive-exact-phrase-redaction/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

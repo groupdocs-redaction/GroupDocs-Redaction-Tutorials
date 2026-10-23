@@ -67,10 +67,6 @@ url: /net/image-redaction/redact-embedded-images-groupdocs-redaction-net/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Learn How to Redact Embedded Images in Word Documents with GroupDocs.Redaction .NET
 
 When you need to protect confidential visuals in a Microsoft Word file, **how to use GroupDocs** becomes the first question. This tutorial walks you through every step required to locate, mask, and permanently remove embedded pictures so that sensitive information never leaks.
@@ -221,9 +217,3 @@ A: Visit the [GroupDocs Free Support](https://forum.groupdocs.com/c/redaction/33
 - [How to Redact Documents with GroupDocs.Redaction .NET – A Complete Guide]({{< relref "/redaction/net/document-loading/groupdocs-redaction-net-load-redact-documents" >}})
 - [Redact Save Documents Groupdocs Redaction Net]({{< relref "/redaction/net/document-saving/redact-save-documents-groupdocs-redaction-net" >}})
 - [Master Case-Sensitive Exact Phrase Redaction with GroupDocs.Redaction .NET for Document Security]({{< relref "/redaction/net/text-redaction/groupdocs-redaction-net-case-sensitive-exact-phrase-redaction" >}})
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

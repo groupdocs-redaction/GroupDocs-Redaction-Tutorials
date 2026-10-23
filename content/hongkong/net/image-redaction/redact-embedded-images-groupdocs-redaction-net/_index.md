@@ -63,10 +63,6 @@ url: /zh-hant/net/image-redaction/redact-embedded-images-groupdocs-redaction-net
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # 如何在 .NET 中使用 GroupDocs 對 Word 中的圖像進行遮蔽
 
 當您需要保護 Microsoft Word 檔案中的機密視覺資訊時，**如何使用 GroupDocs** 成為首要問題。本教學將逐步說明如何定位、遮蔽並永久移除嵌入的圖片，確保敏感資訊不會外洩。
@@ -216,9 +212,3 @@ A: 前往 [GroupDocs Free Support](https://forum.groupdocs.com/c/redaction/33) �
 - [如何使用 GroupDocs.Redaction .NET 進行文件遮蔽 – 完整指南](/redaction/net/document-loading/groupdocs-redaction-net-load-redact-documents/)
 - [遮蔽與儲存文件 Groupdocs Redaction Net](/redaction/net/document-saving/redact-save-documents-groupdocs-redaction-net/)
 - [精通大小寫敏感精確片語遮蔽 – 使用 GroupDocs.Redaction .NET 保障文件安全](/redaction/net/text-redaction/groupdocs-redaction-net-case-sensitive-exact-phrase-redaction/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

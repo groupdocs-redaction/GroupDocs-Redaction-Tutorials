@@ -69,10 +69,6 @@ url: /hu/net/image-redaction/redact-embedded-images-groupdocs-redaction-net/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Hogyan használjuk a GroupDocs-ot a képek redigálásához Word-ben .NET-tel
 
 Amikor meg kell védeni a bizalmas vizuális anyagokat egy Microsoft Word fájlban, a **hogyan használjuk a GroupDocs-ot** az első kérdés lesz. Ez az útmutató végigvezet minden lépésen, amely a beágyazott képek megtalálásához, maszkolásához és végleges eltávolításához szükséges, hogy az érzékeny információk ne szivárogjanak ki.
@@ -223,9 +219,3 @@ A: Visit the [GroupDocs Free Support](https://forum.groupdocs.com/c/redaction/33
 - [Hogyan redigáljunk dokumentumokat a GroupDocs.Redaction .NET‑tel – Teljes útmutató](/redaction/net/document-loading/groupdocs-redaction-net-load-redact-documents/)
 - [Redigálás és dokumentumok mentése GroupDocs Redaction Net](/redaction/net/document-saving/redact-save-documents-groupdocs-redaction-net/)
 - [Kis‑ és nagybetű érzékeny pontos kifejezés redigálás a GroupDocs.Redaction .NET‑tel a dokumentumbiztonságért](/redaction/net/text-redaction/groupdocs-redaction-net-case-sensitive-exact-phrase-redaction/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

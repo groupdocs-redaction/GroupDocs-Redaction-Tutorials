@@ -65,10 +65,6 @@ url: /th/net/image-redaction/redact-embedded-images-groupdocs-redaction-net/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # วิธีใช้ GroupDocs เพื่อลบข้อมูลรูปภาพใน Word ด้วย .NET
 
 ## คำตอบสั้น
@@ -217,9 +213,3 @@ A: เยี่ยมชมฟอรั่ม [การสนับสนุน
 - [วิธีลบข้อมูลเอกสารด้วย GroupDocs.Redaction .NET – คู่มือเต็ม](/redaction/net/document-loading/groupdocs-redaction-net-load-redact-documents/)
 - [ลบและบันทึกเอกสาร Groupdocs Redaction Net](/redaction/net/document-saving/redact-save-documents-groupdocs-redaction-net/)
 - [การลบข้อความที่ตรงตามกรณีอักษรด้วย GroupDocs.Redaction .NET เพื่อความปลอดภัยของเอกสาร](/redaction/net/text-redaction/groupdocs-redaction-net-case-sensitive-exact-phrase-redaction/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}

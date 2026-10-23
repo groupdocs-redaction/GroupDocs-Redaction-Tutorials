@@ -67,10 +67,6 @@ url: /hi/net/image-redaction/redact-embedded-images-groupdocs-redaction-net/
 weight: 1
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # GroupDocs का उपयोग करके .NET में Word में छवियों को रिडैक्ट कैसे करें
 
 जब आपको Microsoft Word फ़ाइल में गोपनीय विज़ुअल्स की सुरक्षा करनी हो, **GroupDocs का उपयोग कैसे करें** पहला सवाल बन जाता है। यह ट्यूटोरियल आपको हर चरण के माध्यम से ले जाता है जिससे आप एम्बेडेड चित्रों को खोजें, मास्क करें और स्थायी रूप से हटाएँ ताकि संवेदनशील जानकारी कभी लीक न हो।
@@ -221,9 +217,3 @@ if (result.Status != RedactionStatus.Failed)
 - [How to Redact Documents with GroupDocs.Redaction .NET – A Complete Guide](/redaction/net/document-loading/groupdocs-redaction-net-load-redact-documents/)
 - [Redact Save Documents Groupdocs Redaction Net](/redaction/net/document-saving/redact-save-documents-groupdocs-redaction-net/)
 - [Master Case-Sensitive Exact Phrase Redaction with GroupDocs.Redaction .NET for Document Security](/redaction/net/text-redaction/groupdocs-redaction-net-case-sensitive-exact-phrase-redaction/)
-
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}
