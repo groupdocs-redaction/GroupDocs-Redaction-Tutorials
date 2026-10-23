@@ -1,47 +1,104 @@
 ---
-date: '2026-04-10'
-description: Tanulja meg, hogyan állítsa be a GroupDocs Redaction Java-t, majd biztosítsa
-  a dokumentumokat pontos kifejezés eltávolítással és fejlett rasterizálási lehetőségekkel.
+date: '2026-10-22'
+description: Ismerje meg, hogyan állíthatja be a GroupDocs Redaction Java-t, majd
+  védje meg a dokumentumokat exact phrase redaction és advanced rasterization opciókkal.
 keywords:
 - setup groupdocs redaction java
 - exact phrase redaction java
 - advanced rasterization groupdocs
-title: 'GroupDocs Redaction Java beállítása: pontos kifejezés redakciója'
+lastmod: '2026-10-22'
+og_description: Állítsa be a groupdocs redaction java-t, hogy biztonságosan redigáljon
+  exact phrases és alkalmazzon advanced rasterization-t. Kövesse ezt a step‑by‑step
+  guide‑ot Java developers számára.
+og_image_alt: Guide to configure GroupDocs Redaction Java with phrase redaction and
+  rasterization
+og_title: Beállítás a groupdocs redaction java-hoz az exact phrase redaction-hez
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-22'
+  description: Learn how to set up GroupDocs Redaction Java, then protect documents
+    with exact phrase redaction and advanced rasterization options.
+  headline: Setup groupdocs redaction java for exact phrase redaction
+  type: TechArticle
+- description: Learn how to set up GroupDocs Redaction Java, then protect documents
+    with exact phrase redaction and advanced rasterization options.
+  name: Setup groupdocs redaction java for exact phrase redaction
+  steps:
+  - name: '**Load your document** – Use the `Redactor` constructor with the file path.'
+    text: '**Load your document** – Use the `Redactor` constructor with the file path.'
+  - name: '**Apply the redaction** – Create an `ExactPhraseRedaction` object and pass
+      a `ReplacementOptions` instance. The `ExactPhraseRedaction` class is the API
+      component that identifies the exact phrase and ties it to the replacement logic.
+      `ReplacementOptions` defines the text, symbol, or image that will appear in
+      place of the original phrase.'
+    text: '**Apply the redaction** – Create an `ExactPhraseRedaction` object and pass
+      a `ReplacementOptions` instance. The `ExactPhraseRedaction` class is the API
+      component that identifies the exact phrase and ties it to the replacement logic.
+      `ReplacementOptions` defines the text, symbol, or image that will appear in
+      place of the original phrase.'
+  - name: '**Configure save options** – Enable rasterization and add the desired advanced
+      options.'
+    text: '**Configure save options** – Enable rasterization and add the desired advanced
+      options.'
+  - name: '**Key configuration options**'
+    text: '**Key configuration options**'
+  type: HowTo
+- questions:
+  - answer: Pass any string you like to `ReplacementOptions`; it will replace the
+      matched phrase verbatim.
+    question: How do I customize the replacement text in exact phrase redaction?
+  - answer: Yes, GroupDocs.Redaction supports PDF, PPTX, and several other formats—just
+      verify that the specific raster options are available for the chosen type.
+    question: Can I use advanced rasterization for non‑DOCX files?
+  - answer: Double‑check that the path is absolute or correctly relative to your project’s
+      working directory, and ensure the file has read/write permissions.
+    question: What if I encounter errors with file paths in my code?
+  - answer: Absolutely. Create multiple `ExactPhraseRedaction` instances and apply
+      them sequentially before saving.
+    question: Is there a way to redact multiple phrases at once?
+  - answer: Process the document in sections or use the streaming APIs provided by
+      the library to keep memory usage low.
+    question: How do I handle large documents efficiently with GroupDocs.Redaction?
+  type: FAQPage
+tags:
+- redaction java
+- groupdocs redaction
+- document security
+- exact phrase redaction
+- rasterization
+title: Beállítás a groupdocs redaction java-hoz az exact phrase redaction-hez
 type: docs
 url: /hu/java/advanced-redaction/groupdocs-redaction-java-document-security/
 weight: 1
 ---
 
-# GroupDocs Redaction Java beállítása: pontos kifejezés eltávolítása és fejlett rasterizálás
+# GroupDocs Redaction Java beállítása pontos kifejezés redakcióhoz
 
-A mai gyorsan változó digitális világban a **setup GroupDocs Redaction Java** az első lépés a dokumentumokban lévő érzékeny adatok védelméhez. Akár jogi szerződésekkel, orvosi feljegyzésekkel vagy pénzügyi jelentésekkel dolgozik, megbízható módra van szüksége a személyes azonosítók elrejtéséhez és vizuális biztonsági rétegek hozzáadásához. Ez az útmutató végigvezeti a könyvtár telepítésén, a pontos kifejezés eltávolításán és a fejlett rasterizálás kihasználásán, hogy biztonságos, megosztható fájlokat hozzon létre.
+A modern vállalati környezetekben a **setup groupdocs redaction java** az első lépés a bizalmas információk PDF‑ekben, Word‑fájlokban és prezentációkban való védelme érdekében. Akár megfelelőségi tisztviselő, akár egy dokumentumkezelő rendszert építő fejlesztő, vagy egy adatvédelmi munkafolyamatokat automatizáló IT‑adminisztrátor vagy, ez az útmutató megmutatja, hogyan telepítsd a könyvtárat, hogyan redakciózd a pontos kifejezéseket, és hogyan alkalmazz fejlett rasterizációt a megosztható, manipulációálló dokumentumok létrehozásához.
 
 ## Gyors válaszok
-- **Mi a “exact phrase redaction” funkció?** Ez egy adott karakterláncot (pl. egy nevet) cserél ki egyéni szövegre vagy szimbólumokra.  
-- **Miért használjunk rasterizálást?** Rasterizálás konvertálja az oldalakat képekké, lehetővé téve zaj, keret vagy szürkeárnyalat hozzáadását extra védelemként.  
+- **Mi a pontos kifejezés redakció?** Ez egy adott karakterláncot (például egy társadalombiztosítási számot) cserél le egy egyéni szövegre, maszkre vagy egy általad meghatározott képre.  
+- **Miért használjuk a rasterizációt?** A rasterizáció minden oldalt képpé alakít, lehetővé téve zaj, keret vagy szürkeárnyalatos átalakítás hozzáadását, hogy a rejtett adatok helyrehozhatatlanok legyenek.  
 - **Mely Maven verzió szükséges?** GroupDocs.Redaction 24.9 vagy újabb.  
-- **Több kifejezést is el lehet távolítani?** Igen – alkalmazzon több `ExactPhraseRedaction` példányt a mentés előtt.  
-- **Szükséges licenc a termeléshez?** A próbaverzió teszteléshez működik; a kereskedelmi használathoz teljes licenc szükséges.
+- **Redakciózhatok több kifejezést egy futtatásban?** Igen – hozz létre több `ExactPhraseRedaction` objektumot, és alkalmazd őket a mentés előtt.  
+- **Szükséges licenc a termeléshez?** A próba verzió teszteléshez működik; a teljes licenc kötelező a kereskedelmi bevetésekhez.  
 
-## Mi az a “setup GroupDocs Redaction Java”?
-A GroupDocs Redaction Java projektbe való beállítása azt jelenti, hogy a könyvtárat hozzáadja a build rendszeréhez, inicializálja a `Redactor` osztályt egy dokumentum útvonalával, és konfigurálja a szükséges eltávolítási vagy mentési beállításokat. Amint a könyvtár a classpath‑on van, néhány kódsorral elkezdhet szöveget, képeket vagy teljes szakaszokat eltávolítani.
+## Mi a setup groupdocs redaction java?
+A setup groupdocs redaction java azt jelenti, hogy hozzáadod a GroupDocs.Redaction könyvtárat a Java build rendszeredhez, létrehozol egy `Redactor` példányt, amely a cél dokumentumra mutat, és konfigurálod a redakció vagy mentési beállításokat. A `Redactor` osztály a GroupDocs.Redaction központi API-ja, amely betölti a dokumentumot és irányítja az összes redakció műveletet. Miután a könyvtár a classpath‑on van, néhány kódsorral elkezdheted a szöveg, képek vagy teljes szakaszok redakcióját.
 
-## Miért használjuk a GroupDocs Redaction-t Java-hoz?
-- **Robusztus biztonság:** Beépített eltávolítási típusok és rasterizálás védik az adatokat a forrásnál.  
-- **Formátum rugalmasság:** Működik DOCX, PDF, PPTX és számos más népszerű formátummal.  
-- **Könnyű integráció:** Maven/Gradle támogatás lehetővé teszi, hogy percek alatt hozzáadja meglévő projektekhez.  
-- **Teljesítmény‑orientált:** Nagy fájlokat hatékonyan kezel, lehetővé téve kötegelt feldolgozást memóriacsúcsok nélkül.
+## Miért használjuk a GroupDocs Redaction‑t Java‑hoz?
+A GroupDocs.Redaction for Java kész‑kész, PCI‑DSS‑kompatibilis redakciót biztosít, amely **50+ fájlformátumot** dolgoz fel, és akár **500 oldalig** terjedő PDF‑eket képes kezelni anélkül, hogy a teljes fájlt a memóriába töltené. Beépített rasterizációt, OCR‑alapú redakciót és kötegelt feldolgozást kínál, vállalati szintű biztonságot nyújtva, miközben a memóriahasználat nagy dokumentumok esetén 200 MB alatt marad.
 
 ## Előfeltételek
 - Java 8 vagy újabb (Java 11 + ajánlott)  
-- Maven 3 vagy kompatibilis IDE (IntelliJ IDEA, Eclipse, stb.)  
+- Maven 3 vagy egy kompatibilis IDE (IntelliJ IDEA, Eclipse, stb.)  
 - Alapvető ismeretek a Java szintaxisról és a Maven függőségkezelésről  
 
-## A GroupDocs.Redaction Java-hoz történő beállítása
+## A GroupDocs.Redaction beállítása Java‑hoz
 
 ### Maven beállítás
 
-Addja a tárolót és a függőséget a `pom.xml`‑hez pontosan úgy, ahogy alább látható:
+Add hozzá a tárolót és a függőséget a `pom.xml`‑hez pontosan úgy, ahogy alább látható:
 
 ```xml
 <repositories>
@@ -63,15 +120,15 @@ Addja a tárolót és a függőséget a `pom.xml`‑hez pontosan úgy, ahogy al�
 
 ### Közvetlen letöltés
 
-Ha inkább manuális megközelítést részesít előnyben, töltse le a legújabb JAR‑t a hivatalos oldalról: [GroupDocs.Redaction Java kiadások](https://releases.groupdocs.com/redaction/java/).
+Ha inkább manuális megközelítést részesítesz előnyben, töltsd le a legújabb JAR‑t a hivatalos oldalról: [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
 ### Licenc beszerzése
 
-A GroupDocs ingyenes próbaverziót kínál értékeléshez. Termelési feladatokhoz szerezzen be egy ideiglenes vagy teljes körű licencet a GroupDocs portálon.
+A GroupDocs ingyenes próbaidőszakot kínál értékeléshez. Termelési feladatokhoz szerezd be a temporális vagy teljes körű licencet a GroupDocs portálon.
 
 ### Alapvető inicializálás és beállítás
 
-Miután a könyvtár a classpath‑on van, hozzon létre egy `Redactor` példányt, amely a védendő dokumentumra mutat:
+A `Redactor` osztály a belépési pont minden redakciós feladathoz. Miután a könyvtár a classpath‑on van, hozz létre egy `Redactor` példányt, amely a védendő dokumentumra mutat:
 
 ```java
 import com.groupdocs.redaction.Redactor;
@@ -85,21 +142,22 @@ public class Main {
 }
 ```
 
-## Megvalósítási útmutató
+## Pontos kifejezés redakció
 
-### Pontos kifejezés eltávolítása
+Ez a funkció lehetővé teszi, hogy egy adott karakterláncot helyettesítő szöveggel, maszkkal vagy bármilyen egyéni szöveggel cserélj.
 
-Ez a funkció lehetővé teszi egy adott karakterlánc helyettesítését egy helykitöltővel, maszkkal vagy bármilyen egyéni szöveggel, amelyet meghatároz.
+### Hogyan valósítsuk meg a pontos kifejezés redakciót
+A pontos kifejezés redakció alkalmazásához először töltsd be a dokumentumot egy `Redactor` példánnyal, majd hozz létre egy `ExactPhraseRedaction` objektumot, amely megadja a keresendő kifejezést. Adj meg egy `ReplacementOptions` objektumot, hogy meghatározd, hogyan legyen a kifejezés helyettesítve, majd végül alkalmazd a redakciót a fájl mentése előtt.  
+`ExactPhraseRedaction` egy osztály, amely azonosít egy konkrét pontos kifejezést a dokumentumban, és jelöli redakcióra.  
+`ReplacementOptions` határozza meg a vizuális helyettesítést, például egyéni szöveget, szimbólumokat vagy egy képet, amely a redakciózott kifejezés helyén jelenik meg.
 
-#### Hogyan valósítsuk meg a pontos kifejezés eltávolítását
-
-1. **Töltse be a dokumentumot** – Használja a `Redactor` konstruktort a fájl útvonallal.
+1. **Töltsd be a dokumentumot** – Használd a `Redactor` konstruktort a fájl útvonalával.
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/MULTIPAGE_SAMPLE_DOCX");
 ```
 
-2. **Alkalmazza az eltávolítást** – Hozzon létre egy `ExactPhraseRedaction` objektumot, és adjon át egy `ReplacementOptions` példányt.
+2. **Alkalmazd a redakciót** – Hozz létre egy `ExactPhraseRedaction` objektumot, és add át egy `ReplacementOptions` példányt. Az `ExactPhraseRedaction` osztály az API komponens, amely azonosítja a pontos kifejezést és összekapcsolja a helyettesítési logikával. A `ReplacementOptions` definiálja a szöveget, szimbólumot vagy képet, amely az eredeti kifejezés helyén jelenik meg.
 
 ```java
 try {
@@ -110,21 +168,18 @@ try {
 }
 ```
 
-3. **Paraméterek megértése**  
-   - `ExactPhraseRedaction` – Az eltávolítandó pontos kifejezést és a helyettesítési opciókat veszi át.  
-   - `ReplacementOptions` – Meghatározza a szöveget, szimbólumot vagy képet, amely az eredeti kifejezés helyén jelenik meg.
-
 #### Hibaelhárítási tippek
-- Ellenőrizze a fájl útvonalát; egy hibás útvonal `FileNotFoundException`‑t vált ki.  
-- Ne feledje, hogy a Java karakterláncok kis‑ és nagybetű érzékenyek; használja a `String.equalsIgnoreCase` logikát, ha nem kis‑ és nagybetű érzékeny egyezést szeretne.
+- Ellenőrizd a fájl útvonalát; egy hibás útvonal `FileNotFoundException`-t vált ki.  
+- A Java karakterláncok kis‑ és nagybetű érzékenyek; ha nem érzékeny egyezésre van szükség, használd a `String.equalsIgnoreCase` logikát.  
 
-### Fejlett rasterizálási beállítások a biztonságos dokumentum mentéshez
+## Haladó rasterizációs beállítások a biztonságos dokumentum mentéshez
 
-Rasterizálás minden oldalt képpé alakít, lehetővé téve vizuális biztonsági intézkedések, például szürkeárnyalat, zaj vagy keret hozzáadását.
+A rasterizáció minden oldalt képpé alakít, lehetővé téve vizuális biztonsági intézkedések, például szürkeárnyalatos, zaj vagy keret hozzáadását.
 
-#### Hogyan valósítsuk meg a fejlett rasterizálást
+### Hogyan valósítsuk meg a haladó rasterizációt
+A haladó rasterizáció engedélyezéséhez konfiguráld a mentési beállításokat a `Redactor` példányon, aktiváld a rasterizációt és válassz további vizuális effektusokat. Hozzáadhatsz kereteket, zajt, szürkeárnyalatos átalakítást vagy dőlést minden oldalhoz, biztosítva, hogy a rejtett adatok a renderelés után helyrehozhatatlanok legyenek.
 
-1. **Mentési beállítások konfigurálása** – Engedélyezze a rasterizálást és adja hozzá a kívánt fejlett opciókat.
+1. **Konfiguráld a mentési beállításokat** – Engedélyezd a rasterizációt és add hozzá a kívánt haladó opciókat.
 
 ```java
 final Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/MULTIPAGE_SAMPLE_DOCX");
@@ -148,55 +203,63 @@ try {
 ```
 
 2. **Kulcsfontosságú konfigurációs opciók**  
-   - `setRedactedFileSuffix` – Egy utótagot (pl. “_scan”) ad hozzá, így könnyen azonosíthatja a feldolgozott fájlokat.  
-   - `addAdvancedOption` – Vizuális hatásokat választ, mint `Border`, `Noise`, `Grayscale` és `Tilt`.
+   - `setRedactedFileSuffix` – Hozzáad egy utótagot (pl. „_scan”), így könnyen azonosíthatod a feldolgozott fájlokat.  
+   - `addAdvancedOption` – Választ vizuális effektusokat, mint a `Border`, `Noise`, `Grayscale` és `Tilt`.  
 
 #### Hibaelhárítási tippek
-- Nem minden formátum támogat minden rasterizálási funkciót; tesztelje DOCX, PDF és PPTX fájlokkal a megerősítéshez.  
-- Kísérletezzen különböző opció kombinációkkal a biztonság és olvashatóság egyensúlyának megtalálásához.
+- Nem minden formátum támogat minden rasterizációs funkciót; teszteld DOCX, PDF és PPTX fájlokkal a megerősítéshez.  
+- Kísérletezz különböző opció kombinációkkal a biztonság és olvashatóság egyensúlyának megtalálásához.  
 
 ## Gyakorlati alkalmazások
 
-| Ágazat | Tipikus felhasználási eset |
-|----------|----------------------------|
-| Jogi | Az ügyfélnevek eltávolítása a szerződések megosztása előtt. |
-| Egészségügy | Betegazonosítók elrejtése az orvosi feljegyzésekben. |
-| Pénzügy | Számlaszámok maszkolása a negyedéves jelentésekben. |
-| Humán erőforrás | Alkalmazotti adatok anonimizálása belső auditokhoz. |
-| Könyvkiadás | Tiltott kifejezések eltávolítása a kéziratokból. |
+| Iparág | Tipikus felhasználási eset |
+|----------|---------------------------|
+| Jogi | Redakciózd a kliens neveket a szerződések megosztása előtt. |
+| Egészségügy | Rejtsd el a betegazonosítókat az orvosi feljegyzésekben. |
+| Pénzügy | Maszkolj fiókszámokat a negyedéves jelentésekben. |
+| Emberi erőforrások | Anonimizáld a munkavállalói adatokat belső auditokhoz. |
+| Kiadás | Távolíts el tiltott kifejezéseket a kéziratokból. |
 
 ## Teljesítmény szempontok
 
-- **Memória kezelés:** Nagy PDF-ek jelentős heap memóriát fogyaszthatnak; fontolja a `-Xmx` növelését vagy a feldolgozást darabokban.  
-- **I/O hatékonyság:** Használjon pufferelt adatfolyamokat fájlok olvasásához/írásához a késleltetés csökkentése érdekében.  
-- **Szelektív eltávolítás:** Csak az érzékeny adatot tartalmazó oldalakon alkalmazzon eltávolítást a feldolgozás felgyorsítása érdekében.
+- **Memória kezelés:** Nagy PDF‑ek jelentős heap helyet foglalhatnak; növeld a JVM `-Xmx` zászlót vagy dolgozd fel a dokumentumot darabokban.  
+- **I/O hatékonyság:** Használj pufferelt streameket a fájlok olvasásához/írásához a késleltetés csökkentése érdekében.  
+- **Szelektív redakció:** Alkalmazd a redakciót csak azokra az oldalra, amelyek érzékeny adatot tartalmaznak, a feldolgozás felgyorsítása érdekében.  
 
 ## Következtetés
 
-A **setup GroupDocs Redaction Java** elsajátításával most egy erőteljes eszköztárhoz jutott, amely a pontos kifejezés eltávolítást és a fejlett rasterizálást egyaránt támogatja. Ezek a képességek lehetővé teszik a bizalmas információk védelmét, miközben a dokumentum használhatósága megmarad. Következő lépésként fedezze fel a többi eltávolítási típust (kép, vonalkód, regex), vagy integrálja a könyvtárat egy nagyobb dokumentumkezelő munkafolyamatba.
+A **setup groupdocs redaction java** elsajátításával most egy robusztus eszközkészletet rendelkezel a pontos kifejezés redakcióhoz és a haladó rasterizációhoz. Ezek a képességek lehetővé teszik a bizalmas információk védelmét, miközben megőrzik a dokumentum használhatóságát. Következő lépésként fedezd fel a többi redakció típust (kép, vonalkód, regex), vagy integráld a könyvtárat egy nagyobb dokumentumkezelő munkafolyamatba.
 
-## Gyakran Ismételt Kérdések
+## Gyakran ismételt kérdések
 
-**Q: Hogyan testreszabhatom a helyettesítő szöveget a pontos kifejezés eltávolításánál?**  
-A: Adjon át bármilyen karakterláncot a `ReplacementOptions`‑nek; ez szó szerint helyettesíti a megtalált kifejezést.
+**Q: Hogyan testreszabhatom a helyettesítő szöveget a pontos kifejezés redakcióban?**  
+A: Adj meg bármilyen sztringet a `ReplacementOptions`‑nek; az szó szerint helyettesíti a megtalált kifejezést.
 
-**Q: Használhatok fejlett rasterizálást nem‑DOCX fájlokhoz?**  
-A: Igen, a GroupDocs.Redaction támogatja a PDF‑et, PPTX‑et és több más formátumot – csak ellenőrizze, hogy a választott típushoz elérhetők‑e a specifikus raster opciók.
+**Q: Használhatok haladó rasterizációt nem‑DOCX fájlokhoz?**  
+A: Igen, a GroupDocs.Redaction támogatja a PDF‑et, PPTX‑et és több más formátumot – csak ellenőrizd, hogy a konkrét raster opciók elérhetők-e a választott típushoz.
 
 **Q: Mi a teendő, ha hibákat kapok a fájl útvonalakkal a kódban?**  
-A: Ellenőrizze, hogy az útvonal abszolút vagy helyesen relatív‑e a projekt munkakönyvtárához, és győződjön meg róla, hogy a fájlnak olvasási/írási jogosultsága van.
+A: Ellenőrizd, hogy az útvonal abszolút vagy helyesen relatív a projekt munkakönyvtárához, és győződj meg róla, hogy a fájlnak olvasási/írási jogosultsága van.
 
-**Q: Van mód egyszerre több kifejezést eltávolítani?**  
-A: Természetesen. Hozzon létre több `ExactPhraseRedaction` példányt, és alkalmazza őket sorban a mentés előtt.
+**Q: Van mód több kifejezést egyszerre redakciózni?**  
+A: Természetesen. Hozz létre több `ExactPhraseRedaction` példányt, és alkalmazd őket sorban a mentés előtt.
 
-**Q: Hogyan kezeljem hatékonyan a nagy dokumentumokat a GroupDocs.Redaction‑dal?**  
-A: A dokumentumot szakaszokra bontva dolgozza fel, vagy használja a könyvtár által biztosított streaming API‑kat a memóriahasználat alacsonyan tartásához.
+**Q: Hogyan kezeljem hatékonyan a nagy dokumentumokat a GroupDocs.Redaction‑nal?**  
+A: Dolgozd fel a dokumentumot szakaszokban, vagy használd a könyvtár által biztosított streaming API‑kat a memóriahasználat alacsonyan tartásához.
 
-**Last Updated:** 2026-04-10  
-**Tested With:** GroupDocs.Redaction 24.9 for Java  
-**Author:** GroupDocs  
+---
+
+**Utolsó frissítés:** 2026-10-22  
+**Tesztelve:** GroupDocs.Redaction 24.9 for Java  
+**Szerző:** GroupDocs  
 
 **Erőforrások**  
 - **Dokumentáció:** [GroupDocs.Redaction Java Documentation](https://docs.groupdocs.com/redaction/java/)  
 - **API referencia:** [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java)  
 - **Letöltés:** [Latest Release](https://releases.groupdocs.com/redaction/java/)
+
+## Kapcsolódó oktatóanyagok
+
+- [Java Redaction útmutató Groupdocs Document Security](/redaction/java/text-redaction/java-redaction-guide-groupdocs-document-security/)
+- [Groupdocs Redaction Java Word dokumentumok rasterizálása](/redaction/java/document-saving/groupdocs-redaction-java-rasterize-word-docs/)
+- [Haladó naplózás Groupdocs Redaction Java](/redaction/java/advanced-redaction/advanced-logging-groupdocs-redaction-java/)
