@@ -1,53 +1,107 @@
 ---
-date: '2026-04-20'
-description: เรียนรู้วิธีทำการลบข้อมูลในไฟล์ PDF อย่างปลอดภัยด้วย Aspose OCR, Java
-  และรูปแบบ regex คู่มือนี้จะแสดงวิธีบันทึกเอกสาร PDF ที่ลบข้อมูลแล้วพร้อมปกปิดข้อมูลที่เป็นความลับใน
-  PDF.
+date: '2026-10-27'
+description: เรียนรู้วิธีทำ secure pdf redaction ใน Java ด้วย Aspose OCR และ GroupDocs.Redaction
+  พร้อม regex patterns, และบันทึกไฟล์ PDF ที่ถูกลบข้อมูลพร้อม masking sensitive data
 keywords:
-- how to redact pdf
-- save redacted pdf
-- java pdf ocr
 - secure pdf redaction
-- pdf redaction java
-title: วิธีลบข้อมูลใน PDF ด้วย Aspose OCR และ Java - การใช้งานรูปแบบ Regex ด้วย GroupDocs.Redaction
+- save redacted pdf
+- redact scanned pdf
+- remove credit card pdf
+- mask sensitive pdf
+lastmod: '2026-10-27'
+og_description: Secure pdf redaction ใน Java ด้วย Aspose OCR และ GroupDocs.Redaction.
+  เรียนรู้ regex patterns, mask sensitive PDF data, และบันทึกไฟล์ PDF ที่ถูกลบข้อมูลอย่างมีประสิทธิภาพ
+og_image_alt: Developer guide showing secure PDF redaction workflow with Java code
+  snippets
+og_title: Secure PDF redaction ด้วย Aspose OCR และ Java – คู่มือครบวงจร
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-27'
+  description: Learn how to perform secure pdf redaction in Java using Aspose OCR
+    and GroupDocs.Redaction with regex patterns, and save redacted PDF files while
+    masking sensitive data.
+  headline: How to achieve secure pdf redaction with Aspose OCR and Java
+  type: TechArticle
+- description: Learn how to perform secure pdf redaction in Java using Aspose OCR
+    and GroupDocs.Redaction with regex patterns, and save redacted PDF files while
+    masking sensitive data.
+  name: How to achieve secure pdf redaction with Aspose OCR and Java
+  steps:
+  - name: '**Financial document security** – Mask credit‑card numbers before sending
+      statements to clients.'
+    text: '**Financial document security** – Mask credit‑card numbers before sending
+      statements to clients.'
+  - name: '**Healthcare data protection** – Redact patient identifiers to stay HIPAA‑compliant.'
+    text: '**Healthcare data protection** – Redact patient identifiers to stay HIPAA‑compliant.'
+  - name: '**Corporate confidentiality** – Hide sensitive clauses in contracts during
+      internal reviews.'
+    text: '**Corporate confidentiality** – Hide sensitive clauses in contracts during
+      internal reviews.'
+  - name: '**Legal document handling** – Ensure privileged information stays private
+      when sharing case files.'
+    text: '**Legal document handling** – Ensure privileged information stays private
+      when sharing case files.'
+  - name: '**Government records** – Protect citizen data in public PDFs.'
+    text: '**Government records** – Protect citizen data in public PDFs.'
+  type: HowTo
+- questions:
+  - answer: Aspose OCR is a cloud‑based service that extracts text from images, enabling
+      searchable PDF processing without installing local OCR engines.
+    question: What is Aspose OCR?
+  - answer: Yes—GroupDocs.Redaction supports Word, Excel, PowerPoint, and over 30
+      additional formats.
+    question: Can I use regex patterns with file types other than PDF?
+  - answer: Skip the OCR step and apply regex redactions directly to the existing
+      text layer for faster processing.
+    question: How do I handle PDFs that are already text‑based?
+  - answer: Test the pattern with an online regex tester, and ensure backslashes are
+      escaped correctly in Java string literals.
+    question: My regex isn’t matching the expected data. What should I do?
+  - answer: See the official docs at [GroupDocs Documentation](https://docs.groupdocs.com/redaction/java/).
+    question: Where can I find more detailed API documentation?
+  type: FAQPage
+tags:
+- secure pdf redaction
+- Aspose OCR
+- GroupDocs.Redaction
+- Java PDF processing
+- regex redaction
+title: วิธีทำ secure pdf redaction ด้วย Aspose OCR และ Java
 type: docs
 url: /th/java/ocr-integration/aspose-ocr-java-pdf-redaction/
 weight: 1
 ---
 
-# วิธีทำการลบข้อมูลใน PDF ด้วย Aspose OCR และ Java
+# วิธีทำการลบข้อมูล PDF อย่างปลอดภัยด้วย Aspose OCR และ Java
 
-ในยุคดิจิทัลปัจจุบัน การ **ทำการลบข้อมูลใน PDF** อย่างปลอดภัยเป็นสิ่งสำคัญอันดับต้น ๆ สำหรับธุรกิจที่จัดการข้อมูลส่วนบุคคล การเงิน หรือข้อมูลลับ โดยการผสานความสามารถของ Aspose OCR บนคลาวด์กับเอนจิน regex ที่ทรงพลังของ GroupDocs.Redaction คุณสามารถ **ทำการลบข้อมูลใน PDF อย่างปลอดภัย**, **ปิดบังข้อมูล PDF ที่เป็นความลับ**, และ **บันทึกไฟล์ PDF ที่ลบข้อมูลแล้ว** อัตโนมัติได้ บทแนะนำนี้จะพาคุณผ่านทุกขั้นตอน — ตั้งแต่การตั้งค่าสภาพแวดล้อมจนถึงการใช้การลบข้อมูลแบบ regex — เพื่อให้คุณสามารถปกป้องเนื้อหาที่เป็นความลับได้อย่างมั่นใจ.
+ในคู่มือฉบับสมบูรณ์นี้คุณจะได้เรียนรู้ **secure pdf redaction** ด้วยเครื่องมือ OCR บนคลาวด์ของ Aspose ที่รวมกับความสามารถ regex ของ GroupDocs.Redaction — ทั้งหมดจาก Java คู่มือจะพาคุณผ่านการตั้งค่าสภาพแวดล้อม, การรวม OCR, การสร้างรูปแบบ regex, และในที่สุด **saving the redacted PDF** เพื่อให้ข้อมูลที่เป็นความลับถูกปกปิดอย่างถาวร ไม่ว่าคุณจะต้องการปกป้องงบการเงิน, บันทึกสุขภาพ, หรือสัญญากฎหมาย โซลูชันขั้นตอนต่อขั้นตอนนี้ช่วยให้คุณอัตโนมัติการลบข้อมูลตามข้อกำหนดการปฏิบัติตามได้อย่างมั่นใจ
 
-## คำตอบด่วน
-- **บทแนะนำนี้ครอบคลุมอะไร?** การบูรณาการ Aspose OCR กับ GroupDocs.Redaction ใน Java เพื่อทำการลบข้อมูลใน PDF ด้วยรูปแบบ regex.  
-- **ฉันต้องการไลเซนส์หรือไม่?** การทดลองใช้ฟรีใช้ได้สำหรับการประเมิน; จำเป็นต้องมีไลเซนส์ถาวรสำหรับการใช้งานจริง.  
-- **ต้องการเวอร์ชัน Java ใด?** JDK 8 หรือสูงกว่า.  
-- **ฉันสามารถบันทึกผลลัพธ์เป็น PDF ใหม่ได้หรือไม่?** ได้—ใช้ `SaveOptions` เพื่อ **บันทึก PDF ที่ลบข้อมูลแล้ว**.  
-- **โซลูชันนี้เหมาะกับเอกสารขนาดใหญ่หรือไม่?** ด้วยการจัดการหน่วยความจำที่เหมาะสมและการประมวลผลแบบขนานที่เป็นตัวเลือก สามารถขยายได้ดี.  
+## คำตอบอย่างรวดเร็ว
+- **บทแนะนำนี้ครอบคลุมอะไรบ้าง?** การบูรณาการ Aspose OCR กับ GroupDocs.Redaction ใน Java เพื่อทำการลบข้อมูล PDF ด้วยรูปแบบ regex  
+- **ฉันต้องการใบอนุญาตหรือไม่?** ทดลองใช้ฟรีได้สำหรับการประเมิน; จำเป็นต้องมีใบอนุญาตถาวรสำหรับการใช้งานจริง  
+- **ต้องใช้ Java เวอร์ชันใด?** JDK 8 หรือสูงกว่า  
+- **ฉันสามารถบันทึกผลลัพธ์เป็น PDF ใหม่ได้หรือไม่?** ใช่ — ใช้ `SaveOptions` เพื่อ **save redacted PDF** ไฟล์  
+- **โซลูชันนี้เหมาะกับเอกสารขนาดใหญ่หรือไม่?** ด้วยการจัดการหน่วยความจำที่เหมาะสมและการประมวลผลแบบขนาน สามารถขยายได้ดีสำหรับ PDF ที่มีขนาดเกิน 200 MB  
 
-## การลบข้อมูลใน PDF คืออะไรและทำไมต้องใช้?
-การลบข้อมูลใน PDF จะลบหรือปิดบังข้อมูลที่เป็นความลับจากเอกสารอย่างถาวร ต่างจากการซ่อนแบบธรรมดา การลบข้อมูลรับประกันว่าข้อมูลจะไม่สามารถกู้คืนได้ ทำให้เป็นสิ่งจำเป็นสำหรับการปฏิบัติตามกฎระเบียบเช่น GDPR, HIPAA, และ PCI‑DSS.
+## การลบข้อมูล PDF อย่างปลอดภัยคืออะไร?
+การลบข้อมูล PDF อย่างปลอดภัยจะลบหรือปกปิดข้อมูลที่เป็นความลับอย่างถาวรเพื่อไม่ให้สามารถกู้คืนได้ ต่างจากการซ่อนแบบธรรมดา กระบวนการนี้จำเป็นสำหรับการปฏิบัติตาม GDPR, HIPAA, และ PCI‑DSS เนื่องจากข้อมูลเดิมจะถูกลบออกจากสตรีมเนื้อหาและเมตาดาต้าของไฟล์
 
-## ทำไมต้องใช้การลบข้อมูล PDF อย่างปลอดภัยด้วย Java?
-- **พร้อมอัตโนมัติ**: ฝังการลบข้อมูลลงในงานแบตช์หรือเว็บเซอร์วิส.  
-- **รองรับ OCR**: จัดการ PDF ที่สแกนหรือเป็นภาพได้โดยตรง.  
-- **พลังของ Regex**: กำหนดเป้าหมายรูปแบบเช่นหมายเลขบัตรเครดิต, วันที่, หรือรหัสประจำตัวที่กำหนดเอง.  
-- **ข้ามแพลตฟอร์ม**: ทำงานบน Windows, Linux, และ macOS ด้วยโค้ด Java เดียวกัน.  
+## ทำไมต้องใช้การลบข้อมูล PDF อย่างปลอดภัยกับ Java?
+คุณสามารถอัตโนมัติการลบข้อมูลในงานแบตช์, เว็บเซอร์วิส, หรือเครื่องมือเดสก์ท็อป พร้อมรองรับ PDF ที่สแกนโดยตรง ตัวเชื่อมต่อ OCR จะสกัดข้อความที่ซ่อนอยู่ และเอนจิน regex จะช่วยให้คุณกำหนดรูปแบบเช่นหมายเลขบัตรเครดิต, วันที่, หรือรหัสประจำตัวที่กำหนดเอง โซลูชันทำงานบน Windows, Linux, และ macOS โดยไม่ต้องพึ่งพา Microsoft Office หรือไลบรารีขนาดใหญ่อื่น ๆ
 
 ## ข้อกำหนดเบื้องต้น
-- **GroupDocs.Redaction for Java** (ไลบรารีสำหรับการลบข้อมูล)  
+- **GroupDocs.Redaction for Java** (ไลบรารีสำหรับการทำการลบข้อมูล)  
 - **Aspose.OCR Cloud SDK** (เอนจิน OCR บนคลาวด์)  
 - JDK 8+ และ IDE เช่น IntelliJ IDEA หรือ Eclipse  
 - ความรู้พื้นฐานเกี่ยวกับ Java, Maven, และ regular expressions  
 
 ## การตั้งค่า GroupDocs.Redaction สำหรับ Java
 
-คุณสามารถเพิ่มไลบรารีนี้ลงในโปรเจกต์ของคุณผ่าน Maven หรือโดยการดาวน์โหลดไฟล์ JAR โดยตรง.
+คุณสามารถเพิ่มไลบรารีลงในโปรเจกต์ของคุณผ่าน Maven หรือดาวน์โหลดไฟล์ JAR โดยตรง
 
-### การใช้ Maven
+### ใช้ Maven
 
-เพิ่มการกำหนดค่าต่อไปนี้ลงในไฟล์ `pom.xml` ของคุณ:
+เพิ่มการกำหนดค่าต่อไปนี้ในไฟล์ `pom.xml` ของคุณ:
 
 ```xml
 <repositories>
@@ -69,16 +123,16 @@ weight: 1
 
 ### ดาวน์โหลดโดยตรง
 
-หรือดาวน์โหลดเวอร์ชันล่าสุดจาก [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+หรือคุณสามารถดาวน์โหลดเวอร์ชันล่าสุดจาก [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/)
 
-### ขั้นตอนการรับไลเซนส์
-- **ทดลองใช้ฟรี**: เริ่มต้นด้วยการทดลองใช้ฟรีเพื่อสำรวจคุณลักษณะ.  
-- **ไลเซนส์ชั่วคราว**: รับไลเซนส์ชั่วคราวสำหรับการทดสอบต่อเนื่อง.  
-- **ซื้อ**: รับไลเซนส์เต็มสำหรับการใช้งานในสภาพแวดล้อมการผลิต.  
+### ขั้นตอนการรับใบอนุญาต
+- **Free trial** – เริ่มต้นด้วยการทดลองเพื่อสำรวจคุณสมบัติทั้งหมด  
+- **Temporary license** – รับคีย์ที่มีระยะเวลาจำกัดสำหรับการทดสอบต่อเนื่อง  
+- **Full license** – ซื้อใบอนุญาตการผลิตเพื่อยกเลิกข้อจำกัดของรุ่นทดลอง  
 
 ## การเริ่มต้นพื้นฐาน
 
-สร้างอินสแตนซ์ `Redactor` ที่ใช้ตัวเชื่อมต่อ Aspose OCR ขั้นตอนนี้เตรียมเอนจินให้สามารถรับรู้ข้อความภายใน PDF ที่เป็นภาพได้.
+สร้างอินสแตนซ์ `Redactor` ที่ใช้ Aspose OCR connector ขั้นตอนนี้เตรียมเอนจินให้สามารถจดจำข้อความภายใน PDF ที่เป็นภาพได้
 
 ```java
 RedactorSettings settings = new RedactorSettings(new AsposeCloudOcrConnector());
@@ -87,25 +141,28 @@ try (Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_PDF_4OCR",
 }
 ```
 
-## คู่มือการนำไปใช้
+## คู่มือการใช้งาน
 
-### เริ่มต้นการตั้งค่าด้วยตัวเชื่อมต่อ Aspose OCR
+### เริ่มต้นการตั้งค่าด้วย Aspose OCR connector
+คลาส `AsposeOcrConnector` ทำหน้าที่เป็นสะพานที่ส่งข้อมูลภาพไปยังบริการ OCR บนคลาวด์ของ Aspose และคืนค่าข้อความที่สามารถค้นหาได้
 
 ```java
 RedactorSettings settings = new RedactorSettings(new AsposeCloudOcrConnector());
 ```
 
-- **วัตถุประสงค์**: เชื่อมต่อ GroupDocs.Redaction กับบริการ OCR ของ Aspose เพื่อให้ข้อความภายในภาพสแกนสามารถค้นหาได้.
+- **Purpose**: เชื่อมต่อ GroupDocs.Redaction กับบริการ OCR ของ Aspose เพื่อให้ข้อความในภาพสแกนสามารถค้นหาได้
 
 ### กำหนดตัวเลือกการแทนที่ (การปิดบัง)
+`RedactionOptions` กำหนดวิธีการซ่อนเนื้อหาที่ตรงกัน ในตัวอย่างนี้เราจะสร้างสี่เหลี่ยมสีดำทึบที่ปกปิดข้อมูลพื้นฐานอย่างเต็มที่
 
 ```java
 ReplacementOptions marker = new ReplacementOptions(java.awt.Color.BLACK);
 ```
 
-- **คำอธิบาย**: สิ่งนี้จะสร้างกล่องสีดำที่ **ปิดบังข้อมูล PDF ที่เป็นความลับ** ทุกที่ที่พบการจับคู่ regex.
+- **Explanation**: สิ่งนี้จะสร้างกล่องสีดำที่ **mask sensitive PDF data** ทุกครั้งที่พบการจับคู่ regex  
 
-### ใช้รูปแบบ Regex สำหรับการลบข้อมูล
+### นำรูปแบบ regex ไปใช้สำหรับการลบข้อมูล
+อ็อบเจ็กต์ `RegexRedaction` ให้คุณระบุ regular expression และสไตล์การแทนที่ แต่ละรูปแบบมุ่งเป้าไปที่ประเภทข้อมูลส่วนบุคคลเฉพาะ
 
 ```java
 RedactorChangeLog result = redactor.apply(new Redaction[] {
@@ -115,9 +172,10 @@ RedactorChangeLog result = redactor.apply(new Redaction[] {
 });
 ```
 
-- **คำอธิบาย**: แต่ละอ็อบเจกต์ `RegexRedaction` กำหนดรูปแบบเพื่อค้นหาข้อมูลส่วนบุคคลและแทนที่ด้วยเครื่องหมายสีดำที่กำหนดไว้ข้างต้น.
+- **Explanation**: แต่ละอ็อบเจ็กต์ `RegexRedaction` กำหนดรูปแบบเพื่อค้นหาข้อมูลส่วนบุคคลและแทนที่ด้วยเครื่องหมายสีดำที่กำหนดไว้ข้างต้น  
 
 ### บันทึกเอกสารที่ลบข้อมูลแล้ว
+`SaveOptions` ควบคุมรูปแบบผลลัพธ์และโฟลเดอร์ปลายทาง เมื่อคุณเรียก `redactor.save()` PDF ที่ลบข้อมูลแล้วจะถูกเขียนลงดิสก์
 
 ```java
 if (result.getStatus() != RedactionStatus.Failed) {
@@ -125,55 +183,61 @@ if (result.getStatus() != RedactionStatus.Failed) {
 }
 ```
 
-- **คำอธิบาย**: เมื่อการลบข้อมูลสำเร็จ เอกสารจะถูกเขียนลงดิสก์ ซึ่งทำให้ **บันทึก PDF ที่ลบข้อมูลแล้ว** คุณสามารถเปลี่ยนโฟลเดอร์หรือรูปแบบการออกทาง `SaveOptions`.
+- **Explanation**: เมื่อการลบข้อมูลสำเร็จ เอกสารจะถูกเขียนลงดิสก์อย่างมีประสิทธิภาพ **saving the redacted PDF** คุณสามารถเปลี่ยนโฟลเดอร์หรือรูปแบบการส่งออกผ่าน `SaveOptions`  
 
 ## การประยุกต์ใช้งานจริง
-1. **ความปลอดภัยของเอกสารการเงิน** – ปิดบังหมายเลขบัตรเครดิตก่อนส่งใบแจ้งยอดให้ลูกค้า.  
-2. **การปกป้องข้อมูลสุขภาพ** – ลบข้อมูลระบุตัวผู้ป่วยเพื่อให้สอดคล้องกับ HIPAA.  
-3. **ความลับขององค์กร** – ซ่อนข้อกำหนดที่เป็นความลับในสัญญาในระหว่างการตรวจสอบภายใน.  
-4. **การจัดการเอกสารทางกฎหมาย** – รับรองว่าข้อมูลที่เป็นสิทธิพิเศษยังคงเป็นส่วนตัวเมื่อแชร์ไฟล์คดี.  
-5. **บันทึกของรัฐบาล** – ปกป้องข้อมูลประชาชนใน PDF สาธารณะ.  
+1. **Financial document security** – ปิดบังหมายเลขบัตรเครดิตก่อนส่งใบแจ้งยอดให้ลูกค้า  
+2. **Healthcare data protection** – ลบข้อมูลระบุตัวผู้ป่วยเพื่อให้สอดคล้องกับ HIPAA  
+3. **Corporate confidentiality** – ซ่อนข้อกำหนดที่สำคัญในสัญญาในระหว่างการตรวจสอบภายใน  
+4. **Legal document handling** – ทำให้ข้อมูลที่เป็นสิทธิพิเศษคงเป็นส่วนตัวเมื่อแชร์ไฟล์คดี  
+5. **Government records** – ปกป้องข้อมูลประชาชนใน PDF สาธารณะ  
 
-## เคล็ดลับประสิทธิภาพและการจัดการหน่วยความจำ
-- **การตั้งค่า OCR**: เลือกแพ็คเกจภาษาและ DPI ที่เหมาะสม; DPI สูงขึ้นทำให้ความแม่นยำดีขึ้นแต่ใช้หน่วยความจำมากขึ้น.  
-- **การประมวลผลแบบสตรีม**: สำหรับ PDF ที่ใหญ่กว่า 100 MB ให้ประมวลผลหน้าแบบสตรีมเพื่อหลีกเลี่ยง `OutOfMemoryError`.  
-- **การลบข้อมูลแบบขนาน**: ใช้ `ExecutorService` ของ Java เพื่อทำการลบข้อมูลหลายไฟล์พร้อมกัน แต่ต้องตรวจสอบการใช้ heap.  
+## เคล็ดลับการทำงานและการจัดการหน่วยความจำ
+- **OCR settings** – เลือกแพ็คเกจภาษาที่เหมาะสมและ DPI; DPI สูงขึ้นให้ความแม่นยำดีขึ้นแต่ใช้หน่วยความจำมากขึ้น  
+- **Stream processing** – สำหรับ PDF ที่ใหญ่กว่า 100 MB ให้ประมวลผลหน้าแบบสตรีมเพื่อหลีกเลี่ยง `OutOfMemoryError`  
+- **Parallel redaction** – ใช้ `ExecutorService` ของ Java เพื่อลบข้อมูลหลายไฟล์พร้อมกัน แต่ต้องตรวจสอบการใช้ heap  
 
-## ปัญหาทั่วไปและการแก้ไขปัญหา
+## ปัญหาทั่วไปและการแก้ไขข้อผิดพลาด
 
-| อาการ | สาเหตุที่เป็นไปได้ | วิธีแก้ |
+| Symptom | Likely cause | Fix |
 |---------|--------------|-----|
-| ไม่มีข้อความถูกลบ | OCR ไม่พบข้อความ | ตรวจสอบข้อมูลรับรองของบริการ OCR และเพิ่ม DPI ของภาพ |
-| กล่องลบข้อมูลไม่ตรงตำแหน่ง | การหมุนหน้าที่ไม่ถูกต้อง | ใช้ `LoadOptions.setRotatePages(true)` |
-| แอปพลิเคชันล่มกับ PDF ขนาดใหญ่ | หน่วยความจำ heap ไม่เพียงพอ | เพิ่มค่า JVM `-Xmx` หรือประมวลผลหน้าเป็นชุด |
+| ไม่มีข้อความใดถูกลบข้อมูล | OCR ไม่พบข้อความ | ตรวจสอบข้อมูลรับรองของบริการ OCR และเพิ่ม DPI ของภาพ |
+| กล่องลบข้อมูลไม่ตรงตำแหน่ง | การหมุนหน้าผิด | ใช้ `LoadOptions.setRotatePages(true)` |
+| แอปพลิเคชันล่มเมื่อประมวลผล PDF ขนาดใหญ่ | หน่วยความจำ heap ไม่พอ | เพิ่มค่า JVM `-Xmx` หรือประมวลผลหน้าเป็นชุด |
 
 ## คำถามที่พบบ่อย
 
-**ถาม: Aspose OCR คืออะไร?**  
-A: บริการบนคลาวด์ที่สกัดข้อความจากภาพ ทำให้สามารถประมวลผล PDF ที่สามารถค้นหาได้.
+**Q: Aspose OCR คืออะไร?**  
+A: Aspose OCR เป็นบริการบนคลาวด์ที่สกัดข้อความจากภาพ ทำให้สามารถประมวลผล PDF ที่ค้นหาได้โดยไม่ต้องติดตั้งเอนจิน OCR ภายในเครื่อง
 
-**ถาม: ฉันสามารถใช้รูปแบบ regex กับไฟล์ประเภทอื่นนอกจาก PDF ได้หรือไม่?**  
-A: ได้—GroupDocs.Redaction รองรับ Word, Excel, PowerPoint และอื่น ๆ
+**Q: ฉันสามารถใช้รูปแบบ regex กับไฟล์ประเภทอื่นนอกจาก PDF ได้หรือไม่?**  
+A: ได้ — GroupDocs.Redaction รองรับ Word, Excel, PowerPoint และรูปแบบเพิ่มเติมกว่า 30 ประเภท
 
-**ถาม: ฉันจะจัดการกับ PDF ที่เป็นข้อความอยู่แล้วอย่างไร?**  
-A: คุณสามารถข้ามขั้นตอน OCR และใช้การลบข้อมูลด้วย regex โดยตรงกับชั้นข้อความ
+**Q: จะจัดการกับ PDF ที่เป็นข้อความอยู่แล้วอย่างไร?**  
+A: ข้ามขั้นตอน OCR แล้วใช้ regex เพื่อลบข้อมูลโดยตรงบนเลเยอร์ข้อความที่มีอยู่เพื่อความเร็วที่ดีขึ้น
 
-**ถาม: regex ของฉันไม่ตรงกับข้อมูลที่คาดหวัง ควรทำอย่างไร?**  
-A: ทดสอบรูปแบบด้วยเครื่องมือทดสอบ regex ออนไลน์ และตรวจสอบว่าคุณได้ escape backslashes อย่างถูกต้องในสตริงของ Java
+**Q: regex ของฉันไม่ตรงกับข้อมูลที่คาดหวัง ควรทำอย่างไร?**  
+A: ทดสอบรูปแบบด้วยเครื่องมือทดสอบ regex ออนไลน์ และตรวจสอบให้แน่ใจว่า backslash ถูก escape อย่างถูกต้องใน literal ของ Java
 
-**ถาม: ฉันจะหาเอกสาร API รายละเอียดเพิ่มเติมได้จากที่ไหน?**  
-A: ดูเอกสารอย่างเป็นทางการที่ [เอกสาร GroupDocs](https://docs.groupdocs.com/redaction/java/).
+**Q: จะหาเอกสาร API รายละเอียดเพิ่มเติมได้จากที่ไหน?**  
+A: ดูเอกสารอย่างเป็นทางการที่ [GroupDocs Documentation](https://docs.groupdocs.com/redaction/java/)
 
-## แหล่งข้อมูลเพิ่มเติม
-- **เอกสาร**: [GroupDocs Redaction Java Docs](https://docs.groupdocs.com/redaction/java/)
-- **อ้างอิง API**: [GroupDocs Redaction API Reference](https://reference.groupdocs.com/redaction/java)
-- **ดาวน์โหลด**: [ดาวน์โหลด Group Docs Redaction สำหรับ Java](https://releases.groupdocs.com/redaction/java/)
-- **ที่เก็บ GitHub**: [GroupDocs.Redaction for Java GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)
-- **ฟอรั่มสนับสนุน**: [GroupDocs Free Support](https://forum.groupdocs.com/c/redaction/33)
-- **Temporary License**: [Obtain a Temporary Li
+## แหล่งข้อมูล
+
+- [GroupDocs Redaction Java Docs](https://docs.groupdocs.com/redaction/java/) – คู่มือพัฒนาแบบครบวงจร  
+- [GroupDocs Redaction API Reference](https://reference.groupdocs.com/redaction/java) – รายละเอียดคลาสและเมธอด  
+- [Get Group Docs Redaction for Java](https://releases.groupdocs.com/redaction/java/) – หน้าดาวน์โหลดไลบรารีล่าสุด  
+- [GroupDocs.Redaction for Java GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java) – โค้ดต้นฉบับ, tracker ปัญหา, และการมีส่วนร่วมของชุมชน  
+- [GroupDocs Free Support](https://forum.groupdocs.com/c/redaction/33) – ฟอรั่มชุมชนสำหรับการแก้ปัญหาและคำแนะนำ  
 
 ---
 
-**อัปเดตล่าสุด:** 2026-04-20  
-**ทดสอบกับ:** GroupDocs.Redaction 24.9, Aspose.OCR Cloud SDK (latest)  
+**อัปเดตล่าสุด:** 2026-10-27  
+**ทดสอบด้วย:** GroupDocs.Redaction 24.9, Aspose.OCR Cloud SDK (latest)  
 **ผู้เขียน:** GroupDocs
+
+## บทแนะนำที่เกี่ยวข้อง
+
+- [How to Redact Scanned PDF with OCR – GroupDocs.Redaction Java](/redaction/java/ocr-integration/)  
+- [Extract Text Scanned PDF – Mask Data with GroupDocs OCR](/redaction/java/ocr-integration/ocr-redaction-groupdocs-java-setup/)  
+- [Regex Based Pdf Redaction Java Groupdocs](/redaction/java/text-redaction/regex-based-pdf-redaction-java-groupdocs/)

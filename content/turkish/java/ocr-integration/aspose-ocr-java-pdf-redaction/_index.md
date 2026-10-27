@@ -1,48 +1,103 @@
 ---
-date: '2026-04-20'
-description: Aspose OCR, Java ve regex desenleriyle PDF dosyalarını güvenli bir şekilde
-  nasıl kırpacağınızı öğrenin. Bu rehber, hassas PDF verilerini maskeleyerek kırpılmış
-  PDF belgelerini nasıl kaydedeceğinizi gösterir.
+date: '2026-10-27'
+description: Aspose OCR ve GroupDocs.Redaction'ı regex pattern'leriyle kullanarak
+  Java'da güvenli PDF redaksiyonunu nasıl yapacağınızı öğrenin ve hassas verileri
+  maskeleyerek redakte edilmiş PDF dosyalarını kaydedin.
 keywords:
-- how to redact pdf
-- save redacted pdf
-- java pdf ocr
 - secure pdf redaction
-- pdf redaction java
-title: Aspose OCR ve Java ile PDF'yi Nasıl Kırpılır – GroupDocs.Redaction Kullanarak
-  Regex Desenlerini Uygulama
+- save redacted pdf
+- redact scanned pdf
+- remove credit card pdf
+- mask sensitive pdf
+lastmod: '2026-10-27'
+og_description: Aspose OCR ve GroupDocs.Redaction kullanarak Java'da güvenli PDF redaksiyonu.
+  Regex pattern'lerini öğrenin, hassas PDF verilerini maskeleyin ve redakte edilmiş
+  PDF dosyalarını verimli bir şekilde kaydedin.
+og_image_alt: Developer guide showing secure PDF redaction workflow with Java code
+  snippets
+og_title: Aspose OCR ve Java ile Güvenli PDF Redaksiyonu – Tam Kılavuz
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-27'
+  description: Learn how to perform secure pdf redaction in Java using Aspose OCR
+    and GroupDocs.Redaction with regex patterns, and save redacted PDF files while
+    masking sensitive data.
+  headline: How to achieve secure pdf redaction with Aspose OCR and Java
+  type: TechArticle
+- description: Learn how to perform secure pdf redaction in Java using Aspose OCR
+    and GroupDocs.Redaction with regex patterns, and save redacted PDF files while
+    masking sensitive data.
+  name: How to achieve secure pdf redaction with Aspose OCR and Java
+  steps:
+  - name: '**Financial document security** – Mask credit‑card numbers before sending
+      statements to clients.'
+    text: '**Financial document security** – Mask credit‑card numbers before sending
+      statements to clients.'
+  - name: '**Healthcare data protection** – Redact patient identifiers to stay HIPAA‑compliant.'
+    text: '**Healthcare data protection** – Redact patient identifiers to stay HIPAA‑compliant.'
+  - name: '**Corporate confidentiality** – Hide sensitive clauses in contracts during
+      internal reviews.'
+    text: '**Corporate confidentiality** – Hide sensitive clauses in contracts during
+      internal reviews.'
+  - name: '**Legal document handling** – Ensure privileged information stays private
+      when sharing case files.'
+    text: '**Legal document handling** – Ensure privileged information stays private
+      when sharing case files.'
+  - name: '**Government records** – Protect citizen data in public PDFs.'
+    text: '**Government records** – Protect citizen data in public PDFs.'
+  type: HowTo
+- questions:
+  - answer: Aspose OCR is a cloud‑based service that extracts text from images, enabling
+      searchable PDF processing without installing local OCR engines.
+    question: What is Aspose OCR?
+  - answer: Yes—GroupDocs.Redaction supports Word, Excel, PowerPoint, and over 30
+      additional formats.
+    question: Can I use regex patterns with file types other than PDF?
+  - answer: Skip the OCR step and apply regex redactions directly to the existing
+      text layer for faster processing.
+    question: How do I handle PDFs that are already text‑based?
+  - answer: Test the pattern with an online regex tester, and ensure backslashes are
+      escaped correctly in Java string literals.
+    question: My regex isn’t matching the expected data. What should I do?
+  - answer: See the official docs at [GroupDocs Documentation](https://docs.groupdocs.com/redaction/java/).
+    question: Where can I find more detailed API documentation?
+  type: FAQPage
+tags:
+- secure pdf redaction
+- Aspose OCR
+- GroupDocs.Redaction
+- Java PDF processing
+- regex redaction
+title: Aspose OCR ve Java ile güvenli PDF redaksiyonunu nasıl gerçekleştirirsiniz
 type: docs
 url: /tr/java/ocr-integration/aspose-ocr-java-pdf-redaction/
 weight: 1
 ---
 
-# Aspose OCR ve Java ile PDF'yi Nasıl Kırpılır
+# Aspose OCR ve Java ile güvenli PDF redaksiyonunu nasıl gerçekleştirirsiniz
 
-Günümüz dijital ortamında, **PDF kırpma** (redact) işlemini güvenli bir şekilde yapmak, kişisel, finansal veya gizli bilgi içeren belgelerle çalışan işletmeler için en önemli önceliklerden biridir. Aspose OCR’un bulut yeteneklerini GroupDocs.Redaction’ın güçlü regex motoru ile birleştirerek **PDF kırpma güvenliğini**, **gizli PDF verilerini maskeleme** ve **kırpılmış PDF çıktısını** otomatik olarak kaydedebilirsiniz. Bu öğretici, ortamınızı kurmaktan regex tabanlı kırpma uygulamaya kadar her adımı size göstererek hassas içeriği güvenle korumanızı sağlar.
+Bu kapsamlı rehberde **güvenli PDF redaksiyonu**nu Aspose OCR’ın bulut motoru ve GroupDocs.Redaction’ın regex yetenekleriyle—tamamen Java’dan—öğreneceksiniz. Eğitim, ortam kurulumundan OCR entegrasyonuna, regex desen oluşturulmasına ve sonunda **redakte edilmiş PDF’nin kaydedilmesine** kadar adım adım ilerleyerek gizli verilerin kalıcı olarak maskelendiğini gösterir. Finansal raporlar, sağlık kayıtları veya yasal sözleşmeler gibi belgeleri korurken, bu adım‑adım çözümle uyumluluk‑odaklı redaksiyonu güvenle otomatikleştirebilirsiniz.
 
-## Hızlı Yanıtlar
-- **Bu öğretici neyi kapsıyor?** Java’da Aspose OCR ile GroupDocs.Redaction’ı entegre ederek regex desenleriyle PDF kırpma.  
-- **Lisans gerekli mi?** Değerlendirme için ücretsiz deneme yeterlidir; üretim için kalıcı lisans gerekir.  
+## Hızlı cevaplar
+- **Bu eğitim neyi kapsıyor?** Java’da Aspose OCR ile GroupDocs.Redaction’ı birleştirerek regex desenleriyle PDF’leri redakte etmek.  
+- **Lisans gerekir mi?** Değerlendirme için ücretsiz deneme çalışır; üretim için kalıcı lisans gereklidir.  
 - **Hangi Java sürümü gerekiyor?** JDK 8 veya üzeri.  
-- **Sonucu yeni bir PDF olarak kaydedebilir miyim?** Evet—`SaveOptions` kullanarak **kırpılmış PDF** dosyalarını **kaydedin**.  
-- **Çözüm büyük belgeler için uygun mu?** Doğru bellek yönetimi ve isteğe bağlı paralel işleme ile ölçeklenebilir.
+- **Sonucu yeni bir PDF olarak kaydedebilir miyim?** Evet—`SaveOptions` kullanarak **redakte edilmiş PDF** dosyalarını **kaydedin**.  
+- **Çözüm büyük belgeler için uygun mu?** Uygun bellek yönetimi ve isteğe bağlı paralel işleme ile 200 MB üzerindeki PDF’lerde iyi ölçeklenir.
 
-## PDF Kırpma Nedir ve Neden Kullanılır?
-PDF kırpma, bir belgeden gizli bilgileri kalıcı olarak kaldırır veya maskeler. Basit gizlemenin aksine, kırpma verinin geri getirilememesini sağlar ve GDPR, HIPAA ve PCI‑DSS gibi düzenlemelere uyum için gereklidir.
+## Güvenli PDF redaksiyonu nedir?
+Güvenli PDF redaksiyonu, gizli bilgileri kalıcı olarak kaldırır veya maskeler, böylece basit gizlemenin aksine geri getirilemez. Bu süreç, GDPR, HIPAA ve PCI‑DSS uyumluluğu sağlamak için kritiktir; çünkü orijinal veri dosyanın içerik akışlarından ve meta verilerinden silinir.
 
-## Java ile Güvenli PDF Kırpma Neden Kullanılmalı?
-- **Otomasyon‑hazır**: Kırpmayı toplu işler veya web servislerine entegre edin.  
-- **OCR‑destekli**: Tarama, görüntü‑tabanlı PDF’leri kutudan çıkar çıkmaz işler.  
-- **Regex gücü**: Kredi kartı numaraları, tarihleri veya özel tanımlayıcılar gibi desenleri hedefleyin.  
-- **Çapraz‑platform**: Aynı Java kod tabanı ile Windows, Linux ve macOS’ta çalışır.
+## Java ile güvenli PDF redaksiyonu neden kullanılır?
+Tarama yapılmış PDF’leri kutudan çıkar çıkmaz işleyebileceğiniz batch işleri, web servisleri veya masaüstü araçlarında redaksiyonu otomatikleştirebilirsiniz. OCR bağlayıcısı gizli metni çıkarır ve regex motoru kredi kartı numaraları, tarihleri veya özel tanımlayıcılar gibi desenleri hedeflemenizi sağlar. Çözüm, Microsoft Office veya diğer ağır bağımlılıklara ihtiyaç duymadan Windows, Linux ve macOS üzerinde çalışır.
 
-## Önkoşullar
-- **GroupDocs.Redaction for Java** (kırpma uygulama kütüphanesi)  
+## Gereksinimler
+- **GroupDocs.Redaction for Java** (redaksiyon uygulama kütüphanesi)  
 - **Aspose.OCR Cloud SDK** (bulut‑tabanlı OCR motoru)  
 - JDK 8+ ve IntelliJ IDEA veya Eclipse gibi bir IDE  
 - Java, Maven ve düzenli ifadeler hakkında temel bilgi  
 
-## GroupDocs.Redaction for Java Kurulumu
+## GroupDocs.Redaction for Java'ı kurma
 
 Kütüphaneyi projenize Maven ile ekleyebilir veya JAR dosyasını doğrudan indirebilirsiniz.
 
@@ -68,18 +123,18 @@ Kütüphaneyi projenize Maven ile ekleyebilir veya JAR dosyasını doğrudan ind
 </dependencies>
 ```
 
-### Doğrudan İndirme
+### Doğrudan indirme
 
 Alternatif olarak, en son sürümü [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/) adresinden indirin.
 
-### Lisans Edinme Adımları
-- **Ücretsiz Deneme**: Özellikleri keşfetmek için ücretsiz deneme ile başlayın.  
-- **Geçici Lisans**: Uzun vadeli testler için geçici lisans alın.  
-- **Satın Alma**: Üretim kullanımı için tam lisans edinin.  
+### Lisans edinme adımları
+- **Ücretsiz deneme** – tüm özellikleri keşfetmek için deneme sürümüyle başlayın.  
+- **Geçici lisans** – daha uzun test süresi için zaman‑sınırlı bir anahtar alın.  
+- **Tam lisans** – deneme kısıtlamalarını kaldırmak için üretim lisansı satın alın.
 
-## Temel Başlatma
+## Temel başlatma
 
-Aspose OCR bağlayıcısını kullanan bir `Redactor` örneği oluşturun. Bu adım, görüntü‑tabanlı PDF’lerdeki metni tanımak için motoru hazırlar.
+Aspose OCR bağlayıcısını kullanan bir `Redactor` örneği oluşturun. Bu adım, görüntü‑tabanlı PDF’lerdeki metni tanıyacak motoru hazırlar.
 
 ```java
 RedactorSettings settings = new RedactorSettings(new AsposeCloudOcrConnector());
@@ -88,25 +143,28 @@ try (Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_PDF_4OCR",
 }
 ```
 
-## Uygulama Kılavuzu
+## Uygulama rehberi
 
-### Aspose OCR Bağlayıcısı ile Ayarları Başlatma
+### Aspose OCR bağlayıcısı ile ayarları başlatma
+`AsposeOcrConnector` sınıfı, görüntü verisini Aspose’un bulut OCR hizmetine gönderip aranabilir metin olarak geri dönen köprüdür.  
 
 ```java
 RedactorSettings settings = new RedactorSettings(new AsposeCloudOcrConnector());
 ```
 
-- **Amaç**: GroupDocs.Redaction’ı Aspose OCR hizmetine bağlayarak taranmış görüntülerdeki metnin aranabilir olmasını sağlar.
+- **Purpose**: GroupDocs.Redaction’ı Aspose’un OCR hizmetine bağlayarak taranmış görüntülerdeki metnin aranabilir olmasını sağlar.
 
-### Değiştirme Seçeneklerini Tanımlama (Maskeleme)
+### Değiştirme seçeneklerini tanımlama (maskeleme)
+`RedactionOptions` eşleşen içeriğin nasıl gizleneceğini tanımlar. Bu örnekte, alttaki veriyi tamamen maskeler bir katı siyah dikdörtgen oluşturuyoruz.
 
 ```java
 ReplacementOptions marker = new ReplacementOptions(java.awt.Color.BLACK);
 ```
 
-- **Açıklama**: Regex eşleşmesi gerçekleştiğinde **gizli PDF verilerini maskeleyecek** siyah bir kutu oluşturur.
+- **Explanation**: Bu, bir regex eşleşmesi gerçekleştiğinde **hassas PDF verilerini maskeler** bir siyah kutu oluşturur.
 
-### Kırpma İçin Regex Desenlerini Uygulama
+### Redaksiyon için regex desenlerini uygulama
+`RegexRedaction` nesneleri, bir düzenli ifade ve değiştirme stilini belirtmenizi sağlar. Her desen, belirli bir kişisel bilgi türünü hedef alır.
 
 ```java
 RedactorChangeLog result = redactor.apply(new Redaction[] {
@@ -116,9 +174,10 @@ RedactorChangeLog result = redactor.apply(new Redaction[] {
 });
 ```
 
-- **Açıklama**: Her `RegexRedaction` nesnesi, kişisel bilgileri bulmak için bir desen tanımlar ve yukarıda tanımlanan siyah işaretleyiciyle değiştirir.
+- **Explanation**: Her `RegexRedaction` nesnesi, kişisel bilgiyi bulmak için bir desen tanımlar ve yukarıda tanımlanan siyah işaretleyiciyle değiştirir.
 
-### Kırpılmış Belgeyi Kaydetme
+### Redakte edilmiş belgeyi kaydet
+`SaveOptions` çıktı formatını ve hedef klasörü kontrol eder. `redactor.save()` çağrıldığında, redakte edilmiş PDF diske yazılır.
 
 ```java
 if (result.getStatus() != RedactionStatus.Failed) {
@@ -126,55 +185,61 @@ if (result.getStatus() != RedactionStatus.Failed) {
 }
 ```
 
-- **Açıklama**: Kırpma işlemleri başarılı olduğunda belge diske yazılır ve **kırpılmış PDF** kaydedilir. Çıktı klasörünü veya formatını `SaveOptions` ile değiştirebilirsiniz.
+- **Explanation**: Redaksiyonlar başarılı olduğunda, belge diske yazılır ve **redakte edilmiş PDF** kaydedilmiş olur. Çıktı klasörünü veya formatını `SaveOptions` ile değiştirebilirsiniz.
 
-## Pratik Uygulamalar
-1. **Finansal Belge Güvenliği** – Müşterilere gönderilen ekstrelerde kredi kartı numaralarını maskeleyin.  
-2. **Sağlık Verisi Koruması** – HIPAA uyumluluğu için hasta kimlik bilgilerini kırpın.  
-3. **Kurumsal Gizlilik** – İç incelemeler sırasında sözleşmelerdeki hassas maddeleri gizleyin.  
-4. **Hukuki Belge İşleme** – Dava dosyalarını paylaşırken ayrıcalıklı bilgilerin gizli kalmasını sağlayın.  
-5. **Kamu Kayıtları** – Kamuya açık PDF’lerde vatandaş verilerini koruyun.  
+## Pratik uygulamalar
+1. **Finansal belge güvenliği** – Müşterilere gönderilen ekstrelerden önce kredi kartı numaralarını maskeler.  
+2. **Sağlık verisi koruması** – HIPAA uyumlu kalmak için hasta kimlik bilgilerini redakte eder.  
+3. **Kurumsal gizlilik** – İç incelemeler sırasında sözleşmelerdeki hassas maddeleri gizler.  
+4. **Yasal belge yönetimi** – Dava dosyalarını paylaşırken ayrıcalıklı bilgilerin gizli kalmasını sağlar.  
+5. **Kamu kayıtları** – Kamuya açık PDF’lerde vatandaş verilerini korur.  
 
-## Performans İpuçları ve Bellek Yönetimi
-- **OCR Ayarları**: Uygun dil paketini ve DPI’yı seçin; yüksek DPI doğruluğu artırır ancak daha fazla bellek tüketir.  
-- **Akış İşleme**: 100 MB’dan büyük PDF’lerde `OutOfMemoryError` almamak için sayfaları akış halinde işleyin.  
-- **Paralel Kırpma**: Java’nın `ExecutorService`’ini kullanarak birden fazla dosyayı aynı anda kırpın, ancak heap kullanımını izleyin.  
+## Performans ipuçları ve bellek yönetimi
+- **OCR settings** – Uygun dil paketini ve DPI’yı seçin; yüksek DPI doğruluğu artırır ancak daha fazla bellek tüketir.  
+- **Stream processing** – 100 MB üzerindeki PDF’lerde `OutOfMemoryError` almamak için sayfaları akış biçiminde işleyin.  
+- **Parallel redaction** – Java’nın `ExecutorService`’ini kullanarak birden fazla dosyayı aynı anda redakte edin, ancak yığın kullanımını izleyin.  
 
-## Yaygın Sorunlar & Sorun Giderme
+## Yaygın sorunlar ve sorun giderme
 
-| Belirti | Muhtemel Neden | Çözüm |
+| Belirti | Muhtemel neden | Çözüm |
 |---------|----------------|-------|
 | Metin kırpılmıyor | OCR metni algılamadı | OCR hizmeti kimlik bilgilerini doğrulayın ve görüntü DPI’sını artırın |
-| Kırpma kutuları hizasız | Sayfa dönüşü hatalı | `LoadOptions.setRotatePages(true)` kullanın |
-| Büyük PDF’lerde uygulama çöküyor | Yetersiz heap belleği | JVM `-Xmx` bayrağını artırın veya sayfaları partiler halinde işleyin |
+| Redaksiyon kutuları hizalanmadı | Sayfa dönüşü hatalı | `LoadOptions.setRotatePages(true)` kullanın |
+| Uygulama büyük PDF'lerde çöküyor | Yetersiz yığın belleği | JVM `-Xmx` bayrağını artırın veya sayfaları partiler halinde işleyin |
 
-## Sıkça Sorulan Sorular
+## Sıkça sorulan sorular
 
 **S: Aspose OCR nedir?**  
-C: Görüntülerden metin çıkaran, arama yapılabilir PDF işleme imkanı sağlayan bulut‑tabanlı bir hizmettir.
+C: Aspose OCR, görüntülerden metin çıkaran bulut‑tabanlı bir hizmettir; yerel OCR motorları kurmadan aranabilir PDF işleme imkanı sağlar.
 
-**S: Regex desenlerini PDF dışındaki dosya türlerinde kullanabilir miyim?**  
-C: Evet—GroupDocs.Redaction Word, Excel, PowerPoint ve daha fazlasını destekler.
+**S: PDF dışındaki dosya türlerinde regex desenlerini kullanabilir miyim?**  
+C: Evet—GroupDocs.Redaction Word, Excel, PowerPoint ve 30’dan fazla ek formatı destekler.
 
-**S: Zaten metin‑tabanlı PDF’ler nasıl işlenir?**  
-C: OCR adımını atlayabilir ve regex kırpmalarını doğrudan metin katmanına uygulayabilirsiniz.
+**S: Zaten metin‑tabanlı PDF’lerle nasıl başa çıkılır?**  
+C: OCR adımını atlayın ve regex redaksiyonlarını mevcut metin katmanına doğrudan uygulayarak daha hızlı işlem yapın.
 
-**S: Regex beklediğim veriyi eşleştirmiyor. Ne yapmalıyım?**  
-C: Deseni bir çevrimiçi regex test aracında deneyin ve Java stringlerinde ters eğik çizgileri doğru kaçırdığınızdan emin olun.
+**S: Regex beklenen veriyi eşleştirmiyor. Ne yapmalıyım?**  
+C: Deseni çevrimiçi bir regex test aracında deneyin ve Java dize sabitlerinde ters bölücülerin doğru kaçtığından emin olun.
 
-**S: Daha ayrıntılı API belgelerini nereden bulabilirim?**  
+**S: Daha ayrıntılı API belgelerini nerede bulabilirim?**  
 C: Resmi dokümantasyona [GroupDocs Documentation](https://docs.groupdocs.com/redaction/java/) adresinden bakın.
 
-## Ek Kaynaklar
-- **Dokümantasyon**: [GroupDocs Redaction Java Docs](https://docs.groupdocs.com/redaction/java/)  
-- **API Referansı**: [GroupDocs Redaction API Reference](https://reference.groupdocs.com/redaction/java)  
-- **İndirme**: [Get Group Docs Redaction for Java](https://releases.groupdocs.com/redaction/java/)  
-- **GitHub Deposu**: [GroupDocs.Redaction for Java GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java)  
-- **Destek Forumları**: [GroupDocs Free Support](https://forum.groupdocs.com/c/redaction/33)  
-- **Geçici Lisans**: [Obtain a Temporary Li
+## Kaynaklar
+
+- [GroupDocs Redaction Java Docs](https://docs.groupdocs.com/redaction/java/) – kapsamlı geliştirici rehberi.  
+- [GroupDocs Redaction API Reference](https://reference.groupdocs.com/redaction/java) – detaylı sınıf ve metod referansı.  
+- [Get Group Docs Redaction for Java](https://releases.groupdocs.com/redaction/java/) – en son kütüphane sürümlerinin indirme sayfası.  
+- [GroupDocs.Redaction for Java GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java) – kaynak kodu, sorun izleyici ve topluluk katkıları.  
+- [GroupDocs Free Support](https://forum.groupdocs.com/c/redaction/33) – sorun giderme ve tavsiye için topluluk forumu.  
 
 ---
 
-**Son Güncelleme:** 2026-04-20  
-**Test Edilen Sürümler:** GroupDocs.Redaction 24.9, Aspose.OCR Cloud SDK (en yeni)  
+**Son Güncelleme:** 2026-10-27  
+**Test Edilen:** GroupDocs.Redaction 24.9, Aspose.OCR Cloud SDK (en son)  
 **Yazar:** GroupDocs
+
+## İlgili Eğitimler
+
+- [How to Redact Scanned PDF with OCR – GroupDocs.Redaction Java](/redaction/java/ocr-integration/)  
+- [Extract Text Scanned PDF – Mask Data with GroupDocs OCR](/redaction/java/ocr-integration/ocr-redaction-groupdocs-java-setup/)  
+- [Regex Based Pdf Redaction Java Groupdocs](/redaction/java/text-redaction/regex-based-pdf-redaction-java-groupdocs/)
