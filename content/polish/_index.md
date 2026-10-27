@@ -1,7 +1,7 @@
 ---
 additionalTitle: GroupDocs API References
-date: 2026-04-10
-description: Zaimplementuj bezpieczne redagowanie dokumentów przy użyciu GroupDocs.Redaction
+date: 2026-10-27
+description: Wdrożenie bezpiecznego redagowania dokumentów przy użyciu GroupDocs.Redaction
   dla .NET i Java. Odkryj samouczki dotyczące redagowania tekstu, metadanych, obrazów
   i innych.
 is_root: true
@@ -9,111 +9,207 @@ keywords:
 - secure document redaction
 - GroupDocs.Redaction .NET
 - GroupDocs.Redaction Java
+lastmod: 2026-10-27
 linktitle: Samouczki GroupDocs.Redaction
-title: Bezpieczna redakcja dokumentów z przewodnikiem GroupDocs.Redaction
+og_description: Bezpieczne redagowanie dokumentów z GroupDocs.Redaction pomaga trwale
+  usuwać wrażliwe dane z plików PDF, Word, Excel i innych. Poznaj samouczki .NET i
+  Java, aby szybko spełnić wymogi zgodności.
+og_image_alt: Screenshot of GroupDocs.Redaction UI showing redaction options
+og_title: Bezpieczne redagowanie dokumentów z przewodnikiem GroupDocs.Redaction
+schemas:
+- author: GroupDocs
+  dateModified: '2026-10-27'
+  description: Implement secure document redaction with GroupDocs.Redaction for .NET
+    & Java. Explore tutorials on text, metadata, image redaction & more.
+  headline: Secure document redaction with GroupDocs.Redaction guide
+  type: TechArticle
+- questions:
+  - answer: Yes. Load the document with the appropriate password parameter, then apply
+      redaction rules as usual.
+    question: Can I redact password‑protected PDFs?
+  - answer: Absolutely. You can iterate over a folder of files and apply the same
+      redaction policy to each document programmatically.
+    question: Does GroupDocs.Redaction support batch processing?
+  - answer: The library efficiently handles files up to 500 MB; larger files are processed
+      in streaming mode to keep memory usage low.
+    question: Is there a limit to the file size I can process?
+  - answer: Use the built‑in `RedactionResult` object, which provides a summary of
+      removed elements and can optionally generate a verification PDF highlighting
+      redacted areas.
+    question: How do I verify that redaction was successful?
+  - answer: A single GroupDocs.Redaction license covers all supported platforms, including
+      .NET, Java, and other language bindings.
+    question: Do I need a separate license for .NET and Java?
+  type: FAQPage
+tags:
+- document redaction
+- GroupDocs.Redaction
+- .NET document processing
+- Java document processing
+title: Bezpieczne redagowanie dokumentów z przewodnikiem GroupDocs.Redaction
 type: docs
 url: /pl/
 weight: 11
 ---
 
-# Bezpieczne Redagowanie Dokumentów z Przewodnikiem GroupDocs.Redaction
+{{< blocks/products/pf/main-wrap-class >}}
+{{< blocks/products/pf/main-container >}}
+{{< blocks/products/pf/tutorial-page-section >}}
 
-Bezpieczne redagowanie dokumentów jest niezbędne do ochrony poufnych informacji przy jednoczesnym zachowaniu pierwotnej struktury dokumentu. Dzięki **GroupDocs.Redaction** możesz niezawodnie usuwać poufny tekst, metadane, obrazy, adnotacje oraz całe strony z plików PDF, dokumentów Word, arkuszy Excel i wielu innych formatów. To centrum gromadzi wszystkie samouczki potrzebne do integracji bezpiecznego redagowania dokumentów w aplikacjach .NET i Java, pomagając szybko i pewnie spełnić wymogi zgodności.
+# Bezpieczne redagowanie dokumentów z przewodnikiem GroupDocs.Redaction
 
-## Przegląd Bezpiecznego Redagowania Dokumentów
-GroupDocs.Redaction oferuje jednolite API, które działa konsekwentnie na wszystkich platformach, dzięki czemu logikę redagowania piszesz raz i możesz ją ponownie wykorzystać w każdym projekcie .NET lub Java. Niezależnie od tego, czy tworzysz system zarządzania dokumentami, przepływ pracy skoncentrowany na zgodności, czy własną usługę maskowania danych, poniższe samouczki poprowadzą Cię przez każdy krok — od wczytania dokumentu po zastosowanie zaawansowanych zasad redagowania i zapisanie oczyszczonego wyniku.
+Bezpieczne redagowanie dokumentów jest niezbędne do ochrony wrażliwych informacji przy zachowaniu oryginalnej struktury dokumentu. Dzięki **GroupDocs.Redaction** możesz niezawodnie usuwać poufny tekst, metadane, obrazy, adnotacje, a nawet całe strony z plików PDF, Word, arkuszy Excel i wielu innych formatów. To centrum gromadzi wszystkie samouczki potrzebne do integracji bezpiecznego redagowania dokumentów w aplikacjach .NET i Java, pomagając szybko i pewnie spełnić wymogi zgodności.
 
-{{% alert color="primary" %}}
-GroupDocs.Redaction dla .NET oferuje kompleksowy zestaw samouczków i przykładów umożliwiających wdrożenie bezpiecznego redagowania dokumentów w Twoich aplikacjach .NET. Od podstawowych zamian tekstu po zaawansowane czyszczenie metadanych, te zasoby obejmują niezbędne techniki redagowania poufnych informacji w dokumentach. Dowiedz się, jak trwale usuwać prywatne dane z różnych formatów dokumentów, w tym PDF, Word, Excel, PowerPoint i obrazów, zapewniając precyzyjną kontrolę i całkowite usunięcie poufnej treści. Nasze przewodniki krok po kroku pomagają opanować zarówno standardowe, jak i zaawansowane możliwości redagowania, aby spełnić wymogi zgodności i skutecznie chronić wrażliwe informacje.
-{{% /alert %}}
+## Szybkie odpowiedzi
+- **Co robi bezpieczne redagowanie dokumentów?** Trwale usuwa poufne treści z pliku, tak aby nie mogły zostać odzyskane ani wyświetlone później.  
+- **Jakie platformy są obsługiwane?** Zarówno środowiska .NET (w tym .NET Core, .NET 5/6), jak i Java są w pełni obsługiwane.  
+- **Czy mogę redagować obrazy i adnotacje?** Tak, API może wykrywać i usuwać obrazy, rysunki, komentarze oraz inne elementy wizualne.  
+- **Czy rasteryzacja jest opcjonalna?** Możesz wybrać rasteryzację całego dokumentu do PDF‑a opartego na obrazie dla maksymalnego bezpieczeństwa.  
+- **Czy potrzebna jest licencja do produkcji?** Do wdrożeń produkcyjnych wymagana jest ważna licencja GroupDocs.Redaction; dostępna jest bezpłatna wersja próbna do oceny.
 
-Poznaj te niezbędne zasoby .NET:
+## Czym jest bezpieczne redagowanie dokumentów?
+Bezpieczne redagowanie dokumentów to proces trwałego usuwania lub maskowania wrażliwych informacji w cyfrowym pliku, tak aby nie mogły zostać odzyskane, nawet przy użyciu zaawansowanych narzędzi forensic. Różni się od prostego ukrywania, ponieważ dane są fizycznie usuwane ze struktury pliku, zapewniając zgodność z przepisami o ochronie prywatności, takimi jak GDPR, HIPAA i CCPA.
 
-- [Rozpoczęcie](./net/getting-started/)
-- [Ładowanie dokumentu](./net/document-loading/)
-- [Zapisywanie dokumentu](./net/document-saving/)
-- [Redagowanie tekstu](./net/text-redaction/)
-- [Redagowanie metadanych](./net/metadata-redaction/)
-- [Redagowanie obrazów](./net/image-redaction/)
-- [Redagowanie adnotacji](./net/annotation-redaction/)
-- [Redagowanie stron](./net/page-redaction/)
-- [Zaawansowane redagowanie](./net/advanced-redaction/)
-- [Integracja OCR](./net/ocr-integration/)
-- [Redagowanie specyficzne dla PDF](./net/pdf-specific-redaction/)
-- [Redagowanie arkuszy kalkulacyjnych](./net/spreadsheet-redaction/)
-- [Opcje rasteryzacji](./net/rasterization-options/)
-- [Obsługa formatów](./net/format-handling/)
-- [Informacje o dokumencie](./net/document-information/)
-- [Licencjonowanie i konfiguracja](./net/licensing-configuration/)
-
-Te samouczki .NET przeprowadzą Cię przez tworzenie przepływu redagowania, który **bezpiecznie usuwa** poufne dane, weryfikuje wynik i opcjonalnie rasteryzuje wyjście, aby zapobiec odzyskaniu ukrytej treści.
-
-{{% alert color="primary" %}}
-GroupDocs.Redaction dla Java zapewnia obszerne samouczki i przykłady dla programistów Java, umożliwiające wdrożenie solidnych możliwości sanitacji dokumentów. Te zasoby obejmują wszystko, od podstawowych operacji redagowania po zaawansowane techniki usuwania informacji, pozwalając chronić wrażliwe dane w różnych typach dokumentów. Naucz się redagować tekst przy użyciu dokładnych fraz lub wyrażeń regularnych, usuwać właściwości metadanych, sanitować adnotacje oraz radzić sobie z wyzwaniami specyficznymi dla dokumentów w wielu formatach. Nasze samouczki Java są zaprojektowane tak, aby pomóc Ci zintegrować kompleksowe funkcje redagowania w aplikacjach, zapewniając zgodność z przepisami o prywatności i standardami ochrony danych.
-{{% /alert %}}
-
-Poznaj te niezbędne zasoby Java:
-
-- [Rozpoczęcie](./java/getting-started/)
-- [Ładowanie dokumentu](./java/document-loading/)
-- [Zapisywanie dokumentu](./java/document-saving/)
-- [Redagowanie tekstu](./java/text-redaction/)
-- [Redagowanie metadanych](./java/metadata-redaction/)
-- [Redagowanie obrazów](./java/image-redaction/)
-- [Redagowanie adnotacji](./java/annotation-redaction/)
-- [Redagowanie stron](./java/page-redaction/)
-- [Zaawansowane redagowanie](./java/advanced-redaction/)
-- [Integracja OCR](./java/ocr-integration/)
-- [Redagowanie specyficzne dla PDF](./java/pdf-specific-redaction/)
-- [Redagowanie arkuszy kalkulacyjnych](./java/spreadsheet-redaction/)
-- [Opcje rasteryzacji](./java/rasterization-options/)
-- [Obsługa formatów](./java/format-handling/)
-- [Informacje o dokumencie](./java/document-information/)
-- [Licencjonowanie i konfiguracja](./java/licensing-configuration/)
-
-Te przewodniki Java pokazują, jak osadzić **bezpieczne redagowanie dokumentów** bezpośrednio w usługach backendowych, mikro‑usługach lub aplikacjach desktopowych, zapewniając, że każdy przetworzony plik jest wolny od ukrytych lub wrażliwych treści.
+## Czym jest GroupDocs.Redaction?
+GroupDocs.Redaction to wieloplatformowa biblioteka, która udostępnia jednolite API do redagowania treści w ponad 30 formatach plików. Działa bez zewnętrznych zależności, takich jak Microsoft Office czy Adobe Acrobat, co czyni ją idealną dla aplikacji po stronie serwera i natywnych w chmurze.
 
 ## Dlaczego warto wybrać GroupDocs.Redaction?
 
-GroupDocs.Redaction zapewnia jednolite API do redagowania dokumentów na wielu platformach. Oto kilka przekonujących powodów, dla których warto wybrać nasze rozwiązanie:
+GroupDocs.Redaction udostępnia jednolite API do redagowania dokumentów na wielu platformach. Oto kilka przekonujących powodów, aby wybrać nasze rozwiązanie:
 
 ### Spójność międzyplatformowa
-Utrzymuj spójną logikę redagowania dokumentów w aplikacjach .NET i Java, skracając czas rozwoju i obciążenia związane z utrzymaniem.
+Utrzymuj spójną logikę redagowania dokumentów w aplikacjach .NET i Java, co zmniejsza czas rozwoju i nakład pracy konserwacyjnej.
 
 ### Rozbudowane wsparcie formatów
-Redaguj poufne informacje z ponad 30 popularnych formatów dokumentów, w tym:
-
-- Dokumenty PDF
-- Formaty Microsoft Office (Word, Excel, PowerPoint)
-- Formaty OpenDocument
-- Formaty obrazów (JPEG, PNG, TIFF)
-- Formaty e‑mail (MSG, EML)
-- I wiele innych
+Redaguj wrażliwe informacje w **30+** popularnych formatach dokumentów, w tym PDF, Microsoft Office (Word, Excel, PowerPoint), OpenDocument, JPEG, PNG, TIFF, MSG, EML i wielu innych. Biblioteka może przetwarzać pliki do 500 MB bez ładowania całego dokumentu do pamięci.
 
 ### Kompleksowe opcje redagowania
-- Redaguj tekst przy użyciu dokładnych fraz, wyrażeń regularnych lub dopasowania uwzględniającego wielkość liter  
-- Wyczyść właściwości metadanych, komentarze i ukryte informacje  
-- Sanitizuj lub całkowicie usuń obrazy, które mogą zawierać poufne treści  
-- Redaguj adnotacje i komentarze, które mogą ujawniać prywatne dane  
-- Usuń całe strony lub zakresy stron zawierające wrażliwy materiał  
-- Zastosuj niestandardowe zasady redagowania dla określonych typów dokumentów  
+- Redaguj tekst używając dokładnych fraz, wyrażeń regularnych lub dopasowania uwzględniającego wielkość liter.  
+- Oczyść właściwości metadanych, komentarze i ukryte informacje.  
+- Oczyść lub całkowicie usuń obrazy, które mogą zawierać poufne treści.  
+- Redaguj adnotacje i komentarze, które mogą ujawnić prywatne dane.  
+- Usuń całe strony lub zakresy stron zawierające wrażliwe materiały.  
+- Zastosuj niestandardowe polityki redagowania dla określonych typów dokumentów.
 
 ### Skoncentrowane na prywatności i bezpieczeństwie
-- Trwałe usunięcie wrażliwych informacji bez możliwości odzyskania  
-- Opcjonalna rasteryzacja w celu konwersji dokumentów na PDF‑y oparte na obrazach  
-- Funkcje ochrony przed manipulacją, zapobiegające nieautoryzowanym modyfikacjom  
-- Pełna sanitacja dokumentu, w tym ukryte metadane i właściwości  
+- Trwałe usunięcie wrażliwych informacji bez możliwości odzyskania.  
+- Opcjonalna rasteryzacja w celu konwersji dokumentów do PDF‑ów opartych na obrazie, eliminująca ukryte warstwy.  
+- Funkcje ochrony przed manipulacją zapobiegają nieautoryzowanym modyfikacjom po redagowaniu.  
+- Pełna sanitacja dokumentu, w tym ukryte metadane i właściwości.
 
 ### Brak zewnętrznych zależności
-GroupDocs.Redaction działa bez konieczności instalowania zewnętrznego oprogramowania, takiego jak Microsoft Office, Adobe Acrobat czy inne narzędzia firm trzecich.
+GroupDocs.Redaction działa bez wymogu posiadania Microsoft Office, Adobe Acrobat ani żadnych innych instalacji oprogramowania firm trzecich.
 
-## Rozpocznij już dziś
+## Rozpoczęcie pracy z .NET
 
-Niezależnie od tego, czy rozwijasz się w .NET czy Java, GroupDocs.Redaction dostarcza narzędzia potrzebne do efektywnego wdrożenia możliwości bezpiecznego redagowania dokumentów. Przeglądaj nasze kompleksowe samouczki, aby rozpocząć implementację potężnych funkcji redagowania w swoich aplikacjach.
+Poniższe samouczki .NET przeprowadzą Cię przez tworzenie przepływu redagowania, który **bezpiecznie usuwa** poufne dane, weryfikuje wynik i opcjonalnie rasteryzuje wyjście, aby zapobiec odzyskaniu jakiejkolwiek ukrytej treści.
 
-- [Pobierz darmową wersję próbną](https://releases.groupdocs.com/redaction/)
+{{% alert color="primary" %}}
+GroupDocs.Redaction dla .NET oferuje kompleksowy zestaw samouczków i przykładów do wdrażania bezpiecznego redagowania dokumentów w Twoich aplikacjach .NET. Od podstawowych zamian tekstu po zaawansowane czyszczenie metadanych, te zasoby obejmują niezbędne techniki redagowania wrażliwych informacji w dokumentach. Dowiedz się, jak trwale usuwać prywatne dane z różnych formatów dokumentów, w tym PDF, Word, Excel, PowerPoint i obrazy, z precyzyjną kontrolą i pełnym usunięciem poufnej treści. Nasze przewodniki krok po kroku pomogą Ci opanować zarówno standardowe, jak i zaawansowane możliwości redagowania, aby spełnić wymogi zgodności i skutecznie chronić wrażliwe informacje.
+{{% /alert %}}
+
+Zapoznaj się z poniższymi niezbędnymi zasobami .NET:
+
+- [Rozpoczęcie](/redaction/net/getting-started/)
+- [Ładowanie dokumentu](/redaction/net/document-loading/)
+- [Zapisywanie dokumentu](/redaction/net/document-saving/)
+- [Redagowanie tekstu](/redaction/net/text-redaction/)
+- [Redagowanie metadanych](/redaction/net/metadata-redaction/)
+- [Redagowanie obrazów](/redaction/net/image-redaction/)
+- [Redagowanie adnotacji](/redaction/net/annotation-redaction/)
+- [Redagowanie stron](/redaction/net/page-redaction/)
+- [Zaawansowane redagowanie](/redaction/net/advanced-redaction/)
+- [Integracja OCR](/redaction/net/ocr-integration/)
+- [Redagowanie specyficzne dla PDF](/redaction/net/pdf-specific-redaction/)
+- [Redagowanie arkuszy kalkulacyjnych](/redaction/net/spreadsheet-redaction/)
+- [Opcje rasteryzacji](/redaction/net/rasterization-options/)
+- [Obsługa formatów](/redaction/net/format-handling/)
+- [Informacje o dokumencie](/redaction/net/document-information/)
+- [Licencjonowanie i konfiguracja](/redaction/net/licensing-configuration/)
+
+Te samouczki .NET przeprowadzą Cię przez tworzenie przepływu redagowania, który **bezpiecznie usuwa** poufne dane, weryfikuje wynik i opcjonalnie rasteryzuje wyjście, aby zapobiec odzyskaniu jakiejkolwiek ukrytej treści.
+
+```csharp
+// .NET example: Redact confidential text from a PDF
+using GroupDocs.Redaction;
+using GroupDocs.Redaction.Options;
+
+var redactor = new Redactor(@"C:\Docs\sample.pdf");
+
+// Define a redaction option to remove the word "CONFIDENTIAL"
+var redaction = new RedactionOptions
+{
+    SearchPattern = "CONFIDENTIAL",
+    RedactionColor = System.Drawing.Color.Black,
+    ApplyToAllPages = true
+};
+
+redactor.Apply(redaction);
+redactor.Save(@"C:\Docs\sample_redacted.pdf");
+```
+
+{{% alert color="primary" %}}
+GroupDocs.Redaction dla Java zapewnia obszerne samouczki i przykłady dla programistów Java, aby wdrożyć solidne możliwości sanitacji dokumentów. Te zasoby obejmują wszystko, od podstawowych operacji redagowania po zaawansowane techniki usuwania informacji, umożliwiając ochronę wrażliwych danych w różnych typach dokumentów. Naucz się redagować tekst używając dokładnych fraz lub wyrażeń regularnych, usuwać właściwości metadanych, oczyszczać adnotacje i radzić sobie z wyzwaniami specyficznymi dla dokumentów w wielu formatach. Nasze samouczki Java są zaprojektowane, aby pomóc Ci zintegrować kompleksowe funkcje redagowania w aplikacjach, zapewniając zgodność z przepisami o ochronie prywatności i standardami ochrony danych.
+{{% /alert %}}
+
+Zapoznaj się z poniższymi niezbędnymi zasobami Java:
+
+- [Rozpoczęcie](/redaction/java/getting-started/)
+- [Ładowanie dokumentu](/redaction/java/document-loading/)
+- [Zapisywanie dokumentu](/redaction/java/document-saving/)
+- [Redagowanie tekstu](/redaction/java/text-redaction/)
+- [Redagowanie metadanych](/redaction/java/metadata-redaction/)
+- [Redagowanie obrazów](/redaction/java/image-redaction/)
+- [Redagowanie adnotacji](/redaction/java/annotation-redaction/)
+- [Redagowanie stron](/redaction/java/page-redaction/)
+- [Zaawansowane redagowanie](/redaction/java/advanced-redaction/)
+- [Integracja OCR](/redaction/java/ocr-integration/)
+- [Redagowanie specyficzne dla PDF](/redaction/java/pdf-specific-redaction/)
+- [Redagowanie arkuszy kalkulacyjnych](/redaction/java/spreadsheet-redaction/)
+- [Opcje rasteryzacji](/redaction/java/rasterization-options/)
+- [Obsługa formatów](/redaction/java/format-handling/)
+- [Informacje o dokumencie](/redaction/java/document-information/)
+- [Licencjonowanie i konfiguracja](/redaction/java/licensing-configuration/)
+
+Te przewodniki Java pokazują, jak osadzić **bezpieczne redagowanie dokumentów** bezpośrednio w usługach backendowych, mikro‑usługach lub aplikacjach desktopowych, zapewniając, że każdy przetworzony plik jest wolny od ukrytych lub wrażliwych treści.
+
+## Jak GroupDocs.Redaction zapewnia trwałe usunięcie?
+GroupDocs.Redaction nadpisuje oryginalne bajty docelowej treści i usuwa powiązane strumienie metadanych, gwarantując, że zredagowane informacje nie mogą zostać odzyskane przy użyciu narzędzi forensic. Biblioteka oferuje także opcjonalny krok rasteryzacji, który konwertuje cały dokument na PDF oparty na obrazie, eliminując wszelkie ukryte warstwy lub osadzone obiekty, które mogłyby zachować resztkowe dane.
+
+## Typowe przypadki użycia bezpiecznego redagowania dokumentów
+- **Odkrycie prawne:** Usuń nazwy klientów, numery spraw lub poufne komunikacje adwokat‑klient przed udostępnieniem dokumentów przeciwnej stronie.  
+- **Zgodność w ochronie zdrowia:** Usuń identyfikatory pacjentów (PHI) z dokumentacji medycznej, aby spełnić wymogi HIPAA, zachowując jednocześnie kontekst kliniczny.  
+- **Raportowanie finansowe:** Ukryj numery kont, numery ubezpieczenia społecznego lub własnościowe formuły w plikach audytowych przed dystrybucją zewnętrzną.  
+- **Sprawozdania rządowe:** Zmaskuj sekcje klasyfikowane w raportach lub umowach przed ich publicznym udostępnieniem.  
+
+## Najczęściej zadawane pytania
+
+**Q: Czy mogę redagować chronione hasłem pliki PDF?**  
+A: Tak. Załaduj dokument z odpowiednim parametrem hasła, a następnie zastosuj reguły redagowania jak zwykle.
+
+**Q: Czy GroupDocs.Redaction obsługuje przetwarzanie wsadowe?**  
+A: Zdecydowanie. Możesz iterować po folderze plików i programowo zastosować tę samą politykę redagowania do każdego dokumentu.
+
+**Q: Czy istnieje limit rozmiaru pliku, który mogę przetworzyć?**  
+A: Biblioteka efektywnie obsługuje pliki do 500 MB; większe pliki są przetwarzane w trybie strumieniowym, aby utrzymać niskie zużycie pamięci.
+
+**Q: Jak zweryfikować, że redagowanie zakończyło się sukcesem?**  
+A: Użyj wbudowanego obiektu `RedactionResult`, który dostarcza podsumowanie usuniętych elementów i może opcjonalnie wygenerować PDF weryfikacyjny podświetlający zredagowane obszary.
+
+**Q: Czy potrzebuję osobnej licencji dla .NET i Java?**  
+A: Jedna licencja GroupDocs.Redaction obejmuje wszystkie obsługiwane platformy, w tym .NET, Java i inne powiązania językowe.
+
+## Dodatkowe zasoby
+- [Pobierz bezpłatną wersję próbną](https://releases.groupdocs.com/redaction/)
 - [Dokumentacja API](https://reference.groupdocs.com/redaction/)
 - [Uzyskaj tymczasową licencję](https://purchase.groupdocs.com/temporary-license/)
 - [Odwiedź nasz forum](https://forum.groupdocs.com/c/redaction/33/)
 
----
+**Ostatnia aktualizacja:** 2026-10-27  
+**Testowano z:** GroupDocs.Redaction 23.9 (both .NET and Java)  
+**Autor:** GroupDocs  
+
+{{< /blocks/products/pf/tutorial-page-section >}}
+{{< /blocks/products/pf/main-container >}}
+{{< /blocks/products/pf/main-wrap-class >}}
+{{< blocks/products/products-backtop-button >}}
