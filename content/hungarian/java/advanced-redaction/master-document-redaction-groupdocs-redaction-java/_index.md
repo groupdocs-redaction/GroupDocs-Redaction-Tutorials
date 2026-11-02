@@ -1,24 +1,30 @@
 ---
-date: '2026-05-22'
-description: Ismerje meg, hogyan adhat hozzá suffix filename java-t a GroupDocs Maven
-  függőség használatával a dokumentumok redakciója közben. Tartalmazza a streaming
-  load, annotation deletion és save options funkciókat.
+date: '2026-11-02'
+description: Ismerje meg, hogyan adhat hozzá utótagot a fájlnévhez egy GroupDocs redaction
+  Java útmutatóban Maven, streaming load, annotation deletion és save options használatával.
 keywords:
+- groupdocs redaction java tutorial
 - add suffix filename java
-- groupdocs redaction java
 - document redaction workflow
+- groupdocs maven dependency
+- java inputstream redaction
+lastmod: '2026-11-02'
+og_description: Ismerje meg, hogyan adhat hozzá utótagot a fájlnévhez egy GroupDocs
+  redaction Java útmutatóban. Kövesse a lépésről‑lépésre útmutatót Maven beállításhoz,
+  streaming load-hoz és save options-hoz.
+og_image_alt: Guide showing Java code to add suffix to redacted filenames using GroupDocs
+  Redaction
+og_title: Hogyan adjon hozzá utótagot a fájlnévhez a GroupDocs redaction Java-ban
 schemas:
 - author: GroupDocs
-  dateModified: '2026-05-22'
-  description: Learn how to add suffix filename java using the GroupDocs Maven dependency
-    while redacting documents. Includes streaming load, annotation deletion, and save
-    options.
-  headline: Add suffix filename java with GroupDocs Maven
+  dateModified: '2026-11-02'
+  description: Learn how to add suffix to filename in a GroupDocs redaction Java tutorial
+    using Maven, streaming load, annotation deletion, and save options.
+  headline: How to add suffix to filename in GroupDocs redaction Java
   type: TechArticle
-- description: Learn how to add suffix filename java using the GroupDocs Maven dependency
-    while redacting documents. Includes streaming load, annotation deletion, and save
-    options.
-  name: Add suffix filename java with GroupDocs Maven
+- description: Learn how to add suffix to filename in a GroupDocs redaction Java tutorial
+    using Maven, streaming load, annotation deletion, and save options.
+  name: How to add suffix to filename in GroupDocs redaction Java
   steps:
   - name: '1: Create InputStream'
     text: '- **Why:** Using `InputStream` allows you to handle documents stored in
@@ -50,46 +56,55 @@ schemas:
       for expert assistance.
     question: Where can I get help if I encounter issues?
   type: FAQPage
-title: Suffix filename java hozzáadása a GroupDocs Maven használatával
+tags:
+- groupdocs redaction
+- java tutorial
+- maven dependency
+- document redaction
+title: Hogyan adjon hozzá utótagot a fájlnévhez a GroupDocs redaction Java-ban
 type: docs
 url: /hu/java/advanced-redaction/master-document-redaction-groupdocs-redaction-java/
 weight: 1
 ---
 
-# Fájlnév végződés hozzáadása java-val a GroupDocs Maven
+# Hogyan adjon hozzá utótagot a fájlnévhez a GroupDocs redaction Java-ban
 
-Az érzékeny adatok redakciója csak a harc felét jelenti — biztosítanod kell, hogy a mentett fájl egyértelműen jelezze, hogy feldolgozásra került. **A GroupDocs Maven függőség használata ezt egyszerűvé teszi**, lehetővé téve, hogy néhány kódsorral egy végződést adj a kimeneti fájlnévhez. A **add suffix filename java** módszer egy egy‑soros konfiguráció, amely azonnal címkézi a redakciózott fájlokat, segítve a megfelelőséget és az auditkész állapotot.
+Ebben a **groupdocs redaction java tutorial**-ban megtanulja, hogyan lehet automatikusan hozzáfűzni egy utótagot a kimeneti fájlnévhez a dokumentumok redakciója során a GroupDocs.Redaction használatával. Az utótag hozzáadása megszünteti a kézi átnevezést, csökkenti a nem redaktált fájlok kiszivárgásának kockázatát, és zökkenőmentesen illeszkedik a névadási konvenciókra támaszkodó CI/CD folyamatokba. Az útmutató végigvezeti a Maven beállításon, a dokumentum streaming betöltésén, az annotációk eltávolításán és a mentési beállítások konfigurálásán – mindezt tömör, termelésre kész kóddal.
 
 ## Gyors válaszok
 - **Mi a “add suffix to filename” funkció?**  
-  Egy egyedi végződést (pl. “_redacted”) fűz a kimeneti fájlnévhez, így azonnal azonosíthatod a feldolgozott fájlokat.  
+  Amikor engedélyezi az utótag opciót, az SDK automatikusan hozzáfűz egy előre meghatározott karakterláncot (alapértelmezés szerint “_redacted”) a kimeneti fájl alapnevéhez a kiterjesztés előtt. Ez azonnal egyértelművé teszi, mely fájlok lettek feldolgozva, segít megakadályozni az eredeti tartalom véletlen terjesztését, és egyszerűsíti a névadási mintákat használó downstream automatizálást.  
 - **Betölthetek dokumentumot streamből?**  
-  Igen — a GroupDocs.Redaction támogatja a betöltést bármely `InputStream`‑ből, ami tökéletes a felhőalapú tároláshoz vagy a memóriában történő feldolgozáshoz.  
+  Igen – a GroupDocs.Redaction támogatja a betöltést bármely `InputStream`‑ből, ami tökéletes a felhőalapú tároláshoz vagy a memória‑beli feldolgozáshoz.  
 - **Szükségem van licencre ehhez a funkcióhoz?**  
-  Az ingyenes próba verzió alap redakcióra működik; egy ideiglenes vagy teljes licenc feloldja az összes fejlett opciót, beleértve a végződés kezelését is.  
+  Az ingyenes próba a alapvető redakcióhoz működik; egy ideiglenes vagy teljes licenc feloldja az összes fejlett opciót, beleértve az utótag kezelését is.  
 - **Mely formátumok támogatottak?**  
   A könyvtár kezeli a DOCX, PDF, PPTX, XLSX és még sok más formátumot.  
-- **Szükséges a rasterizáció PDF kimenethez?**  
-  A rasterizáció opcionális; engedélyezd, ha a dokumentumot le szeretnéd laposítani extra biztonság érdekében.
+- **Szükséges a rasterizálás PDF kimenethez?**  
+  A rasterizálás opcionális; engedélyezze, ha a dokumentumot extra biztonság érdekében laposra kell tenni.
 
-## Mi az add suffix filename java?
-Az **add suffix filename java** technika egy előre meghatározott karakterláncot ad a fájlnévhez a mentési művelet során, egyértelműen jelölve a dokumentumot redakciózottként. Ez az egyszerű konvenció megakadályozza az eredeti, nem redakciózott fájlok véletlen terjesztését, és zökkenőmentesen integrálódik az automatizált folyamatokba.
+## Mit csinál a “add suffix to filename” funkció?
 
-## Miért használjuk a GroupDocs.Redaction-t ehhez a feladathoz?
-A GroupDocs.Redaction egy folyékony Java API-t biztosít, amely lehetővé teszi a redakciós műveletek és a fájlkezelési beállítások – például az **add suffix filename java** – kombinálását néhány kódsorral. Az SDK **50+ bemeneti és kimeneti formátumot** támogat, és több száz oldalas dokumentumokat képes feldolgozni anélkül, hogy a teljes fájlt a memóriába töltené, így gyors és alacsony memóriaigényű megoldást nyújt.
+Amikor engedélyezi az utótag opciót, az SDK automatikusan hozzáfűz egy előre meghatározott karakterláncot (alapértelmezés szerint “_redacted”) a kimeneti fájl alapnevéhez a kiterjesztés előtt. Ez azonnal egyértelművé teszi, mely fájlok lettek feldolgozva, segít megakadályozni az eredeti tartalom véletlen terjesztését, és egyszerűsíti a névadási mintákat használó downstream automatizálást.
 
-## Előkövetelmények
+## Miért használja a GroupDocs.Redaction-t ehhez a feladathoz?
+
+A GroupDocs.Redaction egy nagy teljesítményű Java API‑t kínál, amely a redakciós műveleteket rugalmas fájlkezelési lehetőségekkel, például automatikus utótag hozzáadással, streaming támogatással és kötegelt feldolgozással kombinálja. Több mint 50 bemeneti és kimeneti formátumot támogat, és több száz oldalas dokumentumokat képes feldolgozni anélkül, hogy a teljes fájlt a memóriába töltené, ezáltal alacsony memóriahasználatot és gyors végrehajtást biztosít.
+
+## Előfeltételek
+
 - **Java Development Kit (JDK):** 8-as vagy újabb verzió.  
 - **GroupDocs.Redaction Library:** A redakciós feladatokhoz szükséges alapkönyvtár.  
 - **IDE:** IntelliJ IDEA, Eclipse vagy bármely Java‑kompatibilis szerkesztő.  
 - **Maven:** A függőségkezeléshez.  
 
-### Tudás előkövetelmények
-A Java I/O és az alapvető objektumorientált koncepciók ismerete megkönnyíti a példák követését.
+### Tudás előfeltételek
+A Java I/O és az alapvető objektum‑orientált koncepciók ismerete megkönnyíti a példák követését.
 
 ## A GroupDocs.Redaction beállítása Java-hoz
+
 ### Maven beállítás
-Add hozzá a következő konfigurációt a `pom.xml` fájlodhoz, hogy Maven-en keresztül elérd a GroupDocs könyvtárakat:
+Include the following configuration in your `pom.xml` file to access GroupDocs libraries via Maven:
 
 ```xml
 <repositories>
@@ -110,29 +125,30 @@ Add hozzá a következő konfigurációt a `pom.xml` fájlodhoz, hogy Maven-en k
 ```
 
 ### Közvetlen letöltés
-Alternatívaként töltsd le a legújabb verziót közvetlenül a [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/) oldalról.
+Alternatívaként töltse le a legújabb verziót közvetlenül a [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/) oldalról.
 
-### Licenc megszerzése
-1. **Free Trial:** Alapfunkciók korlátozás nélkül.  
-2. **Temporary License:** Ideiglenes licenc beszerzése a fejlett funkciók kipróbálásához.  
-3. **Purchase:** Hosszú távú használathoz fontold meg a teljes licenc megvásárlását.
+### Licenc beszerzése
+1. **Free trial:** Alapfunkciók korlátozás nélkül.  
+2. **Temporary license:** Ideiglenes licenc beszerzése a fejlett funkciók kipróbálásához.  
+3. **Purchase:** Hosszú távú használathoz fontolja meg egy teljes licenc megvásárlását.
 
 #### Alap inicializálás és beállítás
-Inicializáld a projektet a szükséges importok hozzáadásával:
+Initialize your project by adding the necessary imports:
 
 ```java
 import com.groupdocs.redaction.Redactor;
 ```
 
-Ezzel a beállítással készen állsz a dokumentum redakciós funkciók megvalósítására.
+With this setup, you're ready to implement document redaction functionalities.
 
 ## Implementációs útmutató
 
-### 1. funkció: Dokumentum betöltése streamből
-**Áttekintés:** Ismerd meg, hogyan tölts be dokumentumokat `InputStream`‑be a feldolgozáshoz.
+### Funkció 1: dokumentum betöltése streamből
+**Áttekintés:** Tanulja meg, hogyan töltsön be dokumentumokat egy `InputStream`‑be feldolgozás céljából.
 
-#### Lépésről‑lépésre megvalósítás
-##### 1.1. lépés: InputStream létrehozása
+`InputStream` egy Java I/O osztály, amely bájtfolyamot képvisel, lehetővé téve adatok olvasását fájlokból, hálózati kapcsolatokból vagy más forrásokból anélkül, hogy a teljes tartalmat a memóriába töltené.
+
+#### 1.1. lépés: inputstream létrehozása
 
 ```java
 import java.io.FileInputStream;
@@ -148,13 +164,14 @@ try (InputStream stream = new FileInputStream("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DO
 }
 ```
 
-- **Miért:** Az `InputStream` használata lehetővé teszi, hogy a különböző helyeken tárolt dokumentumokat—felhő tárolókat, adatbázisokat vagy memóriában lévő puffereket—kezeljük anélkül, hogy előbb lemezre írnánk őket. Ez a megközelítés elengedhetetlen, amikor **load document from stream** funkcióra van szükség mikro‑szolgáltatás architektúrákban.
+- **Miért:** Az `InputStream` használatával különböző helyeken tárolt dokumentumokat—felhő tárolókat, adatbázisokat vagy memória‑beli puffereket—kezelhet anélkül, hogy előbb lemezre írna. Ez a megközelítés elengedhetetlen, ha **load document from stream**‑et kell végrehajtani mikro‑szolgáltatás architektúrákban.
 
-### 2. funkció: Megjegyzés törlés redakció alkalmazása
-**Áttekintés:** Távolítsd el a megjegyzéseket a dokumentumodból a `DeleteAnnotationRedaction` használatával.
+### Funkció 2: annotáció törlés redakció alkalmazása
+**Áttekintés:** Távolítsa el a dokumentum annotációit a `DeleteAnnotationRedaction` használatával.
 
-#### Lépésről‑lépésre megvalósítás
-##### 2.1. lépés: DeleteAnnotationRedaction alkalmazása
+`DeleteAnnotationRedaction` egy redakciós művelet, amely eltávolítja az összes annotációt—például megjegyzéseket, kiemeléseket és jegyzeteket—a dokumentumból.
+
+#### 2.1. lépés: deleteannotationredaction alkalmazása
 
 ```java
 import com.groupdocs.redaction.redactions.DeleteAnnotationRedaction;
@@ -165,13 +182,14 @@ try (Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX")) {
 }
 ```
 
-- **Miért:** Ez a lépés biztosítja, hogy minden érzékeny megjegyzés (kommentárok, kiemelések vagy rejtett jegyzetek) eltávolításra kerüljön a dokumentumból, növelve a magánszférát és a megfelelőséget.
+- **Miért:** Ez a lépés biztosítja, hogy minden érzékeny annotáció (megjegyzések, kiemelések vagy rejtett jegyzetek) eltávolításra kerüljön a dokumentumból, növelve a magánszférát és a megfelelőséget.
 
-### 3. funkció: Dokumentum mentése opciókkal
-**Áttekintés:** Ismerd meg, hogyan mentheted a feldolgozott dokumentumot speciális opciókkal, mint a rasterizáció és az **add suffix filename java**.
+### Funkció 3: dokumentum mentése opciókkal
+**Áttekintés:** Tanulja meg, hogyan mentse a feldolgozott dokumentumot specifikus opciókkal, például rasterizálással és **add suffix filename java**‑val.
 
-#### Lépésről‑lépésre megvalósítás
-##### 3.1. lépés: SaveOptions konfigurálása
+`SaveOptions` tartalmazza azokat a beállításokat, amelyek szabályozzák, hogyan kerül a redaktált dokumentum írásra, beleértve a formátumot, a rasterizálást és a névadási konvenciókat.
+
+#### 3.1. lépés: saveoptions konfigurálása
 
 ```java
 import java.io.ByteArrayOutputStream;
@@ -189,86 +207,81 @@ try (Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX")) {
 }
 ```
 
-- **Miért:** A mentési opciók testreszabása rugalmas kimeneti formátumokat és elnevezési konvenciókat tesz lehetővé. A `setAddSuffix(true)` engedélyezése **suffixet ad a fájlnévhez**, egyértelművé téve, hogy a fájl redakciózott.
+- **Miért:** A mentési opciók testreszabása rugalmas kimeneti formátumokat és névadási konvenciókat tesz lehetővé. A `setAddSuffix(true)` engedélyezése **adds suffix to filename**, így egyértelművé válik, hogy a fájl redaktált.
 
-## Hogyan adjunk suffix filename java-t a dokumentum mentésekor?
-`Redactor` a GroupDocs.Redaction fő osztálya, amely betölti a dokumentumot és alkalmazza a redakciós műveleteket.  
-`setAddSuffix` a `SaveOptions` metódusa, amely lehetővé teszi az automatikus suffix hozzáadását a kimeneti fájlnévhez.
+## Hogyan adjon hozzá utótagot a fájlnévhez Java-ban dokumentum mentésekor?
 
-Töltsd be a `Redactor` példányodat, alkalmazd a kívánt redakciókat, majd hívd meg a `save()`-et `SaveOptions`‑szel, ahol a `setAddSuffix(true)` engedélyezve van. Ez az egyetlen konfiguráció automatikusan hozzáfűzi a „_redacted” (vagy az alapértelmezett suffix) a fájlnévhez, megszüntetve a kézi átnevezést és csökkentve az emberi hibákat. A művelet O(n) időben fejeződik be a dokumentum méretéhez képest, és minden támogatott formátumra működik.
+A `Redactor` osztály a fő komponens, amely betölti a dokumentumot és alkalmazza a redakciós műveleteket. A `SaveOptions` meghatározza, hogyan kerül a redaktált dokumentum mentésre, beleértve a formátumot, a rasterizálást és a névadási konvenciókat. Hozzon létre egy `Redactor` példányt, alkalmazzon minden szükséges redakciót, majd konfiguráljon egy `SaveOptions` objektumot a `setAddSuffix(true)` beállítással. Hívja a `redactor.save(outputPath, options)`‑t. Az SDK automatikusan hozzáfűzi a “_redacted” (vagy a konfigurált) utótagot a fájlnévhez, így soha nem kell kézzel átnevezni a fájlt.
 
-## A groupdocs Maven függőség áttekintése
-A **groupdocs maven dependency** egyetlen `<dependency>` bejegyzéssel hozza be a teljes Redaction SDK‑t a projektedbe. Kezeli a tranzitív függőségeket, naprakészen tartja a könyvtárakat, és egyszerűsíti a build automatizálást. A `pom.xml`‑ben történő deklarálással elkerülheted a kézi JAR kezelést, és biztosítod a kompatibilitást a legújabb biztonsági frissítésekkel.
+## GroupDocs Maven függőség áttekintése
 
-## Miért fontos a suffix hozzáadása
-A suffix hozzáadása azonnali vizuális megerősítést nyújt arról, hogy egy dokumentum feldolgozásra került, ami elengedhetetlen az audit nyomvonalak, az automatizált munkafolyamatok és az iparági szabályozási megfelelés szempontjából.
+A **groupdocs maven dependency** egyetlen `<dependency>` bejegyzéssel hozza be a teljes Redaction SDK‑t a projektbe. Kezeli a tranzitív függőségeket, naprakészen tartja a könyvtárakat, és egyszerűsíti a build automatizálást. A `pom.xml`‑ben deklarálva elkerülhető a manuális JAR‑kezelés, és biztosítható a legújabb biztonsági javításokkal való kompatibilitás.
 
-- **Auditálhatóság:** A csapatok azonnal felismerhetik, mely fájlok biztonságosak a terjesztéshez.  
-- **Automatizálás:** A szkriptek a suffix alapján szűrhetik a fájlokat, megelőzve az eredeti dokumentumok véletlen feldolgozását.  
-- **Megfelelőség:** Számos szabályozás megköveteli a tisztított dokumentumok egyértelmű címkézését.
+## Miért fontos az utótag hozzáadása
+
+Az utótag hozzáfűzése azonnali vizuális megerősítést nyújt arról, hogy egy fájl feldolgozásra került, ami kritikus az audit nyomvonalak, az automatizált munkafolyamatok és a szabályozási megfelelés szempontjából. Lehetővé teszi a szkriptek számára a redaktált fájlok szűrését, megakadályozza az eredeti tartalom véletlen terjesztését, és megfelel számos iparági szabványnak, amely egyértelmű címkézést követel meg a tisztított dokumentumoknál.
 
 ## Gyakorlati alkalmazások
-Ismerd meg ezeket a valós példákat:
 
-1. **Jogi dokumentum redakció:** Szerződések biztonságos védelme a kliensnek történő megosztás előtt.  
-2. **Orvosi feljegyzések kezelése:** A betegazonosítók védelme, miközben a klinikai adatok megmaradnak.  
-3. **Pénzügyi jelentés:** Az érzékeny számok bizalmas kezelése külső auditok során.  
-4. **CRM integráció:** Ügyféladatok automatikus redakciója exportálás előtt harmadik fél eszközeibe.  
-5. **Együttműködési eszközök:** Biztosítsd, hogy a megosztott vázlatok ne fedjék fel a rejtett megjegyzéseket vagy metaadatokat.
+1. **Jogi dokumentum redakció:** Biztonságos szerződések megosztása ügyfelekkel.  
+2. **Egészségügyi rekordkezelés:** Betegazonosítók védelme a klinikai adatok megőrzése mellett.  
+3. **Pénzügyi jelentés:** Érzékeny számok titokban tartása külső auditok során.  
+4. **CRM integráció:** Automatikus ügyféladat-redakció exportálás előtt harmadik fél eszközeibe.  
+5. **Együttműködési eszközök:** Biztosítja, hogy a megosztott vázlatok ne fedjék fel a rejtett megjegyzéseket vagy metaadatokat.
 
 ## Teljesítmény szempontok
+
 ### Teljesítmény optimalizálása
-- Használd a streaminget (`load document from stream`), hogy elkerüld a teljes fájl memóriába töltését.  
-- Zárd le a `Redactor` példányokat gyorsan, hogy felszabadítsd az erőforrásokat.  
+- Használjon streaming‑et (`load document from stream`) a teljes fájlok memóriába töltésének elkerülésére.  
+- Zárja be a `Redactor` példányokat gyorsan az erőforrások felszabadításához.  
 
 ### Erőforrás használati irányelvek
-- Figyeld a CPU és memória használatot a kötegelt futtatások során.  
-- Előnyben részesítsd a `ByteArrayOutputStream`‑et a memóriában történő mentésekhez, ha mérsékelt méretű fájlokkal dolgozol.  
+- Figyelje a CPU‑t és a memóriát kötegelt futtatás során.  
+- Kisebb fájlméretek esetén részesítse előnyben a `ByteArrayOutputStream`‑t a memória‑beli mentéshez.
 
-### Legjobb gyakorlatok a Java memória kezeléshez
-- Használd újra a `Redactor` objektumokat, ha ugyanazon típusú több fájlt dolgozol fel.  
-- Hívd meg a `close()`‑t egy `try‑with‑resources` blokkban a szivárgások elkerülése érdekében.
+### Legjobb gyakorlatok Java memória kezeléshez
+- Használja újra a `Redactor` objektumokat több azonos típusú fájl feldolgozásakor.  
+- Hívja a `close()`‑t egy `try‑with‑resources` blokkban a szivárgások megelőzése érdekében.
 
 ## Gyakori problémák és megoldások
 | Probléma | Ok | Megoldás |
 |----------|----|----------|
-| **A suffix nem jelenik meg** | `setAddSuffix(false)` vagy hiányzó hívás | Győződj meg róla, hogy a `options.setAddSuffix(true)` be van állítva a `save()` előtt. |
-| **OutOfMemoryError nagy DOCX esetén** | A teljes fájl memóriába töltése | Válts `InputStream` betöltésre (lásd 1. funkció). |
-| **A megjegyzések még láthatóak** | A redakció nem lett alkalmazva a mentés előtt | Hívd meg a `redactor.apply(new DeleteAnnotationRedaction())`‑t a `save()` előtt. |
-| **PDF rasterizáció nem alkalmazott** | `setRasterizeToPDF(false)` vagy kihagyva | Állítsd be a `options.setRasterizeToPDF(true)`‑t, ha lapos PDF‑re van szükség. |
+| **Az utótag nem jelenik meg** | `setAddSuffix(false)` vagy hiányzó hívás | Győződjön meg róla, hogy a `options.setAddSuffix(true)` be van állítva a `save()` előtt. |
+| **OutOfMemoryError nagy DOCX esetén** | A teljes fájl betöltése a memóriába | Váltson `InputStream` betöltésre (lásd 1. funkció). |
+| **Az annotációk még láthatóak** | A redakció nem lett alkalmazva a mentés előtt | Hívja a `redactor.apply(new DeleteAnnotationRedaction())`‑t a `save()` előtt. |
+| **PDF rasterizálás nem alkalmazva** | `setRasterizeToPDF(false)` vagy kihagyva | Állítsa `options.setRasterizeToPDF(true)`‑ra, ha lapos PDF‑re van szükség. |
 
-## Gyakran Ismételt Kérdések
+## Gyakran feltett kérdések
 
-**K: Redakciózhatok PDF dokumentumokat a GroupDocs.Redaction használatával?**  
-V: Igen, a könyvtár támogatja a PDF, DOCX, PPTX, XLSX és sok más formátumot.
+**K: Redaktálhatok PDF dokumentumokat a GroupDocs.Redaction használatával?**  
+A: Igen, a könyvtár támogatja a PDF‑eket, DOCX, PPTX, XLSX és sok más formátumot.
 
 **K: Mi a legjobb módja a nagy fájlok kezelésének a GroupDocs.Redaction‑nel?**  
-V: Használd a streaminget (`load document from stream`) és zárd le az erőforrásokat gyorsan, hogy alacsony maradjon a memóriahasználat.
+A: Használjon streaming‑et (`load document from stream`) és zárja be a erőforrásokat gyorsan a memóriahasználat alacsonyan tartásához.
 
-**K: Lehet testre szabni a suffix szöveget?**  
-V: Az API automatikusan hozzáad egy alapértelmezett suffixet (pl. „_redacted”). Egyedi suffixekhez a kimeneti fájlt a mentés után kell átnevezni.
+**K: Lehetőség van az utótag szövegének testreszabására?**  
+A: Az API automatikusan hozzáad egy alapértelmezett utótagot (pl. “_redacted”). Egyedi utótagokhoz a kimeneti fájlt a mentés után kell átnevezni.
 
 **K: Hogyan szerezhetek ideiglenes licencet a GroupDocs.Redaction‑hez?**  
-V: Látogasd meg a [Temporary License page](https://purchase.groupdocs.com/temporary-license/) oldalt, és kövesd az útmutatót.
+A: Látogassa meg a [Temporary License page](https://purchase.groupdocs.com/temporary-license/) oldalt és kövesse az útmutatót.
 
 **K: Hol kaphatok segítséget, ha problémáim vannak?**  
-V: Csatlakozz a [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33) fórumhoz szakértői segítségért.
+A: Csatlakozzon a [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33) fórumhoz szakértői támogatásért.
 
 ## Erőforrások
-- **Documentation:** Részletes útmutatókat találsz a [GroupDocs Documentation](https://docs.groupdocs.com/redaction/java/) oldalon.  
-- **API Reference:** Átfogó API részleteket találsz a [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java) oldalon.  
-- **Download:** A legújabb verziót a [GroupDocs Downloads](https://releases.groupdocs.com/redaction/java/) oldalról töltheted le.  
-- **GitHub Repository:** Hozzájárulhatsz vagy felfedezheted a forráskódot a [GroupDocs GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java) oldalon.
+- **Dokumentáció:** Részletes útmutatókat a [GroupDocs Documentation](https://docs.groupdocs.com/redaction/java/) oldalon.  
+- **API referencia:** Átfogó API részletek a [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java) oldalon.  
+- **Letöltés:** A legújabb verziót a [GroupDocs Downloads](https://releases.groupdocs.com/redaction/java/) oldalról szerezheti meg.  
+- **GitHub tároló:** Hozzájárulhat vagy felfedezheti a forráskódot a [GroupDocs GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java) oldalon.
 
 ---
 
-**Utolsó frissítés:** 2026-05-22  
+**Utolsó frissítés:** 2026-11-02  
 **Tesztelve:** GroupDocs.Redaction 24.9 for Java  
 **Szerző:** GroupDocs  
 
-
 ## Kapcsolódó oktatóanyagok
 
-- [Word konvertálása PDF-be és redakciózott dokumentumok mentése a GroupDocs.Redaction Java-val](/redaction/java/document-saving/)
-- [Dokumentumoldalak előnézete Java betöltéssel a GroupDocs.Redaction segítségével](/redaction/java/document-loading/)
+- [Word PDF-re konvertálása és redaktált dokumentumok mentése a GroupDocs.Redaction Java-val](/redaction/java/document-saving/)
+- [Dokumentum oldalak előnézete Java betöltéssel a GroupDocs.Redaction használatával](/redaction/java/document-loading/)
 - [Haladó redakciós technikák a GroupDocs.Redaction Java-hoz](/redaction/java/advanced-redaction/)

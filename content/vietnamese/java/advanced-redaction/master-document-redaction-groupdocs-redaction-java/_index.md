@@ -1,24 +1,30 @@
 ---
-date: '2026-05-22'
-description: Tìm hiểu cách thêm hậu tố tên tệp java bằng cách sử dụng phụ thuộc GroupDocs
-  Maven khi chỉnh sửa tài liệu. Bao gồm streaming load, annotation deletion, và save
-  options.
+date: '2026-11-02'
+description: Tìm hiểu cách thêm hậu tố vào tên tệp trong hướng dẫn GroupDocs redaction
+  Java bằng cách sử dụng Maven, streaming load, annotation deletion và các tùy chọn
+  lưu.
 keywords:
+- groupdocs redaction java tutorial
 - add suffix filename java
-- groupdocs redaction java
 - document redaction workflow
+- groupdocs maven dependency
+- java inputstream redaction
+lastmod: '2026-11-02'
+og_description: Tìm hiểu cách thêm hậu tố vào tên tệp trong hướng dẫn GroupDocs redaction
+  Java. Thực hiện theo các bước thiết lập Maven, streaming load và các tùy chọn lưu.
+og_image_alt: Guide showing Java code to add suffix to redacted filenames using GroupDocs
+  Redaction
+og_title: Cách thêm hậu tố vào tên tệp trong GroupDocs redaction Java
 schemas:
 - author: GroupDocs
-  dateModified: '2026-05-22'
-  description: Learn how to add suffix filename java using the GroupDocs Maven dependency
-    while redacting documents. Includes streaming load, annotation deletion, and save
-    options.
-  headline: Add suffix filename java with GroupDocs Maven
+  dateModified: '2026-11-02'
+  description: Learn how to add suffix to filename in a GroupDocs redaction Java tutorial
+    using Maven, streaming load, annotation deletion, and save options.
+  headline: How to add suffix to filename in GroupDocs redaction Java
   type: TechArticle
-- description: Learn how to add suffix filename java using the GroupDocs Maven dependency
-    while redacting documents. Includes streaming load, annotation deletion, and save
-    options.
-  name: Add suffix filename java with GroupDocs Maven
+- description: Learn how to add suffix to filename in a GroupDocs redaction Java tutorial
+    using Maven, streaming load, annotation deletion, and save options.
+  name: How to add suffix to filename in GroupDocs redaction Java
   steps:
   - name: '1: Create InputStream'
     text: '- **Why:** Using `InputStream` allows you to handle documents stored in
@@ -50,47 +56,55 @@ schemas:
       for expert assistance.
     question: Where can I get help if I encounter issues?
   type: FAQPage
-title: Thêm hậu tố tên tệp java với GroupDocs Maven
+tags:
+- groupdocs redaction
+- java tutorial
+- maven dependency
+- document redaction
+title: Cách thêm hậu tố vào tên tệp trong GroupDocs redaction Java
 type: docs
 url: /vi/java/advanced-redaction/master-document-redaction-groupdocs-redaction-java/
 weight: 1
 ---
 
-# Thêm hậu tố tên tệp java với GroupDocs Maven
+# Cách thêm hậu tố vào tên tệp trong GroupDocs redaction Java
 
-Việc xóa dữ liệu nhạy cảm chỉ là một nửa công việc—bạn cũng cần đảm bảo tệp đã lưu rõ ràng chỉ ra rằng nó đã được xử lý. **Sử dụng phụ thuộc GroupDocs Maven giúp việc này trở nên đơn giản**, cho phép bạn thêm một hậu tố vào tên tệp đầu ra chỉ trong vài dòng mã. Phương pháp **add suffix filename java** là một cấu hình một dòng duy nhất, ngay lập tức gắn nhãn cho các tệp đã xóa, giúp bạn tuân thủ và sẵn sàng kiểm toán.
+Trong **groupdocs redaction java tutorial** này, bạn sẽ học cách tự động thêm một hậu tố vào tên tệp đầu ra khi thực hiện che dấu tài liệu bằng GroupDocs.Redaction. Việc thêm hậu tố loại bỏ việc đổi tên thủ công, giảm nguy cơ rò rỉ các tệp chưa được che, và phù hợp hoàn hảo với các pipeline CI/CD dựa trên quy tắc đặt tên. Hướng dẫn này sẽ đưa bạn qua việc thiết lập Maven, tải tài liệu bằng streaming, loại bỏ chú thích, và cấu hình các tùy chọn lưu — tất cả với mã ngắn gọn, sẵn sàng cho môi trường sản xuất.
 
 ## Câu trả lời nhanh
-- **Thêm hậu tố vào tên tệp làm gì?**  
-  Nó thêm một hậu tố tùy chỉnh (ví dụ: “_redacted”) vào tên tệp đầu ra để bạn có thể ngay lập tức xác định các tệp đã được xử lý.  
-- **Tôi có thể tải tài liệu từ luồng không?**  
-  Có—GroupDocs.Redaction hỗ trợ tải từ bất kỳ `InputStream` nào, phù hợp cho lưu trữ đám mây hoặc xử lý trong bộ nhớ.  
+- **“add suffix to filename” có chức năng gì?**  
+  Khi bạn bật tùy chọn hậu tố, SDK sẽ tự động thêm một chuỗi đã định sẵn (mặc định là “_redacted”) vào tên cơ bản của tệp đầu ra trước phần mở rộng. Điều này giúp ngay lập tức nhận biết các tệp đã được xử lý, ngăn ngừa việc phân phối nhầm nội dung gốc, và đơn giản hoá tự động hoá downstream dựa trên các mẫu đặt tên.  
+- **Tôi có thể tải tài liệu từ stream không?**  
+  Có — GroupDocs.Redaction hỗ trợ tải từ bất kỳ `InputStream` nào, rất phù hợp cho lưu trữ đám mây hoặc xử lý trong bộ nhớ.  
 - **Tôi có cần giấy phép cho tính năng này không?**  
-  Bản dùng thử miễn phí hoạt động cho việc xóa cơ bản; giấy phép tạm thời hoặc đầy đủ sẽ mở khóa tất cả các tùy chọn nâng cao, bao gồm xử lý hậu tố.  
+  Bản dùng thử miễn phí hoạt động cho việc che dấu cơ bản; giấy phép tạm thời hoặc đầy đủ sẽ mở khóa tất cả các tùy chọn nâng cao, bao gồm việc xử lý hậu tố.  
 - **Các định dạng nào được hỗ trợ?**  
   Thư viện hỗ trợ DOCX, PDF, PPTX, XLSX và nhiều định dạng khác.  
 - **Có cần rasterization cho đầu ra PDF không?**  
   Rasterization là tùy chọn; bật nó khi bạn cần làm phẳng tài liệu để tăng bảo mật.
 
-## add suffix filename java là gì?
-Kỹ thuật **add suffix filename java** thêm một chuỗi đã định nghĩa trước vào tên tệp trong quá trình lưu, đánh dấu rõ ràng tài liệu đã được xóa. Quy ước đơn giản này ngăn ngừa việc phân phối nhầm các tệp gốc chưa xóa và tích hợp mượt mà với các pipeline tự động.
+## “add suffix to filename” có chức năng gì?
+
+Khi bạn bật tùy chọn hậu tố, SDK sẽ tự động thêm một chuỗi đã định sẵn (mặc định là “_redacted”) vào tên cơ bản của tệp đầu ra trước phần mở rộng. Điều này giúp ngay lập tức nhận biết các tệp đã được xử lý, ngăn ngừa việc phân phối nhầm nội dung gốc, và đơn giản hoá tự động hoá downstream dựa trên các mẫu đặt tên.
 
 ## Tại sao nên sử dụng GroupDocs.Redaction cho nhiệm vụ này?
-GroupDocs.Redaction cung cấp một API Java mượt mà cho phép bạn kết hợp các hành động xóa với các tùy chọn xử lý tệp—như **add suffix filename java**—chỉ trong vài dòng mã. SDK hỗ trợ **hơn 50 định dạng nhập và xuất** và có thể xử lý các tài liệu hàng trăm trang mà không cần tải toàn bộ tệp vào bộ nhớ, mang lại tốc độ và dung lượng bộ nhớ thấp.
 
-## Yêu cầu trước
+GroupDocs.Redaction cung cấp một API Java hiệu suất cao kết hợp các hành động che dấu với các tùy chọn xử lý tệp linh hoạt như tự động thêm hậu tố, hỗ trợ streaming và xử lý hàng loạt. Nó hỗ trợ hơn 50 định dạng đầu vào và đầu ra và có thể xử lý các tài liệu có hàng trăm trang mà không cần tải toàn bộ tệp vào bộ nhớ, đảm bảo tiêu thụ bộ nhớ thấp và thực thi nhanh chóng.
 
-- **Java Development Kit (JDK):** Phiên bản 8 hoặc cao hơn.  
-- **GroupDocs.Redaction Library:** Thư viện lõi cho các nhiệm vụ xóa.  
-- **IDE:** IntelliJ IDEA, Eclipse, hoặc bất kỳ trình chỉnh sửa nào tương thích với Java.  
+## Các yêu cầu trước
+
+- **Java Development Kit (JDK):** Phiên bản 8 trở lên.  
+- **GroupDocs.Redaction Library:** Thư viện lõi cho các tác vụ che dấu.  
+- **IDE:** IntelliJ IDEA, Eclipse, hoặc bất kỳ trình soạn thảo nào tương thích với Java.  
 - **Maven:** Để quản lý phụ thuộc.  
 
 ### Kiến thức yêu cầu
-Quen thuộc với Java I/O và các khái niệm hướng đối tượng cơ bản sẽ giúp các ví dụ dễ hiểu hơn.
+Quen thuộc với Java I/O và các khái niệm lập trình hướng đối tượng cơ bản sẽ giúp bạn dễ dàng theo dõi các ví dụ.
 
 ## Cài đặt GroupDocs.Redaction cho Java
+
 ### Cấu hình Maven
-Bao gồm cấu hình sau trong tệp `pom.xml` của bạn để truy cập các thư viện GroupDocs qua Maven:
+Bao gồm cấu hình sau trong tệp `pom.xml` của bạn để truy cập các thư viện GroupDocs thông qua Maven:
 
 ```xml
 <repositories>
@@ -114,26 +128,27 @@ Bao gồm cấu hình sau trong tệp `pom.xml` của bạn để truy cập cá
 Hoặc, tải phiên bản mới nhất trực tiếp từ [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
 ### Nhận giấy phép
-1. **Free Trial:** Truy cập chức năng cơ bản mà không có hạn chế.  
-2. **Temporary License:** Nhận giấy phép tạm thời để khám phá các tính năng nâng cao.  
+1. **Free trial:** Truy cập chức năng cơ bản không giới hạn.  
+2. **Temporary license:** Nhận giấy phép tạm thời để khám phá các tính năng nâng cao.  
 3. **Purchase:** Đối với việc sử dụng lâu dài, cân nhắc mua giấy phép đầy đủ.
 
-#### Khởi tạo và Cấu hình Cơ bản
+#### Khởi tạo và cấu hình cơ bản
 Khởi tạo dự án của bạn bằng cách thêm các import cần thiết:
 
 ```java
 import com.groupdocs.redaction.Redactor;
 ```
 
-Với cấu hình này, bạn đã sẵn sàng triển khai các chức năng xóa tài liệu.
+Với cấu hình này, bạn đã sẵn sàng triển khai các chức năng che dấu tài liệu.
 
 ## Hướng dẫn triển khai
 
-### Tính năng 1: Tải tài liệu từ luồng
-**Tổng quan:** Tìm hiểu cách tải tài liệu vào `InputStream` để xử lý.
+### Tính năng 1: tải tài liệu từ stream
+**Tổng quan:** Tìm hiểu cách tải tài liệu vào một `InputStream` để xử lý.
 
-#### Triển khai từng bước
-##### Bước 1.1: Tạo InputStream
+`InputStream` là một lớp Java I/O đại diện cho một luồng byte, cho phép bạn đọc dữ liệu từ tệp, kết nối mạng, hoặc các nguồn khác mà không cần tải toàn bộ nội dung vào bộ nhớ.
+
+#### Bước 1.1: tạo inputstream
 
 ```java
 import java.io.FileInputStream;
@@ -149,13 +164,14 @@ try (InputStream stream = new FileInputStream("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DO
 }
 ```
 
-- **Why:** Sử dụng `InputStream` cho phép bạn xử lý các tài liệu được lưu trữ ở nhiều vị trí—buckets đám mây, cơ sở dữ liệu, hoặc bộ đệm trong bộ nhớ—mà không cần ghi chúng ra đĩa trước. Cách tiếp cận này là cần thiết khi bạn cần **load document from stream** trong kiến trúc micro‑service.
+- **Tại sao:** Sử dụng `InputStream` cho phép bạn xử lý các tài liệu được lưu ở nhiều vị trí khác nhau — bucket đám mây, cơ sở dữ liệu, hoặc bộ đệm trong bộ nhớ — mà không cần ghi chúng ra đĩa trước. Cách tiếp cận này là thiết yếu khi bạn cần **load document from stream** trong kiến trúc micro‑service.
 
-### Tính năng 2: Áp dụng Xóa chú thích
-**Tổng quan:** Xóa chú thích khỏi tài liệu của bạn bằng `DeleteAnnotationRedaction`.
+### Tính năng 2: áp dụng xóa chú thích che dấu
+**Tổng quan:** Xóa các chú thích khỏi tài liệu của bạn bằng cách sử dụng `DeleteAnnotationRedaction`.
 
-#### Triển khai từng bước
-##### Bước 2.1: Áp dụng DeleteAnnotationRedaction
+`DeleteAnnotationRedaction` là một thao tác che dấu loại bỏ tất cả các chú thích — như bình luận, tô sáng và ghi chú — khỏi tài liệu.
+
+#### Bước 2.1: áp dụng deleteannotationredaction
 
 ```java
 import com.groupdocs.redaction.redactions.DeleteAnnotationRedaction;
@@ -166,13 +182,14 @@ try (Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX")) {
 }
 ```
 
-- **Why:** Bước này đảm bảo mọi chú thích nhạy cảm (bình luận, đánh dấu, hoặc ghi chú ẩn) được loại bỏ khỏi tài liệu, tăng cường quyền riêng tư và tuân thủ.
+- **Tại sao:** Bước này đảm bảo bất kỳ chú thích nhạy cảm nào (bình luận, tô sáng, hoặc ghi chú ẩn) đều bị loại bỏ khỏi tài liệu, nâng cao tính riêng tư và tuân thủ.
 
-### Tính năng 3: Lưu tài liệu với tùy chọn
+### Tính năng 3: lưu tài liệu với các tùy chọn
 **Tổng quan:** Tìm hiểu cách lưu tài liệu đã xử lý với các tùy chọn cụ thể như rasterization và **add suffix filename java**.
 
-#### Triển khai từng bước
-##### Bước 3.1: Cấu hình SaveOptions
+`SaveOptions` bao gồm các cài đặt kiểm soát cách tài liệu đã che được ghi, bao gồm định dạng, rasterization và quy tắc đặt tên.
+
+#### Bước 3.1: cấu hình saveoptions
 
 ```java
 import java.io.ByteArrayOutputStream;
@@ -190,86 +207,84 @@ try (Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX")) {
 }
 ```
 
-- **Why:** Tùy chỉnh các tùy chọn lưu cho phép định dạng đầu ra linh hoạt và quy ước đặt tên. Bật `setAddSuffix(true)` **thêm hậu tố vào tên tệp**, làm cho rõ ràng tệp đã được xóa.
+- **Tại sao:** Tùy chỉnh các tùy chọn lưu cho phép linh hoạt về định dạng đầu ra và quy tắc đặt tên. Bật `setAddSuffix(true)` **adds suffix to filename**, làm cho rõ ràng rằng tệp đã được che.
 
 ## Cách thêm suffix filename java khi lưu tài liệu?
-`Redactor` là lớp chính trong GroupDocs.Redaction chịu tải tài liệu và áp dụng các thao tác xóa.  
-`setAddSuffix` là một phương thức của `SaveOptions` cho phép tự động thêm hậu tố vào tên tệp đầu ra.  
 
-Tải thể hiện `Redactor` của bạn, áp dụng các xóa mong muốn, sau đó gọi `save()` với `SaveOptions` trong đó `setAddSuffix(true)` được bật. Cấu hình duy nhất này tự động thêm “_redacted” (hoặc hậu tố mặc định) vào tên tệp, loại bỏ việc đổi tên thủ công và giảm lỗi con người. Hoạt động hoàn thành trong thời gian O(n) so với kích thước tài liệu và hoạt động cho tất cả các định dạng được hỗ trợ.
+`Redactor` là thành phần cốt lõi chịu trách nhiệm tải tài liệu và áp dụng các thao tác che dấu. `SaveOptions` xác định cách tài liệu đã che được lưu, bao gồm định dạng, rasterization và quy tắc đặt tên. Tạo một thể hiện `Redactor`, áp dụng các thao tác che cần thiết, sau đó cấu hình một đối tượng `SaveOptions` với `setAddSuffix(true)`. Gọi `redactor.save(outputPath, options)`. SDK sẽ tự động thêm “_redacted” (hoặc hậu tố đã cấu hình) vào tên tệp, vì vậy bạn không bao giờ cần đổi tên tệp thủ công.
 
-## Tổng quan phụ thuộc groupdocs maven
-**groupdocs maven dependency** đưa toàn bộ Redaction SDK vào dự án của bạn chỉ với một mục `<dependency>`. Nó xử lý các phụ thuộc truyền thống, giữ thư viện luôn cập nhật và đơn giản hoá tự động hoá xây dựng. Bằng cách khai báo phụ thuộc trong `pom.xml`, bạn tránh việc quản lý JAR thủ công và đảm bảo tương thích với các bản vá bảo mật mới nhất.
+## Tổng quan phụ thuộc Maven của GroupDocs
+
+**groupdocs maven dependency** đưa toàn bộ Redaction SDK vào dự án của bạn bằng một mục `<dependency>` duy nhất. Nó xử lý các phụ thuộc truyền thống, giữ các thư viện luôn cập nhật, và đơn giản hoá tự động hoá quá trình build. Bằng cách khai báo phụ thuộc trong `pom.xml`, bạn tránh việc quản lý JAR thủ công và đảm bảo tính tương thích với các bản vá bảo mật mới nhất.
 
 ## Tại sao việc thêm hậu tố lại quan trọng
-Việc thêm hậu tố cung cấp xác nhận trực quan ngay lập tức rằng tài liệu đã được xử lý, điều này thiết yếu cho các chuỗi kiểm toán, quy trình tự động và tuân thủ quy định trong các ngành.
 
-- **Auditability:** Các nhóm có thể ngay lập tức nhận biết tệp nào an toàn để phân phối.  
-- **Automation:** Các script có thể lọc tệp theo hậu tố, ngăn ngừa việc xử lý nhầm các tài liệu gốc.  
-- **Compliance:** Nhiều quy định yêu cầu gắn nhãn rõ ràng cho các tài liệu đã được làm sạch.  
+Việc thêm hậu tố cung cấp xác nhận trực quan ngay lập tức rằng một tệp đã được xử lý, điều này quan trọng cho các bản ghi kiểm toán, quy trình tự động và tuân thủ quy định. Nó cho phép các script lọc các tệp đã che, ngăn ngừa việc phân phối nhầm nội dung gốc, và đáp ứng nhiều tiêu chuẩn ngành yêu cầu gắn nhãn rõ ràng cho các tài liệu đã được làm sạch.
 
 ## Ứng dụng thực tiễn
-Khám phá các trường hợp sử dụng thực tế này:
 
-1. **Legal Document Redaction:** Bảo mật hợp đồng trước khi chia sẻ với khách hàng.  
-2. **Medical Record Handling:** Bảo vệ thông tin nhận dạng bệnh nhân trong khi giữ nguyên dữ liệu lâm sàng.  
-3. **Financial Reporting:** Giữ các con số nhạy cảm bí mật trong quá trình kiểm toán bên ngoài.  
-4. **CRM Integration:** Tự động xóa dữ liệu khách hàng trước khi xuất ra các công cụ bên thứ ba.  
-5. **Collaboration Tools:** Đảm bảo các bản nháp được chia sẻ không bao giờ lộ các bình luận ẩn hoặc siêu dữ liệu.  
+Khám phá các trường hợp sử dụng thực tế sau:
 
-## Các cân nhắc về hiệu suất
-### Tối ưu hoá hiệu suất
+1. **Legal document redaction:** Bảo mật hợp đồng trước khi chia sẻ với khách hàng.  
+2. **Medical record handling:** Bảo vệ thông tin nhận dạng bệnh nhân trong khi giữ nguyên dữ liệu lâm sàng.  
+3. **Financial reporting:** Giữ bí mật các số liệu nhạy cảm trong quá trình kiểm toán bên ngoài.  
+4. **CRM integration:** Tự động che dấu dữ liệu khách hàng trước khi xuất ra các công cụ bên thứ ba.  
+5. **Collaboration tools:** Đảm bảo các bản nháp được chia sẻ không bao giờ lộ các bình luận ẩn hoặc siêu dữ liệu.
+
+## Các cân nhắc về hiệu năng
+
+### Tối ưu hoá hiệu năng
 - Sử dụng streaming (`load document from stream`) để tránh tải toàn bộ tệp vào bộ nhớ.  
 - Đóng các thể hiện `Redactor` kịp thời để giải phóng tài nguyên.  
 
 ### Hướng dẫn sử dụng tài nguyên
 - Giám sát CPU và bộ nhớ trong quá trình chạy batch.  
-- Ưu tiên `ByteArrayOutputStream` cho việc lưu trong bộ nhớ khi làm việc với các tệp có kích thước vừa phải.  
+- Ưu tiên sử dụng `ByteArrayOutputStream` cho việc lưu trong bộ nhớ khi làm việc với các tệp có kích thước vừa phải.  
 
-### Thực hành tốt cho quản lý bộ nhớ Java
+### Thực hành tốt nhất cho quản lý bộ nhớ Java
 - Tái sử dụng các đối tượng `Redactor` khi xử lý nhiều tệp cùng loại.  
-- Gọi `close()` trong khối `try‑with‑resources` để ngăn rò rỉ.  
+- Gọi `close()` trong khối `try‑with‑resources` để ngăn rò rỉ.
 
 ## Các vấn đề thường gặp và giải pháp
-| Vấn đề | Nguyên nhân | Giải pháp |
-|-------|-------------|----------|
+
+| Issue | Cause | Fix |
+|-------|-------|-----|
 | **Suffix không xuất hiện** | `setAddSuffix(false)` hoặc thiếu lời gọi | Đảm bảo `options.setAddSuffix(true)` được đặt trước khi gọi `save()`. |
 | **OutOfMemoryError trên DOCX lớn** | Tải toàn bộ tệp vào bộ nhớ | Chuyển sang tải bằng `InputStream` (xem Tính năng 1). |
-| **Chú thích vẫn hiển thị** | Chưa áp dụng xóa trước khi lưu | Gọi `redactor.apply(new DeleteAnnotationRedaction())` trước khi `save()`. |
-| **Rasterization PDF không được áp dụng** | `setRasterizeToPDF(false)` hoặc bị bỏ qua | Đặt `options.setRasterizeToPDF(true)` khi bạn cần một PDF đã được làm phẳng. |
+| **Annotations vẫn hiển thị** | Chưa áp dụng redaction trước khi lưu | Gọi `redactor.apply(new DeleteAnnotationRedaction())` trước khi `save()`. |
+| **PDF rasterization không được áp dụng** | `setRasterizeToPDF(false)` hoặc bị bỏ qua | Đặt `options.setRasterizeToPDF(true)` khi bạn cần PDF đã được làm phẳng. |
 
 ## Câu hỏi thường gặp
 
-**Q: Tôi có thể xóa tài liệu PDF bằng GroupDocs.Redaction không?**  
+**Q: Tôi có thể che dấu tài liệu PDF bằng GroupDocs.Redaction không?**  
 A: Có, thư viện hỗ trợ PDF, DOCX, PPTX, XLSX và nhiều định dạng khác.
 
 **Q: Cách tốt nhất để xử lý các tệp lớn với GroupDocs.Redaction là gì?**  
 A: Sử dụng streaming (`load document from stream`) và đóng tài nguyên kịp thời để giữ mức sử dụng bộ nhớ thấp.
 
 **Q: Có thể tùy chỉnh văn bản hậu tố không?**  
-A: API tự động thêm một hậu tố mặc định (ví dụ: “_redacted”). Đối với hậu tố tùy chỉnh, hãy đổi tên tệp đầu ra sau khi lưu.
+A: API tự động thêm hậu tố mặc định (ví dụ, “_redacted”). Đối với hậu tố tùy chỉnh, bạn có thể đổi tên tệp đầu ra sau khi lưu.
 
 **Q: Làm thế nào để tôi nhận được giấy phép tạm thời cho GroupDocs.Redaction?**  
 A: Truy cập [Temporary License page](https://purchase.groupdocs.com/temporary-license/) và làm theo hướng dẫn.
 
-**Q: Tôi có thể nhận được hỗ trợ ở đâu nếu gặp vấn đề?**  
-A: Tham gia [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33) để được chuyên gia hỗ trợ.
+**Q: Tôi có thể nhận được sự hỗ trợ ở đâu nếu gặp vấn đề?**  
+A: Tham gia [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33) để nhận sự trợ giúp từ chuyên gia.
 
 ## Tài nguyên
 - **Documentation:** Khám phá các hướng dẫn chi tiết tại [GroupDocs Documentation](https://docs.groupdocs.com/redaction/java/).  
-- **API Reference:** Truy cập chi tiết API toàn diện trên [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java).  
+- **API reference:** Truy cập chi tiết API toàn diện trên [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java).  
 - **Download:** Tải phiên bản mới nhất từ [GroupDocs Downloads](https://releases.groupdocs.com/redaction/java/).  
-- **GitHub Repository:** Đóng góp hoặc khám phá mã nguồn tại [GroupDocs GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java).  
+- **GitHub repository:** Đóng góp hoặc khám phá mã nguồn tại [GroupDocs GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java).
 
 ---
 
-**Cập nhật lần cuối:** 2026-05-22  
-**Được kiểm tra với:** GroupDocs.Redaction 24.9 cho Java  
+**Cập nhật lần cuối:** 2026-11-02  
+**Được kiểm tra với:** GroupDocs.Redaction 24.9 for Java  
 **Tác giả:** GroupDocs  
 
+## Các hướng dẫn liên quan
 
-## Hướng dẫn liên quan
-
-- [Chuyển đổi Word sang PDF và Lưu tài liệu đã xóa với GroupDocs.Redaction Java](/redaction/java/document-saving/)
+- [Chuyển đổi Word sang PDF và Lưu tài liệu đã che bằng GroupDocs.Redaction Java](/redaction/java/document-saving/)
 - [Xem trước các trang tài liệu Java Loading với GroupDocs.Redaction](/redaction/java/document-loading/)
-- [Kỹ thuật xóa nâng cao cho GroupDocs.Redaction Java](/redaction/java/advanced-redaction/)
+- [Kỹ thuật che dấu nâng cao cho GroupDocs.Redaction Java](/redaction/java/advanced-redaction/)

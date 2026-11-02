@@ -1,24 +1,31 @@
 ---
-date: '2026-05-22'
-description: Pelajari cara menambahkan akhiran nama file java menggunakan dependensi
-  GroupDocs Maven saat menyunting dokumen. Includes streaming load, annotation deletion,
-  and save options.
+date: '2026-11-02'
+description: Pelajari cara menambahkan akhiran pada nama file dalam tutorial GroupDocs
+  redaction Java menggunakan Maven, streaming load, annotation deletion, dan save
+  options.
 keywords:
+- groupdocs redaction java tutorial
 - add suffix filename java
-- groupdocs redaction java
 - document redaction workflow
+- groupdocs maven dependency
+- java inputstream redaction
+lastmod: '2026-11-02'
+og_description: Pelajari cara menambahkan akhiran pada nama file dalam tutorial GroupDocs
+  redaction Java. Ikuti langkah demi langkah setup Maven, streaming load, dan save
+  options.
+og_image_alt: Guide showing Java code to add suffix to redacted filenames using GroupDocs
+  Redaction
+og_title: Cara menambahkan akhiran pada nama file di GroupDocs redaction Java
 schemas:
 - author: GroupDocs
-  dateModified: '2026-05-22'
-  description: Learn how to add suffix filename java using the GroupDocs Maven dependency
-    while redacting documents. Includes streaming load, annotation deletion, and save
-    options.
-  headline: Add suffix filename java with GroupDocs Maven
+  dateModified: '2026-11-02'
+  description: Learn how to add suffix to filename in a GroupDocs redaction Java tutorial
+    using Maven, streaming load, annotation deletion, and save options.
+  headline: How to add suffix to filename in GroupDocs redaction Java
   type: TechArticle
-- description: Learn how to add suffix filename java using the GroupDocs Maven dependency
-    while redacting documents. Includes streaming load, annotation deletion, and save
-    options.
-  name: Add suffix filename java with GroupDocs Maven
+- description: Learn how to add suffix to filename in a GroupDocs redaction Java tutorial
+    using Maven, streaming load, annotation deletion, and save options.
+  name: How to add suffix to filename in GroupDocs redaction Java
   steps:
   - name: '1: Create InputStream'
     text: '- **Why:** Using `InputStream` allows you to handle documents stored in
@@ -50,46 +57,55 @@ schemas:
       for expert assistance.
     question: Where can I get help if I encounter issues?
   type: FAQPage
-title: Tambahkan akhiran nama file java dengan GroupDocs Maven
+tags:
+- groupdocs redaction
+- java tutorial
+- maven dependency
+- document redaction
+title: Cara menambahkan akhiran pada nama file di GroupDocs redaction Java
 type: docs
 url: /id/java/advanced-redaction/master-document-redaction-groupdocs-redaction-java/
 weight: 1
 ---
 
-# Tambahkan akhiran nama file java dengan GroupDocs Maven
+# Cara menambahkan akhiran ke nama file di GroupDocs redaction Java
 
-Menyensor data rahasia hanyalah separuh dari perjuangan—Anda juga harus memastikan file yang disimpan jelas menunjukkan bahwa file tersebut telah diproses. **Menggunakan dependensi GroupDocs Maven membuat ini menjadi sederhana**, memungkinkan Anda menambahkan akhiran pada nama file output hanya dengan beberapa baris kode. Metode untuk **add suffix filename java** adalah konfigurasi satu baris yang langsung memberi label pada file yang disensor, membantu Anda tetap patuh dan siap audit.
+Dalam **groupdocs redaction java tutorial** ini Anda akan belajar cara secara otomatis menambahkan akhiran ke nama file output saat melakukan redaksi dokumen dengan GroupDocs.Redaction. Menambahkan akhiran menghilangkan kebutuhan untuk mengganti nama secara manual, mengurangi risiko kebocoran file yang belum direduksi, dan cocok dengan pipeline CI/CD yang mengandalkan konvensi penamaan. Panduan ini mengarahkan Anda melalui pengaturan Maven, pemuatan dokumen melalui streaming, penghapusan anotasi, dan konfigurasi opsi penyimpanan—semua dengan kode yang ringkas dan siap produksi.
 
 ## Jawaban Cepat
-- **Apa yang dilakukan “add suffix to filename”?**  
-  Ini menambahkan akhiran khusus (misalnya “_redacted”) ke nama file output sehingga Anda dapat langsung mengidentifikasi file yang telah diproses.  
-- **Bisakah saya memuat dokumen dari stream?**  
+- **Apa yang dilakukan “menambahkan akhiran ke nama file”?**  
+  Saat Anda mengaktifkan opsi akhiran, SDK secara otomatis menambahkan string yang telah ditentukan (secara default “_redacted”) ke nama dasar file output sebelum ekstensi. Hal ini membuat jelas file mana yang telah diproses, membantu mencegah distribusi tidak sengaja konten asli, dan menyederhanakan otomatisasi downstream yang mengandalkan pola penamaan.  
+- **Apakah saya dapat memuat dokumen dari stream?**  
   Ya—GroupDocs.Redaction mendukung pemuatan dari `InputStream` apa pun, cocok untuk penyimpanan cloud atau pemrosesan dalam memori.  
 - **Apakah saya memerlukan lisensi untuk fitur ini?**  
-  Uji coba gratis berfungsi untuk penyensoran dasar; lisensi sementara atau penuh membuka semua opsi lanjutan, termasuk penanganan akhiran.  
+  Versi percobaan gratis berfungsi untuk redaksi dasar; lisensi sementara atau penuh membuka semua opsi lanjutan, termasuk penanganan akhiran.  
 - **Format apa saja yang didukung?**  
-  Pustaka ini menangani DOCX, PDF, PPTX, XLSX, dan banyak lagi.  
+  Perpustakaan menangani DOCX, PDF, PPTX, XLSX, dan banyak lagi.  
 - **Apakah rasterisasi diperlukan untuk output PDF?**  
   Rasterisasi bersifat opsional; aktifkan bila Anda perlu meratakan dokumen untuk keamanan tambahan.
 
-## Apa itu add suffix filename java?
-Teknik **add suffix filename java** menambahkan string yang telah ditentukan ke nama file selama operasi penyimpanan, secara jelas menandai dokumen sebagai tersensor. Konvensi sederhana ini mencegah distribusi tidak sengaja dari file asli yang belum tersensor dan terintegrasi dengan mulus ke dalam pipeline otomatis.
+## Apa yang dilakukan “menambahkan akhiran ke nama file”?
+
+Saat Anda mengaktifkan opsi akhiran, SDK secara otomatis menambahkan string yang telah ditentukan (secara default “_redacted”) ke nama dasar file output sebelum ekstensi. Hal ini membuat jelas file mana yang telah diproses, membantu mencegah distribusi tidak sengaja konten asli, dan menyederhanakan otomatisasi downstream yang mengandalkan pola penamaan.
 
 ## Mengapa menggunakan GroupDocs.Redaction untuk tugas ini?
-GroupDocs.Redaction menyediakan API Java yang lancar yang memungkinkan Anda menggabungkan aksi penyensoran dengan opsi penanganan file—seperti **add suffix filename java**—hanya dengan beberapa baris kode. SDK mendukung **lebih dari 50 format input dan output** dan dapat memproses dokumen ratusan halaman tanpa memuat seluruh file ke memori, memberikan kecepatan dan jejak memori yang rendah.
+
+GroupDocs.Redaction menawarkan API Java berperforma tinggi yang menggabungkan tindakan redaksi dengan opsi penanganan file fleksibel seperti penambahan akhiran otomatis, dukungan streaming, dan pemrosesan batch. Ia mendukung lebih dari 50 format input dan output serta dapat memproses dokumen ratusan halaman tanpa memuat seluruh file ke memori, memastikan penggunaan memori rendah dan eksekusi cepat.
 
 ## Prasyarat
+
 - **Java Development Kit (JDK):** Versi 8 atau lebih tinggi.  
-- **GroupDocs.Redaction Library:** Pustaka inti untuk tugas penyensoran.  
-- **IDE:** IntelliJ IDEA, Eclipse, atau editor Java yang kompatibel.  
+- **GroupDocs.Redaction Library:** Perpustakaan inti untuk tugas redaksi.  
+- **IDE:** IntelliJ IDEA, Eclipse, atau editor Java‑compatible lainnya.  
 - **Maven:** Untuk manajemen dependensi.  
 
-### Prasyarat Pengetahuan
-Keterbiasaan dengan Java I/O dan konsep berorientasi objek dasar akan mempermudah pemahaman contoh.
+### Prasyarat pengetahuan
+Familiaritas dengan Java I/O dan konsep berorientasi objek dasar akan memudahkan pemahaman contoh.
 
 ## Menyiapkan GroupDocs.Redaction untuk Java
+
 ### Pengaturan Maven
-Sertakan konfigurasi berikut dalam file `pom.xml` Anda untuk mengakses pustaka GroupDocs melalui Maven:
+Sertakan konfigurasi berikut dalam file `pom.xml` Anda untuk mengakses perpustakaan GroupDocs melalui Maven:
 
 ```xml
 <repositories>
@@ -109,30 +125,31 @@ Sertakan konfigurasi berikut dalam file `pom.xml` Anda untuk mengakses pustaka G
 </dependencies>
 ```
 
-### Unduhan Langsung
-Atau, unduh versi terbaru langsung dari [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+### Unduhan langsung
+Sebagai alternatif, unduh versi terbaru langsung dari [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
 
-### Perolehan Lisensi
-1. **Free Trial:** Akses fungsionalitas dasar tanpa batasan.  
-2. **Temporary License:** Dapatkan lisensi sementara untuk menjelajahi fitur lanjutan.  
-3. **Purchase:** Untuk penggunaan jangka panjang, pertimbangkan membeli lisensi penuh.  
+### Akuisisi lisensi
+1. **Free trial:** Akses fungsionalitas dasar tanpa batasan.  
+2. **Temporary license:** Dapatkan lisensi sementara untuk menjelajahi fitur lanjutan.  
+3. **Purchase:** Untuk penggunaan jangka panjang, pertimbangkan membeli lisensi penuh.
 
-#### Inisialisasi dan Penyiapan Dasar
-Inisialisasikan proyek Anda dengan menambahkan impor yang diperlukan:
+#### Inisialisasi dasar dan pengaturan
+Inisialisasi proyek Anda dengan menambahkan impor yang diperlukan:
 
 ```java
 import com.groupdocs.redaction.Redactor;
 ```
 
-Dengan penyiapan ini, Anda siap mengimplementasikan fungsionalitas penyensoran dokumen.
+Dengan pengaturan ini, Anda siap mengimplementasikan fungsionalitas redaksi dokumen.
 
 ## Panduan Implementasi
 
-### Fitur 1: Memuat Dokumen dari Stream
+### Fitur 1: memuat dokumen dari stream
 **Overview:** Pelajari cara memuat dokumen ke dalam `InputStream` untuk diproses.
 
-#### Implementasi Langkah demi Langkah
-##### Langkah 1.1: Buat InputStream
+`InputStream` adalah kelas I/O Java yang mewakili aliran byte, memungkinkan Anda membaca data dari file, koneksi jaringan, atau sumber lain tanpa memuat seluruh konten ke memori.
+
+#### Langkah 1.1: buat inputstream
 
 ```java
 import java.io.FileInputStream;
@@ -150,11 +167,12 @@ try (InputStream stream = new FileInputStream("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DO
 
 - **Why:** Menggunakan `InputStream` memungkinkan Anda menangani dokumen yang disimpan di berbagai lokasi—bucket cloud, basis data, atau buffer dalam memori—tanpa harus menulisnya ke disk terlebih dahulu. Pendekatan ini penting ketika Anda perlu **load document from stream** dalam arsitektur mikro‑service.
 
-### Fitur 2: Terapkan Penyensoran Penghapusan Anotasi
+### Fitur 2: terapkan penghapusan anotasi redaksi
 **Overview:** Hapus anotasi dari dokumen Anda menggunakan `DeleteAnnotationRedaction`.
 
-#### Implementasi Langkah demi Langkah
-##### Langkah 2.1: Terapkan DeleteAnnotationRedaction
+`DeleteAnnotationRedaction` adalah operasi redaksi yang menghapus semua anotasi—seperti komentar, sorotan, dan catatan—dari dokumen.
+
+#### Langkah 2.1: terapkan deleteannotationredaction
 
 ```java
 import com.groupdocs.redaction.redactions.DeleteAnnotationRedaction;
@@ -167,11 +185,12 @@ try (Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX")) {
 
 - **Why:** Langkah ini memastikan bahwa semua anotasi sensitif (komentar, sorotan, atau catatan tersembunyi) dihapus dari dokumen, meningkatkan privasi dan kepatuhan.
 
-### Fitur 3: Simpan Dokumen dengan Opsi
-**Overview:** Pelajari cara menyimpan dokumen yang diproses dengan opsi spesifik seperti rasterisasi dan **add suffix filename java**.
+### Fitur 3: simpan dokumen dengan opsi
+**Overview:** Pelajari cara menyimpan dokumen yang telah diproses dengan opsi spesifik seperti rasterisasi dan **add suffix filename java**.
 
-#### Implementasi Langkah demi Langkah
-##### Langkah 3.1: Konfigurasikan SaveOptions
+`SaveOptions` mengenkapsulasi pengaturan yang mengontrol cara dokumen yang direduksi ditulis, termasuk format, rasterisasi, dan konvensi penamaan.
+
+#### Langkah 3.1: konfigurasikan saveoptions
 
 ```java
 import java.io.ByteArrayOutputStream;
@@ -189,86 +208,84 @@ try (Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX")) {
 }
 ```
 
-- **Why:** Menyesuaikan opsi penyimpanan memungkinkan format output yang fleksibel dan konvensi penamaan. Mengaktifkan `setAddSuffix(true)` **adds suffix to filename**, menjadikannya jelas bahwa file telah disensor.
+- **Why:** Menyesuaikan opsi penyimpanan memungkinkan format output dan konvensi penamaan yang fleksibel. Mengaktifkan `setAddSuffix(true)` **adds suffix to filename**, sehingga jelas bahwa file tersebut telah direduksi.
 
 ## Cara menambahkan akhiran nama file java saat menyimpan dokumen?
-`Redactor` adalah kelas utama di GroupDocs.Redaction yang memuat dokumen dan menerapkan operasi penyensoran.  
-`setAddSuffix` adalah metode dari `SaveOptions` yang mengaktifkan penambahan akhiran otomatis ke nama file output.  
 
-Muat instance `Redactor` Anda, terapkan penyensoran yang diinginkan, lalu panggil `save()` dengan `SaveOptions` di mana `setAddSuffix(true)` diaktifkan. Konfigurasi tunggal ini secara otomatis menambahkan “_redacted” (atau akhiran default) ke nama file, menghilangkan kebutuhan penamaan ulang manual dan mengurangi kesalahan manusia. Operasi selesai dalam waktu O(n) relatif terhadap ukuran dokumen dan bekerja untuk semua format yang didukung.
+Kelas `Redactor` adalah komponen inti yang memuat dokumen dan menerapkan operasi redaksi. `SaveOptions` menentukan cara dokumen yang direduksi disimpan, termasuk format, rasterisasi, dan konvensi penamaan. Buat instance `Redactor`, terapkan redaksi yang diperlukan, lalu konfigurasikan objek `SaveOptions` dengan `setAddSuffix(true)`. Panggil `redactor.save(outputPath, options)`. SDK secara otomatis menambahkan “_redacted” (atau akhiran yang dikonfigurasi) ke nama file, sehingga Anda tidak pernah perlu mengganti nama file secara manual.
 
-## Gambaran Umum dependensi Maven groupdocs
-**groupdocs maven dependency** membawa seluruh Redaction SDK ke dalam proyek Anda dengan satu entri `<dependency>`. Ini menangani dependensi transitif, menjaga pustaka tetap terbaru, dan menyederhanakan otomatisasi build. Dengan mendeklarasikan dependensi di `pom.xml`, Anda menghindari manajemen JAR manual dan memastikan kompatibilitas dengan patch keamanan terbaru.
+## Ikhtisar dependensi Maven GroupDocs
 
-## Mengapa Menambahkan Akhiran Penting
-Menambahkan akhiran memberikan konfirmasi visual langsung bahwa dokumen telah diproses, yang penting untuk jejak audit, alur kerja otomatis, dan kepatuhan regulasi di berbagai industri.
+**groupdocs maven dependency** membawa seluruh Redaction SDK ke dalam proyek Anda dengan satu entri `<dependency>`. Ia menangani dependensi transitif, menjaga perpustakaan tetap terbaru, dan menyederhanakan otomasi build. Dengan mendeklarasikan dependensi di `pom.xml`, Anda menghindari manajemen JAR manual dan memastikan kompatibilitas dengan patch keamanan terbaru.
 
-- **Auditability:** Tim dapat langsung melihat file mana yang aman untuk didistribusikan.  
-- **Automation:** Skrip dapat menyaring file berdasarkan akhiran, mencegah pemrosesan tidak sengaja dari dokumen asli.  
-- **Compliance:** Banyak regulasi mengharuskan pelabelan yang jelas pada dokumen yang telah disanitasi.  
+## Mengapa menambahkan akhiran penting
 
-## Aplikasi Praktis
+Menambahkan akhiran memberikan konfirmasi visual langsung bahwa file telah diproses, yang penting untuk jejak audit, alur kerja otomatis, dan kepatuhan regulasi. Ini memungkinkan skrip menyaring file yang direduksi, mencegah distribusi tidak sengaja konten asli, dan memenuhi banyak standar industri yang mengharuskan pelabelan jelas pada dokumen yang telah disanitasi.
+
+## Aplikasi praktis
+
 Jelajahi kasus penggunaan dunia nyata berikut:
 
-1. **Legal Document Redaction:** Amankan kontrak sebelum dibagikan ke klien.  
-2. **Medical Record Handling:** Lindungi pengidentifikasi pasien sambil mempertahankan data klinis.  
-3. **Financial Reporting:** Jaga angka sensitif tetap rahasia selama audit eksternal.  
-4. **CRM Integration:** Secara otomatis menyensor data pelanggan sebelum diekspor ke alat pihak ketiga.  
-5. **Collaboration Tools:** Pastikan draf yang dibagikan tidak pernah menampilkan komentar tersembunyi atau metadata.  
+1. **Legal document redaction:** Amankan kontrak sebelum dibagikan ke klien.  
+2. **Medical record handling:** Lindungi identifier pasien sambil mempertahankan data klinis.  
+3. **Financial reporting:** Jaga kerahasiaan angka sensitif selama audit eksternal.  
+4. **CRM integration:** Otomatis redaksi data pelanggan sebelum diekspor ke alat pihak ketiga.  
+5. **Collaboration tools:** Pastikan draf yang dibagikan tidak pernah mengekspos komentar tersembunyi atau metadata.
 
-## Pertimbangan Kinerja
-### Mengoptimalkan Kinerja
+## Pertimbangan kinerja
+
+### Mengoptimalkan kinerja
 - Gunakan streaming (`load document from stream`) untuk menghindari memuat seluruh file ke memori.  
-- Tutup instance `Redactor` dengan cepat untuk membebaskan sumber daya.  
+- Tutup instance `Redactor` segera untuk membebaskan sumber daya.  
 
-### Panduan Penggunaan Sumber Daya
-- Pantau CPU dan memori selama proses batch.  
-- Pilih `ByteArrayOutputStream` untuk penyimpanan dalam memori saat bekerja dengan ukuran file yang sedang.  
+### Pedoman penggunaan sumber daya
+- Pantau CPU dan memori selama batch run.  
+- Pilih `ByteArrayOutputStream` untuk penyimpanan dalam memori ketika bekerja dengan ukuran file yang sedang.
 
-### Praktik Terbaik untuk Manajemen Memori Java
-- Gunakan kembali objek `Redactor` saat memproses beberapa file dengan tipe yang sama.  
-- Panggil `close()` dalam blok `try‑with‑resources` untuk mencegah kebocoran.  
+### Praktik terbaik untuk manajemen memori Java
+- Gunakan kembali objek `Redactor` saat memproses banyak file dengan tipe yang sama.  
+- Panggil `close()` dalam blok `try‑with‑resources` untuk mencegah kebocoran.
 
-## Masalah Umum dan Solusinya
+## Masalah umum dan solusi
+
 | Masalah | Penyebab | Solusi |
-|---------|----------|--------|
-| **Akhiran tidak muncul** | `setAddSuffix(false)` atau panggilan yang hilang | Pastikan `options.setAddSuffix(true)` diatur sebelum `save()`. |
+|-------|-------|-----|
+| **Suffix tidak muncul** | `setAddSuffix(false)` atau pemanggilan yang terlewat | Pastikan `options.setAddSuffix(true)` diatur sebelum `save()`. |
 | **OutOfMemoryError pada DOCX besar** | Memuat seluruh file ke memori | Beralih ke pemuatan `InputStream` (lihat Fitur 1). |
-| **Anotasi masih terlihat** | Penyensoran tidak diterapkan sebelum penyimpanan | Panggil `redactor.apply(new DeleteAnnotationRedaction())` sebelum `save()`. |
-| **Rasterisasi PDF tidak diterapkan** | `setRasterizeToPDF(false)` atau diabaikan | Atur `options.setRasterizeToPDF(true)` ketika Anda membutuhkan PDF yang diratakan. |
+| **Annotations masih terlihat** | Redaksi tidak diterapkan sebelum penyimpanan | Panggil `redactor.apply(new DeleteAnnotationRedaction())` sebelum `save()`. |
+| **Rasterisasi PDF tidak diterapkan** | `setRasterizeToPDF(false)` atau terlewat | Atur `options.setRasterizeToPDF(true)` ketika Anda memerlukan PDF yang diratakan. |
 
-## Pertanyaan yang Sering Diajukan
+## Pertanyaan yang sering diajukan
 
-**Q: Bisakah saya menyensor dokumen PDF menggunakan GroupDocs.Redaction?**  
-A: Ya, pustaka ini mendukung PDF, DOCX, PPTX, XLSX, dan banyak format lainnya.
+**Q: Bisakah saya meredaksi dokumen PDF menggunakan GroupDocs.Redaction?**  
+A: Ya, perpustakaan mendukung PDF, DOCX, PPTX, XLSX, dan banyak format lainnya.
 
 **Q: Apa cara terbaik menangani file besar dengan GroupDocs.Redaction?**  
-A: Gunakan streaming (`load document from stream`) dan tutup sumber daya dengan cepat untuk menjaga penggunaan memori tetap rendah.
+A: Gunakan streaming (`load document from stream`) dan tutup sumber daya segera untuk menjaga penggunaan memori tetap rendah.
 
 **Q: Apakah memungkinkan menyesuaikan teks akhiran?**  
-A: API secara otomatis menambahkan akhiran default (misalnya “_redacted”). Untuk akhiran khusus, ganti nama file output setelah disimpan.
+A: API secara otomatis menambahkan akhiran default (misalnya “_redacted”). Untuk akhiran khusus, ganti nama file output setelah penyimpanan.
 
 **Q: Bagaimana cara mendapatkan lisensi sementara untuk GroupDocs.Redaction?**  
-A: Kunjungi [Temporary License page](https://purchase.groupdocs.com/temporary-license/) dan ikuti petunjuknya.
+A: Kunjungi [Temporary License page](https://purchase.groupdocs.com/temporary-license/) dan ikuti instruksinya.
 
 **Q: Di mana saya dapat mendapatkan bantuan jika mengalami masalah?**  
 A: Bergabunglah dengan [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33) untuk bantuan ahli.
 
-## Sumber Daya
-- **Documentation:** Jelajahi panduan terperinci di [GroupDocs Documentation](https://docs.groupdocs.com/redaction/java/).  
-- **API Reference:** Akses detail API lengkap di [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java).  
+## Sumber daya
+- **Documentation:** Jelajahi panduan detail di [GroupDocs Documentation](https://docs.groupdocs.com/redaction/java/).  
+- **API reference:** Akses detail API lengkap pada [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java).  
 - **Download:** Dapatkan versi terbaru dari [GroupDocs Downloads](https://releases.groupdocs.com/redaction/java/).  
-- **GitHub Repository:** Berkontribusi atau jelajahi kode sumber di [GroupDocs GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java).  
+- **GitHub repository:** Kontribusi atau jelajahi kode sumber di [GroupDocs GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java).
 
 ---
 
-**Last Updated:** 2026-05-22  
+**Last Updated:** 2026-11-02  
 **Tested With:** GroupDocs.Redaction 24.9 for Java  
 **Author:** GroupDocs  
 
+## Tutorial terkait
 
-## Tutorial Terkait
-
-- [Konversi Word ke PDF dan Simpan Dokumen Tersensor dengan GroupDocs.Redaction Java](/redaction/java/document-saving/)
-- [Pratinjau Halaman Dokumen Java Loading dengan GroupDocs.Redaction](/redaction/java/document-loading/)
-- [Teknik Penyensoran Lanjutan untuk GroupDocs.Redaction Java](/redaction/java/advanced-redaction/)
+- [Convert Word to PDF and Save Redacted Documents with GroupDocs.Redaction Java](/redaction/java/document-saving/)
+- [Preview Document Pages Java Loading with GroupDocs.Redaction](/redaction/java/document-loading/)
+- [Advanced Redaction Techniques for GroupDocs.Redaction Java](/redaction/java/advanced-redaction/)
