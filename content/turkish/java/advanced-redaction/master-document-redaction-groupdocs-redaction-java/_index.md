@@ -1,24 +1,29 @@
 ---
-date: '2026-05-22'
-description: GroupDocs Maven bağımlılığını kullanarak belgeleri karartırken java dosya
-  adı son ekini nasıl ekleyeceğinizi öğrenin. Streaming load, annotation deletion
-  ve save options içerir.
+date: '2026-11-02'
+description: Maven, streaming load, annotation deletion ve save options kullanarak
+  GroupDocs redaction Java öğreticisinde dosya adına ek eklemeyi öğrenin.
 keywords:
+- groupdocs redaction java tutorial
 - add suffix filename java
-- groupdocs redaction java
 - document redaction workflow
+- groupdocs maven dependency
+- java inputstream redaction
+lastmod: '2026-11-02'
+og_description: GroupDocs redaction Java öğreticisinde dosya adına ek eklemeyi öğrenin.
+  Adım adım Maven kurulumu, streaming load ve save options izleyin.
+og_image_alt: Guide showing Java code to add suffix to redacted filenames using GroupDocs
+  Redaction
+og_title: GroupDocs redaction Java'da dosya adına ek ekleme
 schemas:
 - author: GroupDocs
-  dateModified: '2026-05-22'
-  description: Learn how to add suffix filename java using the GroupDocs Maven dependency
-    while redacting documents. Includes streaming load, annotation deletion, and save
-    options.
-  headline: Add suffix filename java with GroupDocs Maven
+  dateModified: '2026-11-02'
+  description: Learn how to add suffix to filename in a GroupDocs redaction Java tutorial
+    using Maven, streaming load, annotation deletion, and save options.
+  headline: How to add suffix to filename in GroupDocs redaction Java
   type: TechArticle
-- description: Learn how to add suffix filename java using the GroupDocs Maven dependency
-    while redacting documents. Includes streaming load, annotation deletion, and save
-    options.
-  name: Add suffix filename java with GroupDocs Maven
+- description: Learn how to add suffix to filename in a GroupDocs redaction Java tutorial
+    using Maven, streaming load, annotation deletion, and save options.
+  name: How to add suffix to filename in GroupDocs redaction Java
   steps:
   - name: '1: Create InputStream'
     text: '- **Why:** Using `InputStream` allows you to handle documents stored in
@@ -50,47 +55,55 @@ schemas:
       for expert assistance.
     question: Where can I get help if I encounter issues?
   type: FAQPage
-title: GroupDocs Maven ile java dosya adı son ekini ekle
+tags:
+- groupdocs redaction
+- java tutorial
+- maven dependency
+- document redaction
+title: GroupDocs redaction Java'da dosya adına ek ekleme
 type: docs
 url: /tr/java/advanced-redaction/master-document-redaction-groupdocs-redaction-java/
 weight: 1
 ---
 
-# GroupDocs Maven ile java dosya adına ek ek ekle
+# GroupDocs Redaction Java'da dosya adına sonek ekleme
 
-Gizli verileri kırpma sadece mücadelenin yarısıdır—kaydedilen dosyanın işlendiğini açıkça gösterdiğinden de emin olmalısınız. **GroupDocs Maven bağımlılığını kullanmak bunu basitleştirir**, çıktı dosya adına sadece birkaç satır kodla bir ek eklemenizi sağlar. **add suffix filename java** yöntemi, kırpılmış dosyalarınızı anında etiketleyen tek satırlık bir yapılandırmadır ve uyumluluğunuzu ve denetim hazırlığınızı artırır.
+Bu **groupdocs redaction java tutorial**'da, GroupDocs.Redaction ile belgeleri karartırken çıktı dosya adına otomatik olarak bir sonek eklemeyi öğreneceksiniz. Sonek eklemek manuel yeniden adlandırmayı ortadan kaldırır, karartılmamış dosyaların sızdırılma riskini azaltır ve adlandırma kurallarına dayalı CI/CD boru hatlarına sorunsuz şekilde uyar. Kılavuz, Maven kurulumu, akış belge yükleme, ek açıklama kaldırma ve kaydetme seçeneklerini yapılandırma adımlarını—kısa ve üretim‑hazır kodla—size gösterir.
 
-## Hızlı Yanıtlar
+## Hızlı cevaplar
 - **“add suffix to filename” ne yapar?**  
-  Çıktı dosya adına özel bir ek (ör. “_redacted”) ekler, böylece işlenmiş dosyaları anında tanımlayabilirsiniz.  
-- **Belgeyi akıştan yükleyebilir miyim?**  
+  Sonek seçeneğini etkinleştirdiğinizde, SDK otomatik olarak önceden tanımlanmış bir dizeyi (varsayılan olarak “_redacted”) çıktı dosyasının uzantıdan önceki temel adına ekler. Bu, hangi dosyaların işlendiğini hemen gösterir, orijinal içeriğin yanlışlıkla dağıtılmasını önlemeye yardımcı olur ve adlandırma desenlerine dayalı sonraki otomasyonu basitleştirir.  
+- **Bir belgeyi akıştan (stream) yükleyebilir miyim?**  
   Evet—GroupDocs.Redaction, herhangi bir `InputStream`'den yüklemeyi destekler, bulut depolama veya bellek içi işleme için mükemmeldir.  
 - **Bu özellik için lisansa ihtiyacım var mı?**  
-  Ücretsiz deneme temel kırpma için çalışır; geçici veya tam lisans, ek ekleme dahil tüm gelişmiş seçeneklerin kilidini açar.  
+  Ücretsiz deneme, temel karartma için çalışır; geçici veya tam lisans, sonek işleme dahil tüm gelişmiş seçeneklerin kilidini açar.  
 - **Hangi formatlar destekleniyor?**  
   Kütüphane DOCX, PDF, PPTX, XLSX ve daha birçok formatı işler.  
-- **PDF çıktısı için rasterizasyon gerekli mi?**  
-  Rasterizasyon isteğe bağlıdır; belgeyi ekstra güvenlik için düzleştirmeniz gerektiğinde etkinleştirin.
+- **PDF çıktısı için rasterleştirme gerekli mi?**  
+  Rasterleştirme isteğe bağlıdır; belgeyi ekstra güvenlik için düzleştirmeniz gerektiğinde etkinleştirin.
 
-## add suffix filename java nedir?
-**add suffix filename java** tekniği, kaydetme işlemi sırasında dosya adına önceden tanımlı bir dize ekleyerek belgeyi kırpılmış olarak işaretler. Bu basit konvansiyon, orijinal, kırpılmamış dosyaların yanlışlıkla dağıtılmasını önler ve otomatik iş akışlarıyla sorunsuz bir şekilde bütünleşir.
+## “add suffix to filename” ne yapar?
+
+Sonek seçeneğini etkinleştirdiğinizde, SDK otomatik olarak önceden tanımlanmış bir dizeyi (varsayılan olarak “_redacted”) çıktı dosyasının uzantıdan önceki temel adına ekler. Bu, hangi dosyaların işlendiğini hemen gösterir, orijinal içeriğin yanlışlıkla dağıtılmasını önlemeye yardımcı olur ve adlandırma desenlerine dayalı sonraki otomasyonu basitleştirir.
 
 ## Bu görev için neden GroupDocs.Redaction kullanılmalı?
-GroupDocs.Redaction, **add suffix filename java** gibi dosya işleme seçeneklerini kırpma eylemleriyle birleştirmenizi sağlayan akıcı bir Java API'si sunar. SDK, **50+ giriş ve çıkış formatı** destekler ve tüm dosyayı belleğe yüklemeden çok sayfalı belgeleri işleyebilir, böylece yüksek hız ve düşük bellek tüketimi sağlar.
+
+GroupDocs.Redaction, otomatik sonek ekleme, akış desteği ve toplu işleme gibi esnek dosya işleme seçenekleriyle karartma eylemlerini birleştiren yüksek performanslı bir Java API'si sunar. 50'den fazla giriş ve çıkış formatını destekler ve tüm dosyayı belleğe yüklemeden çok sayfalı belgeleri işleyebilir, düşük bellek kullanımı ve hızlı yürütme sağlar.
 
 ## Önkoşullar
 
-- **Java Development Kit (JDK):** Sürüm 8 veya üzeri.  
-- **GroupDocs.Redaction Library:** Kırpma görevleri için temel kütüphane.  
+- **Java Development Kit (JDK):** Versiyon 8 veya üzeri.  
+- **GroupDocs.Redaction Library:** Karartma görevleri için çekirdek kütüphane.  
 - **IDE:** IntelliJ IDEA, Eclipse veya herhangi bir Java‑uyumlu editör.  
 - **Maven:** Bağımlılık yönetimi için.  
 
-### Bilgi Önkoşulları
+### Bilgi önkoşulları
 Java I/O ve temel nesne‑yönelimli kavramlara aşina olmak, örnekleri daha kolay takip etmenizi sağlar.
 
-## Java için GroupDocs.Redaction Kurulumu
-### Maven Kurulumu
-GroupDocs kütüphanelerine Maven aracılığıyla erişmek için `pom.xml` dosyanıza aşağıdaki yapılandırmayı ekleyin:
+## Java için GroupDocs.Redaction kurulumu
+
+### Maven kurulumu
+`pom.xml` dosyanıza aşağıdaki yapılandırmayı ekleyerek Maven üzerinden GroupDocs kütüphanelerine erişin:
 
 ```xml
 <repositories>
@@ -110,30 +123,31 @@ GroupDocs kütüphanelerine Maven aracılığıyla erişmek için `pom.xml` dosy
 </dependencies>
 ```
 
-### Doğrudan İndirme
-Alternatif olarak, en son sürümü doğrudan [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/) adresinden indirebilirsiniz.
+### Doğrudan indirme
+Alternatif olarak, en son sürümü doğrudan [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/) adresinden indirin.
 
-### Lisans Edinme
-1. **Ücretsiz Deneme:** Temel işlevselliğe kısıtlama olmadan erişin.  
-2. **Geçici Lisans:** Gelişmiş özellikleri keşfetmek için geçici bir lisans alın.  
-3. **Satın Alma:** Uzun vadeli kullanım için tam lisans satın almayı düşünün.
+### Lisans edinimi
+1. **Free trial:** Sınırlama olmadan temel işlevselliğe erişim.  
+2. **Temporary license:** Gelişmiş özellikleri keşfetmek için geçici lisans alın.  
+3. **Purchase:** Uzun vadeli kullanım için tam lisans satın almayı düşünün.
 
-#### Temel Başlatma ve Kurulum
-Gerekli ithalatları ekleyerek projenizi başlatın:
+#### Temel başlatma ve kurulum
+Gerekli içe aktarmaları ekleyerek projenizi başlatın:
 
 ```java
 import com.groupdocs.redaction.Redactor;
 ```
 
-Bu kurulumla, belge kırpma işlevlerini uygulamaya hazır olacaksınız.
+Bu kurulumla, belge karartma işlevlerini uygulamaya hazır olacaksınız.
 
-## Uygulama Kılavuzu
+## Uygulama rehberi
 
-### Özellik 1: Belgeyi Akıştan Yükleme
-**Overview:** İşleme için belgeleri bir `InputStream` içine nasıl yükleyeceğinizi öğrenin.
+### Özellik 1: belgeyi akıştan yükleme
+**Genel Bakış:** Belgeleri işleme için bir `InputStream` içine nasıl yükleyeceğinizi öğrenin.
 
-#### Adım Adım Uygulama
-##### Adım 1.1: InputStream Oluşturma
+`InputStream`, bayt akışını temsil eden bir Java I/O sınıfıdır ve dosyalardan, ağ bağlantılarından veya diğer kaynaklardan tüm içeriği belleğe yüklemeden veri okumanıza olanak tanır.
+
+#### Adım 1.1: inputstream oluşturma
 
 ```java
 import java.io.FileInputStream;
@@ -149,13 +163,14 @@ try (InputStream stream = new FileInputStream("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DO
 }
 ```
 
-- **Why:** `InputStream` kullanmak, belgeleri çeşitli konumlardan—bulut kovaları, veritabanları veya bellek içi tamponlar—diskte önceden kaydetmeden yönetmenizi sağlar. Bu yaklaşım, mikro‑servis mimarilerinde **load document from stream** gerektiğinde esastır.
+- **Neden:** `InputStream` kullanmak, belgeleri çeşitli konumlardan—bulut depoları, veritabanları veya bellek içi tamponlar—diskte önceden kaydetmeden işlemeyi sağlar. Bu yaklaşım, mikro‑servis mimarilerinde **load document from stream** gerektiğinde esastır.
 
-### Özellik 2: Açıklama Silme Kırpması Uygulama
-**Overview:** `DeleteAnnotationRedaction` kullanarak belgenizden açıklamaları kaldırın.
+### Özellik 2: ek açıklama silme karartması uygulama
+**Genel Bakış:** `DeleteAnnotationRedaction` kullanarak belgenizden ek açıklamaları kaldırın.
 
-#### Adım Adım Uygulama
-##### Adım 2.1: DeleteAnnotationRedaction Uygulama
+`DeleteAnnotationRedaction`, belgede bulunan tüm ek açıklamaları—yorumlar, vurgulamalar ve notlar gibi—kaldıran bir karartma işlemidir.
+
+#### Adım 2.1: deleteannotationredaction uygulama
 
 ```java
 import com.groupdocs.redaction.redactions.DeleteAnnotationRedaction;
@@ -166,13 +181,14 @@ try (Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX")) {
 }
 ```
 
-- **Why:** Bu adım, hassas açıklamaların (yorumlar, vurgulamalar veya gizli notlar) belgeden temizlenmesini sağlayarak gizliliği ve uyumluluğu artırır.
+- **Neden:** Bu adım, hassas ek açıklamaların (yorumlar, vurgulamalar veya gizli notlar) belgeden temizlenmesini sağlar, gizliliği ve uyumluluğu artırır.
 
-### Özellik 3: Seçeneklerle Belgeyi Kaydet
-**Overview:** Rasterizasyon ve **add suffix filename java** gibi belirli seçeneklerle işlenmiş belgenizi nasıl kaydedeceğinizi öğrenin.
+### Özellik 3: belgeyi seçeneklerle kaydetme
+**Genel Bakış:** İşlenmiş belgenizi rasterleştirme ve **add suffix filename java** gibi belirli seçeneklerle nasıl kaydedeceğinizi öğrenin.
 
-#### Adım Adım Uygulama
-##### Adım 3.1: SaveOptions Yapılandırma
+`SaveOptions`, karartılmış belgenin nasıl yazılacağını kontrol eden ayarları kapsar; format, rasterleştirme ve adlandırma kuralları dahil.
+
+#### Adım 3.1: saveoptions yapılandırma
 
 ```java
 import java.io.ByteArrayOutputStream;
@@ -190,84 +206,83 @@ try (Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX")) {
 }
 ```
 
-- **Why:** Kaydetme seçeneklerini özelleştirmek, esnek çıktı formatları ve adlandırma kuralları sağlar. `setAddSuffix(true)` etkinleştirildiğinde **adds suffix to filename**, dosyanın kırpılmış olduğunu açıkça gösterir.
+- **Neden:** Kaydetme seçeneklerini özelleştirmek, esnek çıktı formatları ve adlandırma kuralları sağlar. `setAddSuffix(true)` etkinleştirildiğinde **adds suffix to filename**, dosyanın karartıldığını açıkça gösterir.
 
-## Belge kaydederken add suffix filename java nasıl eklenir?
-`Redactor`, bir belgeyi yükleyen ve kırpma işlemlerini uygulayan ana sınıftır.  
-`setAddSuffix`, `SaveOptions` sınıfının bir yöntemi olup çıktı dosya adına otomatik ek ekleme özelliğini etkinleştirir.  
+## Belge kaydederken suffix filename java nasıl eklenir?
 
-`Redactor` örneğinizi yükleyin, istediğiniz kırpmaları uygulayın ve ardından `setAddSuffix(true)` etkinleştirilmiş `SaveOptions` ile `save()` metodunu çağırın. Bu tek yapılandırma, dosya adına “_redacted” (veya varsayılan ek) ekleyerek manuel yeniden adlandırmayı ortadan kaldırır ve insan hatasını azaltır. İşlem, belge boyutuna göre O(n) sürede tamamlanır ve tüm desteklenen formatlarda çalışır.
+`Redactor` sınıfı, bir belgeyi yükleyen ve karartma işlemlerini uygulayan temel bileşendir. `SaveOptions`, karartılmış belgenin nasıl kaydedileceğini tanımlar; format, rasterleştirme ve adlandırma kuralları dahil. Bir `Redactor` örneği oluşturun, gerekli karartmaları uygulayın, ardından `setAddSuffix(true)` ile bir `SaveOptions` nesnesi yapılandırın. `redactor.save(outputPath, options)` çağrısını yapın. SDK, dosya adına otomatik olarak “_redacted” (veya yapılandırılmış sonek) ekler, böylece dosyayı manuel olarak yeniden adlandırmanız gerekmez.
 
-## groupdocs maven bağımlılığı Genel Bakış
-**groupdocs maven dependency**, tek bir `<dependency>` satırıyla tüm Redaction SDK'sını projenize getirir. Geçişli bağımlılıkları yönetir, kütüphaneleri güncel tutar ve derleme otomasyonunu basitleştirir. `pom.xml` içinde bağımlılığı bildirerek manuel JAR yönetiminden kaçınır ve en son güvenlik yamalarıyla uyumluluğu sağlarsınız.
+## GroupDocs Maven bağımlılığı genel bakışı
 
-## Neden Ek Ekleme Önemlidir
-Ek eklemek, bir belgenin işlendiğine dair anlık görsel onay sağlar; bu, denetim izleri, otomatik iş akışları ve sektörler arası düzenleyici uyumluluk için kritiktir.
+**groupdocs maven dependency**, tek bir `<dependency>` girişiyle tüm Redaction SDK'sını projenize getirir. Geçişli bağımlılıkları yönetir, kütüphaneleri güncel tutar ve derleme otomasyonunu basitleştirir. `pom.xml` içinde bağımlılığı bildirerek, manuel JAR yönetiminden kaçınır ve en son güvenlik yamalarıyla uyumluluğu sağlarsınız.
 
-- **Denetlenebilirlik:** Ekipler hangi dosyaların dağıtılmaya uygun olduğunu hemen görebilir.  
-- **Otomasyon:** Betikler ek ile dosyaları filtreleyebilir, orijinal belgelerin yanlışlıkla işlenmesini önler.  
-- **Uyumluluk:** Birçok düzenleme, temizlenmiş belgelerin net bir şekilde etiketlenmesini zorunlu kılar.  
+## Sonek eklemenin önemi
 
-## Pratik Uygulamalar
-Bu gerçek‑dünya senaryolarını keşfedin:
+Sonek eklemek, bir dosyanın işlendiğine dair anında görsel bir doğrulama sağlar; bu, denetim izleri, otomatik iş akışları ve düzenleyici uyumluluk için kritiktir. Betikler karartılmış dosyaları filtreleyebilir, orijinal içeriğin yanlışlıkla dağıtılmasını önler ve temizlenmiş belgelerin net etiketlenmesini gerektiren birçok sektör standardını karşılar.
 
-1. **Hukuki Belge Kırpması:** Müşteri paylaşımından önce sözleşmeleri güvence altına alın.  
-2. **Tıbbi Kayıt İşleme:** Klinik verileri korurken hasta kimlik bilgilerini gizleyin.  
-3. **Finansal Raporlama:** Dış denetimler sırasında hassas rakamları gizli tutun.  
-4. **CRM Entegrasyonu:** Üçüncü taraf araçlara dışa aktarım öncesi müşteri verilerini otomatik olarak kırpın.  
-5. **İşbirliği Araçları:** Paylaşılan taslakların gizli yorum veya meta verileri asla ortaya çıkmasın.
+## Pratik uygulamalar
 
-## Performans Düşünceleri
-### Performansı Optimize Etme
-- Akış (`load document from stream`) kullanarak tüm dosyayı belleğe yüklemekten kaçının.  
+Bu gerçek dünya kullanım senaryolarını keşfedin:
+
+1. **Hukuki belge karartma:** Müşteri paylaşımından önce sözleşmeleri güvenli hale getirin.  
+2. **Tıbbi kayıt yönetimi:** Klinik verileri korurken hasta kimlik bilgilerini koruyun.  
+3. **Finansal raporlama:** Dış denetimler sırasında hassas sayıları gizli tutun.  
+4. **CRM entegrasyonu:** Üçüncü taraf araçlara dışa aktarım öncesinde müşteri verilerini otomatik olarak karartın.  
+5. **İş birliği araçları:** Paylaşılan taslakların gizli yorumları veya meta verileri asla ortaya çıkarmadığından emin olun.
+
+## Performans değerlendirmeleri
+
+### Performansı optimize etme
+- Akışı kullanın (`load document from stream`) tüm dosyaları belleğe yüklemekten kaçınmak için.  
 - `Redactor` örneklerini hızlıca kapatarak kaynakları serbest bırakın.  
 
-### Kaynak Kullanım Kılavuzları
-- Toplu çalıştırmalarda CPU ve bellek kullanımını izleyin.  
-- Küçük dosya boyutlarıyla çalışırken bellek içi kaydetmeler için `ByteArrayOutputStream` tercih edin.  
+### Kaynak kullanımı yönergeleri
+- Toplu çalıştırmalar sırasında CPU ve belleği izleyin.  
+- Orta boyutlu dosyalarla çalışırken bellek içi kaydetmeler için `ByteArrayOutputStream` tercih edin.  
 
-### Java Bellek Yönetimi için En İyi Uygulamalar
-- Aynı tipte birden fazla dosya işliyorsanız `Redactor` nesnelerini yeniden kullanın.  
-- Sızıntıları önlemek için `try‑with‑resources` bloğunda `close()` çağrısını yapın.  
+### Java bellek yönetimi için en iyi uygulamalar
+- Aynı tipte birden fazla dosya işlerken `Redactor` nesnelerini yeniden kullanın.  
+- `close()` metodunu bir `try‑with‑resources` bloğunda çağırarak sızıntıları önleyin.
 
-## Yaygın Sorunlar ve Çözümler
-| Sorun | Neden | Çözüm |
+## Yaygın sorunlar ve çözümler
+| Issue | Cause | Fix |
 |-------|-------|-----|
-| **Ek görünmüyor** | `setAddSuffix(false)` veya eksik çağrı | `save()` öncesinde `options.setAddSuffix(true)` ayarlandığından emin olun. |
-| **Büyük DOCX'te OutOfMemoryError** | Dosyanın bütününün belleğe yüklenmesi | `InputStream` yüklemeye geçin (bkz. Özellik 1). |
-| **Açıklamalar hâlâ görünür** | Kaydetmeden önce kırpma uygulanmamış | `save()` öncesinde `redactor.apply(new DeleteAnnotationRedaction())` çağırın. |
-| **PDF rasterizasyonu uygulanmadı** | `setRasterizeToPDF(false)` veya atlanmış | Düzleştirilmiş PDF gerektiğinde `options.setRasterizeToPDF(true)` ayarlayın. |
+| **Sonek görünmüyor** | `setAddSuffix(false)` veya eksik çağrı | `save()`'den önce `options.setAddSuffix(true)` ayarlandığından emin olun. |
+| **Büyük DOCX'te OutOfMemoryError** | Tüm dosyanın belleğe yüklenmesi | `InputStream` yüklemeye geçin (Özellik 1'e bakın). |
+| **Ek açıklamalar hâlâ görünür** | Kaydetmeden önce karartma uygulanmamış | `save()`'den önce `redactor.apply(new DeleteAnnotationRedaction())` çağırın. |
+| **PDF rasterleştirme uygulanmadı** | `setRasterizeToPDF(false)` veya atlanmış | Düzleştirilmiş PDF gerektiğinde `options.setRasterizeToPDF(true)` ayarlayın. |
 
-## Sık Sorulan Sorular
+## Sıkça sorulan sorular
 
-**S: PDF belgelerini GroupDocs.Redaction ile kırpabilir miyim?**  
+**S: GroupDocs.Redaction ile PDF belgelerini karartabilir miyim?**  
 C: Evet, kütüphane PDF, DOCX, PPTX, XLSX ve birçok diğer formatı destekler.
 
-**S: GroupDocs.Redaction ile büyük dosyaları nasıl yönetirim?**  
-C: Akış (`load document from stream`) kullanın ve kaynakları hızlıca kapatarak bellek kullanımını düşük tutun.
+**S: GroupDocs.Redaction ile büyük dosyaları yönetmenin en iyi yolu nedir?**  
+C: Akışı kullanın (`load document from stream`) ve bellek kullanımını düşük tutmak için kaynakları hızlıca kapatın.
 
-**S: Ek metnini özelleştirmek mümkün mü?**  
-C: API varsayılan olarak “_redacted” gibi bir ek ekler. Özel ekler için, kaydetme sonrası çıktı dosyasını yeniden adlandırmanız gerekir.
+**S: Sonek metnini özelleştirmek mümkün mü?**  
+C: API, varsayılan bir sonek (ör. “_redacted”) otomatik ekler. Özel sonekler için, kaydettikten sonra çıktı dosyasını yeniden adlandırın.
 
-**S: GroupDocs.Redaction için geçici lisans nasıl alınır?**  
-C: [Geçici Lisans sayfasını](https://purchase.groupdocs.com/temporary-license/) ziyaret edin ve yönergeleri izleyin.
+**S: GroupDocs.Redaction için geçici lisansı nasıl elde edebilirim?**  
+C: [Temporary License page](https://purchase.groupdocs.com/temporary-license/) adresini ziyaret edin ve talimatları izleyin.
 
-**S: Sorun yaşarsam nereden destek alabilirim?**  
-C: Uzman yardımı için [GroupDocs Destek Forumuna](https://forum.groupdocs.com/c/redaction/33) katılabilirsiniz.
+**S: Sorunlarla karşılaşırsam nereden yardım alabilirim?**  
+C: Uzman desteği için [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33) forumuna katılın.
 
 ## Kaynaklar
 - **Documentation:** Ayrıntılı kılavuzları [GroupDocs Documentation](https://docs.groupdocs.com/redaction/java/) adresinde keşfedin.  
-- **API Reference:** Kapsamlı API detayları için [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java) sayfasına bakın.  
-- **Download:** En yeni sürümü [GroupDocs Downloads](https://releases.groupdocs.com/redaction/java/) üzerinden alın.  
-- **GitHub Repository:** Kaynak kodını incelemek veya katkıda bulunmak için [GroupDocs GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java) adresini ziyaret edin.
+- **API reference:** Kapsamlı API detaylarına [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java) adresinden erişin.  
+- **Download:** En son sürümü [GroupDocs Downloads](https://releases.groupdocs.com/redaction/java/) adresinden alın.  
+- **GitHub repository:** Katkıda bulunabilir veya kaynak kodunu [GroupDocs GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java) adresinde inceleyebilirsiniz.
 
-**Last Updated:** 2026-05-22  
-**Tested With:** GroupDocs.Redaction 24.9 for Java  
-**Author:** GroupDocs  
+---
 
+**Son Güncelleme:** 2026-11-02  
+**Test Edilen Versiyon:** GroupDocs.Redaction 24.9 for Java  
+**Yazar:** GroupDocs  
 
-## İlgili Öğreticiler
+## İlgili öğreticiler
 
-- [Convert Word to PDF and Save Redacted Documents with GroupDocs.Redaction Java](/redaction/java/document-saving/)
-- [Preview Document Pages Java Loading with GroupDocs.Redaction](/redaction/java/document-loading/)
-- [Advanced Redaction Techniques for GroupDocs.Redaction Java](/redaction/java/advanced-redaction/)
+- [Word'ü PDF'ye Dönüştür ve Karartılmış Belgeleri GroupDocs.Redaction Java ile Kaydet](/redaction/java/document-saving/)
+- [GroupDocs.Redaction ile Java'da Belge Sayfalarını Önizleme](/redaction/java/document-loading/)
+- [GroupDocs.Redaction Java için İleri Düzey Karartma Teknikleri](/redaction/java/advanced-redaction/)

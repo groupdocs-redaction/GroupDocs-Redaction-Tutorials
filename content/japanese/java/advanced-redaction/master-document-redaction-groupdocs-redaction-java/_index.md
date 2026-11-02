@@ -1,23 +1,29 @@
 ---
-date: '2026-05-22'
-description: GroupDocs Maven の依存関係を使用して、ドキュメントの編集中に Java のファイル名にサフィックスを追加する方法を学びます。streaming
-  load、annotation deletion、save options が含まれます。
+date: '2026-11-02'
+description: Maven、streaming load、annotation deletion、save options を使用した GroupDocs
+  redaction Java チュートリアルで、filename に suffix を追加する方法を学びます。
 keywords:
+- groupdocs redaction java tutorial
 - add suffix filename java
-- groupdocs redaction java
 - document redaction workflow
+- groupdocs maven dependency
+- java inputstream redaction
+lastmod: '2026-11-02'
+og_description: GroupDocs redaction Java チュートリアルで filename に suffix を追加する方法を学びます。ステップバイステップの
+  Maven 設定、streaming load、save options に従ってください。
+og_image_alt: Guide showing Java code to add suffix to redacted filenames using GroupDocs
+  Redaction
+og_title: GroupDocs redaction Javaでfilenameにsuffixを追加する方法
 schemas:
 - author: GroupDocs
-  dateModified: '2026-05-22'
-  description: Learn how to add suffix filename java using the GroupDocs Maven dependency
-    while redacting documents. Includes streaming load, annotation deletion, and save
-    options.
-  headline: Add suffix filename java with GroupDocs Maven
+  dateModified: '2026-11-02'
+  description: Learn how to add suffix to filename in a GroupDocs redaction Java tutorial
+    using Maven, streaming load, annotation deletion, and save options.
+  headline: How to add suffix to filename in GroupDocs redaction Java
   type: TechArticle
-- description: Learn how to add suffix filename java using the GroupDocs Maven dependency
-    while redacting documents. Includes streaming load, annotation deletion, and save
-    options.
-  name: Add suffix filename java with GroupDocs Maven
+- description: Learn how to add suffix to filename in a GroupDocs redaction Java tutorial
+    using Maven, streaming load, annotation deletion, and save options.
+  name: How to add suffix to filename in GroupDocs redaction Java
   steps:
   - name: '1: Create InputStream'
     text: '- **Why:** Using `InputStream` allows you to handle documents stored in
@@ -49,46 +55,55 @@ schemas:
       for expert assistance.
     question: Where can I get help if I encounter issues?
   type: FAQPage
-title: GroupDocs Maven を使用して Java のファイル名にサフィックスを追加
+tags:
+- groupdocs redaction
+- java tutorial
+- maven dependency
+- document redaction
+title: GroupDocs redaction Javaでfilenameにsuffixを追加する方法
 type: docs
 url: /ja/java/advanced-redaction/master-document-redaction-groupdocs-redaction-java/
 weight: 1
 ---
 
-# GroupDocs Mavenでファイル名にサフィックスを追加する（Java）
+# GroupDocs redaction Javaでファイル名にサフィックスを追加する方法
 
-Redacting confidential data is only half the battle—you also need to make sure the saved file clearly indicates it has been processed. **Using the GroupDocs Maven dependency makes this straightforward**, letting you add a suffix to the output file name in just a few lines of code. The method to **add suffix filename java** is a single‑line configuration that instantly labels your redacted files, helping you stay compliant and audit‑ready.
+この **groupdocs redaction java tutorial** では、GroupDocs.Redaction を使用してドキュメントを赤字化する際に、出力ファイル名にサフィックスを自動的に付加する方法を学びます。サフィックスを追加することで手動でのリネームが不要になり、未加工ファイルが漏洩するリスクが減少し、命名規則に依存する CI/CD パイプラインにもスムーズに組み込めます。本ガイドでは、Maven の設定、ストリーミングによるドキュメント読み込み、アノテーションの削除、保存オプションの設定までを、簡潔で本番環境向けのコードとともに解説します。
 
 ## クイック回答
-- **「add suffix to filename」とは何をするものですか？**  
-  出力ファイル名にカスタムサフィックス（例: “_redacted”）を付加し、処理されたファイルを即座に識別できるようにします。  
+- **「ファイル名にサフィックスを追加する」機能は何ですか？**  
+  サフィックスオプションを有効にすると、SDK は出力ファイルの拡張子の前に、デフォルトでは「_redacted」という事前定義された文字列をベース名に自動的に付加します。これにより、どのファイルが処理されたかが即座に判別でき、元のコンテンツが誤って配布されるリスクを防ぎ、命名パターンに依存する下流の自動化も簡素化されます。  
 - **ストリームからドキュメントをロードできますか？**  
-  はい—GroupDocs.Redaction は任意の `InputStream` からのロードをサポートしており、クラウドストレージやメモリ内処理に最適です。  
+  はい—GroupDocs.Redaction は任意の `InputStream` からのロードをサポートしており、クラウドストレージやインメモリ処理に最適です。  
 - **この機能にライセンスは必要ですか？**  
-  無料トライアルで基本的なマスク処理は利用可能です。テンポラリまたはフルライセンスを取得すると、サフィックス処理を含むすべての高度なオプションが利用可能になります。  
+  無料トライアルで基本的な赤字化は利用可能です。サフィックス処理を含むすべての高度なオプションを使用するには、一時ライセンスまたはフルライセンスが必要です。  
 - **対応フォーマットは何ですか？**  
-  このライブラリは DOCX、PDF、PPTX、XLSX など多数の形式を扱えます。  
+  ライブラリは DOCX、PDF、PPTX、XLSX など多数の形式を扱えます。  
 - **PDF 出力にラスタライズは必須ですか？**  
-  ラスタライズはオプションです。文書をフラット化してセキュリティを強化したい場合に有効にします。
+  ラスタライズはオプションです。文書をフラット化して追加のセキュリティが必要な場合に有効にしてください。
 
-## add suffix filename javaとは何ですか？
-**add suffix filename java** テクニックは、保存時にファイル名に事前定義された文字列を追加し、文書がマスクされたことを明確に示します。このシンプルな慣例により、元の未マスクファイルが誤って配布されるのを防ぎ、自动化パイプラインとスムーズに統合できます。
+## 「ファイル名にサフィックスを追加する」機能は何ですか？
 
-## このタスクにGroupDocs.Redactionを使用する理由
-GroupDocs.Redaction は流暢な Java API を提供し、**add suffix filename java** のようなファイル処理オプションとマスク操作を数行のコードで組み合わせられます。SDK は **50 以上の入力および出力フォーマット** をサポートし、ファイル全体をメモリに読み込むことなく数百ページの文書を処理でき、速度と低メモリフットプリントを実現します。
+サフィックスオプションを有効にすると、SDK は出力ファイルの拡張子の前に、デフォルトでは「_redacted」という事前定義された文字列をベース名に自動的に付加します。これにより、どのファイルが処理されたかが即座に判別でき、元のコンテンツが誤って配布されるリスクを防ぎ、命名パターンに依存する下流の自動化も簡素化されます。
+
+## このタスクに GroupDocs.Redaction を使用する理由
+
+GroupDocs.Redaction は、高性能な Java API を提供し、赤字化アクションと自動サフィックス追加、ストリーミングサポート、バッチ処理といった柔軟なファイル操作オプションを組み合わせます。50 以上の入力・出力フォーマットに対応し、メモリ全体にファイルを読み込むことなく数百ページの文書を処理できるため、メモリ使用量が低く高速に実行できます。
 
 ## 前提条件
+
 - **Java Development Kit (JDK):** バージョン 8 以上。  
-- **GroupDocs.Redaction Library:** マスク処理タスク用のコアライブラリ。  
+- **GroupDocs.Redaction Library:** 赤字化タスク用のコアライブラリ。  
 - **IDE:** IntelliJ IDEA、Eclipse、または任意の Java 対応エディタ。  
 - **Maven:** 依存関係管理用。  
 
 ### 知識の前提条件
-Java I/O と基本的なオブジェクト指向概念に慣れていると、例がより分かりやすくなります。
+Java I/O と基本的なオブジェクト指向概念に慣れていると、例示がより理解しやすくなります。
 
 ## Java 用 GroupDocs.Redaction の設定
+
 ### Maven 設定
-`pom.xml` ファイルに以下の設定を追加して、Maven 経由で GroupDocs ライブラリにアクセスします。
+`pom.xml` ファイルに以下の設定を追加して、Maven 経由で GroupDocs ライブラリにアクセスしてください:
 
 ```xml
 <repositories>
@@ -109,29 +124,31 @@ Java I/O と基本的なオブジェクト指向概念に慣れていると、�
 ```
 
 ### 直接ダウンロード
-あるいは、最新バージョンを直接 [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/) からダウンロードしてください。
+または、[GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/) から最新バージョンを直接ダウンロードしてください。
 
 ### ライセンス取得
-1. **Free Trial:** 制限なしで基本機能にアクセスできます。  
-2. **Temporary License:** テンポラリライセンスを取得して高度な機能を試せます。  
-3. **Purchase:** 長期利用の場合はフルライセンスの購入をご検討ください。
+1. **Free trial:** 制限なしで基本機能にアクセスできます。  
+2. **Temporary license:** 高度な機能を試すための一時ライセンスを取得してください。  
+3. **Purchase:** 長期利用の場合はフルライセンスの購入を検討してください。
 
 #### 基本的な初期化と設定
-必要なインポートを追加してプロジェクトを初期化します。
+必要なインポートを追加してプロジェクトを初期化します:
 
 ```java
 import com.groupdocs.redaction.Redactor;
 ```
 
-この設定で、ドキュメントのマスク機能を実装する準備が整いました。
+この設定が完了すれば、ドキュメント赤字化機能の実装に進めます。
 
 ## 実装ガイド
 
 ### 機能 1: ストリームからドキュメントをロード
+
 **概要:** `InputStream` にドキュメントをロードして処理する方法を学びます。
 
-#### 手順実装
-##### Step 1.1: InputStream の作成
+`InputStream` はバイトストリームを表す Java I/O クラスで、ファイルやネットワーク接続、その他のソースからデータをメモリ全体に読み込むことなく読み取れます。
+
+#### 手順 1.1: inputstream の作成
 
 ```java
 import java.io.FileInputStream;
@@ -147,13 +164,15 @@ try (InputStream stream = new FileInputStream("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DO
 }
 ```
 
-- **理由:** `InputStream` を使用すると、クラウドバケット、データベース、メモリバッファなど様々な場所に保存されたドキュメントを、ディスクに書き込まずに扱えます。このアプローチは、マイクロサービスアーキテクチャで **load document from stream** が必要な場合に不可欠です。
+- **Why:** `InputStream` を使用すると、クラウドバケット、データベース、インメモリバッファなど様々な場所に保存されたドキュメントをディスクに書き出すことなく扱えます。このアプローチは、マイクロサービスアーキテクチャで **load document from stream** が必要な場合に不可欠です。
 
-### 機能 2: アノテーション削除マスクの適用
+### 機能 2: アノテーション削除赤字化の適用
+
 **概要:** `DeleteAnnotationRedaction` を使用してドキュメントからアノテーションを削除します。
 
-#### 手順実装
-##### Step 2.1: DeleteAnnotationRedaction の適用
+`DeleteAnnotationRedaction` は、コメント、ハイライト、ノートなどのすべてのアノテーションを文書から除去する赤字化操作です。
+
+#### 手順 2.1: deleteannotationredaction の適用
 
 ```java
 import com.groupdocs.redaction.redactions.DeleteAnnotationRedaction;
@@ -164,13 +183,15 @@ try (Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX")) {
 }
 ```
 
-- **理由:** このステップにより、機密性のあるアノテーション（コメント、ハイライト、非表示ノートなど）がドキュメントから除去され、プライバシーとコンプライアンスが向上します。
+- **Why:** この手順により、機密性の高いコメントやハイライト、隠しノートなどのアノテーションが文書から除去され、プライバシーとコンプライアンスが向上します。
 
 ### 機能 3: オプション付きでドキュメントを保存
-**概要:** ラスタライズや **add suffix filename java** などの特定オプションを使用して、処理済みドキュメントを保存する方法を学びます。
 
-#### 手順実装
-##### Step 3.1: SaveOptions の設定
+**概要:** ラスタライズや **add suffix filename java** などの特定オプションを指定して、処理済みドキュメントを保存する方法を学びます。
+
+`SaveOptions` は、赤字化された文書の書き出し方法（フォーマット、ラスタライズ、命名規則など）を制御する設定をカプセル化します。
+
+#### 手順 3.1: saveoptions の構成
 
 ```java
 import java.io.ByteArrayOutputStream;
@@ -188,83 +209,81 @@ try (Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX")) {
 }
 ```
 
-- **理由:** 保存オプションをカスタマイズすることで、柔軟な出力フォーマットと命名規則が可能になります。`setAddSuffix(true)` を有効にすると **adds suffix to filename** となり、ファイルがマスクされたことが明確になります。
+- **Why:** 保存オプションをカスタマイズすることで、出力フォーマットや命名規則を柔軟に設定できます。`setAddSuffix(true)` を有効にすると **adds suffix to filename** となり、ファイルが赤字化されたことが明確になります。
 
-## ドキュメントを保存する際に suffix filename java を追加する方法
-`Redactor` は GroupDocs.Redaction の主要クラスで、ドキュメントをロードしマスク操作を適用します。  
-`setAddSuffix` は `SaveOptions` のメソッドで、出力ファイル名に自動的にサフィックスを追加できます。
+## ドキュメント保存時に suffix filename java を追加する方法
 
-`Redactor` インスタンスをロードし、必要なマスクを適用した後、`setAddSuffix(true)` が有効な `SaveOptions` を指定して `save()` を呼び出します。この単一設定により、ファイル名に自動的に “_redacted”（またはデフォルトのサフィックス）が付加され、手動でのリネームが不要になりヒューマンエラーが減少します。処理は文書サイズに比例した O(n) 時間で完了し、すべてのサポートフォーマットで動作します。
+`Redactor` クラスはドキュメントをロードし、赤字化操作を適用するコアコンポーネントです。`SaveOptions` は赤字化された文書の保存方法（フォーマット、ラスタライズ、命名規則）を定義します。`Redactor` インスタンスを作成し、必要な赤字化を適用した後、`setAddSuffix(true)` を設定した `SaveOptions` オブジェクトを構成します。`redactor.save(outputPath, options)` を呼び出すだけで、SDK が自動的に「_redacted」（または設定されたサフィックス）をファイル名に付加するため、手動でリネームする必要はありません。
 
-## groupdocs maven 依存関係の概要
-**groupdocs maven dependency** は、単一の `<dependency>` エントリで Redaction SDK 全体をプロジェクトに取り込みます。トランジティブ依存関係を処理し、ライブラリを最新に保ち、ビルド自動化を簡素化します。`pom.xml` に依存関係を宣言することで、手動での JAR 管理を回避し、最新のセキュリティパッチとの互換性を確保できます。
+## GroupDocs Maven 依存関係の概要
 
-## サフィックスを追加する重要性
-サフィックスを追加することで、文書が処理されたことを即座に視覚的に確認でき、監査トレイル、自动化ワークフロー、業界全体の規制遵守に不可欠です。
+**groupdocs maven dependency** は、単一の `<dependency>` エントリで Redaction SDK 全体をプロジェクトに組み込みます。トランジティブ依存関係を自動処理し、ライブラリを常に最新に保ち、ビルド自動化を簡素化します。`pom.xml` に依存関係を宣言するだけで、手動で JAR を管理する手間が省け、最新のセキュリティパッチとの互換性も確保できます。
 
-- **監査性:** チームはどのファイルが配布可能かを即座に判別できます。  
-- **自動化:** スクリプトはサフィックスでファイルをフィルタリングでき、元のドキュメントが誤って処理されるのを防ぎます。  
-- **コンプライアンス:** 多くの規制で、サニタイズされた文書に明確なラベル付けが求められます。  
+## サフィックスを追加することの重要性
 
-## 実用的な応用例
-以下の実際のユースケースをご覧ください：
+サフィックスを付加することで、ファイルが処理済みであることが視覚的に即座に確認でき、監査証跡や自動化ワークフロー、規制遵守において重要です。スクリプトが赤字化ファイルを簡単にフィルタリングでき、元のコンテンツが誤って配布されるリスクを防ぎ、多くの業界標準が求める「サニタイズ済み」ラベル付与要件を満たします。
 
-1. **法的文書のマスク:** クライアントと共有する前に契約書を保護します。  
-2. **医療記録の取り扱い:** 患者識別子を保護しつつ、臨床データを保持します。  
-3. **財務報告:** 外部監査時に機密数値を非公開にします。  
-4. **CRM 統合:** 顧客データをサードパーティツールにエクスポートする前に自動的にマスクします。  
-5. **コラボレーションツール:** 共有ドラフトが隠しコメントやメタデータを露出しないようにします。  
+## 実用的な適用例
 
-## パフォーマンス考慮事項
+1. **Legal document redaction:** クライアント共有前に契約書を安全に保護。  
+2. **Medical record handling:** 患者識別子を保護しつつ臨床データを保持。  
+3. **Financial reporting:** 外部監査時に機密数値を非公開に。  
+4. **CRM integration:** サードパーティツールへのエクスポート前に顧客データを自動的に赤字化。  
+5. **Collaboration tools:** 共有ドラフトが隠しコメントやメタデータを露出しないように保証。
+
+## パフォーマンスに関する考慮事項
+
 ### パフォーマンス最適化
-- ストリーミング（`load document from stream`）を使用して、ファイル全体をメモリにロードするのを回避します。  
-- `Redactor` インスタンスは速やかにクローズしてリソースを解放します。  
+- ストリーミング（`load document from stream`）を使用して、ファイル全体をメモリに読み込むことを回避。  
+- `Redactor` インスタンスは速やかにクローズしてリソースを解放。
 
 ### リソース使用ガイドライン
-- バッチ実行中は CPU とメモリを監視します。  
-- 比較的小さなファイルサイズで作業する場合は、インメモリ保存に `ByteArrayOutputStream` を使用することを推奨します。  
+- バッチ実行中は CPU とメモリを監視。  
+- ファイルサイズが小さい場合は、インメモリ保存に `ByteArrayOutputStream` を優先。
 
 ### Java メモリ管理のベストプラクティス
-- 同種の複数ファイルを処理する際は `Redactor` オブジェクトを再利用します。  
-- `try‑with‑resources` ブロックで `close()` を呼び出し、リークを防止します。  
+- 同一タイプの複数ファイルを処理する際は `Redactor` オブジェクトを再利用。  
+- `try‑with‑resources` ブロック内で `close()` を呼び出し、リークを防止。
 
 ## よくある問題と解決策
-| 問題 | 原因 | 対策 |
+| Issue | Cause | Fix |
 |-------|-------|-----|
-| **サフィックスが表示されない** | `setAddSuffix(false)` または呼び出しが欠如 | `save()` の前に `options.setAddSuffix(true)` が設定されていることを確認してください。 |
-| **大きな DOCX で OutOfMemoryError** | ファイル全体をメモリにロード | `InputStream` ローディングに切り替える（Feature 1 を参照）。 |
-| **アノテーションがまだ表示される** | 保存前にマスクが適用されていない | `save()` 前に `redactor.apply(new DeleteAnnotationRedaction())` を呼び出す。 |
-| **PDF のラスタライズが適用されていない** | `setRasterizeToPDF(false)` または省略 | フラット化された PDF が必要な場合は `options.setRasterizeToPDF(true)` を設定する。 |
+| **Suffix not appearing** | `setAddSuffix(false)` または呼び出し忘れ | `save()` 前に `options.setAddSuffix(true)` が設定されていることを確認してください。 |
+| **OutOfMemoryError on large DOCX** | ファイル全体をメモリにロード | `InputStream` ローディングに切り替えてください（Feature 1 参照）。 |
+| **Annotations still visible** | 保存前に赤字化が適用されていない | `save()` 前に `redactor.apply(new DeleteAnnotationRedaction())` を呼び出してください。 |
+| **PDF rasterization not applied** | `setRasterizeToPDF(false)` または設定省略 | フラット化 PDF が必要な場合は `options.setRasterizeToPDF(true)` を設定してください。 |
 
 ## よくある質問
-**Q: GroupDocs.Redaction で PDF 文書をマスクできますか？**  
+
+**Q: GroupDocs.Redaction で PDF 文書を赤字化できますか？**  
 A: はい、ライブラリは PDF、DOCX、PPTX、XLSX など多数の形式をサポートしています。
 
-**Q: GroupDocs.Redaction で大きなファイルを扱う最適な方法は何ですか？**  
+**Q: 大容量ファイルを扱う最適な方法は何ですか？**  
 A: ストリーミング（`load document from stream`）を使用し、リソースを速やかにクローズしてメモリ使用量を低く保ちます。
 
 **Q: サフィックステキストをカスタマイズできますか？**  
-A: API はデフォルトのサフィックス（例: “_redacted”）を自動的に追加します。カスタムサフィックスが必要な場合は、保存後に出力ファイル名をリネームしてください。
+A: API はデフォルトのサフィックス（例: “_redacted”）を自動的に付加します。カスタムサフィックスが必要な場合は、保存後に出力ファイルをリネームしてください。
 
-**Q: GroupDocs.Redaction のテンポラリライセンスはどう取得しますか？**  
-A: [Temporary License page](https://purchase.groupdocs.com/temporary-license/) にアクセスし、手順に従ってください。
+**Q: GroupDocs.Redaction の一時ライセンスはどう取得しますか？**  
+A: [Temporary License page](https://purchase.groupdocs.com/temporary-license/) にアクセスし、手順に従って取得してください。
 
 **Q: 問題が発生した場合、どこでサポートを受けられますか？**  
-A: 専門家の支援を受けるには、[GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33) に参加してください。
+A: [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33) に参加して専門家の支援を受けてください。
 
 ## リソース
-- **Documentation:** 詳細なガイドは [GroupDocs Documentation](https://docs.groupdocs.com/redaction/java/) をご覧ください。  
-- **API Reference:** 包括的な API 詳細は [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java) で確認できます。  
-- **Download:** 最新バージョンは [GroupDocs Downloads](https://releases.groupdocs.com/redaction/java/) から取得してください。  
-- **GitHub Repository:** ソースコードの閲覧や貢献は [GroupDocs GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java) で行えます。
+- **Documentation:** 詳細ガイドは [GroupDocs Documentation](https://docs.groupdocs.com/redaction/java/) で確認できます。  
+- **API reference:** 包括的な API 詳細は [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java) をご覧ください。  
+- **Download:** 最新バージョンは [GroupDocs Downloads](https://releases.groupdocs.com/redaction/java/) から取得できます。  
+- **GitHub repository:** ソースコードの閲覧や貢献は [GroupDocs GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java) で行えます。
 
-**最終更新日:** 2026-05-22  
+---
+
+**最終更新日:** 2026-11-02  
 **テスト環境:** GroupDocs.Redaction 24.9 for Java  
 **作者:** GroupDocs  
 
-
 ## 関連チュートリアル
 
-- [Word を PDF に変換し、GroupDocs.Redaction Java でマスクされたドキュメントを保存](/redaction/java/document-saving/)
-- [GroupDocs.Redaction を使用した Java でのドキュメントページプレビュー](/redaction/java/document-loading/)
-- [GroupDocs.Redaction Java の高度なマスク手法](/redaction/java/advanced-redaction/)
+- [Convert Word to PDF and Save Redacted Documents with GroupDocs.Redaction Java](/redaction/java/document-saving/)
+- [Preview Document Pages Java Loading with GroupDocs.Redaction](/redaction/java/document-loading/)
+- [Advanced Redaction Techniques for GroupDocs.Redaction Java](/redaction/java/advanced-redaction/)

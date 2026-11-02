@@ -1,24 +1,30 @@
 ---
-date: '2026-05-22'
-description: Scopri come aggiungere un suffisso al nome file java utilizzando la dipendenza
-  GroupDocs Maven durante la redazione dei documenti. Include streaming load, annotation
-  deletion e save options.
+date: '2026-11-02'
+description: Scopri come aggiungere un suffisso al nome file in un tutorial su GroupDocs
+  redaction Java utilizzando Maven, streaming load, annotation deletion e save options.
 keywords:
+- groupdocs redaction java tutorial
 - add suffix filename java
-- groupdocs redaction java
 - document redaction workflow
+- groupdocs maven dependency
+- java inputstream redaction
+lastmod: '2026-11-02'
+og_description: Scopri come aggiungere un suffisso al nome file in un tutorial su
+  GroupDocs redaction Java. Segui la configurazione passo‑passo di Maven, streaming
+  load e save options.
+og_image_alt: Guide showing Java code to add suffix to redacted filenames using GroupDocs
+  Redaction
+og_title: Come aggiungere un suffisso al nome file in GroupDocs redaction Java
 schemas:
 - author: GroupDocs
-  dateModified: '2026-05-22'
-  description: Learn how to add suffix filename java using the GroupDocs Maven dependency
-    while redacting documents. Includes streaming load, annotation deletion, and save
-    options.
-  headline: Add suffix filename java with GroupDocs Maven
+  dateModified: '2026-11-02'
+  description: Learn how to add suffix to filename in a GroupDocs redaction Java tutorial
+    using Maven, streaming load, annotation deletion, and save options.
+  headline: How to add suffix to filename in GroupDocs redaction Java
   type: TechArticle
-- description: Learn how to add suffix filename java using the GroupDocs Maven dependency
-    while redacting documents. Includes streaming load, annotation deletion, and save
-    options.
-  name: Add suffix filename java with GroupDocs Maven
+- description: Learn how to add suffix to filename in a GroupDocs redaction Java tutorial
+    using Maven, streaming load, annotation deletion, and save options.
+  name: How to add suffix to filename in GroupDocs redaction Java
   steps:
   - name: '1: Create InputStream'
     text: '- **Why:** Using `InputStream` allows you to handle documents stored in
@@ -50,33 +56,40 @@ schemas:
       for expert assistance.
     question: Where can I get help if I encounter issues?
   type: FAQPage
-title: Aggiungi suffisso al nome file java con GroupDocs Maven
+tags:
+- groupdocs redaction
+- java tutorial
+- maven dependency
+- document redaction
+title: Come aggiungere un suffisso al nome file in GroupDocs redaction Java
 type: docs
 url: /it/java/advanced-redaction/master-document-redaction-groupdocs-redaction-java/
 weight: 1
 ---
 
-# Aggiungi suffisso al nome file java con GroupDocs Maven
+# Come aggiungere un suffisso al nome file in GroupDocs Redaction Java
 
-Redacting confidential data is only half the battle—you also need to make sure the saved file clearly indicates it has been processed. **Using the GroupDocs Maven dependency makes this straightforward**, letting you add a suffix to the output file name in just a few lines of code. The method to **add suffix filename java** is a single‑line configuration that instantly labels your redacted files, helping you stay compliant and audit‑ready.
+In questo **groupdocs redaction java tutorial** imparerai come aggiungere automaticamente un suffisso al nome del file di output durante la redazione dei documenti con GroupDocs.Redaction. L'aggiunta di un suffisso elimina la rinomina manuale, riduce il rischio di perdita di file non redatti e si integra perfettamente nei pipeline CI/CD che si basano su convenzioni di denominazione. La guida ti accompagna nella configurazione di Maven, nel caricamento in streaming dei documenti, nella rimozione delle annotazioni e nella configurazione delle opzioni di salvataggio — il tutto con codice conciso e pronto per la produzione.
 
 ## Risposte rapide
 - **Cosa fa “add suffix to filename”?**  
-  Aggiunge un suffisso personalizzato (ad es., “_redacted”) al nome del file di output così puoi identificare immediatamente i file elaborati.  
+  Quando abiliti l'opzione suffisso, l'SDK aggiunge automaticamente una stringa predefinita (per impostazione predefinita “_redacted”) al nome base del file di output prima dell'estensione. Questo rende immediatamente evidente quali file sono stati elaborati, aiuta a prevenire la distribuzione accidentale del contenuto originale e semplifica l'automazione a valle che si basa su pattern di denominazione.  
 - **Posso caricare un documento dallo stream?**  
-  Sì—GroupDocs.Redaction supporta il caricamento da qualsiasi `InputStream`, perfetto per archiviazione cloud o elaborazione in‑memoria.  
-- **Ho bisogno di una licenza per questa funzionalità?**  
+  Sì — GroupDocs.Redaction supporta il caricamento da qualsiasi `InputStream`, perfetto per archiviazione cloud o elaborazione in‑memoria.  
+- **È necessaria una licenza per questa funzionalità?**  
   Una prova gratuita funziona per la redazione di base; una licenza temporanea o completa sblocca tutte le opzioni avanzate, incluso il gestire il suffisso.  
 - **Quali formati sono supportati?**  
   La libreria gestisce DOCX, PDF, PPTX, XLSX e molti altri.  
 - **È necessaria la rasterizzazione per l'output PDF?**  
-  La rasterizzazione è opzionale; attivala quando devi appiattire il documento per una sicurezza aggiuntiva.
+  La rasterizzazione è opzionale; abilitala quando devi appiattire il documento per una sicurezza aggiuntiva.
 
-## Cos'è add suffix filename java?
-La tecnica **add suffix filename java** aggiunge una stringa predefinita al nome del file durante l'operazione di salvataggio, marcando chiaramente il documento come redatto. Questa semplice convenzione previene la distribuzione accidentale di file originali non redatti e si integra senza problemi con pipeline automatizzate.
+## Cosa fa “add suffix to filename”?
+
+Quando abiliti l'opzione suffisso, l'SDK aggiunge automaticamente una stringa predefinita (per impostazione predefinita “_redacted”) al nome base del file di output prima dell'estensione. Questo rende immediatamente evidente quali file sono stati elaborati, aiuta a prevenire la distribuzione accidentale del contenuto originale e semplifica l'automazione a valle che si basa su pattern di denominazione.
 
 ## Perché usare GroupDocs.Redaction per questo compito?
-GroupDocs.Redaction fornisce un'API Java fluida che consente di combinare azioni di redazione con opzioni di gestione file—come **add suffix filename java**—in poche righe di codice. L'SDK supporta **50+ formati di input e output** e può elaborare documenti di centinaia di pagine senza caricare l'intero file in memoria, garantendo velocità e un basso consumo di memoria.
+
+GroupDocs.Redaction offre un'API Java ad alte prestazioni che combina azioni di redazione con opzioni flessibili di gestione dei file, come l'aggiunta automatica di suffisso, il supporto allo streaming e l'elaborazione batch. Supporta oltre 50 formati di input e output e può elaborare documenti di centinaia di pagine senza caricare l'intero file in memoria, garantendo un uso ridotto della memoria e un'esecuzione rapida.
 
 ## Prerequisiti
 
@@ -86,11 +99,12 @@ GroupDocs.Redaction fornisce un'API Java fluida che consente di combinare azioni
 - **Maven:** Per la gestione delle dipendenze.  
 
 ### Prerequisiti di conoscenza
-Familiarità con Java I/O e concetti base di programmazione orientata agli oggetti renderà gli esempi più facili da seguire.
+Familiarità con Java I/O e concetti di programmazione orientata agli oggetti renderà più semplice seguire gli esempi.
 
 ## Configurazione di GroupDocs.Redaction per Java
+
 ### Configurazione Maven
-Include the following configuration in your `pom.xml` file to access GroupDocs libraries via Maven:
+Includi la seguente configurazione nel tuo file `pom.xml` per accedere alle librerie GroupDocs tramite Maven:
 
 ```xml
 <repositories>
@@ -111,29 +125,30 @@ Include the following configuration in your `pom.xml` file to access GroupDocs l
 ```
 
 ### Download diretto
-Alternatively, download the latest version directly from [GroupDocs.Redaction for Java releases](https://releases.groupdocs.com/redaction/java/).
+In alternativa, scarica l'ultima versione direttamente da [GroupDocs.Redaction per Java releases](https://releases.groupdocs.com/redaction/java/).
 
 ### Acquisizione della licenza
-1. **Prova gratuita:** Accesso alle funzionalità di base senza restrizioni.  
-2. **Licenza temporanea:** Ottieni una licenza temporanea per esplorare le funzionalità avanzate.  
-3. **Acquisto:** Per un utilizzo a lungo termine, considera l'acquisto di una licenza completa.
+1. **Free trial:** Access basic functionality without restrictions.  
+2. **Temporary license:** Obtain a temporary license to explore advanced features.  
+3. **Purchase:** For long‑term use, consider purchasing a full license.
 
 #### Inizializzazione e configurazione di base
-Initialize your project by adding the necessary imports:
+Inizializza il tuo progetto aggiungendo gli import necessari:
 
 ```java
 import com.groupdocs.redaction.Redactor;
 ```
 
-With this setup, you're ready to implement document redaction functionalities.
+Con questa configurazione, sei pronto a implementare le funzionalità di redazione dei documenti.
 
 ## Guida all'implementazione
 
-### Funzione 1: Caricare documento dallo stream
+### Funzione 1: caricare documento dallo stream
 **Overview:** Learn how to load documents into an `InputStream` for processing.
 
-#### Implementazione passo‑passo
-##### Passo 1.1: Creare InputStream
+`InputStream` è una classe Java I/O che rappresenta un flusso di byte, consentendo di leggere dati da file, connessioni di rete o altre fonti senza caricare l'intero contenuto in memoria.
+
+#### Passo 1.1: creare inputstream
 
 ```java
 import java.io.FileInputStream;
@@ -151,11 +166,12 @@ try (InputStream stream = new FileInputStream("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DO
 
 - **Why:** Using `InputStream` allows you to handle documents stored in various locations—cloud buckets, databases, or in‑memory buffers—without first writing them to disk. This approach is essential when you need to **load document from stream** in micro‑service architectures.
 
-### Funzione 2: Applicare la redazione di cancellazione annotazioni
+### Funzione 2: applicare la redazione di cancellazione delle annotazioni
 **Overview:** Remove annotations from your document using the `DeleteAnnotationRedaction`.
 
-#### Implementazione passo‑passo
-##### Passo 2.1: Applicare DeleteAnnotationRedaction
+`DeleteAnnotationRedaction` è un'operazione di redazione che rimuove tutte le annotazioni — come commenti, evidenziazioni e note — dal documento.
+
+#### Passo 2.1: applicare deleteannotationredaction
 
 ```java
 import com.groupdocs.redaction.redactions.DeleteAnnotationRedaction;
@@ -168,11 +184,12 @@ try (Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX")) {
 
 - **Why:** This step ensures that any sensitive annotations (comments, highlights, or hidden notes) are stripped from the document, enhancing privacy and compliance.
 
-### Funzione 3: Salvare documento con opzioni
+### Funzione 3: salvare documento con opzioni
 **Overview:** Learn how to save your processed document with specific options like rasterization and **add suffix filename java**.
 
-#### Implementazione passo‑passo
-##### Passo 3.1: Configurare SaveOptions
+`SaveOptions` encapsulates settings that control how the redacted document is written, including format, rasterization, and naming conventions.
+
+#### Passo 3.1: configurare saveoptions
 
 ```java
 import java.io.ByteArrayOutputStream;
@@ -192,51 +209,49 @@ try (Redactor redactor = new Redactor("YOUR_DOCUMENT_DIRECTORY/SAMPLE_DOCX")) {
 
 - **Why:** Customizing save options allows flexible output formats and naming conventions. Enabling `setAddSuffix(true)` **adds suffix to filename**, making it clear that the file has been redacted.
 
-## Come aggiungere suffix filename java quando si salva un documento?
-`Redactor` is the main class in GroupDocs.Redaction that loads a document and applies redaction operations.  
-`setAddSuffix` is a method of `SaveOptions` that enables automatic suffix addition to the output file name.  
+## Come aggiungere il suffisso al nome file java quando si salva un documento?
 
-Load your `Redactor` instance, apply desired redactions, then call `save()` with `SaveOptions` where `setAddSuffix(true)` is enabled. This single configuration automatically appends “_redacted” (or the default suffix) to the file name, eliminating manual renaming and reducing human error. The operation completes in O(n) time relative to document size and works for all supported formats.
+La classe `Redactor` è il componente centrale che carica un documento e applica le operazioni di redazione. `SaveOptions` definisce come il documento redatto viene salvato, includendo formato, rasterizzazione e convenzioni di denominazione. Crea un'istanza di `Redactor`, applica le redazioni necessarie, quindi configura un oggetto `SaveOptions` con `setAddSuffix(true)`. Chiama `redactor.save(outputPath, options)`. L'SDK aggiunge automaticamente “_redacted” (o il suffisso configurato) al nome del file, così non dovrai mai rinominare manualmente il file.
 
-## Panoramica della dipendenza groupdocs maven
-The **groupdocs maven dependency** brings the entire Redaction SDK into your project with a single `<dependency>` entry. It handles transitive dependencies, keeps libraries up‑to‑date, and simplifies build automation. By declaring the dependency in `pom.xml`, you avoid manual JAR management and ensure compatibility with the latest security patches.
+## Panoramica della dipendenza Maven di GroupDocs
+
+Il **groupdocs maven dependency** porta l'intero Redaction SDK nel tuo progetto con una singola voce `<dependency>`. Gestisce le dipendenze transitive, mantiene le librerie aggiornate e semplifica l'automazione della build. Dichiarando la dipendenza in `pom.xml`, eviti la gestione manuale dei JAR e garantisci la compatibilità con le ultime patch di sicurezza.
 
 ## Perché aggiungere un suffisso è importante
-Adding a suffix provides immediate visual confirmation that a document has been processed, which is essential for audit trails, automated workflows, and regulatory compliance across industries.
 
-- **Auditabilità:** I team possono individuare immediatamente quali file sono sicuri da distribuire.  
-- **Automazione:** Gli script possono filtrare i file per suffisso, evitando l'elaborazione accidentale dei documenti originali.  
-- **Conformità:** Molte normative richiedono una chiara etichettatura dei documenti sanificati.  
+L'aggiunta di un suffisso fornisce una conferma visiva immediata che un file è stato elaborato, elemento critico per tracciabilità, flussi di lavoro automatizzati e conformità normativa. Consente agli script di filtrare i file redatti, previene la distribuzione accidentale del contenuto originale e soddisfa molti standard di settore che richiedono una chiara etichettatura dei documenti sanitizzati.
 
 ## Applicazioni pratiche
-Explore these real‑world use cases:
 
-1. **Redazione di documenti legali:** Proteggi i contratti prima della condivisione con il cliente.  
-2. **Gestione di cartelle cliniche:** Proteggi gli identificatori dei pazienti mantenendo i dati clinici.  
-3. **Reportistica finanziaria:** Mantieni riservati i numeri sensibili durante le audit esterne.  
-4. **Integrazione CRM:** Redigi automaticamente i dati dei clienti prima dell'esportazione a strumenti di terze parti.  
-5. **Strumenti di collaborazione:** Assicura che le bozze condivise non espongano commenti o metadati nascosti.  
+Esplora questi casi d'uso reali:
+
+1. **Legal document redaction:** Secure contracts before client sharing.  
+2. **Medical record handling:** Protect patient identifiers while preserving clinical data.  
+3. **Financial reporting:** Keep sensitive numbers confidential during external audits.  
+4. **CRM integration:** Automatically redact customer data before export to third‑party tools.  
+5. **Collaboration tools:** Ensure shared drafts never expose hidden comments or metadata.
 
 ## Considerazioni sulle prestazioni
+
 ### Ottimizzazione delle prestazioni
 - Use streaming (`load document from stream`) to avoid loading whole files into memory.  
 - Close `Redactor` instances promptly to free resources.  
 
-### Linee guida sull'uso delle risorse
+### Linee guida per l'uso delle risorse
 - Monitor CPU and memory during batch runs.  
-- Prefer `ByteArrayOutputStream` for in‑memory saves when working with modest file sizes.  
+- Prefer `ByteArrayOutputStream` for in‑memory saves when working with modest file sizes.
 
 ### Best practice per la gestione della memoria Java
 - Reuse `Redactor` objects when processing multiple files of the same type.  
-- Invoke `close()` in a `try‑with‑resources` block to prevent leaks.  
+- Invoke `close()` in a `try‑with‑resources` block to prevent leaks.
 
 ## Problemi comuni e soluzioni
 | Problema | Causa | Soluzione |
 |----------|-------|-----------|
-| **Suffix not appearing** | `setAddSuffix(false)` or missing call | Ensure `options.setAddSuffix(true)` is set before `save()`. |
-| **OutOfMemoryError on large DOCX** | Loading whole file into memory | Switch to `InputStream` loading (see Feature 1). |
-| **Annotations still visible** | Redaction not applied before save | Call `redactor.apply(new DeleteAnnotationRedaction())` before `save()`. |
-| **PDF rasterization not applied** | `setRasterizeToPDF(false)` or omitted | Set `options.setRasterizeToPDF(true)` when you need a flattened PDF. |
+| **Suffisso non visualizzato** | `setAddSuffix(false)` o chiamata mancante | Assicurati che `options.setAddSuffix(true)` sia impostato prima di `save()`. |
+| **OutOfMemoryError su DOCX di grandi dimensioni** | Caricamento dell'intero file in memoria | Passa al caricamento con `InputStream` (vedi Funzione 1). |
+| **Annotazioni ancora visibili** | Redazione non applicata prima del salvataggio | Chiama `redactor.apply(new DeleteAnnotationRedaction())` prima di `save()`. |
+| **Rasterizzazione PDF non applicata** | `setRasterizeToPDF(false)` o omessa | Imposta `options.setRasterizeToPDF(true)` quando è necessario un PDF appiattito. |
 
 ## Domande frequenti
 
@@ -247,29 +262,28 @@ A: Sì, la libreria supporta PDF, DOCX, PPTX, XLSX e molti altri formati.
 A: Usa lo streaming (`load document from stream`) e chiudi le risorse prontamente per mantenere basso l'uso della memoria.
 
 **Q: È possibile personalizzare il testo del suffisso?**  
-A: L'API aggiunge automaticamente un suffisso predefinito (ad es., “_redacted”). Per suffissi personalizzati, rinomina il file di output dopo il salvataggio.
+A: L'API aggiunge automaticamente un suffisso predefinito (es. “_redacted”). Per suffissi personalizzati, rinomina il file di output dopo il salvataggio.
 
-**Q: Come ottengo una licenza temporanea per GroupDocs.Redaction?**  
+**Q: Come posso ottenere una licenza temporanea per GroupDocs.Redaction?**  
 A: Visita la [Temporary License page](https://purchase.groupdocs.com/temporary-license/) e segui le istruzioni.
 
 **Q: Dove posso ottenere supporto se incontro problemi?**  
 A: Unisciti al [GroupDocs Support Forum](https://forum.groupdocs.com/c/redaction/33) per assistenza da esperti.
 
 ## Risorse
-- **Documentazione:** Explore detailed guides at [GroupDocs Documentation](https://docs.groupdocs.com/redaction/java/).  
-- **Riferimento API:** Access comprehensive API details on [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java).  
+- **Documentation:** Explore detailed guides at [GroupDocs Documentation](https://docs.groupdocs.com/redaction/java/).  
+- **API reference:** Access comprehensive API details on [GroupDocs API Reference](https://reference.groupdocs.com/redaction/java).  
 - **Download:** Get the latest version from [GroupDocs Downloads](https://releases.groupdocs.com/redaction/java/).  
-- **Repository GitHub:** Contribute or explore source code at [GroupDocs GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java).
+- **GitHub repository:** Contribute or explore source code at [GroupDocs GitHub](https://github.com/groupdocs-redaction/GroupDocs.Redaction-for-Java).
 
 ---
 
-**Ultimo aggiornamento:** 2026-05-22  
-**Testato con:** GroupDocs.Redaction 24.9 for Java  
-**Autore:** GroupDocs  
-
+**Last Updated:** 2026-11-02  
+**Tested With:** GroupDocs.Redaction 24.9 for Java  
+**Author:** GroupDocs  
 
 ## Tutorial correlati
 
-- [Converti Word in PDF e salva documenti redatti con GroupDocs.Redaction Java](/redaction/java/document-saving/)
-- [Anteprima pagine documento Java con caricamento in GroupDocs.Redaction](/redaction/java/document-loading/)
-- [Tecniche avanzate di redazione per GroupDocs.Redaction Java](/redaction/java/advanced-redaction/)
+- [Convert Word to PDF and Save Redacted Documents with GroupDocs.Redaction Java](/redaction/java/document-saving/)
+- [Preview Document Pages Java Loading with GroupDocs.Redaction](/redaction/java/document-loading/)
+- [Advanced Redaction Techniques for GroupDocs.Redaction Java](/redaction/java/advanced-redaction/)
