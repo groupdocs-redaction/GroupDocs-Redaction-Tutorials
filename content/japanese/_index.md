@@ -49,10 +49,6 @@ url: /ja/
 weight: 11
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # GroupDocs.Redaction ガイドによる安全な文書の赤字処理
 
 安全な文書の赤字処理は、機密情報を保護しつつ元の文書構造を維持するために不可欠です。**GroupDocs.Redaction** を使用すると、PDF、Word ファイル、Excel スプレッドシート、その他多数の形式から、機密テキスト、メタデータ、画像、注釈、さらにはページ全体まで確実に削除できます。このハブでは、.NET と Java の両方のアプリケーションに安全な文書の赤字処理を統合するために必要なすべてのチュートリアルをまとめており、コンプライアンス要件を迅速かつ確実に満たすことができます。
@@ -204,9 +200,4 @@ A: 1 つの GroupDocs.Redaction ライセンスで、.NET、Java、その他の�
 
 **最終更新日：** 2026-10-27  
 **テスト環境：** GroupDocs.Redaction 23.9 (both .NET and Java)  
-**作者：** GroupDocs  
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}
+**作者：** GroupDocs

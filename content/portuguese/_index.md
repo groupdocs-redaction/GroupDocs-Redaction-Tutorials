@@ -51,10 +51,6 @@ url: /pt/
 weight: 11
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Guia de redação segura de documentos com GroupDocs.Redaction
 
 A redação segura de documentos é essencial para proteger informações sensíveis enquanto mantém a estrutura original do documento intacta. Com **GroupDocs.Redaction**, você pode remover de forma confiável texto confidencial, metadados, imagens, anotações e até páginas inteiras de PDFs, arquivos Word, planilhas Excel e muitos outros formatos. Este hub consolida todos os tutoriais que você precisa para integrar a redação segura de documentos em aplicações .NET e Java, ajudando você a atender aos requisitos de conformidade de forma rápida e confiante.
@@ -206,9 +202,4 @@ A: Uma única licença do GroupDocs.Redaction cobre todas as plataformas suporta
 
 **Última atualização:** 2026-10-27  
 **Testado com:** GroupDocs.Redaction 23.9 (both .NET and Java)  
-**Autor:** GroupDocs  
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}
+**Autor:** GroupDocs

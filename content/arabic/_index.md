@@ -51,10 +51,6 @@ url: /ar/
 weight: 11
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # دليل إخفاء المستندات الآمن باستخدام GroupDocs.Redaction
 
 إخفاء المستندات الآمن ضروري لحماية المعلومات الحساسة مع الحفاظ على بنية المستند الأصلي. باستخدام **GroupDocs.Redaction**، يمكنك إزالة النصوص السرية، والبيانات الوصفية، والصور، والتعليقات التوضيحية، وحتى الصفحات الكاملة من ملفات PDF، وملفات Word، وجداول Excel، والعديد من الصيغ الأخرى. يجمع هذا المركز جميع الدروس التي تحتاجها لتكامل إخفاء المستندات الآمن في تطبيقات .NET و Java، مما يساعدك على تلبية متطلبات الامتثال بسرعة وثقة.
@@ -206,9 +202,4 @@ These Java guides demonstrate how to embed **secure document redaction** directl
 
 **آخر تحديث:** 2026-10-27  
 **تم الاختبار مع:** GroupDocs.Redaction 23.9 (both .NET and Java)  
-**المؤلف:** GroupDocs  
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}
+**المؤلف:** GroupDocs

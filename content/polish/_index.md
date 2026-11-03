@@ -52,10 +52,6 @@ url: /pl/
 weight: 11
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Bezpieczne redagowanie dokumentów z przewodnikiem GroupDocs.Redaction
 
 Bezpieczne redagowanie dokumentów jest niezbędne do ochrony wrażliwych informacji przy zachowaniu oryginalnej struktury dokumentu. Dzięki **GroupDocs.Redaction** możesz niezawodnie usuwać poufny tekst, metadane, obrazy, adnotacje, a nawet całe strony z plików PDF, Word, arkuszy Excel i wielu innych formatów. To centrum gromadzi wszystkie samouczki potrzebne do integracji bezpiecznego redagowania dokumentów w aplikacjach .NET i Java, pomagając szybko i pewnie spełnić wymogi zgodności.
@@ -207,9 +203,4 @@ A: Jedna licencja GroupDocs.Redaction obejmuje wszystkie obsługiwane platformy,
 
 **Ostatnia aktualizacja:** 2026-10-27  
 **Testowano z:** GroupDocs.Redaction 23.9 (both .NET and Java)  
-**Autor:** GroupDocs  
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}
+**Autor:** GroupDocs

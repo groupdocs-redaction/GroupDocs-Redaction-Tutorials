@@ -49,10 +49,6 @@ url: /zh-hant/
 weight: 11
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # 使用 GroupDocs.Redaction 的安全文件編輯指南
 
 安全文件編輯對於保護敏感資訊同時保持原始文件結構完整至關重要。使用 **GroupDocs.Redaction**，您可以可靠地從 PDF、Word 檔案、Excel 試算表以及其他多種格式中移除機密文字、元資料、圖像、註釋，甚至整頁內容。此中心匯集了所有教學，協助您在 .NET 與 Java 應用程式中整合安全文件編輯，快速且有信心地滿足合規需求。
@@ -204,9 +200,4 @@ GroupDocs.Redaction 會覆寫目標內容的原始位元，並移除相關的元
 
 **最後更新：** 2026-10-27  
 **測試版本：** GroupDocs.Redaction 23.9 (both .NET and Java)  
-**作者：** GroupDocs  
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}
+**作者：** GroupDocs

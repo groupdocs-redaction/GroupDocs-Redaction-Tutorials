@@ -49,10 +49,6 @@ url: /zh/
 weight: 11
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # 使用 GroupDocs.Redaction 的安全文档编辑指南
 
 安全文档编辑对于在保持原始文档结构完整的同时保护敏感信息至关重要。使用 **GroupDocs.Redaction**，您可以可靠地从 PDF、Word 文件、Excel 电子表格以及许多其他格式中删除机密文本、元数据、图像、批注，甚至整页内容。此中心汇总了所有教程，帮助您在 .NET 和 Java 应用程序中集成安全文档编辑，快速且自信地满足合规要求。
@@ -208,9 +204,4 @@ A: 单一的 GroupDocs.Redaction 许可证覆盖所有受支持的平台，包�
 
 **最后更新:** 2026-10-27  
 **测试环境:** GroupDocs.Redaction 23.9 (both .NET and Java)  
-**作者:** GroupDocs  
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}
+**作者:** GroupDocs

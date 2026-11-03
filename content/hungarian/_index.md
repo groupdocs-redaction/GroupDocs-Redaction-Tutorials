@@ -52,10 +52,6 @@ url: /hu/
 weight: 11
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Biztonságos dokumentum redakció a GroupDocs.Redaction útmutatóval
 
 A biztonságos dokumentum redakció elengedhetetlen a bizalmas információk védelméhez, miközben az eredeti dokumentumszerkezet érintetlen marad. A **GroupDocs.Redaction** segítségével megbízhatóan eltávolíthatja a bizalmas szöveget, metaadatokat, képeket, megjegyzéseket és akár teljes oldalakat is PDF‑ekből, Word‑fájlokból, Excel‑táblázatokból és számos más formátumból. Ez a központ összegyűjti az összes oktatóanyagot, amelyre szüksége van a biztonságos dokumentum redakció integrálásához .NET és Java alkalmazásokba, segítve a megfelelőségi követelmények gyors és magabiztos teljesítését.
@@ -203,9 +199,4 @@ A: Egyetlen GroupDocs.Redaction licenc lefedi az összes támogatott platformot,
 
 **Utoljára frissítve:** 2026-10-27  
 **Tesztelt verzió:** GroupDocs.Redaction 23.9 (both .NET and Java)  
-**Szerző:** GroupDocs  
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}
+**Szerző:** GroupDocs

@@ -52,10 +52,6 @@ url: /de/
 weight: 11
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Sichere Dokumentenredaktion mit dem GroupDocs.Redaction-Leitfaden
 
 Die sichere Dokumentenredaktion ist entscheidend, um sensible Informationen zu schützen und gleichzeitig die ursprüngliche Dokumentenstruktur beizubehalten. Mit **GroupDocs.Redaction** können Sie zuverlässig vertraulichen Text, Metadaten, Bilder, Anmerkungen und sogar ganze Seiten aus PDFs, Word‑Dateien, Excel‑Tabellen und vielen anderen Formaten entfernen. Dieses Hub bündelt alle Tutorials, die Sie benötigen, um die sichere Dokumentenredaktion sowohl in .NET‑ als auch in Java‑Anwendungen zu integrieren und Ihnen zu helfen, Compliance‑Anforderungen schnell und sicher zu erfüllen.
@@ -207,9 +203,4 @@ A: Eine einzelne GroupDocs.Redaction‑Lizenz deckt alle unterstützten Plattfor
 
 **Zuletzt aktualisiert:** 2026-10-27  
 **Getestet mit:** GroupDocs.Redaction 23.9 (both .NET and Java)  
-**Autor:** GroupDocs  
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}
+**Autor:** GroupDocs

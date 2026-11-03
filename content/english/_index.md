@@ -51,10 +51,6 @@ url: /
 weight: 11
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Secure document redaction with GroupDocs.Redaction guide
 
 Secure document redaction is essential for protecting sensitive information while keeping the original document structure intact. With **GroupDocs.Redaction**, you can reliably remove confidential text, metadata, images, annotations, and even entire pages from PDFs, Word files, Excel spreadsheets, and many other formats. This hub consolidates all the tutorials you need to integrate secure document redaction into both .NET and Java applications, helping you meet compliance requirements quickly and confidently.
@@ -206,9 +202,4 @@ A: A single GroupDocs.Redaction license covers all supported platforms, includin
 
 **Last Updated:** 2026-10-27  
 **Tested With:** GroupDocs.Redaction 23.9 (both .NET and Java)  
-**Author:** GroupDocs  
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}
+**Author:** GroupDocs

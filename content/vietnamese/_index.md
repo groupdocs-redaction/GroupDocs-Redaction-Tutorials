@@ -51,10 +51,6 @@ url: /vi/
 weight: 11
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Hướng dẫn xóa nhạy cảm tài liệu với GroupDocs.Redaction
 
 Xóa nhạy cảm tài liệu là cần thiết để bảo vệ thông tin nhạy cảm đồng thời giữ nguyên cấu trúc tài liệu gốc. Với **GroupDocs.Redaction**, bạn có thể loại bỏ một cách đáng tin cậy văn bản bí mật, siêu dữ liệu, hình ảnh, chú thích và thậm chí toàn bộ trang khỏi PDF, tệp Word, bảng tính Excel và nhiều định dạng khác. Trung tâm này tổng hợp tất cả các hướng dẫn bạn cần để tích hợp việc xóa nhạy cảm tài liệu vào các ứng dụng .NET và Java, giúp bạn đáp ứng các yêu cầu tuân thủ một cách nhanh chóng và tự tin.
@@ -206,9 +202,4 @@ A: Một giấy phép GroupDocs.Redaction duy nhất bao phủ tất cả các n
 
 **Last Updated:** 2026-10-27  
 **Tested With:** GroupDocs.Redaction 23.9 (both .NET and Java)  
-**Author:** GroupDocs  
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}
+**Author:** GroupDocs

@@ -51,10 +51,6 @@ url: /id/
 weight: 11
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Panduan Redaksi Dokumen Aman dengan GroupDocs.Redaction
 
 Redaksi dokumen aman sangat penting untuk melindungi informasi sensitif sambil mempertahankan struktur asli dokumen. Dengan **GroupDocs.Redaction**, Anda dapat dengan andal menghapus teks rahasia, metadata, gambar, anotasi, bahkan seluruh halaman dari PDF, file Word, spreadsheet Excel, dan banyak format lainnya. Pusat ini mengumpulkan semua tutorial yang Anda perlukan untuk mengintegrasikan redaksi dokumen aman ke dalam aplikasi .NET dan Java, membantu Anda memenuhi persyaratan kepatuhan dengan cepat dan percaya diri.
@@ -206,9 +202,4 @@ GroupDocs.Redaction menimpa byte asli dari konten yang ditargetkan dan menghapus
 
 **Terakhir Diperbarui:** 2026-10-27  
 **Diuji Dengan:** GroupDocs.Redaction 23.9 (both .NET and Java)  
-**Penulis:** GroupDocs  
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}
+**Penulis:** GroupDocs

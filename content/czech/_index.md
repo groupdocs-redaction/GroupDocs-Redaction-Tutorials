@@ -51,10 +51,6 @@ url: /cs/
 weight: 11
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Průvodce zabezpečeným redigováním dokumentů pomocí GroupDocs.Redaction
 
 Zabezpečené redigování dokumentů je nezbytné pro ochranu citlivých informací při zachování původní struktury dokumentu. S **GroupDocs.Redaction** můžete spolehlivě odstranit důvěrný text, metadata, obrázky, anotace a dokonce i celé stránky z PDF, souborů Word, tabulek Excel a mnoha dalších formátů. Tento hub shromažďuje všechny tutoriály, které potřebujete k integraci zabezpečeného redigování dokumentů do aplikací .NET i Java, a pomáhá vám rychle a sebejistě splnit požadavky na soulad.
@@ -206,9 +202,4 @@ A: Jedna licence GroupDocs.Redaction pokrývá všechny podporované platformy, 
 
 **Poslední aktualizace:** 2026-10-27  
 **Testováno s:** GroupDocs.Redaction 23.9 (both .NET and Java)  
-**Autor:** GroupDocs  
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}
+**Autor:** GroupDocs

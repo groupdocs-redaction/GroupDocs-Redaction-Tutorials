@@ -50,10 +50,6 @@ url: /ko/
 weight: 11
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # GroupDocs.Redaction 가이드와 함께하는 보안 문서 편집
 
 보안 문서 편집은 원본 문서 구조를 유지하면서 민감한 정보를 보호하는 데 필수적입니다. **GroupDocs.Redaction**을 사용하면 PDF, Word 파일, Excel 스프레드시트 및 기타 다양한 형식에서 기밀 텍스트, 메타데이터, 이미지, 주석 및 전체 페이지까지 신뢰하게 제거할 수 있습니다. 이 허브는 .NET 및 Java 애플리케이션에 보안 문서 편집을 통합하는 데 필요한 모든 튜토리얼을 한곳에 모아, 규정 준수를 빠르고 확신 있게 달성하도록 도와줍니다.
@@ -199,9 +195,4 @@ A: 하나의 GroupDocs.Redaction 라이선스로 .NET, Java 및 기타 언어 �
 
 **마지막 업데이트:** 2026-10-27  
 **테스트 환경:** GroupDocs.Redaction 23.9 (.NET 및 Java 모두)  
-**작성자:** GroupDocs  
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}
+**작성자:** GroupDocs

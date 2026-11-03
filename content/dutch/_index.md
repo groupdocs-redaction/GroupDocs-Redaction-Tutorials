@@ -51,10 +51,6 @@ url: /nl/
 weight: 11
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Beveiligde documentredactie met GroupDocs.Redaction-gids
 
 Beveiligde documentredactie is essentieel voor het beschermen van gevoelige informatie terwijl de oorspronkelijke documentstructuur behouden blijft. Met **GroupDocs.Redaction** kunt u betrouwbaar vertrouwelijke tekst, metadata, afbeeldingen, annotaties en zelfs volledige pagina's verwijderen uit PDF's, Word‑bestanden, Excel‑spreadsheets en vele andere formaten. Deze hub bundelt alle tutorials die u nodig heeft om beveiligde documentredactie te integreren in zowel .NET‑ als Java‑toepassingen, zodat u snel en zelfverzekerd aan compliance‑vereisten voldoet.
@@ -204,9 +200,4 @@ A: Eén GroupDocs.Redaction‑licentie dekt alle ondersteunde platforms, inclusi
 
 **Last Updated:** 2026-10-27  
 **Getest met:** GroupDocs.Redaction 23.9 (both .NET and Java)  
-**Auteur:** GroupDocs  
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}
+**Auteur:** GroupDocs

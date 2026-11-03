@@ -51,10 +51,6 @@ url: /hi/
 weight: 11
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # GroupDocs.Redaction गाइड के साथ सुरक्षित दस्तावेज़ रेडैक्शन
 
 सुरक्षित दस्तावेज़ रेडैक्शन संवेदनशील जानकारी की सुरक्षा के लिए आवश्यक है, जबकि मूल दस्तावेज़ की संरचना को अपरिवर्तित रखता है। **GroupDocs.Redaction** के साथ, आप PDF, Word फ़ाइलें, Excel स्प्रेडशीट और कई अन्य फ़ॉर्मैट से गोपनीय टेक्स्ट, मेटाडेटा, इमेज, एनोटेशन और यहाँ तक कि पूरे पेज भी विश्वसनीय रूप से हटा सकते हैं। यह हब सभी ट्यूटोरियल्स को एकत्रित करता है जो आपको .NET और Java दोनों एप्लिकेशन में सुरक्षित दस्तावेज़ रेडैक्शन को एकीकृत करने में मदद करते हैं, जिससे आप अनुपालन आवश्यकताओं को तेज़ी और आत्मविश्वास के साथ पूरा कर सकते हैं।
@@ -202,9 +198,4 @@ GroupDocs.Redaction लक्षित सामग्री के मूल �
 
 **अंतिम अपडेट:** 2026-10-27  
 **परीक्षित संस्करण:** GroupDocs.Redaction 23.9 (both .NET and Java)  
-**लेखक:** GroupDocs  
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}
+**लेखक:** GroupDocs

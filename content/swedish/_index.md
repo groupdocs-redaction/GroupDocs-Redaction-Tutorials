@@ -51,10 +51,6 @@ url: /sv/
 weight: 11
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Säker dokumentredigering med GroupDocs.Redaction guide
 
 Säker dokumentredigering är avgörande för att skydda känslig information samtidigt som den ursprungliga dokumentstrukturen bevaras. Med **GroupDocs.Redaction** kan du på ett pålitligt sätt ta bort konfidentiell text, metadata, bilder, kommentarer och till och med hela sidor från PDF‑filer, Word‑dokument, Excel‑kalkylblad och många andra format. Denna hub samlar alla de handledningar du behöver för att integrera säker dokumentredigering i både .NET‑ och Java‑applikationer, vilket hjälper dig att snabbt och säkert uppfylla efterlevnadskrav.
@@ -206,9 +202,4 @@ A: En enda GroupDocs.Redaction‑licens täcker alla stödjade plattformar, inkl
 
 **Senast uppdaterad:** 2026-10-27  
 **Testad med:** GroupDocs.Redaction 23.9 (both .NET and Java)  
-**Författare:** GroupDocs  
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}
+**Författare:** GroupDocs

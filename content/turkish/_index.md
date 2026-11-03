@@ -51,10 +51,6 @@ url: /tr/
 weight: 11
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # GroupDocs.Redaction rehberiyle güvenli belge redaksiyonu
 
 Güvenli belge redaksiyonu, hassas bilgileri korurken orijinal belge yapısını bozmadan korumak için gereklidir. **GroupDocs.Redaction** ile PDF'ler, Word dosyaları, Excel elektronik tabloları ve birçok diğer formatta gizli metin, meta veri, görüntüler, açıklamalar ve hatta tüm sayfaları güvenilir bir şekilde kaldırabilirsiniz. Bu merkez, güvenli belge redaksiyonunu hem .NET hem de Java uygulamalarına entegre etmek için ihtiyaç duyduğunuz tüm öğreticileri bir araya getirir ve uyumluluk gereksinimlerini hızlı ve güvenle karşılamanıza yardımcı olur.
@@ -202,9 +198,4 @@ A: Tek bir GroupDocs.Redaction lisansı, .NET, Java ve diğer dil bağlamaları 
 
 **Son Güncelleme:** 2026-10-27  
 **Test Edilen:** GroupDocs.Redaction 23.9 (both .NET and Java)  
-**Yazar:** GroupDocs  
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}
+**Yazar:** GroupDocs

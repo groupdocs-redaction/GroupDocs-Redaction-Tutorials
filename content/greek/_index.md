@@ -52,10 +52,6 @@ url: /el/
 weight: 11
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Ασφαλής διαγραφή εγγράφων με τον οδηγό GroupDocs.Redaction
 
 Η ασφαλής διαγραφή εγγράφων είναι απαραίτητη για την προστασία ευαίσθητων πληροφοριών ενώ διατηρεί την αρχική δομή του εγγράφου αμετάβλητη. Με το **GroupDocs.Redaction**, μπορείτε αξιόπιστα να αφαιρέσετε εμπιστευτικό κείμενο, μεταδεδομένα, εικόνες, σημειώσεις και ακόμη ολόκληρες σελίδες από PDF, αρχεία Word, λογιστικά φύλλα Excel και πολλές άλλες μορφές. Αυτό το κέντρο συγκεντρώνει όλα τα εκπαιδευτικά υλικά που χρειάζεστε για να ενσωματώσετε την ασφαλή διαγραφή εγγράφων τόσο σε εφαρμογές .NET όσο και Java, βοηθώντας σας να πληροίτε τις απαιτήσεις συμμόρφωσης γρήγορα και με σιγουριά.
@@ -207,9 +203,4 @@ redactor.Save(@"C:\Docs\sample_redacted.pdf");
 
 **Τελευταία ενημέρωση:** 2026-10-27  
 **Δοκιμάστηκε με:** GroupDocs.Redaction 23.9 (both .NET and Java)  
-**Συγγραφέας:** GroupDocs  
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}
+**Συγγραφέας:** GroupDocs

@@ -50,10 +50,6 @@ url: /th/
 weight: 11
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # คู่มือการลบข้อมูลในเอกสารอย่างปลอดภัยด้วย GroupDocs.Redaction
 
 การลบข้อมูลในเอกสารอย่างปลอดภัยเป็นสิ่งสำคัญสำหรับการปกป้องข้อมูลที่ละเอียดอ่อนในขณะที่ยังคงรักษาโครงสร้างเอกสารต้นฉบับไว้ครบถ้วน ด้วย **GroupDocs.Redaction** คุณสามารถลบข้อความที่เป็นความลับ, เมทาดาต้า, รูปภาพ, คำอธิบาย, และแม้กระทั่งหน้าทั้งหน้าออกจาก PDF, ไฟล์ Word, สเปรดชีต Excel, และรูปแบบอื่น ๆ อีกมากมาย ศูนย์รวมนี้รวบรวมบทเรียนทั้งหมดที่คุณต้องการเพื่อผสานการลบข้อมูลในเอกสารอย่างปลอดภัยเข้าไปในแอปพลิเคชัน .NET และ Java ของคุณ ช่วยให้คุณตอบสนองความต้องการด้านการปฏิบัติตามกฎระเบียบได้อย่างรวดเร็วและมั่นใจ
@@ -205,9 +201,4 @@ A: ใบอนุญาต GroupDocs.Redaction เพียงใบเดี�
 
 **อัปเดตล่าสุด:** 2026-10-27  
 **ทดสอบกับ:** GroupDocs.Redaction 23.9 (ทั้ง .NET และ Java)  
-**ผู้เขียน:** GroupDocs  
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}
+**ผู้เขียน:** GroupDocs

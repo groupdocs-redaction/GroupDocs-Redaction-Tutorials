@@ -52,10 +52,6 @@ url: /ru/
 weight: 11
 ---
 
-{{< blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/pf/main-container >}}
-{{< blocks/products/pf/tutorial-page-section >}}
-
 # Руководство по безопасному редактированию документов с GroupDocs.Redaction
 
 Безопасное редактирование документов необходимо для защиты конфиденциальной информации при сохранении исходной структуры документа. С помощью **GroupDocs.Redaction** вы можете надёжно удалять конфиденциальный текст, метаданные, изображения, аннотации и даже целые страницы из PDF, файлов Word, электронных таблиц Excel и многих других форматов. Этот центр собирает все учебные материалы, необходимые для интеграции безопасного редактирования документов в приложения .NET и Java, помогая быстро и уверенно соответствовать требованиям нормативов.
@@ -207,9 +203,4 @@ GroupDocs.Redaction перезаписывает оригинальные бай
 
 **Последнее обновление:** 2026-10-27  
 **Тестировано с:** GroupDocs.Redaction 23.9 (both .NET and Java)  
-**Автор:** GroupDocs  
-
-{{< /blocks/products/pf/tutorial-page-section >}}
-{{< /blocks/products/pf/main-container >}}
-{{< /blocks/products/pf/main-wrap-class >}}
-{{< blocks/products/products-backtop-button >}}
+**Автор:** GroupDocs
