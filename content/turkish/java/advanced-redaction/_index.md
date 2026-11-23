@@ -1,115 +1,190 @@
 ---
-date: 2026-04-10
-description: GroupDocs.Redaction için Java’da özel bir redaksiyon işleyicisinin nasıl
-  uygulanacağını öğrenin, redaksiyon politikalarını, geri aramaları ve AI destekli
-  redaksiyonu Java uygulamalarınızda uygulayın.
+date: 2026-11-23
+description: GroupDocs.Redaction için custom redaction handler java nasıl uygulanacağını
+  öğrenin, redaction policies, callbacks ve AI‑assisted redaction'ı Java uygulamalarınızda
+  kullanın.
 keywords:
 - custom redaction handler java
 - groupdocs redaction java
 - redaction policies java
-title: GroupDocs.Redaction için Özel Redaksiyon İşleyicisi Java
+lastmod: 2026-11-23
+og_description: GroupDocs.Redaction için custom redaction handler java'yi uygulayarak
+  karmaşık uyumluluk kurallarını karşılayın, AI'yi entegre edin ve Java'da redaction
+  mantığını kontrol edin.
+og_image_alt: Guide showing how to create a custom redaction handler java with GroupDocs.Redaction
+og_title: GroupDocs.Redaction için custom redaction handler java uygulayın
+schemas:
+- author: GroupDocs
+  dateModified: '2026-11-23'
+  description: Learn how to implement a custom redaction handler java for GroupDocs.Redaction,
+    apply redaction policies, callbacks, and AI‑assisted redaction in your Java applications.
+  headline: Implement a custom redaction handler java for GroupDocs.Redaction
+  type: TechArticle
+- description: Learn how to implement a custom redaction handler java for GroupDocs.Redaction,
+    apply redaction policies, callbacks, and AI‑assisted redaction in your Java applications.
+  name: Implement a custom redaction handler java for GroupDocs.Redaction
+  steps:
+  - name: Examine the `RedactionInfo` payload (text, location, element type).
+    text: Examine the `RedactionInfo` payload (text, location, element type).
+  - name: Call external services—such as a secure database or a RESTful AI endpoint—to
+      decide if the content should be redacted.
+    text: Call external services—such as a secure database or a RESTful AI endpoint—to
+      decide if the content should be redacted.
+  - name: Modify the `RedactionInfo` (e.g., change the replacement text) or reject
+      the request entirely.
+    text: Modify the `RedactionInfo` (e.g., change the replacement text) or reject
+      the request entirely.
+  type: HowTo
+- questions:
+  - answer: Yes—simply instantiate the handler in your service’s startup routine and
+      register it with the engine; the handler will be invoked for every request processed
+      by the service.
+    question: Can I use a custom redaction handler java in a web service?
+  - answer: The `handle` method is synchronous, but you can perform asynchronous work
+      inside it and block until the result is ready, or pre‑populate a cache to avoid
+      blocking during redaction.
+    question: Does the handler support asynchronous calls to external APIs?
+  - answer: Use the standard Java logging framework (SLF4J, Log4j) inside the `handle`
+      method; the advanced logging tutorial shows how to route those logs to GroupDocs’
+      internal logger.
+    question: How do I log decisions made by the custom handler?
+  - answer: Implement a fallback strategy in the handler—e.g., default to “redact”
+      or “skip” based on risk tolerance—to ensure the engine continues processing
+      without crashing.
+    question: What happens if the external service is unavailable?
+  - answer: GroupDocs.Redaction can process multi‑hundred‑page files without loading
+      the entire document into memory; the custom handler adds only minimal overhead
+      if you keep external calls lightweight.
+    question: Is there a size limit for documents processed with a custom handler?
+  type: FAQPage
+tags:
+- custom redaction handler
+- groupdocs redaction
+- java document processing
+- redaction policies
+title: GroupDocs.Redaction için custom redaction handler java uygulayın
 type: docs
 url: /tr/java/advanced-redaction/
 weight: 9
 ---
 
-# GroupDocs.Redaction için Özel Redaction Handler Java
+# GroupDocs.Redaction için özel bir redaction handler java uygulayın
 
-Bu kılavuzda **özel bir redaction handler Java nasıl oluşturulur** keşfedeceksiniz ve bu sınıfın GroupDocs.Redaction’a doğrudan nasıl bağlanacağını öğreneceksiniz. Neden, ne zaman ve nasıl yerleşik redaksiyon motorunu genişletebileceğinizi adım adım göstereceğiz; böylece karmaşık uyumluluk gereksinimlerini karşılayabilir, harici veri kaynaklarıyla bütünleştirebilir ve AI‑destekli karar mantığını ekleyebilirsiniz. Güvenli bir belge portalı, otomatik bir uyumluluk hattı veya özel bir denetim‑izleme çözümü oluşturuyor olun, özel bir redaction handler’ı ustalaşmak, neyin redakte edileceği ve nasıl redakte edileceği üzerinde tam kontrol sağlar.
+Bu öğreticide **custom redaction handler java nasıl oluşturulacağını** öğreneceksiniz; bu sınıf doğrudan GroupDocs.Redaction'a bağlanır. Neden birine ihtiyaç duyabileceğinizi, ne zaman doğru seçim olduğunu ve yerleşik motoru nasıl genişleteceğinizi adım adım açıklayacağız. Güvenli bir belge portalı, otomatik bir uyumluluk hattı veya özel bir denetim izi çözümü oluşturuyor olun, özel bir redaction handler'ı ustalaşmak, neyin ve nasıl kırpılacağını tamamen kontrol etmenizi sağlar.
 
-## Hızlı Yanıtlar
-- **Custom redaction handler Java nedir?** Redaksiyon isteklerini yakalayan, özel mantık uygulayan ve nihai redaksiyon sonucunu döndüren bir plug‑in sınıfı.  
-- **Neden kullanılır?** Sahipli veri desenlerini işlemek, harici hizmetleri çağırmak veya kutudan çıkmadığında motorun desteklemediği AI modellerini uygulamak için.  
-- **Bir lisansa ihtiyacım var mı?** Evet—GroupDocs.Redaction üretim kullanımı için geçerli bir lisans gerektirir.  
-- **Hangi Java sürümü destekleniyor?** Java 8 veya üzeri (Java 11 önerilir).  
-- **Callbacks ile birleştirebilir miyim?** Kesinlikle—callbacks, her belge öğesi için özel işleyiciyi tetikleyebilir.
+## Hızlı cevaplar
+- **Custom redaction handler java nedir?** Kırpma isteklerini yakalayan, kendi mantığınızı uygulayan ve nihai sonucu döndüren bir plug‑in sınıfı.  
+- **Neden kullanılır?** Varsayılan motorun desteklemediği özel veri desenlerini işlemek, dış hizmetleri çağırmak veya AI modelleri çalıştırmak için.  
+- **Lisans gerekir mi?** Evet—GroupDocs.Redaction üretim kullanımı için geçerli bir lisans gerektirir.  
+- **Hangi Java sürümü destekleniyor?** Java 8 ve üzeri (Java 11 önerilir).  
+- **Callback'lerle birleştirebilir miyim?** Kesinlikle—callback'ler her belge öğesi için özel handler'ı tetikleyebilir.
 
-## Custom redaction handler Java nedir?
-Bir **custom redaction handler Java**, `RedactionHandler` arayüzünün (veya onun soyut temelinin) kullanıcı tanımlı bir uygulamasıdır; her redaksiyon isteğini alır, içeriği incelemenize olanak tanır ve redaksiyonu onaylayıp, değiştirecek ya da reddedecek karar verir. Bu kanca aşağıdaki senaryolar için mükemmeldir:
+## Custom redaction handler java nedir?
+Bir **custom redaction handler java**, her kırpma isteğini alan, içeriği incelemenizi sağlayan ve kırpmayı onaylayıp, değiştirecek ya da reddedecek karar veren `RedactionHandler` arayüzünün (veya soyut temelinin) kullanıcı tanımlı bir uygulamasıdır. Bu kanca aşağıdaki senaryolar için mükemmeldir:
 
-- Varsayılan politikalar tarafından kapsanmayan, sahipli bir regex desenine uyan verilerin redaksiyonu.  
+- Varsayılan politikalar tarafından kapsanmayan, özel bir regex deseniyle eşleşen verilerin kırpılması.  
 - Bir terimin gizlenmesi gerektiğini doğrulamak için gizli bir veritabanını sorgulama.  
 - Gerçek zamanlı olarak hassas bilgileri sınıflandıran bir makine öğrenimi modelini çalıştırma.  
 
-## GroupDocs.Redaction ile özel bir işleyici neden kullanılır?
-- **Uyumluluk esnekliği:** Özel maskeleme kuralları gerektiren sektör‑spesifik düzenlemelere (HIPAA, GDPR, PCI‑DSS) uyun.  
-- **İş mantığı entegrasyonu:** Redaksiyon kararlarını mevcut risk‑değerlendirme hizmetlerinize bağlayın.  
-- **Performans ayarı:** Redaksiyon boru hattını kısa devre yaparak gereksiz taramaları atlayın.  
-- **AI desteği:** PII, PHI veya gizli maddeleri otomatik olarak tespit etmek için doğal dil modelleri ekleyin.  
+## GroupDocs.Redaction ile custom redaction handler java neden kullanılır?
+Özel bir handler, sıkı düzenleyici gereksinimleri karşılamak, özel iş mantığını entegre etmek ve gereksiz taramaları önleyerek performansı artırmak için kırpma davranışını özelleştirmenizi sağlar. Kendi karar motorunuzu enjekte ederek, sektöre özgü maskeleme kurallarını uygulayabilir, dış risk‑değerlendirme hizmetlerini çağırabilir ve hatta yerleşik yeteneklerin ötesinde ince PII desenlerini tespit eden AI modellerini dahil edebilirsiniz.
 
 ## Önkoşullar
 - GroupDocs.Redaction for Java (en son kararlı sürüm).  
 - Java 8 veya daha yeni bir geliştirme ortamı (IDE, Maven/Gradle).  
 - Geçerli bir GroupDocs.Redaction lisansı (test için geçici lisanslar mevcuttur).  
 
-## Adım‑Adım Kılavuz
+## Özel bir redaction handler java'yı motorla nasıl kaydedilir
+`RedactionEngine`, belge kırpma işlemlerini gerçekleştiren çekirdek sınıftır. `RedactionOptions`, motorun bir belgeyi nasıl işlediğini kontrol eden, özel handler örneği dahil yapılandırma ayarlarını tutar. Handler'ınızı kaydetmek için bir `RedactionEngine` nesnesi oluşturun, `RedactionOptions`'ı handler'ınızla yapılandırın ve ardından `redact` metodunu çağırın. Bu yaklaşım, motorun her eşleşen öğe için özel mantığınızı çalıştırmasını sağlar ve kırpma iş akışı üzerinde tam kontrol verir.
 
-### Adım 1: Maven/Gradle bağımlılığını ayarlayın
-GroupDocs.Redaction artefaktını projenize ekleyin. Bu adım temel kurulumdan farklı değildir, ancak özel bir işleyici kaydetmeden önce gereklidir.
+`RedactionEngine`'i yükleyin ve `RedactionOptions` aracılığıyla handler'ınızı ekleyin. Motor, her eşleşen öğe için mantığınızı çalıştıracaktır.
 
-### Adım 2: Özel işleyici sınıfını oluşturun
-`RedactionHandler` arayüzünü uygulayın (veya `BaseRedactionHandler` sınıfını genişletin). `handle` metodunun içinde `RedactionInfo` nesnesini inceleyebilir, harici hizmetleri çağırabilir veya AI modelleri uygulayabilirsiniz.  
-*Orijinal kodu değiştirmeyin; aşağıdaki örnek yalnızca bağlam sağlamak içindir.*
+Motoru örneklediğinizde, handler örneğinizi `RedactionOptions` nesnesine geçirin, ardından `engine.redact(document, policy)` metodunu çağırın. Motor, her kırpma isteğini otomatik olarak `handle` metodunuza yönlendirir.
 
-### Adım 3: İşleyiciyi Redaksiyon motoruna kaydedin
-`RedactionEngine`'i örneklediğinizde, işleyici örneğinizi `RedactionOptions` nesnesi aracılığıyla geçirin. Bu, GroupDocs.Redaction'ın işleme sırasında sizin mantığınızı çağırmasını sağlar.
+## Özel handler sınıfı nasıl oluşturulur
+`RedactionHandler`, GroupDocs.Redaction’ın işleme hattına özel karar mantığını enjekte etmenizi sağlayan sözleşmedir. `RedactionInfo`, her kırpma isteği hakkında metin, konum ve öğe tipi gibi ayrıntılar sunar. Yükü incelemek, dış hizmetleri çağırmak ve kırpmayı onaylayıp, değiştirecek ya da reddedecek karar vermek için `handle(RedactionInfo info)` metodunu uygulayın. Bu metodun içinde şunları yapabilirsiniz:
 
-### Adım 4: Bir redaksiyon politikası uygulayın ve motoru çalıştırın
-Özel işleyiciyi referans alan bir `RedactionPolicy` oluşturun, ardından `engine.redact(document, policy)` çağrısını yapın. Motor artık her eşleşen öğe için özel mantığınızı çalıştıracak.
+1. `RedactionInfo` yükünü inceleyin (metin, konum, öğe tipi).  
+2. İçeriğin kırpılması gerekip gerekmediğini belirlemek için güvenli bir veritabanı veya RESTful AI uç noktası gibi dış hizmetleri çağırın.  
+3. `RedactionInfo`'yu değiştirin (ör. değiştirme metnini değiştirin) ya da isteği tamamen reddedin.  
 
-### Adım 5: Test edin ve doğrulayın
-Standart ve özel‑hassas veri içeren belgeleri besleyen birim testleri çalıştırın. Çıktının beklentileri karşıladığını ve işleyicinin uygun ayrıntıları kaydettiğini doğrulayın (daha derin bir içgörü için aşağıdaki gelişmiş günlükleme öğreticisini kullanın).
+## Özel handler'ı kullanan bir redaction policy nasıl uygulanır
+`RedactionPolicy`, motorun hassas içeriği bulmak için kullandığı desen ve kuralları tanımlar. `RedactionPolicy`'yi özel handler'ınızla ilişkilendirerek, her tespit edilen desenin nihai kırpma uygulanmadan önce sizin özel mantığınızla işlenmesini sağlarsınız. Bir `RedactionPolicy` nesnesi oluşturun, taramak istediğiniz desenleri ekleyin ve politikayı `RedactionOptions` aracılığıyla handler'ınıza bağlayın. Ardından birleşik iş akışını çalıştırmak için `engine.redact(document, policy)` metodunu çağırın.
 
-## Yaygın Sorunlar ve Çözümler
-- **İşleyici çağrılmadı:** İşleyicinin `RedactionOptions`'a doğru şekilde eklendiğinden ve politikanın ona referans verdiğinden emin olun.  
-- **Performans darboğazı:** Harici hizmet çağrınız yavaşsa, sonuçları önbelleğe almayı veya istekleri toplu olarak göndermeyi düşünün.  
-- **AI modeli entegrasyon hataları:** Modelin giriş formatının GroupDocs.Redaction tarafından çıkarılan metinle eşleştiğini doğrulayın.  
+## Özel handler'ı nasıl test eder ve doğrularsınız
+Testler, hem işlevsel doğruluğu hem de performans etkisini kapsamalıdır. Standart ve özel‑hassas veri içeren belgeleri yükleyen birim testleri yazın, ardından handler'ın beklendiği gibi tam olarak istediğiniz öğeleri kırpıp diğer içeriği dokunulmaz bırakmasını doğrulayın. Günlük çıktısı için ve dış hizmetler kullanılamadığında geri dönüş davranışı için doğrulamalar ekleyin; böylece handler tüm koşullarda öngörülebilir şekilde davranır.
 
-## Mevcut Öğreticiler
+## Yaygın sorunlar ve çözümler
+- **Handler çalıştırılmadı:** Handler örneğinin `RedactionOptions`'a eklendiğini ve politikanın ona referans verdiğini doğrulayın.  
+- **Performans darboğazı:** Dış hizmet çağrıları yavaşsa, sonuçları yerel olarak önbelleğe alın veya gecikmeyi azaltmak için istekleri toplu işleyin.  
+- **AI model entegrasyon hataları:** Modelin giriş formatının GroupDocs.Redaction tarafından çıkarılan düz metinle eşleştiğinden emin olun; uyumsuz kodlamalar yanlış negatiflere yol açar.  
 
-### [Java'da GroupDocs Redaction ile Gelişmiş Günlükleme Uygulaması: Kapsamlı Bir Rehber](./advanced-logging-groupdocs-redaction-java/)
-Java'da GroupDocs Redaction kullanarak gelişmiş günlükleme tekniklerini öğrenin. Özel logger'lar oluşturun, belge redaksiyonlarını etkili bir şekilde izleyin ve hata ayıklama sürecinizi optimize edin.
+## Mevcut öğreticiler
 
-### [Java Redaksiyon Rehberi: GroupDocs ile Güvenli Belge İşleme](./java-redaction-groupdocs-guide/)
-Java kullanarak GroupDocs.Redaction ile güvenli belge redaksiyonunu öğrenin. Kurulum, politika uygulama ve hassas veri yönetimi tekniklerini keşfedin.
+- [GroupDocs Redaction ile Java'da gelişmiş günlükleme uygulaması: kapsamlı bir rehber](/redaction/java/advanced-redaction/advanced-logging-groupdocs-redaction-java/)
+- [Java kırpma rehberi: GroupDocs ile güvenli belge işleme](/redaction/java/advanced-redaction/java-redaction-groupdocs-guide/)
+- [GroupDocs.Redaction kullanarak Java'da belge kırpma uzmanlığı: gizlilik uyumu için kapsamlı bir rehber](/redaction/java/advanced-redaction/master-document-redaction-java-groupdocs-redaction/)
+- [GroupDocs.Redaction ile Java'da belge kırpma uzmanlığı: kapsamlı bir rehber](/redaction/java/advanced-redaction/master-document-redaction-groupdocs-redaction-java/)
+- [Java için GroupDocs.Redaction ile Redaction Teknikleri Uzmanlığı: Adım Adım Rehber](/redaction/java/advanced-redaction/master-redaction-groupdocs-java-guide/)
+- [Java'da Belge Güvenliğini Ustalaştırma: Tam İfade Kırpma ve Gelişmiş Rasterleştirme ile GroupDocs.Redaction](/redaction/java/advanced-redaction/groupdocs-redaction-java-document-security/)
 
-### [Java'da GroupDocs.Redaction Kullanarak Belge Redaksiyonunu Ustalaştırma: Gizlilik Uyumu İçin Kapsamlı Rehber](./master-document-redaction-java-groupdocs-redaction/)
-Java için GroupDocs.Redaction ile belgelerden hassas bilgileri nasıl redakte edeceğinizi öğrenin. Verileri koruyun ve gizlilik yasalarına sorunsuzca uyun.
-
-### [GroupDocs.Redaction ile Java'da Belge Redaksiyonunu Ustalaştırma: Kapsamlı Rehber](./master-document-redaction-groupdocs-redaction-java/)
-GroupDocs.Redaction for Java kullanarak belgelerden hassas bilgileri nasıl redakte edeceğinizi öğrenin. Belge güvenliğini ve gizliliğini etkili bir şekilde artırın.
-
-### [Java için GroupDocs.Redaction ile Redaksiyon Tekniklerini Ustalaştırma: Adım‑Adım Kılavuz](./master-redaction-groupdocs-java-guide/)
-GroupDocs.Redaction for Java ile belgelerde hassas verileri nasıl redakte edeceğinizi öğrenin. Bu kılavuz yapılandırma, politika yönetimi ve pratik uygulamaları kapsar.
-
-### [Java'da Belge Güvenliğini Ustalaştırma: Tam İfade Redaksiyonu ve Gelişmiş Rasterizasyon ile GroupDocs.Redaction](./groupdocs-redaction-java-document-security/)
-GroupDocs.Redaction for Java kullanarak belgelerde hassas bilgileri nasıl güvenli hale getireceğinizi öğrenin. Tam ifade redaksiyonu ve gelişmiş rasterizasyon seçeneklerini sorunsuz bir şekilde uygulayın.
-
-## Ek Kaynaklar
+## Ek kaynaklar
 
 - [GroupDocs.Redaction for Java Belgeleri](https://docs.groupdocs.com/redaction/java/)
 - [GroupDocs.Redaction for Java API Referansı](https://reference.groupdocs.com/redaction/java/)
-- [GroupDocs.Redaction for Java'ı İndirin](https://releases.groupdocs.com/redaction/java/)
-- [GroupDocs.Redaction Forum](https://forum.groupdocs.com/c/redaction/33)
+- [GroupDocs.Redaction for Java'ı İndir](https://releases.groupdocs.com/redaction/java/)
+- [GroupDocs.Redaction Forumu](https://forum.groupdocs.com/c/redaction/33)
 - [Ücretsiz Destek](https://forum.groupdocs.com/)
 - [Geçici Lisans](https://purchase.groupdocs.com/temporary-license/)
 
-## HEDEF ANAHTAR KELİMELER:
+## Sıkça Sorulan Sorular
 
-**Birincil Anahtar Kelime (EN YÜKSEK ÖNEM):**
-custom redaction handler java
+**S: Özel bir redaction handler java'yı bir web hizmetinde kullanabilir miyim?**  
+C: Evet—handler'ı hizmetinizin başlangıç rutininde örnekleyin ve motorla kaydedin; handler hizmet tarafından işlenen her istek için çalıştırılacaktır.
 
-**İkincil Anahtar Kelimeler (DESTEKLEYİCİ):**
-Not specified
+**S: Handler dış API'lere asenkron çağrıları destekliyor mu?**  
+C: `handle` metodu eşzamanlıdır, ancak içinde asenkron işlemler yapabilir ve sonuç hazır olana kadar bekleyebilir ya da kırpma sırasında engellemeyi önlemek için önceden bir önbellek doldurabilirsiniz.
 
-**Anahtar Kelime Entegrasyon Stratejisi:**
-1. Birincil anahtar kelime: 3-5 kez kullanın (başlık, meta, ilk paragraf, H2 başlık, gövde)
-2. İkincil anahtar kelimeler: Her birini 1-2 kez kullanın (başlıklar, gövde metni)
-3. Tüm anahtar kelimeler doğal bir şekilde entegre edilmelidir - okunabilirliği anahtar kelime sayısından önce tutun
-4. Bir anahtar kelime doğal olarak uymuyorsa, anlamsal bir varyasyon kullanın veya atlayın
+**S: Özel handler tarafından alınan kararları nasıl günlüğe kaydederim?**  
+C: `handle` metodunun içinde standart Java günlükleme çerçevesini (SLF4J, Log4j) kullanın; gelişmiş günlükleme öğreticisi bu günlükleri GroupDocs'un dahili logger'ına yönlendirmeyi gösterir.
+
+**S: Dış hizmet kullanılamazsa ne olur?**  
+C: Handler içinde bir geri dönüş stratejisi uygulayın—ör. risk toleransına göre “kırp” ya da “atla” varsayılanını seçin—böylece motor çökmeden işlemeye devam eder.
+
+**S: Özel bir handler ile işlenen belgeler için bir boyut sınırı var mı?**  
+C: GroupDocs.Redaction, tüm belgeyi belleğe yüklemeden çok sayfalı dosyaları işleyebilir; dış çağrıları hafif tutarsanız özel handler sadece minimal bir ek yük getirir.
+
+## Sonuç
+Bir **custom redaction handler java**, kırpma mantığı üzerinde ayrıntılı kontrol sağlar, dış risk‑değerlendirme hizmetlerini entegre etmenize izin verir ve hassas verilerin AI‑tabanlı tespitini mümkün kılar. Yukarıdaki adımları izleyerek—bağımlılıkları kurma, handler'ı uygulama, `RedactionOptions` ile kaydetme ve kapsamlı testler yapma—GroupDocs.Redaction'ı herhangi bir uyum ya da iş gereksinimini karşılayacak şekilde genişletebilirsiniz.
 
 ---
 
-**Son Güncelleme:** 2026-04-10  
-**Test Edilen Versiyon:** GroupDocs.Redaction 7.0 (en son)  
+**Son Güncelleme:** 2026-11-23  
+**Test Edilen:** GroupDocs.Redaction 7.0 (latest)  
 **Yazar:** GroupDocs
+
+```java
+package com.example.redaction;
+
+import com.groupdocs.redaction.redaction.RedactionHandler;
+import com.groupdocs.redaction.redaction.RedactionInfo;
+import com.groupdocs.redaction.redaction.RedactionResult;
+
+public class CustomRedactionHandler implements RedactionHandler {
+    @Override
+    public RedactionResult handle(RedactionInfo info) {
+        // Example: block redaction of any term containing "CONFIDENTIAL"
+        if (info.getText().contains("CONFIDENTIAL")) {
+            return RedactionResult.reject("Proprietary term detected");
+        }
+        // Otherwise, approve the redaction
+        return RedactionResult.approve();
+    }
+}
+```
+
+## İlgili Öğreticiler
+
+- [Java Groupdocs Redaction için Özel Format Handler'ları Uygulama](/redaction/java/format-handling/implement-custom-format-handlers-java-groupdocs-redaction/)
+- [Groupdocs Redaction Java'da Gelişmiş Günlükleme](/redaction/java/advanced-redaction/advanced-logging-groupdocs-redaction-java/)
+- [Groupdocs Redaction Java Belge Güvenliği](/redaction/java/advanced-redaction/groupdocs-redaction-java-document-security/)

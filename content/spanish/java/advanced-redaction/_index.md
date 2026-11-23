@@ -1,89 +1,132 @@
 ---
-date: 2026-04-10
-description: Aprende a implementar un controlador de redacción personalizado en Java
-  para GroupDocs.Redaction, aplicar políticas de redacción, callbacks y redacción
-  asistida por IA en tus aplicaciones Java.
+date: 2026-11-23
+description: Aprenda cómo implementar un controlador de redacción personalizado en
+  Java para GroupDocs.Redaction, aplicar políticas de redacción, callbacks y redacción
+  asistida por IA en sus aplicaciones Java.
 keywords:
 - custom redaction handler java
 - groupdocs redaction java
 - redaction policies java
-title: Manejador de Redacción Personalizado Java para GroupDocs.Redaction
+lastmod: 2026-11-23
+og_description: Implemente un controlador de redacción personalizado en Java para
+  GroupDocs.Redaction para cumplir con reglas de cumplimiento complejas, integrar
+  IA y controlar la lógica de redacción en Java.
+og_image_alt: Guide showing how to create a custom redaction handler java with GroupDocs.Redaction
+og_title: Implementar un controlador de redacción personalizado en Java para GroupDocs.Redaction
+schemas:
+- author: GroupDocs
+  dateModified: '2026-11-23'
+  description: Learn how to implement a custom redaction handler java for GroupDocs.Redaction,
+    apply redaction policies, callbacks, and AI‑assisted redaction in your Java applications.
+  headline: Implement a custom redaction handler java for GroupDocs.Redaction
+  type: TechArticle
+- description: Learn how to implement a custom redaction handler java for GroupDocs.Redaction,
+    apply redaction policies, callbacks, and AI‑assisted redaction in your Java applications.
+  name: Implement a custom redaction handler java for GroupDocs.Redaction
+  steps:
+  - name: Examine the `RedactionInfo` payload (text, location, element type).
+    text: Examine the `RedactionInfo` payload (text, location, element type).
+  - name: Call external services—such as a secure database or a RESTful AI endpoint—to
+      decide if the content should be redacted.
+    text: Call external services—such as a secure database or a RESTful AI endpoint—to
+      decide if the content should be redacted.
+  - name: Modify the `RedactionInfo` (e.g., change the replacement text) or reject
+      the request entirely.
+    text: Modify the `RedactionInfo` (e.g., change the replacement text) or reject
+      the request entirely.
+  type: HowTo
+- questions:
+  - answer: Yes—simply instantiate the handler in your service’s startup routine and
+      register it with the engine; the handler will be invoked for every request processed
+      by the service.
+    question: Can I use a custom redaction handler java in a web service?
+  - answer: The `handle` method is synchronous, but you can perform asynchronous work
+      inside it and block until the result is ready, or pre‑populate a cache to avoid
+      blocking during redaction.
+    question: Does the handler support asynchronous calls to external APIs?
+  - answer: Use the standard Java logging framework (SLF4J, Log4j) inside the `handle`
+      method; the advanced logging tutorial shows how to route those logs to GroupDocs’
+      internal logger.
+    question: How do I log decisions made by the custom handler?
+  - answer: Implement a fallback strategy in the handler—e.g., default to “redact”
+      or “skip” based on risk tolerance—to ensure the engine continues processing
+      without crashing.
+    question: What happens if the external service is unavailable?
+  - answer: GroupDocs.Redaction can process multi‑hundred‑page files without loading
+      the entire document into memory; the custom handler adds only minimal overhead
+      if you keep external calls lightweight.
+    question: Is there a size limit for documents processed with a custom handler?
+  type: FAQPage
+tags:
+- custom redaction handler
+- groupdocs redaction
+- java document processing
+- redaction policies
+title: Implementar un controlador de redacción personalizado en Java para GroupDocs.Redaction
 type: docs
 url: /es/java/advanced-redaction/
 weight: 9
 ---
 
-# Manejador de Redacción Personalizado Java para GroupDocs.Redaction
+# Implementar un controlador de redacción personalizado java para GroupDocs.Redaction
 
-En esta guía descubrirás **cómo crear un custom redaction handler Java** que se conecta directamente a GroupDocs.Redaction. Recorreremos el porqué, cuándo y cómo extender el motor de redacción incorporado para que puedas cumplir requisitos complejos de cumplimiento, integrarte con fuentes de datos externas y añadir lógica de decisión impulsada por IA. Ya sea que estés construyendo un portal de documentos seguro, una canalización de cumplimiento automatizada o una solución personalizada de auditoría, dominar un custom redaction handler te brinda control total sobre qué se redacta y cómo.
+En este tutorial aprenderás **cómo crear un custom redaction handler java** que se integra directamente con GroupDocs.Redaction. Explicaremos por qué podrías necesitar uno, cuándo es la elección correcta y paso a paso cómo ampliar el motor incorporado. Ya sea que estés construyendo un portal de documentos seguro, una canalización de cumplimiento automatizada o una solución personalizada de auditoría, dominar un custom redaction handler te brinda control total sobre lo que se redacta y cómo.
 
 ## Respuestas rápidas
-- **¿Qué es un custom redaction handler Java?** Una clase plug‑in que intercepta solicitudes de redacción, aplica lógica personalizada y devuelve el resultado final de la redacción.  
-- **¿Por qué usarlo?** Para manejar patrones de datos propietarios, llamar a servicios externos o aplicar modelos de IA que el motor predeterminado no soporta.  
+- **¿Qué es un custom redaction handler java?** Una clase plug‑in que intercepta solicitudes de redacción, aplica tu propia lógica y devuelve el resultado final.  
+- **¿Por qué usarlo?** Para manejar patrones de datos propietarios, llamar a servicios externos o ejecutar modelos de IA que el motor predeterminado no soporta.  
 - **¿Necesito una licencia?** Sí—GroupDocs.Redaction requiere una licencia válida para uso en producción.  
-- **¿Qué versión de Java es compatible?** Java 8 o superior (se recomienda Java 11).  
-- **¿Puedo combinarlo con callbacks?** Absolutamente—los callbacks pueden activar el custom handler para cada elemento del documento.
+- **¿Qué versión de Java es compatible?** Java 8 o superior (Java 11 recomendado).  
+- **¿Puedo combinarlo con callbacks?** Absolutamente—los callbacks pueden activar el controlador personalizado para cada elemento del documento.
 
-## Qué es un custom redaction handler Java?
-Un **custom redaction handler Java** es una implementación definida por el usuario de la interfaz `RedactionHandler` (o su base abstracta) que recibe cada solicitud de redacción, le permite inspeccionar el contenido y decide si aprobar, modificar o rechazar la redacción. Este gancho es perfecto para escenarios como:
+## Qué es un custom redaction handler java?
+Un **custom redaction handler java** es una implementación definida por el usuario de la interfaz `RedactionHandler` (o su base abstracta) que recibe cada solicitud de redacción, te permite inspeccionar el contenido y decide si aprobar, modificar o rechazar la redacción. Este punto de enganche es perfecto para escenarios como:
 
-- Redactar datos que coincidan con un patrón regex propietario que no está cubierto por las políticas predeterminadas.  
+- Redactar datos que coincidan con un patrón regex propietario no cubierto por las políticas predeterminadas.  
 - Consultar una base de datos confidencial para verificar si un término debe ocultarse.  
 - Ejecutar un modelo de machine‑learning que clasifique información sensible en tiempo real.  
 
-## Por qué usar un handler personalizado con GroupDocs.Redaction?
-- **Flexibilidad de cumplimiento:** Cumplir con regulaciones específicas de la industria (HIPAA, GDPR, PCI‑DSS) que requieren reglas de enmascaramiento personalizadas.  
-- **Integración de lógica de negocio:** Vincular decisiones de redacción a sus servicios de evaluación de riesgos existentes.  
-- **Ajuste de rendimiento:** Omitir escaneos innecesarios mediante el atajo del pipeline de redacción.  
-- **Asistencia de IA:** Conectar modelos de lenguaje natural para detectar PII, PHI o cláusulas confidenciales automáticamente.  
+## Por qué usar un custom redaction handler java con GroupDocs.Redaction?
+Un controlador personalizado te permite adaptar el comportamiento de redacción para cumplir con estrictos requisitos regulatorios, integrar lógica empresarial propietaria y mejorar el rendimiento evitando escaneos innecesarios. Al inyectar tu propio motor de decisiones, puedes aplicar reglas de enmascaramiento específicas de la industria, llamar a servicios externos de evaluación de riesgos e incluso incorporar modelos de IA que detecten patrones sutiles de PII más allá de las capacidades incorporadas.
 
 ## Requisitos previos
-- GroupDocs.Redaction para Java (última versión estable).  
+- GroupDocs.Redaction for Java (última versión estable).  
 - Entorno de desarrollo Java 8 o superior (IDE, Maven/Gradle).  
-- Una licencia válida de GroupDocs.Redaction (hay licencias temporales disponibles para pruebas).  
+- Una licencia válida de GroupDocs.Redaction (las licencias temporales están disponibles para pruebas).  
 
-## Guía paso a paso
+## Cómo registrar un custom redaction handler java con el motor
+`RedactionEngine` es la clase central que realiza operaciones de redacción de documentos. `RedactionOptions` contiene la configuración, incluida la instancia del controlador personalizado, que controla cómo el motor procesa un documento. Para registrar tu controlador, crea un objeto `RedactionEngine`, configura `RedactionOptions` con tu controlador y luego llama al método `redact`. Este enfoque garantiza que el motor invoque tu lógica personalizada para cada elemento coincidente, dándote control total sobre el flujo de trabajo de redacción.
 
-### Paso 1: Configurar la dependencia Maven/Gradle
-Agregue el artefacto GroupDocs.Redaction a su proyecto. Este paso es idéntico a la configuración básica, pero es esencial antes de poder registrar un handler personalizado.
+Carga el `RedactionEngine` y adjunta tu controlador a través de `RedactionOptions`. El motor invocará tu lógica para cada elemento coincidente.
 
-### Paso 2: Crear la clase del handler personalizado
-Implemente la interfaz `RedactionHandler` (o extienda `BaseRedactionHandler`). Dentro del método `handle`, puede inspeccionar el objeto `RedactionInfo`, llamar a servicios externos o aplicar modelos de IA.  
-*Mantenga el código original sin cambios; el ejemplo a continuación se proporciona solo como contexto.*
+Cuando instancies el motor, pasa una instancia de tu controlador al objeto `RedactionOptions`, luego llama a `engine.redact(document, policy)`. El motor enruta automáticamente cada solicitud de redacción a tu método `handle`.
 
-### Paso 3: Registrar el handler con el motor de Redaction
-Al instanciar el `RedactionEngine`, pase su instancia de handler mediante el objeto `RedactionOptions`. Esto indica a GroupDocs.Redaction que invoque su lógica durante el procesamiento.
+## Cómo crear la clase del controlador personalizado
+`RedactionHandler` es el contrato que te permite inyectar lógica de decisión personalizada en la canalización de procesamiento de GroupDocs.Redaction. `RedactionInfo` proporciona detalles sobre cada solicitud de redacción, como el texto, la ubicación y el tipo de elemento. Implementa el método `handle(RedactionInfo info)` para examinar la carga, llamar a servicios externos y decidir si aprobar, modificar o rechazar la redacción. Dentro de este método puedes:
 
-### Paso 4: Aplicar una política de redacción y ejecutar el motor
-Cree una `RedactionPolicy` que haga referencia al handler personalizado, luego llame a `engine.redact(document, policy)`. El motor ejecutará ahora su lógica personalizada para cada elemento coincidente.
+1. Examinar la carga `RedactionInfo` (texto, ubicación, tipo de elemento).  
+2. Llamar a servicios externos—como una base de datos segura o un endpoint AI RESTful—para decidir si el contenido debe redactarse.  
+3. Modificar el `RedactionInfo` (p.ej., cambiar el texto de reemplazo) o rechazar la solicitud por completo.  
 
-### Paso 5: Probar y verificar
-Ejecute pruebas unitarias que alimenten documentos con datos tanto estándar como sensibles personalizados. Verifique que la salida coincida con lo esperado y que el handler registre los detalles apropiados (utilice el tutorial de registro avanzado enlazado a continuación para obtener una visión más profunda).
+## Cómo aplicar una política de redacción que use el controlador personalizado
+`RedactionPolicy` define los patrones y reglas que el motor usa para localizar contenido sensible. Al asociar una `RedactionPolicy` con tu controlador personalizado, garantizas que cada patrón detectado se procese a través de tu lógica a medida antes de aplicar la redacción final. Crea un objeto `RedactionPolicy`, agrega los patrones que deseas escanear y vincula la política a tu controlador mediante `RedactionOptions`. Luego invoca `engine.redact(document, policy)` para ejecutar el flujo de trabajo combinado.
+
+## Cómo probar y verificar el controlador personalizado
+Las pruebas deben cubrir tanto la corrección funcional como el impacto en el rendimiento. Escribe pruebas unitarias que carguen documentos con datos estándar y sensibles personalizados, luego verifica que el controlador redacte exactamente los elementos que esperas mientras deja el resto del contenido intacto. Incluye aserciones para la salida de registro y para el comportamiento de reserva cuando los servicios externos no estén disponibles, asegurando que el controlador se comporte de manera predecible bajo todas las condiciones.
 
 ## Problemas comunes y soluciones
-- **Handler no invocado:** Asegúrese de que el handler esté correctamente adjunto a `RedactionOptions` y que la política lo haga referencia.  
-- **Cuello de botella de rendimiento:** Si la llamada a su servicio externo es lenta, considere almacenar en caché los resultados o agrupar solicitudes.  
-- **Errores de integración del modelo de IA:** Verifique que el formato de entrada del modelo coincida con el texto extraído por GroupDocs.Redaction.  
+- **Handler no invocado:** Verifica que la instancia del controlador esté adjunta a `RedactionOptions` y que la política la referencie.  
+- **Cuello de botella de rendimiento:** Si las llamadas a servicios externos son lentas, almacena en caché los resultados localmente o agrupa solicitudes para reducir la latencia.  
+- **Errores de integración del modelo de IA:** Asegúrate de que el formato de entrada del modelo coincida con el texto plano extraído por GroupDocs.Redaction; codificaciones incompatibles causan falsos negativos.  
 
 ## Tutoriales disponibles
 
-### [Implementar registro avanzado en Java con GroupDocs Redaction: Guía completa](./advanced-logging-groupdocs-redaction-java/)
-Domina técnicas de registro avanzado usando GroupDocs Redaction para Java. Aprende a implementar registradores personalizados, monitorear redacciones de documentos eficazmente y optimizar tu proceso de depuración.
-
-### [Guía de Redacción en Java: Procesamiento seguro de documentos con GroupDocs](./java-redaction-groupdocs-guide/)
-Domina la redacción segura de documentos en Java usando GroupDocs.Redaction. Aprende la configuración, aplicación de políticas y técnicas de procesamiento para la gestión de datos sensibles.
-
-### [Dominar la redacción de documentos en Java usando GroupDocs.Redaction: Guía completa para cumplimiento de privacidad](./master-document-redaction-java-groupdocs-redaction/)
-Aprende a redactar información sensible de documentos usando GroupDocs.Redaction para Java. Protege datos y cumple con leyes de privacidad sin esfuerzo.
-
-### [Dominar la redacción de documentos en Java con GroupDocs.Redaction: Guía completa](./master-document-redaction-groupdocs-redaction-java/)
-Aprende cómo redactar información sensible de documentos usando GroupDocs.Redaction para Java. Mejora la seguridad y privacidad de los documentos de manera eficaz.
-
-### [Dominar técnicas de redacción con GroupDocs.Redaction para Java: Guía paso a paso](./master-redaction-groupdocs-java-guide/)
-Aprende a redactar datos sensibles en documentos usando GroupDocs.Redaction para Java. Esta guía cubre configuración, gestión de políticas y aplicaciones prácticas.
-
-### [Dominar la seguridad de documentos en Java: Redacción de frases exactas y rasterización avanzada con GroupDocs.Redaction](./groupdocs-redaction-java-document-security/)
-Aprende a proteger información sensible en documentos usando GroupDocs.Redaction para Java. Implementa redacción de frases exactas y opciones avanzadas de rasterización sin problemas.
+- [Implementar registro avanzado en Java con GroupDocs Redaction: una guía completa](/redaction/java/advanced-redaction/advanced-logging-groupdocs-redaction-java/)
+- [Guía de redacción Java: procesamiento seguro de documentos con GroupDocs](/redaction/java/advanced-redaction/java-redaction-groupdocs-guide/)
+- [Redacción maestra de documentos en Java usando GroupDocs.Redaction: una guía completa para cumplimiento de privacidad](/redaction/java/advanced-redaction/master-document-redaction-java-groupdocs-redaction/)
+- [Redacción maestra de documentos en Java con GroupDocs.Redaction: una guía completa](/redaction/java/advanced-redaction/master-document-redaction-groupdocs-redaction-java/)
+- [Técnicas maestras de redacción con GroupDocs.Redaction para Java: una guía paso a paso](/redaction/java/advanced-redaction/master-redaction-groupdocs-java-guide/)
+- [Dominar la seguridad de documentos en Java: redacción de frases exactas y rasterización avanzada con GroupDocs.Redaction](/redaction/java/advanced-redaction/groupdocs-redaction-java-document-security/)
 
 ## Recursos adicionales
 
@@ -94,22 +137,54 @@ Aprende a proteger información sensible en documentos usando GroupDocs.Redactio
 - [Soporte gratuito](https://forum.groupdocs.com/)
 - [Licencia temporal](https://purchase.groupdocs.com/temporary-license/)
 
-## PALABRAS CLAVE OBJETIVO:
+## Preguntas frecuentes
 
-**Palabra clave principal (MÁXIMA PRIORIDAD):**
-custom redaction handler java
+**Q: ¿Puedo usar un custom redaction handler java en un servicio web?**  
+A: Sí—simplemente instancia el controlador en la rutina de inicio de tu servicio y regístralo con el motor; el controlador será invocado para cada solicitud procesada por el servicio.
 
-**Palabras clave secundarias (DE APOYO):**
-Not specified
+**Q: ¿El controlador admite llamadas asíncronas a APIs externas?**  
+A: El método `handle` es síncrono, pero puedes realizar trabajo asíncrono dentro de él y bloquear hasta que el resultado esté listo, o pre‑poblar una caché para evitar bloqueos durante la redacción.
 
-**Estrategia de integración de palabras clave:**
-1. Palabra clave principal: Usar 3‑5 veces (título, meta, primer párrafo, encabezado H2, cuerpo)
-2. Palabras clave secundarias: Usar 1‑2 veces cada una (encabezados, texto del cuerpo)
-3. Todas las palabras clave deben integrarse de forma natural — priorizar la legibilidad sobre la cantidad de palabras clave
-4. Si una palabra clave no encaja de forma natural, use una variación semántica o omítala
+**Q: ¿Cómo registro las decisiones tomadas por el controlador personalizado?**  
+A: Usa el framework de registro estándar de Java (SLF4J, Log4j) dentro del método `handle`; el tutorial de registro avanzado muestra cómo dirigir esos registros al logger interno de GroupDocs.
+
+**Q: ¿Qué ocurre si el servicio externo no está disponible?**  
+A: Implementa una estrategia de reserva en el controlador—p. ej., predeterminar “redactar” o “omitir” según la tolerancia al riesgo—para asegurar que el motor continúe procesando sin fallar.
+
+**Q: ¿Existe un límite de tamaño para los documentos procesados con un controlador personalizado?**  
+A: GroupDocs.Redaction puede procesar archivos de cientos de páginas sin cargar todo el documento en memoria; el controlador personalizado añade solo una sobrecarga mínima si mantienes las llamadas externas ligeras.
+
+## Conclusión
+Un **custom redaction handler java** te brinda control granular sobre la lógica de redacción, te permite integrar servicios externos de evaluación de riesgos y habilita la detección impulsada por IA de datos sensibles. Siguiendo los pasos anteriores—configurando dependencias, implementando el controlador, registrándolo con `RedactionOptions` y probando exhaustivamente—puedes ampliar GroupDocs.Redaction para cumplir cualquier requisito de cumplimiento o empresarial.
 
 ---
 
-**Última actualización:** 2026-04-10  
-**Probado con:** GroupDocs.Redaction 7.0 (última)  
+**Última actualización:** 2026-11-23  
+**Probado con:** GroupDocs.Redaction 7.0 (latest)  
 **Autor:** GroupDocs
+
+```java
+package com.example.redaction;
+
+import com.groupdocs.redaction.redaction.RedactionHandler;
+import com.groupdocs.redaction.redaction.RedactionInfo;
+import com.groupdocs.redaction.redaction.RedactionResult;
+
+public class CustomRedactionHandler implements RedactionHandler {
+    @Override
+    public RedactionResult handle(RedactionInfo info) {
+        // Example: block redaction of any term containing "CONFIDENTIAL"
+        if (info.getText().contains("CONFIDENTIAL")) {
+            return RedactionResult.reject("Proprietary term detected");
+        }
+        // Otherwise, approve the redaction
+        return RedactionResult.approve();
+    }
+}
+```
+
+## Tutoriales relacionados
+
+- [Implementar controladores de formato personalizados Java Groupdocs Redaction](/redaction/java/format-handling/implement-custom-format-handlers-java-groupdocs-redaction/)
+- [Registro avanzado Groupdocs Redaction Java](/redaction/java/advanced-redaction/advanced-logging-groupdocs-redaction-java/)
+- [Seguridad de documentos Groupdocs Redaction Java](/redaction/java/advanced-redaction/groupdocs-redaction-java-document-security/)

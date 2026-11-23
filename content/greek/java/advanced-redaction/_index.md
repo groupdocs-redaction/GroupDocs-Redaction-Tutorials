@@ -1,112 +1,186 @@
 ---
-date: 2026-04-10
-description: Μάθετε πώς να υλοποιήσετε έναν προσαρμοσμένο διαχειριστή διαγραφής Java
-  για το GroupDocs.Redaction, να εφαρμόσετε πολιτικές διαγραφής, callbacks και διαγραφή
-  με υποστήριξη AI στις Java εφαρμογές σας.
+date: 2026-11-23
+description: Μάθετε πώς να υλοποιήσετε ένα προσαρμοσμένο redaction handler java για
+  το GroupDocs.Redaction, να εφαρμόσετε πολιτικές redaction, callbacks και AI‑assisted
+  redaction στις Java εφαρμογές σας.
 keywords:
 - custom redaction handler java
 - groupdocs redaction java
 - redaction policies java
-title: Προσαρμοσμένος Διαχειριστής Κατάργησης Java για το GroupDocs.Redaction
+lastmod: 2026-11-23
+og_description: Υλοποιήστε ένα προσαρμοσμένο redaction handler java για το GroupDocs.Redaction
+  ώστε να πληροί σύνθετους κανόνες συμμόρφωσης, να ενσωματώσετε AI και να ελέγχετε
+  τη λογική redaction σε Java.
+og_image_alt: Guide showing how to create a custom redaction handler java with GroupDocs.Redaction
+og_title: Υλοποίηση προσαρμοσμένου redaction handler java για το GroupDocs.Redaction
+schemas:
+- author: GroupDocs
+  dateModified: '2026-11-23'
+  description: Learn how to implement a custom redaction handler java for GroupDocs.Redaction,
+    apply redaction policies, callbacks, and AI‑assisted redaction in your Java applications.
+  headline: Implement a custom redaction handler java for GroupDocs.Redaction
+  type: TechArticle
+- description: Learn how to implement a custom redaction handler java for GroupDocs.Redaction,
+    apply redaction policies, callbacks, and AI‑assisted redaction in your Java applications.
+  name: Implement a custom redaction handler java for GroupDocs.Redaction
+  steps:
+  - name: Examine the `RedactionInfo` payload (text, location, element type).
+    text: Examine the `RedactionInfo` payload (text, location, element type).
+  - name: Call external services—such as a secure database or a RESTful AI endpoint—to
+      decide if the content should be redacted.
+    text: Call external services—such as a secure database or a RESTful AI endpoint—to
+      decide if the content should be redacted.
+  - name: Modify the `RedactionInfo` (e.g., change the replacement text) or reject
+      the request entirely.
+    text: Modify the `RedactionInfo` (e.g., change the replacement text) or reject
+      the request entirely.
+  type: HowTo
+- questions:
+  - answer: Yes—simply instantiate the handler in your service’s startup routine and
+      register it with the engine; the handler will be invoked for every request processed
+      by the service.
+    question: Can I use a custom redaction handler java in a web service?
+  - answer: The `handle` method is synchronous, but you can perform asynchronous work
+      inside it and block until the result is ready, or pre‑populate a cache to avoid
+      blocking during redaction.
+    question: Does the handler support asynchronous calls to external APIs?
+  - answer: Use the standard Java logging framework (SLF4J, Log4j) inside the `handle`
+      method; the advanced logging tutorial shows how to route those logs to GroupDocs’
+      internal logger.
+    question: How do I log decisions made by the custom handler?
+  - answer: Implement a fallback strategy in the handler—e.g., default to “redact”
+      or “skip” based on risk tolerance—to ensure the engine continues processing
+      without crashing.
+    question: What happens if the external service is unavailable?
+  - answer: GroupDocs.Redaction can process multi‑hundred‑page files without loading
+      the entire document into memory; the custom handler adds only minimal overhead
+      if you keep external calls lightweight.
+    question: Is there a size limit for documents processed with a custom handler?
+  type: FAQPage
+tags:
+- custom redaction handler
+- groupdocs redaction
+- java document processing
+- redaction policies
+title: Υλοποίηση προσαρμοσμένου redaction handler java για το GroupDocs.Redaction
 type: docs
 url: /el/java/advanced-redaction/
 weight: 9
 ---
 
-# Προσαρμοσμένος Διαχειριστής Καθάρισματος Java για το GroupDocs.Redaction
+# Υλοποίηση προσαρμοσμένου διαχειριστή διαγραφής java για GroupDocs.Redaction
 
-Σε αυτόν τον οδηγό θα ανακαλύψετε **πώς να δημιουργήσετε έναν προσαρμοσμένο διαχειριστή καθαρισμού Java** που ενσωματώνεται απευθείας στο GroupDocs.Redaction. Θα εξετάσουμε το γιατί, πότε και πώς να επεκτείνετε τη ενσωματωμένη μηχανή καθαρισμού ώστε να ανταποκριθείτε σε σύνθετες απαιτήσεις συμμόρφωσης, να ενσωματώσετε εξωτερικές πηγές δεδομένων και να προσθέσετε λογική λήψης αποφάσεων βασισμένη στην AI. Είτε δημιουργείτε μια ασφαλή πύλη εγγράφων, μια αυτοματοποιημένη διαδικασία συμμόρφωσης ή μια προσαρμοσμένη λύση καταγραφής ελέγχου, η εξοικείωση με έναν προσαρμοσμένο διαχειριστή καθαρισμού σας δίνει πλήρη έλεγχο πάνω σε ό,τι θα καθαριστεί και πώς.
+In this tutorial you’ll learn **πώς να δημιουργήσετε ένα custom redaction handler java** that plugs directly into GroupDocs.Redaction. We’ll explain why you might need one, when it’s the right choice, and step‑by‑step how to extend the built‑in engine. Whether you’re building a secure document portal, an automated compliance pipeline, or a custom audit‑trail solution, mastering a custom redaction handler gives you total control over what gets redacted and how.
 
-## Γρήγορες Απαντήσεις
-- **Τι είναι ένας προσαρμοσμένος διαχειριστής καθαρισμού Java;** Μια κλάση plug‑in που παρεμβάλλεται σε αιτήματα καθαρισμού, εφαρμόζει προσαρμοσμένη λογική και επιστρέφει το τελικό αποτέλεσμα του καθαρισμού.  
-- **Γιατί να το χρησιμοποιήσετε;** Για να διαχειριστείτε ιδιόκτητα πρότυπα δεδομένων, να καλέσετε εξωτερικές υπηρεσίες ή να εφαρμόσετε μοντέλα AI που η έτοιμη μηχανή δεν υποστηρίζει.  
-- **Χρειάζομαι άδεια;** Ναι—το GroupDocs.Redaction απαιτεί έγκυρη άδεια για χρήση σε παραγωγή.  
+## Σύντομες απαντήσεις
+- **Τι είναι ένα custom redaction handler java;** Μια κλάση plug‑in που παρεμβάλλεται σε αιτήματα διαγραφής, εφαρμόζει τη δική σας λογική και επιστρέφει το τελικό αποτέλεσμα.  
+- **Γιατί να το χρησιμοποιήσετε;** Για να διαχειρίζεστε ιδιόκτητα πρότυπα δεδομένων, να καλείτε εξωτερικές υπηρεσίες ή να εκτελείτε μοντέλα AI που δεν υποστηρίζονται από την προεπιλεγμένη μηχανή.  
+- **Χρειάζομαι άδεια;** Ναι—GroupDocs.Redaction απαιτεί έγκυρη άδεια για χρήση σε παραγωγή.  
 - **Ποια έκδοση της Java υποστηρίζεται;** Java 8 ή νεότερη (συνιστάται Java 11).  
-- **Μπορώ να το συνδυάσω με callbacks;** Απόλυτα—τα callbacks μπορούν να ενεργοποιούν τον προσαρμοσμένο διαχειριστή για κάθε στοιχείο του εγγράφου.
+- **Μπορώ να το συνδυάσω με callbacks;** Απολύτως—τα callbacks μπορούν να ενεργοποιούν τον custom handler για κάθε στοιχείο του εγγράφου.
 
-## Τι είναι ένας προσαρμοσμένος διαχειριστής καθαρισμού Java;
-Ένας **προσαρμοσμένος διαχειριστής καθαρισμού Java** είναι μια υλοποίηση που ορίζεται από τον χρήστη του interface `RedactionHandler` (ή της αφηρημένης βάσης του) που λαμβάνει κάθε αίτημα καθαρισμού, σας επιτρέπει να εξετάσετε το περιεχόμενο και αποφασίζει αν θα εγκρίνει, τροποποιήσει ή απορρίψει τον καθαρισμό. Αυτό το hook είναι ιδανικό για σενάρια όπως:
-- Καθαρισμός δεδομένων που ταιριάζουν με ένα ιδιόκτητο πρότυπο regex που δεν καλύπτεται από τις προεπιλεγμένες πολιτικές.  
-- Ερώτημα σε μια εμπιστευτική βάση δεδομένων για να επαληθευτεί αν ένας όρος πρέπει να κρυφτεί.  
+## Τι είναι ένα custom redaction handler java;
+Ένα **custom redaction handler java** είναι μια υλοποίηση ορισμένη από τον χρήστη του interface `RedactionHandler` (ή της αφηρημένης βάσης του) που λαμβάνει κάθε αίτημα διαγραφής, σας επιτρέπει να εξετάσετε το περιεχόμενο και αποφασίζει αν θα εγκρίνει, τροποποιήσει ή απορρίψει τη διαγραφή. Αυτό το hook είναι ιδανικό για σενάρια όπως:
+
+- Διαγραφή δεδομένων που ταιριάζουν με ιδιόκτητο πρότυπο regex που δεν καλύπτεται από τις προεπιλεγμένες πολιτικές.  
+- Ερώτηση σε εμπιστευτική βάση δεδομένων για να επαληθευτεί αν ένας όρος πρέπει να κρυφτεί.  
 - Εκτέλεση μοντέλου μηχανικής μάθησης που ταξινομεί ευαίσθητες πληροφορίες σε πραγματικό χρόνο.  
 
-## Γιατί να χρησιμοποιήσετε έναν προσαρμοσμένο διαχειριστή με το GroupDocs.Redaction;
-- **Ευελιξία συμμόρφωσης:** Να ανταποκριθείτε σε κανονισμούς ειδικών κλάδων (HIPAA, GDPR, PCI‑DSS) που απαιτούν προσαρμοσμένους κανόνες απόκρυψης.  
-- **Ενσωμάτωση επιχειρηματικής λογικής:** Συνδέστε τις αποφάσεις καθαρισμού με τις υπάρχουσες υπηρεσίες αξιολόγησης κινδύνου.  
-- **Βελτιστοποίηση απόδοσης:** Παραλείψτε περιττές σάρωσες με συντόμευση της διαδικασίας καθαρισμού.  
-- **Βοήθεια AI:** Ενσωματώστε μοντέλα φυσικής γλώσσας για αυτόματη ανίχνευση PII, PHI ή εμπιστευτικών ρήσεων.  
+## Γιατί να χρησιμοποιήσετε ένα custom redaction handler java με το GroupDocs.Redaction;
+Ένας προσαρμοσμένος διαχειριστής σας επιτρέπει να προσαρμόσετε τη συμπεριφορά της διαγραφής ώστε να πληροί αυστηρές κανονιστικές απαιτήσεις, να ενσωματώσετε ιδιόκτητη επιχειρηματική λογική και να βελτιώσετε την απόδοση αποφεύγοντας περιττές σάρωση. Ενσωματώνοντας τη δική σας μηχανή λήψης αποφάσεων, μπορείτε να επιβάλλετε κανόνες masking ειδικούς για τη βιομηχανία, να καλείτε εξωτερικές υπηρεσίες αξιολόγησης κινδύνου και ακόμη να ενσωματώσετε μοντέλα AI που εντοπίζουν λεπτές PII προτύπες πέρα από τις ενσωματωμένες δυνατότητες.
 
 ## Προαπαιτούμενα
 - GroupDocs.Redaction για Java (τελευταία σταθερή έκδοση).  
 - Περιβάλλον ανάπτυξης Java 8 ή νεότερο (IDE, Maven/Gradle).  
 - Έγκυρη άδεια GroupDocs.Redaction (προσωρινές άδειες διατίθενται για δοκιμές).  
 
-## Οδηγός Βήμα‑Βήμα
+## Πώς να καταχωρίσετε ένα custom redaction handler java με τη μηχανή
+`RedactionEngine` είναι η βασική κλάση που εκτελεί τις λειτουργίες διαγραφής εγγράφων. `RedactionOptions` περιέχει ρυθμίσεις διαμόρφωσης, συμπεριλαμβανομένου του παραδείγματος του custom handler, που ελέγχουν πώς η μηχανή επεξεργάζεται ένα έγγραφο. Για να καταχωρίσετε τον διαχειριστή σας, δημιουργήστε ένα αντικείμενο `RedactionEngine`, διαμορφώστε το `RedactionOptions` με τον διαχειριστή σας και, στη συνέχεια, καλέστε τη μέθοδο `redact`. Αυτή η προσέγγιση εξασφαλίζει ότι η μηχανή καλεί τη δική σας προσαρμοσμένη λογική για κάθε αντίστοιχο στοιχείο, δίνοντάς σας πλήρη έλεγχο της ροής εργασίας διαγραφής.
 
-### Βήμα 1: Ρύθμιση της εξάρτησης Maven/Gradle
-Προσθέστε το artifact GroupDocs.Redaction στο έργο σας. Αυτό το βήμα παραμένει αμετάβλητο από τη βασική ρύθμιση, αλλά είναι απαραίτητο πριν καταχωρίσετε έναν προσαρμοσμένο διαχειριστή.
+Φορτώστε το `RedactionEngine` και συνδέστε τον διαχειριστή σας μέσω του `RedactionOptions`. Η μηχανή θα καλέσει τη λογική σας για κάθε αντίστοιχο στοιχείο.
 
-### Βήμα 2: Δημιουργία της κλάσης προσαρμοσμένου διαχειριστή
-Υλοποιήστε το interface `RedactionHandler` (ή επεκτείνετε το `BaseRedactionHandler`). Μέσα στη μέθοδο `handle`, μπορείτε να εξετάσετε το αντικείμενο `RedactionInfo`, να καλέσετε εξωτερικές υπηρεσίες ή να εφαρμόσετε μοντέλα AI.  
-*Διατηρήστε τον αρχικό κώδικα αμετάβλητο· το παρακάτω παράδειγμα παρέχεται μόνο για πλαίσιο.*
+Όταν δημιουργείτε την μηχανή, περάστε ένα παράδειγμα του διαχειριστή σας στο αντικείμενο `RedactionOptions`, στη συνέχεια καλέστε `engine.redact(document, policy)`. Η μηχανή αυτόματα δρομολογεί κάθε αίτημα διαγραφής στη μέθοδο `handle`.
 
-### Βήμα 3: Καταχώρηση του διαχειριστή στη μηχανή Redaction
-Όταν δημιουργείτε ένα αντικείμενο `RedactionEngine`, περάστε την παρουσία του διαχειριστή σας μέσω του αντικειμένου `RedactionOptions`. Αυτό ενημερώνει το GroupDocs.Redaction να εκτελεί τη λογική σας κατά την επεξεργασία.
+## Πώς να δημιουργήσετε την κλάση του custom handler
+`RedactionHandler` είναι το συμβόλαιο που σας επιτρέπει να ενσωματώσετε προσαρμοσμένη λογική λήψης αποφάσεων στη γραμμή επεξεργασίας του GroupDocs.Redaction. `RedactionInfo` παρέχει λεπτομέρειες για κάθε αίτημα διαγραφής, όπως το κείμενο, η θέση και ο τύπος του στοιχείου. Υλοποιήστε τη μέθοδο `handle(RedactionInfo info)` για να εξετάσετε το payload, να καλέσετε εξωτερικές υπηρεσίες και να αποφασίσετε αν θα εγκρίνετε, τροποποιήσετε ή απορρίψετε τη διαγραφή. Μέσα σε αυτή τη μέθοδο μπορείτε:
 
-### Βήμα 4: Εφαρμογή πολιτικής καθαρισμού και εκτέλεση της μηχανής
-Δημιουργήστε ένα `RedactionPolicy` που αναφέρεται στον προσαρμοσμένο διαχειριστή, στη συνέχεια καλέστε `engine.redact(document, policy)`. Η μηχανή θα εκτελεί τώρα τη προσαρμοσμένη λογική σας για κάθε στοιχείο που ταιριάζει.
+1. Εξετάστε το payload του `RedactionInfo` (κείμενο, θέση, τύπος στοιχείου).  
+2. Καλέστε εξωτερικές υπηρεσίες—όπως μια ασφαλή βάση δεδομένων ή ένα RESTful AI endpoint—για να αποφασίσετε αν το περιεχόμενο πρέπει να διαγραφεί.  
+3. Τροποποιήστε το `RedactionInfo` (π.χ., αλλάξτε το κείμενο αντικατάστασης) ή απορρίψτε πλήρως το αίτημα.  
 
-### Βήμα 5: Δοκιμή και επαλήθευση
-Εκτελέστε μονάδες δοκιμών που τροφοδοτούν έγγραφα με τυπικά και προσαρμοσμένα ευαίσθητα δεδομένα. Επαληθεύστε ότι το αποτέλεσμα ταιριάζει με τις προσδοκίες και ότι ο διαχειριστής καταγράφει τα κατάλληλα στοιχεία (χρησιμοποιήστε το tutorial προχωρημένου logging που συνδέεται παρακάτω για πιο λεπτομερή κατανόηση).
+## Πώς να εφαρμόσετε μια πολιτική διαγραφής που χρησιμοποιεί τον custom handler
+`RedactionPolicy` ορίζει τα πρότυπα και τους κανόνες που η μηχανή χρησιμοποιεί για να εντοπίσει ευαίσθητο περιεχόμενο. Συνδέοντας ένα `RedactionPolicy` με τον custom handler σας, εξασφαλίζετε ότι κάθε ανιχνευμένο πρότυπο επεξεργάζεται μέσω της δικής σας λογικής πριν εφαρμοστεί η τελική διαγραφή. Δημιουργήστε ένα αντικείμενο `RedactionPolicy`, προσθέστε τα πρότυπα που θέλετε να σαρώσετε και συνδέστε την πολιτική με τον διαχειριστή σας μέσω του `RedactionOptions`. Στη συνέχεια, καλέστε `engine.redact(document, policy)` για να εκτελέσετε τη συνδυασμένη ροή εργασίας.
 
-## Συχνά Προβλήματα και Λύσεις
-- **Ο διαχειριστής δεν ενεργοποιείται:** Βεβαιωθείτε ότι ο διαχειριστής είναι σωστά συνδεδεμένος στο `RedactionOptions` και ότι η πολιτική τον αναφέρει.  
-- **Σ bottleneck απόδοσης:** Εάν η κλήση στην εξωτερική υπηρεσία είναι αργή, σκεφτείτε την προσωρινή αποθήκευση αποτελεσμάτων ή την ομαδοποίηση αιτήσεων.  
-- **Σφάλματα ενσωμάτωσης μοντέλου AI:** Επαληθεύστε ότι η μορφή εισόδου του μοντέλου ταιριάζει με το κείμενο που εξάγει το GroupDocs.Redaction.  
+## Πώς να δοκιμάσετε και να επαληθεύσετε τον custom handler
+Οι δοκιμές πρέπει να καλύπτουν τόσο τη λειτουργική ορθότητα όσο και την επίδραση στην απόδοση. Γράψτε μονάδες δοκιμών που φορτώνουν έγγραφα με τυπικά και custom‑sensitive δεδομένα, στη συνέχεια ελέγξτε ότι ο διαχειριστής διαγράφει ακριβώς τα στοιχεία που αναμένετε ενώ αφήνει το υπόλοιπο περιεχόμενο αμετάβλητο. Συμπεριλάβετε ελέγχους για την έξοδο καταγραφής και για τη συμπεριφορά fallback όταν οι εξωτερικές υπηρεσίες δεν είναι διαθέσιμες, διασφαλίζοντας ότι ο διαχειριστής συμπεριφέρεται προβλέψιμα σε όλες τις συνθήκες.
 
-## Διαθέσιμα Tutorials
+## Συχνά προβλήματα και λύσεις
+- **Ο διαχειριστής δεν καλείται:** Επαληθεύστε ότι το παράδειγμα του διαχειριστή είναι συνδεδεμένο στο `RedactionOptions` και ότι η πολιτική το αναφέρει.  
+- **Σημείο συμφόρησης στην απόδοση:** Εάν οι κλήσεις σε εξωτερικές υπηρεσίες είναι αργές, αποθηκεύστε τα αποτελέσματα τοπικά ή ομαδοποιήστε τα αιτήματα για να μειώσετε την καθυστέρηση.  
+- **Σφάλματα ενσωμάτωσης μοντέλου AI:** Διασφαλίστε ότι η μορφή εισόδου του μοντέλου ταιριάζει με το απλό κείμενο που εξάγει το GroupDocs.Redaction· ασυμφωνίες κωδικοποίησης προκαλούν ψευδείς αρνητικά.  
 
-### [Εφαρμογή Προχωρημένου Logging σε Java με το GroupDocs Redaction: Ένας Πλήρης Οδηγός](./advanced-logging-groupdocs-redaction-java/)
-Αποκτήστε προχωρημένες τεχνικές logging χρησιμοποιώντας το GroupDocs Redaction για Java. Μάθετε να υλοποιείτε προσαρμοσμένους καταγραφείς, να παρακολουθείτε αποτελεσματικά τις διαδικασίες καθαρισμού εγγράφων και να βελτιστοποιείτε τη διαδικασία εντοπισμού σφαλμάτων.
+## Διαθέσιμα tutorials
+- [Υλοποίηση προχωρημένης καταγραφής σε Java με το GroupDocs Redaction: ολοκληρωμένος οδηγός](/redaction/java/advanced-redaction/advanced-logging-groupdocs-redaction-java/)
+- [Οδηγός διαγραφής Java: ασφαλής επεξεργασία εγγράφων με το GroupDocs](/redaction/java/advanced-redaction/java-redaction-groupdocs-guide/)
+- [Απόλυτη διαγραφή εγγράφων σε Java χρησιμοποιώντας το GroupDocs.Redaction: ολοκληρωμένος οδηγός για τη συμμόρφωση με την ιδιωτικότητα](/redaction/java/advanced-redaction/master-document-redaction-java-groupdocs-redaction/)
+- [Απόλυτη διαγραφή εγγράφων σε Java με το GroupDocs.Redaction: ολοκληρωμένος οδηγός](/redaction/java/advanced-redaction/master-document-redaction-groupdocs-redaction-java/)
+- [Απόλυτες τεχνικές διαγραφής με το GroupDocs.Redaction για Java: Οδηγός βήμα‑βήμα](/redaction/java/advanced-redaction/master-redaction-groupdocs-java-guide/)
+- [Κατάκτηση της ασφάλειας εγγράφων σε Java: ακριβής φράση διαγραφής και προχωρημένη rasterization με το GroupDocs.Redaction](/redaction/java/advanced-redaction/groupdocs-redaction-java-document-security/)
 
-### [Οδηγός Καθάρισματος Java: Ασφαλής Επεξεργασία Εγγράφων με το GroupDocs](./java-redaction-groupdocs-guide/)
-Κατακτήστε το ασφαλές καθάρισμα εγγράφων σε Java χρησιμοποιώντας το GroupDocs.Redaction. Μάθετε τη ρύθμιση, την εφαρμογή πολιτικών και τις τεχνικές επεξεργασίας για τη διαχείριση ευαίσθητων δεδομένων.
-
-### [Απόλυτος Οδηγός Καθάρισματος Εγγράφων σε Java με το GroupDocs.Redaction: Πλήρης Οδηγός για Συμμόρφωση Προστασίας Προσωπικών Δεδομένων](./master-document-redaction-java-groupdocs-redaction/)
-Μάθετε να αφαιρείτε ευαίσθητες πληροφορίες από έγγραφα χρησιμοποιώντας το GroupDocs.Redaction για Java. Προστατέψτε τα δεδομένα και συμμορφωθείτε με τους νόμους προστασίας προσωπικών δεδομένων με ευκολία.
-
-### [Απόλυτος Οδηγός Καθάρισματος Εγγράφων σε Java με το GroupDocs.Redaction](./master-document-redaction-groupdocs-redaction-java/)
-Μάθετε πώς να αφαιρείτε ευαίσθητες πληροφορίες από έγγραφα χρησιμοποιώντας το GroupDocs.Redaction για Java. Βελτιώστε την ασφάλεια και την ιδιωτικότητα των εγγράφων αποτελεσματικά.
-
-### [Απόλυτες Τεχνικές Καθάρισματος με το GroupDocs.Redaction για Java: Οδηγός Βήμα‑Βήμα](./master-redaction-groupdocs-java-guide/)
-Μάθετε να αφαιρείτε ευαίσθητα δεδομένα από έγγραφα χρησιμοποιώντας το GroupDocs.Redaction για Java. Αυτός ο οδηγός καλύπτει τη διαμόρφωση, τη διαχείριση πολιτικών και τις πρακτικές εφαρμογές.
-
-### [Απόλυτη Ασφάλεια Εγγράφων σε Java: Ακριβής Φράση Καθάρισμα και Προχωρημένη Ραστοποίηση με το GroupDocs.Redaction](./groupdocs-redaction-java-document-security/)
-Μάθετε πώς να ασφαλίζετε ευαίσθητες πληροφορίες σε έγγραφα χρησιμοποιώντας το GroupDocs.Redaction για Java. Εφαρμόστε ακριβές καθάρισμα φράσεων και προχωρημένες επιλογές ραστοποίησης άψογα.
-
-## Πρόσθετοι Πόροι
-
+## Πρόσθετοι πόροι
 - [Τεκμηρίωση GroupDocs.Redaction για Java](https://docs.groupdocs.com/redaction/java/)
 - [Αναφορά API GroupDocs.Redaction για Java](https://reference.groupdocs.com/redaction/java/)
 - [Λήψη GroupDocs.Redaction για Java](https://releases.groupdocs.com/redaction/java/)
 - [Φόρουμ GroupDocs.Redaction](https://forum.groupdocs.com/c/redaction/33)
-- [Δωρεάν Υποστήριξη](https://forum.groupdocs.com/)
-- [Προσωρινή Άδεια](https://purchase.groupdocs.com/temporary-license/)
+- [Δωρεάν υποστήριξη](https://forum.groupdocs.com/)
+- [Προσωρινή άδεια](https://purchase.groupdocs.com/temporary-license/)
 
-## ΣΤΟΧΕΣ ΛΕΞΕΙΣ-ΚΛΕΙΔΙΑ:
+## Συχνές ερωτήσεις
+**Ε: Μπορώ να χρησιμοποιήσω ένα custom redaction handler java σε μια υπηρεσία web;**  
+Α: Ναι—απλώς δημιουργήστε το παράδειγμα του διαχειριστή στη διαδικασία εκκίνησης της υπηρεσίας σας και καταχωρίστε το στη μηχανή· ο διαχειριστής θα κληθεί για κάθε αίτημα που επεξεργάζεται η υπηρεσία.
 
-**Κύρια Λέξη‑Κλειδί (ΥΨΙΛΟΤΕΡΑ ΠΡΟΤΙΜΑ):**
-custom redaction handler java
+**Ε: Υποστηρίζει ο διαχειριστής ασύγχρονες κλήσεις σε εξωτερικά API;**  
+Α: Η μέθοδος `handle` είναι συγχρονική, αλλά μπορείτε να εκτελέσετε ασύγχρονη εργασία μέσα σε αυτήν και να μπλοκάρετε μέχρι να είναι έτοιμο το αποτέλεσμα, ή να προ‑συμπληρώσετε μια cache για να αποφύγετε το μπλοκάρισμα κατά τη διαγραφή.
 
-**Δευτερεύουσες Λέξεις‑Κλειδιά (ΥΠΟΣΤΗΡΙΖΟΜΕΝΕΣ):**
-Δεν καθορίζεται
+**Ε: Πώς μπορώ να καταγράψω τις αποφάσεις που λαμβάνονται από τον custom handler;**  
+Α: Χρησιμοποιήστε το τυπικό πλαίσιο καταγραφής της Java (SLF4J, Log4j) μέσα στη μέθοδο `handle`; ο οδηγός προχωρημένης καταγραφής δείχνει πώς να δρομολογήσετε αυτές τις καταγραφές στον εσωτερικό logger του GroupDocs.
 
-**Στρατηγική Ενσωμάτωσης Λέξεων‑Κλειδιών:**
-1. Κύρια λέξη‑κλειδί: Χρησιμοποιήστε 3‑5 φορές (τίτλος, meta, πρώτη παράγραφος, H2 επικεφαλίδα, σώμα).  
-2. Δευτερεύουσες λέξεις‑κλειδιά: Χρησιμοποιήστε 1‑2 φορές η κάθε μία (επικεφαλίδες, κείμενο σώματος).  
-3. Όλες οι λέξεις‑κλειδιά πρέπει να ενσωματώνονται φυσικά – προτεραιότητα στην αναγνωσιμότητα αντί για τον αριθμό των εμφανίσεων.  
-4. Εάν μια λέξη‑κλειδί δεν ταιριάζει φυσικά, χρησιμοποιήστε μια σημασιολογική παραλλαγή ή παραλείψτε την.  
+**Ε: Τι συμβαίνει αν η εξωτερική υπηρεσία δεν είναι διαθέσιμη;**  
+Α: Εφαρμόστε μια στρατηγική fallback στον διαχειριστή—π.χ., προεπιλογή σε “redact” ή “skip” ανάλογα με την ανοχή κινδύνου—για να διασφαλίσετε ότι η μηχανή συνεχίζει την επεξεργασία χωρίς να καταρρεύσει.
 
-**Τελευταία Ενημέρωση:** 2026-04-10  
-**Δοκιμάστηκε Με:** GroupDocs.Redaction 7.0 (τελευταία έκδοση)  
+**Ε: Υπάρχει όριο μεγέθους για έγγραφα που επεξεργάζονται με έναν custom handler;**  
+Α: Το GroupDocs.Redaction μπορεί να επεξεργαστεί αρχεία πολλαπλών εκατοντάδων σελίδων χωρίς να φορτώνει ολόκληρο το έγγραφο στη μνήμη· ο custom handler προσθέτει μόνο ελάχιστο φορτίο εάν διατηρείτε τις εξωτερικές κλήσεις ελαφριές.
+
+## Συμπέρασμα
+Ένα **custom redaction handler java** σας παρέχει λεπτομερή έλεγχο της λογικής διαγραφής, σας επιτρέπει να ενσωματώσετε εξωτερικές υπηρεσίες αξιολόγησης κινδύνου και ενεργοποιεί την ανίχνευση ευαίσθητων δεδομένων με τεχνητή νοημοσύνη. Ακολουθώντας τα παραπάνω βήματα—ρυθμίζοντας τις εξαρτήσεις, υλοποιώντας τον διαχειριστή, καταχωρίζοντάς τον στο `RedactionOptions` και δοκιμάζοντάς τον διεξοδικά—μπορείτε να επεκτείνετε το GroupDocs.Redaction ώστε να καλύπτει οποιαδήποτε απαίτηση συμμόρφωσης ή επιχειρηματική ανάγκη.
+
+---
+
+**Τελευταία ενημέρωση:** 2026-11-23  
+**Δοκιμάστηκε με:** GroupDocs.Redaction 7.0 (latest)  
 **Συγγραφέας:** GroupDocs
+
+```java
+package com.example.redaction;
+
+import com.groupdocs.redaction.redaction.RedactionHandler;
+import com.groupdocs.redaction.redaction.RedactionInfo;
+import com.groupdocs.redaction.redaction.RedactionResult;
+
+public class CustomRedactionHandler implements RedactionHandler {
+    @Override
+    public RedactionResult handle(RedactionInfo info) {
+        // Example: block redaction of any term containing "CONFIDENTIAL"
+        if (info.getText().contains("CONFIDENTIAL")) {
+            return RedactionResult.reject("Proprietary term detected");
+        }
+        // Otherwise, approve the redaction
+        return RedactionResult.approve();
+    }
+}
+```
+
+## Σχετικά tutorials
+- [Υλοποίηση προσαρμοσμένων χειριστών μορφής Java Groupdocs Redaction](/redaction/java/format-handling/implement-custom-format-handlers-java-groupdocs-redaction/)
+- [Προχωρημένη καταγραφή Groupdocs Redaction Java](/redaction/java/advanced-redaction/advanced-logging-groupdocs-redaction-java/)
+- [Ασφάλεια εγγράφων Groupdocs Redaction Java](/redaction/java/advanced-redaction/groupdocs-redaction-java-document-security/)

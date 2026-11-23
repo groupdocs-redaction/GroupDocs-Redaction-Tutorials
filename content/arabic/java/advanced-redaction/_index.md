@@ -1,79 +1,130 @@
 ---
-date: 2026-04-10
-description: تعلم كيفية تنفيذ معالج تعديل مخصص بلغة Java لـ GroupDocs.Redaction، وتطبيق
-  سياسات التعديل، والردود الراجعة، والتعديل المدعوم بالذكاء الاصطناعي في تطبيقات Java
+date: 2026-11-23
+description: تعلم كيفية تنفيذ custom redaction handler java لـ GroupDocs.Redaction،
+  وتطبيق redaction policies، و callbacks، و AI‑assisted redaction في تطبيقات Java
   الخاصة بك.
 keywords:
 - custom redaction handler java
 - groupdocs redaction java
 - redaction policies java
-title: معالج التعتيم المخصص بلغة جافا لـ GroupDocs.Redaction
+lastmod: 2026-11-23
+og_description: نفّذ custom redaction handler java لـ GroupDocs.Redaction لتلبية complex
+  compliance rules، ودمج AI، والتحكم في redaction logic في Java.
+og_image_alt: Guide showing how to create a custom redaction handler java with GroupDocs.Redaction
+og_title: تنفيذ custom redaction handler java لـ GroupDocs.Redaction
+schemas:
+- author: GroupDocs
+  dateModified: '2026-11-23'
+  description: Learn how to implement a custom redaction handler java for GroupDocs.Redaction,
+    apply redaction policies, callbacks, and AI‑assisted redaction in your Java applications.
+  headline: Implement a custom redaction handler java for GroupDocs.Redaction
+  type: TechArticle
+- description: Learn how to implement a custom redaction handler java for GroupDocs.Redaction,
+    apply redaction policies, callbacks, and AI‑assisted redaction in your Java applications.
+  name: Implement a custom redaction handler java for GroupDocs.Redaction
+  steps:
+  - name: Examine the `RedactionInfo` payload (text, location, element type).
+    text: Examine the `RedactionInfo` payload (text, location, element type).
+  - name: Call external services—such as a secure database or a RESTful AI endpoint—to
+      decide if the content should be redacted.
+    text: Call external services—such as a secure database or a RESTful AI endpoint—to
+      decide if the content should be redacted.
+  - name: Modify the `RedactionInfo` (e.g., change the replacement text) or reject
+      the request entirely.
+    text: Modify the `RedactionInfo` (e.g., change the replacement text) or reject
+      the request entirely.
+  type: HowTo
+- questions:
+  - answer: Yes—simply instantiate the handler in your service’s startup routine and
+      register it with the engine; the handler will be invoked for every request processed
+      by the service.
+    question: Can I use a custom redaction handler java in a web service?
+  - answer: The `handle` method is synchronous, but you can perform asynchronous work
+      inside it and block until the result is ready, or pre‑populate a cache to avoid
+      blocking during redaction.
+    question: Does the handler support asynchronous calls to external APIs?
+  - answer: Use the standard Java logging framework (SLF4J, Log4j) inside the `handle`
+      method; the advanced logging tutorial shows how to route those logs to GroupDocs’
+      internal logger.
+    question: How do I log decisions made by the custom handler?
+  - answer: Implement a fallback strategy in the handler—e.g., default to “redact”
+      or “skip” based on risk tolerance—to ensure the engine continues processing
+      without crashing.
+    question: What happens if the external service is unavailable?
+  - answer: GroupDocs.Redaction can process multi‑hundred‑page files without loading
+      the entire document into memory; the custom handler adds only minimal overhead
+      if you keep external calls lightweight.
+    question: Is there a size limit for documents processed with a custom handler?
+  type: FAQPage
+tags:
+- custom redaction handler
+- groupdocs redaction
+- java document processing
+- redaction policies
+title: تنفيذ custom redaction handler java لـ GroupDocs.Redaction
 type: docs
 url: /ar/java/advanced-redaction/
 weight: 9
 ---
 
-# مُعالج إخفاء مخصص Java لـ GroupDocs.Redaction
+# تنفيذ معالج إخفاء مخصص لجافا في GroupDocs.Redaction
 
-في هذا الدليل ستكتشف **how to create a custom redaction handler Java** التي تتصل مباشرةً بـ GroupDocs.Redaction. سنستعرض لماذا ومتى وكيفية توسيع محرك الإخفاء المدمج حتى تتمكن من تلبية متطلبات الامتثال المعقدة، والدمج مع مصادر البيانات الخارجية، وإضافة منطق اتخاذ القرار المدفوع بالذكاء الاصطناعي. سواءً كنت تبني بوابة مستندات آمنة، أو خط أنابيب امتثال آلي، أو حل تتبع تدقيق مخصص، فإن إتقان مُعالج الإخفاء المخصص يمنحك التحكم الكامل فيما يتم إخفاؤه وكيفية ذلك.
+في هذا الدرس ستتعلم **كيفية إنشاء معالج إخفاء مخصص لجافا** يتكامل مباشرة مع GroupDocs.Redaction. سنشرح لماذا قد تحتاج إليه، ومتى يكون الاختيار المناسب، وخطوة بخطوة كيفية توسيع المحرك المدمج. سواءً كنت تبني بوابة مستندات آمنة، أو خط أنابيب امتثال آلي، أو حل تتبع تدقيق مخصص، فإن إتقان معالج إخفاء مخصص يمنحك التحكم الكامل فيما يتم إخفاؤه وكيفية ذلك.
 
 ## إجابات سريعة
-- **What is a custom redaction handler Java?** فئة مكوّن إضافي تعترض طلبات الإخفاء، تطبق منطقًا مخصصًا، وتعيد النتيجة النهائية للإخفاء.  
-- **Why use it?** للتعامل مع أنماط البيانات المملوكة، استدعاء الخدمات الخارجية، أو تطبيق نماذج الذكاء الاصطناعي التي لا يدعمها المحرك الجاهز.  
-- **Do I need a license?** نعم—GroupDocs.Redaction يتطلب ترخيصًا صالحًا للاستخدام في الإنتاج.  
-- **Which Java version is supported?** Java 8 أو أعلى (يوصى بـ Java 11).  
-- **Can I combine it with callbacks?** بالطبع—يمكن للنداءات العكسية (callbacks) تشغيل المُعالج المخصص لكل عنصر من المستند.
+- **ما هو معالج إخفاء مخصص لجافا؟** فئة مكوّن إضافي تعترض طلبات الإخفاء، تطبق المنطق الخاص بك، وتعيد النتيجة النهائية.  
+- **لماذا تستخدمه؟** للتعامل مع أنماط البيانات المملوكة، أو استدعاء خدمات خارجية، أو تشغيل نماذج AI التي لا يدعمها المحرك الافتراضي.  
+- **هل أحتاج إلى ترخيص؟** نعم—GroupDocs.Redaction يتطلب ترخيصًا صالحًا للاستخدام في الإنتاج.  
+- **ما إصدار Java المدعوم؟** Java 8 أو أعلى (يوصى بـ Java 11).  
+- **هل يمكن دمجه مع callbacks؟** بالطبع—يمكن للـ callbacks تشغيل المعالج المخصص لكل عنصر من عناصر المستند.
 
-## ما هو custom redaction handler Java؟
-إن **custom redaction handler Java** هو تنفيذ معرف من قبل المستخدم لواجهة `RedactionHandler` (أو القاعدة المجردة لها) التي تستقبل كل طلب إخفاء، وتسمح لك بفحص المحتوى، وتقرر ما إذا كان سيتم الموافقة على الإخفاء أو تعديله أو رفضه. هذه النقطة المثالية للسيناريوهات مثل:
-- إخفاء البيانات التي تطابق نمط regex مملوك غير مغطى بالسياسات الافتراضية.  
-- استعلام قاعدة بيانات سرية للتحقق مما إذا كان يجب إخفاء مصطلح معين.  
-- تشغيل نموذج تعلم آلي يصنف المعلومات الحساسة في الوقت الفعلي.  
+## ما هو معالج إخفاء مخصص لجافا؟
+معالج إخفاء مخصص لجافا هو تنفيذ معرف من قبل المستخدم لواجهة `RedactionHandler` (أو القاعدة المجردة لها) التي تستقبل كل طلب إخفاء، وتتيح لك فحص المحتوى، وتقرر ما إذا كنت ستوافق، أو تعدل، أو ترفض الإخفاء. هذه النقطة مناسبة للسيناريوهات مثل:
+- إخفاء البيانات التي تطابق نمط regex مملوك غير مشمول في السياسات الافتراضية.  
+- استعلام قاعدة بيانات سرية للتحقق مما إذا كان يجب إخفاء مصطلح ما.  
+- تشغيل نموذج تعلم آلي يصنف المعلومات الحساسة في الوقت الحقيقي.  
 
-## لماذا استخدام مُعالج مخصص مع GroupDocs.Redaction؟
-- **Compliance flexibility:** تلبية اللوائح الخاصة بالصناعة (HIPAA، GDPR، PCI‑DSS) التي تتطلب قواعد إخفاء مخصصة.  
-- **Business logic integration:** ربط قرارات الإخفاء بخدمات تقييم المخاطر الحالية لديك.  
-- **Performance tuning:** تخطي الفحص غير الضروري عن طريق اختصار مسار الإخفاء.  
-- **AI assistance:** دمج نماذج اللغة الطبيعية لاكتشاف معلومات تعريفية شخصية (PII)، معلومات صحية شخصية (PHI)، أو بنود سرية تلقائيًا.  
+## لماذا تستخدم معالج إخفاء مخصص لجافا مع GroupDocs.Redaction؟
+يسمح لك المعالج المخصص بتخصيص سلوك الإخفاء لتلبية المتطلبات التنظيمية الصارمة، ودمج منطق الأعمال المملوك، وتحسين الأداء بتجنب الفحص غير الضروري. من خلال حقن محرك القرار الخاص بك، يمكنك فرض قواعد إخفاء خاصة بالصناعة، واستدعاء خدمات تقييم المخاطر الخارجية، وحتى دمج نماذج AI التي تكشف عن أنماط PII الدقيقة التي تتجاوز قدرات المحرك المدمج.
 
 ## المتطلبات المسبقة
-- GroupDocs.Redaction for Java (أحدث إصدار ثابت).  
+- GroupDocs.Redaction for Java (الإصدار المستقر الأخير).  
 - بيئة تطوير Java 8 أو أحدث (IDE، Maven/Gradle).  
 - ترخيص صالح لـ GroupDocs.Redaction (تتوفر تراخيص مؤقتة للاختبار).  
 
-## دليل خطوة بخطوة
+## كيفية تسجيل معالج إخفاء مخصص لجافا مع المحرك
+`RedactionEngine` هو الفئة الأساسية التي تقوم بعمليات إخفاء المستندات. `RedactionOptions` يحمل إعدادات التكوين، بما في ذلك نسخة المعالج المخصص، التي تتحكم في كيفية معالجة المحرك للمستند. لتسجيل المعالج الخاص بك، أنشئ كائن `RedactionEngine`، واضبط `RedactionOptions` مع المعالج الخاص بك، ثم استدعِ طريقة `redact`. يضمن هذا النهج أن المحرك يستدعي المنطق المخصص الخاص بك لكل عنصر مطابق، مما يمنحك التحكم الكامل في سير عمل الإخفاء.
 
-### الخطوة 1: إعداد تبعية Maven/Gradle
-أضف قطعة GroupDocs.Redaction إلى مشروعك. هذه الخطوة لا تتغير عن الإعداد الأساسي، لكنها ضرورية قبل أن تتمكن من تسجيل مُعالج مخصص.
+حمّل `RedactionEngine` وأرفق معالجك عبر `RedactionOptions`. سيستدعي المحرك منطقك لكل عنصر مطابق.
 
-### الخطوة 2: إنشاء فئة المُعالج المخصص
-نفّذ واجهة `RedactionHandler` (أو امتد من `BaseRedactionHandler`). داخل طريقة `handle`، يمكنك فحص كائن `RedactionInfo`، استدعاء الخدمات الخارجية، أو تطبيق نماذج الذكاء الاصطناعي.  
-*احتفظ بالكود الأصلي دون تعديل؛ المثال أدناه مقدم للسياق فقط.*
+عند إنشاء كائن المحرك، مرّر نسخة من معالجك إلى كائن `RedactionOptions`، ثم استدعِ `engine.redact(document, policy)`. يقوم المحرك تلقائيًا بتوجيه كل طلب إخفاء إلى طريقة `handle` الخاصة بك.
 
-### الخطوة 3: تسجيل المُعالج مع محرك الإخفاء
-عند إنشاء كائن `RedactionEngine`، مرّر مثيل المُعالج الخاص بك عبر كائن `RedactionOptions`. هذا يخبر GroupDocs.Redaction بتنفيذ المنطق الخاص بك أثناء المعالجة.
+## كيفية إنشاء فئة المعالج المخصص
+`RedactionHandler` هو العقد الذي يتيح لك حقن منطق قرار مخصص في خط أنابيب معالجة GroupDocs.Redaction. `RedactionInfo` يوفر تفاصيل حول كل طلب إخفاء، مثل النص، الموقع، ونوع العنصر. نفّذ طريقة `handle(RedactionInfo info)` لفحص الحمولة، استدعاء الخدمات الخارجية، وتحديد ما إذا كنت ستوافق، أو تعدل، أو ترفض الإخفاء. داخل هذه الطريقة يمكنك:
+1. فحص حمولة `RedactionInfo` (النص، الموقع، نوع العنصر).  
+2. استدعاء خدمات خارجية—مثل قاعدة بيانات آمنة أو نقطة نهاية AI RESTful—لتحديد ما إذا كان يجب إخفاء المحتوى.  
+3. تعديل `RedactionInfo` (مثلاً، تغيير نص الاستبدال) أو رفض الطلب بالكامل.  
 
-### الخطوة 4: تطبيق سياسة إخفاء وتشغيل المحرك
-أنشئ `RedactionPolicy` تشير إلى المُعالج المخصص، ثم استدعِ `engine.redact(document, policy)`. سيقوم المحرك الآن بتنفيذ المنطق المخصص الخاص بك لكل عنصر مطابق.
+## كيفية تطبيق سياسة إخفاء تستخدم المعالج المخصص
+`RedactionPolicy` يحدد الأنماط والقواعد التي يستخدمها المحرك لتحديد المحتوى الحساس. من خلال ربط `RedactionPolicy` مع المعالج المخصص الخاص بك، تضمن أن كل نمط مكتشف يُعالج عبر منطقك المخصص قبل تطبيق الإخفاء النهائي. أنشئ كائن `RedactionPolicy`، أضف الأنماط التي تريد فحصها، واربط السياسة بمعالجك عبر `RedactionOptions`. ثم استدعِ `engine.redact(document, policy)` لتشغيل سير العمل المدمج.
 
-### الخطوة 5: الاختبار والتحقق
-شغّل اختبارات وحدة تغذي مستندات تحتوي على بيانات قياسية وحساسة مخصصة. تحقق من أن المخرجات تتطابق مع التوقعات وأن المُعالج يسجل التفاصيل المناسبة (استخدم دليل التسجيل المتقدم المرتبط أدناه للحصول على رؤية أعمق).
+## كيفية اختبار والتحقق من المعالج المخصص
+يجب أن يغطي الاختبار كلًا من صحة الوظيفة وتأثير الأداء. اكتب اختبارات وحدة تقوم بتحميل مستندات تحتوي على بيانات حساسة قياسية ومخصصة، ثم تحقق من أن المعالج يخفى بالضبط العناصر التي تتوقعها مع ترك المحتوى الآخر دون تغيير. تضمّن تأكيدات لإخراج السجلات وسلوك الاحتياط عندما تكون الخدمات الخارجية غير متاحة، لضمان سلوك المعالج بشكل متوقع تحت جميع الظروف.
 
 ## المشكلات الشائعة والحلول
-- **Handler not invoked:** تأكد من أن المُعالج مرفق بشكل صحيح بـ `RedactionOptions` وأن السياسة تشير إليه.  
-- **Performance bottleneck:** إذا كان استدعاء الخدمة الخارجية بطيئًا، فكر في تخزين النتائج مؤقتًا أو تجميع الطلبات.  
-- **AI model integration errors:** تحقق من أن تنسيق إدخال النموذج يتطابق مع النص المستخرج بواسطة GroupDocs.Redaction.  
+- **المعالج غير مُستدعى:** تحقق من أن نسخة المعالج مرفقة بـ `RedactionOptions` وأن السياسة تشير إليه.  
+- **عنق زجاجة في الأداء:** إذا كانت استدعاءات الخدمات الخارجية بطيئة، قم بتخزين النتائج مؤقتًا محليًا أو تجميع الطلبات لتقليل الكمون.  
+- **أخطاء دمج نموذج AI:** تأكد من أن تنسيق إدخال النموذج يتطابق مع النص العادي المستخرج بواسطة GroupDocs.Redaction؛ الاختلاف في الترميزات يسبب نتائج سلبية كاذبة.  
 
 ## الدروس المتاحة
+- [تنفيذ تسجيل متقدم في Java مع GroupDocs Redaction: دليل شامل](/redaction/java/advanced-redaction/advanced-logging-groupdocs-redaction-java/)
+- [دليل إخفاء Java: معالجة مستندات آمنة مع GroupDocs](/redaction/java/advanced-redaction/java-redaction-groupdocs-guide/)
+- [إتقان إخفاء المستندات في Java باستخدام GroupDocs.Redaction: دليل شامل للامتثال للخصوصية](/redaction/java/advanced-redaction/master-document-redaction-java-groupdocs-redaction/)
+- [إتقان إخفاء المستندات في Java مع GroupDocs.Redaction: دليل شامل](/redaction/java/advanced-redaction/master-document-redaction-groupdocs-redaction-java/)
+- [تقنيات الإخفاء المتقدمة مع GroupDocs.Redaction لـ Java: دليل خطوة بخطوة](/redaction/java/advanced-redaction/master-redaction-groupdocs-java-guide/)
+- [إتقان أمان المستندات في Java: إخفاء العبارات الدقيقة وتراستريزيشن متقدم مع GroupDocs.Redaction](/redaction/java/advanced-redaction/groupdocs-redaction-java-document-security/)
 
-### [تنفيذ تسجيل متقدم في Java مع GroupDocs Redaction: دليل شامل](./advanced-logging-groupdocs-redaction-java/)
-### [دليل إخفاء Java: معالجة مستندات آمنة مع GroupDocs](./java-redaction-groupdocs-guide/)
-### [إتقان إخفاء المستندات في Java باستخدام GroupDocs.Redaction: دليل شامل للامتثال للخصوصية](./master-document-redaction-java-groupdocs-redaction/)
-### [إتقان إخفاء المستندات في Java مع GroupDocs.Redaction: دليل شامل](./master-document-redaction-groupdocs-redaction-java/)
-### [إتقان تقنيات الإخفاء مع GroupDocs.Redaction لـ Java: دليل خطوة بخطوة](./master-redaction-groupdocs-java-guide/)
-### [إتقان أمان المستندات في Java: إخفاء العبارات الدقيقة وتراستريزيشن متقدم مع GroupDocs.Redaction](./groupdocs-redaction-java-document-security/)
-
-## موارد إضافية
+## الموارد الإضافية
 - [توثيق GroupDocs.Redaction لـ Java](https://docs.groupdocs.com/redaction/java/)
 - [مرجع API لـ GroupDocs.Redaction لـ Java](https://reference.groupdocs.com/redaction/java/)
 - [تحميل GroupDocs.Redaction لـ Java](https://releases.groupdocs.com/redaction/java/)
@@ -81,22 +132,52 @@ weight: 9
 - [دعم مجاني](https://forum.groupdocs.com/)
 - [ترخيص مؤقت](https://purchase.groupdocs.com/temporary-license/)
 
-## الكلمات المفتاحية المستهدفة:
+## الأسئلة المتكررة
+**س: هل يمكنني استخدام معالج إخفاء مخصص لجافا في خدمة ويب؟**  
+ج: نعم—ما عليك سوى إنشاء نسخة من المعالج في روتين بدء تشغيل الخدمة وتسجيله مع المحرك؛ سيُستدعى المعالج لكل طلب يتم معالجته بواسطة الخدمة.
 
-**الكلمة المفتاحية الأساسية (أعلى أولوية):**  
-custom redaction handler java
+**س: هل يدعم المعالج استدعاءات غير متزامنة إلى APIs خارجية؟**  
+ج: `handle` طريقة متزامنة، لكن يمكنك تنفيذ عمل غير متزامن داخلها وحجب التنفيذ حتى يصبح النتيجة جاهزة، أو ملء ذاكرة مخبأة مسبقًا لتجنب الحجب أثناء الإخفاء.
 
-**الكلمات المفتاحية الثانوية (دعم):**  
-Not specified
+**س: كيف أسجل القرارات التي يتخذها المعالج المخصص؟**  
+ج: استخدم إطار تسجيل Java القياسي (SLF4J، Log4j) داخل طريقة `handle`؛ دليل التسجيل المتقدم يوضح كيفية توجيه تلك السجلات إلى مسجل GroupDocs الداخلي.
 
-**استراتيجية دمج الكلمات المفتاحية:**
-1. الكلمة المفتاحية الأساسية: استخدمها 3-5 مرات (العنوان، الميتا، الفقرة الأولى، عنوان H2، النص).  
-2. الكلمات المفتاحية الثانوية: استخدمها 1-2 مرة لكل منها (العناوين، نص الفقرة).  
-3. يجب دمج جميع الكلمات المفتاحية بشكل طبيعي - إعطاء الأولوية للقراءة السهلة على عدد الكلمات.  
-4. إذا لم تتناسب كلمة مفتاحية طبيعيًا، استخدم صياغة معنوية أو تخطّها.
+**س: ماذا يحدث إذا كانت الخدمة الخارجية غير متاحة؟**  
+ج: نفّذ استراتيجية احتياطية في المعالج—مثلاً، الافتراضية إلى “إخفاء” أو “تخطي” بناءً على تحمل المخاطر—لضمان استمرار المحرك في المعالجة دون تعطل.
+
+**س: هل هناك حد لحجم المستندات التي يتم معالجتها باستخدام معالج مخصص؟**  
+ج: يمكن لـ GroupDocs.Redaction معالجة ملفات متعددة المئات من الصفحات دون تحميل المستند بالكامل في الذاكرة؛ يضيف المعالج المخصص فقط عبئًا بسيطًا إذا حافظت على خفيفة استدعاءات الخدمات الخارجية.
+
+## الخلاصة
+**معالج إخفاء مخصص لجافا** يمنحك تحكمًا دقيقًا في منطق الإخفاء، يتيح لك دمج خدمات تقييم المخاطر الخارجية، ويمكنك من الكشف المدفوع بالذكاء الاصطناعي للبيانات الحساسة. باتباع الخطوات المذكورة أعلاه—إعداد التبعيات، تنفيذ المعالج، تسجيله مع `RedactionOptions`، واختباره بدقة—يمكنك توسيع GroupDocs.Redaction لتلبية أي متطلبات امتثال أو أعمال.
 
 ---
 
-**آخر تحديث:** 2026-04-10  
+**آخر تحديث:** 2026-11-23  
 **تم الاختبار مع:** GroupDocs.Redaction 7.0 (latest)  
 **المؤلف:** GroupDocs
+
+```java
+package com.example.redaction;
+
+import com.groupdocs.redaction.redaction.RedactionHandler;
+import com.groupdocs.redaction.redaction.RedactionInfo;
+import com.groupdocs.redaction.redaction.RedactionResult;
+
+public class CustomRedactionHandler implements RedactionHandler {
+    @Override
+    public RedactionResult handle(RedactionInfo info) {
+        // Example: block redaction of any term containing "CONFIDENTIAL"
+        if (info.getText().contains("CONFIDENTIAL")) {
+            return RedactionResult.reject("Proprietary term detected");
+        }
+        // Otherwise, approve the redaction
+        return RedactionResult.approve();
+    }
+}
+```
+
+## دروس ذات صلة
+- [تنفيذ معالجات تنسيق مخصصة Java في Groupdocs Redaction](/redaction/java/format-handling/implement-custom-format-handlers-java-groupdocs-redaction/)
+- [تسجيل متقدم Groupdocs Redaction Java](/redaction/java/advanced-redaction/advanced-logging-groupdocs-redaction-java/)
+- [أمان مستندات Groupdocs Redaction Java](/redaction/java/advanced-redaction/groupdocs-redaction-java-document-security/)
